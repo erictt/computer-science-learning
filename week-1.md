@@ -67,7 +67,7 @@
   * $\displaystyle {minimize \atop \theta_{1}} $  $J(\theta_{1})$ 
   * For example:
     * ![week-1-3-1](media/week-1-3-1.png)
-  *  $\theta=1$, then $h_{\theta}(x) = 0 + 1\times x$ , then $h_\theta (x_{i}) - y_{i} =0$, then $J(\theta_{1})=0$ 
+  * $\theta=1$, then $h_{\theta}(x) = 0 + 1\times x$ , then $h_\theta (x_{i}) - y_{i} =0$, then $J(\theta_{1})=0$ 
   * Plots: ($\theta_{1}=1, J(\theta_{1})=0$), ($\theta_{1}=0.5, J(\theta_{1})\approx0.58$), ($\theta_{1}=0, J(\theta_{1})\approx2.3$)
   * Then we got:
     * ![week-1-8](media/week-1-8.png)
@@ -205,13 +205,13 @@
   * $X =  \begin{bmatrix} 1 & 2 & 3 & 4 & 5 \\ 3 & 4 & 5 & 6 & 7 \\ 9 & 10 & 11 & 12 & 13 \end{bmatrix}$
 
 
-  * Dimension of matrix: number of rows x number of columns
-  * $X_{ij}$ = "i,j entry" in the $i^{th}$ row, $j^{th}$ column.
+* Dimension of matrix: number of rows x number of columns
+* $X_{ij}$ = "i,j entry" in the $i^{th}$ row, $j^{th}$ column.
 
 * **Vector**: An n x 1 matrix.
 
-  * $y =  \begin{bmatrix} 1 \\ 3 \\ 13 \end{bmatrix}$
-  * $y_{i}$ = $i^{th}$ element
+    * $y =  \begin{bmatrix} 1 \\ 3 \\ 13 \end{bmatrix}$
+    * $y_{i}$ = $i^{th}$ element
 
 * Uppercase letter for Matrix, and lowwercase for Vector.
 
@@ -233,8 +233,7 @@
 * ![week-1-m-11](media/week-1-m-11.jpg)
 * Example:
   * $\begin{bmatrix} 1 & 2 & 3 \\ 3 & 4 & 5 \end{bmatrix} \times \begin{bmatrix} 4 \\ 3 \\ 2 \end{bmatrix} = \begin{bmatrix} 16 \\ 34 \end{bmatrix}$
-  * Row 1: $1 \times 4 + 2 \times 3 + 3 \times 2 = 16$
-* ​
+  * Row 1: $1 \times 4 + 2 \times 3 + 3 \times 2 = 16$​
 * ![week-1-m-13](media/week-1-m-13.jpg)
 
 ### Matrix Matrix Multiplication
