@@ -252,8 +252,16 @@
 
 ### Inverse and Transpose
 
-* ![week-1-m-24](media/week-1-m-24.jpg)
-* ![week-1-m-25](media/week-1-m-25.jpg)
+* **Inverse**: $AA^{-1} = A^{-1}A = I$. Like $3 * 3^{-1} = 1$
+  * ![week-1-m-24](media/week-1-m-24.png)
+  * Not all numbers have an inverse. Like $0$ doesn't have.
+  * Matrices that don't have an inverse are "singular" or "degenerate".
+  * How did you find the inverse
+    * Turns out that you can sometimes do it by hand, although this is very hard
+    * Numerical software for computing a matrices inverse
+      * Lots of open source libraries
+* **Transpose**:
+  * ![week-1-m-25](media/week-1-m-25.jpg)
 
 ## Words
 
