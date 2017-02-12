@@ -97,17 +97,23 @@
 
 #### Combine multiple features into one
 
-* For example, we can combine x1 and x2into a new feature x3 by taking $x1⋅x2$.
+* We can combine $x_1$ and $x_2$ into a new feature $x_3$ by taking $x1⋅x2$.
+  * take the housing price as sample: $x = x_1 * x_2$, $x_1$ is frontage, and $x_2$ is depth of the house.
 
 #### Polynomial Regression
 
-* Our hypothesis function need not be linear (a straight line) if that does not fit the data well.
+* Our hypothesis function need **NOT** be linear (a straight line) if that does not fit the data well. And, choose new features to get a better model, called polynomial regression.
 * We can **change the behavior or curve** of our hypothesis function by making it a quadratic, cubic or square root function (or any other form).
-* For housing data could use a quadratic function(*refer 1*)
-  * But may not fit data so well, because inflection point means housing prices decrease when size gets really big
-  * So instead must use a cubic function(*refer 2*)
+* ​
+* For housing data could use a quadratic function: $h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2$ (*refer 1*)
+  * But may not fit data so well, because inflection point means housing prices decrease when size gets really big.
+  * So instead must use a cubic function: $h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2 + \theta_3 x_1^3$ (*refer 2*)
   * ![week-2-6](media/week-2-6.png)
-  * ​
+  * In the cubic version, we have created new features $x_2$ and $x_3$ where $x_2 = x_1^2$ and $x_3 = x_1^3$. 
+    * ![week-2-10](media/week-2-10.png)
+  * One important thing to keep in mind is, if you choose your features this way then feature scaling becomes very important.
+    * eg. if $x_1$ has range 1 - 1000 then range of $x^2_1$ becomes 1 - 1000000 and that of $x^3_1$ becomes 1 - 1000000000
+  * To make it a square root function, we could do: $h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 \sqrt{x_1}$.
 
 
 
@@ -115,9 +121,31 @@
 
 ### Normal Equation
 
-### Normal Equation Noninvertibility
+* Method ot solve for $\theta$ analytically.Minimize J by explicitly taking its derivatives with respect to the θj ’s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below:
 
+  * $\theta = (X^T X)^{-1}X^T y$
+  * ![week-2-11](media/week-2-11.png)
 
+* **no need** to do feature scaling with the normal equation.
+
+* The following is a comparison of gradient descent and the normal equation:
+
+  * | Gradient Descent             | Normal Equation                          |
+    | ---------------------------- | ---------------------------------------- |
+    | Need to choose alpha         | No need to choose alpha                  |
+    | Needs many iterations        | No need to iterate                       |
+    | O($kn^2$)                    | O($n^3$), need to calculate inverse of $X^TX$ |
+    | Works well when $n$ is large | Slow if $n$ is very large                |
+
+    ​
+
+* With the normal equation, computing the inversion has complexity $\mathcal{O}(n^3)$. So if we have a very large number of features, the normal equation will be slow. In practice, when exceeds 10,000 it might be a good time to go from a normal solution to an iterative process.
+
+#### Normal Equation Noninvertibility
+
+* If $X^TX$ is **noninvertible** (singular/degenerate), the common causes might be having :
+  * Redundant features, where two features are very closely related (i.e. they are linearly dependent)
+  * Too many features (e.g. m ≤ n). In this case, delete some features or use "regularization".
 
 
 
@@ -155,3 +183,5 @@
 **quadratic **   [kwɔ'drætik] adj. [数] 二次的 n. 二次方程式
 
 **cubic **   ['kju:bik] adj. 立方体的，立方的
+
+**noninvertibility** 可逆性
