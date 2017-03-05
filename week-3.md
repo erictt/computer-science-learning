@@ -12,12 +12,12 @@
 ### Hypothesis Representation
 
 * To  change our hypotheses $h_θ(x)$ to satisfy $0 \leq h_\theta (x) \leq 1$. 
-* Our new form uses the "Sigmoid Function," also called the "Logistic Function":
+* Our new form uses the "Sigmoid Function", also called the "Logistic Function":
   * $\begin{align*}& h_\theta (x) = g ( \theta^T x )\end{align*} $
   * $\begin{align*} z = \theta^T x \end{align*}$
   * $\begin{align*} g(z) = \dfrac{1}{1 + e^{-z}}\end{align*}$
 * The following image shows us what the sigmoid function looks like:
-  * ![week-3-1](/Users/eric/workspace/stanford-machine-learning/media/week-3-1.png)
+  * ![week-3-1](media/week-3-1.png)
 * Interpreting hypothesis output, we can use:
   * $h_\theta(x) = P(y=1 | x ; \theta)$, it give us the **probability** that output is 1.
 
@@ -59,7 +59,7 @@
 ### Cost function
 
 * Define the optimization object for the cost function we use to fit the parameters
-  * Training set: $\{(x^{(1), y ^ {(1)}}), (x^{(2), y ^ {(2)}}),... , (x^{(m), y ^ {(m)}}) \}$
+  * Training set: $\{(x^{(1)}, y ^ {(1)}), (x^{(2)}, y ^ {(2)}),... , (x^{(m)}, y ^ {(m)}) \}$
   * m example: $x \in \begin{bmatrix}x_0\\ x_1\\ ... \\ x_n \end{bmatrix};   x_0 = 1, y \in \{0, 1\}$
   * $ h_\theta(x) = \dfrac{1}{1 + e^{-\theta^Tx}}$
     * Each example is a feature vector which is $n+1$ dimensional
@@ -123,8 +123,8 @@
 
     * $\theta = \begin{bmatrix}\theta_1\\ \theta_2\end{bmatrix}$
     * $J(\theta) = (\theta_1 - 5)^2 + (\theta_2 - 5)^2$
-    * $\dfrac{\partial}{\partial \theta_i}J(\theta) = 2(\theta_1 - 5)$
-    * $\dfrac{\partial}{\partial \theta_j}J(\theta) = 2(\theta_1 - 5)$
+    * $\dfrac{\partial}{\partial \theta_1}J(\theta) = 2(\theta_1 - 5)$
+    * $\dfrac{\partial}{\partial \theta_2}J(\theta) = 2(\theta_2 - 5)$
     * Example above
       * $θ_1$ and $θ_2$ (two parameters)
       * Cost function here is $J(\theta) = (\theta_1 - 5)^2 + (\theta_2 - 5)^2$
@@ -226,7 +226,23 @@
   * The second sum, $\sum_{j=1}^n \theta_j^2$ **means to explicitly exclude the bias term, $\theta_0$. I.e. the $\theta$ vector is indexed from 0 to n (holding n+1 values, $\theta_0$ through $\theta_n$), and this sum explicitly skips $\theta_0$, by running from 1 to n, skipping 0 (This is because for regularization we don't penalize $θ_0$ so treat it slightly differently). Thus, when computing the equation, we should continously update the two following equations:
   * ![week-3-10](media/week-3-10.png)
 
- 
+
+## Refers
+
+* Exponents($e$) And Logarithms($ln()$) 
+  * Are we talking about inputs (cause of the change) or outputs (the actual change that happened?)
+    * **Logarithms** reveal the inputs that caused the growth	
+    * **Exponents** find the final result of growth
+    * ![week-3-exponents-and-logarithms](media/week-3-exponents-and-logarithms.png)
+  * $e$: is **defined** to be the rate of growth if we continually compound 100% return on smaller and smaller time periods: $e = \displaystyle\lim_{o \to \infty}(1+\frac{1}{n})^{n} \approx 2.718 $ , $growth = e^{rt}; (r: rate, t:time)$ 
+  * [An Intuitive Guide To Exponential Functions & e](https://betterexplained.com/articles/an-intuitive-guide-to-exponential-functions-e/) 
+  * [Demystifying the Natural Logarithm (ln)](https://betterexplained.com/articles/demystifying-the-natural-logarithm-ln/) 
+
+
+
+
+
+
 
 ## Words 
 
@@ -243,3 +259,5 @@
 **quadratic **   [kwɔ'drætik] adj. [数] 二次的 n. 二次方程式;
 
 **penalize**    ['pi:nəlaiz] vt. 处罚；处刑；使不利
+
+**sigmoid function** ['sigmɔid] 双弯曲函数
