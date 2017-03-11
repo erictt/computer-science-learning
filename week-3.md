@@ -246,18 +246,19 @@
 
 ## Words 
 
-**logistic **   [ləu'dʒistik] adj. [数] 符号逻辑的
+**logistic**   [ləu'dʒistik] adj. [数] 符号逻辑的
 
-**fraudulent **   ['frɔ:djulənt] adj. 欺骗性的；不正的
+**fraudulent**   ['frɔ:djulənt] adj. 欺骗性的；不正的
 
-**malignant **   [mə'liɡnənt] adj. [医] 恶性的；
+**malignant**   [mə'liɡnənt] adj. [医] 恶性的；
 
-**benign **   [bi'nain] adj. 良性的；
+**benign**   [bi'nain] adj. 良性的；
 
-**polynomial **   [,pɔli'nəumiəl] n. [数] 多项式；
+**polynomial**   [,pɔli'nəumiəl] n. [数] 多项式；
 
-**quadratic **   [kwɔ'drætik] adj. [数] 二次的 n. 二次方程式;
+**quadratic**   [kwɔ'drætik] adj. [数] 二次的 n. 二次方程式;
 
 **penalize**    ['pi:nəlaiz] vt. 处罚；处刑；使不利
 
 **sigmoid function** ['sigmɔid] 双弯曲函数
+
