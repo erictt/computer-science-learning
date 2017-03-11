@@ -109,6 +109,7 @@ def fastFib(n, memo = {}):
     * The value will always be the same.
 * First thing body of function does is check whether the optimal choice of items given the the available weight is already in the memo
 * Last thing body of function does is update the memo
+* [source code](unit-1/lecture2-segment3.py)
 
 ## Summary of Lectures 1-2
 
@@ -121,5 +122,5 @@ def fastFib(n, memo = {}):
 
 ## Exercises
 
-* [Power Set](unit-1/powerset.md)
+* [Power Set Function](lecture-2-powerset.md)
 
