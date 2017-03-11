@@ -1,7 +1,0 @@
-# Powerset Function
-
-[TOC]
-
-
-
-

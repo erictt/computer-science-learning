@@ -14,5 +14,6 @@
 * [Symbols of Mathematics](stanford-machine-learning/SYMBOLS.md)
 
 ### Computational Thinking
-* [Unit 1](computational-thinking/unit-1.md)
+* [Lecture 1](computational-thinking/lecture-1.md)
+* [Lecture 2](computational-thinking/lecture-2.md)
 
