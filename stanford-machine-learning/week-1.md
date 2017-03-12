@@ -265,24 +265,25 @@
 
 ## Words
 
-- **algebra **   ['ældʒibrə] n. 代数学
-- **gradient **   ['ɡreidiənt] n. 梯度；坡度
-- **descent **   [di'sent] n. 下降；血统；袭击
-- **gradient descent **  梯度下降法
-- **intuition **   [,intju:'iʃən] n. 直觉；直觉力；
-- **linear **   ['liniə] adj. 线的，线型的；
-- **regression **   [ri'ɡreʃən] n. 回归；退化；
-- **plot **   [plɔt] vt. 密谋；绘图；划分；标绘
-- **contour **   ['kɔntuə] n. 轮廓；等高线；周线；电路；概要
-- **contour plot **  等值线图
+- **algebra**   ['ældʒibrə] n. 代数学
+- **gradient**   ['ɡreidiənt] n. 梯度；坡度
+- **descent**   [di'sent] n. 下降；血统；袭击
+- **gradient descent**  梯度下降法
+- **intuition**   [,intju:'iʃən] n. 直觉；直觉力；
+- **linear**   ['liniə] adj. 线的，线型的；
+- **regression**   [ri'ɡreʃən] n. 回归；退化；
+- **plot**   [plɔt] vt. 密谋；绘图；划分；标绘
+- **contour**   ['kɔntuə] n. 轮廓；等高线；周线；电路；概要
+- **contour plot**  等值线图
 - **contour figure** 轮廓图
-- **denote **   [di'nəut] vt. 表示，指示
-- **derivative **  [də'rɪvətɪv] n. 派生物；导数
+- **denote**   [di'nəut] vt. 表示，指示
+- **derivative**  [də'rɪvətɪv] n. 派生物；导数
 - **derivative term** 导数项
-- **subtly **   ['sʌtli] adv. 精细地；巧妙地；敏锐地
-- **nuance **   ['nju:ɑ:ns, nju:'ɑ:ns] n. 细微差别
-- **tangent **   ['tændʒənt] n. [数] 切线，[数] 正切
-- **slope **   [sləup] n. 斜坡；倾斜；斜率
-- **converge **   [kən'və:dʒ] vt. 使汇聚 vi. 聚集；靠拢；收敛
-- **convex **   [kɔn'veks] adj. 凸面的；凸圆的
-- **scalar **   ['skeilə, -lɑ:] n. [数] 标量；[数] 数量
+- **subtly**   ['sʌtli] adv. 精细地；巧妙地；敏锐地
+- **nuance**   ['nju:ɑ:ns, nju:'ɑ:ns] n. 细微差别
+- **tangent**   ['tændʒənt] n. [数] 切线，[数] 正切
+- **slope**   [sləup] n. 斜坡；倾斜；斜率
+- **converge**   [kən'və:dʒ] vt. 使汇聚 vi. 聚集；靠拢；收敛
+- **convex**   [kɔn'veks] adj. 凸面的；凸圆的
+- **scalar**   ['skeilə, -lɑ:] n. [数] 标量；[数] 数量
+

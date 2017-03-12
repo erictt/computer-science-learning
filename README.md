@@ -12,4 +12,6 @@ I put my notes, exercise and some other stuff in here.
 
 ### BUGS
 
-* Didn't support LeTeX for now
+* Didn't support LaTeX for now
+
+

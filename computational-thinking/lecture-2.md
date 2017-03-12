@@ -126,5 +126,3 @@ def fastFib(n, memo = {}):
 
 * [Power Set Function](lecture-2-powerset.md)
 
-
-

@@ -84,7 +84,7 @@
 #### Summarize
 
 * If $α$ is too small: slow convergence.
-* If $α$ is too large: ￼may not decrease on every iteration and thus may not converge.
+* If $α$ is too large: may not decrease on every iteration and thus may not converge.
 * Typically
   - Try a range of alpha values
   - Plot $J(θ)$ vs number of iterations for each version of $\alpha$
@@ -129,13 +129,13 @@
 * **no need** to do feature scaling with the normal equation.
 
 * The following is a comparison of gradient descent and the normal equation:
-
-  * | Gradient Descent             | Normal Equation                          |
-    | ---------------------------- | ---------------------------------------- |
-    | Need to choose alpha         | No need to choose alpha                  |
-    | Needs many iterations        | No need to iterate                       |
-    | O($kn^2$)                    | O($n^3$), need to calculate inverse of $X^TX$ |
-    | Works well when $n$ is large | Slow if $n$ is very large                |
+    
+    | Gradient Descent      | Normal Equation         | 
+    | --------------------- | ----------------------- | 
+    | Need to choose alpha  | No need to choose alpha | 
+    | Needs many iterations | No need to iterate      | 
+    | O($kn^2$)             | O($n^3$), need to calculate inverse of $X^TX$|
+    | Works well when $n$ is large | Slow if $n$ is very large|
 
     ​
 
@@ -147,41 +147,49 @@
   * Redundant features, where two features are very closely related (i.e. they are linearly dependent)
   * Too many features (e.g. m ≤ n). In this case, delete some features or use "regularization".
 
+## Refers
 
+* Quadratic Function
+    * [Wikipedia](https://en.wikipedia.org/wiki/Quadratic_function)
+    * $f(x) = ax^2 + bx +c$, $a \ne 0$ :
+    
+        ![week-2-8](stanford-machine-learning/media/week-2-8.png)
 
-### Refers
+* Cubic Function
+    * [Wikipedia](https://en.wikipedia.org/wiki/Cubic_function)
+    * $f(x) = ax^3 + bx^2 + cx +d$
+    * sample: $f(x) = (x^3 + 3x^2 - 6x - 8)/4$:
+    
+        ![week-2-7](stanford-machine-learning/media/week-2-7.png)
 
-1. [Quadratic function](https://en.wikipedia.org/wiki/Quadratic_function)
-   1. $f(x) = ax^2 + bx +c$, $a \ne 0$
-   2. ![week-2-8](media/week-2-8.png)
-2. [Cubic function](https://en.wikipedia.org/wiki/Cubic_function)
-   1. $f(x) = ax^3 + bx^2 + cx +d$
-   2. sample: $f(x) = (x^3 + 3x^2 - 6x - 8)/4$:
-      1. ![week-2-7](media/week-2-7.png)
-3. [Square Root Function](https://en.wikipedia.org/wiki/Square_root)
-   1. sample: $f(x) = \sqrt{x}$:
-      1. ![week-2-9](media/week-2-9.png)
+* Square Root Function
+    * [Wikipedia](https://en.wikipedia.org/wiki/Square_root)
+    * sample: $f(x) = \sqrt{x}$:
+    
+        ![week-2-9](stanford-machine-learning/media/week-2-9.png)
+
 
 ## Words
 
-**semicolon **   [,semi'kəulən, 'semikəulən] n. 分号
+**semicolon**   [,semi'kəulən, 'semikəulən] n. 分号
 
-**decimal **   ['desiməl] adj. 小数的；十进位的; n. 小数
+**decimal**   ['desiməl] adj. 小数的；十进位的; n. 小数
 
-**diagonal **   [dai'æɡənəl] adj. 斜的；对角线的；斜纹的; n. 对角线；斜线
+**diagonal**   [dai'æɡənəl] adj. 斜的；对角线的；斜纹的; n. 对角线；斜线
 
-**vectorization **   [,vektəri'zeiʃən] n. [数] 向量化
+**vectorization**   [,vektəri'zeiʃən] n. [数] 向量化
 
-**numerical **   [nju:'merikəl] adj. 数值的；数字的；用数字表示的
+**numerical**   [nju:'merikəl] adj. 数值的；数字的；用数字表示的
 
-**pathological **   [,pæθə'lɔdʒikəl] adj. 病理学的；病态的；由疾病引起的（等于pathologic）
+**pathological**   [,pæθə'lɔdʒikəl] adj. 病理学的；病态的；由疾病引起的（等于pathologic）
 
-**convergence **   [kən'və:dʒəns] n. [数] 收敛；会聚，集合
+**convergence**   [kən'və:dʒəns] n. [数] 收敛；会聚，集合
 
-**polynomial **   [,pɔli'nəumiəl] n. [数] 多项式；
+**polynomial**   [,pɔli'nəumiəl] n. [数] 多项式；
 
-**quadratic **   [kwɔ'drætik] adj. [数] 二次的 n. 二次方程式
+**quadratic**   [kwɔ'drætik] adj. [数] 二次的 n. 二次方程式
 
-**cubic **   ['kju:bik] adj. 立方体的，立方的
+**cubic**   ['kju:bik] adj. 立方体的，立方的
 
 **noninvertibility** 可逆性
+
