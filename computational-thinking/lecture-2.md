@@ -14,9 +14,9 @@
 
 * Time based on number of nodes generated
 * Number of levels is number of items to choose from
-* Number of nodes at level **i** is $$2^i$$
+* Number of nodes at level **i** is $2^i$
 * So, if there are **n** items, the number of nodes is
-  * $$\sum\_{i=0}^{i=n}2^i$$, i.e., $$O\(2^{i+1}\)$$
+  * $\sum_{i=0}^{i=n}2^i$, i.e., $O(2^{i+1})$
 * An obvious optimization: don’t explore parts of tree that violate constraint
 
 ## Header for Decision Tree Implementation
@@ -49,11 +49,11 @@ def maxVal(toConsider, avail):
 
 * **Optimal substructure**: a globally optimal solution can be found by combining optimal solutions to local subproblems
 
-  * For $$x \gt 1$$, $$fib(x) = fib(x - 1) + fib(x – 2)$$
+  * For `x \gt; 1`, `fib(x) = fib(x - 1) + fib(x – 2)`
 
 * **Overlapping subproblems**: finding an optimal solution involves solving the same problem multiple times
 
-  * Compute $$fib(x)$$ or many times
+  * Compute `fib(x)` or many times
 
 ### Recursive Implementation of Fibonacci
 
