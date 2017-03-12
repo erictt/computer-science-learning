@@ -2,7 +2,7 @@
     "title": "Computer Science Learning",
     "description": " I put my notes, exercise and some other stuff in here.",
     "author": "Eric Yang",
-    "plugins": ["mathjax", "simple-page-toc", "anchor-navigation", "github", "anchors", "splitter"],
+    "plugins": ["mathjax", "simple-page-toc", "anchor-navigation", "github", "anchors", "splitter", "prism", "-highlight", "anchor-navigation", "expandable-chapters"],
     "pluginsConfig": {
         "simple-page-toc": {
             "maxDepth": 3,
