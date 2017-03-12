@@ -12,8 +12,3 @@ I put my notes, exercise and some other stuff in here.
 
 * [Machine Learning](https://www.coursera.org/learn/machine-learning/home/welcome)
 
-### BUGS
-
-* Doesn't support LaTeX very well
-
-

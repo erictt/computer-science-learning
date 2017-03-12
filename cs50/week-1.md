@@ -1,7 +1,6 @@
 # Week 1
 
 [TOC]
-<!-- toc -->
 
 ## Basic Linux Command
 

@@ -1,7 +1,6 @@
 # Lecture 3
 
 [TOC]
-<!-- toc -->
 
 ## Refers
 

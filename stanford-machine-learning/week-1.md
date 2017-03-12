@@ -1,7 +1,6 @@
 # Week 1
 
 [TOC]
-<!-- toc -->
 
 ## Supervised Learning
 * regression, to predict results within a continuous output. 
