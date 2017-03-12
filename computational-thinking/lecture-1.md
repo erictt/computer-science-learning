@@ -1,5 +1,6 @@
 # Lecture 1
 
+[TOC]
 <!-- toc -->
 
 ## Computational Models

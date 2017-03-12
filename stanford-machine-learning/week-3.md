@@ -1,5 +1,6 @@
 # Week 3
 
+[TOC]
 <!-- toc -->
 
 ## Classification and Representation

@@ -1,5 +1,6 @@
 # Lecture 2
 
+[TOC]
 <!-- toc -->
 
 ## Search Tree Implementation

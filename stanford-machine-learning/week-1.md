@@ -1,5 +1,6 @@
 # Week 1
 
+[TOC]
 <!-- toc -->
 
 ## Supervised Learning

@@ -1,5 +1,6 @@
 # Power Set Functions
 
+[TOC]
 <!-- toc -->
 
 * Use the position of '1' in bites to calculate all the possibilities of combinations in a list.

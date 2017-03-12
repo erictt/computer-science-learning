@@ -1,5 +1,6 @@
 # Week 2
 
+[TOC]
 <!-- toc -->
 
 ## Multivariate Linear Regression 
