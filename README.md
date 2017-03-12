@@ -1,5 +1,7 @@
 # Computer Science Learning
 
+* [Gitbook](https://www.gitbook.com/read/book/erictt/computer-science-learning)
+
 I put my notes, exercise and some other stuff in here.
 
 ### Current curriculums
@@ -12,6 +14,6 @@ I put my notes, exercise and some other stuff in here.
 
 ### BUGS
 
-* Didn't support LaTeX for now
+* Doesn't support LaTeX very well
 
 
