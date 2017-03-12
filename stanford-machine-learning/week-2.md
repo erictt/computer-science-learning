@@ -153,20 +153,20 @@
     * [Wikipedia](https://en.wikipedia.org/wiki/Quadratic_function)
     * $f(x) = ax^2 + bx +c$, $a \ne 0$ :
     
-        ![week-2-8](stanford-machine-learning/media/week-2-8.png)
+        ![week-2-8](media/week-2-8.png)
 
 * Cubic Function
     * [Wikipedia](https://en.wikipedia.org/wiki/Cubic_function)
     * $f(x) = ax^3 + bx^2 + cx +d$
     * sample: $f(x) = (x^3 + 3x^2 - 6x - 8)/4$:
     
-        ![week-2-7](stanford-machine-learning/media/week-2-7.png)
+        ![week-2-7](media/week-2-7.png)
 
 * Square Root Function
     * [Wikipedia](https://en.wikipedia.org/wiki/Square_root)
     * sample: $f(x) = \sqrt{x}$:
     
-        ![week-2-9](stanford-machine-learning/media/week-2-9.png)
+        ![week-2-9](media/week-2-9.png)
 
 
 ## Words
