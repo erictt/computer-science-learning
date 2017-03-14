@@ -227,17 +227,6 @@
   * The second sum, $\sum_{j=1}^n \theta_j^2$ **means to explicitly exclude the bias term, $\theta_0$ . I.e. the $\theta$ vector is indexed from 0 to n (holding n+1 values, $\theta_0$ through $\theta_n$ ), and this sum explicitly skips $\theta_0$ , by running from 1 to n, skipping 0 (This is because for regularization we don't penalize $θ_0$ so treat it slightly differently). Thus, when computing the equation, we should continously update the two following equations:
   * ![week-3-10](media/week-3-10.png)
 
-## Refers
-
-* Exponents( $e$ ) And Logarithms( $ln()$ ) 
-  * Are we talking about inputs (cause of the change) or outputs (the actual change that happened?)
-    * **Logarithms** reveal the inputs that caused the growth	
-    * **Exponents** find the final result of growth
-    * ![week-3-exponents-and-logarithms](media/week-3-exponents-and-logarithms.png)
-  *  $e$ : is **defined** to be the rate of growth if we continually compound 100% return on smaller and smaller time periods: $e = \displaystyle\lim_{o \to \infty}(1+\frac{1}{n})^{n} \approx 2.718 $ , $growth = e^{rt}; (r: rate, t:time)$ 
-  * [An Intuitive Guide To Exponential Functions & e](https://betterexplained.com/articles/an-intuitive-guide-to-exponential-functions-e/) 
-  * [Demystifying the Natural Logarithm (ln)](https://betterexplained.com/articles/demystifying-the-natural-logarithm-ln/) 
-
 ## Words 
 
 **logistic** [ləu'dʒistik] adj. [数] 符号逻辑的
