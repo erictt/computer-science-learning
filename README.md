@@ -12,3 +12,8 @@ I put my notes, exercise and some other stuff in here.
 
 * [Machine Learning](https://www.coursera.org/learn/machine-learning/home/welcome)
 
+### Next
+
+* CALCULUS EARLY TRANSCENDENTALS 
+* [Introduction to Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/video-lectures/lecture-1-administrivia-introduction-analysis-of-algorithms-insertion-sort-mergesort/)
+

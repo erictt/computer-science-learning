@@ -4,7 +4,7 @@
 
 * [Introduction](README.md)
 
-### CS50
+### CS50 Introduction to Computer Science
 
 * [Week 1](cs50/week-1.md)
 
