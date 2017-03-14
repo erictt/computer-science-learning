@@ -130,14 +130,12 @@
 
 * The following is a comparison of gradient descent and the normal equation:
     
-    | Gradient Descent      | Normal Equation         | 
-    | --------------------- | ----------------------- | 
-    | Need to choose alpha  | No need to choose alpha | 
-    | Needs many iterations | No need to iterate      | 
-    | O( $kn^2$ )           | O( $n^3$ ), need to calculate inverse of  $X^TX$ |
-    | Works well when  $n$ is large | Slow if  $n$ is very large|
-
-    ​
+| Gradient Descent      | Normal Equation         | 
+| --------------------- | ----------------------- | 
+| Need to choose alpha  | No need to choose alpha | 
+| Needs many iterations | No need to iterate      | 
+| O( $kn^2$ )           | O( $n^3$ ), need to calculate inverse of  $X^TX$ |
+| Works well when  $n$ is large | Slow if  $n$ is very large|
 
 * With the normal equation, computing the inversion has complexity  $\mathcal{O}(n^3)$. So if we have a very large number of features, the normal equation will be slow. In practice, when exceeds 10,000 it might be a good time to go from a normal solution to an iterative process.
 
