@@ -7,6 +7,7 @@
 ### CS50 Introduction to Computer Science
 
 * [Week 1](cs50/week-1.md)
+* [Week 2](cs50/week-2.md)
 
 ### Stanford Machine Learning
 
