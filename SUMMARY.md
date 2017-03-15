@@ -20,4 +20,5 @@
 * [Lecture 1](computational-thinking/lecture-1.md)
 * [Lecture 2](computational-thinking/lecture-2.md)
   * [Exercise: Power Set Function](computational-thinking/lecture-2-powerset.md)
+* [Lecture 3](computational-thinking/lecture-3.md)
 
