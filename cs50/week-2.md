@@ -96,6 +96,24 @@
         
 ### String in Memory
 
+* `strlen`:
+
+    ```c
+    #include <cs50.h>
+    #include <stdio.h>
+    
+    int main(void)
+    {
+        string s = get_string();
+        int n = 0;
+        while (s[n] != '\0') # \0 is end of the string, NOT space
+        {
+            n++;
+        }
+        printf("%i\n", n);
+    }
+    ```
+
 * a string in C is just the location of the first character in memory, which are stored with a character at the end marking the end of a string, since there’s no predetermined length, so a string in memory really looks like:
         
     ```
@@ -113,6 +131,8 @@
     | Z | a | m | y  | l | a | \0 | A |
     -----------------------------------
     | n | d | i | \0 |   |   |    |   |
+    -----------------------------------
+    |   |   |   |    |   |   |    |   |
     -----------------------------------
     |   |   |   |    |   |   |    |   |
     -----------------------------------
