@@ -16,6 +16,7 @@
 * [Lecture 2](computational-thinking/lecture-2.md)
   * [Exercise: Power Set Function](computational-thinking/lecture-2-powerset.md)
 * [Lecture 3](computational-thinking/lecture-3.md)
+* [Lecture 4-6](computational-thinking/lecture-4-6.md)
 
 ### Stanford Machine Learning
 
