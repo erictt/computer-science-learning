@@ -9,6 +9,7 @@
 * [Week 1](cs50/week-1.md)
 * [Week 2](cs50/week-2.md)
 * [Week 3](cs50/week-3.md)
+* [Week 4](cs50/week-4.md)
 
 ### Computational Thinking
 
