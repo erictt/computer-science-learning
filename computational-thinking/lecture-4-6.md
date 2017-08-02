@@ -27,7 +27,7 @@ pylab.legend()
 pylab.title('Cubic vs. Exponential')
 ``` 
 
-* ![unit-2-1](media/unit-2-1.jpg)
+* <img src='media/unit-2-1.jpg' width=600/>
 
 ## Stochastic Programs
 
@@ -35,95 +35,6 @@ pylab.title('Cubic vs. Exponential')
     * events are **independent** of each other
     * Probabilities are always in the range **0 to 1**. 0 if impossible, and 1 if guaranteed.
     * If the probability of an event occurring is **p**, the probability of it not occurring must be **1-p**.
-
-### Inferential Statistics
-
-* **variance** is measure of how much spread there is in the possible different outcomes.
-* **standard deviation** tells us what fraction of the values are close to the mean. If many values are relatively close to the mean, the standard deviation is relatively small.
-    *  $\sigma(X) = \sqrt{\frac{1}{\lvert{X}\rvert}\sum_{x\in{X}}{(x-\mu)^{2}}}$
-
-        ```python
-        def stdDev(X):
-            """Assumes that X is a list of numbers.
-                Returns the standard deviation of X"""
-            mean = float(sum(X))/len(X) 
-            tot = 0.0 
-            for x in X:
-                tot += (x - mean)**2 
-            return (tot/len(X))**0.5 #Square root of mean difference
-        ```
-* For example, flip coins exponentially, from 2^4 to 2^20, each times we flip 20 times to get the mean values with standard deviation function.
-
-    ```python
-    #Page 160, Figure 12.4
-    def stdDev(X):
-        """Assumes that X is a list of numbers.
-           Returns the standard deviation of X"""
-        mean = float(sum(X))/len(X)
-        tot = 0.0
-        for x in X:
-            tot += (x - mean)**2
-        return (tot/len(X))**0.5 #Square root of mean difference
-    
-    #Page 161, Figure 12.5
-    def makePlot(xVals, yVals, title, xLabel, yLabel, style,
-                 logX = False, logY = False):
-        """Plots xVals vs. yVals with supplied titles and labels."""
-        pylab.figure()
-        pylab.title(title)
-        pylab.xlabel(xLabel)
-        pylab.ylabel(yLabel)
-        pylab.plot(xVals, yVals, style)
-        if logX:
-            pylab.semilogx()
-        if logY:
-            pylab.semilogy()
-    
-    def runTrial(numFlips):
-        numHeads = 0
-        for n in range(numFlips):
-            if random.random() < 0.5:
-                numHeads += 1
-        numTails = numFlips - numHeads
-        return (numHeads, numTails)
-        
-    def flipPlot1(minExp, maxExp, numTrials):
-    """Assumes minExp and maxExp positive ints; minExp < maxExp
-         numTrials a positive integer
-       Plots summaries of results of numTrials trials of
-         2**minExp to 2**maxExp coin flips"""
-    ratiosMeans, diffsMeans, ratiosSDs, diffsSDs = [], [], [], []
-    xAxis = []
-    for exp in range(minExp, maxExp + 1):
-        xAxis.append(2**exp)
-    for numFlips in xAxis:
-        ratios = []
-        diffs = []
-        for t in range(numTrials):
-            numHeads, numTails = runTrial(numFlips)
-            ratios.append(numHeads/float(numTails))
-            diffs.append(abs(numHeads - numTails))
-        ratiosMeans.append(sum(ratios)/float(numTrials))
-        diffsMeans.append(sum(diffs)/float(numTrials))
-        ratiosSDs.append(stdDev(ratios))
-        diffsSDs.append(stdDev(diffs))
-    numTrialsString = ' (' + str(numTrials) + ' Trials)'
-    title = 'Mean Heads/Tails Ratios' + numTrialsString
-    makePlot(xAxis, ratiosMeans, title,
-             'Number of flips', 'Mean Heads/Tails', 'bo', logX = True)
-    title = 'SD Heads/Tails Ratios' + numTrialsString
-    makePlot(xAxis, ratiosSDs, title,
-             'Number of Flips', 'Standard Deviation', 'bo',
-             logX = True, logY = True)
-    
-    flipPlot1(4, 20, 20)
-    ```
-    
-    ![unit-2-2](media/unit-2-2.jpg)
-
-    * The ratio heads/tails is converging towards 1 and log of standard deviation is falling linearly with the log of the number of flips per trail. 
-    * By the time we get to about 10^6 coin flips per trail, the standard deviation is roughly three decimal orders of magnitude smaller than the mean. 
-    * As we flip more coins, not only do we have a more precise answer, but more important, we also have reason to be more confident that it is close to the right answer.
 
 ## Random Walk 
 
@@ -220,7 +131,7 @@ numSteps = (10,100,1000,10000)
 simAll((UsualDrunk, ColdDrunk), numSteps, 100)
 ```
 
-![unit-2-3](media/unit-2-3.jpg)
+<img src='media/unit-2-3.jpg' width=400/>
 
 * plot every final locations
 
@@ -265,7 +176,7 @@ random.seed(0)
 plotLocs((UsualDrunk, ColdDrunk), 10000, 1000)
 ```
 
-![unit-2-4](media/unit-2-4.jpg)
+<img src='media/unit-2-4.jpg' width=400/>
 
 
 * [complete code](https://github.com/erictt/computer-science-learning/blob/master/computational-thinking/unit-2/lecture6-segment3.py)

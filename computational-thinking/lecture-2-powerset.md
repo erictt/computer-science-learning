@@ -2,7 +2,8 @@
 
 [TOC]
 
-* Use the position of '1' in bites to calculate all the possibilities of combinations in a list.
+* Use the position of `1` in bites to calculate all the possibilities of combinations in a list.
+    * like five bits `0 0 0 0 0` to indicate all the items' positions, and `1` can be every position in the bits. All the combinations should be the Powerset we want to, then use `>>` to check every combination's position whether it is 1 or not.
 
     ```python
     def powerSet(items):
