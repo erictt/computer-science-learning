@@ -73,35 +73,44 @@
         return (numHeads, numTails)
         
     def flipPlot1(minExp, maxExp, numTrials):
-    """Assumes minExp and maxExp positive ints; minExp < maxExp
-         numTrials a positive integer
-       Plots summaries of results of numTrials trials of
-         2**minExp to 2**maxExp coin flips"""
-    ratiosMeans, diffsMeans, ratiosSDs, diffsSDs = [], [], [], []
-    xAxis = []
-    for exp in range(minExp, maxExp + 1):
-        xAxis.append(2**exp)
-    for numFlips in xAxis:
-        ratios = []
-        diffs = []
-        for t in range(numTrials):
-            numHeads, numTails = runTrial(numFlips)
-            ratios.append(numHeads/float(numTails))
-            diffs.append(abs(numHeads - numTails))
-        ratiosMeans.append(sum(ratios)/float(numTrials))
-        diffsMeans.append(sum(diffs)/float(numTrials))
-        ratiosSDs.append(stdDev(ratios))
-        diffsSDs.append(stdDev(diffs))
-    numTrialsString = ' (' + str(numTrials) + ' Trials)'
-    title = 'Mean Heads/Tails Ratios' + numTrialsString
-    makePlot(xAxis, ratiosMeans, title,
-             'Number of flips', 'Mean Heads/Tails', 'bo', logX = True)
-    title = 'SD Heads/Tails Ratios' + numTrialsString
-    makePlot(xAxis, ratiosSDs, title,
-             'Number of Flips', 'Standard Deviation', 'bo',
-             logX = True, logY = True)
-    
-    flipPlot1(4, 20, 20)
+        """Assumes minExp and maxExp positive ints; minExp < maxExp
+             numTrials a positive integer
+           Plots summaries of results of numTrials trials of
+             2**minExp to 2**maxExp coin flips"""
+        ratiosMeans, diffsMeans, ratiosSDs, diffsSDs = [], [], [], []
+        xAxis = []
+        for exp in range(minExp, maxExp + 1):
+            xAxis.append(2**exp)
+        for numFlips in xAxis:
+            ratios = []
+            diffs = []
+            for t in range(numTrials):
+                numHeads, numTails = runTrial(numFlips)
+                ratios.append(numHeads/float(numTails))
+                diffs.append(abs(numHeads - numTails))
+            ratiosMeans.append(sum(ratios)/float(numTrials))
+            diffsMeans.append(sum(diffs)/float(numTrials))
+            ratiosSDs.append(stdDev(ratios))
+            diffsSDs.append(stdDev(diffs))
+        numTrialsString = ' (' + str(numTrials) + ' Trials)'
+        title = 'Mean Heads/Tails Ratios' + numTrialsString
+        makePlot(xVals, ratiosMeans, title,
+                'Number of flips', 'Mean Heads/Tails', 'bo', logX = True)
+        title = 'SD Heads/Tails Ratios' + numTrialsString
+        makePlot(xVals, ratiosSDs, title,
+                'Number of Flips', 'Standard Deviation', 'bo',
+                logX = True, logY = True)
+            
+        title = 'Mean abs(#Heads - #Tails)' + numTrialsString 
+        makePlot(xVals, diffsMeans, title, 
+                'Number of Flips', 'Mean abs(#Heads - #Tails)', 'bo', 
+                logX = True, logY = True) 
+        title = 'SD abs(#Heads - #Tails)' + numTrialsString 
+        makePlot(xVals, diffsSDs, title,
+                'Number of Flips', 'Standard Deviation', 'bo',
+                logX = True, logY = True)
+        
+        flipPlot1(4, 20, 20)
     ```
     
     <img src='media/unit-2-2.jpg' width=600/>
@@ -125,50 +134,50 @@
    
     #Page 164, Figure 12.8
     def flipPlot1(minExp, maxExp, numTrials):
-    """Assumes minExp and maxExp positive ints; minExp < maxExp
-         numTrials a positive integer
-       Plots summaries of results of numTrials trials of
-         2**minExp to 2**maxExp coin flips"""
-    ratiosMeans, diffsMeans, ratiosSDs, diffsSDs = [], [], [], []
-    ratiosCVs, diffsCVs = [], []
-    xAxis = []
-    for exp in range(minExp, maxExp + 1):
-        xAxis.append(2**exp)
-    for numFlips in xAxis:
-        ratios = []
-        diffs = []
-        for t in range(numTrials):
-            numHeads, numTails = runTrial(numFlips)
-            ratios.append(numHeads/float(numTails))
-            diffs.append(abs(numHeads - numTails))
-        ratiosMeans.append(sum(ratios)/float(numTrials))
-        diffsMeans.append(sum(diffs)/float(numTrials))
-        ratiosSDs.append(stdDev(ratios))
-        diffsSDs.append(stdDev(diffs))
-        ratiosCVs.append(CV(ratios))
-        diffsCVs.append(CV(diffs))
-    numTrialsString = ' (' + str(numTrials) + ' Trials)'
-    title = 'Mean Heads/Tails Ratios' + numTrialsString
-    makePlot(xAxis, ratiosMeans, title,
-             'Number of flips', 'Mean Heads/Tails', 'bo', logX = True)
-    title = 'SD Heads/Tails Ratios' + numTrialsString
-    makePlot(xAxis, ratiosSDs, title,
+        """Assumes minExp and maxExp positive ints; minExp < maxExp
+             numTrials a positive integer
+           Plots summaries of results of numTrials trials of
+             2**minExp to 2**maxExp coin flips"""
+        ratiosMeans, diffsMeans, ratiosSDs, diffsSDs = [], [], [], []
+        ratiosCVs, diffsCVs = [], []
+        xAxis = []
+        for exp in range(minExp, maxExp + 1):
+            xAxis.append(2**exp)
+        for numFlips in xAxis:
+            ratios = []
+            diffs = []
+            for t in range(numTrials):
+                numHeads, numTails = runTrial(numFlips)
+                ratios.append(numHeads/float(numTails))
+                diffs.append(abs(numHeads - numTails))
+            ratiosMeans.append(sum(ratios)/float(numTrials))
+            diffsMeans.append(sum(diffs)/float(numTrials))
+            ratiosSDs.append(stdDev(ratios))
+            diffsSDs.append(stdDev(diffs))
+            ratiosCVs.append(CV(ratios))
+            diffsCVs.append(CV(diffs))
+        numTrialsString = ' (' + str(numTrials) + ' Trials)'
+        title = 'Mean Heads/Tails Ratios' + numTrialsString
+        makePlot(xAxis, ratiosMeans, title,
+                 'Number of flips', 'Mean Heads/Tails', 'bo', logX = True)
+        title = 'SD Heads/Tails Ratios' + numTrialsString
+        makePlot(xAxis, ratiosSDs, title,
+                 'Number of Flips', 'Standard Deviation', 'bo',
+                 logX = True, logY = True)
+        title = 'Mean abs(#Heads - #Tails)' + numTrialsString
+        makePlot(xAxis, diffsMeans, title,
+             'Number of Flips', 'Mean abs(#Heads - #Tails)', 'bo',
+             logX = True, logY = True)
+        title = 'SD abs(#Heads - #Tails)' + numTrialsString
+        makePlot(xAxis, diffsSDs, title,
              'Number of Flips', 'Standard Deviation', 'bo',
              logX = True, logY = True)
-    title = 'Mean abs(#Heads - #Tails)' + numTrialsString
-    makePlot(xAxis, diffsMeans, title,
-         'Number of Flips', 'Mean abs(#Heads - #Tails)', 'bo',
-         logX = True, logY = True)
-    title = 'SD abs(#Heads - #Tails)' + numTrialsString
-    makePlot(xAxis, diffsSDs, title,
-         'Number of Flips', 'Standard Deviation', 'bo',
-         logX = True, logY = True)
-    title = 'Coeff. of Var. abs(#Heads - #Tails)' + numTrialsString
-    makePlot(xAxis, diffsCVs, title, 'Number of Flips',
-             'Coeff. of Var.', 'bo', logX = True)
-    title = 'Coeff. of Var. Heads/Tails Ratio' + numTrialsString
-    makePlot(xAxis, ratiosCVs, title, 'Number of Flips',
-             'Coeff. of Var.', 'bo', logX = True, logY = True)
+        title = 'Coeff. of Var. abs(#Heads - #Tails)' + numTrialsString
+        makePlot(xAxis, diffsCVs, title, 'Number of Flips',
+                 'Coeff. of Var.', 'bo', logX = True)
+        title = 'Coeff. of Var. Heads/Tails Ratio' + numTrialsString
+        makePlot(xAxis, ratiosCVs, title, 'Number of Flips',
+                 'Coeff. of Var.', 'bo', logX = True, logY = True)
     ```
 
     <img src='media/15016457519417.jpg' width=600/>
@@ -176,9 +185,50 @@
     * the plot of coefficient of variation for the heads/tails ratio is not much different from the plot of the standard deviation, cause the mean is close to 1.
     * **dispersion** in the values of `abs(heads – tails)` is independent of the number of flips.
 
+### Distributions
+
+* A **histogram** is a plot designed to show the distribution of values in a set of data.
+
+    ```python
+    vals = [1, 200] #guarantee that values will range from 1 to 200 for i in range(1000):
+    num1 = random.choice(range(1, 100))
+    num2 = random.choice(range(1, 100))
+    vals.append(num1+num2) 
+    pylab.hist(vals, bins = 10)
+    ```
+    
+    <img src='media/15017304680216.jpg' width=300/>
+
+    
+#### Normal Distributions and Confidence Levels
+
+* formula of normal distribution:  $f(x)=\frac{1}{\sigma\sqrt{2\pi}}*e^{-\frac{(x-\mu)^2}{2\sigma^2}}$  ( μ is the mean, σ the standard deviation)
+* Normal distributions are frequently used in constructing probabilistic models for three reasons:
+    1. they have nice mathematical properties, 
+    2. many naturally occurring distributions are indeed close to normal
+    3. they can be used to produce **confidence intervals**.
+* **empirical rule** for normal distributions:
+    * 68% of the data will fall within 1 standard deviation of the mean,
+    * 95% of the data will fall within 2 standard deviations of the mean, 
+    * 99.7% of the data will fall within 3 standard deviations of the mean.
+* For example:
+    * a political poll might indicate that a candidate is likely to get 52% of the vote ±4% (i.e., the confidence interval is of size 8) with a confidence level of 95%. What this means is that the pollster believes that 95% of the time the candidate will receive between 48% and 56% of the vote.
+* Normal distributions can be easily generated by calling `random.gauss(mu, sigma)`, which returns a randomly chosen floating point number from a normal distribution with mean `mu` and standard deviation `sigma`.
+    * the function `gauss` is short for `Gaussian Distribution` which is the same as `Normal Distribution`.
+    
+#### Extension
+* Uniform Distribution
+    * If one were to plot the probability of each possible lottery number being chosen, it would be a flat line. Such distributions are called uniform.
+* Exponential and Geometric Distributions
+    * check page 173 for more details
+* [Benford’s Distribution](https://en.wikipedia.org/wiki/Benford%27s_law)
+
 ## Words
 
-* The Law of Large Number 大数定律
+* Law of Large Number 大数定律
 * Gambler’s Fallacy 赌徒谬误
+* Coefficient of Variation 变异系数
+* Gaussian Distribution 高斯分布
+
 
 
