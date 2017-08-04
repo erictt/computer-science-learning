@@ -110,6 +110,8 @@
     estPi(0.005, 100)
     ```
     
+    * [more exercise](https://github.com/erictt/computer-science-learning/blob/master/computational-thinking/unit-3/lecture-8-2.py)
+    
     * In general, to estimate the area of some region R
 
         1. Pick an enclosing region, E, such that the area of E is easy to calculate and R lies completely within E.

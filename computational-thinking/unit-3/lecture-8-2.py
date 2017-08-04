@@ -6,7 +6,7 @@ Created on Fri Aug  4 11:11:56 2017
 @author: eric
 """
 
-import random
+import random, math, pylab
 
 def getMeanAndStd(data):
     mean = sum(data)/float(len(data))
@@ -33,6 +33,50 @@ def estPi(precision, numTrails):
         mean, std = getEst(numNeedles, numTrails)
         print("Mean="+str(mean)+", Std="+str(round(std, 6))+", Needls="+str(numNeedles))
         numNeedles *= 2 
-        
-random.seed(0)
-estPi(0.005, 100)
+
+#random.seed(0)
+#estPi(0.005, 100)
+
+# estimate area of sinx
+def throwNeedls(numNeedles):
+    inSin = 0;
+    for needle in range(numNeedles):
+        if math.sin(random.random()*math.pi) >= random.random():
+            inSin+=1
+    return math.pi*inSin/numNeedles
+
+#random.seed(0)
+#estPi(0.005, 100)
+
+def integrate(f, a, b, step):
+    yVals, xVals = [], []
+    xVal = a
+    while xVal <= b:
+        xVals.append(xVal)
+        yVals.append(f(xVal))
+        xVal += step
+    pylab.plot(xVals, yVals)
+    pylab.title('sin(x)')
+    pylab.xlim(a, b)
+    pylab.ylim(0, 1)
+    xUnders, yUnders, xOvers, yOvers = [],[],[],[]
+    for i in range(500):
+        xVal = random.uniform(a, b)
+        yVal = random.uniform(0, 1)
+        if yVal < f(xVal):
+            xUnders.append(xVal)
+            yUnders.append(yVal)
+        else:
+            xOvers.append(xVal)
+            yOvers.append(yVal)
+    pylab.plot(xUnders, yUnders, 'ro')
+    pylab.plot(xOvers, yOvers, 'ko')
+    pylab.xlim(a, b)
+    ratio = len(xUnders)/(len(xUnders) + len(yUnders))
+    print(ratio)
+    print(ratio*b)
+    
+def one(x):
+    return math.sin(x)
+    
+#integrate(one, 0, math.pi, 0.001)
