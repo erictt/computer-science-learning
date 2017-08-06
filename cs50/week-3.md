@@ -5,28 +5,28 @@
 
 ## Computational Complexity
 
-* worst-case scenario:  $O$
-* best-case scenario:  $\Omega$
-* theta,  $\Theta$, if the running time of an algorithm is the same in the worst-case (  $\Omega$) and the best-case (  $O$).
+* worst-case scenario: \\(O\\)
+* best-case scenario: \\(\Omega\\)
+* theta, \\(\Theta\\), if the running time of an algorithm is the same in the worst-case (\\(\Omega\\)) and the best-case (\\(O\\)).
 * We don't actually care about how complex the algorithm is precisely, only it's tendency, which dictated by the highest-order term.
-    * for example,  $n^3$,  $n^3+n^2$,  $n^3-8n^2+20n$. when `n` is 1,000,000, the values will be  $1.0*10^{18}$,  $1.000001*10^{18}$ and  $9.99992*10^{17}$. The lower terms became really irrelevant. So we only take the highest-order term, which is  $n^3$ here.
+    * for example, \\(n^3\\), \\(n^3+n^2\\), \\(n^3-8n^2+20n\\). when `n` is 1,000,000, the values will be \\(1.0*10^{18}\\), \\(1.000001*10^{18}\\) and \\(9.99992*10^{17}\\). The lower terms became really irrelevant. So we only take the highest-order term, which is \\(n^3\\) here.
 
 ### Common Classes 
 
 * from fast to slow:
-    *  $O(1)$ constant time
-    *  $O(\log{n})$ logarithmic time
+    * \\(O(1)\\) constant time
+    * \\(O(\log{n})\\) logarithmic time
         * binary search
-    *  $O(n)$ linear time
+    * \\(O(n)\\) linear time
         * linear search
-    *  $O(n\log{n})$ linearithmic time
+    * \\(O(n\log{n})\\) linearithmic time
         * merge sort 
-    *  $O(n^2)$ quadratic time
+    * \\(O(n^2)\\) quadratic time
         * bubble search, selection search, insert search
-    *  $O(n^c)$ polynomial time
-    *  $O(c^n)$ exponential time 
-    *  $O(n!)$ factorial time
-    *  $O(\infty)$ infinite time
+    * \\(O(n^c)\\) polynomial time
+    * \\(O(c^n)\\) exponential time 
+    * \\(O(n!)\\) factorial time
+    * \\(O(\infty)\\) infinite time
 
 ## Search
 
@@ -104,11 +104,11 @@ on input of n elements
 
     ![week-3-2](media/week-3-2.gif)
 
-* Calculate the complexity:  $\Theta(n\log{n})$:
+* Calculate the complexity: \\(\Theta(n\log{n})\\):
     
     ![week-3-1](media/week-3-1.png)
     
-    * c is the single step takes, if c = 1, then T(n) = T(n/2) + T(n/2) + n. So every layer will take n steps, and the deep is  $\log{n}$, so the complexity will be :  $n\log{n}$.
+    * c is the single step takes, if c = 1, then T(n) = T(n/2) + T(n/2) + n. So every layer will take n steps, and the deep is \\(\log{n}\\), so the complexity will be : \\(n\log{n}\\).
 
 * [Implement](https://gist.github.com/erictt/2c4387dba45586b967ae2efe7bb94bc7)
 

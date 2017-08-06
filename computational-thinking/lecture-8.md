@@ -6,9 +6,9 @@
 * Given a sufficiently large sample:
     1. The means of the samples in a set of samples (the sample means) will be approximately normally distributed,
     2. This normal distribution will have a mean close to the mean of the population, and
-    3. The variance of the sample means (  $\sigma_{\bar{x}}^2$) will be close to the variance of the population (  $\sigma^2$) divided by the sample size (N).
-        *  $\sigma_{\bar{x}}^2=\frac{\sigma^2}{N}$
-        *  $\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{N}}$
+    3. The variance of the sample means (\\(\sigma_{\bar{x}}^2\\)) will be close to the variance of the population (\\(\sigma^2\\)) divided by the sample size (N).
+        * \\(\sigma_{\bar{x}}^2=\frac{\sigma^2}{N}\\)
+        * \\(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{N}}\\)
         * Standard Error of the Mean is: the standard deviation of the sampling distribution of the sample mean.
         * Reference: [Khan Academy](https://www.khanacademy.org/math/statistics-probability/sampling-distributions-library/sample-means/v/central-limit-theorem)
 
@@ -64,13 +64,13 @@
     * <img src="media/15018156431740.jpg" width=200 />
     * By the definition of π, area = πr^2 . Since r is 1, π = area.
     * If the locations of the needles are truly random, we know that,
-        *  $\frac{needles\ in\ circle}{needles\ in\ square}=\frac{area\ of\ circle}{area\ of\ square}$
+        * \\(\frac{needles\ in\ circle}{needles\ in\ square}=\frac{area\ of\ circle}{area\ of\ square}\\)
     * solving for the area of the circle,
-       *  $area\ of\ circle = \frac{area\ of\ sqaure\ *\ needles\ in\ circle}{needles\ in\ square}$
+       * \\(area\ of\ circle = \frac{area\ of\ sqaure\ *\ needles\ in\ circle}{needles\ in\ square}\\)
     * Recall that the area of a 2 by 2 square is 4, so,
-        *  $area\ of\ circle = \frac{4 *\ needles\ in\ circle}{needles\ in\ square}$
-        * in this case $area\ of\ circle = {\pi}r^2$, and r=1, so:
-            *  $\pi = \frac{4 *\ needles\ in\ circle}{needles\ in\ square}$
+        * \\(area\ of\ circle = \frac{4 *\ needles\ in\ circle}{needles\ in\ square}\\)
+        * in this case \\(area\ of\ circle = {\pi}r^2\\), and r=1, so:
+            * \\(\pi = \frac{4 *\ needles\ in\ circle}{needles\ in\ square}\\)
     
     ```python
     import random
