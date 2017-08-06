@@ -1,13 +1,9 @@
 ## Tests
 
-* $f(x)=\pi+\frac{1}{x}$
-*  $f(x)=\pi+\frac{1}{x}$
-* $$f(x)=\pi+\frac{1}{x}$$
-*  $$f(x)=\pi+\frac{1}{x}$$
-* \(f(x)=\pi+\frac{1}{x}\)
-* \\(f(x)=\pi+\frac{1}{x}\\)
-* \[f(x)=\pi+\frac{1}{x}\]
-* \\[f(x)=\pi+\frac{1}{x}\\]
+* 1 $f(x)=\frac{1}{x}$ 2
+* 1 $$f(x)=\frac{1}{x}$$ 2
+* \\(f(x)=\frac{1}{x}\\)
+* \\[f(x)=\frac{1}{x}\\]
 
 ## Standard Deviation
 * It is a measure that is used to quantify the amount of variation or dispersion of a set of data values.
