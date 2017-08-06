@@ -3,7 +3,7 @@
     "description": " I put my notes, exercise and some other stuff in here.",
     "author": "Eric Yang",
     "plugins": [
-        "plugin-mathjax",
+        "mathjax",
         "simple-page-toc@git+https://github.com/erictt/gitbook-plugin-simple-page-toc.git",
         "anchor-navigation", "github", "anchors", "splitter",
         "prism", "-highlight",
