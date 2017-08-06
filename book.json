@@ -2,12 +2,12 @@
     "title": "Computer Science Learning",
     "description": " I put my notes, exercise and some other stuff in here.",
     "author": "Eric Yang",
-    "plugins": ["mathjax@git+https://github.com/erictt/plugin-mathjax.git#1.1.3",
-                "simple-page-toc@git+https://github.com/erictt/gitbook-plugin-simple-page-toc.git",
-                "anchor-navigation", "github", "anchors", "splitter",
-                "prism", "-highlight",
-                "anchor-navigation", "expandable-chapters"
-            ],
+    "plugins": [
+        "simple-page-toc@git+https://github.com/erictt/gitbook-plugin-simple-page-toc.git",
+        "anchor-navigation", "github", "anchors", "splitter",
+        "prism", "-highlight",
+        "anchor-navigation", "expandable-chapters"
+    ],
     "pluginsConfig": {
         "simple-page-toc": {
             "maxDepth": 3,

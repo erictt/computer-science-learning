@@ -1,6 +1,6 @@
 # Lecture 9
 
-[TOC]
+\[TOC\]
  
 ## Sampling and Standard Error
 

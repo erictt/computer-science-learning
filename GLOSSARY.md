@@ -1,3 +1,14 @@
+## Tests
+
+* $f(x)=\pi+\frac{1}{x}$
+*  $f(x)=\pi+\frac{1}{x}$
+* $$f(x)=\pi+\frac{1}{x}$$
+*  $$f(x)=\pi+\frac{1}{x}$$
+* \(f(x)=\pi+\frac{1}{x}\)
+* \\(f(x)=\pi+\frac{1}{x}\\)
+* \[f(x)=\pi+\frac{1}{x}\]
+* \\[f(x)=\pi+\frac{1}{x}\\]
+
 ## Standard Deviation
 * It is a measure that is used to quantify the amount of variation or dispersion of a set of data values.
 * The "Population Standard Deviation": [biased] $\displaystyle\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}$,  $\mu$ is the average of x.
