@@ -160,7 +160,7 @@ int main(int argc, string argv[])
 ```
 
 ```bash
-~/workspace/ $ ./argv0 hello
+~/workspace/␣$ ./argv0 hello
 hello, hello
 ```
 
@@ -191,9 +191,9 @@ hello, hello
 * We can use command `$?` to see the exit code in terminal, like this:
 
     ```
-    ~/workspace/ $ ./exit
+    ~/workspace/␣$ ./exit
     missing command-line argument
-    ~/workspace/ $ echo $?
+    ~/workspace/␣$ echo␣$?
     1
     ```
 
