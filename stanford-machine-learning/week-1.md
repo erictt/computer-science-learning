@@ -16,7 +16,7 @@
 
   ![week-1-1](media/week-1-1.png)
 
-  * \\(h_{\theta}(x)=\theta_{0}+\theta_{1}x\\) , and this means:
+  * \\(h_{\theta}(x)=\theta_{0}+\theta_{1}x\\), and this means:
 
     * Y is a linear function of x
       * \\(\theta_{i}\\) are **parameters**

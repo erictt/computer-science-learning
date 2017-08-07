@@ -146,5 +146,5 @@ pylab.axvline(x = popMean, color = 'r')
 ### Standard Error
 
 * to prove the third point of CLT
-    * The variance of the sample means (\\(\sigma_{\bar{x}}^2\\)) will be close to the variance of the population (\\(\sigma^2\\)) divided by the sample size (N). Check [lecture-7](lecture-7.md) for more detail.
+    * The variance of the sample means (\\(\sigma_{\bar{x}}^2\\)) will be close to the variance of the population (\\(\sigma^2\\)) divided by the sample size (N). Check [lecture-8](lecture-8.md#the-central-limit-theorem-clt) for more detail.
 
