@@ -49,8 +49,8 @@
     pylab.legend()
     ```
     
-    <img src='media/15017341787524.jpg' width=400/>
-    
+    ![image-w400](media/15017341787524.jpg)
+        
     * Conclusion:
         * It doesn’t matter what the shape of the distribution of values happens to be
         * If we are trying to estimate the mean of a population using sufficiently large samples
@@ -61,7 +61,7 @@
 ### Finding π
 
 * Think about inscribing a circle in a square with sides of length 2, so that the radius, r, of the circle is of length 1. (Invented by the French mathematicians Buffon (17071788) and Laplace (1749-1827))
-    * <img src="media/15018156431740.jpg" width=200 />
+    * ![15018156431740-w200](media/15018156431740.jpg)
     * By the definition of π, area = πr^2 . Since r is 1, π = area.
     * If the locations of the needles are truly random, we know that,
         * \\(\frac{needles\ in\ circle}{needles\ in\ square}=\frac{area\ of\ circle}{area\ of\ square}\\)

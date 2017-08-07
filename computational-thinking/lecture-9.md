@@ -76,7 +76,7 @@ getMeansAndSDs(population, sample, True)
    Standard deviation of sample = 10.390314372
    ```
    
-   <img src="media/15020122920744.jpg" width=400 />
+   ![first-result-w400](media/15020122920744.jpg)
 
 * Try it 1000 times and plot the results
 
@@ -118,7 +118,7 @@ pylab.axvline(x = popMean, color = 'r')
    Maximum difference in standard deviations = 1.281
    ```
    
-   <img src="media/15020131712390.jpg" width=400 />
+   ![second-result-w400](media/15020131712390.jpg)
 
 * To get a tighter bound, we tried:
     * drawing 2000 samples instead of 1000,
@@ -134,7 +134,7 @@ pylab.axvline(x = popMean, color = 'r')
         fmt = 'o', label = '95% Confidence Interval')
     ```
 
-    <img src="media/15020143820967.jpg" width=400 />
+    ![third-result-2400](media/15020143820967.jpg)
 
 * Result:
     * Going from a sample size of 100 to 400 reduced the confidence interval from 1.8C to about 1C.
