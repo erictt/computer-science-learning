@@ -9,8 +9,10 @@
     3. The variance of the sample means (\\(\sigma_{\bar{x}}^2\\)) will be close to the variance of the population (\\(\sigma^2\\)) divided by the sample size (N).
         * \\(\sigma_{\bar{x}}^2=\frac{\sigma^2}{N}\\)
         * \\(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{N}}\\)
-        * Standard Error of the Mean is: the standard deviation of the sampling distribution of the sample mean.
-        * Reference: [Khan Academy](https://www.khanacademy.org/math/statistics-probability/sampling-distributions-library/sample-means/v/central-limit-theorem)
+        * Reference: 
+            * [Sampling distribution of a sample mean (Khan Academy)](https://www.khanacademy.org/math/statistics-probability/sampling-distributions-library/sample-means/v/central-limit-theorem)
+            * [Simulation (onlinestatbook.com)](http://onlinestatbook.com/stat_sim/sampling_dist/index.html)
+       * Will talk about it more in [lecture 9](lecture-9.md#standard-error)
 
 * A sample to prove: point 1 and point 2.
 
