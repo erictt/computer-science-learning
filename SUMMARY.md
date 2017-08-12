@@ -22,6 +22,14 @@
 * [Lecture 8](computational-thinking/lecture-8.md)
 * [Lecture 9](computational-thinking/lecture-9.md)
 
+### Effective Thinking Through Mathematics
+
+* [Note](effective-thinking-through-mathematics/note.md)
+
+### Calculus One
+
+* [Week 2-3](calculus-one/week-2-3.md)
+
 ### Stanford Machine Learning
 
 * [Week 1](stanford-machine-learning/week-1.md)
