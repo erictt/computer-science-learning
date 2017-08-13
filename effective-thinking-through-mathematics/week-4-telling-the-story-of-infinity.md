@@ -73,3 +73,7 @@
     I think, "finding the relationship between two data sets, and don't miss one out" is an interesting expression to the one-to-one correspondence theorem, which makes my thought more clear. And calculating the possibility give me more confidence to say that player two is gonna win, even I don't understand what the rules imply at first place. But I didn't give more evidence that why I need to calculate the possibility. I essentially feel that there must be something related to it, like f(x) = x is a straight line, but f(x) = 10^x is an exponential curve, they have different growth rate. May be we can use the graphs to compare the cardinality? Can't say for sure. Guess I'll have to dig it deeper in the future.
     ```
 
+## Reference
+
+* [Cantor's diagonal argument](https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument)
+
