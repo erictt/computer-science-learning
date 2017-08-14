@@ -26,6 +26,7 @@
 
 * [Note](effective-thinking-through-mathematics/note.md)
 * [Week 4 (Telling the Story of Infinity)](effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity.md)
+* [Week 5 (Telling the Story of Euler Circuit Theorem)](effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem.md)
 
 ### Calculus One
 

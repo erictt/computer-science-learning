@@ -8,7 +8,6 @@ Notes, exercise and some other stuff.
 
 * [HarvardX: CS50 Introduction to Computer Science](https://courses.edx.org/courses/course-v1:HarvardX+CS50+X/info)
 * [Calculus One](https://www.coursera.org/learn/calculus1/home/welcome)
-* [Effective Thinking Through Mathematics](https://courses.edx.org/courses/course-v1:UTAustinX+UT.9.10x+3T2016/course/)
 
 ### Next
  
@@ -18,4 +17,6 @@ Notes, exercise and some other stuff.
 ### Done
 
 * [MITx: 6.00.2x Introduction to Computational Thinking and Data Science](https://courses.edx.org/courses/course-v1:MITx+6.00.2x_7+1T2017/info)
+* [Effective Thinking Through Mathematics](https://courses.edx.org/courses/course-v1:UTAustinX+UT.9.10x+3T2016/course/)
+
 
