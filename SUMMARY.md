@@ -21,6 +21,10 @@
 * [Lecture 7](computational-thinking/lecture-7.md)
 * [Lecture 8](computational-thinking/lecture-8.md)
 * [Lecture 9](computational-thinking/lecture-9.md)
+* [Lecture 10](computational-thinking/lecture-10.md)
+* [Lecture 11](computational-thinking/lecture-11.md)
+* [Lecture 12](computational-thinking/lecture-12.md)
+* [Lecture 13](computational-thinking/lecture-13.md)
 
 ### Effective Thinking Through Mathematics
 
