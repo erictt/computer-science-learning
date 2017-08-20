@@ -11,6 +11,11 @@
 * [Week 3](cs50/week-3.md)
 * [Week 4](cs50/week-4.md)
 
+### Calculus One
+
+* [Week 2-3](calculus-one/week-2-3.md)
+* [Week 4](calculus-one/week-4.md)
+
 ### Computational Thinking
 
 * [Lecture 1](computational-thinking/lecture-1.md)
@@ -31,10 +36,6 @@
 * [Note](effective-thinking-through-mathematics/note.md)
 * [Week 4 (Telling the Story of Infinity)](effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity.md)
 * [Week 5 (Telling the Story of Euler Circuit Theorem)](effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem.md)
-
-### Calculus One
-
-* [Week 2-3](calculus-one/week-2-3.md)
 
 ### Stanford Machine Learning
 
