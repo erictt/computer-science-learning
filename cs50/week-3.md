@@ -123,6 +123,8 @@ in the end swap the pivot to middle()
 recursively apply steps before to the left and the right sub-array without pivot
 ```   
 
+![Sorting_quicksort_anim.gif](https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif)
+
 * [Implement](https://gist.github.com/erictt/daede65d8178a93a25a5e52ed07d69aa) 
 
 ## Refers

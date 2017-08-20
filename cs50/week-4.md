@@ -6,7 +6,7 @@
 
 * take memory as a rectangle:
 
-       ![week-4-1](media/week-4-1.jpg)
+    <img src="media/week-4-1.jpg" width=200 />
             
     * "text": machine code
     * "data": variables
@@ -65,9 +65,9 @@
             return 1;
         }
     
-        // malloc : allocates some memory for us to use. 
+        // malloc : allocates some memory. 
         // strlen(s)+1 : the plus one is for \0
-        // sizeof(char): 1 byte, in case you forgot, week 1's lecture talk about this.
+        // sizeof(char): 1 byte, in case you forgot, refer to week 1's lecture for more details.
         char *t = malloc((strlen(s) + 1) * sizeof(char));
         if (t == NULL)
         {
@@ -158,11 +158,11 @@
     }
     ```
     
-    ![week-4-2](media/week-4-2.jpg)
+    <img src="media/week-4-2.jpg" width=260 />
 
     * With a short string less than 12, it will be still ok. But if large than 12, it will overwritten with the address of the beginning of the string, even rewrite the main function:
     
-        ![week-4-3](media/week-4-3.jpg)
+        <img src="media/week-4-3.jpg" width=260 />
 
 ## Images
 
@@ -172,7 +172,7 @@
     * `255` in decimal is `1111 1111`, and `216` is `1101 1000`. Each of those four bits, since they can hold 16 values, map perfectly to hexadecimal. `1111` is `f`, `1101` is `d`, and `1000` is `8`. So `255` is the same as `ff`, and `216` is the same as `d8`. And it’s convention to write hexadecimal as `0xff` and `0xd8`.
 * BMP
 
-    ![week-4-4](media/week-4-4.jpg)
+    <img src="media/week-4-4.jpg" width=360 />
 
     * Files are just a sequence of bits, and if we think of each byte as having some offset from the beginning, we can specify exactly what should be in a file for it to be valid.
 
