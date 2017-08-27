@@ -11,6 +11,17 @@
 // (e.g., pneumonoultramicroscopicsilicovolcanoconiosis)
 #define LENGTH 45
 
+#define INDICES_SIZE 27
+
+typedef struct Node
+{
+    struct Node *children[INDICES_SIZE];
+    bool is_word;
+}
+Node;
+
+int convertIndexFromChar(const char c);
+
 /**
  * Returns true if word is in dictionary else false.
  */
@@ -30,5 +41,7 @@ unsigned int size(void);
  * Unloads dictionary from memory.  Returns true if successful else false.
  */
 bool unload(void);
+
+void unloadNode(Node *node);
 
 #endif // DICTIONARY_H

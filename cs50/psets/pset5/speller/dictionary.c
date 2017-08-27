@@ -6,26 +6,46 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "dictionary.h"
 
-const int INDICES_SIZE = 27;
+Node *root;
+unsigned int numbersInDic;
 
-typedef struct _trie
-{
-    struct _trie* trie[INDICES_SIZE];
-    char* c;
+
+int convertIndexFromChar(const char c) {
+    int indexNo = c - 'a';
+    if(c == '\'') {
+        indexNo = 26;
+        // indexNo = 'z' -'a' + 1;
+        // printf("--------- %d\n", indexNo);
+    }
+    return indexNo;
 }
-Index;
-
-struct _trie* root;
 
 /**
  * Returns true if word is in dictionary else false.
  */
 bool check(const char *word)
 {
-    printf("%s", word) ;
+    Node *currentNode = root;
+    for(int i = 0; i < strlen(word); i++) 
+    {
+        int index = convertIndexFromChar(tolower(word[i]));
+        if( currentNode->children[index] == NULL) 
+            return false;
+        else 
+        {
+            currentNode = currentNode->children[index];
+        }
+    }
+    
+    // printf("---------> dic size: %i\n", numbersInDic);    
+    if(currentNode->is_word) 
+    {
+        return true;
+    }
     return false;
 }
 
@@ -39,41 +59,48 @@ bool load(const char *dictionary)
     {
         return false;
     }
+    
+    root = malloc(sizeof(Node));
+    root->is_word = false;
+    memset(root, 0, sizeof(Node));
 
-    struct _trie* currentIndex = root;
-    char *word = (char *)malloc(LENGTH);
-    int i = 0;
+    Node *currentNode = root;
+    
     for (int c = fgetc(fp); c != EOF; c = fgetc(fp))
     {
         if(c == ' ' || c == '\n')
         {
-            currentIndex->c = word;
-            word = (char *)malloc(LENGTH);
-            i = 0;
-            currentIndex = root;
+            numbersInDic++;
+            currentNode->is_word = true;
+            currentNode = root;
         }
         else if (isalpha(c) || c == '\'')
         {
-            word[i++] = c;
-            int indexNo = c - 'a';
-            if(c == '\'') indexNo = c - 'z' + 1;
-            struct _trie* tempIndex = NULL;
-            currentIndex->trie[indexNo] = tempIndex;
-            currentIndex = tempIndex;
+            int indexNo = convertIndexFromChar(c);
+
+            if (currentNode->children[indexNo] == NULL) 
+            {
+                currentNode->children[indexNo] = malloc(sizeof(Node));
+                memset(currentNode->children[indexNo], 0, sizeof(Node));
+
+                currentNode->children[indexNo]->is_word = false;
+            } 
+            currentNode = currentNode->children[indexNo];
+            
         }
     }
-    free(word);
-    free(currentIndex);
-    return false;
+    fclose(fp);
+
+    return true;
 }
+
 
 /**
  * Returns number of words in dictionary if loaded else 0 if not yet loaded.
  */
 unsigned int size(void)
 {
-    // TODO
-    return 0;
+    return numbersInDic;
 }
 
 /**
@@ -81,7 +108,21 @@ unsigned int size(void)
  */
 bool unload(void)
 {
-    // TODO
-    return false;
+    unloadNode(root);
+    
+    return true;
 }
 
+void unloadNode(Node *node)
+{
+    int i = 0;
+    while(i<INDICES_SIZE)
+    {
+        if(node->children[i] != NULL)
+        {
+            unloadNode(node->children[i]);
+        }
+        i++;
+    }
+    free(node);
+}
