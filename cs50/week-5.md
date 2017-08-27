@@ -283,13 +283,74 @@ typedef struct _trie
 trie;
 ```
 
+* the struct of dictionary.
+ 
+    ```c
+    typedef struct Node
+    {
+        struct Node *children[INDICES_SIZE];
+        bool is_word;
+    }
+    Node;
+    ```
+
+* the key program of load dictionary.
+ 
+    ```c
+    if (currentNode->children[indexNo] == NULL) 
+    {
+        // calloc = malloc + memset
+        // calloc() zero-initializes the buffer, 
+        // malloc() leaves the memory uninitialized. 
+        // currentNode->children equals (*currentNode).children
+        currentNode->children[indexNo] = calloc(1, sizeof(Node));
+        currentNode->children[indexNo]->is_word = false;
+    } 
+    currentNode = currentNode->children[indexNo];
+    ```
+
 * Tries combine structures and pointers together to store data.
 * Each array contains pointers to the next layer of arrays.
 * The data to be searched for in the trie is now a roadmap.
 * A trie has running time of `O(1)`, since we just need to look up words based on the letters in them, and that’s not affected by the number of other words in the trie. Inserting and removing a word, too, is also a constant time operation.
 
+### Some Syntax of Pointers Supplement
+
+```c
+int x = 0;
+int *px;
+px = &x; // Stores the address of x in px
+printf("%d\n", *px); // => Prints 0, the value of x
+(*px)++; // Increment the value px is pointing to by 1
+
+struct rectangle {
+  int width;
+  int height;
+};
+
+void function_1()
+{
+  struct rectangle my_rec;
+
+  // Access struct members with .
+  my_rec.width = 10;
+  my_rec.height = 20;
+
+  // You can declare pointers to structs
+  struct rectangle *my_rec_ptr = &my_rec;
+
+  // Use dereferencing to set struct pointer members...
+  (*my_rec_ptr).width = 30;
+
+  // ... or even better: prefer the -> shorthand for the sake of readability
+  my_rec_ptr->height = 10; // Same as (*my_rec_ptr).height = 10;
+}
+
+```
+
 ## Refers
 
 [https://en.wikipedia.org/wiki/Hash_table](https://en.wikipedia.org/wiki/Hash_table)
 [http://docs.cs50.net/2016/fall/notes/5/week5.html](http://docs.cs50.net/2016/fall/notes/5/week5.html)
+[https://learnxinyminutes.com/docs/c/](https://learnxinyminutes.com/docs/c/)
 

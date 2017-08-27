@@ -93,24 +93,40 @@
 
     * a few different data types that we can use, and also print with various symbols:
 
-        * `%c`
-        * `%f`
-        * `%d`
-        * `%i`
-        * `%lld`
-        * `%s`
-        * ``
+        ```
+        "%d";    // integer
+        "%3d";   // integer with minimum of length 3 digits (right justifies text)
+        "%s";    // string
+        "%f";    // float
+        "%ld";   // long
+        "%3.2f"; // minimum 3 digits left and 2 digits right decimal float
+        "%7.4s"; // (can do with strings too)
+        "%c";    // char
+        "%p";    // pointer
+        "%x";    // hexadecimal
+        "%o";    // octal
+        "%%";    // prints %
+        ```
 
     * escape sequences, symbols we can type, for printf to print tabs or quotes or others:
 
-        * `\a`
-        * `\n`
-        * `\r`
-        * `\t`
-        * `\'`
-        * `\"`
-        * `\\`
-        * `\0`
+        ```
+        '\a'; // alert (bell) character
+        '\n'; // newline character
+        '\t'; // tab character (left justifies text)
+        '\v'; // vertical tab
+        '\f'; // new page (form feed)
+        '\r'; // carriage return
+        '\b'; // backspace character
+        '\0'; // NULL character. Usually put at end of strings in C.
+        //   hello\n\0. \0 used by convention to mark end of string.
+        '\\'; // backslash
+        '\?'; // question mark
+        '\''; // single quote
+        '\"'; // double quote
+        '\xhh'; // hexadecimal number. Example: '\xb' = vertical tab character
+        '\0oo'; // octal number. Example: '\013' = vertical tab character
+        ```
 
 ## Some samples
 

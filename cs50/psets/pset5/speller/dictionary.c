@@ -35,18 +35,10 @@ bool check(const char *word)
         int index = convertIndexFromChar(tolower(word[i]));
         if( currentNode->children[index] == NULL) 
             return false;
-        else 
-        {
-            currentNode = currentNode->children[index];
-        }
+        currentNode = currentNode->children[index];
     }
     
-    // printf("---------> dic size: %i\n", numbersInDic);    
-    if(currentNode->is_word) 
-    {
-        return true;
-    }
-    return false;
+    return currentNode->is_word;
 }
 
 /**
@@ -60,9 +52,11 @@ bool load(const char *dictionary)
         return false;
     }
     
-    root = malloc(sizeof(Node));
+    // root = malloc(sizeof(Node));
+    // memset(root, 0, sizeof(Node));
+    root = calloc(1, sizeof(Node));
     root->is_word = false;
-    memset(root, 0, sizeof(Node));
+    
 
     Node *currentNode = root;
     
@@ -80,8 +74,10 @@ bool load(const char *dictionary)
 
             if (currentNode->children[indexNo] == NULL) 
             {
-                currentNode->children[indexNo] = malloc(sizeof(Node));
-                memset(currentNode->children[indexNo], 0, sizeof(Node));
+                // currentNode->children[indexNo] = malloc(sizeof(Node));
+                // memset() is used to fill a block of memory with a particular value.
+                // memset(currentNode->children[indexNo], 0, sizeof(Node));
+                currentNode->children[indexNo] = calloc(1, sizeof(Node));
 
                 currentNode->children[indexNo]->is_word = false;
             } 
