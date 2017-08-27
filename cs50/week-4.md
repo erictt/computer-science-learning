@@ -148,7 +148,7 @@
     void foo(char *bar)
     {
         char c[12];
-        // copies from bar into c, for as many bytes as strlen(bar).
+        // copy from bar into c, for as many bytes as strlen(bar).
         memcpy(c, bar, strlen(bar));
     }
     

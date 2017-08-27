@@ -1,0 +1,8 @@
+0.  It's the longest word in the English language, and a lung disease.
+1.  Get information about resource utilization.
+2.  16
+3.  Won't create temporary variables in stack.
+4.  Open text file, start to read byte by byte, then combine the bytes to a string[word] by checking if hit '\0', moreover, ignore the rest bytes if the string[word]'s length > LENGTH.
+Check the string[word] whether it is misspelled, then statistic the result.
+5.  TODO
+6.  TODO

@@ -1,0 +1,12 @@
+1.  Several new integer types to enhance the portability of programs, supporting varies between different environments.
+2.  Sometimes, we need some integers with specific width. And smaller width will save more memory.
+3.  1, 4, 4, 2
+4.  0x42 0x4D
+5.  bfSize is the file size, and biSize is the header size.
+6.  The bitmap is a top-down DIB(a device-independent bitmap) and its origin is the upper-left corner.
+7.  biBitCount
+8.  File doesn't exist, or is not readble.
+9.  Only need to read one object with specific width.
+10. 3
+11. Set the position indicator by skipping "padding" bytes.
+12. The current postion indicator
