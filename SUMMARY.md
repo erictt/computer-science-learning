@@ -10,6 +10,8 @@
 * [Week 2](cs50/week-2.md)
 * [Week 3](cs50/week-3.md)
 * [Week 4](cs50/week-4.md)
+* [Week 5](cs50/week-5.md)
+* [Week 5](cs50/week-6.md)
 
 ### Calculus One
 
