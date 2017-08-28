@@ -6,32 +6,31 @@
 
 ### CS50 Introduction to Computer Science
 
-* [Week 1](cs50/week-1.md)
-* [Week 2](cs50/week-2.md)
-* [Week 3](cs50/week-3.md)
-* [Week 4](cs50/week-4.md)
-* [Week 5](cs50/week-5.md)
-* [Week 5](cs50/week-6.md)
+* [Week 1 - C](cs50/week-1.md)
+* [Week 2 - Arrays](cs50/week-2.md)
+* [Week 3 - Algorithms](cs50/week-3.md)
+* [Week 4 - Memory](cs50/week-4.md)
+* [Week 5 - Data Structures](cs50/week-5.md)
+* [Week 6 - HTTP](cs50/week-6.md)
 
 ### Calculus One
 
-* [Week 2-3](calculus-one/week-2-3.md)
-* [Week 4](calculus-one/week-4.md)
+* [Week 2-3 - Functions & Limits](calculus-one/week-2-3.md)
+* [Week 4 - Derivatives](calculus-one/week-4.md)
 
 ### Computational Thinking
 
-* [Lecture 1](computational-thinking/lecture-1.md)
-* [Lecture 2](computational-thinking/lecture-2.md)
+* [Lecture 1 - Optimization and Knapsack Problem](computational-thinking/lecture-1.md)
+* [Lecture 2 - Decision Trees and Dynamic Programming](computational-thinking/lecture-2.md)
   * [Exercise: Power Set Function](computational-thinking/lecture-2-powerset.md)
-* [Lecture 3](computational-thinking/lecture-3.md)
-* [Lecture 4-6](computational-thinking/lecture-4-6.md)
-* [Lecture 7](computational-thinking/lecture-7.md)
-* [Lecture 8](computational-thinking/lecture-8.md)
-* [Lecture 9](computational-thinking/lecture-9.md)
-* [Lecture 10](computational-thinking/lecture-10.md)
-* [Lecture 11](computational-thinking/lecture-11.md)
-* [Lecture 12](computational-thinking/lecture-12.md)
-* [Lecture 13](computational-thinking/lecture-13.md)
+* [Lecture 3 - Graphs](computational-thinking/lecture-3.md)
+* [Lecture 4-6 - Plotting & Stochastic Programs](computational-thinking/lecture-4-6.md)
+* [Lecture 7 - Inferential Statistics](computational-thinking/lecture-7.md)
+* [Lecture 8 - Monte Carlo Simulation](computational-thinking/lecture-8.md)
+* [Lecture 9 - Sampling and Standard Error](computational-thinking/lecture-9.md)
+* [Lecture 10-11 - Experimental Data](computational-thinking/lecture-11.md)
+* [Lecture 12 - Machine Learning](computational-thinking/lecture-12.md)
+* [Lecture 13 - Statistical Abuses](computational-thinking/lecture-13.md)
 
 ### Effective Thinking Through Mathematics
 
