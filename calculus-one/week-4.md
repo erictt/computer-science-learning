@@ -58,5 +58,6 @@
 * \\(\frac{d}{dx}x^{n}=nx^{n-1}\\)
 * \\(\frac{d}{dx}nf(x)=n\frac{d}{dx}f(x)\\)
 * \\(\frac{d}{dx}(f(x)+g(x))=\frac{d}{dx}f(x)+\frac{d}{dx}g(x)\\)
+* More in next week
 
 

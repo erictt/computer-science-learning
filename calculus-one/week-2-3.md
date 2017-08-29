@@ -160,6 +160,11 @@
 * Definition
     * A **fixed point** of a function `f` is a number `c` in its domain such that `f(c) = c`. (The function doesn’t move `c`; it stays fixed.)
         * if `f(x)` continuous on `[0,1]`, and \\(0 \le f(x) \le 1\\), then there is an `x` in domain `[0, 1]`, exist `f(x) = x`.
+            * To Prove:
+            * Assumption: `g(x) = f(x) - x`, so `g(x)` is continuous
+            * `g(0) = f(0) - 0 >= 0`
+            * `g(1) = f(1) - 1 <= 1`
+            * Base on the IVT(Intermediate Value Theorem), there must be an `x` such that `g(x) = 0`, which is `f(x) = x`.
 
 ### Infinity
 
@@ -174,12 +179,14 @@
 * Potential Infinity vs Actual Infinity (from [Wikipedia](https://en.wikipedia.org/wiki/Actual_infinity))
     * Actual Infinity is the idea that numbers, or some other type of **mathematical object**, can form an actual, completed totality;
         * Such as the set of all natural numbers,  an infinite sequence of rational numbers.
-   * Potential Infinity is a **non-terminating process** (such as "add 1 to the previous number") produces an unending "infinite" sequence of results, but each individual result is finite and is achieved in a finite number of steps.
+    * Potential Infinity is a **non-terminating process** (such as "add 1 to the previous number") produces an unending "infinite" sequence of results, but each individual result is finite and is achieved in a finite number of steps.
 
 * Precise Definitions
     * \\(\displaystyle\lim_{x \to a}f(x) = L\\) means:
         * for all \\(\epsilon > 0\\), there is \\(\delta>0\\),
         * so that if \\(0 < |x - a| < \delta\\) (\\(x \ne a\\) and x in within \\(\delta\\) of `a`), then \\(|f(x)-L| < \epsilon \\) (`f(x)` is within \\(\epsilon\\) of `L`).
+            * `|x - a|` is the distance from x to a and `|f(x) - L|` is the distance from f(x) to L.
+            * so \\(\displaystyle\lim_{x \to a}f(x) = L\\) means that the distance between f(x) and L can be made arbitrarily small by requiring that the distance from x to a be sufficiently small (but not 0).
     * For Example: \\(\displaystyle\lim_{x \to 2}x^2 = 4\\)
         * Let's say \\(\epsilon = 0.1\\), that means \\(|f(x)-4| < 0.1 \\), `3.9 < f(x) < 4.1`,
         * Base on the definition, there should be a \\(\delta\\), that \\(2 - \delta < x < 2 + \delta\\) to satisfy the demand.

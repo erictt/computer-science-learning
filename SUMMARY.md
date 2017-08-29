@@ -16,7 +16,8 @@
 ### Calculus One
 
 * [Week 2-3 - Functions & Limits](calculus-one/week-2-3.md)
-* [Week 4 - Derivatives](calculus-one/week-4.md)
+* [Week 4 - The Beginning of Derivatives](calculus-one/week-4.md)
+* [Week 5 - Techniques of Differentiation](calculus-one/week-5.md)
 
 ### Computational Thinking
 

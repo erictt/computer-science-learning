@@ -16,7 +16,7 @@ Notes, exercise and some other stuff.
 
 ### Done
 
-* [MITx: 6.00.2x Introduction to Computational Thinking and Data Science](https://courses.edx.org/courses/course-v1:MITx+6.00.2x_7+1T2017/info)
-* [Effective Thinking Through Mathematics](https://courses.edx.org/courses/course-v1:UTAustinX+UT.9.10x+3T2016/course/)
+* [MITx: 6.00.2x Introduction to Computational Thinking and Data Science](https://courses.edx.org/courses/course-v1:MITx+6.00.2x_7+1T2017/info) [93%]
+* [Effective Thinking Through Mathematics](https://courses.edx.org/courses/course-v1:UTAustinX+UT.9.10x+3T2016/course/) [NaN]
 
 
