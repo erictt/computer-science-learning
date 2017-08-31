@@ -36,10 +36,26 @@ def combinations(iterable, r):
 
         yield tuple(pool[i] for i in indices)
         
+ 
+        
+# the logic of this function is 
+#   set a new array with length r
+#   loop the last element's index from i to i+n-r(n is the length of pool, r is the length of subsequence). 
+#   when hit the maximum which should be n-1, increase the last-1 element's index.
+#   loop until the first element's index hit the maximum, 
+#   then increase the previous index, and set the last index to previous index + 1, 
+#   then back to the loop until all of the indices hit the maximum
+#   (1, 2, 3)
+#   (1, 2, 4)
+#   (1, 2, 5) <-- the last index hit the maximum
+#   (1, 3, 4) <-- increase the previous index, and set every one after to previous index + 1,
+#   (1, 3, 5) 
+#   (1, 4, 5) <-- the (last-1) index hit the maximum
+#   (2, 3, 4)
+#   (2, 3, 5)
+#   (2, 4, 5)
+#   (3, 4, 5) <-- the (last-2) index hit the maximum
 def myCombinations(iterable, r):
-    
-    # first, we need to understand, this function is to record every possibility of indices
-    # then return the elements with the indices
     
     pool = tuple(iterable)
     
@@ -48,68 +64,49 @@ def myCombinations(iterable, r):
     if r > n:
         return
     indices = list(range(r))
-
-    # yield the first permutation, 
-    # cause in the "while" circle, we will start to change the indices by plus 1 consistently
-    # for example: iterable is [1, 2, 3, 4, 5], and r = 3
-    # this yield will return [1, 2, 3], but in the "while" loop, 
-    # we will start to update last elements' index to 4, which will return [1, 2, 4]
-    yield tuple(pool[i] for i in indices)
+ 
+    # In the "while" circle, we will start to change the indices by adding 1 consistently.
+    # So yield the first permutation before the while start.
+    yield tuple(pool[x] for x in indices)
     
     while True:
 
-        # in this for loop, we want to confirm whether indices[i] can be increased or not
+        # This 'for' loop is checking whether the index has hit the maximum from the last one to the first one.
+        # if it indices[i] >= its maximum, 
+        #   set i = i-1, check the previous one
+        # if all of the indices has hit the maximum, 
+        #   stop the `while` loop
         for i in reversed(range(r)):
             
-            # after reversed, i will be r-1, r-2, r-3, ....,0
-            # something we should know before we start the 'for' loop
-            # the value of indices[r-1] should not greater than n-1
-            # the value of indices[r-2] should not greater than n-2
-            # and the maximum of indices[i] should be indices[r-1]
-            # so the value of indices[r-1] should between r-1 and n-r + r-1, like this:
-            #       r-1 <= indics[r-1] <= n-r + r-1
-            # so, to r-2:
-            #       r-2 <= indics[r-1] <= n-r + r-2
-            # let's set i = r-1:
-            #       i <= indices[i] <= n-r+i (n-1 is the maximum value)
-            # since we will keep plusing the value of indices[i], let's ignore i <= indices[i]
-            # and we just want to know if indices[i] can plus or not,
-            # so indices[i] can be equal with n-r+i
-            # then we got:
-            #       indices[i] < i + n - r
-            # the offical document give: indices[i] != i + n - r,
-            # cause when indices[i] == i + n - r, it arrived the boundry, 
-            # the "for" loop will get into indices[i-1], there will be no judgement for ">i+n-r"
-            # so to use indices[i] != i + n - r is still a good way, 
-            # but i prefer indices[i] < i + n - r, which is easier to understand for me.
-            # so next question is "break" in here, 
-            # it means the value of indices[i] doesn't reach the boundry still can plus one,
-            # let break out to continue the iteration
-            # when it hit the boundry, i will be r-2
-            # So we can see the result:
-            # 1, 2, 3
-            # 1, 2, 4
-            # 1, 2, 5
-            # 1, 3, 4
-            # always loop the last index, hit the boundry, check the last but one.
+            # let's take an example to explain why using i + n - r
+            # pool indices: [0,1,2,3,4]
+            # subsequence indices: [0,1,2]
+            # so
+            #   indices[2] can be one of [2,3,4],
+            #   indices[1] can be one of [1,2,3],
+            #   indices[0] can be one of [0,1,2],
+            # and the gap of every index is n-r, like here is 5-3=2
+            # then
+            #   indices[2] < 2+2 = i+2 = i+n-r,
+            #   indices[1] < 1+2 = i+2 = i+n-r,
+            #   indices[0] < 0+2 = i+2 = i+n-r,
             if indices[i] < i + n - r:
                 break
         else:
             # loop finished, return
             return
         
-        # first of all, plus one for current indices[i], 
-        # that's why we yield the first permutation, before the while loop
-        # and increase every indices[i] by 1
-        indices[i] = indices[i] + 1
-        # this for loop is increase every indices which is after indices[i].
-        # cause, current index increased, and we need to confirm every one behind is orderd
-        # for example: current we got i = 2, indices[i]+1 will be 3, 
-        # so the next loop will start with [1, 3, 4], not [1, 3, 3]
+        # Add one for current indices[i], 
+        # (we already yield the first permutation before the loop)
+        indices[i] += 1
+        # this for loop increases every indices which is after indices[i].
+        # cause, current index has increased, and we need to confirm every one behind is initialized again.
+        # For example: current we got i = 2, indices[i]+1 will be 3, 
+        # so the next loop should start with [1, 3, 4], not [1, 3, 3]
         for j in range(i+1, r):
             indices[j] = indices[j-1] + 1
             
-        yield tuple(pool[i] for i in indices)  
+        yield tuple(pool[x] for x in indices) 
 
 sets = [1, 2, 3, 4, 5]
 

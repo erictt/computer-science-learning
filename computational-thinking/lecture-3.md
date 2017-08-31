@@ -1,5 +1,4 @@
 # Lecture 3
-* Graph-theoretic Models
 
 [TOC]
 
@@ -72,12 +71,12 @@
 
 ### Algorithm: Depth First Search[DFS]
 
-* Similar to left-first depth-first method of enumerating a search tree, main1 difference is that graph might have cycles, so we must keep track of what nodes we have visited
+* Similar to left-first depth-first method of enumerating a search tree, mainly difference is that graph might have cycles, so we must keep track of what nodes we have visited
 
 * Implement [Codes](https://github.com/erictt/computer-science-learning/tree/master/computational-thinking/unit-1/lecture3-segment3.py) 
 
    ```python
-   def DFS(graph, start, end, path, shortest):
+   def DFS(graph, start, end, path, shortest, toPrint):
        path = path + [start]     
        if start == end:
            return path
