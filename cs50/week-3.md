@@ -67,7 +67,7 @@ for i from 0 to n-1
    
 ## Bubble Sort
 
-* from left to right and compare each pair of numbers. If they are out of order, then we swap them. 
+* from left to right and compare each pair of numbers. If they are out of order, then swap them. 
 
 ```
 repeat until no swaps
@@ -110,7 +110,8 @@ on input of n elements
     
     * c is the single step takes, if c = 1, then T(n) = T(n/2) + T(n/2) + n. So every layer will take n steps, and the deep is \\(\log{n}\\), so the complexity will be : \\(n\log{n}\\).
 
-* [Implement](https://gist.github.com/erictt/2c4387dba45586b967ae2efe7bb94bc7)
+* [Implement with C](https://gist.github.com/erictt/2c4387dba45586b967ae2efe7bb94bc7)
+* [Implement with Python 3](https://gist.github.com/erictt/0438c9db11b3b25f0e24c212d8f3c3b9)
 
 ## Quick Sort
 
@@ -125,7 +126,8 @@ recursively apply steps before to the left and the right sub-array without pivot
 
 ![Sorting_quicksort_anim.gif](https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif)
 
-* [Implement](https://gist.github.com/erictt/daede65d8178a93a25a5e52ed07d69aa) 
+* [Implement with C](https://gist.github.com/erictt/daede65d8178a93a25a5e52ed07d69aa) 
+* [Implement with Python 3](https://gist.github.com/erictt/0438c9db11b3b25f0e24c212d8f3c3b9)
 
 ## Refers
 * [CS50/week 3](http://docs.cs50.net/2016/fall/notes/3/week3.html)
