@@ -12,7 +12,7 @@
 * [Week 4 - Memory](cs50/week-4.md)
 * [Week 5 - Data Structures](cs50/week-5.md)
 * [Week 6 - HTTP](cs50/week-6.md)
-* [Week 7 - Machine Learning](cs50/week-7.md)
+* [Week 7-9 - Machine Learning/Python/SQL](cs50/week-7-9.md)
 
 ### Calculus One
 
