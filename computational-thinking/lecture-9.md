@@ -145,13 +145,28 @@ pylab.axvline(x = popMean, color = 'r')
 
 ### Standard Error
 
-* **Standard Error of the Mean** is the standard deviation of the sampling distribution of the sample mean.
-* to prove the third point of [CLT](lecture-8.md#the-central-limit-theorem-clt)
-    * The variance of the sample means (\\(\sigma_{\bar{x}}^2\\)) will be close to the variance of the population (\\(\sigma^2\\)) divided by the sample size (N).
+* The **Standard Error(SE)** of a statistic (most commonly the mean) is the standard deviation of its **sampling** distribution, or sometimes an estimate of that standard deviation. Use to depict the dispersion of sample means around the population mean. 
+* (标准误所代表的，是在无数次抽样结果中，一次抽样的结果可能偏离无数次抽样结果这一总体的程度。标准误越小，用这一次抽样结果来代表这无数次抽样结果的可靠性就越好。)
+* **Standard Error of the Mean(SEM)** is the standard deviation of the sampling distribution of the **sample mean**.
+* SEM is usually estimated by the sample estimate of the population standard deviation (sample standard deviation) divided by the square root of the sample size (assuming statistical independence of the values in the sample):
+    * \\(SE_{\bar{x}}=\frac{s}{\sqrt{n}}\\)
+    * where
+        * `s` is the **sample standard deviation** (i.e., the sample-based estimate of the standard deviation of the population).
+        * `n` is the size (number of observations) of the sample.
+    * This estimate may be compared with the formula (from [CLT](lecture-8.md#the-central-limit-theorem-clt)) for the true standard deviation of the sample mean: 
+        * The variance of the sample means (\\(\sigma_{\bar{x}}^2\\)) will be close to the variance of the population (\\(\sigma^2\\)) divided by the sample size (N).
        * \\(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{N}}\\)
-* In the end of [Stratified Sampling](#stratified-sampling), we talked about plotting different sample sizes.
+       * where
+           * `σ` is the standard deviation of the population.
 
-#### Test the SEM(Standard Error of the Mean)
+* So, we have some questions:
+    * Usually, we don't know the the standard deviation of the population, is it good solution to sample standard deviation instead?
+    * Is the Sample Standard Deviation close to the Population Standard Deviation?
+
+#### Prove the SEM theorem
+
+* Let's use the standard deviation of the population to calculate SEM to see if it is close to the standard deviation of the sample means of the population by simulation
+* Test with different sample sizes
 
 ```python
 def sem(popSD, sampleSize):
@@ -179,11 +194,11 @@ pylab.legend()
 
 <img src="media/15021794267155.jpg" width=300 />
 
-* the SEM is very close to the Standard Deviation of Population
-
+* So, we can say, the SEM is very close to the sample standard deviation by using the population as `s`. But can we use the Sample Standard Deviation to instead the Population Standard Deviation?
     
 #### Compare Sample Standard Deviation
 
+* to prove that the sample estimate of the population standard deviation (sample standard deviation) is close to the population standard deviation
 * compare the differences between the Standard Deviation of Sample(**NOT Standard Error of the Means**) and the Standard Deviation of the Population:
 
 ```python
@@ -217,8 +232,9 @@ plotDiffs(sampleSizes, diffs,
     
 * Once sample reaches a reasonable size, **Sample Standard Deviation** is a pretty good approximation to **Population Standard Deviation**
 
-#### Questions
-* Does the Distribution of Population matter?
+#### Some Other Questions
+
+* **Does the Distribution of Population matter?**
     * Try Three Different Distributions: Uniform, Gaussian and Exponential
     * <img src="media/15021858573377.jpg" width=500 />
 
@@ -251,7 +267,7 @@ plotDiffs(sampleSizes, diffs,
     * Conclusion
         * It does. Different Distribution of Population has different differences.
 
-* Does Population Size Matter?
+* **Does Population Size Matter?**
 
     ```python
     popSizes = (10000, 100000, 1000000)
@@ -279,16 +295,15 @@ plotDiffs(sampleSizes, diffs,
     * `skew`: A distribution is skewed if one tail extends out further than the other. A distribution has a positive skew (is skewed to the right) if the tail to the right is longer. It has a negative skew (skewed to the left) if the tail to the left is longer.
 2. Chose a random sample from the population
 3. Compute the mean and standard deviation of that sample
-4. Use the standard deviation of that sample to estimate the SE (**NOT SEM**)
-    * \\(SE_{\bar{x}}=\frac{s}{\sqrt{n}}\\)
-    * where
-        * `s` is the sample standard deviation (i.e., the sample-based estimate of the standard deviation of the population), and
-        * `n` is the size (number of observations) of the sample.
+4. Use the standard deviation of that sample to estimate the SEM
 5. Use the estimated SE to generate confidence intervals around the sample mean
 
 #### Test the Conclusion
 
-* Are 200 Samples Enough?
+* Are 200 Samples Enough to Estimate the Mean of Population?
+    * First, we can calculate the SE of 200 samples in theorem
+    * Second, to compare the true mean and the sample mean, if the difference < 1.96*se, then we can say that, 200 is enough with 95% confidence.
+    * And of course, we need more tails to confirm our assumption.
 
     ```python
     random.seed(0)
@@ -340,4 +355,13 @@ plotDiffs(sampleSizes, diffs,
 * Conclusion for the last two tests
     * All theoretical results incorporate some assumptions
     * These must be checked before applying the theory!
+
+#### Usage of SE and SEM
+* The notation for standard error can be any one of SE, SEM (for standard error of measurement or mean), or \\(S_{E}\\).
+* If its sampling distribution is normally distributed, the sample mean, its standard error, and the quantiles of the normal distribution can be used to calculate confidence intervals for the mean. Like the sample, we calculate  if 200 is enough for sample size.
+* [https://en.wikipedia.org/wiki/Standard_error#Assumptions_and_usage](https://en.wikipedia.org/wiki/Standard_error#Assumptions_and_usage)
+
+## Refers
+
+* [https://en.wikipedia.org/wiki/Standard_error](https://en.wikipedia.org/wiki/Standard_error)
 

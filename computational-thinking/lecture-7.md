@@ -78,9 +78,9 @@
            Plots summaries of results of numTrials trials of
              2**minExp to 2**maxExp coin flips"""
         ratiosMeans, diffsMeans, ratiosSDs, diffsSDs = [], [], [], []
-        xAxis = []
+        xVals = []
         for exp in range(minExp, maxExp + 1):
-            xAxis.append(2**exp)
+            xVals.append(2**exp)
         for numFlips in xAxis:
             ratios = []
             diffs = []
@@ -114,14 +114,18 @@
     ```
     
     <img src='media/unit-2-2.jpg' width=600/>
+    <img src='media/15043566360658.jpg' width=600/>
+
 
     * The ratio heads/tails is converging towards 1 and log of standard deviation is falling linearly with the log of the number of flips per trail. 
     * By the time we get to about 10^6 coin flips per trail, the standard deviation is roughly three decimal orders of magnitude smaller than the mean. 
     * As we flip more coins, not only do we have a more precise answer, but more important, we also have reason to be more confident that it is close to the right answer.
+    * The absolute difference between the numbers of heads and tails grows with the number of flips. Talk more in next section.
 
 #### The absolute difference between heads and tails (gambler's fallacy)
 
-* **coefficient of variation** is the standard deviation divided by the mean.
+* **coefficient of variation** is the standard deviation divided by the mean, commonly used in fields such as engineering or physics when doing quality assurance studies. In general, distributions with a coefficient of variation of less than 1 are considered low-variance.
+    * For example, the expression “The standard deviation is 15% of the mean” is a CV.
     
     ```python
     #Page 163, Figure 12.7
@@ -183,7 +187,7 @@
     <img src='media/15016457519417.jpg' width=600/>
     
     * the plot of coefficient of variation for the heads/tails ratio is not much different from the plot of the standard deviation, cause the mean is close to 1.
-    * **dispersion** in the values of `abs(heads – tails)` is independent of the number of flips.
+    * **dispersion** in the values of `abs(heads – tails)` is independent of the number of flips. As the numbers of tails goes up, the mean of `abs(heads – tails)` also keep growing, which proves **Gambler's Fallacy** that `abs(heads – tails)` will never be even, only gets bigger.
 
 ### Distributions
 
@@ -207,6 +211,7 @@
     1. they have nice mathematical properties, 
     2. many naturally occurring distributions are indeed close to normal
     3. they can be used to produce **confidence intervals**.
+        * a confidence interval provides a range that is likely to contain the unknown value and a confidence that the unknown value lays within that range. 
 
     ```python
     def flip(numFlips):

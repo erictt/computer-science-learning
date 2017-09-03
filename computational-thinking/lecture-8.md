@@ -12,9 +12,15 @@
         * Reference: 
             * [Sampling distribution of a sample mean (Khan Academy)](https://www.khanacademy.org/math/statistics-probability/sampling-distributions-library/sample-means/v/central-limit-theorem)
             * [Simulation (onlinestatbook.com)](http://onlinestatbook.com/stat_sim/sampling_dist/index.html)
-       * Will talk about it more in [lecture 9](lecture-9.md#standard-error)
+       * More details in [lecture 9](lecture-9.md#standard-error)
 
 * A sample to prove: point 1 and point 2.
+    * Test with a six-sided die
+        * roll 100000 times(samples). Every time roll once, and get the mean values(the means of the samples). 
+            * Get mean and STD with the 100000 results
+        * roll 20000 times(samples). Every time roll 50 dies, and get the mean values(the means of the samples). 
+            * Get mean and STD with the 20000 results
+        * Base on the CLT, the test results should be normal distributed
 
     ```python
     import random, pylab
@@ -102,7 +108,7 @@
     # z-table: https://en.wikipedia.org/wiki/Standard_normal_table
     def estPi(precision, numTrails):
         numNeedles = 1000
-        std = precision
+        std = precision # just initial the value of std, can be any numbers large than precision
         while(std >= precision/1.96):
             mean, std = getEst(numNeedles, numTrails)
             print("Mean="+str(mean)+", Std="+str(round(std, 6))+", Needls="+str(numNeedles))

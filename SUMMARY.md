@@ -4,6 +4,12 @@
 
 * [Introduction](README.md)
 
+### Calculus One
+
+* [Week 2-3 - Functions & Limits](calculus-one/week-2-3.md)
+* [Week 4 - The Beginning of Derivatives](calculus-one/week-4.md)
+* [Week 5 - Techniques of Differentiation](calculus-one/week-5.md)
+
 ### CS50 Introduction to Computer Science
 
 * [Week 1 - C](cs50/week-1.md)
@@ -14,11 +20,12 @@
 * [Week 6 - HTTP](cs50/week-6.md)
 * [Week 7-9 - Machine Learning/Python/SQL](cs50/week-7-9.md)
 
-### Calculus One
+### Stanford Machine Learning
 
-* [Week 2-3 - Functions & Limits](calculus-one/week-2-3.md)
-* [Week 4 - The Beginning of Derivatives](calculus-one/week-4.md)
-* [Week 5 - Techniques of Differentiation](calculus-one/week-5.md)
+* [Week 1](stanford-machine-learning/week-1.md)
+* [Week 2](stanford-machine-learning/week-2.md)
+* [Week 3](stanford-machine-learning/week-3.md)
+* [Symbols of Mathematics](stanford-machine-learning/SYMBOLS.md)
 
 ### Computational Thinking
 
@@ -39,12 +46,5 @@
 * [Note](effective-thinking-through-mathematics/note.md)
 * [Week 4 (Telling the Story of Infinity)](effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity.md)
 * [Week 5 (Telling the Story of Euler Circuit Theorem)](effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem.md)
-
-### Stanford Machine Learning
-
-* [Week 1](stanford-machine-learning/week-1.md)
-* [Week 2](stanford-machine-learning/week-2.md)
-* [Week 3](stanford-machine-learning/week-3.md)
-* [Symbols of Mathematics](stanford-machine-learning/SYMBOLS.md)
 
 
