@@ -37,7 +37,7 @@
 * [Lecture 7 - Inferential Statistics](computational-thinking/lecture-7.md)
 * [Lecture 8 - Monte Carlo Simulation](computational-thinking/lecture-8.md)
 * [Lecture 9 - Sampling and Standard Error](computational-thinking/lecture-9.md)
-* [Lecture 10-11 - Experimental Data](computational-thinking/lecture-11.md)
+* [Lecture 10-11 - Experimental Data](computational-thinking/lecture-10-11.md)
 * [Lecture 12 - Machine Learning](computational-thinking/lecture-12.md)
 * [Lecture 13 - Statistical Abuses](computational-thinking/lecture-13.md)
 

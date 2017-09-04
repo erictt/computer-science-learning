@@ -32,7 +32,7 @@
         * Initialize the node's `next` field.
         * Return a pointer to the newly created `sllnode`.
 * Search through a linked list to find an element.
-    * `bool find(sllnode* head, VALUE val);
+    * `bool find(sllnode* head, VALUE val);`
     * Steps
         * Create a traversal pointer pointing to the list's head.
         * If the current node's val field is what we're looking for, report success.
