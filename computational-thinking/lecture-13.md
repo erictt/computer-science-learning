@@ -1,6 +1,6 @@
 # Lecture 13
 
-[toc]
+[TOC]
 
 ## Statistical Abuses
 

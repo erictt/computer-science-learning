@@ -1,6 +1,6 @@
 # Lecture 12
 
-[toc]
+[TOC]
 
 ## Machine Learning
 

@@ -26,22 +26,22 @@
 
     * use limit theorem 
         \\[\begin{align}
-        \frac{d}{dx}(f(x)g(x)) &= \lim_{h \to 0}\frac{f(x+h)g(x+h)-f(x)g(x)}{h} \\ 
-        &= \lim_{h \to 0}\frac{f(x+h)g(x+h)-f(x+h)g(x)+f(x+h)g(x)-f(x)g(x)}{h} \\
-        &= \lim_{h \to 0}\frac{f(x+h)g(x+h)-f(x+h)g(x)}{h} + \lim_{h \to 0}\frac{f(x+h)g(x)-f(x)g(x)}{h} \\
+        \frac{d}{dx}(f(x) \cdot g(x)) &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x) \cdot g(x)}{h} \\ 
+        &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x+h) \cdot g(x)+f(x+h)g(x)-f(x) \cdot g(x)}{h} \\
+        &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x+h) \cdot g(x)}{h} + \lim_{h \to 0}\frac{f(x+h) \cdot g(x)-f(x) \cdot g(x)}{h} \\
         &= \lim_{h \to 0}\frac{g(x+h)-g(x)}{h}*\lim_{h \to 0}f(x+h) + \lim_{h \to 0}\frac{f(x+h)-f(x)}{h}*\lim_{h \to 0}g(x) \\
         &= \frac{d}{dx}g(x)\lim_{h \to 0}f(x+h) + \frac{d}{dx}f(x)\lim_{h \to 0}g(x) \\
         &= f(x)\frac{d}{dx}g(x) + g(x)\frac{d}{dx}f(x) \\
         \end{align}\\]
 
-    * In prime notion: \\((fg)'=fg'+gf'\\)
+    * In prime notion: \\((f \cdot g)'=f \cdot g'+g \cdot f'\\)
 
 ## The Quotient Rule 
 
 * If **f and g are differentiable, then**
-    \\[\frac{d}{dx}[\frac{f(x)}{g(x)}]=\frac{\frac{d}{dx}f(x)g(x) - f(x)\frac{d}{dx}g(x)}{g(x)^2}\\] 
+        \\[\frac{d}{dx}[\frac{f(x)}{g(x)}]=\frac{\frac{d}{dx}f(x) \cdot g(x) - f(x) \cdot \frac{d}{dx}g(x)}{g(x)^2}\\] 
     
-    * In prime notion: \\((\frac{f}{g})'=\frac{gf'-fg'}{g^2}\\)
+    * In prime notion: \\((\frac{f}{g})'=\frac{g \cdot f'-f \cdot g'}{g^2}\\)
  
 ## Higher Derivatives
 
