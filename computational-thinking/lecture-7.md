@@ -116,7 +116,7 @@
     <img src='media/unit-2-2.jpg' width=600/>
     <img src='media/15043566360658.jpg' width=600/>
 
-
+* Conclusion 
     * The ratio heads/tails is converging towards 1 and log of standard deviation is falling linearly with the log of the number of flips per trail. 
     * By the time we get to about 10^6 coin flips per trail, the standard deviation is roughly three decimal orders of magnitude smaller than the mean. 
     * As we flip more coins, not only do we have a more precise answer, but more important, we also have reason to be more confident that it is close to the right answer.
@@ -127,65 +127,66 @@
 * **coefficient of variation** is the standard deviation divided by the mean, commonly used in fields such as engineering or physics when doing quality assurance studies. In general, distributions with a coefficient of variation of less than 1 are considered low-variance.
     * For example, the expression “The standard deviation is 15% of the mean” is a CV.
     
-    ```python
-    #Page 163, Figure 12.7
-    def CV(X):
-        mean = sum(X)/float(len(X))
-        try:
-            return stdDev(X)/mean
-        except ZeroDivisionError:
-            return float('nan')
+```python
+#Page 163, Figure 12.7
+def CV(X):
+    mean = sum(X)/float(len(X))
+    try:
+        return stdDev(X)/mean
+    except ZeroDivisionError:
+        return float('nan')
    
-    #Page 164, Figure 12.8
-    def flipPlot1(minExp, maxExp, numTrials):
-        """Assumes minExp and maxExp positive ints; minExp < maxExp
-             numTrials a positive integer
-           Plots summaries of results of numTrials trials of
-             2**minExp to 2**maxExp coin flips"""
-        ratiosMeans, diffsMeans, ratiosSDs, diffsSDs = [], [], [], []
-        ratiosCVs, diffsCVs = [], []
-        xAxis = []
-        for exp in range(minExp, maxExp + 1):
-            xAxis.append(2**exp)
-        for numFlips in xAxis:
-            ratios = []
-            diffs = []
-            for t in range(numTrials):
-                numHeads, numTails = runTrial(numFlips)
-                ratios.append(numHeads/float(numTails))
-                diffs.append(abs(numHeads - numTails))
-            ratiosMeans.append(sum(ratios)/float(numTrials))
-            diffsMeans.append(sum(diffs)/float(numTrials))
-            ratiosSDs.append(stdDev(ratios))
-            diffsSDs.append(stdDev(diffs))
-            ratiosCVs.append(CV(ratios))
-            diffsCVs.append(CV(diffs))
-        numTrialsString = ' (' + str(numTrials) + ' Trials)'
-        title = 'Mean Heads/Tails Ratios' + numTrialsString
-        makePlot(xAxis, ratiosMeans, title,
-                 'Number of flips', 'Mean Heads/Tails', 'bo', logX = True)
-        title = 'SD Heads/Tails Ratios' + numTrialsString
-        makePlot(xAxis, ratiosSDs, title,
-                 'Number of Flips', 'Standard Deviation', 'bo',
-                 logX = True, logY = True)
-        title = 'Mean abs(#Heads - #Tails)' + numTrialsString
-        makePlot(xAxis, diffsMeans, title,
-             'Number of Flips', 'Mean abs(#Heads - #Tails)', 'bo',
-             logX = True, logY = True)
-        title = 'SD abs(#Heads - #Tails)' + numTrialsString
-        makePlot(xAxis, diffsSDs, title,
+#Page 164, Figure 12.8
+def flipPlot1(minExp, maxExp, numTrials):
+    """Assumes minExp and maxExp positive ints; minExp < maxExp
+         numTrials a positive integer
+       Plots summaries of results of numTrials trials of
+         2**minExp to 2**maxExp coin flips"""
+    ratiosMeans, diffsMeans, ratiosSDs, diffsSDs = [], [], [], []
+    ratiosCVs, diffsCVs = [], []
+    xAxis = []
+    for exp in range(minExp, maxExp + 1):
+        xAxis.append(2**exp)
+    for numFlips in xAxis:
+        ratios = []
+        diffs = []
+        for t in range(numTrials):
+            numHeads, numTails = runTrial(numFlips)
+            ratios.append(numHeads/float(numTails))
+            diffs.append(abs(numHeads - numTails))
+        ratiosMeans.append(sum(ratios)/float(numTrials))
+        diffsMeans.append(sum(diffs)/float(numTrials))
+        ratiosSDs.append(stdDev(ratios))
+        diffsSDs.append(stdDev(diffs))
+        ratiosCVs.append(CV(ratios))
+        diffsCVs.append(CV(diffs))
+    numTrialsString = ' (' + str(numTrials) + ' Trials)'
+    title = 'Mean Heads/Tails Ratios' + numTrialsString
+    makePlot(xAxis, ratiosMeans, title,
+             'Number of flips', 'Mean Heads/Tails', 'bo', logX = True)
+    title = 'SD Heads/Tails Ratios' + numTrialsString
+    makePlot(xAxis, ratiosSDs, title,
              'Number of Flips', 'Standard Deviation', 'bo',
              logX = True, logY = True)
-        title = 'Coeff. of Var. abs(#Heads - #Tails)' + numTrialsString
-        makePlot(xAxis, diffsCVs, title, 'Number of Flips',
-                 'Coeff. of Var.', 'bo', logX = True)
-        title = 'Coeff. of Var. Heads/Tails Ratio' + numTrialsString
-        makePlot(xAxis, ratiosCVs, title, 'Number of Flips',
-                 'Coeff. of Var.', 'bo', logX = True, logY = True)
-    ```
+    title = 'Mean abs(#Heads - #Tails)' + numTrialsString
+    makePlot(xAxis, diffsMeans, title,
+         'Number of Flips', 'Mean abs(#Heads - #Tails)', 'bo',
+         logX = True, logY = True)
+    title = 'SD abs(#Heads - #Tails)' + numTrialsString
+    makePlot(xAxis, diffsSDs, title,
+         'Number of Flips', 'Standard Deviation', 'bo',
+         logX = True, logY = True)
+    title = 'Coeff. of Var. abs(#Heads - #Tails)' + numTrialsString
+    makePlot(xAxis, diffsCVs, title, 'Number of Flips',
+             'Coeff. of Var.', 'bo', logX = True)
+    title = 'Coeff. of Var. Heads/Tails Ratio' + numTrialsString
+    makePlot(xAxis, ratiosCVs, title, 'Number of Flips',
+             'Coeff. of Var.', 'bo', logX = True, logY = True)
+```
 
-    <img src='media/15016457519417.jpg' width=600/>
+<img src='media/15016457519417.jpg' width=600/>
     
+* Conclusion
     * the plot of coefficient of variation for the heads/tails ratio is not much different from the plot of the standard deviation, cause the mean is close to 1.
     * **dispersion** in the values of `abs(heads – tails)` is independent of the number of flips. As the numbers of tails goes up, the mean of `abs(heads – tails)` also keep growing, which proves **Gambler's Fallacy** that `abs(heads – tails)` will never be even, only gets bigger.
 

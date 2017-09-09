@@ -16,30 +16,34 @@
             * `Δ(uv) = (u + Δu)(v + Δv) - uv = uΔv + vΔu + ΔuΔv` = the sum of the three shaded areas
         * If we divide by `Δx`, we get \\[\frac{Δ(uv)}{Δx} = \frac{uΔv}{Δx} + \frac{vΔu}{Δx} + \frac{ΔuΔv}{Δx}\\]
         * If we now let \\(Δx \to 0\\), we get the derivative of `uv`(f(x)g(x)): 
-            \\[\begin{align}
-            \frac{d}{dx}(uv) &= \lim_{Δx \to 0}\frac{Δ(uv)}{Δx} \\ 
-            &= \lim_{Δx \to 0}(u\frac{Δv}{Δx} + v\frac{Δu}{Δx} + Δu\frac{Δv}{Δx}) \\ 
-            &= u\lim_{Δx \to 0}\frac{Δv}{Δx} + v\lim_{Δx \to 0}\frac{Δu}{Δx} + (\lim_{Δx \to 0}Δu)(\lim_{Δx \to 0}(\frac{Δv}{Δx}) \\ 
-            &= u\frac{d}{dx}v + v\frac{d}{dx}u + 0 * u\frac{d}{dx}v
-            \end{align}\\]
+        
+        \\[\begin{align}
+        \frac{d}{dx}(uv) &= \lim_{Δx \to 0}\frac{Δ(uv)}{Δx} \\ 
+        &= \lim_{Δx \to 0}(u\frac{Δv}{Δx} + v\frac{Δu}{Δx} + Δu\frac{Δv}{Δx}) \\ 
+        &= u\lim_{Δx \to 0}\frac{Δv}{Δx} + v\lim_{Δx \to 0}\frac{Δu}{Δx} + (\lim_{Δx \to 0}Δu)(\lim_{Δx \to 0}(\frac{Δv}{Δx}) \\ 
+        &= u\frac{d}{dx}v + v\frac{d}{dx}u + 0 * u\frac{d}{dx}v
+        \end{align}\\]
+        
         * \\(\frac{d}{dx}(uv) = u\frac{d}{dx}v + v\frac{d}{dx}u\\)
 
     * use limit theorem 
-        \\[\begin{align}
-        \frac{d}{dx}(f(x) \cdot g(x)) &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x) \cdot g(x)}{h} \\ 
-        &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x+h) \cdot g(x)+f(x+h)g(x)-f(x) \cdot g(x)}{h} \\
-        &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x+h) \cdot g(x)}{h} + \lim_{h \to 0}\frac{f(x+h) \cdot g(x)-f(x) \cdot g(x)}{h} \\
-        &= \lim_{h \to 0}\frac{g(x+h)-g(x)}{h}*\lim_{h \to 0}f(x+h) + \lim_{h \to 0}\frac{f(x+h)-f(x)}{h}*\lim_{h \to 0}g(x) \\
-        &= \frac{d}{dx}g(x)\lim_{h \to 0}f(x+h) + \frac{d}{dx}f(x)\lim_{h \to 0}g(x) \\
-        &= f(x)\frac{d}{dx}g(x) + g(x)\frac{d}{dx}f(x) \\
-        \end{align}\\]
+
+    \\[\begin{align}
+    \frac{d}{dx}(f(x) \cdot g(x)) &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x) \cdot g(x)}{h} \\ 
+    &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x+h) \cdot g(x)+f(x+h)g(x)-f(x) \cdot g(x)}{h} \\
+    &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x+h) \cdot g(x)}{h} + \lim_{h \to 0}\frac{f(x+h) \cdot g(x)-f(x) \cdot g(x)}{h} \\
+    &= \lim_{h \to 0}\frac{g(x+h)-g(x)}{h}*\lim_{h \to 0}f(x+h) + \lim_{h \to 0}\frac{f(x+h)-f(x)}{h}*\lim_{h \to 0}g(x) \\
+    &= \frac{d}{dx}g(x)\lim_{h \to 0}f(x+h) + \frac{d}{dx}f(x)\lim_{h \to 0}g(x) \\
+    &= f(x)\frac{d}{dx}g(x) + g(x)\frac{d}{dx}f(x) \\
+    \end{align}\\]
 
     * In prime notion: \\((f \cdot g)'=f \cdot g'+g \cdot f'\\)
 
 ## The Quotient Rule 
 
 * If **f and g are differentiable, then**
-        \\[\frac{d}{dx}[\frac{f(x)}{g(x)}]=\frac{\frac{d}{dx}f(x) \cdot g(x) - f(x) \cdot \frac{d}{dx}g(x)}{g(x)^2}\\] 
+
+    * \\[\frac{d}{dx}[\frac{f(x)}{g(x)}]=\frac{\frac{d}{dx}f(x) \cdot g(x) - f(x) \cdot \frac{d}{dx}g(x)}{g(x)^2}\\] 
     
     * In prime notion: \\((\frac{f}{g})'=\frac{g \cdot f'-f \cdot g'}{g^2}\\)
  
@@ -96,11 +100,13 @@
 * Then there is an `x` such that \\(\lim_{h \to 0}\frac{x^h-1}{h} = 1\\).
 * We call it \\(e\\), \\(\lim_{h \to 0}\frac{e^h-1}{h} = 1\\)
 * To calculate the derivative of \\(e^x\\):
-    \\[\begin{align}
-    f'(x) &= \lim_{h \to 0}\frac{e^{x+h} - e^x}{h} \\
-          &= \lim_{h \to 0}\frac{e^{x}e^{h} - e^x}{h} \\
-          &= \lim_{h \to 0}\frac{e^{x}(e^{h} - 1)}{h} \\
-          &= e^{x} * \lim_{h \to 0}\frac{(e^{h} - 1)}{h} 
-    \end{align}\\]
+
+\\[\begin{align}
+f'(x) &= \lim_{h \to 0}\frac{e^{x+h} - e^x}{h} \\
+      &= \lim_{h \to 0}\frac{e^{x}e^{h} - e^x}{h} \\
+      &= \lim_{h \to 0}\frac{e^{x}(e^{h} - 1)}{h} \\
+      &= e^{x} * \lim_{h \to 0}\frac{(e^{h} - 1)}{h} 
+\end{align}\\]
+
 * We already assume that \\(\lim_{h \to 0}\frac{e^h-1}{h} = 1\\), so we got: \\[f'(x) = e^{x} * 1 = e^{x} = f(x)\\]
 

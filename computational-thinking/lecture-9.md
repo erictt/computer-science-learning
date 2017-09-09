@@ -78,7 +78,7 @@ getMeansAndSDs(population, sample, True)
    
    <img src="media/15020122920744.jpg" width=400 />
 
-* Try it 1000 times and plot the results
+* Try it 1000 times and plot **the sample means** results
 
 ```python
 random.seed(0) 
@@ -159,13 +159,13 @@ pylab.axvline(x = popMean, color = 'r')
        * where
            * `σ` is the standard deviation of the population.
 
-* So, we have some questions:
+* So, we have two questions:
     * Usually, we don't know the the standard deviation of the population, is it good solution to sample standard deviation instead?
     * Is the Sample Standard Deviation close to the Population Standard Deviation?
 
 #### Prove the SEM theorem
 
-* Let's use the standard deviation of the population to calculate SEM to see if it is close to the standard deviation of the sample means of the population by simulation
+* First, let's use the standard deviation of the population to calculate SEM to see if it is close to the standard deviation of the sample means of the population by simulation
 * Test with different sample sizes
 
 ```python
