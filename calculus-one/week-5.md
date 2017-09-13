@@ -63,6 +63,7 @@
     * Thus the **acceleration**(the instantaneous rate of change of velocity with respect to time) function is the derivative of the velocity function and is therefore the second derivative of the position function:
         * \\(a(t)=v'(t)=s''(t)\\)
         * or in Leibniz notation: \\(a=\frac{dv}{dt}=\frac{d^2s}{dt^2}\\)
+
 ### Concavit
 * If `f''(x) > 0` for all `x` in `I`, then the graph of `f` is concave upward on `I`.
 * If `f''(x) < 0` for all `x` in `I`, then the graph of `f` is concave downward on `I`.
@@ -98,15 +99,13 @@
     * \\(\lim_{h \to 0}\frac{2^h-1}{h} \approx 0.693\\)
     * \\(\lim_{h \to 0}\frac{3^h-1}{h} \approx 1.099\\)
 * Then there is an `x` such that \\(\lim_{h \to 0}\frac{x^h-1}{h} = 1\\).
-* We call it \\(e\\), \\(\lim_{h \to 0}\frac{e^h-1}{h} = 1\\)
-* To calculate the derivative of \\(e^x\\):
-
-\\[\begin{align}
-f'(x) &= \lim_{h \to 0}\frac{e^{x+h} - e^x}{h} \\
-      &= \lim_{h \to 0}\frac{e^{x}e^{h} - e^x}{h} \\
-      &= \lim_{h \to 0}\frac{e^{x}(e^{h} - 1)}{h} \\
-      &= e^{x} * \lim_{h \to 0}\frac{(e^{h} - 1)}{h} 
-\end{align}\\]
+* We call the `x` value: \\(e\\), \\(\lim_{h \to 0}\frac{e^h-1}{h} = 1\\)
+* To calculate the derivative of \\(e^x\\): \\[\begin{align}
+    f'(x) &= \lim_{h \to 0}\frac{e^{x+h} - e^x}{h} \\
+          &= \lim_{h \to 0}\frac{e^{x}e^{h} - e^x}{h} \\
+          &= \lim_{h \to 0}\frac{e^{x}(e^{h} - 1)}{h} \\
+          &= e^{x} * \lim_{h \to 0}\frac{(e^{h} - 1)}{h} 
+    \end{align}\\]
 
 * We already assume that \\(\lim_{h \to 0}\frac{e^h-1}{h} = 1\\), so we got: \\[f'(x) = e^{x} * 1 = e^{x} = f(x)\\]
 
