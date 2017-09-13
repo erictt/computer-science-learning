@@ -1,6 +1,6 @@
 # Computer Science Learning
 
-* [Gitbook](https://erictt.gitbooks.io/computer-science-learning/content/)
+* [Gitbook](https://cs.ericyy.me)
 
 Notes, exercise and some other stuff.
 

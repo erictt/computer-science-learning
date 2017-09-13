@@ -20,26 +20,3 @@ divide by N-1 (instead of N) when calculating a Sample Variance.
 * [An Intuitive Guide To Exponential Functions & e](https://betterexplained.com/articles/an-intuitive-guide-to-exponential-functions-e/) 
 * [Demystifying the Natural Logarithm (ln)](https://betterexplained.com/articles/demystifying-the-natural-logarithm-ln/) 
 
-
-## Quadratic Function
-* [Wikipedia](https://en.wikipedia.org/wiki/Quadratic_function)
-* \\(f(x) = ax^2 + bx +c\\), \\(a \ne 0\\) :
-    
-   <img src="stanford-machine-learning/media/week-2-8.png" width=200/>
-
-## Cubic Function
-* [Wikipedia](https://en.wikipedia.org/wiki/Cubic_function)
-* \\(f(x) = ax^3 + bx^2 + cx +d\\)
-* sample: \\(f(x) = (x^3 + 3x^2 - 6x - 8)/4\\):
-    
-   <img src="stanford-machine-learning/media/week-2-7.png" width=200/>
-
-## Square Root Function
-* [Wikipedia](https://en.wikipedia.org/wiki/Square_root)
-* sample: \\(f(x) = \sqrt{x}\\):
-    
-   <img src="stanford-machine-learning/media/week-2-9.png" width=300/>
-
-
-
-
