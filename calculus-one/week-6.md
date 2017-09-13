@@ -150,7 +150,7 @@
     If we define \\(\epsilon\\) to be 0 when `∆x = 0`, then \\(\epsilon\\) become a continuous function of `∆x`. Thus, for a differentiable function `f`, we can write 
     \\[\Delta y = f'(a)\Delta x + \epsilon \Delta x\ where\ \epsilon \to 0\ as\ \Delta x \to 0\\]
     and \\(\epsilon\\) is a continuous function of `∆x`. This property of differentiable functions is what enables us to prove the Chain Rule.
-* **Now to Prove** Suppose `u=g(x)` is differentiable at `a` and `y=f(u)` is differentiable at `b=g(a)`, If `∆x` is an increment in `x` and `∆u` and   `∆y` are corresponding increments in `u` and `y`, then we can use last equation to write 
+* **Now to Prove**: Suppose `u=g(x)` is differentiable at `a` and `y=f(u)` is differentiable at `b=g(a)`, If `∆x` is an increment in `x` and `∆u` and   `∆y` are corresponding increments in `u` and `y`, then we can use last equation to write 
     \\[\Delta u = g'(a)\Delta x + \epsilon_1\Delta x = (g'(a) + \epsilon_1)\Delta x\\]
     where \\(\epsilon_1 \to 0\\) as \\(\Delta x \to 0\\). 
     Similarly 
