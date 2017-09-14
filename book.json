@@ -5,10 +5,13 @@
     "plugins": [
         "mathjax@git+https://github.com/erictt/plugin-mathjax.git#1.2.0",
         "simple-page-toc@git+https://github.com/erictt/gitbook-plugin-simple-page-toc.git",
-        "github", "anchors", "splitter",
+        "github",
+        "anchors",
+        "splitter",
         "-highlight",
-        "sitemap-general",
-        "anchor-navigation", "expandable-chapters"
+        "anchor-navigation",
+        "expandable-chapters",
+        "sitemap-general"
     ],
     "pluginsConfig": {
         "simple-page-toc": {
