@@ -7,12 +7,16 @@
         "simple-page-toc@git+https://github.com/erictt/gitbook-plugin-simple-page-toc.git",
         "github", "anchors", "splitter",
         "-highlight",
+        "sitemap-general",
         "anchor-navigation", "expandable-chapters"
     ],
     "pluginsConfig": {
         "simple-page-toc": {
             "maxDepth": 3,
             "skipFirstH1": true
+        },
+        "sitemap-general": {
+            "prefix": "https://cs.erictt.me/"
         },
         "github": {
             "url": "https://github.com/erictt/computer-science-learning"
