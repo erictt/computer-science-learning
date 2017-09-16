@@ -15,64 +15,64 @@
 
 * Sample 1: \\(x^2+y^2=25\\), find \\(\frac{d}{dx}y\\), and the tangent to the circle at point `(3, 4)`.
     * <img src="media/15047908083942.jpg" width=400 />
-        * \\[\begin{align}
+        * \\[\begin{aligned}
             \frac{d}{dx}(x^2+y^2) &= \frac{d}{dx}(25) \\
             \frac{d}{dx}(x^2) + \frac{d}{dx}(y^2) &= 0 \\
             2x + 2y \cdot \frac{d}{dx}y &= 0 \\
             \frac{d}{dx}y &= -\frac{x}{y}
-          \end{align}\\]
+          \end{aligned}\\]
         * PS: `y` is a function of `x` and using the Chain Rule, we have \\[\frac{d}{dx}(y^2) = \frac{d}{dy}(y^2) \cdot \frac{d}{dx}y = 2y\frac{d}{dx}y\\]
     * At the point `(3, 4)` we have `x = 3` and `y = 4`, so \\[\frac{d}{dx}y = -\frac{3}{4}\\]
 * Sample 2: \\(x^3+y^3=axy\\) (**folium of Descartes**)
     * \\(x^3+y^3=6xy\\), find \\(\frac{d}{dx}y\\)
     * <img src="media/15047911364682.jpg" width=150 />
-    * \\[\begin{align}
+    * \\[\begin{aligned}
         3x^2 + 3y^2y' &= 6xy' + 6y \\
         x^2 + y^2y' &= 2xy' + 2y \\
         (y^2 - 2x)y' &= 2y - x^2 \\
         y' &= \frac{2y - x^2}{y^2 - 2x}
-      \end{align}\\]
+      \end{aligned}\\]
 
 ### Derivatives of Inverse Function
 
 * If `f` is a differentiable function, and `f'` is continuous, and \\(f'(a) \ne 0\\), then
     * \\(f^{-1}(y)\\) is defined for `y` near `f(a)`, \\(f^{-1}\\) is differentiable near `f(a)`, \\((f^{-1})'\\) is continuous near `f(a)`, and \\[(f^{-1})'(y)=\frac{1}{f'(f^{-1}(y))}\\]
 * Sample: 
-    \\[\begin{align}
+    \\[\begin{aligned}
         f(x) &= x^2\ (x>0),\ f'(x) = 2x \\
         f^{-1}(x) &= \sqrt{x} \\
         (f^{-1})'(x) &= \frac{1}{f'(f^{-1}(x))} = \frac{1}{f'(\sqrt{x})} = \frac{1}{2\sqrt{x}}
-      \end{align}\\]
+      \end{aligned}\\]
 
 ### Derivatives of Logarithmic Functions
 
 * Sample 1: 
-    \\[\begin{align}
+    \\[\begin{aligned}
         f(x) &= e^x,\ f'(x) = e^x (proved\ in\ end\ of\ week 5) \\
         f^{-1}(x) &= \log{x} \\
         (f^{-1})'(x) &= \frac{1}{f'(f^{-1}(x))} = \frac{1}{f'(\log{x})} = \frac{1}{e^{\log{x}}} \\
         &= \frac{1}{x}
-      \end{align}\\]
+      \end{aligned}\\]
 * Sample 2: 
-    \\[\begin{align}
+    \\[\begin{aligned}
         f(x) &= \log_{b}{x} \\
         f'(x) &= \frac{d}{dx}\frac{\log{x}}{\log{b}} = \frac{1}{\log{b}} \cdot \frac{d}{dx}\log{x} = \frac{1}{\log{b}} \cdot \frac{1}{x} \\
         &= \frac{1}{x \cdot \log{b}}
-      \end{align}\\]  
+      \end{aligned}\\]  
 * Sample 3: 
-    \\[\begin{align}
+    \\[\begin{aligned}
         f(x) &= b^x \\
         &= (e^{\log{b}})^x = e^{\log{b} \cdot x} \\
         f'(x) &= e^{\log{b} \cdot x} \cdot \frac{d}{dx}(\log{b} \cdot x)\ (chain\ rules) \\
         &= (e^{\log{b}})^{\cdot x} \cdot \log{b} \\
         &= b^x \cdot \log{b}
-      \end{align}\\]  
+      \end{aligned}\\]  
 
 #### Logarithmic Differentiation
 
 * The calculation of derivatives of complicated functions involving products, quotients, or powers can often be simplified by taking logarithms.
 * Sample: Differentiate \\(f(x)=\frac{(1+x^2)^5 \cdot (1+x^3)^5}{(1+x^4)^7}\\), 
-    \\[\begin{align}
+    \\[\begin{aligned}
         y &= \frac{(1+x^2)^5 \cdot (1+x^3)^5}{(1+x^4)^7} \\
         \log{y} &= \log{\frac{(1+x^2)^5 \cdot (1+x^3)^8}{(1+x^4)^7}} \\
         \frac{d}{dx}\log{y} &= \frac{d}{dx}\log{\frac{(1+x^2)^5 \cdot (1+x^3)^8}{(1+x^4)^7}} \\
@@ -80,7 +80,7 @@
         \frac{1}{y} \cdot \frac{d}{dx}y &= 5\frac{d}{dx}\log{(1+x^2)} + 8\frac{d}{dx}\log{(1+x^3)} - 7\frac{d}{dx}\log{(1+x^4)} \\
         \frac{1}{y} \cdot \frac{d}{dx}y &= 5\frac{2x}{1+x^2} + 8\frac{3x^2}{1+x^3} - 7\frac{4x^3}{1+x^4} \\
         \frac{d}{dx}y &= (5\frac{2x}{1+x^2} + 8\frac{3x^2}{1+x^3} - 7\frac{4x^3}{1+x^4}) \cdot \frac{(1+x^2)^5 \cdot (1+x^3)^5}{(1+x^4)^7}\\
-      \end{align}\\]
+      \end{aligned}\\]
 
 ## Justify the Derivative Rules
 
@@ -90,53 +90,53 @@
     * Before, the power rule only apply for the real numbers, this formula apply for all rational numbers.
 * Use chain rules to find the derivative of \\(f(x)=\frac{1}{x^n}\\) : 
     * First use the limit theorem to find the derivative of \\(f(x)=\frac{1}{x}\\): 
-    \\[\begin{align}
+    \\[\begin{aligned}
         \frac{d}{dx}\frac{1}{x} &= \lim_{h \to 0}\frac{\frac{1}{x+h}-\frac{1}{x}}{h} \\
         &= \lim_{h \to 0}\frac{\frac{x-h-x}{x(x+h)}}{h} \\
         &= \lim_{h \to 0}\frac{\frac{-h}{x(x+h)}}{h} \\
         &= \lim_{h \to 0}\frac{-1}{x(x+h)} \\
         &= -\frac{1}{x^2} \\
-          \end{align}\\]
+          \end{aligned}\\]
     * Then use chain rules to find the derivative of \\(f(x)=\frac{1}{x^n}\\): 
-        \\[\begin{align}
+        \\[\begin{aligned}
         \frac{d}{dx}\frac{1}{x^n} &= - \frac{1}{(x^n)^2} \cdot \frac{d}{dx}x^n \\
         &= - \frac{1}{(x^n)^2} \cdot nx^{n-1} \\
         &= - nx^{-2n+n-1} \\
         &= - nx^{-n-1}
-      \end{align}\\]
-* Sample: Differentiate \\(y=x^{\sqrt{2}},\ (x>0)\\), \\[\begin{align}
+      \end{aligned}\\]
+* Sample: Differentiate \\(y=x^{\sqrt{2}},\ (x>0)\\), \\[\begin{aligned}
         \log{y} &= \log{x^{\sqrt{2}}} \\
         \frac{d}{dx}\log{y} &= \frac{d}{dx}\log{x^{\sqrt{2}}} \\
         \frac{1}{y} \cdot \frac{d}{dx}y &= \frac{d}{dx}\sqrt{2}\log{x} \\
         \frac{1}{x^{\sqrt{2}}} \cdot \frac{d}{dx}y &= \sqrt{2} \cdot \frac{1}{x} \\
         \frac{d}{dx}y &= \sqrt{2} \cdot \frac{1}{x} \cdot x^{\sqrt{2}} \\
         \frac{d}{dx}y &= \sqrt{2} \cdot x^{\sqrt{2}-1} \\
-      \end{align}\\]
+      \end{aligned}\\]
 
 ### The Product Rule
 
 * Use logarithms to prove: 
-    \\[\begin{align}
+    \\[\begin{aligned}
         f(x) &> 0,\ g(x) > 0, \\
         log(f(x)g(x)) &= log(f(x)) + log(g(x)) \\
         \frac{d}{dx}log(f(x)g(x)) &= \frac{d}{dx}log(f(x)) + \frac{d}{dx}log(g(x)) \\
         \frac{1}{f(x)g(x)} \cdot \frac{d}{dx}f(x)g(x) &= \frac{1}{f(x)} \cdot \frac{d}{dx}f(x) + \frac{1}{g(x)} \cdot \frac{d}{dx}g(x) \\
         \frac{d}{dx}f(x)g(x) &= g(x) \cdot \frac{d}{dx}f(x) + f(x) \cdot \frac{d}{dx}g(x)
-      \end{align}\\]
+      \end{aligned}\\]
 
 ### The Quotient Rule
 
 * First we need to calculate the derivative of \\(\frac{1}{g(x)}\\) : 
-    \\[\begin{align}
+    \\[\begin{aligned}
         we\ have\ proved\ this:\ f(x) &= \frac{1}{x},\ f'(x) = -\frac{1}{x^2} \\
         so,\ \frac{d}{dx}\frac{1}{g(x)} &= - \frac{1}{(g(x))^2} \cdot g'(x)
-      \end{align}\\]
+      \end{aligned}\\]
       
-* Then: \\[\begin{align}
+* Then: \\[\begin{aligned}
         \frac{d}{dx}\frac{f(x)}{g(x)} &= \frac{d}{dx}(f(x) \cdot \frac{1}{g(x)}) \\
         &= f'(x) \cdot \frac{1}{g(x)} + f(x) \cdot (- \frac{1}{(g(x))^2} \cdot g'(x)) \\
         &= \frac{f'(x) \cdot g(x) -  f(x) \cdot g'(x)}{(g(x))^2} \\
-      \end{align}\\]
+      \end{aligned}\\]
 
 ### Proof the Chain Rule
 
@@ -158,10 +158,10 @@
     where \\(\epsilon_2 \to 0\\) as \\(\Delta x \to 0\\). If we now substitute the expression for `∆u`, we get 
     \\[\Delta y = [f'(b) + \epsilon_2][g'(a) + \epsilon_1]\Delta x\\], so \\[\frac{\Delta y}{\Delta x} = [f'(b) + \epsilon_2][g'(a) + \epsilon_1]\\] 
     As \\(\Delta x \to 0\\). So both \\(\epsilon_2 \to 0\\) and \\(\epsilon_1 \to 0\\) as \\(\Delta x \to 0\\). Therefore 
-    \\[\begin{align}
+    \\[\begin{aligned}
         \frac{dy}{dx} &= \lim_{\Delta x \to 0}\frac{\Delta y}{\Delta x} =   \lim_{\Delta x \to 0}[f'(b) + \epsilon_2][g'(a) + \epsilon_1] \\
         &= f'(b)g'(a) = f'(g(a))g'(a)
-          \end{align}\\]. 
+          \end{aligned}\\]. 
     This prove the **Chain Rule**.
 
 

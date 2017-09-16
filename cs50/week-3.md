@@ -113,14 +113,14 @@ on input of n elements
     * `c` is the single step takes. In this case, c = 1, cause we only need to put an element into memory. 
     * Then use formula: `T(n) = T(n/2) + T(n/2) + n`. 
         * `n` means every layer will take `n` steps. When the array has been separated as one by one, we will need `1 * n` steps to sort them all, then `2 * n/2` steps, then `4 * n/4` step. So every steps will take `n` steps to sort.
-        * \\[\begin{align}
+        * \\[\begin{aligned}
             T(n) &= 2 * T(\frac{n}{2}) + n \\
                 &= 2^2 * T(\frac{n}{2^2}) + 2n \\
                 &=\ ... \\
                 &= 2^{\log_2{n}} * T(\frac{n}{2^{\log_2{n}}}) + \log_2{n} * n \\
                 &= 2^{\log_2{n}} * 1 + n\log_2{n} \\
                 &= n + n\log_2{n} \\
-            \end{align}\\].
+            \end{aligned}\\].
         * So the complexity will be : \\(O(n\log{n}+n) = O(n\log{n})\\).
 
 * [Implement with C](https://gist.github.com/erictt/2c4387dba45586b967ae2efe7bb94bc7)

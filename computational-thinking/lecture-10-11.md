@@ -13,9 +13,9 @@
     * `k` is called the spring constant.
     * All springs have an **elastic limit**, beyond which the law fails.
 
-* For example, How much does a rider have to weigh to compress the spring  on motorbike 1cm? (\\(k \approx 35,000𝑁/𝑚\\))
-    * \\(F = 0.01m * 35,000N/m\\)
-    * \\(F = 350N\\) 
+* For example, How much does a rider have to weigh to compress the spring  on motorbike 1cm? (\\(k \approx 35,000 N/m\\))
+    * \\(F = 0.01m * 35,000 N/m\\)
+    * \\(F = 350 N\\) 
     * \\(F = mass * acc\\), \\(F = mass * 9.81m/s^2\\)
     * \\(mass * 9.81m/s^2 = 350N\\)
     * \\(mass \approx 35.68kg\\)

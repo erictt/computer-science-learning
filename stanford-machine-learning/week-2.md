@@ -31,7 +31,7 @@
     * \\(\theta^T\\) is an \\(1 * (n + 1)\\) matrix
   * \\(h_{\theta}(X) = X\theta\\)
     * The training examples are stored in \\(X\\) row-wise. The following example shows us the reason behind setting \\(x^{(i)}_{0}=1\\) :
-    * \\(\begin{align*}X = \begin{bmatrix}x^{(1)}_0 & x^{(1)}_1 \newline x^{(2)}_0 & x^{(2)}_1 \newline x^{(3)}_0 & x^{(3)}_1 \end{bmatrix}&,\theta = \begin{bmatrix}\theta_0 \newline \theta_1 \newline\end{bmatrix}\end{align*}\\)
+    * \\[\begin{aligned}X = \begin{bmatrix}x^{(1)}_0 & x^{(1)}_1 \\ x^{(2)}_0 & x^{(2)}_1 \\ x^{(3)}_0 & x^{(3)}_1 \end{bmatrix}&,\theta = \begin{bmatrix}\theta_0 \\ \theta_1 \\\end{bmatrix}\end{aligned}\\]
 
 ### Gradient Descent for Multiple Variables
 
@@ -39,7 +39,7 @@
 
 * Gradient descent:
 
-  * > \\(\begin{align*} \text{Repeat } \lbrace & \newline \theta_j := & \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \newline \rbrace& \end{align*}\\) 
+  * > \\[\begin{aligned} \text{Repeat } \lbrace & \\ \theta_j := & \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \\ \rbrace& \end{aligned}\\]
 
     * \\(J(\theta) = J(\theta_0, \theta_1,..., \theta_n)\\) 
 
@@ -97,7 +97,7 @@
 
 #### Combine multiple features into one
 
-* We can combine \\(x_1\\) and \\(x_2\\) into a new feature \\(x_3\\) by taking \\(x1⋅x2\\) .
+* We can combine \\(x_1\\) and \\(x_2\\) into a new feature \\(x_3\\) by taking \\(x1 \cdot x2\\) .
   * take the housing price as sample: \\(x = x_1 * x_2\\),\\(x_1\\) is frontage, and \\(x_2\\) is depth of the house.
 
 #### Polynomial Regression

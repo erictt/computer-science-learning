@@ -44,25 +44,25 @@
 ## Differentiate Trig Functions
 
 * To prove: if \\(f(x) = \sin{x}\\), then \\(f'(x) = \cos{x}\\)
-    * \\[\begin{align}
+    * \\[\begin{aligned}
         f'(x) &= \lim_{h \to 0}\frac{\sin(x+h) - \sin(x)}{h} \\
               &= \lim_{h \to 0}\frac{\sin{x}\cos{h} + \cos{x}\sin{h} - \sin(x)}{h} \\
               &= \lim_{h \to 0}[\sin{x}(\frac{\cos{h} - 1}{h}) + \cos{x}(\frac{\sin{h}}{h})] \\
               &= \sin{x}\lim_{h \to 0}\frac{\cos{h} - 1}{h} + \cos{x}\lim_{h \to 0}\frac{\sin{h}}{h} 
-      \end{align}\\]
+      \end{aligned}\\]
     * Recall the [Squeeze Theorem](/calculus-one/week-2-3.html#squeeze-theorem), we know \\(\displaystyle\lim_{x\to{0}}\frac{\sin(x)}{x}=1\\), then,
-    * \\[\begin{align}
+    * \\[\begin{aligned}
         \lim_{\theta \to 0}\frac{\cos{\theta} - 1}{\theta} &= \lim_{\theta \to 0}{\frac{\cos{\theta} - 1}{\theta} \cdot \frac{\cos{\theta} + 1}{\cos{\theta} + 1}} = \lim_{\theta \to 0}\frac{\cos^2{\theta} - 1}{\theta(\cos{\theta} + 1)} \\
         &= \lim_{\theta \to 0}\frac{-\sin^2{\theta}}{\theta(\cos{\theta} + 1)} = -\lim_{\theta \to 0}{\frac{\sin{\theta}}{\theta} \cdot \frac{\sin{\theta}}{\cos{\theta}+1}} \\
         &= -\lim_{\theta \to 0}\frac{\sin{\theta}}{\theta} \cdot \lim_{\theta \to 0}\frac{\sin{\theta}}{\cos{\theta}+1} \\
         &= - 1 \cdot (\frac{0}{1 + 1}) \\
         \lim_{\theta \to 0}\frac{\cos{\theta} - 1}{\theta} &= 0
-        \end{align}\\]
-    * So, \\[\begin{align}
+        \end{aligned}\\]
+    * So, \\[\begin{aligned}
             f'(x) &= \sin{x}\lim_{h \to 0}\frac{\cos{h} - 1}{h} + \cos{x}\lim_{h \to 0}\frac{\sin{h}}{h} \\
             &= (\sin{x}) \cdot 0 + (\cos{x}) \cdot 1 \\
             &= \cos{x}
-            \end{align}\\]
+            \end{aligned}\\]
             
 ###  Derivatives of Trigonometric Functions
 
@@ -87,30 +87,30 @@
 * \\(\frac{d}{dx}\arcsin{x} = ?\\)
     * Let's say \\(f(x) = \arcsin{x}\\)
         * We know \\(f(\sin{x}) = x\\)
-        * So use the chain rules, derivative the both sides, we got: \\[\begin{align}
+        * So use the chain rules, derivative the both sides, we got: \\[\begin{aligned}
                 f'(\sin{x}) \cdot \cos{x} &= 1 \\
                 f'(\sin{x}) &= \frac{1}{\cos{x}} \\
                 f'(\sin{x}) &= \frac{1}{\sqrt{1-\sin^2{x}}} \\
                 f'(x) &= \frac{1}{\sqrt{1-x^2}} \\
-                \end{align}\\]
+                \end{aligned}\\]
 * \\(\frac{d}{dx}\arccos{x} = ?\\): 
     * In a right triangle, the other two angles are \\(\alpha\, \beta\\), we know:
     * (\\(\sin{\alpha} = y\,\ \cos{\beta} = x\\)) and the hypotenuse equals `1`, then we got:
     * \\(\alpha + \beta = \frac{\pi}{2}\\)
     * \\(\arcsin{y} = \alpha\,\ \arccos{y} = \beta\\)
     * \\(\arcsin{y} + \arccos{y} = \frac{\pi}{2}\\)
-    * \\(\frac{d}{dy}\arcsin{y} + \frac{d}{dy}\arccos{y} = \\frac{d}{dy}frac{\pi}{2}\\)
+    * \\(\frac{d}{dy}\arcsin{y} + \frac{d}{dy}\arccos{y} = \frac{d}{dy}frac{\pi}{2}\\)
     * \\(\frac{d}{dy}\arcsin{y} + \frac{d}{dy}\arccos{y} = 0\\)
     * \\(\frac{d}{dy}\arccos{y} = - \frac{1}{\sqrt{1-x^2}}\\)
 * \\(\frac{d}{dx}\arctan{x} = ?\\)
     * set \\(f(x) = \arctan{x}\\), 
         * then \\(f(\tan{x}) = x\\)
-    * use the chain rules: \\[\begin{align}
+    * use the chain rules: \\[\begin{aligned}
         f'(\tan{x}) \cdot \sec^2{x} &= 1 \\
         f'(\tan{x}) &= \frac{1}{\sec^2{x}} \\
         f'(\tan{x}) &= \frac{1}{\tan^2{x}+1} \\
         f'(x) &= \frac{1}{x^2+1} \\
-        \end{align}\\]
+        \end{aligned}\\]
 
 ### Why do Sine and Cosine Oscillate?
 

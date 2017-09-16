@@ -10,32 +10,32 @@
         * <img src="media/15039140120421.jpg" width=200 />
         * We start by assuming that `u = f(x)` and `v = g(x)`.
         * Then we can interpret the `product uv` as an area of a rectangle
-        * If `x` changes by an amount `Δx`, then the corresponding changes in `u` and `v` are
-            * \\(Δu = f(x + Δx) - f(x)\\), \\(Δv = g(x + Δx) - g(x)\\)
+        * If `x` changes by an amount `\Delta x`, then the corresponding changes in `u` and `v` are
+            * \\(\Delta u = f(x + \Delta x) - f(x)\\), \\(\Delta v = g(x + \Delta x) - g(x)\\)
         * The change in the area of the rectangle is:
-            * `Δ(uv) = (u + Δu)(v + Δv) - uv = uΔv + vΔu + ΔuΔv` = the sum of the three shaded areas
-        * If we divide by `Δx`, we get \\[\frac{Δ(uv)}{Δx} = \frac{uΔv}{Δx} + \frac{vΔu}{Δx} + \frac{ΔuΔv}{Δx}\\]
-        * If we now let \\(Δx \to 0\\), we get the derivative of `uv`(f(x)g(x)): 
+            * `\Delta (uv) = (u + \Delta u)(v + \Delta v) - uv = u\Delta v + v\Delta u + \Delta u\Delta v` = the sum of the three shaded areas
+        * If we divide by `\Delta x`, we get \\[\frac{\Delta (uv)}{\Delta x} = \frac{u\Delta v}{\Delta x} + \frac{v\Delta u}{\Delta x} + \frac{\Delta u\Delta v}{\Delta x}\\]
+        * If we now let \\(\Delta x \to 0\\), we get the derivative of `uv`(f(x)g(x)): 
         
-        \\[\begin{align}
-        \frac{d}{dx}(uv) &= \lim_{Δx \to 0}\frac{Δ(uv)}{Δx} \\ 
-        &= \lim_{Δx \to 0}(u\frac{Δv}{Δx} + v\frac{Δu}{Δx} + Δu\frac{Δv}{Δx}) \\ 
-        &= u\lim_{Δx \to 0}\frac{Δv}{Δx} + v\lim_{Δx \to 0}\frac{Δu}{Δx} + (\lim_{Δx \to 0}Δu)(\lim_{Δx \to 0}(\frac{Δv}{Δx}) \\ 
+        \\[\begin{aligned}
+        \frac{d}{dx}(uv) &= \lim_{\Delta x \to 0}\frac{\Delta (uv)}{\Delta x} \\ 
+        &= \lim_{\Delta x \to 0}(u\frac{\Delta v}{\Delta x} + v\frac{\Delta u}{\Delta x} + \Delta u\frac{\Delta v}{\Delta x}) \\ 
+        &= u\lim_{\Delta x \to 0}\frac{\Delta v}{\Delta x} + v\lim_{\Delta x \to 0}\frac{\Delta u}{\Delta x} + (\lim_{\Delta x \to 0}\Delta u)(\lim_{\Delta x \to 0}(\frac{\Delta v}{\Delta x}) \\ 
         &= u\frac{d}{dx}v + v\frac{d}{dx}u + 0 * u\frac{d}{dx}v
-        \end{align}\\]
+        \end{aligned}\\]
         
         * \\(\frac{d}{dx}(uv) = u\frac{d}{dx}v + v\frac{d}{dx}u\\)
 
     * use limit theorem 
 
-    \\[\begin{align}
+    \\[\begin{aligned}
     \frac{d}{dx}(f(x) \cdot g(x)) &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x) \cdot g(x)}{h} \\ 
     &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x+h) \cdot g(x)+f(x+h)g(x)-f(x) \cdot g(x)}{h} \\
     &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x+h) \cdot g(x)}{h} + \lim_{h \to 0}\frac{f(x+h) \cdot g(x)-f(x) \cdot g(x)}{h} \\
     &= \lim_{h \to 0}\frac{g(x+h)-g(x)}{h}*\lim_{h \to 0}f(x+h) + \lim_{h \to 0}\frac{f(x+h)-f(x)}{h}*\lim_{h \to 0}g(x) \\
     &= \frac{d}{dx}g(x)\lim_{h \to 0}f(x+h) + \frac{d}{dx}f(x)\lim_{h \to 0}g(x) \\
     &= f(x)\frac{d}{dx}g(x) + g(x)\frac{d}{dx}f(x) \\
-    \end{align}\\]
+    \end{aligned}\\]
 
     * In prime notion: \\((f \cdot g)'=f \cdot g'+g \cdot f'\\)
 
@@ -100,12 +100,12 @@
     * \\(\lim_{h \to 0}\frac{3^h-1}{h} \approx 1.099\\)
 * Then there is an `x` such that \\(\lim_{h \to 0}\frac{x^h-1}{h} = 1\\).
 * We call the `x` value: \\(e\\), \\(\lim_{h \to 0}\frac{e^h-1}{h} = 1\\)
-* To calculate the derivative of \\(e^x\\): \\[\begin{align}
+* To calculate the derivative of \\(e^x\\): \\[\begin{aligned}
     f'(x) &= \lim_{h \to 0}\frac{e^{x+h} - e^x}{h} \\
           &= \lim_{h \to 0}\frac{e^{x}e^{h} - e^x}{h} \\
           &= \lim_{h \to 0}\frac{e^{x}(e^{h} - 1)}{h} \\
           &= e^{x} * \lim_{h \to 0}\frac{(e^{h} - 1)}{h} 
-    \end{align}\\]
+    \end{aligned}\\]
 
 * We already assume that \\(\lim_{h \to 0}\frac{e^h-1}{h} = 1\\), so we got: \\[f'(x) = e^{x} * 1 = e^{x} = f(x)\\]
 
