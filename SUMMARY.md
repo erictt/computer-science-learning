@@ -10,6 +10,7 @@
 * [Week 4 - The Beginning of Derivatives](calculus-one/week-4.md)
 * [Week 5 - Techniques of Differentiation](calculus-one/week-5.md)
 * [Week 6 - Chain Rule](calculus-one/week-6.md)
+* [Week 7 - Derivatives of Trigonometric Functions](calculus-one/week-7.md)
 
 ### Stanford Machine Learning
 
