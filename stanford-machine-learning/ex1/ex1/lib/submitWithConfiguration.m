@@ -22,15 +22,17 @@ function submitWithConfiguration(conf)
     response = submitParts(conf, email, token, parts);
   catch
     e = lasterror();
-    fprintf( ...
-      '!! Submission failed: unexpected error: %s\n', ...
-      e.message);
-    fprintf('!! Please try again later.\n');
+    fprintf('\n!! Submission failed: %s\n', e.message);
+    fprintf('\n\nFunction: %s\nFileName: %s\nLineNumber: %d\n', ...
+      e.stack(1,1).name, e.stack(1,1).file, e.stack(1,1).line);
+    fprintf('\nPlease correct your code and resubmit.\n');
     return
   end
 
   if isfield(response, 'errorMessage')
     fprintf('!! Submission failed: %s\n', response.errorMessage);
+  elseif isfield(response, 'errorCode')
+    fprintf('!! Submission failed: %s\n', response.message);
   else
     showFeedback(parts, response);
     save(tokenFile, 'email', 'token');
@@ -62,9 +64,10 @@ end
 function response = submitParts(conf, email, token, parts)
   body = makePostBody(conf, email, token, parts);
   submissionUrl = submissionUrl();
-  params = {'jsonBody', body};
-  responseBody = urlread(submissionUrl, 'post', params);
-  response = loadjson(responseBody);
+
+  responseBody = getResponse(submissionUrl, body);
+  jsonResponse = validateResponse(responseBody);
+  response = loadjson(jsonResponse);
 end
 
 function body = makePostBody(conf, email, token, parts)
@@ -114,6 +117,57 @@ function showFeedback(parts, response)
   fprintf('== %43s | %9s | %-s\n', '', totalScore, '');
   fprintf('== \n');
 end
+
+% use urlread or curl to send submit results to the grader and get a response
+function response = getResponse(url, body)
+% try using urlread() and a secure connection
+  params = {'jsonBody', body};
+  [response, success] = urlread(url, 'post', params);
+
+  if (success == 0)
+    % urlread didn't work, try curl & the peer certificate patch
+    if ispc
+      % testing note: use 'jsonBody =' for a test case
+      json_command = sprintf('echo jsonBody=%s | curl -k -X POST -d @- %s', body, url);
+    else
+      % it's linux/OS X, so use the other form
+      json_command = sprintf('echo ''jsonBody=%s'' | curl -k -X POST -d @- %s', body, url);
+    end
+    % get the response body for the peer certificate patch method
+    [code, response] = system(json_command);
+    % test the success code
+    if (code ~= 0)
+      fprintf('[error] submission with curl() was not successful\n');
+    end
+  end
+end
+
+% validate the grader's response
+function response = validateResponse(resp)
+  % test if the response is json or an HTML page
+  isJson = length(resp) > 0 && resp(1) == '{';
+  isHtml = findstr(lower(resp), '<html');
+
+  if (isJson)
+    response = resp;
+  elseif (isHtml)
+    % the response is html, so it's probably an error message
+    printHTMLContents(resp);
+    error('Grader response is an HTML message');
+  else
+    error('Grader sent no response');
+  end
+end
+
+% parse a HTML response and print it's contents
+function printHTMLContents(response)
+  strippedResponse = regexprep(response, '<[^>]+>', ' ');
+  strippedResponse = regexprep(strippedResponse, '[\t ]+', ' ');
+  fprintf(strippedResponse);
+end
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
