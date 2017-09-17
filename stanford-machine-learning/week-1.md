@@ -12,16 +12,16 @@
 ## Model and Cost Function
 * Model Representation
 
-  * To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function h : X → Y so that \\(h^{(x)}\\) is a “good” predictor for the corresponding value of y. For historical reasons, this function h is called a hypothesis. Seen pictorially, the process is therefore like this:
-
-  ![week-1-1](media/week-1-1.png)
-
-  * \\(h_{\theta}(x)=\theta_{0}+\theta_{1}x\\), and this means:
-
-    * Y is a linear function of x
-      * \\(\theta_{i}\\) are **parameters**
-      * \\(\theta_{0}\\) is zero condition
-      * \\(\theta_{1}\\) is gradient
+    * To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function h : X → Y so that \\(h^{(x)}\\) is a “good” predictor for the corresponding value of y. For historical reasons, this function h is called a hypothesis. Seen pictorially, the process is therefore like this:
+    
+    ![week-1-1](media/week-1-1.png)
+    
+    * \\(h_{\theta}(x)=\theta_{0}+\theta_{1}x\\), and this means:
+    
+        * **Y** is a linear function of **x**
+            * \\(\theta_{i}\\) are **parameters**
+            * \\(\theta_{0}\\) is zero condition
+            * \\(\theta_{1}\\) is gradient
     * This kind of function is a linear regression with one variable, also called **univariate linear regression** 
 
     ​
@@ -70,7 +70,7 @@
   * \\(\theta=1\\), then \\(h_{\theta}(x) = 0 + 1\times x\\) , then \\(h_\theta (x_{i}) - y_{i} =0\\) , then \\(J(\theta_{1})=0\\) 
   * Plots: ( \\(\theta_{1}=1, J(\theta_{1})=0\\) ), (\\(\theta_{1}=0.5, J(\theta_{1})\approx0.58\\) ), (\\(\theta_{1}=0, J(\theta_{1})\approx2.3\\) )
   * Then we got:
-    * ![week-1-8](media/week-1-8.png)
+    * <img src="media/week-1-8.png" width=300 />
   * The optimization objective for the learning algorithm is find the value of \\(\theta_{1}\\) which \\(minimizes  J(\theta_{1})\\)
     * So, here \\(\theta_{1} = 1\\) is the best value for \\(\theta_{1}\\)
 * Using our original complex hyothesis with two pariables,So cost function is \\(J(\theta_{0}, \theta_{1})\\)
@@ -78,12 +78,12 @@
     * \\(X = \theta_{0}\\)
     * \\(Z = \theta_{0}\\)
     * \\(Y=J(\theta_{0}, \theta_{1})\\)
-    * ![week-1-9](media/week-1-9.png)
+    * <img src="media/week-1-9.png" width=400 />
   * Instead of a surface plot we can use a **contour figures/plots**
     * Set of ellipses in different colors
     * Each colour is the same value of \\(J(\theta_{0}, \theta_{1})\\) , but obviously plot to different locations because \\(\theta_{1}\\) and \\(\theta_{0}\\) will vary
     * Imagine a bowl shape function coming out of the screen so the middle is the concentric circles
-    * ![week-1-10](media/week-1-10.png)
+    * <img src="media/week-1-10.png" width=500 />
 
 ## Parameter Learning
 
@@ -102,7 +102,7 @@
 - Outline:
   - Start with some \\(\theta_{0}, \theta_{1}\\), 
   - Keep changing \\(\theta_{0}, \theta_{1}\\) to reduce \\(J(\theta_{0}, \theta_{1})\\) until we hopefully end up at a minimum
-  - ![week-1-11](media/week-1-11.png)
+  - <img src="media/week-1-11.png" width=500 />
   - Here we can see one initialization point led to one local minimum
   - The other led to a different one
 
@@ -151,7 +151,7 @@
 
   - How does gradient descent converge with a fixed step size α?
 
-    - The intuition behind the convergence is that \\(\frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\\), \\)\theta_{1}\\) approaches 0 as we approach the bottom of our convex function. At the minimum, the derivative will always be 0 and thus we get:
+    - The intuition behind the convergence is that \\(\frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\\), \\(\theta_{1}\\) approaches 0 as we approach the bottom of our convex function. At the minimum, the derivative will always be 0 and thus we get:
 
       - > \\(\theta_{1}:=\theta_{1}-\alpha \times 0\\)
 
@@ -163,7 +163,7 @@
 
 * Now we have a partial derivative:
 
-  * ![week-1-16](media/week-1-16.png)
+    * ![week-1-16](media/week-1-16.png)
 
 * So we need to determine the derivative for each parameter:
 
@@ -173,39 +173,37 @@
     \theta_1 := & \theta_1 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m}\left((h_\theta(x_{i}) - y_{i}) x_{i}\right) \\
     \rbrace \end{aligned}\\]
 
-  * To check this you need to know multivariate calculus
-    * We have separated out the two cases for \\(\theta_{j}\\) into separate equations for \\(\theta_{0}\\) and \\(\theta_{1}\\); and that for θ1 we are multiplying xi at the end due to the derivative. The following is a derivation of \\(\frac{\partial}{\partial \theta_j} J(\theta)\\) for a single example :
-    * ![week-1-18](media/week-1-18.png)
+    * To check this you need to know **multivariate calculus**. So go back to here when you finished **multivariable calculus**.
+        * We have separated out the two cases for \\(\theta_{j}\\) into separate equations for \\(\theta_{0}\\) and \\(\theta_{1}\\); and that for \\(\theta_1\\) we are multiplying \\(x_i\\) at the end due to the derivative. The following is a derivation of \\(\frac{\partial}{\partial \theta_j} J(\theta)\\) for a single example :
+        * ![week-1-18](media/week-1-18.png)
 
 * How does it work
 
-  * Risk of meeting different local optimum
-  * The linear regression cost function is always a **convex function** - always has a single minimum
-    * Bowl shaped
-      * One global optima
-        * So gradient descent will always converge to global optima
-  * In action
-    * Initialize values to \\(\theta_{0} = 900, \theta_{1} = -0.1\\)
-    * ![week-1-17](media/week-1-17.png)
-  * End up at a global minimum
-  * This is actually **Batch Gradient Descent**
-    * Refers to the fact that over each step you look at all the training data
-      * Each step compute over m training examples
-    * Sometimes non-batch versions exist, which look at small data subsets
-      * We'll look at other forms of gradient descent (to use when m is too large) later in the course
-  * There exists a numerical solution for finding a solution for a minimum function
-    * **Normal equations** method Gradient descent scales better to large data sets though
-    * Used in lots of contexts and machine learning 
+    * Risk of meeting different local optimum
+    * The linear regression cost function is always a **convex function** - always has a single minimum
+        * Bowl shaped
+            * One global optima
+                * So gradient descent will always converge to global optima
+    * In action
+        * Initialize values to \\(\theta_{0} = 900, \theta_{1} = -0.1\\)
+        * ![week-1-17](media/week-1-17.png)
+    * End up at a global minimum
+    * This is actually **"Batch" Gradient Descent**
+        * Refers to the fact that over each step you look at all the training data
+            * Each step compute over **m** training examples
+        * Sometimes non-batch versions exist, which look at small data subsets
+            * We'll look at other forms of gradient descent (to use when **m** is too large) later in the course
+    * There exists a numerical solution for finding a solution for a minimum function
+        * **Normal equations** method Gradient descent scales better to large data sets though
+        * Used in lots of contexts and machine learning 
 
 ## Linear Algebra
-
-
 
 ### Matrices and Vectors
 
 * **Matrix**: Rectangular array of numbers:
 
-  * \\(X =  \begin{bmatrix} 1 & 2 & 3 & 4 & 5 \\ 3 & 4 & 5 & 6 & 7 \\ 9 & 10 & 11 & 12 & 13 \end{bmatrix}\\) 
+    * \\(X =  \begin{bmatrix} 1 & 2 & 3 & 4 & 5 \\ 3 & 4 & 5 & 6 & 7 \\ 9 & 10 & 11 & 12 & 13 \end{bmatrix}\\) 
 
 
 * Dimension of matrix: number of rows x number of columns
@@ -221,22 +219,22 @@
 ### Addition and Scalar Multiplication
 
 * Matrix Addition:
-  * Two matrices must have an equal number of rows and columns to be added.
-  * Sample: 
-    * \\(\begin{bmatrix} 1 & 2 & 3 \\ 3 & 4 & 5 \end{bmatrix} +  \begin{bmatrix} 3 & 1 & 6 \\ 6 & 7 & 2 \end{bmatrix} = \begin{bmatrix} 4 & 3 & 9 \\ 9 & 11 & 7 \end{bmatrix}\\)
-    * **Error!!** \\(\begin{bmatrix} 1 & 2 & 3 \\ 3 & 4 & 5 \end{bmatrix} +  \begin{bmatrix} 3 & 1 \\ 6 & 7 \end{bmatrix}\\) 
+    * Two matrices must have an equal number of rows and columns to be added.
+    * Sample: 
+        * \\(\begin{bmatrix} 1 & 2 & 3 \\ 3 & 4 & 5 \end{bmatrix} +  \begin{bmatrix} 3 & 1 & 6 \\ 6 & 7 & 2 \end{bmatrix} = \begin{bmatrix} 4 & 3 & 9 \\ 9 & 11 & 7 \end{bmatrix}\\)
+        * **Error!!** \\(\begin{bmatrix} 1 & 2 & 3 \\ 3 & 4 & 5 \end{bmatrix} +  \begin{bmatrix} 3 & 1 \\ 6 & 7 \end{bmatrix}\\) 
 
 
 * Scalar Multiplication
-  * Sample:
-    * \\(3 \times \begin{bmatrix} 3 & 1 \\ 6 & 7 \end{bmatrix} = \begin{bmatrix} 9 & 3 \\ 18 & 21 \end{bmatrix}\\)
+    * Sample:
+        * \\(3 \times \begin{bmatrix} 3 & 1 \\ 6 & 7 \end{bmatrix} = \begin{bmatrix} 9 & 3 \\ 18 & 21 \end{bmatrix}\\)
 
 ### Matrix Vector Multiplication 
 
 * ![week-1-m-11](media/week-1-m-11.jpg)
 * Example:
-  * \\(\begin{bmatrix} 1 & 2 & 3 \\ 3 & 4 & 5 \end{bmatrix} \times \begin{bmatrix} 4 \\ 3 \\ 2 \end{bmatrix} = \begin{bmatrix} 16 \\ 34 \end{bmatrix}\\)
-  * Row 1: \\(1 \times 4 + 2 \times 3 + 3 \times 2 = 16\\)​
+    * \\(\begin{bmatrix} 1 & 2 & 3 \\ 3 & 4 & 5 \end{bmatrix} \times \begin{bmatrix} 4 \\ 3 \\ 2 \end{bmatrix} = \begin{bmatrix} 16 \\ 34 \end{bmatrix}\\)
+    * Row 1: \\(1 \times 4 + 2 \times 3 + 3 \times 2 = 16\\)​
 * ![week-1-m-13](media/week-1-m-13.jpg)
 
 ### Matrix Matrix Multiplication
@@ -248,23 +246,23 @@
 
 * Let A and B be matirces. Then in general, \\(A * B \ne B * A\\) . (not commutative)
 * \\(A * B * C\\) : 
-  * Let \\(D = B * C\\). Compute \\(A * D\\)
-  * Let \\(E = A * B\\). Compute \\(E * C\\)
+      * Let \\(D = B * C\\). Compute \\(A * D\\)
+      * Let \\(E = A * B\\). Compute \\(E * C\\)
 * Identity Matrix:
-  * ![week-1-m-22](media/week-1-m-22.jpg)
+    * ![week-1-m-22](media/week-1-m-22.jpg)
 
 ### Inverse and Transpose
 
 * **Inverse**: \\(AA^{-1} = A^{-1}A = I\\) . Like \\(3 * 3^{-1} = 1\\)
-  * ![week-1-m-24](media/week-1-m-24.png)
-  * Not all numbers have an inverse. Like `0` doesn't have.
-  * Matrices that don't have an inverse are "singular" or "degenerate".
-  * How did you find the inverse
-    * Turns out that you can sometimes do it by hand, although this is very hard
-    * Numerical software for computing a matrices inverse
-      * Lots of open source libraries
+    * ![week-1-m-24](media/week-1-m-24.png)
+    * Not all numbers have an inverse. Like `0` doesn't have.
+    * Matrices that don't have an inverse are "singular" or "degenerate".
+    * How did you find the inverse
+        * Turns out that you can sometimes do it by hand, although this is very hard
+        * Numerical software for computing a matrices inverse
+            * Lots of open source libraries
 * **Transpose**:
-  * ![week-1-m-25](media/week-1-m-25.jpg)
+    * ![week-1-m-25](media/week-1-m-25.jpg)
 
 ## Words
 

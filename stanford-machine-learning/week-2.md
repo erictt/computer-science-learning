@@ -76,7 +76,7 @@
 
 #### Automatic convergence test
 
-* Declare convergence if J(θ) decreases by less than E in one iteration, where E is some small value such as 10−3. However in practice it's difficult to choose this threshold value.
+* Declare convergence if **J(θ)** decreases by less than **E** in one iteration, where **E** is some small value such as \\(10^{−3}\\). However in practice it's difficult to choose this threshold value.
 * ![week-2-4](media/week-2-4.png)
 * It has been proven that if learning rate \\(\alpha\\) is sufficiently small, then \\(J(θ)\\) will decrease on every iteration.
 * ![week-2-5](media/week-2-5.png)
@@ -105,15 +105,15 @@
 * Our hypothesis function need **NOT** be linear (a straight line) if that does not fit the data well. And, choose new features to get a better model, called polynomial regression.
 * We can **change the behavior or curve** of our hypothesis function by making it a quadratic, cubic or square root function (or any other form). ​
 
-* For housing data could use a quadratic function: \\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2\\) (*refer 1*)
+* For housing data could use a quadratic function: \\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2\\) 
   * But may not fit data so well, because inflection point means housing prices decrease when size gets really big.
-  * So instead must use a cubic function: \\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2 + \theta_3 x_1^3\\) (*refer 2*)
+  * So instead must use a cubic function: \\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2 + \theta_3 x_1^3\\) 
   * ![week-2-6](media/week-2-6.png)
   * In the cubic version, we have created new features \\(x_2\\) and \\(x_3\\) where.\\(x_2 = x_1^2\\) and \\(x_3 = x_1^3\\) . 
     * ![week-2-10](media/week-2-10.png)
   * One important thing to keep in mind is, if you choose your features this way then feature scaling becomes very important.
     * eg. if \\(x_1\\) has range 1 - 1000 then range of \\(x^2_1\\) becomes 1 - 1000000 and that of \\(x^3_1\\) becomes 1 - 1000000000
-  * To make it a square root function, we could do: \\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 \sqrt{x_1}\\) .
+  * Or we can make it a square root function, we could do: \\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 \sqrt{x_1}\\) .
 
 
 
