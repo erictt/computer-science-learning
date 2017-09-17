@@ -76,7 +76,7 @@
 
 #### Automatic convergence test
 
-* Declare convergence if **J(θ)** decreases by less than **E** in one iteration, where **E** is some small value such as \\(10^{−3}\\). However in practice it's difficult to choose this threshold value.
+* Declare convergence if **J(θ)** decreases by less than **E** in one iteration, where **E** is some small value such as \\(10^{-3}\\). However in practice it's difficult to choose this threshold value.
 * ![week-2-4](media/week-2-4.png)
 * It has been proven that if learning rate \\(\alpha\\) is sufficiently small, then \\(J(θ)\\) will decrease on every iteration.
 * ![week-2-5](media/week-2-5.png)
