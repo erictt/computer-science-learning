@@ -66,7 +66,7 @@
         * Each example is a feature vector which is \\(n+1\\) dimensional
 * Linear regression uses the following function to determine \\(\theta\\)
     * \\(J(\theta) = \dfrac {1}{m} \displaystyle \sum _{i=1}^m \dfrac{1}{2}\left (h_\theta (x_{i}) - y_{i} \right)^2\\) 
-    * define\\(cost()\\) function to simplify the function:
+    * define \\(cost()\\) function to simplify the function:
         * \\(Cost(h_\theta(x_i), y) = \dfrac{1}{2}(h_\theta(x_i) - y_i)^2\\) 
     * then we got:
         * \\( J(\theta) = \dfrac{1}{m} \displaystyle \sum_{i=1}^m \mathrm{Cost}(h_\theta(x_i),y_i)\\) 
@@ -131,32 +131,32 @@
             * Cost function here is \\(J(\theta) = (\theta_1 - 5)^2 + (\theta_2 - 5)^2\\) 
             * The derivatives of the \\(J(θ)\\) with respect to either \\(θ_1\\) and \\(θ_2\\) turns out to be the \\(2(θ_i - 5)\\) 
 
-* First, define our cost function:
-
-    ```
-    > function [jVal, gradient] = costFunction(theta)
-    >     jVal = [...code to compute J(theta)...];
-    >     gradient = [...code to compute derivative of J(theta)...];
-    > end
-    ```
-
-    * In this case, 
+    * First, define our cost function:
+    
+        ```
+        > function [jVal, gradient] = costFunction(theta)
+        >     jVal = [...code to compute J(theta)...];
+        >     gradient = [...code to compute derivative of J(theta)...];
+        > end
+        ```
+        
         * `jVal` = \\((\theta_1 - 5)^2 + (\theta_2 - 5)^2\\) 
         * `gradient` is a 2 by 1 vector, and 2 elements are the two partial derivative terms
-
-    ```
-    > options = optimset('GradObj', 'on', 'MaxIter', 100);
-    > initialTheta = zeros(2,1);
-    > [optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);
-    ```
-
-    * Here,
-        * **options** is a data structure giving options for the algorithm
-        * **fminunc**
-            * function minimize the cost function (**f**ind **min**imum of **unc**onstrained multivariable function)
-        * **@costFunction** is a pointer to the costFunction function to be used
-    * For the octave implementation
-        * **initialTheta** must be a matrix of at least two dimensions 
+    * Then,
+    
+        ```
+        > options = optimset('GradObj', 'on', 'MaxIter', 100);
+        > initialTheta = zeros(2,1);
+        > [optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);
+        ```
+    
+        * Here,
+            * **options** is a data structure giving options for the algorithm
+            * **fminunc**
+                * function minimize the cost function (**f**ind **min**imum of **unc**onstrained multivariable function)
+            * **@costFunction** is a pointer to the costFunction function to be used
+        * For the octave implementation
+            * **initialTheta** must be a matrix of at least two dimensions 
 
 ## Multiclass Classification: One-vs-all
 
