@@ -11,7 +11,8 @@
         "-highlight",
         "anchor-navigation-ex",
         "expandable-chapters",
-        "sitemap-general"
+        "sitemap-general",
+		"analytics"
     ],
     "pluginsConfig": {
         "simple-page-toc": {
@@ -26,7 +27,10 @@
         },
         "anchor-navigation-ex": {
             "multipleH1": false
-        }
+        },
+		"analytics": {
+			"google": "UA-57505611-7"
+		}
     },
     "gitbook": ">=3.0.0"
 }
