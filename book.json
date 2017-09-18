@@ -9,7 +9,7 @@
         "anchors",
         "splitter",
         "-highlight",
-        "anchor-navigation",
+        "anchor-navigation-ex",
         "expandable-chapters",
         "sitemap-general"
     ],
@@ -23,6 +23,9 @@
         },
         "github": {
             "url": "https://github.com/erictt/computer-science-learning"
+        },
+        "anchor-navigation-ex": {
+            "multipleH1": false
         }
     },
     "gitbook": ">=3.0.0"
