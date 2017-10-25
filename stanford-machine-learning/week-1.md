@@ -2,14 +2,30 @@
 
 [TOC]
 
-## Supervised Learning
-* regression, to predict results within a continuous output. 
-* classification, to predict results in a discrete output.
+## Several types of learning algorithms
+### Supervised Learning
+* Regression, to predict results within a continuous output. 
+    * For example, predict housing prices:
+        * <img src="media/15057389349240.jpg" width=200 />
+        * Given this data, how to predict the value of a specific size?
+        * How to solve this?
+            * Straight line through data
+                * Maybe $150,000
+            * Polynomial
+                * Maybe $200,000
+            * We'll learn how to choose function later.
+        * After we fitted a line to the data, we can predict the actual values for houses
+    * From the sample, all of the data we plotted called **training data**, and the action we fit lines to the data called **linear regression**
+* Classification, to predict results in a discrete output.
+    * For example, checking a tumor is malignant or not.
 
-## Unsupervised Learning
+### Unsupervised Learning
+
 * derive this structure by clustering the data based on relationships among the variables in the data.
+    * For example, grouping news stories into cohesive groups
 
-## Model and Cost Function
+## Linear Regression (Model and Cost Function)
+
 * Model Representation
 
     * To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function h : X → Y so that \\(h^{(x)}\\) is a “good” predictor for the corresponding value of y. For historical reasons, this function h is called a hypothesis. Seen pictorially, the process is therefore like this:
@@ -22,11 +38,10 @@
             * \\(\theta_{i}\\) are **parameters**
             * \\(\theta_{0}\\) is zero condition
             * \\(\theta_{1}\\) is gradient
-    * This kind of function is a linear regression with one variable, also called **univariate linear regression** 
+    * This kind of function is a **Linear Regression** with one variable, 
+        * also called **Univariate Linear Regression** 
 
-    ​
-
-### Cost function 
+### Cost Function 
 
 * A cost function lets us figure out how to fit the best straight line to our data
 
@@ -34,11 +49,11 @@
   * Different values give you different functions
   * If \\(\theta_{0}\\) is 1.5 and \\(\theta_{1}\\) is 0 then we get straight line parallel with X along 1.5 @ y
   * If \\(\theta_{1}\\) is > 0 then we get a positive slope
-  * We want to find a straight line which colse to the actural `y`s as possible
+  * We want to find a straight line which colse to the actual `y`s as possible
 
 * To formalize this:
 
-  * We want to solve a minialization problem
+  * We want to solve a minimization problem
   * Minimize \\((h_{\theta}(x)-y)^{2}\\)
     * minimize the difference between h(x) and y for each/any/every example
   * Sum this over the training set:\\(\dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2\\)
@@ -48,14 +63,14 @@
   * This is a cost function:
     * \\(J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left ( \hat{y}_{i}- y_{i} \right)^2 = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2\\)
     * And we want to minimize this cost function
-      * Our cost function is (because of the summartion term) inherently looking at ALL the data in the training set at any time
+      * Our cost function is (because of the summation term) inherently looking at ALL the data in the training set at any time
 
 * The following image summarizes what the cost function does:
 
   ![week-1-2](media/week-1-2.png)
 
   * **Hypothesis** - is like your prediction machine, throw in an `x` value, get a putative `y` value
-  * **Cost** - is a way to, using your trainning data, determine values for your \\(\theta\\) values which make the hypothesis as accurate as possibile
+  * **Cost** - is a way to, using your training data, determine values for your \\(\theta\\) values which make the hypothesis as accurate as possible
     * This cost function is also called the squared **error cost function**
 
 
@@ -73,7 +88,7 @@
     * <img src="media/week-1-8.png" width=300 />
   * The optimization objective for the learning algorithm is find the value of \\(\theta_{1}\\) which \\(minimizes  J(\theta_{1})\\)
     * So, here \\(\theta_{1} = 1\\) is the best value for \\(\theta_{1}\\)
-* Using our original complex hyothesis with two pariables,So cost function is \\(J(\theta_{0}, \theta_{1})\\)
+* Using our original complex hypothesis with two paribles,So cost function is \\(J(\theta_{0}, \theta_{1})\\)
   * Generates a 3D surface plot where axis are
     * \\(X = \theta_{0}\\)
     * \\(Z = \theta_{0}\\)
@@ -81,7 +96,7 @@
     * <img src="media/week-1-9.png" width=400 />
   * Instead of a surface plot we can use a **contour figures/plots**
     * Set of ellipses in different colors
-    * Each colour is the same value of \\(J(\theta_{0}, \theta_{1})\\) , but obviously plot to different locations because \\(\theta_{1}\\) and \\(\theta_{0}\\) will vary
+    * Each color is the same value of \\(J(\theta_{0}, \theta_{1})\\) , but obviously plot to different locations because \\(\theta_{1}\\) and \\(\theta_{0}\\) will vary
     * Imagine a bowl shape function coming out of the screen so the middle is the concentric circles
     * <img src="media/week-1-10.png" width=500 />
 
@@ -141,7 +156,7 @@
 
   - Derivative term
     - Lets take the tangent at the point and look at the slope of the line
-    - So moving towards the mimum (down) will greate a negative derivative, alpha is always positive, so will update \\(j(\theta_{1})\\) to a smaller value
+    - So moving towards the mimum (down) will create a negative derivative, alpha is always positive, so will update \\(j(\theta_{1})\\) to a smaller value
     - Similarly, if we're moving up a slope we make \\(j(\theta_{1})\\) a bigger numbers
     - ![week-1-13](media/week-1-13.png)
 

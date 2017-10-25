@@ -4,23 +4,32 @@
 
 ## Classification and Representation
 
-### Classsification
+### Classification
 
 * to determine what class a new input should fall into, \\(y \in \{0, 1, ..., n\}\\) 
-* start with two classes: Yes or No
+* Classification problems
+    * Email -> spam/not spam?
+    * Online transactions -> fraudulent?
+    * Tumor -> Malignant/benign
+* Sometimes, Linear Regression may work, like the sample below:
+    * <img src="media/15057384338295.jpg" width=400 />
+    * But most time the training set won't be so perfect
+* Here we use **Logistic regression**, which generates a value where is always either 0 or 1
 
 ### Hypothesis Representation
 
 * To change our hypotheses \\(h_θ(x)\\) to satisfy \\(0 \leq h_\theta (x) \leq 1\\) . 
-* Our new form uses the "Sigmoid Function", also called the "Logistic Function":
+* Our new form uses the "**Logistic Function**" , also called the "Sigmoid Function":
     * \\(\begin{aligned}& h_\theta (x) = g ( \theta^T x )\end{aligned}\\) 
     * \\(\begin{aligned} z = \theta^T x \end{aligned}\\) 
     * \\(\begin{aligned} g(z) = \dfrac{1}{1 + e^{-z}}\end{aligned}\\) 
         * \\(e\\) : Exponents 
-* The following image shows us what the sigmoid function looks like:
+* The following image shows us what the logistic function looks like:
     * ![week-3-1](media/week-3-1.png)
 * Interpreting hypothesis output, we can use:
     * \\(h_\theta(x) = P(y=1 | x ; \theta)\\) , it give us the **probability** that output is 1.
+        * probability that y = 1, given x, paramerterized by \\(\theta\\)
+        * \\(h_\theta(x) = P(y=1 | x ; \theta) + h_\theta(x) = P(y=0 | x ; \theta) = 1\\)
 
 ### Decision Boundary
 
@@ -39,7 +48,7 @@
     * \\(-3x_0 + 1x_1 + 1x_2 \geq 0\\) 
     * \\(-3 + x_1 + x_2 \geq 0\\) 
     * \\(x_1 + x_2 \geq 3\\) 
-* So \\(x_1 + x_2 = 3\\) we graphicallly plot our decision boundary:
+* So \\(x_1 + x_2 = 3\\) we graphically plot our decision boundary:
     * ![week-3-3](media/week-3-3.png)
     * Means:
         * Blue = false, Magenta = true
@@ -65,26 +74,31 @@
     * \\(h_\theta(x) = \dfrac{1}{1 + e^{-\theta^Tx}}\\) 
         * Each example is a feature vector which is \\(n+1\\) dimensional
 * Linear regression uses the following function to determine \\(\theta\\)
-    * \\(J(\theta) = \dfrac {1}{m} \displaystyle \sum _{i=1}^m \dfrac{1}{2}\left (h_\theta (x_{i}) - y_{i} \right)^2\\) 
-    * define \\(cost()\\) function to simplify the function:
-        * \\(Cost(h_\theta(x_i), y) = \dfrac{1}{2}(h_\theta(x_i) - y_i)^2\\) 
+    * \\(J(\theta) = \dfrac {1}{m} \displaystyle \sum _{i=1}^m \dfrac{1}{2}\left (h_\theta (x^{(i)}) - y^{(i)} \right)^2\\) 
+    * define **cost function** to simplify the function:
+        * \\(Cost(h_\theta(x^{(i)}), y^{(i)}) = \dfrac{1}{2}(h_\theta(x^{(i)}) - y^{(i)})^2\\) 
     * then we got:
-        * \\( J(\theta) = \dfrac{1}{m} \displaystyle \sum_{i=1}^m \mathrm{Cost}(h_\theta(x_i),y_i)\\) 
-    * to further simplify it, will be:
+        * \\( J(\theta) = \dfrac{1}{m} \displaystyle \sum_{i=1}^m \mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)})\\) 
+    * to further simplify it, we can get rid of the superscripts:
         * \\( J(\theta) = \dfrac{1}{m} \displaystyle \sum_{i=1}^m \mathrm{Cost}(h_\theta(x),y)\\) 
-        * If we use this function for logistic regression, this is a **non-convex function** for parameter optimization.
-    * non-convex (with many local optima)
+* If we use this function for logistic regression, it will be a **non-convex function** which has many local optimum. Like:
         * ![week-3-5](media/week-3-5.png)
-* A convex logistic regression cost function
+* So we come out a new convex logistic regression cost function:
     * \\(\begin{aligned} & \mathrm{Cost}(h_\theta(x),y) = -\log(h_\theta(x)) \; & \text{if y = 1} \\ & \mathrm{Cost}(h_\theta(x),y) = -\log(1-h_\theta(x)) \; & \text{if y = 0}\end{aligned}\\) 
-     * ![week-3-6](media/week-3-6.png)
-     * ![week-3-7](media/week-3-7.png)
-     * \\(\begin{aligned}& \mathrm{Cost}(h_\theta(x),y) = 0 \text{ if } h_\theta(x) = y \\ & \mathrm{Cost}(h_\theta(x),y) \rightarrow \infty \text{ if } y = 0 \; \mathrm{and} \; h_\theta(x) \rightarrow 1 \\ & \mathrm{Cost}(h_\theta(x),y) \rightarrow \infty \text{ if } y = 1 \; \mathrm{and} \; h_\theta(x) \rightarrow 0 \\ \end{aligned}\\) 
+    * We only care \\((0 \le h(x) \le 1)\\), so:
+    * ![week-3-6](media/week-3-6.png)
+    * ![week-3-7](media/week-3-7.png)
+    * \\(\begin{aligned}& \mathrm{Cost}(h_\theta(x),y) = 0 \text{ if } h_\theta(x) = y \\ & \mathrm{Cost}(h_\theta(x),y) \rightarrow \infty \text{ if } y = 0 \; \mathrm{and} \; h_\theta(x) \rightarrow 1 \\ & \mathrm{Cost}(h_\theta(x),y) \rightarrow \infty \text{ if } y = 1 \; \mathrm{and} \; h_\theta(x) \rightarrow 0 \\ \end{aligned}\\) 
 
 ### Simplified cost function and gradient descent
 
 * Compress cost function's two conditional cases into one case:
     * \\(\mathrm{Cost}(h_\theta(x),y) = - y \; \log(h_\theta(x)) - (1 - y) \log(1 - h_\theta(x))\\) 
+    * Cause y can either be 0 or 1,
+        * if y = 1, then \\( (1 - y) \log(1 - h_\theta(x)) = 0\\)
+        * if y = 0, then \\( y \log(h_\theta(x)) = 0\\)
+    * this cost function can be derived from statistics using the principle of **maximum likelihood estimation**.
+        * the idea of how to efficiently find parameters' data for different models.
 * Then we can fully write out our entire cost function as follows:
     * \\(J(\theta) = - \frac{1}{m} \displaystyle \sum_{i=1}^m [y^{(i)}\log (h_\theta (x^{(i)})) + (1 - y^{(i)})\log (1 - h_\theta(x^{(i)}))]\\) 
     * and a vectorized implementation is:
@@ -176,7 +190,7 @@
 
 * Three figures to shows that **underfitting**, **fitting** and **overfitting**: (take housing price as sample)
      * ![week-3-9](media/week-3-9.png)
-     * underfitting or high bias: leftmost, \\(y = θ_0 + θ_1x\\) , doesn't really lie on straight line.
+     * under-fitting or high bias: leftmost, \\(y = θ_0 + θ_1x\\) , doesn't really lie on straight line.
      * overfitting: rightmost, \\(y = \sum_{j=0} ^5 \theta_j x^j\\) , not a good predictor.
      * fitting one: \\(y = \theta_0 + \theta_1x + \theta_2x^2\\) , obtain a slightly better fit to the data.
 
@@ -185,22 +199,22 @@
 * Reduce the number of features:
      * Manually select which features to keep.
      * Use a model selection algorithm.
-* Regularation
+* Regularization
      * Keep all the features, but reduce the magnitude of parameters \\(\theta_j\\) .
-     * Regularation works well when we have a lot of slightly useful features.
+     * Regularization works well when we have a lot of slightly useful features.
     
 ### Cost Function
 
 * if we have overfitting from our hypothesis function , we can reduce the weight that some of the terms in our function carry by increasing their cost.
 * Say we wanted to make the following function more quadratic:
     * \\(\theta_0 + \theta_1x + \theta_2x^2 + \theta_3x^3 + \theta_4x^4\\) 
-* We'll want to eliminate the influence of \\(\theta_3x^4\\) and \\(\theta_4x^4\\) . Without actuaully getting rid of these features or changing the form of our hypothesis, we can instead modify our cost function:
+* We'll want to eliminate the influence of \\(\theta_3x^4\\) and \\(\theta_4x^4\\) . Without actually getting rid of these features or changing the form of our hypothesis, we can instead modify our cost function:
      * \\(min_\theta\ \dfrac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + 1000\cdot\theta_3^2 + 1000\cdot\theta_4^2\\) 
      * Add two extra terms at the end to inflate the cost of \\(\theta_3\\) and \\(\theta_4\\) . This will in turn greatly reduce the values of \\(\theta_3x^4\\) and \\(\theta_4x^4\\) in our hypothesis function.
 * We could also regularize all of our theta parameters in a single summation as:
      * \\(min_\theta\ \dfrac{1}{2m}\ \left[ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\ \sum_{j=1}^n \theta_j^2 \right]\\) 
      * \\(\lambda\\) (lambda), is the **regularization parameter**. It determines how much the costs of our theta parameters are inflated.
-     * But if lambda is choosen to be too large, it may smooth out the function too much and cause underfitting. 
+     * But if lambda is chosen to be too large, it may smooth out the function too much and cause under-fitting. 
 
 ### Regularized Linear Regression
 
@@ -214,7 +228,7 @@
 
 * Normoal Equation
 
-    * To add in reguarization, the equation is the same as our original, except that we add another term inside the parentheses:
+    * To add in reguarlization, the equation is the same as our original, except that we add another term inside the parentheses:
         * \\(\begin{aligned}& \theta = \left( X^TX + \lambda \cdot L \right)^{-1} X^Ty \\& \text{where}\ \ L = \begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1 \\\end{bmatrix}\end{aligned}\\) 
     * L is a matrix with 0 at the top left and 1's down the diagonal, with 0's everywhere else. It should have dimension (n+1)×(n+1). Intuitively, this is the identity matrix (though we are not including \\(x_0\\) ), multiplied with a single real number \\(\lambda \\) .
     * Recall that if \\(m \le n\\) , then \\(X^TX\\) is non-invertible. However, when we add the term \\(\lambda \cdot L\\) , then \\(X^TX + \lambda \cdot L\\) becomes invertible.
@@ -224,7 +238,7 @@
     * \\(J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)})) \large]\\) 
 * Regularize this equation by adding a term to the end:
     * \\(J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2\\) 
-    * The second sum, \\(\sum_{j=1}^n \theta_j^2\\) **means to explicitly exclude the bias term, \\(\theta_0\\) . I.e. the \\(\theta\\) vector is indexed from 0 to n (holding n+1 values, \\(\theta_0\\) through \\(\theta_n\\) ), and this sum explicitly skips \\(\theta_0\\) , by running from 1 to n, skipping 0 (This is because for regularization we don't penalize \\(θ_0\\) so treat it slightly differently). Thus, when computing the equation, we should continously update the two following equations:
+    * The second sum, \\(\sum_{j=1}^n \theta_j^2\\) **means to explicitly exclude the bias term, \\(\theta_0\\) . I.e. the \\(\theta\\) vector is indexed from 0 to n (holding n+1 values, \\(\theta_0\\) through \\(\theta_n\\) ), and this sum explicitly skips \\(\theta_0\\) , by running from 1 to n, skipping 0 (This is because for regularization we don't penalize \\(θ_0\\) so treat it slightly differently). Thus, when computing the equation, we should continuously update the two following equations:
     * ![week-3-10](media/week-3-10.png)
 
 ## Words 
