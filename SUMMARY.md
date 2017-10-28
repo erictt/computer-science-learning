@@ -14,9 +14,9 @@
 
 ### Stanford Machine Learning
 
-* [Week 1](stanford-machine-learning/week-1.md)
-* [Week 2](stanford-machine-learning/week-2.md)
-* [Week 3](stanford-machine-learning/week-3.md)
+* [Week 1 - Introduction](stanford-machine-learning/week-1.md)
+* [Week 2 - Linear Regression with Multiple Variables](stanford-machine-learning/week-2.md)
+* [Week 3 - Logistic Regression & Regularization](stanford-machine-learning/week-3.md)
 * [Symbols of Mathematics](stanford-machine-learning/SYMBOLS.md)
 
 ### Computational Thinking

@@ -45,9 +45,9 @@
 * So our parameter vector is a column vector with the above values: \\(\theta = \begin{bmatrix} -3\\1\\1\end{bmatrix}\\) 
 * Then \\(z\\) becomes \\(\theta^TX\\) 
 * We predict " \\(y=1\\) " if 
-    * \\(-3x_0 + 1x_1 + 1x_2 \geq 0\\) 
-    * \\(-3 + x_1 + x_2 \geq 0\\) 
-    * \\(x_1 + x_2 \geq 3\\) 
+    * \\[\begin{aligned}-3x_0 + 1x_1 + 1x_2 &\geq 0 \\
+        -3 + x_1 + x_2 &\geq 0 \\
+        x_1 + x_2 &\geq 3\end{aligned}\\]
 * So \\(x_1 + x_2 = 3\\) we graphically plot our decision boundary:
     * ![week-3-3](media/week-3-3.png)
     * Means:
@@ -75,14 +75,14 @@
         * Each example is a feature vector which is \\(n+1\\) dimensional
 * Linear regression uses the following function to determine \\(\theta\\)
     * \\(J(\theta) = \dfrac {1}{m} \displaystyle \sum _{i=1}^m \dfrac{1}{2}\left (h_\theta (x^{(i)}) - y^{(i)} \right)^2\\) 
-    * define **cost function** to simplify the function:
+    * define `Cost` function to simplify the function:
         * \\(Cost(h_\theta(x^{(i)}), y^{(i)}) = \dfrac{1}{2}(h_\theta(x^{(i)}) - y^{(i)})^2\\) 
     * then we got:
         * \\( J(\theta) = \dfrac{1}{m} \displaystyle \sum_{i=1}^m \mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)})\\) 
     * to further simplify it, we can get rid of the superscripts:
         * \\( J(\theta) = \dfrac{1}{m} \displaystyle \sum_{i=1}^m \mathrm{Cost}(h_\theta(x),y)\\) 
 * If we use this function for logistic regression, it will be a **non-convex function** which has many local optimum. Like:
-        * ![week-3-5](media/week-3-5.png)
+    * ![week-3-5](media/week-3-5.png)
 * So we come out a new convex logistic regression cost function:
     * \\(\begin{aligned} & \mathrm{Cost}(h_\theta(x),y) = -\log(h_\theta(x)) \; & \text{if y = 1} \\ & \mathrm{Cost}(h_\theta(x),y) = -\log(1-h_\theta(x)) \; & \text{if y = 0}\end{aligned}\\) 
     * We only care \\((0 \le h(x) \le 1)\\), so:
