@@ -261,8 +261,8 @@
 
 * Let A and B be matirces. Then in general, \\(A * B \ne B * A\\) . (not commutative)
 * \\(A * B * C\\) : 
-      * Let \\(D = B * C\\). Compute \\(A * D\\)
-      * Let \\(E = A * B\\). Compute \\(E * C\\)
+    * Let \\(D = B * C\\). Compute \\(A * D\\)
+    * Let \\(E = A * B\\). Compute \\(E * C\\)
 * Identity Matrix:
     * ![week-1-m-22](media/week-1-m-22.jpg)
 

@@ -71,9 +71,9 @@
 #### Logarithmic Differentiation
 
 * The calculation of derivatives of complicated functions involving products, quotients, or powers can often be simplified by taking logarithms.
-* Sample: Differentiate \\(f(x)=\frac{(1+x^2)^5 \cdot (1+x^3)^5}{(1+x^4)^7}\\), 
+* Sample: Differentiate \\(f(x)=\frac{(1+x^2)^5 \cdot (1+x^3)^8}{(1+x^4)^7}\\), 
     \\[\begin{aligned}
-        y &= \frac{(1+x^2)^5 \cdot (1+x^3)^5}{(1+x^4)^7} \\
+        y &= \frac{(1+x^2)^5 \cdot (1+x^3)^8}{(1+x^4)^7} \\
         \log{y} &= \log{\frac{(1+x^2)^5 \cdot (1+x^3)^8}{(1+x^4)^7}} \\
         \frac{d}{dx}\log{y} &= \frac{d}{dx}\log{\frac{(1+x^2)^5 \cdot (1+x^3)^8}{(1+x^4)^7}} \\
         \frac{d}{dx}\log{y} &= \frac{d}{dx}(5\log{(1+x^2)} + 8\log{(1+x^3)} - 7\log{(1+x^4)}) \\

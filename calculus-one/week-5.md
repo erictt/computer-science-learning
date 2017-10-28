@@ -10,11 +10,11 @@
         * <img src="media/15039140120421.jpg" width=200 />
         * We start by assuming that `u = f(x)` and `v = g(x)`.
         * Then we can interpret the `product uv` as an area of a rectangle
-        * If `x` changes by an amount `\Delta x`, then the corresponding changes in `u` and `v` are
+        * If `x` changes by an amount \\(\Delta x\\), then the corresponding changes in `u` and `v` are
             * \\(\Delta u = f(x + \Delta x) - f(x)\\), \\(\Delta v = g(x + \Delta x) - g(x)\\)
         * The change in the area of the rectangle is:
-            * `\Delta (uv) = (u + \Delta u)(v + \Delta v) - uv = u\Delta v + v\Delta u + \Delta u\Delta v` = the sum of the three shaded areas
-        * If we divide by `\Delta x`, we get \\[\frac{\Delta (uv)}{\Delta x} = \frac{u\Delta v}{\Delta x} + \frac{v\Delta u}{\Delta x} + \frac{\Delta u\Delta v}{\Delta x}\\]
+            * \\(\Delta (uv) = (u + \Delta u)(v + \Delta v) - uv = u\Delta v + v\Delta u + \Delta u\Delta v\\) = the sum of the three shaded areas
+        * If we divide by \\(\Delta x\\), we get \\[\frac{\Delta (uv)}{\Delta x} = \frac{u\Delta v}{\Delta x} + \frac{v\Delta u}{\Delta x} + \frac{\Delta u\Delta v}{\Delta x}\\]
         * If we now let \\(\Delta x \to 0\\), we get the derivative of `uv`(f(x)g(x)): 
         
         \\[\begin{aligned}

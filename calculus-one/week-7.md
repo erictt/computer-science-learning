@@ -19,9 +19,9 @@
 * \\(\pi rad = 180^{\circ} \\)
     * \\(1 rad = (\frac{180}{\pi})^{\circ} \approx 57.3^{\circ}\\)
     
-    | Degree | \\(0^{\circ}\\) | \\(30^{\circ}\\) | \\(45^{\circ}\\) | \\(60^{\circ}\\) | \\(90^{\circ}\\) | \\(120^{\circ}\\) | \\(135^{\circ}\\) | \\(150^{\circ}\\) | \\(180^{\circ}\\) | \\(270^{\circ}\\) | \\(360^{\circ}\\) |
-    | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-    | Radians | \\(0\\) | \\(\frac{\pi}{6}\\) | \\(\frac{\pi}{4}\\) | \\(\frac{\pi}{3}\\) | \\(\frac{\pi}{2}\\) | \\(\frac{2\pi}{3}\\) | \\(\frac{3\pi}{4}\\) | \\(\frac{5\pi}{6}\\) | \\(\pi\\) | \\(\frac{3\pi}{2}\\) | \\(2\pi\\) |
+    * | Degree | \\(0^{\circ}\\) | \\(30^{\circ}\\) | \\(45^{\circ}\\) | \\(60^{\circ}\\) | \\(90^{\circ}\\) | \\(120^{\circ}\\) | \\(135^{\circ}\\) | \\(150^{\circ}\\) | \\(180^{\circ}\\) | \\(270^{\circ}\\) | \\(360^{\circ}\\) |
+      | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+      | Radians | \\(0\\) | \\(\frac{\pi}{6}\\) | \\(\frac{\pi}{4}\\) | \\(\frac{\pi}{3}\\) | \\(\frac{\pi}{2}\\) | \\(\frac{2\pi}{3}\\) | \\(\frac{3\pi}{4}\\) | \\(\frac{5\pi}{6}\\) | \\(\pi\\) | \\(\frac{3\pi}{2}\\) | \\(2\pi\\) |
 
     * \\(\theta = \frac{a}{r}\\), \\(a = r\theta\\)
         * <img src="media/15054531930497.jpg" width=100 /> <img src="media/15054532954639.jpg" width=100 />
@@ -99,7 +99,7 @@
     * \\(\alpha + \beta = \frac{\pi}{2}\\)
     * \\(\arcsin{y} = \alpha\,\ \arccos{y} = \beta\\)
     * \\(\arcsin{y} + \arccos{y} = \frac{\pi}{2}\\)
-    * \\(\frac{d}{dy}\arcsin{y} + \frac{d}{dy}\arccos{y} = \frac{d}{dy}frac{\pi}{2}\\)
+    * \\(\frac{d}{dy}\arcsin{y} + \frac{d}{dy}\arccos{y} = \frac{d}{dy} \frac{\pi}{2}\\)
     * \\(\frac{d}{dy}\arcsin{y} + \frac{d}{dy}\arccos{y} = 0\\)
     * \\(\frac{d}{dy}\arccos{y} = - \frac{1}{\sqrt{1-x^2}}\\)
 * \\(\frac{d}{dx}\arctan{x} = ?\\)
