@@ -17,7 +17,12 @@ if size(X, 2) <= 3
     plot_x = [min(X(:,2))-2,  max(X(:,2))+2];
 
     % Calculate the decision boundary line
+    % base on the hypothesis function, we got:
+    %   1 / (1+e^(theta_0+theta_1*x_0+theta_2*x_1)) = 0.5
+    %   x_1 = - (theta_0+theta_1*x_0) / theta_2
+    % then:
     plot_y = (-1./theta(3)).*(theta(2).*plot_x + theta(1));
+    
 
     % Plot, and adjust axes for better viewing
     plot(plot_x, plot_y)
