@@ -226,13 +226,14 @@
         * \\(\theta_j := \theta_j(1 - \alpha\frac{\lambda}{m}) - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}\\) 
     * The first term in the above equation, \\(1 - \alpha\frac{\lambda}{m}\\) will always be less than 1. Intuitively you can see it as reducing the value of \\(θ_j\\) by some amount on every update. Notice that the second term is now exactly the same as it was before.
 
-* Normoal Equation
+#### Normoal Equation
 
-    * To add in reguarlization, the equation is the same as our original, except that we add another term inside the parentheses:
-        * \\(\begin{aligned}& \theta = \left( X^TX + \lambda \cdot L \right)^{-1} X^Ty \\& \text{where}\ \ L = \begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1 \\\end{bmatrix}\end{aligned}\\) 
-    * L is a matrix with 0 at the top left and 1's down the diagonal, with 0's everywhere else. It should have dimension (n+1)×(n+1). Intuitively, this is the identity matrix (though we are not including \\(x_0\\) ), multiplied with a single real number \\(\lambda \\) .
-    * Recall that if \\(m \le n\\) , then \\(X^TX\\) is non-invertible. However, when we add the term \\(\lambda \cdot L\\) , then \\(X^TX + \lambda \cdot L\\) becomes invertible.
+* To add in reguarlization, the equation is the same as our original, except that we add another term inside the parentheses:
+    * \\(\begin{aligned}& \theta = \left( X^TX + \lambda \cdot L \right)^{-1} X^Ty \\& \text{where}\ \ L = \begin{bmatrix} 0 & & & & \\ & 1 & & & \\ & & 1 & & \\ & & & \ddots & \\ & & & & 1\end{bmatrix}\end{aligned}\\) 
+* L is a matrix with 0 at the top left and 1's down the diagonal, with 0's everywhere else. It should have dimension (n+1)×(n+1). Intuitively, this is the identity matrix (though we are not including \\(x_0\\) ), multiplied with a single real number \\(\lambda \\) .
+* Recall that if \\(m \le n\\) , then \\(X^TX\\) is non-invertible. However, when we add the term \\(\lambda \cdot L\\) , then \\(X^TX + \lambda \cdot L\\) becomes invertible.
 
+### Regularized Logistic Regression
 
 * Cost function:
     * \\(J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)})) \large]\\) 
