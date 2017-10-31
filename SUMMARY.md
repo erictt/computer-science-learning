@@ -11,12 +11,14 @@
 * [Week 5 - Techniques of Differentiation](calculus-one/week-5.md)
 * [Week 6 - Chain Rule](calculus-one/week-6.md)
 * [Week 7 - Derivatives of Trigonometric Functions](calculus-one/week-7.md)
+* [Week 8 - Derivatives in the Real World](calculus-one/week-8.md)
 
 ### Stanford Machine Learning
 
 * [Week 1 - Introduction](stanford-machine-learning/week-1.md)
 * [Week 2 - Linear Regression with Multiple Variables](stanford-machine-learning/week-2.md)
 * [Week 3 - Logistic Regression & Regularization](stanford-machine-learning/week-3.md)
+* [Week 4 - Neural Networks: Representation](stanford-machine-learning/week-4.md)
 * [Symbols of Mathematics](stanford-machine-learning/SYMBOLS.md)
 
 ### Computational Thinking
