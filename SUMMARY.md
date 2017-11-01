@@ -4,6 +4,10 @@
 
 * [Introduction](README.md)
 
+### LAFF Linear Algebra
+
+* [Week 1- Vectors in Linear Algebra](laff-linear-algebra/week-1.md)
+
 ### Calculus One
 
 * [Week 2-3 - Functions & Limits](calculus-one/week-2-3.md)
