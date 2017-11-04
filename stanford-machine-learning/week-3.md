@@ -239,7 +239,7 @@
     * \\(J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)})) \large]\\) 
 * Regularize this equation by adding a term to the end:
     * \\(J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2\\) 
-    * The second sum, \\(\sum_{j=1}^n \theta_j^2\\) **means to explicitly exclude the bias term, \\(\theta_0\\) . I.e. the \\(\theta\\) vector is indexed from 0 to n (holding n+1 values, \\(\theta_0\\) through \\(\theta_n\\) ), and this sum explicitly skips \\(\theta_0\\) , by running from 1 to n, skipping 0 (This is because for regularization we don't penalize \\(θ_0\\) so treat it slightly differently). Thus, when computing the equation, we should continuously update the two following equations:
+    * The second sum, \\(\sum_{j=1}^n \theta_j^2\\) means to explicitly exclude the bias term, \\(\theta_0\\) . I.e. the \\(\theta\\) vector is indexed from 0 to n (holding n+1 values, \\(\theta_0\\) through \\(\theta_n\\) ), and this sum explicitly skips \\(\theta_0\\) , by running from 1 to n, skipping 0 (This is because for regularization we don't penalize \\(θ_0\\) so treat it slightly differently). Thus, when computing the equation, we should continuously update the two following equations:
     * ![week-3-10](media/week-3-10.png)
 
 ## Words 

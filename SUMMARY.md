@@ -4,9 +4,15 @@
 
 * [Introduction](README.md)
 
+<!--
+### Stanford Statistical Learning
+
+* [Chapter 2 - Overview of Statistical Learning](statistical-learning/chapter-2.md)
+* -->
+
 ### LAFF Linear Algebra
 
-* [Week 1- Vectors in Linear Algebra](laff-linear-algebra/week-1.md)
+* [Week 1 - Vectors in Linear Algebra](laff-linear-algebra/week-1.md)
 
 ### Calculus One
 
@@ -23,6 +29,7 @@
 * [Week 2 - Linear Regression with Multiple Variables](stanford-machine-learning/week-2.md)
 * [Week 3 - Logistic Regression & Regularization](stanford-machine-learning/week-3.md)
 * [Week 4 - Neural Networks: Representation](stanford-machine-learning/week-4.md)
+* [Week 5 - Neural Networks: Learning](stanford-machine-learning/week-5.md)
 * [Symbols of Mathematics](stanford-machine-learning/SYMBOLS.md)
 
 ### Computational Thinking

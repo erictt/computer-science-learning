@@ -68,7 +68,7 @@
 
 ## Multiclass Classification
 
-* <img src="media/15093568652084.jpg" width=400 />
-* <img src="media/15093568800050.jpg" width=400 />
+* <img src="media/15093568652084.jpg" width=500 />
+* <img src="media/15093568800050.jpg" width=500 />
 
 

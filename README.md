@@ -10,9 +10,10 @@ Notes, exercise and some other stuff.
 * [Stanford University: Machine Learning](https://www.coursera.org/learn/machine-learning/home/welcome)
 * [UTAustinX: UT.5.04x LAFF: Linear Algebra - Foundations to Frontiers](https://courses.edx.org/courses/course-v1:UTAustinX+UT.5.05x+2T2017/course/)
 
-
 ### Next
  
+* [Stanford University: Statistical Learning](https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/info)
+* [Calculus Two: Sequences and Series](https://www.coursera.org/learn/advanced-calculus)
 * [MIT: Introduction to Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/video-lectures/lecture-1-administrivia-introduction-analysis-of-algorithms-insertion-sort-mergesort/)
 * [MITx: 6.041x Introduction to Probability - The Science of Uncertainty](https://courses.edx.org/courses/course-v1:MITx+6.041x_4+1T2017/course/)
 
