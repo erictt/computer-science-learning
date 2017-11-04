@@ -65,7 +65,7 @@
         1. `L` is the total number of layers
         2. \\(a^{(L)}\\) is the vector of outputs of the activation units for the last layer.
         3. So our "error values" for the last layer are \\(a^{(L)} - y^{(i)}\\).
-    4. Compute \\(\delta^{(L-1)}, \delta^{(L-2)}, \dots, \delta^{(2)}\\) using \\(\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)})\ .* \ a^{(l)}\ .* \ (1 - a^{(l)})\\) that steps us back from right to left.
+    4. Compute \\(\delta^{(L-1)}, \delta^{(L-2)}, \ldots, \delta^{(2)}\\) using \\(\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)})\ .* \ a^{(l)}\ .* \ (1 - a^{(l)})\\) that steps us back from right to left.
         1. \\((\Theta^{(l)})^T \delta^{(l+1)}\\): has the same dimensionality with \\(a^{(l)}\\).
             * \\((\Theta^{(3)})^T\\): [5 X 4]; \\(\delta^{(4)})\\): [4 X 1], then \\((\Theta^{(3)})^T \delta^{(4)}\\): [5 X 1]
         2. \\(g'(z^{(l)}) = a^{(l)}\ .*\ (1 - a^{(l)})\\): the derivative of the activation function `g` with the input values given by \\(z^{(l)}\\).
