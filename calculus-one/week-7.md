@@ -1,4 +1,4 @@
-# Week 7
+# Week 7 - Derivatives of Trigonometric Functions
 
 [TOC]
 

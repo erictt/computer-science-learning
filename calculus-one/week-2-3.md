@@ -1,4 +1,4 @@
-# Week 2-3
+# Week 2-3 - Functions & Limits
 
 [TOC]
 

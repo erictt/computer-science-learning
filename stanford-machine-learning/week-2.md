@@ -1,4 +1,4 @@
-# Week 2
+# Week 2 - Linear Regression with Multiple Variables
 
 [TOC]
 
