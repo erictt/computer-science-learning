@@ -96,7 +96,7 @@
 
 ### Implementation Note: Unrolling Parameters
 
-* With neural networks, we are working with sets of matrices: \\[\begin{aligned} \Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}, \ldots \newline D^{(1)}, D^{(2)}, D^{(3)}, \ldots \end{aligned}\\]
+* With neural networks, we are working with sets of matrices: \\[\begin{aligned} \Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}, \ldots \\ D^{(1)}, D^{(2)}, D^{(3)}, \ldots \end{aligned}\\]
 * In order to use optimizing functions such as "fminunc()", we will want to "unroll" all the elements and put them into one long vector:
 
     ```matlab
