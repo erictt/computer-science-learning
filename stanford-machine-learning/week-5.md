@@ -14,6 +14,7 @@
         * <img src="media/15095864858380.jpg" width=300 />
         * \\(L = 4\\)
         * \\(s_1 = 3, s_2 = 5, s_3 = 5, s_4 = S_L = 4\\)
+        * \\(K = 4\\)
 
 #### Types of classification problems
 
@@ -66,12 +67,15 @@
         2. \\(a^{(L)}\\) is the vector of outputs of the activation units for the last layer.
         3. So our "error values" for the last layer are \\(a^{(L)} - y^{(i)}\\).
     4. Compute \\(\delta^{(L-1)}, \delta^{(L-2)}, \ldots, \delta^{(2)}\\) using \\(\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)})\ .* \ a^{(l)}\ .* \ (1 - a^{(l)})\\) that steps us back from right to left.
-        1. \\((\Theta^{(l)})^T \delta^{(l+1)}\\): has the same dimensionality with \\(a^{(l)}\\).
+        1. 算出每一层每个节点的偏差之和，即节点中每个元素乘以相应的 \\(\Theta\\) 后出现的偏差之和
+        2. \\((\Theta^{(l)})^T \delta^{(l+1)}\\): has the same dimensionality with \\(a^{(l)}\\).
             * \\((\Theta^{(3)})^T\\): [5 X 4]; \\(\delta^{(4)}\\): [4 X 1], then \\((\Theta^{(3)})^T \delta^{(4)}\\): [5 X 1]
         2. \\(g'(z^{(l)}) = a^{(l)}\ .*\ (1 - a^{(l)})\\): the derivative of the activation function `g` with the input values given by \\(z^{(l)}\\).
-        3. There will be no \\(\delta^{(1)}\\), cause the first layer corresponds to the input layer.
+        3. There will be no \\(\delta^{(1)}\\), because the first layer corresponds to the input layer.
     5. \\(\Delta^{(l)}_{i,j} := \Delta^{(l)}_{i,j} + a_j^{(l)} \delta_i^{(l+1)}\\) or with vectorization, \\(\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}(a^{(l)})^T\\)
-        1. Note this: 
+        1. 由上一步中得出的偏差“和”算出每个节点中每个元素的偏差，并总和，在下一步中求平均
+        2. Last step, we got \\(\delta^{(l)}\\) for the nodes in every layer. This step we split the \\(\delta^{(l)}\\) to every \\(a^{(l-1)}\\) in the node, i.e. \\(\Theta_{10}^{(1)}a^{(1)}_0 + \Theta_{11}^{(1)}a^{(1)}_1 + \Theta_{12}^{(1)}a^{(1)}_2 + \Theta_{13}^{(1)}a^{(1)}_3\\)
+        2. Note this: 
             1. `i` is the error of the affected node of layer `l`. 
             2. `j` is the node of layer `l`.  
             3. the number of nodes(`m`) in layer `l` equals the number of the errors of the affected(`n`) in layer `l+1`.
