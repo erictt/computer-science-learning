@@ -147,21 +147,18 @@ pylab.axvline(x = popMean, color = 'r')
 
 * The **Standard Error(SE)** of a statistic (most commonly the mean) is the standard deviation of its **sampling** distribution, or sometimes an estimate of that standard deviation. Use to depict the dispersion of sample means around the population mean. 
 * (标准误所代表的，是在无数次抽样结果中，一次抽样的结果可能偏离无数次抽样结果这一总体的程度。标准误越小，用这一次抽样结果来代表这无数次抽样结果的可靠性就越好。)
+* 标准差是样本离散程度的一个度量，它等于二阶中心距（方差）的平方根。标准误是：给定样本大小（里面有多少个观测值），样本的某个统计量的抽样分布标准差。 -- from [知乎](https://www.zhihu.com/question/22864111)
 * **Standard Error of the Mean(SEM)** is the standard deviation of the sampling distribution of the **sample mean**.
-* SEM is usually estimated by the sample estimate of the population standard deviation (sample standard deviation) divided by the square root of the sample size (assuming statistical independence of the values in the sample):
+* To formulate it, SEM is estimated by the sample estimate of the population standard deviation (sample standard deviation) divided by the square root of the sample size (assuming statistical independence of the values in the sample):
     * \\(SE_{\bar{x}}=\frac{s}{\sqrt{n}}\\)
     * where
         * `s` is the **sample standard deviation** (i.e., the sample-based estimate of the standard deviation of the population).
         * `n` is the size (number of observations) of the sample.
-    * This estimate may be compared with the formula (from [CLT](lecture-8.md#the-central-limit-theorem-clt)) for the true standard deviation of the sample mean: 
+    * Recall the formula (from [CLT](lecture-8.md#the-central-limit-theorem-clt)) of the standard deviation of the sample means: 
         * The variance of the sample means (\\(\sigma_{\bar{x}}^2\\)) will be close to the variance of the population (\\(\sigma^2\\)) divided by the sample size (N).
        * \\(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{N}}\\)
        * where
            * `σ` is the standard deviation of the population.
-
-* So, we have two questions:
-    * Usually, we don't know the the standard deviation of the population, is it good solution to sample standard deviation instead?
-    * Is the Sample Standard Deviation close to the Population Standard Deviation?
 
 #### Prove the SEM theorem
 
@@ -194,7 +191,7 @@ pylab.legend()
 
 <img src="media/15021794267155.jpg" width=300 />
 
-* So, we can say, the SEM is very close to the sample standard deviation by using the population as `s`. But can we use the Sample Standard Deviation to instead the Population Standard Deviation?
+* So, we can say, the SEM is very close to the standard deviation of the sample means when we are using the Population Standard Deviation. But can we use the Sample Standard Deviation to instead the Population Standard Deviation?
     
 #### Compare Sample Standard Deviation
 
@@ -230,7 +227,7 @@ plotDiffs(sampleSizes, diffs,
     
 <img src="media/15021854615979.jpg" width=300 />
     
-* Once sample reaches a reasonable size, **Sample Standard Deviation** is a pretty good approximation to **Population Standard Deviation**
+* Once sample reaches a reasonable size, **Sample Standard Deviation** is a pretty good approximation to **Population Standard Deviation**.
 
 #### Some Other Questions
 
@@ -303,7 +300,7 @@ plotDiffs(sampleSizes, diffs,
 * Are 200 Samples Enough to Estimate the Mean of Population?
     * First, we can calculate the SE of 200 samples in theorem
     * Second, to compare the true mean and the sample mean, if the difference < 1.96*se, then we can say that, 200 is enough with 95% confidence.
-    * And of course, we need more tails to confirm our assumption.
+    * And of course, we need more trails to confirm our assumption.
 
     ```python
     random.seed(0)
