@@ -55,11 +55,9 @@
 
 * axpy: \\(\alpha x + y\\)
     * <img src="media/15095069762490.jpg" width=300/>
-* memory operations (memops)
-* ﬂoating point operations (ﬂops)
-    * The AXPY operation requires `3n + 1` memops and `2n` ﬂops. The reason is that \\(\alpha\\) is only brought in from memory once and kept in a register for reuse.
-        * `3n+1`: x, ax, y, a
-        * `2n`: ax, ax+y
+* The AXPY operation requires `3n + 1` **memops**(memory operations) and `2n` **ﬂops**(ﬂoating point operations). The reason is that \\(\alpha\\) is only brought in from memory once and kept in a register for reuse.
+    * `3n+1`: x, ax, y, a
+    * `2n`: ax, ax+y
 
 ### Dot or Inner Product (DOT)
 
@@ -67,7 +65,7 @@
 
 ### Vector Length(NORM2)
 
-* Let \\(x in \mathbb{R}^n\\). Then the (Euclidean) length of a vector x (the two-norm) is given by \\[\lVert x \rVert _2 = \sqrt{x_0^2+x_1^2+\ldots+x_{n-1}^2} = \sqrt{\sum_{i=0}^{n-1}{}x_i^2}\\]
+* Let \\(x \in \mathbb{R}^n\\). Then the (Euclidean) length of a vector x (the two-norm) is given by \\[\lVert x \rVert _2 = \sqrt{x_0^2+x_1^2+\ldots+x_{n-1}^2} = \sqrt{\sum_{i=0}^{n-1}{}x_i^2}\\]
     * Here \\(\lVert x \rVert _2\\) notation stands for “the two norm of x”, which is another way of saying “the length of x”.
 
 ### Vector Functions
@@ -118,9 +116,9 @@
 
 ### Other Properties
 
-* For \\(x,y\in R^n, (x+y)^T(x+y)=x^Tx+2x^Ty+y^Ty\\).
-* For \\(x,y\in R^n, x^Ty=0\\) if and only if x and y are orthogonal.
-* Let \\(x,y\in R^n\\) be nonzero vectors and let the angle between them equal θ. Then \\(cos(\theta) = \frac{x^Ty}{||x||_2||y||_2}\\).
-* For \\(x\in R^n, x^Te_i=e_i^Tx=\chi_i\\) where \\(x_i\\) equals the ith component of x.
+* For \\(x,y \in R^n, (x+y)^T(x+y)=x^Tx+2x^Ty+y^Ty\\).
+* For \\(x,y \in R^n, x^Ty=0\\) if and only if x and y are orthogonal.
+* Let \\(x,y \in R^n\\) be nonzero vectors and let the angle between them equal θ. Then \\(cos(\theta) = \frac{x^Ty}{||x||_2||y||_2}\\).
+* For \\(x \in R^n, x^Te_i=e_i^Tx=\chi_i\\) where \\(x_i\\) equals the `i`th component of x.
 
 
