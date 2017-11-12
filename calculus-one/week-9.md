@@ -92,7 +92,7 @@
     * Base on the diagram, we got: \\[l = a \cdot \csc\theta + b \cdot \sec\theta\\]
     * And we want to minimize \\(l\\). 
         * Don't forget \\(0 < \theta < \pi/2\\)
-    * To get the critical points, set \\[l'(\theta) = -a \cdot \csc\theta \cot\theta+ b \cdot \sec\theta \tan \theta = 0\\\]
+    * To get the critical points, set \\[l'(\theta) = -a \cdot \csc\theta \cot\theta+ b \cdot \sec\theta \tan \theta = 0\\]
     * Then \\(\tan^3\theta = \frac{a}{b}\\), \\(\tan\theta = \sqrt[3]{\frac{a}{b}}\\)
         * So, use trigonometry, we got \\(\csc\theta = \frac{\sqrt{1+(a/b)^{2/3}}}{\sqrt[3]{a/b}}\\), \\(\sec\theta = \sqrt{1+(q/b)^{2/3}}\\)
     * \\(\begin{aligned}l(\theta) &= \frac{a \cdot \sqrt{1+(a/b)^{2/3}}}{\sqrt[3]{a/b}} + b \cdot \sqrt{1+(q/b)^{2/3}} \\ &= (a^{2/3} + b^{2/3})^{3/2}\end{aligned}\\)
