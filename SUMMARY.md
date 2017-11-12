@@ -41,6 +41,19 @@
 * [Week 3 - Logistic Regression & Regularization](stanford-machine-learning/week-3.md)
 * [Week 4 - Neural Networks: Representation](stanford-machine-learning/week-4.md)
 * [Week 5 - Neural Networks: Learning](stanford-machine-learning/week-5.md)
+* [Week 6a - Advice for Applying Machine Learning](stanford-machine-learning/week-6a.md)
+
+<!--
+* [Week 6b - Machine Learning System Design](stanford-machine-learning/week-6b.md)
+* [Week 7 - Support Vector Machines](stanford-machine-learning/week-7.md)
+* [Week 8a - Unsupervised Learning](stanford-machine-learning/week-8a.md)
+* [Week 8b - Dimensionality Reduction](stanford-machine-learning/week-8b.md)
+* [Week 9a - Anomaly Detection](stanford-machine-learning/week-9a.md)
+* [Week 9b - Recommender Systems](stanford-machine-learning/week-9b.md)
+* [Week 10 - Large Scale Machine Learning](stanford-machine-learning/week-10.md)
+* [Week 11 - Application Example: Photo OCR](stanford-machine-learning/week-11.md)
+
+-->
 * [Symbols of Mathematics](stanford-machine-learning/SYMBOLS.md)
 
 ### Computational Thinking
