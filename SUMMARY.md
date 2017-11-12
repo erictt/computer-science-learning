@@ -22,6 +22,17 @@
 * [Week 6 - Chain Rule](calculus-one/week-6.md)
 * [Week 7 - Derivatives of Trigonometric Functions](calculus-one/week-7.md)
 * [Week 8 - Derivatives in the Real World](calculus-one/week-8.md)
+* [Week 9 - Optimization](calculus-one/week-9.md)
+
+<!--
+* [Week 10 - Linear Approximation](calculus-one/week-10.md)
+* [Week 11 - Antidifferentiation](calculus-one/week-11.md)
+* [Week 12 - Integration](calculus-one/week-12.md)
+* [Week 13 - Fundamental Theorem of Calculus](calculus-one/week-13.md)
+* [Week 14 - Substitution Rule](calculus-one/week-14.md)
+* [Week 15 - Techniques of Integration](calculus-one/week-15.md)
+* [Week 16 - Applications of Integration](calculus-one/week-16.md)
+-->
 
 ### Stanford Machine Learning
 

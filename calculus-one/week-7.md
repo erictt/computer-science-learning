@@ -130,11 +130,13 @@
 
 * \\(\sin{(x+y)} = \sin{x}\cos{y} + \cos{x}\sin{y}\\)
 * \\(\cos{(x+y)} = \cos{x}\cos{y} - \sin{x}\sin{y}\\)
-* \\(\sin{(x-y)} = \sin{x}\cos{y} - \sin{x}\sin{y}\\)
+* \\(\sin{(x-y)} = \sin{x}\cos{y} - \cos{x}\sin{y}\\)
 * \\(\cos{(x-y)} = \cos{x}\cos{y} + \sin{x}\sin{y}\\)
 * \\(\sin{2x} = 2\sin{x}\cos{x} \\)
 * \\(\cos{2x} = \cos^2{x} - \sin^2{x} \\)
     * [en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_trigonometric_identities#Angle_sum_and_difference_identities)
+* \\(\tan{(x+y)} = \frac{\tan(x) + \tan{y}}{1 - \tan(x)\tan(y)}\\)
+* \\(\tan{(x-y)} = \frac{\tan(x) - \tan{y}}{1 + \tan(x)\tan(y)}\\)
 
 ### Approximate sin 1
 
