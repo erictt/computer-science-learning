@@ -30,7 +30,7 @@
 #### The test set error
 
 * For linear regression: \\[J_{test}(\Theta) = \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}}(h_\Theta(x^{(i)}_{test}) - y^{(i)}_{test})^2\\]
-* For classification ~ Misclassification error (aka 0/1 misclassification error): \\[err(h_\Theta(x),y) = \begin{matrix} 1 & \mbox{if } h_\Theta(x) \geq 0.5\ and\ y = 0\ or\ h_\Theta(x) < 0.5\ and\ y = 1\\ 0 & \mbox otherwise \end{matrix}\\] 
+* For classification ~ Misclassification error (aka 0/1 misclassification error): \\[err(h_\Theta(x),y) = \begin{matrix} 1 & \text{if } h_\Theta(x) \geq 0.5\ and\ y = 0\ or\ h_\Theta(x) < 0.5\ and\ y = 1\\ 0 & \text{ otherwise }\end{matrix}\\] 
 * This gives us a binary 0 or 1 error result based on a misclassification. The average test error for the test set is: \\[\text{Test Error} = \dfrac{1}{m_{test}} \sum^{m_{test}}_{i=1} err(h_\Theta(x^{(i)}_{test}), y^{(i)}_{test})\\]
 * This gives us the proportion of the test data that was misclassified.
 
