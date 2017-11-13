@@ -34,6 +34,7 @@
 * [Week 16 - Applications of Integration](calculus-one/week-16.md)
 -->
 
+
 ### Stanford Machine Learning
 
 * [Week 1 - Introduction](stanford-machine-learning/week-1.md)
@@ -42,9 +43,9 @@
 * [Week 4 - Neural Networks: Representation](stanford-machine-learning/week-4.md)
 * [Week 5 - Neural Networks: Learning](stanford-machine-learning/week-5.md)
 * [Week 6a - Advice for Applying Machine Learning](stanford-machine-learning/week-6a.md)
+* [Week 6b - Machine Learning System Design](stanford-machine-learning/week-6b.md)
 
 <!--
-* [Week 6b - Machine Learning System Design](stanford-machine-learning/week-6b.md)
 * [Week 7 - Support Vector Machines](stanford-machine-learning/week-7.md)
 * [Week 8a - Unsupervised Learning](stanford-machine-learning/week-8a.md)
 * [Week 8b - Dimensionality Reduction](stanford-machine-learning/week-8b.md)
@@ -55,6 +56,7 @@
 
 -->
 * [Symbols of Mathematics](stanford-machine-learning/SYMBOLS.md)
+
 
 ### Computational Thinking
 
@@ -70,11 +72,13 @@
 * [Lecture 12 - Machine Learning](computational-thinking/lecture-12.md)
 * [Lecture 13 - Statistical Abuses](computational-thinking/lecture-13.md)
 
+
 ### Effective Thinking Through Mathematics
 
 * [Note](effective-thinking-through-mathematics/note.md)
 * [Week 4 (Telling the Story of Infinity)](effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity.md)
 * [Week 5 (Telling the Story of Euler Circuit Theorem)](effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem.md)
+
 
 ### CS50 Introduction to Computer Science
 
