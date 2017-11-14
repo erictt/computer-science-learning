@@ -47,10 +47,10 @@
 
 * Let's take an example:
 * Cancer classification:
-    * Train logistic regression model \\(h_{\theta}(x).(y = 1 if cancer, y = 0 otherwise)
-    * Find that you got 1% error on test set. (99% correct diagnoses)
-    * But the truth is, only 0.50% of patients have cancer.
-    * It means if we write a fake function, which always return 0, will have 99.50% accuracy.
+    * Train logistic regression model \\(h_{\theta}(x)\\).(`y = 1` if cancer, `y = 0` otherwise)
+    * Find that you got `1%` error on test set. (`99%` correct diagnoses)
+    * But the truth is, only `0.50%` of patients have cancer.
+    * It means if we write a fake function, which always return `0`, will have `99.50%` accuracy.
     * And this is an example of **skewed classes**.
         * When the ratio of positive to negative examples is very close to one of two extremes, because y equals one so rarely.
 
@@ -96,6 +96,7 @@
     * If you're trying to automatically set the threshold, one way is:
         * Try a range of threshold values and evaluate them on your cross validation set.
         * Then pick the threshold which gives the best fscore.
+* **A good classifier should have both a high precision and high recall on the cross validation set.**
 
 ### Data For Machine Learning
 
