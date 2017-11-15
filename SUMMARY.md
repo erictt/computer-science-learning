@@ -23,9 +23,11 @@
 * [Week 7 - Derivatives of Trigonometric Functions](calculus-one/week-7.md)
 * [Week 8 - Derivatives in the Real World](calculus-one/week-8.md)
 * [Week 9 - Optimization](calculus-one/week-9.md)
+* [Week 10 - Linear Approximation](calculus-one/week-10.md)
+
 
 <!--
-* [Week 10 - Linear Approximation](calculus-one/week-10.md)
+
 * [Week 11 - Antidifferentiation](calculus-one/week-11.md)
 * [Week 12 - Integration](calculus-one/week-12.md)
 * [Week 13 - Fundamental Theorem of Calculus](calculus-one/week-13.md)
