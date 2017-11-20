@@ -79,14 +79,14 @@
 * Simplified hypothesis (Assumes \\(θ_{0}= 0\\))
     * So we got: \\(h_{\theta}(x)=\theta_{1}x\\), then the cost function will be:
     * \\(J(\theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2\\) 
-    * \\(\displaystyle {minimize \atop \theta_{1}}\\), \\(J(\theta_{1})\\)
+    * \\(\displaystyle {\text{minimize} \atop \theta_{1}}\\), \\(J(\theta_{1})\\)
     * For example:
         * ![week-1-3-1](media/week-1-3-1.png)
     * \\(\theta=1\\), then \\(h_{\theta}(x) = 0 + 1\times x\\) , then \\(h_\theta (x_{i}) - y_{i} =0\\) , then \\(J(\theta_{1})=0\\) 
     * Plots: ( \\(\theta_{1}=1, J(\theta_{1})=0\\) ), (\\(\theta_{1}=0.5, J(\theta_{1})\approx0.58\\) ), (\\(\theta_{1}=0, J(\theta_{1})\approx2.3\\) )
     * Then we got:
         * <img src="media/week-1-8.png" width=300 />
-    * The optimization objective for the learning algorithm is find the value of \\(\theta_{1}\\) which \\(minimizes  J(\theta_{1})\\)
+    * The optimization objective for the learning algorithm is find the value of \\(\theta_{1}\\) which \\(\text{minimizes }  J(\theta_{1})\\)
         * So, here \\(\theta_{1} = 1\\) is the best value for \\(\theta_{1}\\)
 * Using our original complex hypothesis with two paribles,So cost function is \\(J(\theta_{0}, \theta_{1})\\)
     * Generates a 3D surface plot where axis are

@@ -50,8 +50,8 @@
     x+(x^2-2x) \text{, if } x^2-2x < 0. 
     \end{array} \right.\\]
     * Differentiate it: \\[f'(x) = \left\{ \begin{array}{rl} 
-    3-2x \text{, if } x < 0 \text{ or } x > 2,\\ 
-    -1+2x \text{, if } 0 < x < 2. 
+    3-2x &\text{, if } x < 0 \text{ or } x > 2,\\ 
+    -1+2x &\text{, if } 0 < x < 2. 
     \end{array} \right.\\]
     * Now List the critical points:
         * **x = 2** is the point that the function can't be differentiable.

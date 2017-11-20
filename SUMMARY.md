@@ -14,6 +14,10 @@
 
 * [Week 1 - Vectors in Linear Algebra](laff-linear-algebra/week-1.md)
 
+<!-- 
+[Week 2 - Linear Transformations and Matrices](laff-linear-algebra/week-2.md)
+-->
+
 ### Calculus One
 
 * [Week 2-3 - Functions & Limits](calculus-one/week-2-3.md)
@@ -46,9 +50,10 @@
 * [Week 5 - Neural Networks: Learning](stanford-machine-learning/week-5.md)
 * [Week 6a - Advice for Applying Machine Learning](stanford-machine-learning/week-6a.md)
 * [Week 6b - Machine Learning System Design](stanford-machine-learning/week-6b.md)
+* [Week 7 - Support Vector Machines](stanford-machine-learning/week-7.md)
+
 
 <!--
-* [Week 7 - Support Vector Machines](stanford-machine-learning/week-7.md)
 * [Week 8a - Unsupervised Learning](stanford-machine-learning/week-8a.md)
 * [Week 8b - Dimensionality Reduction](stanford-machine-learning/week-8b.md)
 * [Week 9a - Anomaly Detection](stanford-machine-learning/week-9a.md)
