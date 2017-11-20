@@ -140,8 +140,8 @@
     * <img src="media/15111543447671.jpg" width=250 />
     * Later, will explain how to choose \\(l^{(i)}\\)
 * Second, define \\(f_1, f_2, f_3\\) as the similarity between \\(x\\) and \\(l^{(i)}\\)(ignore \\(x_0\\)). Then: \\[\begin{aligned}
-    f_1 &= \text{similarity}(x, l^{(1)}) = \text{exp}(-\frac{{\lVert x - l^{(1)} \rVert}^2}{2\sigma^2}) \\
-    f_2 &= \text{similarity}(x, l^{(2)}) = \text{exp}(-\frac{{\lVert x - l^{(2)} \rVert}^2}{2\sigma^2}) \\
+    f_1 &= \text{similarity}(x, l^{(1)}) = \text{exp}(-\frac{ {\lVert x - l^{(1)} \rVert}^2 }{2\sigma^2}) \\
+    f_2 &= \text{similarity}(x, l^{(2)}) = \text{exp}(-\frac{ {\lVert x - l^{(2)} \rVert}^2 }{2\sigma^2}) \\
         &\vdots
     \end{aligned}\\]
     * This similarity function is called a **Kernel**. And this **exp** function is a **Gaussian Kernel**.
@@ -154,7 +154,7 @@
 * If \\(x\\) is far from \\(l^{(1)}\\):
     * \\(f_1 \approx \text{exp}(-\frac{(\text{large number})^2}{2\sigma^2}) \approx 0\\)
 * Example:
-    * \\(l^{(1)} = \begin{bmatrix}3 \\ 5\end{bmatrix}\\), \\(f_1 = \text{exp}(-\dfrac{{\lVert x - l^{(1)} \rVert}^2}{2\sigma^2})\\).
+    * \\(l^{(1)} = \begin{bmatrix}3 \\ 5\end{bmatrix}\\), \\(f_1 = \text{exp}(-\dfrac{ {\lVert x - l^{(1)} \rVert}^2 }{2\sigma^2})\\).
     * Plot \\(f_1\\) vs the kernel function, we get plots like:
         * <img src="media/15111559967418.jpg" width=450 />
         * Notice that when x = [3, 5], then \\(f_1 = 1\\).
@@ -225,7 +225,7 @@
 * No kernel("linear kernel")
     * Predict "y = 1" if \\(\theta^Tx \ge 0\\)
 * Gaussian kernel:
-    * \\(f_i = \text{exp}(-\frac{{\lVert x - l^{(2)} \rVert}^2}{2\sigma^2})\\), where \\(l^{(i)} = x^{(i)}\\)
+    * \\(f_i = \text{exp}(-\frac{ {\lVert x - l^{(2)} \rVert}^2 }{2\sigma^2})\\), where \\(l^{(i)} = x^{(i)}\\)
     * Need to choose \\(sigma^2\\)
     * Note: Do perform **feature scaling** before using a Gaussian kernel.
 * Other choice of kernel
