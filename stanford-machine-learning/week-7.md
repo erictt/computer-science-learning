@@ -25,6 +25,8 @@
     * If \\(y = 0\\):
         * <img src="media/15110762746306.jpg" width=200 />
         * We call this function \\(cost_0(z)\\).
+    * **How to use formula to represent those two lines?** At least to calculate the cost?
+        * Everything Prof Ng said about SVM training was an intuition. The actual SVM training method provided in the `svmTrain()` function is the SMO method. That method is too complex to be included as part of the course. -- from [Discuss Forms](https://www.coursera.org/learn/machine-learning/discussions/weeks/7/threads/uCyF4elMEeWK_Q7eN25hdw)
 * **The complete SVM cost function**
     * As a comparison we have logistic regression: \\[{\text{min}\atop{\theta}} \ - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2\\]
     * Replace the cost function with \\(cost_0(z)\\) and \\(cost_1(z)\\), we get: \\[{\text{min}\atop{\theta}}\ \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)})\ cost_0(\theta^Tx^{(i)})\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2\\]
@@ -146,6 +148,7 @@
     \end{aligned}\\]
     * This similarity function is called a **Kernel**. And this **exp** function is a **Gaussian Kernel**.
     * So, instead of writing similarity between x and l we might write \\[f_1 = k(x, l^{(1)})\\]
+    * My Note: \\(\sigma\\): normally it is symbol of standard deviation,  but in this formula, \\(\sigma\\) is a pick-up value. Need to find out why?
 
 #### Kernels and Similarity
 
