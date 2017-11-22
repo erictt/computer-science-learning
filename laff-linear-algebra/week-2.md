@@ -40,8 +40,8 @@
 
 * <img src="media/15112563461870.jpg" width=600 />
 * **The Big Idea**. The linear transformation **L** is completely described by the vectors 
-    * \\(a_0 ,a_1 ,...,a_{n−1}\\), where \\(a_j = L(e_j)\\)
-* because for any vector **x**, \\(L(x) = \sum^{n−1}_{j=0} x_j a_j\\).
+    * \\(a_0 ,a_1 ,...,a_{n-1}\\), where \\(a_j = L(e_j)\\)
+* because for any vector **x**, \\(L(x) = \sum^{n-1}_{j=0} x_j a_j\\).
 * <img src="media/15112562875793.jpg" width=500 />
 
 ### Theorem
