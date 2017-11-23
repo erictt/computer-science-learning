@@ -42,13 +42,14 @@
 * **The Big Idea**. The linear transformation **L** is completely described by the vectors 
     * \\(a_0 ,a_1 ,...,a_{n-1}\\), where \\(a_j = L(e_j)\\)
 * because for any vector **x**, \\(L(x) = \sum^{n-1}_{j=0} x_j a_j\\).
-* <img src="media/15112562875793.jpg" width=500 />
+* <img src="media/15112562875793.jpg" width=600 />
 
 ### Theorem
 
 * Let \\(L: \mathbb{R}^n \to \mathbb{R}^m\\) be defined by \\(L(x) = Ax\\) where \\(A \in \mathbb{R}^{m \times n}\\). Then **L** is a linear transformation.
 * Alternatively, A vector function \\(f: \mathbb{R}^n \to \mathbb{R}^m\\) is a linear transformation if and only if it can be represented by an \\(m \times n\\) **matrix**, which is a very special two dimensional array of numbers (elements).
 * The **set of all real valued** \\(m \times n\\) **matrices** is denoted by \\(\mathbb{R}^{m \times n}\\)
+
 ### How to check if a vector function is a linear transformation
 
 * Check if \\(f(0)=0\\). If it isn't, it is not a linear transformation.
@@ -61,8 +62,8 @@
 
 ### Rotations and Reflections, Revisited
 
-<img src="media/15113451668588.jpg" width="500" />
-<img src="media/15113452371581.jpg" width="500" />
+<img src="media/15113451668588.jpg" width="600" />
+<img src="media/15113452371581.jpg" width="600" />
 
 ## Some Summations will be Used in Future Weeks
 
