@@ -25,12 +25,10 @@
 * [Week 8 - Derivatives in the Real World](calculus-one/week-8.md)
 * [Week 9 - Optimization](calculus-one/week-9.md)
 * [Week 10 - Linear Approximation](calculus-one/week-10.md)
-
+* [Week 11-12 - Antidifferentiation & Integration](calculus-one/week-11-12.md)
 
 <!--
 
-* [Week 11 - Antidifferentiation](calculus-one/week-11.md)
-* [Week 12 - Integration](calculus-one/week-12.md)
 * [Week 13 - Fundamental Theorem of Calculus](calculus-one/week-13.md)
 * [Week 14 - Substitution Rule](calculus-one/week-14.md)
 * [Week 15 - Techniques of Integration](calculus-one/week-15.md)
@@ -48,11 +46,10 @@
 * [Week 6a - Advice for Applying Machine Learning](stanford-machine-learning/week-6a.md)
 * [Week 6b - Machine Learning System Design](stanford-machine-learning/week-6b.md)
 * [Week 7 - Support Vector Machines](stanford-machine-learning/week-7.md)
-
+* [Week 8 - Unsupervised Learning & Dimensionality Reduction](stanford-machine-learning/week-8.md)
 
 <!--
-* [Week 8a - Unsupervised Learning](stanford-machine-learning/week-8a.md)
-* [Week 8b - Dimensionality Reduction](stanford-machine-learning/week-8b.md)
+
 * [Week 9a - Anomaly Detection](stanford-machine-learning/week-9a.md)
 * [Week 9b - Recommender Systems](stanford-machine-learning/week-9b.md)
 * [Week 10 - Large Scale Machine Learning](stanford-machine-learning/week-10.md)
