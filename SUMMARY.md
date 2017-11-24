@@ -14,6 +14,7 @@
 
 * [Week 1 - Vectors in Linear Algebra](laff-linear-algebra/week-1.md) 
 * [Week 2 - Linear Transformations and Matrices](laff-linear-algebra/week-2.md)
+* [Week 3 - Matrix-Vector Operations](laff-linear-algebra/week-3.md)
 
 ## Calculus One
 
