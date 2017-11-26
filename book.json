@@ -8,8 +8,7 @@
         "github",
         "anchors",
         "splitter",
-        "-highlight",
-        "sunlight-highlighter",
+        "highlight",
         "anchor-navigation-ex",
         "expandable-chapters",
         "sitemap-general",
@@ -28,10 +27,6 @@
         },
         "anchor-navigation-ex": {
             "multipleH1": false
-        },
-        "sunlight-highlighter": {
-            "theme": "light",
-            "lineNumber": true
         },
 		"analytics": {
 			"google": "UA-56541906-1"
