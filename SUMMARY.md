@@ -3,39 +3,13 @@
 ## Introduction
 
 * [Introduction](README.md)
+* [Symbols of Mathematics](SYMBOLS.md)
 
 <!--
 ### Stanford Statistical Learning
 
 * [Chapter 2 - Overview of Statistical Learning](statistical-learning/chapter-2.md)
 * -->
-
-## LAFF Linear Algebra
-
-* [Week 1 - Vectors in Linear Algebra](laff-linear-algebra/week-1.md) 
-* [Week 2 - Linear Transformations and Matrices](laff-linear-algebra/week-2.md)
-* [Week 3 - Matrix-Vector Operations](laff-linear-algebra/week-3.md)
-
-## Calculus One
-
-* [Week 2-3 - Functions & Limits](calculus-one/week-2-3.md)
-* [Week 4 - The Beginning of Derivatives](calculus-one/week-4.md)
-* [Week 5 - Techniques of Differentiation](calculus-one/week-5.md)
-* [Week 6 - Chain Rule](calculus-one/week-6.md)
-* [Week 7 - Derivatives of Trigonometric Functions](calculus-one/week-7.md)
-* [Week 8 - Derivatives in the Real World](calculus-one/week-8.md)
-* [Week 9 - Optimization](calculus-one/week-9.md)
-* [Week 10 - Linear Approximation](calculus-one/week-10.md)
-* [Week 11-12 - Antidifferentiation & Integration](calculus-one/week-11-12.md)
-
-<!--
-
-* [Week 13 - Fundamental Theorem of Calculus](calculus-one/week-13.md)
-* [Week 14 - Substitution Rule](calculus-one/week-14.md)
-* [Week 15 - Techniques of Integration](calculus-one/week-15.md)
-* [Week 16 - Applications of Integration](calculus-one/week-16.md)
--->
-
 
 ## Stanford Machine Learning
 
@@ -57,8 +31,32 @@
 * [Week 11 - Application Example: Photo OCR](stanford-machine-learning/week-11.md)
 
 -->
-* [Symbols of Mathematics](stanford-machine-learning/SYMBOLS.md)
 
+## Calculus One
+
+* [Week 2-3 - Functions & Limits](calculus-one/week-2-3.md)
+* [Week 4 - The Beginning of Derivatives](calculus-one/week-4.md)
+* [Week 5 - Techniques of Differentiation](calculus-one/week-5.md)
+* [Week 6 - Chain Rule](calculus-one/week-6.md)
+* [Week 7 - Derivatives of Trigonometric Functions](calculus-one/week-7.md)
+* [Week 8 - Derivatives in the Real World](calculus-one/week-8.md)
+* [Week 9 - Optimization](calculus-one/week-9.md)
+* [Week 10 - Linear Approximation](calculus-one/week-10.md)
+* [Week 11-12 - Antidifferentiation & Integration](calculus-one/week-11-12.md)
+
+<!--
+
+* [Week 13 - Fundamental Theorem of Calculus](calculus-one/week-13.md)
+* [Week 14 - Substitution Rule](calculus-one/week-14.md)
+* [Week 15 - Techniques of Integration](calculus-one/week-15.md)
+* [Week 16 - Applications of Integration](calculus-one/week-16.md)
+-->
+
+## LAFF Linear Algebra
+
+* [Week 1 - Vectors in Linear Algebra](laff-linear-algebra/week-1.md) 
+* [Week 2 - Linear Transformations and Matrices](laff-linear-algebra/week-2.md)
+* [Week 3 - Matrix-Vector Operations](laff-linear-algebra/week-3.md)
 
 ## Computational Thinking
 

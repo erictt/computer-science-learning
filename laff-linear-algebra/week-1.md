@@ -86,7 +86,7 @@
 * Lowercase Greek letters (α, β, etc.) are used for scalars.
 * Lowercase (Roman) letters (a, b, etc) are used for vectors.
 * Uppercase (Roman) letters (A, B, etc) are used for matrices.
-* [The Alphabet](/stanford-machine-learning/SYMBOLS.html)
+* [The Alphabet](https://cs.ericyy.me/SYMBOLS.html)
 
 ### Other Norms
 
