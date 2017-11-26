@@ -93,6 +93,7 @@
                 #   indices[2] < 2+2 = i+2 = i+n-r,
                 #   indices[1] < 1+2 = i+2 = i+n-r,
                 #   indices[0] < 0+2 = i+2 = i+n-r,
+                # this can also be: indices[i] != i + n - r
                 if indices[i] < i + n - r:
                     break
             else:
