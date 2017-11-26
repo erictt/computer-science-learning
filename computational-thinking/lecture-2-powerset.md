@@ -78,7 +78,7 @@
             # if it indices[i] >= its maximum, 
             #   set i = i-1, check the previous one
             # if all of the indices has hit the maximum, 
-            #   stop the `while` loop
+            #   return the function
             for i in reversed(range(r)):
                 
                 # let's take an example to explain why using i + n - r
@@ -88,7 +88,7 @@
                 #   indices[2] can be one of [2,3,4],
                 #   indices[1] can be one of [1,2,3],
                 #   indices[0] can be one of [0,1,2],
-                # and the gap of every index is n-r, like here is 5-3=2
+                # and the range of every index is n-r, like this sample uses: 5-3=2
                 # then
                 #   indices[2] < 2+2 = i+2 = i+n-r,
                 #   indices[1] < 1+2 = i+2 = i+n-r,
