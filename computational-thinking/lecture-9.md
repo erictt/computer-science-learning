@@ -1,7 +1,9 @@
 # Lecture 9
 
 [TOC]
- 
+
+* This lecture is talking about how to find the mean of population with Standard Error(SE) and Standard Error of The Means(SEM). And how to  decide the sample size to represent the population with CV.
+
 ## Sampling and Standard Error
 
 ### Stratified Sampling
@@ -156,7 +158,7 @@ pylab.axvline(x = popMean, color = 'r')
         * `n` is the size (number of observations) of the sample.
     * Recall the formula (from [CLT](lecture-8.md#the-central-limit-theorem-clt)) of the standard deviation of the sample means: 
         * The variance of the sample means (\\(\sigma_{\bar{x}}^2\\)) will be close to the variance of the population (\\(\sigma^2\\)) divided by the sample size (N).
-       * \\(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{N}}\\)
+       * \\(\sigma^2_{\bar{x}}=\frac{\sigma^2}{N}\\)
        * where
            * `σ` is the standard deviation of the population.
 

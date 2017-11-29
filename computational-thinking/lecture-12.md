@@ -151,10 +151,10 @@
 * To compute the variability of the examples within a cluster
     * First compute the mean(`sum(V)/float(len(V))`, more precisely the Euclidean mean) of the feature vectors of all the examples in the cluster. , `V` is a list of feature vectors. 
     * Compute the distance between feature vectors
-        * \\(variability(c)=\displaystyle\sum_{e \in c}distance(mean(c), e)^2\\)
+        * \\(\text{variability}(c)=\displaystyle\sum_{e \in c}\text{distance}(\text{mean}(c), e)^2\\)
 * The definition of variability within a single cluster, `c`, can be extended to define a dissimilarity metric for a set of clusters, `C`:
-   * \\(dissimilarity(C)=\displaystyle\sum_{e \in c}variability(c)\\)
-* It's NOT the optimization problem to find a set of clusters, C, such that dissimilarity(C) is minimized. It can easily be minimized by putting each example in its own cluster.
+   * \\(\text{dissimilarity}(C)=\displaystyle\sum_{e \in c}\text{variability(c)}\\)
+* It's NOT the optimization problem to find a set of clusters, C, such that `dissimilarity(C)` is minimized. Because it can easily be minimized by putting each example in its own cluster.
 * We could put a constraint on the distance between clusters or require that the maximum number of clusters is `k`. Then to find the minimum between clusters.
 
 ##### K-means Clustering

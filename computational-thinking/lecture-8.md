@@ -72,13 +72,13 @@
     * <img src="media/15018156431740.jpg" width=200 />
     * By the definition of π, area = πr^2 . Since r is 1, π = area.
     * If the locations of the needles are truly random, we know that,
-        * \\(\frac{needles\ in\ circle}{needles\ in\ square}=\frac{area\ of\ circle}{area\ of\ square}\\)
+        * \\(\frac{\text{needles in circle}}{\text{needles in square}}=\frac{\text{area of circle}}{\text{area of square}}\\)
     * solving for the area of the circle,
-       * \\(area\ of\ circle = \frac{area\ of\ sqaure\ *\ needles\ in\ circle}{needles\ in\ square}\\)
+       * \\(\text{area of circle} = \frac{\text{area of sqaure}\ *\ \text{needles in circle}}{\text{needles in square}}\\)
     * Recall that the area of a 2 by 2 square is 4, so,
-        * \\(area\ of\ circle = \frac{4 *\ needles\ in\ circle}{needles\ in\ square}\\)
-        * in this case \\(area\ of\ circle = {\pi}r^2\\), and r=1, so:
-            * \\(\pi = \frac{4 *\ needles\ in\ circle}{needles\ in\ square}\\)
+        * \\(\text{area of circle} = \frac{4 * \text{needles in circle}}{\text{needles in square}}\\)
+        * in this case \\(\text{area of circle} = {\pi}r^2\\), and r=1, so:
+            * \\(\pi = \frac{4 * \text{needles in circle}}{\text{needles in square}}\\)
     
     ```python
     import random
@@ -101,7 +101,7 @@
             estPis.append(throwNeedls(numNeedles))
         return getMeanAndStd(estPis)
     
-    # we want 95% (an arbitrary choice of accuracy) confidence interval 
+    # we want 95% (an arbitrary choice of accuracy) confidence interval with +- 0.005 precision
     # 95% => 0.95 => 0.475*2
     # check the z-table 0.475 => 1.96 std
     # so we are looking for 1.96 std less that precision
@@ -109,7 +109,7 @@
     def estPi(precision, numTrails):
         numNeedles = 1000
         std = precision # just initial the value of std, can be any numbers large than precision
-        while(std >= precision/1.96):
+        while(std * 1.96 >= precision):
             mean, std = getEst(numNeedles, numTrails)
             print("Mean="+str(mean)+", Std="+str(round(std, 6))+", Needls="+str(numNeedles))
             numNeedles *= 2 

@@ -201,8 +201,7 @@
        yVals = []
        for x in xVals:
            theoreticalVal = a*x**2 + b*x + c
-           yVals.append(theoreticalVal\
-           + random.gauss(0, 35))
+           yVals.append(theoreticalVal + random.gauss(0, 35))
        f = open(fName,'w')
        f.write('y        x\n')
        for i in range(len(yVals)):
