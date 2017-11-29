@@ -32,7 +32,7 @@
     * Replace the cost function with \\(cost_0(z)\\) and \\(cost_1(z)\\), we get: \\[{\text{min}\atop{\theta}}\ \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)})\ cost_0(\theta^Tx^{(i)})\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2\\]
     * In convention with SVM notation, we adjust a little bit: 
         * Get rid of \\(\dfrac{1}{m}\\) term.
-            * Because \\(\frac{1}{m}\\) is a constant, so we should still end up with the same optimal value for \\(theta\\).
+            * Because \\(\frac{1}{m}\\) is a constant, so we should still end up with the same optimal value for \\(\theta\\).
         * For logistic regression we have:
             * Training data set term **A**: \\[- \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large]\\]
             * and Regularization term **B**: \\[\frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2\\]
@@ -40,12 +40,12 @@
             * So \\(\lambda\\) is the trade-off between training data set and regularization terms.
             * Instead of using \\(A + \lambda B \\), In SVM, we rewrite it as \\(CA + B\\), which **C** is a constant.
             * We can think of the parameter **C** playing a role similar to \\(\frac{1}{\lambda}\\).
-    * Overall optimization objective function for the SVM is: \\[{\text{min}\atop{\theta}}\ C \sum_{i=1}^m \large[ y^{(i)}\ cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)})\ cost_0(\theta^Tx^{(i)})\large] + \frac{1}{2}\sum_{j=1}^n \theta_j^2\\]
+    * Overall optimization objective function for the SVM is: \\[{\text{min}\atop{\theta}}\ C \sum_{i=1}^m \large[ y^{(i)}\ \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)})\ \text{cost}_0(\theta^Tx^{(i)})\large] + \frac{1}{2}\sum_{j=1}^n \theta_j^2\\]
 * SVM Hypothesis: 
     * Unlike logistic, \\(h_{\theta}(x)\\) doesn't give us a probability, instead we get a direct prediction of **1** or **0**
     * \\[h_{\theta}(x) = \left\{ \begin{array}{rl} 
         1 & \text{, if } \theta^Tx \ge 0 \\ 
-        0 & \text{, } otherwise. 
+        0 & \text{, } \text{otherwise}. 
         \end{array} \right.\\]
 
 
@@ -55,8 +55,8 @@
 * Here are two plots for the cost function:
     * <img src="media/15110839402275.jpg" width=500 />
 * If we want the cost to be small, then we will need \\(z\\) to be more that **1** not just **0**. then:
-    * If \\(y = 1\\), we want \\(\theta^Tx \ge 1\\) (not just \\( \ge 0\\).
-    * If \\(y = 0\\), we want \\(\theta^Tx \le -1\\) (not just \\( \le 0\\).
+    * If \\(y = 1\\), we want \\(\theta^Tx \ge 1\\) (not just \\( \ge 0\\)).
+    * If \\(y = 0\\), we want \\(\theta^Tx \le -1\\) (not just \\( \le 0\\)).
 
 ### SVM Decision Boundary
 
@@ -82,7 +82,7 @@
 
 * <img src="media/15110919405825.jpg" width=250 />
 * \\(u = \begin{bmatrix} u_1 \\ u_2 \end{bmatrix}\\), \\(v = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix}\\)
-* length of vector: \\(\lVert u \rVert = \sqrt{u_0^2+u_1^2}\\)
+* length of vector: \\(\lVert u \rVert = \sqrt{u_1^2+u_2^2}\\)
 * **p** = length of projection of **v** onto **u**.
     * **p** is signed, which means it can be negative number.
 * \\(\begin{aligned}u^tv &= p \cdot \lVert u \rVert \\ &= u_1v_1 + u_2v_2 \end{aligned}\\)
@@ -229,7 +229,7 @@
     * Predict "y = 1" if \\(\theta^Tx \ge 0\\)
 * Gaussian kernel:
     * \\(f_i = \text{exp}(-\frac{ {\lVert x - l^{(2)} \rVert}^2 }{2\sigma^2})\\), where \\(l^{(i)} = x^{(i)}\\)
-    * Need to choose \\(sigma^2\\)
+    * Need to choose \\(\sigma^2\\)
     * Note: Do perform **feature scaling** before using a Gaussian kernel.
 * Other choice of kernel
     * Not all similarity functions make valid kernels
