@@ -17,13 +17,16 @@
 
 * Samples 1:
     * \\[\begin{aligned}
-        \lim_{x \to \infty}(1+\frac{1}{x})^x &= e^{\displaystyle\log{\lim_{x \to \infty}(1+\frac{1}{x})^x}} \\
-        &= e^{\displaystyle\lim_{x \to \infty}\log{(1+\frac{1}{x})^x}} \\
-        &= e^{\displaystyle\lim_{x \to \infty}x \log{(1+\frac{1}{x})}} \\
-        &= e^{\displaystyle\lim_{x \to \infty}\frac{\log{(1+\frac{1}{x})}}{\frac{1}{x}}}
+        \displaystyle\lim_{x \to \infty}(1+\frac{1}{x})^x 
+        &= e^{\log{\displaystyle\lim_{x \to \infty}(1+\frac{1}{x})^x}} \\
+        &= e^{\displaystyle \lim_{x \to \infty}\log{(1+\frac{1}{x})^x}} \\
+        &= e^{\displaystyle \lim_{x \to \infty}x \log{(1+\frac{1}{x})}} \\
+        &= e^{\displaystyle \lim_{x \to \infty}\frac{\log{(1+\frac{1}{x})}}{\frac{1}{x}}}
         \end{aligned}\\]
-    * use **L'Hôpital's Rule** : \\[\begin{aligned}
-        \lim_{x \to \infty}(1+\frac{1}{x})^x &= e^{\displaystyle\lim_{x \to \infty}\frac{\frac{1}{1+\frac{1}{x}} \cdot -\frac{1}{x^2}}{-\frac{1}{x^2}}} \\
+    * use **L'Hôpital's Rule** : 
+    \\[\begin{aligned}
+        \lim_{x \to \infty}(1+\frac{1}{x})^x 
+        &= e^{\displaystyle\lim_{x \to \infty}\frac{\frac{1}{1+\frac{1}{x}} \cdot -\frac{1}{x^2}}{-\frac{1}{x^2}}} \\
         &= e^{\displaystyle\lim_{x \to \infty}\frac{1}{1+\frac{1}{x}}} \\
         &= e^{1} = e
     \end{aligned}\\]
@@ -35,7 +38,7 @@
         &= \lim_{x \to \infty}\frac{\frac{1}{2} \cdot (1+\frac{1}{x})^{-\frac{1}{2}} \cdot -\frac{1}{x^2}}{-\frac{1}{x^2}} \\
         &= \lim_{x \to \infty}\frac{1}{2\sqrt{1+\frac{1}{x}}} \\
         &= \frac{1}{2}
-        \end{aligned}\\]
+    \end{aligned}\\]
 
 * Some situations the L'Hôptial's Rule doesn't apply
 
