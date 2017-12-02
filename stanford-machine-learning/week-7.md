@@ -40,7 +40,7 @@
             * So \\(\lambda\\) is the trade-off between training data set and regularization terms.
             * Instead of using \\(A + \lambda B \\), In SVM, we rewrite it as \\(CA + B\\), which **C** is a constant.
             * We can think of the parameter **C** playing a role similar to \\(\frac{1}{\lambda}\\).
-    * Overall optimization objective function for the SVM is: \\[{\text{min}\atop{\theta}}\ C \sum_{i=1}^m \large[ y^{(i)}\ \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)})\ \text{cost}_0(\theta^Tx^{(i)})\large] + \frac{1}{2}\sum_{j=1}^n \theta_j^2\\]
+    * Overall optimization objective function for the SVM is: \\[{\text{min}_{\theta}}\ C \sum_{i=1}^m \large[ y^{(i)}\ \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)})\ \text{cost}_0(\theta^Tx^{(i)})\large] + \frac{1}{2}\sum_{j=1}^n \theta_j^2\\]
 * SVM Hypothesis: 
     * Unlike logistic, \\(h_{\theta}(x)\\) doesn't give us a probability, instead we get a direct prediction of **1** or **0**
     * \\[h_{\theta}(x) = \left\{ \begin{array}{rl} 
