@@ -123,7 +123,7 @@
 
 ### Gradient Descent Intuition
 
-* \\(\theta_j := \theta_j * \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\\) for \\(( j=0, j=1)\\)
+* \\(\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\\) for \\(( j=0, j=1)\\)
 * What does this all mean?
     * Update \\(\theta_{j}\\) by setting it to \\((\theta_{j} - \alpha)\\) times the **partial derivative** of the cost function with respect to \\(\theta_{j}\\)
 * Notation
@@ -187,7 +187,7 @@
     \theta_1 := & \theta_1 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m}\left((h_\theta(x_{i}) - y_{i}) x_{i}\right) \\
     \rbrace \end{aligned}\\]
 
-    * To check this you need to know **multivariate calculus**. So go back to here when you finished **multivariable calculus**.
+    * To check this you need to know **multivariate calculus**. So go back here when you finished **multivariable calculus**.
         * We have separated out the two cases for \\(\theta_{j}\\) into separate equations for \\(\theta_{0}\\) and \\(\theta_{1}\\); and that for \\(\theta_1\\) we are multiplying \\(x_i\\) at the end due to the derivative. The following is a derivation of \\(\frac{\partial}{\partial \theta_j} J(\theta)\\) for a single example :
         * ![week-1-18](media/week-1-18.png)
 

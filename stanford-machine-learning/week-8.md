@@ -87,7 +87,7 @@
 * **Data Preprocessing**
     * Training set: \\(x^{(1)}, x^{(2)}, \ldots, x^{(m)}\\)
     * Preprocessing (To have comparable range of values):
-        * feature scaling [Lecture 12(Computational Thinking)](https://cs.ericyy.me/computational-thinking/lecture-12.html#choose-feature-vectors)
+        * feature scaling: [Check Week 2](/stanford-machine-learning/week-2.html#feature-scaling) 
             * Z-scaling
                 * Each feature has a mean of 0 & a standard deviation of 1
             * Interpolation

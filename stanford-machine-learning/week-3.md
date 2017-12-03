@@ -35,9 +35,9 @@
 
 * In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function as follows:
     * \\(\begin{aligned}& h_\theta(x) \geq 0.5 \rightarrow y = 1 \\& h_\theta(x) < 0.5 \rightarrow y = 0 \\\end{aligned}\\) 
-    * so \\(\begin{aligned}& g(z) \geq 0.5 , when \; z \geq 0\end{aligned}\\) 
-        * \\(\begin{aligned}z=0, e^{0}=1 \Rightarrow g(z)=1/2\\ z \to \infty, e^{-\infty} \to 0 \Rightarrow g(z)=1 \\ z \to -\infty, e^{\infty}\to \infty \Rightarrow g(z)=0 \end{aligned}\\) 
-        * so if our input to \\(g\\) is \\(\theta^TX\\) , then that means: \\(\begin{aligned}& h_\theta(x) = g(\theta^T x) \geq 0.5 , when \; \theta^T x \geq 0\end{aligned}\\) 
+    * so \\(\begin{aligned}& g(z) \geq 0.5 \text{, when } z \geq 0\end{aligned}\\) 
+        * \\(\begin{aligned}z=0, e^{0}=1 &\Rightarrow g(z)=1/2\\ z \to \infty, e^{-\infty} \to 0 &\Rightarrow g(z)=1 \\ z \to -\infty, e^{\infty}\to \infty &\Rightarrow g(z)=0 \end{aligned}\\) 
+        * so if our input to \\(g\\) is \\(\theta^TX\\) , then that means: \\(\begin{aligned}& h_\theta(x) = g(\theta^T x) \geq 0.5 \text{, when}\ \theta^T x \geq 0\end{aligned}\\) 
 * Sample:
     * \\(h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2x_2)\\) :
     * ![week-3-2](media/week-3-2.png)
