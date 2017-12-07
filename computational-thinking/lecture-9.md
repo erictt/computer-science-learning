@@ -151,6 +151,9 @@ pylab.axvline(x = popMean, color = 'r')
 * (标准误所代表的，是在无数次抽样结果中，一次抽样的结果可能偏离无数次抽样结果这一总体的程度。标准误越小，用这一次抽样结果来代表这无数次抽样结果的可靠性就越好。)
 * 标准差是样本离散程度的一个度量，它等于二阶中心距（方差）的平方根。标准误是：给定样本大小（里面有多少个观测值），样本的某个统计量的抽样分布标准差。 -- from [知乎](https://www.zhihu.com/question/22864111)
 * **Standard Error of the Mean(SEM)** is the standard deviation of the sampling distribution of the **sample mean**.
+    * 比方说，我们打算使用随机样本来计算整体样本的平均值。SEM 表达的是，我们使用的样本大小是否足够代表整体来计算整体平均值。
+    * 我们期望随机样本在特定 CI (比如95%)下的可靠度足够高。比如温度预测，我们肯定不希望95%的 CI 下差值范围超过 1 度。显然这样的预测是不准确的。
+    * 因为通常情况下，我们无法得知整体样本的数据情况，所以必须使用随机抽样+计算SEM来保证样本大小足够以及结论的可靠性。
 * To formulate it, SEM is estimated by the sample estimate of the population standard deviation (sample standard deviation) divided by the square root of the sample size (assuming statistical independence of the values in the sample):
     * \\(SE_{\bar{x}}=\frac{s}{\sqrt{n}}\\)
     * where
@@ -291,12 +294,13 @@ plotDiffs(sampleSizes, diffs,
 
 * **Prerequisite**: independent random samples
     
-1. Choose sample size based on estimate of skew in population
+1. Choose **sample size** based on estimate of skew in population
     * `skew`: A distribution is skewed if one tail extends out further than the other. A distribution has a positive skew (is skewed to the right) if the tail to the right is longer. It has a negative skew (skewed to the left) if the tail to the left is longer.
 2. Chose a random sample from the population
-3. Compute the mean and standard deviation of that sample
-4. Use the standard deviation of that sample to estimate the SEM
-5. Use the estimated SE to generate confidence intervals around the sample mean
+3. Compute the **mean** and **standard deviation** of that sample
+4. Use the standard deviation of that sample to estimate the **SEM**
+5. Use the estimated SEM to generate **confidence intervals** around the sample mean
+    * if the **CI** is small enough, then we can use this sample size to represent our population.
 
 #### Test the Conclusion
 
