@@ -114,10 +114,10 @@ pylab.axvline(x = popMean, color = 'r')
 * Result:
 
    ```
-   Mean of sample Means = 16.282
-   Standard deviation of sample means = 0.662
-   Maximum difference in means = 2.52
-   Maximum difference in standard deviations = 1.281
+   Mean of sample Means = 16.294
+   Standard deviation of sample means = 0.943
+   Maximum difference in means = 3.633
+   Maximum difference in standard deviations = 2.457
    ```
    
    <img src="media/15020131712390.jpg" width=400 />
@@ -139,7 +139,7 @@ pylab.axvline(x = popMean, color = 'r')
     <img src="media/15020143820967.jpg" width=400 />
 
 * Result:
-    * Going from a sample size of 100 to 400 reduced the confidence interval from 1.8C to about 1C.
+    * Going from a sample size of 100 to 400 reduced the confidence interval from \\(1.8\ ^{\circ}C\\) to about \\(1 \ ^{\circ}C\\).
 
 #### Conclusion
 
@@ -154,7 +154,8 @@ pylab.axvline(x = popMean, color = 'r')
 * To formulate it, SEM is estimated by the sample estimate of the population standard deviation (sample standard deviation) divided by the square root of the sample size (assuming statistical independence of the values in the sample):
     * \\(SE_{\bar{x}}=\frac{s}{\sqrt{n}}\\)
     * where
-        * `s` is the **sample standard deviation** (i.e., the sample-based estimate of the standard deviation of the population).
+        * `s` is the **sample standard deviation** (i.e., the sample-based estimate of the standard deviation of the population). 
+            * Because, most time, we can't get the standard deviation of the population. Later, we will prove the sample-based estimate of the standard deviation of the population is close to the standard deviation of the population.
         * `n` is the size (number of observations) of the sample.
     * Recall the formula (from [CLT](lecture-8.md#the-central-limit-theorem-clt)) of the standard deviation of the sample means: 
         * The variance of the sample means (\\(\sigma_{\bar{x}}^2\\)) will be close to the variance of the population (\\(\sigma^2\\)) divided by the sample size (N).
@@ -198,7 +199,7 @@ pylab.legend()
 #### Compare Sample Standard Deviation
 
 * to prove that the sample estimate of the population standard deviation (sample standard deviation) is close to the population standard deviation
-* compare the differences between the Standard Deviation of Sample(**NOT Standard Error of the Means**) and the Standard Deviation of the Population:
+* compare the differences between the Standard Deviation of **Single** Sample (**NOT Standard Error of the Means**) and the Standard Deviation of the Population:
 
 ```python
 def getDiffs(population, sampleSizes):
