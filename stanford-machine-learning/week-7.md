@@ -148,7 +148,7 @@
     \end{aligned}\\]
     * This similarity function is called a **Kernel**. And this **exp** function is a **Gaussian Kernel**.
     * So, instead of writing similarity between x and l we might write \\[f_1 = k(x, l^{(1)})\\]
-    * My Note: \\(\sigma\\): normally it is symbol of standard deviation,  but in this formula, \\(\sigma\\) is a pick-up value. Need to find out why?
+    * My Note: \\(\sigma\\): the value of standard deviation. Gaussian Kernel is calculating the value correspond with mean(\\(l^{(1)}\\)) and \\(\sigma\\).
 
 #### Kernels and Similarity
 
@@ -248,7 +248,7 @@
 
 * When should we use one algorithm versus the other? 
 * **n** = number of features (\\(x \in \mathbb{R}^{n+1}\\)), **m** = number of training examples
-* If **n** is large(relative to **m**) (e.g. n = 10,000, m = 10....000):
+* If **n** is large(relative to **m**) (e.g. n = 10,000, m = 10-1000):
     * Use logistic regression, or SVM without a kernel("linear kernel")
 * If **n** is small, **m** is intermediate (e.g. n = 1 - 1000, m = 10 - 10,000):
     * Use SVM with Gaussian kernel

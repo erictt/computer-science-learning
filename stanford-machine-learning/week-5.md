@@ -66,7 +66,7 @@
         1. `L` is the total number of layers
         2. \\(a^{(L)}\\) is the vector of outputs of the activation units for the last layer.
         3. So our "error values" for the last layer are \\(a^{(L)} - y^{(i)}\\).
-    4. Compute \\(\delta^{(L-1)}, \delta^{(L-2)}, \ldots, \delta^{(2)}\\) using \\(\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)})\ .* \ a^{(l)}\ .* \ (1 - a^{(l)})\\) that steps us back from right to left.
+    4. Compute \\(\delta^{(L-1)}, \delta^{(L-2)}, \ldots, \delta^{(2)}\\) using \\(\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)})\ .* g'(z^{(l)})\\) that steps us back from right to left.
         1. 算出每一层每个节点的偏差之和，即节点中每个元素乘以相应的 \\(\Theta\\) 后出现的偏差之和
         2. \\((\Theta^{(l)})^T \delta^{(l+1)}\\): has the same dimensionality with \\(a^{(l)}\\).
             * \\((\Theta^{(3)})^T\\): [5 X 4]; \\(\delta^{(4)}\\): [4 X 1], then \\((\Theta^{(3)})^T \delta^{(4)}\\): [5 X 1]
@@ -166,7 +166,7 @@
     Theta3 = rand(1,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
     ```
 
-* **rand(x,y)** is just a function in octave that will initialize a matrix of random real numbers between **0** and **1**.    
+* **rand(x,y)** is just a function in octave that will initialize a matrix[x*y] of random real numbers between **0** and **1**.    
 
 ### Putting it Together
 

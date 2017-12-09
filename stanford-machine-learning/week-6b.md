@@ -74,7 +74,7 @@
         * Predict 1 if \\(h_{\theta}(x) \ge 0.8\\)
         * Predict 0 if \\(h_{\theta}(x) < 0.2\\)
     * Now we can be more confident that 1 is a true positive
-    * But also the classifier has lower recall - predict y = 1 for a smaller number of patients
+    * But also the classifier has lower recall(predict y = 1) for a smaller number of patients
         * Risk of false negatives
 * Avoid false negatives (avoid missing too many cases of cancer)
     * This is probably worse for the cancer example
