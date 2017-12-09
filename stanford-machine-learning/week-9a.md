@@ -67,18 +67,18 @@
     * CV: 2000 good engines (y = 0), 10 anomalous (y = 1)
     * Test: 2000 good engines (y = 0), 10 anomalous (y = 1)
 * Algorithm evaluation
-    * Fit model \\(p(x)\\) on training set {\\(x^{(1)}, \ldots, x^{(m)}\\)}
+    * Fit model \\(p(x)\\) on training set \\(\{ x^{(1)}, \ldots, x^{(m)} \}\\)
     * On a cross validation/test examples \\(x\\), predict \\[y = \begin{cases}
             1 &\text{if}\ p(x) < \epsilon \text{(anomaly)}\\
             0 &\text{if}\ p(x) \ge \epsilon \text{(normal)}
         \end{cases}\\]
     * Possible evaluation metrics:
         - True positive, false positive, false negative, true negative 
-        - Precision/Recall 
+        - Precision/Recall
         - \\(F_1\\)-score
     * Can also use cross validation set to choose parameter \\(\epsilon\\)
 
-### Anomaly Detection vs. Supervised Learning
+### Anomaly Detection vs Supervised Learning
 
 * Anomaly Detection
     * Very small number of positive examples (y=1). (0-20 is common).
@@ -127,7 +127,7 @@
 ## Multivariate Gaussian Distribution
 
 * \\(x \in \mathbb{R}^n\\).
-* Formula: \\[p(x;\mu,\Sigma)= \frac{1}{\sqrt { (2\pi)^n|\boldsymbol \Sigma| } }  \exp\left(-{1 \over 2} (\mathbf{x}-\boldsymbol\mu)^{\rm T} \boldsymbol\Sigma^{-1} ({\mathbf x}-\boldsymbol\mu)\right)\\]
+* Formula: \\[p(x;\mu,\Sigma)= \frac{1}{\sqrt { (2\pi)^n| \Sigma| } }  \exp\left(-{1 \over 2} (\mathbf{x}-\mu)^{\rm T} \Sigma^{-1} ({\mathbf x}-\mu)\right)\\]
     * \\(\mu \in \mathbb{R}^n, \Sigma \in \mathbb{R}^{n \times n}\\) (covariance matrix)
     * \\(\lvert \Sigma \rvert\\): matrix determinant. In Matlab: `det(Sigma)`
 * Examples
@@ -137,18 +137,18 @@
 
 ### Anomaly Detection using the Multivariate Gaussian Distribution
 
-0. Given training set {\\(x^{(1)}, x^{(2)}, \ldots, x^{(m)}\\)}
+0. Given training set \\(\{ x^{(1)}, x^{(2)}, \ldots, x^{(m)} \}\\)
 1. Fit model \\(p(x)\\) by setting 
     * \\(\displaystyle \mu = \frac{1}{m} \sum_{i=1}^m x^{(i)}\\)
     * \\(\displaystyle \Sigma = \frac{1}{m}\sum_{i=1}^m (x^{(i)} - \mu)(x^{(i)} - \mu)^T\\)
-2. Given a new example \\(x\\), compute \\[p(x) = \frac{1}{\sqrt { (2\pi)^n|\boldsymbol \Sigma| } }  \exp\left(-{1 \over 2} (\mathbf{x}-\boldsymbol\mu)^{\rm T} \boldsymbol\Sigma^{-1} ({\mathbf x}-\boldsymbol\mu)\right)\\]
+2. Given a new example \\(x\\), compute \\[p(x) = \frac{1}{\sqrt { (2\pi)^n| \Sigma| } }  \exp\left(-{1 \over 2} (\mathbf{x}-\mu)^{\rm T} \Sigma^{-1} ({\mathbf x}-\mu)\right)\\]
     * Flag an anomaly if \\(p(x) < \epsilon\\)
 
 #### Relationship to original model
 
-* Original model: \\[p(x) = p(x_1;\mu_1,\sigma_1^2) \cdot p(x_2;\mu_2,\sigma_2^2) \cdot p(x_3;\mu_3,\sigma_3^2) \cdot \ldots \cdot p(x_n;\mu_n,\sigma_n^2)\\] Corresponds to multivariate Gaussian \\[p(x;\mu,\Sigma)= \frac{1}{\sqrt { (2\pi)^n|\boldsymbol \Sigma| } }  \exp\left(-{1 \over 2} (\mathbf{x}-\boldsymbol\mu)^{\rm T} \boldsymbol\Sigma^{-1} ({\mathbf x}-\boldsymbol\mu)\right)\\] where \\[\Sigma = \begin{bmatrix}\sigma_1^2 & 0 & 0 & 0 \\ 0 & \sigma_2^2 & 0 & 0 \\ 0 & 0 & \ddots & 0 \\ 0 & 0 & 0 & \sigma_n^2 \end{bmatrix}\\]
+* Original model: \\[p(x) = p(x_1;\mu_1,\sigma_1^2) \cdot p(x_2;\mu_2,\sigma_2^2) \cdot p(x_3;\mu_3,\sigma_3^2) \cdot \ldots \cdot p(x_n;\mu_n,\sigma_n^2)\\] Corresponds to multivariate Gaussian \\[p(x;\mu,\Sigma)= \frac{1}{\sqrt { (2\pi)^n| \Sigma| } }  \exp\left(-{1 \over 2} (\mathbf{x}-\mu)^{\rm T} \Sigma^{-1} ({\mathbf x}-\mu)\right)\\] where \\[\Sigma = \begin{bmatrix}\sigma_1^2 & 0 & 0 & 0 \\ 0 & \sigma_2^2 & 0 & 0 \\ 0 & 0 & \ddots & 0 \\ 0 & 0 & 0 & \sigma_n^2 \end{bmatrix}\\]
 
-### Original model vs. Multivariate Gaussian
+### Original model vs Multivariate Gaussian
     
 * Original model
     * [Disadvantage] Manually create features to capture anomalies where \\(x_1, x_2\\) take unusual combinations of values.
@@ -165,5 +165,4 @@
 
 * **covariance matrix** 协方差矩阵
 * **off-diagonal** adj. [数] 非对角的，[数] 对角线外的
-
 
