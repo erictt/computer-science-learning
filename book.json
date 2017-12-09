@@ -12,7 +12,6 @@
         "anchor-navigation-ex",
         "expandable-chapters",
         "sitemap-general",
-		"analytics"
     ],
     "pluginsConfig": {
         "simple-page-toc": {
