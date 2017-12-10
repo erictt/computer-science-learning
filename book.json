@@ -11,7 +11,7 @@
         "highlight",
         "anchor-navigation-ex",
         "expandable-chapters",
-        "sitemap-general",
+        "sitemap-general"
     ],
     "pluginsConfig": {
         "simple-page-toc": {
