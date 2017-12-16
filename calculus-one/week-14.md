@@ -66,15 +66,6 @@
         * set \\(u = \sin{x}, u' = \cos{x}\\)
         * \\(= - \cot{x} - \int \frac{1}{u^2} du = - \cot{x} + \frac{1}{u} + C = - \cot{x} + \csc{x} + C\\)
 
-## Tables of Indefinite Integrals
-
-* <img src="media/15133099702627.jpg" width=500 />
-    * \\(tan^{-1}x = \arctan{x}\\)
-    * Hyperbolic functions 
-        * In mathematics, hyperbolic functions are analogs of the ordinary trigonometric, or circular, functions. --from [Wikipedia](https://en.wikipedia.org/wiki/Hyperbolic_function)
-        * <img src="media/15133242016684.jpg" width=300 />
-        * <img src="media/15133241702183.jpg" width=600 />
-
 ## Differentiate Integral Functions
 
 * Base on the limit theorem, we know that at point **x**, the change of the integral function should be **f(x)**. But what if the upper endpoint is a function? 
