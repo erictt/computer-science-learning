@@ -6,7 +6,6 @@ Notes, exercise and some other stuff.
 
 ### Current curriculums
 
-* [Stanford University: Machine Learning](https://www.coursera.org/learn/machine-learning/home/welcome)
 * [UTAustinX: UT.5.04x LAFF: Linear Algebra - Foundations to Frontiers](https://courses.edx.org/courses/course-v1:UTAustinX+UT.5.05x+2T2017/course/)
 
 ### Next
@@ -18,8 +17,9 @@ Notes, exercise and some other stuff.
 
 ### Done
 
-* [The Ohio State University: Calculus One](https://www.coursera.org/learn/calculus1/home/welcome) [100/100]
-* [MITx: 6.00.2x Introduction to Computational Thinking and Data Science](https://courses.edx.org/courses/course-v1:MITx+6.00.2x_7+1T2017/info) [93/100]
+* [Stanford University: Machine Learning](https://www.coursera.org/learn/machine-learning/home/welcome) [99.6%]
+* [The Ohio State University: Calculus One](https://www.coursera.org/learn/calculus1/home/welcome) [100%]
+* [MITx: 6.00.2x Introduction to Computational Thinking and Data Science](https://courses.edx.org/courses/course-v1:MITx+6.00.2x_7+1T2017/info) [93%]
 * [UTAustinX: UT.9.10x Effective Thinking Through Mathematics](https://courses.edx.org/courses/course-v1:UTAustinX+UT.9.10x+3T2016/course/) [NaN]
 * [HarvardX: CS50 Introduction to Computer Science](https://courses.edx.org/courses/course-v1:HarvardX+CS50+X/info)
 

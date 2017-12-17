@@ -25,10 +25,7 @@
 * [Week 9a - Anomaly Detection](stanford-machine-learning/week-9a.md)
 * [Week 9b - Recommender Systems](stanford-machine-learning/week-9b.md)
 * [Week 10 - Large Scale Machine Learning](stanford-machine-learning/week-10.md)
-
-<!--
 * [Week 11 - Application Example: Photo OCR](stanford-machine-learning/week-11.md)
--->
 
 ## Calculus One
 

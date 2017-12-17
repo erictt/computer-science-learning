@@ -11,7 +11,7 @@
 
 * In [Week 1#Gradient Descent](/stanford-machine-learning/week-1.html#gradient-descent), we learned the **Batch Gradient Descent**(Use all of the training examples at a time). It costs lots of time to compute the derivative part(\\(\frac{d}{d\theta}J(\theta)\\)). Because every time we sum all of the differences of the samples.
 * **Stochastic Gradient Descent** define the cost function slightly differently, as \\[\text{cost}(\theta, (x^{(i)}, y^{(i)})) = \frac{1}{2}(h_{\theta}(x^{(i)}) - y^{(i)})^2\\], The overall cost function is \\[J_{\text{train} } = \frac{1}{m} \sum_{i=1}^m \text{cost}(\theta, (x^{(i)}, y^{(i)}))\\], which is equivalent to the **batch gradient descent**.
-* The procedures are: 
+* The steps are: 
     1. Randomly shuffle the training examples
     2. Repeat \\[\begin{aligned}
         & \{ \\
@@ -35,7 +35,7 @@
 * Batch gradient descent: Use all **m** examples in each iteration 
 * Stochastic gradient descent: Use **1** example in each iteration 
 * Mini-batch gradient descent: Use **b** examples in each iteration
-* The procedures:
+* The steps:
     1. Say **b = 10**, **m = 1000**.
     2. Repeat \\[\begin{aligned}
         & \{ \\
