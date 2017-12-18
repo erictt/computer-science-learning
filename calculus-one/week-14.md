@@ -71,7 +71,7 @@
 * Base on the limit theorem, we know that at point **x**, the change of the integral function should be **f(x)**. But what if the upper endpoint is a function? 
 * Like \\(\frac{d}{dx}\int_0^{g(x)} f(x) dt\\).
 * Use the chain rule: \\(\frac{d}{dx}f(g(x)) = f'(g(x)) \cdot g'(x)\\) and the Fundamental Theorem: \\(F'(x) = f(x)\\), we get:
-    * \\(\frac{d}{dx}\int_0^{g(x)} f(x) dt = f(g(x)) \cdot g'(x)\\)
+    * \\(\frac{d}{dx}\int_0^{g(x)} f(x) dt = F'(g(x)) \cdot g'(x) = f(g(x)) \cdot g'(x)\\)
 * For example: \\(\frac{d}{dx}\int_0^{x^2} \sin{t} dt\\), \\(g(x) = x^2\\)
     * \\(\frac{d}{dx} \int_0^{x^2} \sin{x} dt = \sin{x^2} \cdot 2x\\)
 
@@ -80,14 +80,14 @@
 * We want to do two things. First to prove the limit exits, and second, find the value of that derivative: \\[F'(x) = \lim_{h \to 0^{+} } \frac{F(x+h) - F(x)}{h} = f(x)\\]
     * to make it a little easier, we only consider h is positive.
     * \\(F'(x) = \lim_{h \to 0^{+} } \frac{\int_a^{x+h} f(t) dt - \int_a^{x} f(t) dt}{h}\\)
-    * \\(\lim_{h \to 0^{+} } \frac{\int_x^{x+h} f(t) dt}{h}\\)
+    * = \\(\lim_{h \to 0^{+} } \frac{\int_x^{x+h} f(t) dt}{h}\\)
     * Base on the The Extreme Value Theorem, we know that there must be a: 
         * \\(m(h)\\) = min value of f on interval \\([x, x+h]\\)
         * \\(M(h)\\) = max value of f on interval \\([x, x+h]\\)
         * \\(m(h) \cdot h \le \int_x^{x+h} f(t) dt \le M(h) \cdot h\\)
         * \\(m(h) \le \frac{\int_x^{x+h} f(t) dt}{h} \le M(h)\\)
         * Use the Squeeze Theorem, we know that:
-            * \\(lim_{h \to 0^+}m(h) = f(x) = lim_{h \to 0+}M(h)\\)
-            * Then \\(\frac{\int_x^{x+h} f(t) dt}{h} = f(x)\\)
+            * \\(\lim_{h \to 0^+}m(h) = f(x) = lim_{h \to 0+}M(h)\\)
+            * Then \\(\lim_{h \to 0^+}\frac{\int_x^{x+h} f(t) dt}{h} = f(x)\\)
         * So \\(F'(x) = f(x)\\)
 
