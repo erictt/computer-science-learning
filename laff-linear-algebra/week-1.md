@@ -55,7 +55,7 @@
 
 * axpy: \\(\alpha x + y\\)
     * <img src="media/15095069762490.jpg" width=300/>
-* The AXPY operation requires `3n + 1` **memops**(memory operations) and `2n` **ﬂops**(ﬂoating point operations). The reason is that \\(\alpha\\) is only brought in from memory once and kept in a register for reuse.
+* The AXPY operation requires `3n + 1` **memops**(memory operations) and `2n` **flops**(floating point operations). The reason is that \\(\alpha\\) is only brought in from memory once and kept in a register for reuse.
     * `3n+1`: x, ax, y, a
     * `2n`: ax, ax+y
 
