@@ -5,10 +5,65 @@
 * [Introduction](README.md)
 * [Symbols of Mathematics](SYMBOLS.md)
 
-<!--
-### Stanford Statistical Learning
+## Stanford Statistical Learning
 
+<!--
 * [Chapter 2 - Overview of Statistical Learning](statistical-learning/chapter-2.md)
+* Chapter 3 - Linear Regression
+* Chapter 4 - Classification
+* Chapter 5 - Resampling Methods
+* Chapter 6 - Linear Model Selection and Regularization
+* Chapter 7 - Moving Beyond Linearity
+* Chapter 8 - Tree-Based Methods
+* Chapter 9 - Support Vector Machines
+* Chapter 10 - Unsupervised Learning
+-->
+
+## Algorithms: Part 1
+
+<!--
+* [1 - Introduction](algorithms-part-1/1-introduction.md)
+* 2 - Asymptotic Notation
+* 3 - Divide-and-Conquer Algorithms
+* 4 - The Mater Method
+* 5 - QuickSort
+* 6 - Linear-Time Selection
+* 7 - Graph Search and Connectivity
+* 8 - Dijkstra's Shortest-Path Algorithm
+* 9 - Heaps
+* 10 - Hashing: The Basics
+* 11 - Universal Hashing
+* 12 - Bloom Filters
+-->
+
+## Calculus Two: Sequences and Series
+
+<!--
+* [Week 1 - Sequences](calculus-two/week-1.md)
+* Week 2 - Series
+* Week 3 - Convergence Tests
+* Week 4 - Alternating Series
+* Week 5 - Power Series
+* Week 6 - Taylor Series
+* Week 7 - Final
+-->
+
+## LAFF Linear Algebra
+
+* [Week 1 - Vectors in Linear Algebra](laff-linear-algebra/week-1.md) 
+* [Week 2 - Linear Transformations and Matrices](laff-linear-algebra/week-2.md)
+* [Week 3 - Matrix-Vector Operations](laff-linear-algebra/week-3.md)
+* [Week 4 - Matrix-Vector to Matrix-Matrix Multiplication](laff-linear-algebra/week-4.md)
+
+<!--
+* [Week 5 - Matrix- Matrix Multiplication](laff-linear-algebra/week-5.md)
+* [Week 6 - Gaussian Elimination](laff-linear-algebra/week-6.md)
+* [Week 7 - More Gaussian Elimination and Matrix Inversion](laff-linear-algebra/week-7.md)
+* [Week 8 - More on Matrix Inversion](laff-linear-algebra/week-8.md)
+* [Week 9 - Vector Spaces](laff-linear-algebra/week-9.md)
+* [Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares](laff-linear-algebra/week-10.md)
+* [Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases](laff-linear-algebra/week-11.md)
+* [Week 12 - Eigenvalues and Eigenvectors](laff-linear-algebra/week-12.md)
 * -->
 
 ## Stanford Machine Learning
@@ -42,12 +97,6 @@
 * [Week 14 - Substitution Rule](calculus-one/week-14.md)
 * [Week 15 - Techniques of Integration](calculus-one/week-15.md)
 * [Week 16 - Applications of Integration](calculus-one/week-16.md)
-
-## LAFF Linear Algebra
-
-* [Week 1 - Vectors in Linear Algebra](laff-linear-algebra/week-1.md) 
-* [Week 2 - Linear Transformations and Matrices](laff-linear-algebra/week-2.md)
-* [Week 3 - Matrix-Vector Operations](laff-linear-algebra/week-3.md)
 
 ## Computational Thinking
 
