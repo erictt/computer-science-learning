@@ -13,7 +13,9 @@
     * First one, is calculating by rows.
         * \\(\psi_1 := a_{10}^T x_0 + \alpha_{11} x_1 + a_{12}^T x_2 + \psi_1\\)
     * Second one is by columns.
-        * So, we are keep changing the vector \\(y\\).
+        * \\(y_0 := \chi_1 a_{01} + y_0\\)
+        * \\(\psi_1 := \chi_1 \alpha_{11} + \psi_1\\)
+        * \\(y_2 := \chi_1 a_{21} + y_2\\)
 
 ### Transposing a Partitioned Matrix
 
@@ -44,6 +46,22 @@
 
 #### Symmetric Matrix-Vector Multiplication
 
+* <img src="media/15136459114869.jpg" width=300 />
+* We purposely chose the matrix on the right to be symmetric. We notice that \\(a_{10}^T = a_{01}\\) , \\(A_{20}^T = A_{02}\\) , and \\(a_{12}^T = a_{21}\\).
+* So we just need to change the step of calculation
+    * By rows:
+        * from \\(\psi_1 := a_{10}^T x_0 + \alpha_{11} x_1 + a_{12}^T x_2 + \psi_1\\) 
+        * to \\(\psi_1 := a_{01} x_0 + \alpha_{11} x_1 + a_{12}^T x_2 + \psi_1\\)
+    * By columns:
+        * from 
+            * \\(y_0 := \chi_1 a_{01} + y_0\\)
+            * \\(\psi_1 := \chi_1 \alpha_{11} + \psi_1\\)
+            * \\(y_2 := \chi_1 a_{21} + y_2\\)
+        * to
+            * \\(y_0 := \chi_1 a_{01} + y_0\\)
+            * \\(\psi_1 := \chi_1 \alpha_{11} + \psi_1\\)
+            * \\(y_2 := \chi_1 (a_{11}^T)^T + y_2\\) 
+
 ## Composing linear transformations
 
 * Let \\(L_ A: \mathbb {R}^ k \rightarrow \mathbb {R}^ m\\) and \\(L_ B: \mathbb {R}^ n \rightarrow \mathbb {R}^ k\\) both be linear transformations and, for all \\(x \in \mathbb{R}^n\\), define the function \\(L_ C: \mathbb {R}^ n \rightarrow \mathbb {R}^ m\\) by \\(L_ C( x ) = L_ A( L_ B( x ) )\\). Then \\(L_ C( x )\\) is a linear transformations.
@@ -63,4 +81,9 @@
     &= \left( \begin{array}{c c c c} \chi _0 \psi _0 &  \chi _0 \psi _1 &  \cdots &  \chi _0 \psi _{n-1} \\ \chi _1 \psi _0 &  \chi _1 \psi _1 &  \cdots &  \chi _1 \psi _{n-1} \\ \vdots &  \vdots & &  \vdots \\ \chi _{m-1} \psi _0 &  \chi _{m-1} \psi _1 &  \cdots &  \chi _{m-1} \psi _{n-1} \end{array} \right).
      \end{aligned}\\]
 * <img src="media/15135832658388.jpg" width=600 />
+* The cost of memops of matrix-matrix multiplication is \\(2kmn\\).
+
+### Flops and Memops
+
+* <img src="media/15136529506851.jpg" width=600 />
 
