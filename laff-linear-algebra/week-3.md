@@ -6,6 +6,11 @@
 
 * <img src="media/15115164411731.jpg" width=550 />
 
+* Special Vectors:
+    * **Unit Vector**: Any vector of length one (unit length). For example, the vector  \\(\begin{pmatrix}\frac{\sqrt{2}}{2} \\ \frac{\sqrt{2}}{2}\end{pmatrix}\\) has length one.
+    * **Standard Unit Vector**: 
+        * <img src="media/15095053286178.jpg" width=200/>
+
 ## Triangular Matrices
 
 * <img src="media/15115164709330.jpg" width=550 />

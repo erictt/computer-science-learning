@@ -30,7 +30,7 @@
     * <img src="media/15095053286178.jpg" width=200/>
     * Where the "1" appears as the component indexed by `j`. Thus, we get the set \\(\{e_0,e_1,\ldots,e_{n-1}\} \subset \mathbb{R}^n\\) given by
         * <img src="media/15095055075149.jpg" width=300/>
-* Different with unit vector, which is any vector of length one (unit length). For example, the vector  \\(\begin{pmatrix}\frac{\sqrt{2}}{2} \\ \frac{\sqrt{2}}{2}\end{pmatrix}\\) has length one.
+* Different with **unit vector**, which is any vector of length one (unit length). For example, the vector  \\(\begin{pmatrix}\frac{\sqrt{2}}{2} \\ \frac{\sqrt{2}}{2}\end{pmatrix}\\) has length one.
 
 ## Simple Vector Operations
 
