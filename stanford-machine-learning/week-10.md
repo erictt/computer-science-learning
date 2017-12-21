@@ -26,9 +26,8 @@
 * Comparison with Batch Gradient Descent
     * As we saw, batch gradient descent does something like this to get to a global minimum:
         * <img src="media/15134129386186.jpg" width=300 />
-    * With stochastic gradient descent every iteration is much faster, but every iteration is flitting a single example:
+    * With stochastic gradient descent every iteration is much faster, but every iteration is flitting a single example. So, stochastic gradient descent will never converges like batch gradient descent, but ends up wandering around some region close to the global minimum.
         * <img src="media/15134129600916.jpg" width=300 />
-    * So, stochastic gradient descent will never converges like batch gradient descent, but ends up wandering around some region close to the global minimum.
 
 ### Mini-batch Gradient Descent
 
@@ -46,7 +45,7 @@
         \end{aligned}\\]
 * Compared to batch gradient descent, this allows us to get through data in a much more efficient way.
 * Compared to stochastic gradient descent, we can vectorize the data to partially parallelize the computation(i.e. do 10 at once).
-* The relation with batch gradient descent and stochastic gradient descent. If **b = 1**, then it will be stochastic gradient descent, and if **b = m**, it will be batch gradient descent.
+* The relation with batch gradient descent and stochastic gradient descent are: If **b = 1**, then it will be stochastic gradient descent, and if **b = m**, it will be batch gradient descent.
         
 ### Stochastic Gradient Descent Convergence
 
@@ -68,7 +67,7 @@
 
 * The online learning setting allows us to model problems where we have a continuous flood or a continuous stream of data coming in and we would like an algorithm to learn from that.
 * Example: Shipping service. We want to build an algorithm to optimize what price we should offer to the users.
-    1. Model this probability (\\(p(y=1|x;\theta)\\))
+    1. Model the probability (\\(p(y=1|x;\theta)\\)) that user use our service or not.
     2. Gather the feature vector, including the price we offered, origin, destination, etc.
     3. Repeat forever \\[\begin{aligned}
         & \{ \\

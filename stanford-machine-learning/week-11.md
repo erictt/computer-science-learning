@@ -8,7 +8,7 @@
 * Photo OCR Pipeline(a machine learning pipeline):
     * <img src="media/15134246854400.jpg" width=500 />
     * <img src="media/15134257884572.jpg" width=500 />
-* **Pipelines** are common in machine learning
+* **Pipelines** are common terms in machine learning
     * Separate modules which may each be a machine learning component or data processing component
 
 ### Sliding Windows Classifier
