@@ -19,33 +19,20 @@
 * Chapter 10 - Unsupervised Learning
 -->
 
-## Algorithms: Part 1
+## Algorithms: Part I
 
-<!--
-* [1 - Introduction](algorithms-part-1/1-introduction.md)
-* 2 - Asymptotic Notation
-* 3 - Divide-and-Conquer Algorithms
-* 4 - The Mater Method
-* 5 - QuickSort
-* 6 - Linear-Time Selection
-* 7 - Graph Search and Connectivity
-* 8 - Dijkstra's Shortest-Path Algorithm
-* 9 - Heaps
-* 10 - Hashing: The Basics
-* 11 - Universal Hashing
-* 12 - Bloom Filters
--->
+* [Week 1 - Union-Find & Analysis of Algorithms](algorithms-1/week-1.md)
 
 ## Calculus Two: Sequences and Series
 
 <!--
 * [Week 1 - Sequences](calculus-two/week-1.md)
-* Week 2 - Series
-* Week 3 - Convergence Tests
-* Week 4 - Alternating Series
-* Week 5 - Power Series
-* Week 6 - Taylor Series
-* Week 7 - Final
+* [Week 2 - Series](calculus-two/week-2.md)
+* [Week 3 - Convergence Tests](calculus-two/week-3.md)
+* [Week 4 - Alternating Series](calculus-two/week-4.md)
+* [Week 5 - Power Series](calculus-two/week-5.md)
+* [Week 6 - Taylor Series](calculus-two/week-6.md)
+* [Week 7 - Final](calculus-two/week-7.md)
 -->
 
 ## LAFF Linear Algebra
