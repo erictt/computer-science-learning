@@ -1,11 +1,14 @@
 #! /bin/bash
 
-# projectName=computer-science-learning
-while [ x$projectName = "x" ]; do
-  read -p "Project Name (Under Path ~/workspace/) : " projectName
+sourcePath="non-path"
+while [ ! -d $sourcePath ]; do
+  if [ ! $sourcePath = 'non-path' ]; then
+    echo "Directory ($sourcePath) doesn't exist"
+  fi
+  read -p "Project Name (Under Path ~/workspace/) [Default: computer-science-learning]: " projectName
+  projectName=${projectName:-computer-science-learning}
+  sourcePath=~/workspace/${projectName}
 done
-
-sourcePath=~/workspace/${projectName}
 
 # Sync computer-science-learning to iCould Mweb
 rsync -arve --delete \
