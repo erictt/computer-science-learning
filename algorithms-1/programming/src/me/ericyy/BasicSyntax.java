@@ -1,3 +1,5 @@
+package me.ericyy;
+
 public class BasicSyntax {
   public static void main(String[] args) {
     double[] a;
