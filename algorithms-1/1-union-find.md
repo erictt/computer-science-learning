@@ -48,11 +48,21 @@
     * Merge two components to one.
 * <img src="media/15140835002154.jpg" width=500 />
 
-### Union-ﬁnd data type (API)
+### Union-find data type (API)
 
-* Goal. Design efficient data structure for union-find.
+* **Goal.** Design efficient data structure for union-find.
     * Number of objects N can be huge.
     * Number of operations M can be huge.
     * Find queries and union commands may be intermixed.
 * <img src="media/15140837300336.jpg" width=500 />
+
+### Dynamic-connectivity Client
+
+* Read in number of objects N from standard input. Repeat:
+    * read in pair of integers from standard input
+    * if they are not yet connected, connect them and print out pair
+* <img src="media/15140838748446.jpg" width=500 />
+
+
+<script src="https://gist.github.com/erictt/0438c9db11b3b25f0e24c212d8f3c3b9.js"></script>
 

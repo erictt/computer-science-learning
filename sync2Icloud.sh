@@ -1,4 +1,11 @@
-#! /bin/sh
+#! /bin/bash
+
+projectName="computer-science-learning"
+
+sourcePath="~/workspace/"${projectName}
+
+destinationPath="~/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents/"
+
 
 # Sync computer-science-learning to iCould Mweb
 rsync -arve --delete \
@@ -9,5 +16,5 @@ rsync -arve --delete \
   --exclude=_book \
   --exclude=etc \
   --exclude=\.git* \
-  . \
-  ~/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents/computer-science-thinking/
+  ${sourcePath} \
+  ${destinationPath}
