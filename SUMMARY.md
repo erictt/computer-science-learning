@@ -21,7 +21,8 @@
 
 ## Algorithms: Part I
 
-* [Week 1 - Union-Find & Analysis of Algorithms](algorithms-1/week-1.md)
+* [1 - Union-Find](algorithms-1/1-union-find.md)
+* [2 - Analysis of Algorithms](algorithms-1/2-analysis-of-algorithms.md)
 
 ## Calculus Two: Sequences and Series
 
