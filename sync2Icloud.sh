@@ -1,11 +1,11 @@
 #! /bin/bash
 
-projectName="computer-science-learning"
+# projectName=computer-science-learning
+while [ x$projectName = "x" ]; do
+  read -p "Project Name (Under Path ~/workspace/) : " projectName
+done
 
-sourcePath="~/workspace/"${projectName}
-
-destinationPath="~/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents/"
-
+sourcePath=~/workspace/${projectName}
 
 # Sync computer-science-learning to iCould Mweb
 rsync -arve --delete \
@@ -16,5 +16,5 @@ rsync -arve --delete \
   --exclude=_book \
   --exclude=etc \
   --exclude=\.git* \
-  ${sourcePath} \
-  ${destinationPath}
+  $sourcePath \
+  ~/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents/
