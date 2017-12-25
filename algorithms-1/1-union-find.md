@@ -64,5 +64,3 @@
 * <img src="media/15140838748446.jpg" width=500 />
 
 
-<script src="https://gist.github.com/erictt/0438c9db11b3b25f0e24c212d8f3c3b9.js"></script>
-
