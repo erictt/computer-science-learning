@@ -1,5 +1,7 @@
 package me.ericyy.week1;
 
+import edu.princeton.cs.algs4.StdIn;
+
 public class UnionFind {
   UnionFind(int N){
     N = N;

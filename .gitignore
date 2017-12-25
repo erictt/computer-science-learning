@@ -17,3 +17,6 @@ _book
 
 # ignore *.m~ files
 *.*~
+
+# Java
+*.class
