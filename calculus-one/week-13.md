@@ -61,7 +61,7 @@ The Fundamental Theorem of Calculus is appropriately named because it establishe
 
 ## The Fundamental Theorem in Physics
 
-* In physics, \\(v(t)\\) = my velocity at time \\(t\\), the displacement can written by \\(\int_a^b v(t) dt\\) (Distance from time t=0 to t=b).
+* In physics, \\(v(t)\\) = velocity at time \\(t\\), the displacement can written by \\(\int_a^b v(t) dt\\) (Distance from time t=0 to t=b).
 * Use Riemann sum, we can get:
     * \\(\text{from } t = 0 \text{ to } t = h\\), \\(D_1 = h \cdot v(0)\\)
     * \\(\text{from } t = h \text{ to } t = 2h\\), \\(D_2 = D_1 + h \cdot v(h)\\)
@@ -74,7 +74,7 @@ The Fundamental Theorem of Calculus is appropriately named because it establishe
 * \\(\frac{d}{da} \int_a^bf(x)dx\\)
 * We know that \\(\frac{d}{db} \int_a^bf(x)dx = f(b)\\)
     * The rate of the change of the accumulation function is the functions value
-* Imagine we are calculating the area from **a** to **b**. When calculating \\(\frac{d}{db}\\), we want to know how does that integral change when I wiggle **b**.
-* Compare to \\(\frac{d}{da}\\), we want to know how does the integral change when I wiggle **a**.
+* Imagine we are calculating the area from **a** to **b**. When calculating \\(\frac{d}{db}\\), we want to know how does that integral change when wiggling **b**.
+* Compare to \\(\frac{d}{da}\\), we want to know how does the integral change when wiggling **a**.
 * Let's set the x changes **h**, So the integral's change should be \\(\frac{\int_a^bf(a+h)dx - \int_a^bf(a)dx}{h} \approx \frac{-hf(a)}{h} = -f(a)\\)
 

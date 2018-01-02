@@ -2,7 +2,7 @@
 
 [TOC]
 
-* This lecture is talking about how to find the mean of population with Standard Error(SE) and Standard Error of The Means(SEM). And how to  decide the sample size to represent the population with CV.
+* This lecture is talking about how to find the mean of population with Standard Error(SE) and Standard Error of The Means(SEM). And how to  decide the sample size to represent the population with Confidence Interval(CI).
 
 ## Sampling and Standard Error
 
