@@ -20,3 +20,6 @@ _book
 
 # Java
 *.class
+
+# Test data
+algorithms-1/programming/algs4-data

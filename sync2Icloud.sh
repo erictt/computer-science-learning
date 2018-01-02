@@ -19,5 +19,6 @@ rsync -arve --delete \
   --exclude=_book \
   --exclude=etc \
   --exclude=\.git* \
+  --exclude=algorithms-1/programming \
   $sourcePath \
   ~/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents/
