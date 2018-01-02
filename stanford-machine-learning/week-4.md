@@ -61,9 +61,12 @@
         * So we have constructed one of the fundamental operations in computers by using a small neural network rather than using an actual **AND** gate.
 * Sample **OR**: 
     * <img src="media/15093566432940.jpg" width=400 />
-* Sample **NOR**: 
+* Sample **XNOR** \\((A \cap B) \cup (!A \cap !B)\\): 
     * <img src="media/15093567150806.jpg" width=400 />
-* Sample **XOR**: OR & NOR -> AND
+* Sample **XOR**:
+    * \\((A \cap !B) \cup (!A \cap B)\\) 
+    * or \\((A \cap B) \cap (!A \cap !B)\\) = OR & NOR -> AND
+    * **NOR**: \\(!A \cap !B\\)
 * To represent the **XOR/XNOR** function, will need at least **THREE** layers(one hidden layer).
 
 ## Multiclass Classification

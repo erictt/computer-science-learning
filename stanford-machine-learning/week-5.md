@@ -120,7 +120,7 @@
     * Unroll to get **initialTheta** to pass to **fminumc(@costFunction, initialTheta, options)**
         
         * **function [jval, gradientVec] = costFunction(thetaVec)**
-            * From **thetaVec**, get \\(Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}\\).
+            * From **thetaVec**, get \\(\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}\\).
             * Use forward prop/back prop to compute \\(D^{{1}}, D^{{2}}, D^{{3}}\\) and \\(J(\Theta)\\).
             * Unroll \\(D^{{1}}, D^{{2}}, D^{{3}}\\) to get **gradientVec**.
 
@@ -192,8 +192,7 @@
 
     ```matlab
     for i = 1:m,
-       Perform forward propagation and backpropagation using example (x(i),y
-           (i))
+       Perform forward propagation and backpropagation using example (x(i),y(i))
        (Get activations a(l) and delta terms d(l) for l = 2,...,L
     ```
     
