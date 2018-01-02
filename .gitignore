@@ -22,4 +22,5 @@ _book
 *.class
 
 # Test data
-algorithms-1/programming/algs4-data
+algorithms-1/programming/algs4-data/*
+!algorithms-1/programming/algs4-data/placeholder
