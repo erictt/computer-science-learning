@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78b46352-606b-4953-b7f5-e1cb94062930" name="Default" comment="" />
+    <list default="true" id="78b46352-606b-4953-b7f5-e1cb94062930" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/me/ericyy/StdIn.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/me/ericyy/week1/QuickFindUF.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/me/ericyy/week1/QuickUnionUF.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/me/ericyy/week1/WeightedQuickUnionUF.java" />
+      <change beforePath="$PROJECT_DIR$/../algs4" afterPath="$PROJECT_DIR$/../algs4" />
+      <change beforePath="$PROJECT_DIR$/../algs4/src/main/java/edu/princeton/cs/algs4/WeightedQuickUnionUF.java" afterPath="$PROJECT_DIR$/../algs4/src/main/java/edu/princeton/cs/algs4/WeightedQuickUnionUF.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/me/ericyy/week1/UnionFind.java" afterPath="$PROJECT_DIR$/src/me/ericyy/week1/UnionFind.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/../algs4/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,46 +34,60 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="QuickFindUF.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/QuickFindUF.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="32" column="29" lean-forward="false" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#470#471#0" expanded="true" />
+                <element signature="e#503#504#0" expanded="true" />
+                <element signature="e#934#935#0" expanded="true" />
+                <element signature="e#956#957#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuickUnionUF.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/QuickUnionUF.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#571#572#0" expanded="true" />
+                <element signature="e#606#607#0" expanded="true" />
+                <element signature="e#713#714#0" expanded="true" />
+                <element signature="e#735#736#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WeightedQuickUnionUF.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/WeightedQuickUnionUF.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#836#837#0" expanded="true" />
+                <element signature="e#875#876#0" expanded="true" />
+                <element signature="e#1194#1195#0" expanded="true" />
+                <element signature="e#1220#1221#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="UnionFind.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/UnionFind.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#157#158#0" expanded="true" />
-                <element signature="e#172#173#0" expanded="true" />
-                <element signature="e#209#210#0" expanded="true" />
-                <element signature="e#231#232#0" expanded="true" />
-                <element signature="e#283#284#0" expanded="true" />
-                <element signature="e#301#302#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StdIn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../algs4/src/main/java/edu/princeton/cs/algs4/StdIn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3638">
-              <caret line="226" column="21" lean-forward="false" selection-start-line="226" selection-start-column="21" selection-end-line="226" selection-end-column="21" />
-              <folding>
-                <element signature="e#10191#10192#0" expanded="true" />
-                <element signature="e#10232#10233#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Scanner.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/src.zip!/java/util/Scanner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4573">
-              <caret line="303" column="25" lean-forward="false" selection-start-line="303" selection-start-column="25" selection-end-line="303" selection-end-column="25" />
-              <folding>
-                <element signature="e#78006#78007#0" expanded="true" />
-                <element signature="e#78050#78051#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,8 +101,16 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>throw</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../algs4" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -91,16 +123,40 @@
         <option value="$PROJECT_DIR$/src/me/ericyy/HelloWorld.java" />
         <option value="$PROJECT_DIR$/src/me/ericyy/Main.java" />
         <option value="$PROJECT_DIR$/src/me/ericyy/BasicSyntax.java" />
+        <option value="$PROJECT_DIR$/src/me/ericyy/StdIn.java" />
         <option value="$PROJECT_DIR$/src/me/ericyy/week1/UnionFind.java" />
+        <option value="$PROJECT_DIR$/src/me/ericyy/week1/UnionFindTest.java" />
+        <option value="$PROJECT_DIR$/src/me/ericyy/week1/QuickFindUF.java" />
+        <option value="$PROJECT_DIR$/src/me/ericyy/week1/QuickUnionUF.java" />
+        <option value="$PROJECT_DIR$/src/me/ericyy/week1/WeightedQuickUnionUF.java" />
+        <option value="$PROJECT_DIR$/../algs4/src/main/java/edu/princeton/cs/algs4/WeightedQuickUnionUF.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="229" />
+    <option name="x" value="305" />
     <option name="y" value="23" />
-    <option name="width" value="1211" />
+    <option name="width" value="1135" />
     <option name="height" value="873" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Android &gt; Lint &gt; Correctness</id>
+          </State>
+          <State>
+            <id>Android Lint for Kotlin</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -116,6 +172,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -145,10 +203,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -158,7 +214,12 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/me/ericyy/" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -172,17 +233,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.UnionFind with Medium Data">
-    <configuration name="UnionFind with Medium Data" type="Application" factoryName="Application">
+  <component name="RunManager" selected="Application.WeightedQuickUnionUF">
+    <configuration name="QuickFindUF" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="me.ericyy.week1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="me.ericyy.week1.UnionFind" />
+      <option name="MAIN_CLASS_NAME" value="me.ericyy.week1.QuickFindUF" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/algs4-data/mediumUF.txt" />
+      <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -192,16 +253,35 @@
       <module name="programming" />
       <envs />
     </configuration>
-    <configuration name="UnionFind with Tiny Data" type="Application" factoryName="Application" temporary="true">
+    <configuration name="QuickUnionUF" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="me.ericyy.week1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="me.ericyy.week1.UnionFind" />
+      <option name="MAIN_CLASS_NAME" value="me.ericyy.week1.QuickUnionUF" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/algs4-data/tinyUF.txt" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="programming" />
+      <envs />
+    </configuration>
+    <configuration name="WeightedQuickUnionUF" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="me.ericyy.week1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="me.ericyy.week1.WeightedQuickUnionUF" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -213,10 +293,10 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -224,15 +304,17 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Application.UnionFind with Medium Data" />
-      <item index="1" class="java.lang.String" itemvalue="Application.UnionFind with Tiny Data" />
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Application.QuickFindUF" />
+      <item index="1" class="java.lang.String" itemvalue="Application.QuickUnionUF" />
+      <item index="2" class="java.lang.String" itemvalue="Application.WeightedQuickUnionUF" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.UnionFind with Tiny Data" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Application.WeightedQuickUnionUF" />
+        <item index="1" class="java.lang.String" itemvalue="Application.QuickUnionUF" />
+        <item index="2" class="java.lang.String" itemvalue="Application.QuickFindUF" />
       </list>
     </recent_temporary>
   </component>
@@ -262,22 +344,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="229" y="23" width="1211" height="873" extended-state="0" />
+    <frame x="305" y="23" width="1135" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31439894" sideWeight="0.505988" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31398416" sideWeight="0.505988" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31439894" sideWeight="0.49401197" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32628798" sideWeight="0.49401197" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21225195" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20498616" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -288,34 +371,118 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/UnionFind.java">
+    <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/QuickFindUF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="65" column="26" lean-forward="false" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#956#957#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../algs4/src/main/java/edu/princeton/cs/algs4/QuickFindUF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="83" column="4" lean-forward="false" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/QuickUnionUF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/QuickFindUF.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#157#158#0" expanded="true" />
-            <element signature="e#172#173#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#231#232#0" expanded="true" />
-            <element signature="e#283#284#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#956#957#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../algs4/src/main/java/edu/princeton/cs/algs4/StdIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3842">
+          <caret line="226" column="21" lean-forward="false" selection-start-line="226" selection-start-column="21" selection-end-line="226" selection-end-column="21" />
+          <folding>
+            <element signature="e#10191#10192#0" expanded="true" />
+            <element signature="e#10232#10233#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/QuickFindUF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#956#957#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -325,8 +492,8 @@
         <state relative-caret-position="5151">
           <caret line="303" column="25" lean-forward="false" selection-start-line="303" selection-start-column="25" selection-end-line="303" selection-end-column="25" />
           <folding>
-            <element signature="e#78006#78007#0" expanded="true" />
-            <element signature="e#78050#78051#0" expanded="true" />
+            <element signature="e#78006#78007#0" expanded="false" />
+            <element signature="e#78050#78051#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -370,7 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -402,9 +568,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/src.zip!/java/util/Scanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="303" column="25" lean-forward="false" selection-start-line="303" selection-start-column="25" selection-end-line="303" selection-end-column="25" />
+          <folding>
+            <element signature="e#78006#78007#0" expanded="false" />
+            <element signature="e#78050#78051#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../algs4/src/main/java/edu/princeton/cs/algs4/StdIn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3638">
+        <state relative-caret-position="17">
           <caret line="226" column="21" lean-forward="false" selection-start-line="226" selection-start-column="21" selection-end-line="226" selection-end-column="21" />
           <folding>
             <element signature="e#10191#10192#0" expanded="true" />
@@ -413,30 +590,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/src.zip!/java/util/Scanner.java">
+    <entry file="file://$PROJECT_DIR$/src/me/ericyy/StdIn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4573">
-          <caret line="303" column="25" lean-forward="false" selection-start-line="303" selection-start-column="25" selection-end-line="303" selection-end-column="25" />
+        <state relative-caret-position="255">
+          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
           <folding>
-            <element signature="e#78006#78007#0" expanded="true" />
-            <element signature="e#78050#78051#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="234" column="18" lean-forward="false" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
+          <folding>
+            <element signature="e#10065#10066#0" expanded="true" />
+            <element signature="e#10148#10149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/UnionFindTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/QuickUnionUF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../algs4/src/main/java/edu/princeton/cs/algs4/QuickFindUF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/QuickFindUF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="32" column="29" lean-forward="false" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#956#957#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../algs4/src/main/java/edu/princeton/cs/algs4/WeightedQuickUnionUF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-525">
+          <caret line="170" column="8" lean-forward="false" selection-start-line="170" selection-start-column="8" selection-end-line="170" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/WeightedQuickUnionUF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#836#837#0" expanded="true" />
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#1194#1195#0" expanded="true" />
+            <element signature="e#1220#1221#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/ericyy/week1/UnionFind.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#157#158#0" expanded="true" />
-            <element signature="e#172#173#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#231#232#0" expanded="true" />
-            <element signature="e#283#284#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
