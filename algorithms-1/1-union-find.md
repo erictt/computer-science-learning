@@ -17,11 +17,12 @@
 
 ### Implementation
 
-* The method called **improved weighted quick-union**.
+* The method called **Weighted quick-union with path compression**.
 * **quick-union**:
     * <img src="media/15153361943661.jpg" width=580 />
 * **weighted**: Keep track of size of each tree (number of objects). Balance by linking root of smaller tree to root of larger tree.
-* **improved**: Make every other node in path point to its grandparent.
+    * Keep the depth of any node `x` is at most `lg N`.
+* **path compression**: Make every other node in path point to its grandparent.
 * Code:
 
     ```java

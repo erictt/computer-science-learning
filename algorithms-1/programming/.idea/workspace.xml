@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78b46352-606b-4953-b7f5-e1cb94062930" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/week1/UnionFind.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/me/ericyy/BasicSyntax.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/me/ericyy/HelloWorld.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/me/ericyy/StdIn.java" afterPath="$PROJECT_DIR$/src/common/StdIn.java" />
-      <change beforePath="$PROJECT_DIR$/src/me/ericyy/week1/QuickFindUF.java" afterPath="$PROJECT_DIR$/src/week1/QuickFindUF.java" />
-      <change beforePath="$PROJECT_DIR$/src/me/ericyy/week1/QuickUnionUF.java" afterPath="$PROJECT_DIR$/src/week1/QuickUnionUF.java" />
-      <change beforePath="$PROJECT_DIR$/src/me/ericyy/week1/UnionFind.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/me/ericyy/week1/WeightedQuickUnionUF.java" afterPath="$PROJECT_DIR$/src/week1/WeightedQuickUnionUF.java" />
-    </list>
+    <list default="true" id="78b46352-606b-4953-b7f5-e1cb94062930" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/../algs4/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +30,8 @@
       <file leaf-file-name="UnionFind.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/week1/UnionFind.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#575#576#0" expanded="true" />
@@ -598,8 +587,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/week1/UnionFind.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#575#576#0" expanded="true" />
