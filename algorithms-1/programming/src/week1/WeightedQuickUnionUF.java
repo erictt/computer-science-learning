@@ -1,7 +1,7 @@
-package me.ericyy.week1;
+package week1;
 
 
-import me.ericyy.StdIn;
+import common.StdIn;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -20,20 +20,6 @@ import java.util.Scanner;
         ids[i] = i;
         sz[i] = 1;
       }
-    }
-
-    public String getSz() {
-      String str = "";
-      for(int i=0; i<sz.length; i++)
-        str += sz[i]  + " ";
-      return str;
-    }
-
-    public String toString() {
-      String str = "";
-      for(int i=0; i<ids.length; i++)
-        str += ids[i]  + " ";
-      return str;
     }
 
     public int root(int id) {
@@ -81,7 +67,5 @@ import java.util.Scanner;
         System.out.println(p + " " + q);
       }
       System.out.println(uf.count() + " components");
-//      System.out.println(uf);
-//      System.out.println(uf.getSz());
     }
   }

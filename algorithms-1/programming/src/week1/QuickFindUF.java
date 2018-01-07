@@ -1,6 +1,6 @@
-package me.ericyy.week1;
+package week1;
 
-import me.ericyy.StdIn;
+import common.StdIn;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -15,13 +15,6 @@ public class QuickFindUF {
     ids = new int[n];
     for(int i=0; i<count; i++)
       ids[i] = i;
-  }
-
-  public String toString() {
-    String str = "";
-    for(int i=0; i<ids.length; i++)
-      str += ids[i]  + " ";
-    return str;
   }
 
   boolean connected(int p, int q) {
@@ -70,6 +63,5 @@ public class QuickFindUF {
       System.out.println(p + " " + q);
     }
     System.out.println(uf.count() + " components");
-    System.out.println(uf);
   }
 }

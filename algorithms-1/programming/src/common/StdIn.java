@@ -1,4 +1,4 @@
-package me.ericyy;
+package common;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,6 +1,6 @@
-package me.ericyy.week1;
+package week1;
 
-import me.ericyy.StdIn;
+import common.StdIn;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -16,13 +16,6 @@ public class QuickUnionUF {
     for(int i=0; i<n; i++) {
       ids[i] = i;
     }
-  }
-
-  public String toString() {
-    String str = "";
-    for(int i=0; i<ids.length; i++)
-      str += ids[i]  + " ";
-    return str;
   }
 
   public int root(int id) {
@@ -61,6 +54,5 @@ public class QuickUnionUF {
       System.out.println(p + " " + q);
     }
     System.out.println(uf.count() + " components");
-    System.out.println(uf);
   }
 }
