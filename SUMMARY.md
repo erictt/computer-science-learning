@@ -26,8 +26,9 @@
 
 ## Calculus Two: Sequences and Series
 
-<!--
 * [Week 1 - Sequences](calculus-two/week-1.md)
+
+<!--
 * [Week 2 - Series](calculus-two/week-2.md)
 * [Week 3 - Convergence Tests](calculus-two/week-3.md)
 * [Week 4 - Alternating Series](calculus-two/week-4.md)
