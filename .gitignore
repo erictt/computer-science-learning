@@ -23,4 +23,5 @@ _book
 
 # Test data
 algorithms-1/programming/algs4-data/*
+algorithms-1/programming/out/*
 !algorithms-1/programming/algs4-data/placeholder
