@@ -99,4 +99,10 @@
       }
     }
     ```
+## Assignment (Percolation)
+
+* Write a program to estimate the value of the percolation threshold via Monte Carlo simulation.
+    * [Details](http://coursera.cs.princeton.edu/algs4/assignments/percolation.html)
+* My Code: [https://github.com/erictt/computer-science-learning/tree/master/algorithms-1/programming/src/week1/assignment](https://github.com/erictt/computer-science-learning/tree/master/algorithms-1/programming/src/week1/assignment)
+
 

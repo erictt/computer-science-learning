@@ -1,4 +1,4 @@
-package week1;
+package week1.assignment;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;

@@ -2,10 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78b46352-606b-4953-b7f5-e1cb94062930" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/week1/Percolation.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/week1/PercolationStats.java" />
-      <change beforePath="$PROJECT_DIR$/../../.gitignore" afterPath="$PROJECT_DIR$/../../.gitignore" />
+      <change beforePath="$PROJECT_DIR$/../1-union-find.md" afterPath="$PROJECT_DIR$/../1-union-find.md" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/week1/Percolation.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/PercolationStats.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/CREDITS" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/InteractivePercolationVisualizer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/PercolationVisualizer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/greeting57.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/greeting57.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/heart25.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/heart25.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input1-no.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input1-no.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input1.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input10-no.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input10-no.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input10.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input10.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input2-no.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input2-no.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input2.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input20.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input20.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input3.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input3.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input4.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input4.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input5.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input5.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input50.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input50.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input6.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input6.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input7.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input7.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input8-dups.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input8-dups.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input8-no.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input8-no.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input8.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/input8.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/jerry47.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/jerry47.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/sedgewick60.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/sedgewick60.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/snake101.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/snake101.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/snake13.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/snake13.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/wayne98.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/week1/percolation/wayne98.txt" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/../algs4/target/" />
@@ -33,59 +82,43 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="Percolation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/week1/Percolation.java">
+        <entry file="file://$PROJECT_DIR$/src/week1/assignment/Percolation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="109" column="26" lean-forward="false" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2633#2634#0" expanded="true" />
-                <element signature="e#2661#2662#0" expanded="true" />
-                <element signature="e#2726#2727#0" expanded="true" />
-                <element signature="e#2785#2786#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InteractivePercolationVisualizer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/week1/percolation/InteractivePercolationVisualizer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PercolationVisualizer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/week1/percolation/PercolationVisualizer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="PercolationStats.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/week1/PercolationStats.java">
+        <entry file="file://$PROJECT_DIR$/src/week1/assignment/PercolationStats.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InteractivePercolationVisualizer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/week1/assignment/percolation/InteractivePercolationVisualizer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1013#1014#0" expanded="true" />
-                <element signature="e#1034#1035#0" expanded="true" />
-                <element signature="e#1118#1119#0" expanded="true" />
-                <element signature="e#1141#1142#0" expanded="true" />
-                <element signature="e#1220#1221#0" expanded="true" />
-                <element signature="e#1294#1295#0" expanded="true" />
-                <element signature="e#1374#1375#0" expanded="true" />
-                <element signature="e#1448#1449#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PercolationVisualizer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/week1/assignment/percolation/PercolationVisualizer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -137,9 +170,13 @@
         <option value="$PROJECT_DIR$/src/percolation/InteractivePercolationVisualizer.java" />
         <option value="$PROJECT_DIR$/src/percolation/PercolationVisualizer.java" />
         <option value="$PROJECT_DIR$/src/week1/PercolationStats.java" />
-        <option value="$PROJECT_DIR$/src/week1/Percolation.java" />
         <option value="$PROJECT_DIR$/src/week1/percolation/InteractivePercolationVisualizer.java" />
         <option value="$PROJECT_DIR$/src/week1/percolation/PercolationVisualizer.java" />
+        <option value="$PROJECT_DIR$/src/week1/Percolation.java" />
+        <option value="$PROJECT_DIR$/src/week1/assignment/Percolation.java" />
+        <option value="$PROJECT_DIR$/src/week1/assignment/PercolationStats.java" />
+        <option value="$PROJECT_DIR$/src/week1/assignment/percolation/InteractivePercolationVisualizer.java" />
+        <option value="$PROJECT_DIR$/src/week1/assignment/percolation/PercolationVisualizer.java" />
       </list>
     </option>
   </component>
@@ -219,6 +256,14 @@
               <item name="programming" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="week1" type="462c0819:PsiDirectoryNode" />
+              <item name="assignment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="programming" type="b2602c69:ProjectViewProjectNode" />
+              <item name="programming" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="week1" type="462c0819:PsiDirectoryNode" />
+              <item name="assignment" type="462c0819:PsiDirectoryNode" />
               <item name="percolation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -764,31 +809,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1013#1014#0" expanded="true" />
-            <element signature="e#1034#1035#0" expanded="true" />
-            <element signature="e#1118#1119#0" expanded="true" />
-            <element signature="e#1141#1142#0" expanded="true" />
-            <element signature="e#1220#1221#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1374#1375#0" expanded="true" />
-            <element signature="e#1448#1449#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/week1/Percolation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="109" column="26" lean-forward="false" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2633#2634#0" expanded="true" />
-            <element signature="e#2661#2662#0" expanded="true" />
-            <element signature="e#2726#2727#0" expanded="true" />
-            <element signature="e#2785#2786#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -804,9 +825,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/week1/Percolation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="31" column="28" lean-forward="true" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/week1/assignment/Percolation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/week1/assignment/PercolationStats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/week1/assignment/percolation/InteractivePercolationVisualizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/week1/assignment/percolation/PercolationVisualizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

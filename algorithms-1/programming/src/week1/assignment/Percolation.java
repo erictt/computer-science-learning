@@ -1,4 +1,4 @@
-package week1;
+package week1.assignment;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
@@ -22,6 +22,9 @@ public class Percolation {
     length = n;
     int count = n * n;
     sites = new WeightedQuickUnionUF(count + 2);
+
+    // to avoid backwash, use this to check isFull()
+    // check http://coursera.cs.princeton.edu/algs4/checklists/percolation.html to find out what is backwash
     sites2 = new WeightedQuickUnionUF(count + 1);
     virtualTop = count;
     virtualBottom = count + 1;
