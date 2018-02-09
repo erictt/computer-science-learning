@@ -2,7 +2,18 @@
 
 [TOC]
 
-## Analysis of Algorithms
+## Common Order-of-growth Classifications
+
+* \\(1, \log{N}, N \log{N}, N^2, N^3, \text{ and } 2^N\\)
+    * order of growth discards leading coefficient
+* <img src="media/15159109817755.jpg" width=300 />
+    * \\(\text{time} = \lg{T(N)}\\)
+    * \\(\text{size} = \lg{N}\\)
+* <img src="media/15159110767827.jpg" width=600 />
+
+## Theory of Algorithms
+
+* <img src="media/15159115431400.jpg" width=600 />
 
 
 ## Why Big-Oh Notation ? // TODO

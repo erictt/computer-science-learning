@@ -20,5 +20,7 @@ rsync -arve --delete \
   --exclude=etc \
   --exclude=\.git* \
   --exclude=algorithms-1/programming \
+  --exclude=algorithms-1/algs4 \
+  --exclude=sync2Icloud.sh \
   $sourcePath \
   ~/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents/

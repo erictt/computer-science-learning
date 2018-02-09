@@ -69,9 +69,9 @@
 ## Differentiate Integral Functions
 
 * Base on the limit theorem, we know that at point **x**, the change of the integral function should be **f(x)**. But what if the upper endpoint is a function? 
-* Like \\(\frac{d}{dx}\int_0^{g(x)} f(x) dt\\).
+* Like \\(\frac{d}{dx}\int_0^{g(x)} f(x) dx\\).
 * Use the chain rule: \\(\frac{d}{dx}f(g(x)) = f'(g(x)) \cdot g'(x)\\) and the Fundamental Theorem: \\(F'(x) = f(x)\\), we get:
-    * \\(\frac{d}{dx}\int_0^{g(x)} f(x) dt = F'(g(x)) \cdot g'(x) = f(g(x)) \cdot g'(x)\\)
+    * \\(\frac{d}{dx}\int_0^{g(x)} f(x) dx = F'(g(x)) \cdot g'(x) = f(g(x)) \cdot g'(x)\\)
 * For example: \\(\frac{d}{dx}\int_0^{x^2} \sin{t} dt\\), \\(g(x) = x^2\\)
     * \\(\frac{d}{dx} \int_0^{x^2} \sin{x} dt = \sin{x^2} \cdot 2x\\)
 
