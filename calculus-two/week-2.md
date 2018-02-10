@@ -60,7 +60,7 @@
 
 ## The Comparison Tests
 
-* The Comparison Test Suppose that \\(\sum a_n\\) and \\(\sum b_n\\) are series with positive terms.
+* The Comparison Test Suppose that \\(\sum a_n\\) and \\(\sum b_n\\) are series with **positive terms**.
     * If \\(\sum b_n\\) is convergent and \\(a_n < b_n\\) for all **n**, then \\(\sum a_n\\) is also convergent.
     * If \\(\sum b_n\\) is divergent and \\(a_n > b_n\\) for all **n**, then \\(\sum a_n\\) is also divergent.
 * Example: Does \\(\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^2}\\) converges?

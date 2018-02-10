@@ -29,9 +29,9 @@
 * [Week 1 - Sequences](calculus-two/week-1.md)
 * [Week 2 - Series](calculus-two/week-2.md)
 * [Week 3 - Convergence Tests](calculus-two/week-3.md)
+* [Week 4 - Alternating Series](calculus-two/week-4.md)
 
 <!--
-* [Week 4 - Alternating Series](calculus-two/week-4.md)
 * [Week 5 - Power Series](calculus-two/week-5.md)
 * [Week 6 - Taylor Series](calculus-two/week-6.md)
 * [Week 7 - Final](calculus-two/week-7.md)
@@ -53,7 +53,7 @@
 * [Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares](laff-linear-algebra/week-10.md)
 * [Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases](laff-linear-algebra/week-11.md)
 * [Week 12 - Eigenvalues and Eigenvectors](laff-linear-algebra/week-12.md)
-* -->
+-->
 
 ## Stanford Machine Learning
 
