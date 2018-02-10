@@ -101,16 +101,16 @@
 &= \int\left(\sum_{n=0}^{\infty}(-1)^{n}x^{2n}\right)\,dx\\
 &= \sum_{n=0}^{\infty}\left(\int (-1)^{n}x^{2n}\,dx\right)\\
 &= \sum_{n=0}^{\infty}\left((-1)^{n}\int x^{2n}\,dx\right)\\
-&= \sum_{n=0}^{\infty}\left((-1)^{n}\frac{x^{2n+1}}{2n+1}\right) + C\\
-&= C + \left( x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \frac{x^9}{9} - \frac{x^{11}}{11} +\cdots\right).
+&= \sum_{n=0}^{\infty}\left((-1)^{n}\frac{x^{2n+1} }{2n+1}\right) + C\\
+&= C + \left( x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \frac{x^9}{9} - \frac{x^{11} }{11} +\cdots\right).
 \end{aligned}\\]
-    * Evaluating at \\(x = 0\\) gives \\(0 = \arctan(0) = C\\), so we get \\[\arctan(x) = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \frac{x^9}{9} - \frac{x^{11}}{11} + \cdots,\qquad\text{if }|x|\lt 1.\\]
+    * Evaluating at \\(x = 0\\) gives \\(0 = \arctan(0) = C\\), so we get \\[\arctan(x) = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \frac{x^9}{9} - \frac{x^{11} }{11} + \cdots,\qquad\text{if }|x|\lt 1.\\]
     * \\(\frac{x^5}{5} < \frac{1}{33}\\), so the approximate value of \\(\arctan(\frac{1}{2}) = \frac{1}{2} - \frac{1}{24} = \frac{11}{24}\\) 
 
-* Note we are assuming \\(|x| < 1\\), but arctangent is defined for all real numbers. The series we have here is \\[\sum_{n=0}^{\infty}(-1)^{n}\frac{x^{2n+1}}{2n+1}.\\]
+* Note we are assuming \\(|x| < 1\\), but arctangent is defined for all real numbers. The series we have here is \\[\sum_{n=0}^{\infty}(-1)^{n}\frac{x^{2n+1} }{2n+1}.\\]
 * Using the **Ratio Test**, we have that \\[\begin{aligned}
-\lim_{n\to\infty}\frac{|a_{n+1}|}{|a_n|} &= \lim_{n\to\infty}\frac{\quad\frac{|x|^{2n+3}}{2n+3}\quad}{\frac{|x|^{2n+1}}{2n+1}}\\
-&= \lim_{n\to\infty}\frac{(2n+1)|x|^{2n+3}}{(2n+3)|x|^{2n+1}}\\
+\lim_{n\to\infty}\frac{|a_{n+1}|}{|a_n|} &= \lim_{n\to\infty}\frac{\quad\frac{|x|^{2n+3} }{2n+3}\quad}{\frac{|x|^{2n+1} }{2n+1} }\\
+&= \lim_{n\to\infty}\frac{(2n+1)|x|^{2n+3} }{(2n+3)|x|^{2n+1} }\\
 &= \lim_{n\to\infty}\frac{|x|^2(2n+1)}{2n+3}\\
 &= |x|^2\lim_{n\to\infty}\frac{2n+1}{2n+3}\\
 &= |x|^2.
@@ -125,7 +125,7 @@
 
 ### Example
 
-* \\(\sum \frac{(-1)^{n+1}}{n} = \frac{1}{1} - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + \frac{1}{7} - \cdots\\) 
+* \\(\sum \frac{(-1)^{n+1} }{n} = \frac{1}{1} - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + \frac{1}{7} - \cdots\\) 
 * Take the even terms, we get \\(\sum \frac{1}{2n} = \frac{1}{2} \sum \frac{1}{n}\\), which diverges.
 * Take the odd terms, we get \\(\sum \frac{1}{2n-1} > \sum \frac{1}{2n-1}\\), which diverges too.
 * So whichever we picked, can easily get a number **L** as large as we want to.
