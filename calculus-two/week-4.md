@@ -115,7 +115,7 @@
 &= |x|^2\lim_{n\to\infty}\frac{2n+1}{2n+3}\\
 &= |x|^2.
 \end{aligned}\\]
-* By the Ratio Test, the series converges absolutely if \\(|x|^2 < 1\\) (that is, if \\(|x| < 1\\)) and diverges if \\(|x| > 1\\). At \\(x=1\\) and \\(x=−1\\), the series is known to converge. So the radius of convergence is 1, and the equality is valid for \\(x \in [−1,1]\\) only.
+* By the Ratio Test, the series converges absolutely if \\(|x|^2 < 1\\) (that is, if \\(|x| < 1\\)) and diverges if \\(|x| > 1\\). At \\(x=1\\) and \\(x=-1\\), the series is known to converge. So the radius of convergence is 1, and the equality is valid for \\(x \in [-1,1]\\) only.
 * This answer is copy from [https://math.stackexchange.com/questions/29649/why-is-arctanx-x-x3-3x5-5-x7-7-dots](https://math.stackexchange.com/questions/29649/why-is-arctanx-x-x3-3x5-5-x7-7-dots).
 
 ## Rearrangement Theorem
