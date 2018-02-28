@@ -108,6 +108,7 @@
 
 ### A Sequence Includes Every Real Number
 
+* **Real Number**: The real numbers include all the rational numbers, such as the integer −5 and the fraction 4/3, and all the irrational numbers, such as √2 (1.41421356..., the square root of 2, an irrational algebraic number). Included within the irrationals are the transcendental numbers, such as π (3.14159265...). -- from [Wikipedia](https://en.wikipedia.org/wiki/Real_number)
 * Doesn't exist.
 * Prove: [Effective Thinking Through Mathematics (Week 4#infinity-comes-in-different-sizes)](https://cs.ericyy.me/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity.html#infinity-comes-in-different-sizes)
 

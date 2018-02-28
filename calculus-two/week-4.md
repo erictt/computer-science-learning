@@ -12,16 +12,15 @@
 
 * \\(\sum \frac{(-1)^n}{n^2}\\)
     * \\(\sum \lvert \frac{(-1)^n}{n^2} \rvert = \sum \frac{1}{n^2}\\)
-    * And we have proven that \\(\sum \frac{1}{n^2}\\)
+    * And we have proven that \\(\sum \frac{1}{n^2}\\) converges.
     * So \\(\sum \frac{(-1)^n}{n^2}\\) **converges absolutely**.
 
 ### Procedures to Analyze Series
 
 * Check \\(\lim_{n \to \infty} a_n\\), 
     * if \\( \ne 0\\) then diverge.
-    * else:
-* If \\(a_n \ge 0\\), apply usual convergence tests, like Ratio Test, Root Test and Integral Test. else:
-* Apply tests to \\(\sum \lvert a_n \rvert\\). Try to prove the series convergence.
+    * else if \\(a_n \ge 0\\), apply usual convergence tests, like Ratio Test, Root Test and Integral Test. 
+    * else: Apply tests to \\(\sum \lvert a_n \rvert\\). Try to prove the series convergence.
 
 ## Conditional Convergence
 
@@ -116,7 +115,7 @@
 &= |x|^2.
 \end{aligned}\\]
 * By the Ratio Test, the series converges absolutely if \\(|x|^2 < 1\\) (that is, if \\(|x| < 1\\)) and diverges if \\(|x| > 1\\). At \\(x=1\\) and \\(x=-1\\), the series is known to converge. So the radius of convergence is 1, and the equality is valid for \\(x \in [-1,1]\\) only.
-* This answer is copy from [https://math.stackexchange.com/questions/29649/why-is-arctanx-x-x3-3x5-5-x7-7-dots](https://math.stackexchange.com/questions/29649/why-is-arctanx-x-x3-3x5-5-x7-7-dots).
+* This answer is copied from [https://math.stackexchange.com/questions/29649/why-is-arctanx-x-x3-3x5-5-x7-7-dots](https://math.stackexchange.com/questions/29649/why-is-arctanx-x-x3-3x5-5-x7-7-dots).
 
 ## Rearrangement Theorem
 

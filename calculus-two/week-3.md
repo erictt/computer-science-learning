@@ -6,24 +6,24 @@
 
 ### Example
 
-* Take an example first: Does \\(\sum\frac{n^5}{4^n}\\) convergence?
-* Use the **Geometric Series Theory**, we know that \\(\sum\frac{1}{4^n}\\) convergence, because \\(\sum\frac{1}{4^n} = \sum\frac{1}{4} \cdot {\frac{1}{4}^{n-1} }\\) and \\(\frac{1}{4} < 1\\).
-* Last week, we've learned **Comparison Test Theory**. So if we can find a series that every element in it is bigger than this one and also converges, then this example must converge, too.
-* Let's calculate \\(\lim_{n \to \infty}\frac{a_n}{a_{n-1} }\\)
-    * \\[\lim_{n \to \infty}\frac{a_n}{a_{n-1} } = \lim_{n \to \infty} \frac{\frac{n^5}{4^n} }{\frac{(n-1)^5}{4^{n-1} } } = \lim_{n \to \infty}\frac{n^5}{4^n} \cdot \frac{ 4^{ n-1 } }{ (n-1)^5 } = \lim_{n \to \infty}\frac{1}{4} (\frac{n}{n-1})^5 = \frac{1}{4}\\]
-    * So if **n** is big enough, then the **common ratio** will be close to **1/4**.
-* Then we can pick a constant \\(\epsilon = 0.1\\) that make \\(\vert \frac{a_n}{a_{n-1} } \vert < \frac{1}{4} + 0.1\\), after some calculation we got that \\(n \ge 15\\).
-    * So, \\(a_{n+1} < (\frac{1}{4} + 0.1) a_n,\ \text{where}\ n \ge 15\\),
-    * Then \\(a_{15+k} < (\frac{1}{4} + 0.1)^k a_{15}\\).
-* We know that \\(\sum (\frac{1}{4} + 0.1)^k a_{15}\\) convergence, base on the **Geometric Series Theory**.
-* So \\(\sum a_{15+k}\\) converge.
-* So \\(\sum a_{k}\\) converge.
+* Does \\(\sum\frac{n^5}{4^n}\\) convergence?
+    * Use the **Geometric Series Theory**, we know that \\(\sum\frac{1}{4^n}\\) convergence, because \\(\sum\frac{1}{4^n} = \sum\frac{1}{4} \cdot {\frac{1}{4}^{n-1} }\\) and \\(\frac{1}{4} < 1\\).
+    * Last week, we've learned **Comparison Test Theory**. So if we can find a series that every element in it is bigger than this one and also converges, then this example must converge, too.
+    * Let's calculate \\(\lim_{n \to \infty}\frac{a_n}{a_{n-1} }\\)
+        * \\[\lim_{n \to \infty}\frac{a_n}{a_{n-1} } = \lim_{n \to \infty} \frac{\frac{n^5}{4^n} }{\frac{(n-1)^5}{4^{n-1} } } = \lim_{n \to \infty}\frac{n^5}{4^n} \cdot \frac{ 4^{ n-1 } }{ (n-1)^5 } = \lim_{n \to \infty}\frac{1}{4} (\frac{n}{n-1})^5 = \frac{1}{4}\\]
+        * So if **n** is big enough, then the **common ratio** will be close to **1/4**.
+    * Then we can pick a constant \\(\epsilon = 0.1\\) that make \\(\vert \frac{a_n}{a_{n-1} } \vert < \frac{1}{4} + 0.1\\), after some calculation we got that \\(n \ge 15\\).
+        * So, \\(a_{n+1} < (\frac{1}{4} + 0.1) a_n,\ \text{where}\ n \ge 15\\),
+        * Then \\(a_{15+k} < (\frac{1}{4} + 0.1)^k a_{15}\\).
+    * We know that \\(\sum (\frac{1}{4} + 0.1)^k a_{15}\\) convergence, base on the **Geometric Series Theory**.
+    * So \\(\sum a_{15+k}\\) converge.
+    * So \\(\sum a_{k}\\) converge.
 
 ### Theorem
 
-* Consider \\(\displaystyle \sum_{n=0}^{\infty} a_n\\). \\(a_n \ge 0\\). \\(\displaystyle \lim_{n \to \infty} \frac{a_{n+1} }{a_n} = L\\).
+* Consider \\(\displaystyle \sum_{n=0}^{\infty} a_n\\). And \\(a_n \ge 0\\), \\(\displaystyle \lim_{n \to \infty} \frac{a_{n+1} }{a_n} = L\\).
     * If \\(L < 1\\), then \\(\displaystyle \sum_{n=0}^{\infty} a_n\\) converges.
-    * If \\(L < 1\\), then \\(\displaystyle \sum_{n=0}^{\infty} a_n\\) diverges.
+    * If \\(L > 1\\), then \\(\displaystyle \sum_{n=0}^{\infty} a_n\\) diverges.
     * If \\(L = 1\\), then the ratio test is inconclusive.
 
 #### Detailed

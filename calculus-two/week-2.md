@@ -25,7 +25,7 @@
     * \\[s_n = \frac{a(1-r^n)}{1-r}\\]
 * If \\(-1 \le r \le 1\\), then \\(r^n \to 0,\ \text{as}\  n \to \infty\\), so \\[\lim_{n \to \infty}s_n = \lim_{n \to \infty}\frac{a(1-r^n)}{1-r} = \frac{a}{1-r} - \frac{a}{1-r}\lim_{n \to \infty}r^n = \frac{a}{1-r}\\]
 * **Summarize the results** The geometric series \\[\sum_{n=1}^{\infty} ar^{n-1} = a + ar + ar^2 + \cdots\\] is convergent if \\(|r| < 1\\) and its sum is \\[\sum_{n=1}^{\infty} ar^{n-1} = \frac{a}{1-r}\ \ \ \  |r| < 1\\] If \\(|r| \ge 1\\), the geometric series is divergent.
-* Another way to get the conclusion (\\(-1 \le r \le 1\\)j): 
+* Another way to get the conclusion (\\(-1 \le r \le 1\\)): 
     * <img src="media/15160952898029.jpg" width=200 />
     * This figure provides a geometric demonstration of the result in the example. If the triangles are constructed as shown and s is the sum of the series, then, by similar triangles, \\[\frac{s}{a} = \frac{a}{a- ar}\ \text{, so}\ s= \frac{a}{1-r}\\]
 * Example: \\(0.\bar{9}\\)
