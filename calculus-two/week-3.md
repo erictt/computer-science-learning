@@ -77,14 +77,13 @@
 
 * <img src="media/15181757684961.jpg" width=400 />
 * For the general series \\(\sum a_n\\), look at the figures above. The area of the first shaded rectangle is the value of **f** at the right endpoint of [1, 2], that is, \\(f(2) = a_2\\). So, comparing the areas of the shaded rectangles with the area under \\(y = f(x)\\) from 1 to n, we see that
-    * \\(a_2 + a_3 + \ldots + a_n \le \int_1^n f(x) dx \\)
-    * \\(\int_1^n f(x) dx \le a_1 + a_2 + \ldots + a_{n-1}\\)
+    * \\(\displaystyle a_2 + \ldots + a_n = s_n - a_1 = \sum_{i=2}^n a_i \le \int_1^n f(x) dx \le a_1 + \ldots + a_{n-1} = s_{n-1} \le \sum_{i=1}^n a_i\\)
         * Notice that this inequality depends on the fact that f is decreasing.
 * If \\(\int_1^n f(x) dx\\) is convergent, then \\[\sum_{i=2}^n a_i \le \int_1^n f(x) dx \le \int_1^{\infty} f(x) dx\\] since \\(f(x) \ge 0\\). Therefore \\[s_n = a_1 + \sum_{i=2}^n a_i \le a_1 + \int_1^{\infty} f(x) dx\\]
     * So the sequence \\(\{s_n\}\\) is bounded above.
     * And \\(\{s_n\}\\) is also an increasing sequence.
     * This means that \\(\sum a_n\\) is convergence.
-* If \\(\int_1^n f(x) dx\\) is divergent, then \\(\int_1^n f(x) dx \to \infty \ \text{as}\ n \to \infty\\) because \\(f(x) \ge 0\\). But \\(\int_1^n f(x) dx \le \sum_{i=1}^{n-1}a_i = s_{n-1}\\) and so \\(s_{n-1} \to \infty\\). This implies that \\(s_n \to \infty\\) and \\(\sum a_n\\) diverges.
+* If \\(\int_1^n f(x) dx\\) is divergent, then \\(\int_1^n f(x) dx \to \infty \ \text{as}\ n \to \infty\\) because \\(f(x) \ge 0\\). But \\(\displaystyle\int_1^n f(x) dx \le \sum_{i=1}^{n-1}a_i = s_{n-1}\\) and so \\(s_{n-1} \to \infty\\). This implies that \\(s_n \to \infty\\) and \\(\sum a_n\\) diverges.
 
 ### Example
 
@@ -104,7 +103,7 @@
     * Method 2, use **The Integral Test**:
         * Let's assume \\(p \ne 1\\), which is The Harmonic Series we have proved before.
         * Also the function is positive and decreasing on \\([1, \infty)\\), so we can use the Integral Test on this.
-        * \\(\displaystyle \int_1^{\infty} f(x) d(x) = \lim_{N \to \infty} \int_1^N \frac{1}{x^p} d(x) = \lim_{N \to \infty} \frac{1}{-p+1} N^{-p+1} - \frac{1}{-p+1}\\)
+        * \\(\displaystyle \int_1^{\infty} f(x) d(x) = \lim_{N \to \infty} \int_1^N \frac{1}{x^p} d(x) = \lim_{N \to \infty} (\frac{1}{-p+1} N^{-p+1} - \frac{1}{-p+1})\\)
         * \\(\displaystyle = \lim_{N \to \infty} \frac{1}{-p+1} (N^{-p+1} - 1)\\)
         * so if \\(p < 1\\), it diverges; if \\(p > 1\\), it converges. 
 

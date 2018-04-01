@@ -9,7 +9,7 @@
 * \\[\displaystyle  \left( \begin{array}{ c | c | c | c } A_{0,0} &  A_{0,1} &  \cdots &  A_{0,N-1} \\ A_{1,0} &  A_{1,1} &  \cdots &  A_{1,N-1} \\ \vdots &  \vdots &  \ddots &  \vdots \\ A_{M-1,0} &  A_{M-1,1} &  \cdots &  A_{M-1,N-1} \end{array} \right) \left( \begin{array}{ c } x_0 \\ x_1 \\ \vdots \\ x_{N-1} \end{array} \right) = \left( \begin{array}{c c c} A_{0,0} x_{0} + A_{0,1} x_{1} + \cdots + A_{0,N-1} x_{N-1} \\ A_{1,0} x_{0} + A_{1,1} x_{1} + \cdots + A_{1,N-1} x_{N-1} \\ \vdots \\ A_{M-1,0} x_{0} + A_{M-1,1} x_{1} + \cdots + A_{M-1,N-1} x_{N-1} \end{array} \right)\\]
 
 * Two different algorithms to calculate Matrix-vector Multiplication
-    * <img src="media/15135850465955.png" width=500 />
+    * <img src="media/15135850465955.png" width=600 />
     * First one, is calculating by rows.
         * \\(\psi_1 := a_{10}^T x_0 + \alpha_{11} x_1 + a_{12}^T x_2 + \psi_1\\)
     * Second one is by columns.
@@ -42,7 +42,7 @@
         * The calculate step: \\(\psi_1 := u_{11} x_1 + u_{12}^T x_2 + \psi_1\\), (without \\(u_{10}^T x_0\\))
         * if we set the size of \\(U_{00}\\) to \\(k\\),then the size of \\(U_{02}\\) and \\(U_{20}\\) should be \\(n - k - 1\\).
         * flops(\\(u_{11} x_1\\)) = 1, flops(\\(u_{12}^T x_2\\)) = \\(2(n-k-1)\\), flops(\\(u_{11} x_1 + u_{12}^T x_2\\)) = 1
-        * So the flops = \\(\sum_{i=0}^k (2 + 2(n - k - 1) = n*(n+1) \\)
+        * So the flops = \\(\sum_{i=0}^k (2 + 2(n - k - 1)) = n*(n+1) \\)
 
 #### Symmetric Matrix-Vector Multiplication
 

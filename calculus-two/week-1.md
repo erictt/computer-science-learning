@@ -9,7 +9,7 @@
 
 ### Notation
 
-* The sequence \\({a_1, a_2, a_3, \ldots}\\) os also denoted by
+* The sequence \\({a_1, a_2, a_3, \ldots}\\) also denoted by
     * \\(\{a_n\}\\) or \\(\{a_n\}_{n=1}^{\infty}\\)
         * \\(n \in \mathbb{N}\\) (whole number)
 

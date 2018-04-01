@@ -26,8 +26,8 @@
         * (**Inductive step**) if it holds for \\(k = K\\), where \\(K \ge k_b\\) , then it is also holds for \\(k = K +1\\),
     * then one can conclude that the property holds for all integers \\(k \ge k_b\\) . Often \\(k_b = 0\\) or \\(k_b = 1\\).
 * Example: To proof: \\(\displaystyle\sum_{i=0}^{n-1}{i} = n(n-1)/2\\)
-    * **Base case**: \\(n = 1\\). For this case, we must show that \\(\displaystyle\sum_{i=0}^{1-1}{i} = 1(1-1)/2\\)
-        * \\(\displaystyle\sum_{i=0}^{1-1}{i} = 0 = 1(1-1)/2\\)
+    * **Base case**: \\(n = 1\\). For this case, we must show that \\(\displaystyle\sum_{i=0}^{i-1}{i} = 1(1-1)/2\\)
+        * \\(\displaystyle\sum_{i=0}^{i-1}{i} = 0 = 1(1-1)/2\\)
         * So this proves the base case.
     * **Inductive step**: Inductive Hypothesis (IH): Assume that the result is true for \\(n = k\\) where \\(k \ge 1\\): \\(\displaystyle\sum_{i=0}^{k-1}{i} = k(k-1)/2\\)
         * We need to show that the result is then also true for \\(n=k+1\\): \\(\displaystyle\sum_{i=0}^{(k+1)-1}{i} = (k+1)((k+1)-1)/2\\)
