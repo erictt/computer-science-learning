@@ -78,7 +78,7 @@
         * So \\(\displaystyle \sum_{n=0}^{\infty} x^n = \frac{x}{1-x} + x^0 = \frac{1}{1-x}\\)
     * \\(\displaystyle \int_{x = 0}^t \frac{1}{1-x} dx\\), use substitution rule, set \\(u = 1 - x, du = -dx\\)
     * \\(\displaystyle \int_{x = 0}^t \frac{1}{1-x} dx = - \int_{x = 0}^t \frac{du}{u} \\)
-    * \\(= -\log|u| \big{]}_{x=0}^t = - \log|1-x|\big{]}_{x=0}^t = - \log |1 - t|\\)
+    * \\(= -\log|u| \rbrack_{x=0}^t = - \log|1-x|\rbrack_{x=0}^t = - \log |1 - t|\\)
     * In another way, we can backwards the derivation:
         * \\(\displaystyle - \log |1 - t| = \int_{x=0}^t \frac{1}{1-x} dx\\)
         * \\(\displaystyle = \int_{x=0}^{\infty} \sum_{n=0}^{\infty} x^n dx = \sum_{n=0}^{\infty} \int_{x=0}^{\infty} x^n dx\\)
