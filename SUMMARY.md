@@ -31,11 +31,7 @@
 * [Week 3 - Convergence Tests](calculus-two/week-3.md)
 * [Week 4 - Alternating Series](calculus-two/week-4.md)
 * [Week 5 - Power Series](calculus-two/week-5.md)
-
-<!--
 * [Week 6 - Taylor Series](calculus-two/week-6.md)
-* [Week 7 - Final](calculus-two/week-7.md)
--->
 
 ## LAFF Linear Algebra
 

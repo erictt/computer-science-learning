@@ -45,7 +45,7 @@
     * So the radius of convergence is **1**.
 * What about the endpoints **1** and **-1**?
     * if x = 1, then the series = \\(\sum_{n=1}^{\infty} \frac{1}{n}\\), which is harmonic series, also diverges.
-    * if x = -1, then the series = \\(\sum_{n=1}^{\infty} \frac{(1)^n}{n}\\), that's the alternating harmonic series, and converges.
+    * if x = -1, then the series = \\(\sum_{n=1}^{\infty} \frac{(-1)^n}{n}\\), that's the alternating harmonic series, and converges.
 * To summarize this: 
     * The interval of convergence of series \\(\displaystyle \sum_{n=1}^{\infty}\frac{x^n}{n}\\) is \\([-1, 1)\\)
 
@@ -71,9 +71,9 @@
 
 * Theorem: 
     * \\(\displaystyle f(x) = \sum_{n=0}^{\infty} a_n x^n\\), **R** = radius of convergence.
-    * Then \\(\displaystyle \int_0^t f(x) dx = \sum_{n=1}^{\infty} \frac{a_n \cdot t^{n+1} }{n=1} \text{ for } x \in (-R, R)\\)
-* Example:
-    * \\(\displaystyle \sum_{n=0}^{\infty} x^n = \frac{1}{1-x}\\). \\(|x| < 1\\) => \\(R = 1\\)
+    * Then \\(\displaystyle \int_0^t f(x) dx = \sum_{n=1}^{\infty} \frac{a_n \cdot t^{n+1} }{n+1} \text{ for } x \in (-R, R)\\)
+* Example: \\(\displaystyle \int_{x=0}^{t} \sum_{n=0}^{\infty} x^n dx\\)
+    * First to prove: \\(\displaystyle \sum_{n=0}^{\infty} x^n = \frac{1}{1-x}\\), \\(|x| < 1\\) => \\(R = 1\\)
         * Use Geometric Series theorem, we know \\(\displaystyle \sum_{n=1}^{\infty} x^n = \sum_{n=1}^{\infty} x \cdot x^{n-1} = \frac{x}{1-x}\\)
         * So \\(\displaystyle \sum_{n=0}^{\infty} x^n = \frac{x}{1-x} + x^0 = \frac{1}{1-x}\\)
     * \\(\displaystyle \int_{x = 0}^t \frac{1}{1-x} dx\\), use substitution rule, set \\(u = 1 - x, du = -dx\\)
@@ -81,7 +81,7 @@
     * \\(= -\log|u| \rbrack_{x=0}^t = - \log|1-x|\rbrack_{x=0}^t = - \log |1 - t|\\)
     * In another way, we can backwards the derivation:
         * \\(\displaystyle - \log |1 - t| = \int_{x=0}^t \frac{1}{1-x} dx\\)
-        * \\(\displaystyle = \int_{x=0}^{\infty} \sum_{n=0}^{\infty} x^n dx = \sum_{n=0}^{\infty} \int_{x=0}^{\infty} x^n dx\\)
+        * \\(\displaystyle = \int_{x=0}^{t} \sum_{n=0}^{\infty} x^n dx = \sum_{n=0}^{\infty} \int_{x=0}^{t} x^n dx\\)
         * \\(\displaystyle = \sum_{n=0}^{\infty} \frac{t^{n+1} }{n+1}, |t| < 1\\)
 
 ### e^x
@@ -89,12 +89,12 @@
 * To prove \\(\displaystyle \sum_{n=0}^{\infty} \frac{x^n}{n!} = e^x\\)
     *  It's the sum, n goes from 0 to infinity of x to the n over n factorial
 * \\(\displaystyle f(x) = \sum_{n=0}^{\infty} \frac{x^n}{n!}\\)
-* set x = 0:
+* prove \\(f(0) = e^0 = 0\\):
     * \\(\displaystyle f(0) = \sum_{n=0}^{\infty} \frac{0^n}{n!} = 1\\)
         * \\(0^0 = 1, 0^1 = 0, \ldots, 0^n = 0\\)
         * \\(0! = 1\\). because: \\((n+1)! = (n+1) \cdot n!\\)
     * \\(e^0 = 1\\)
-* differentiate both functions:
+* after differentiation, both functions still themselves:
     * \\(\displaystyle \frac{d}{dx} \sum_{n=0}^{\infty} \frac{x^n}{n!} = \sum_{n=0}^{\infty} \frac{x^{n-1} }{(n-1)!} = \sum_{n=0}^{\infty} \frac{x^n}{n!} \\)
     * \\(\frac{d}{dx}e^x = e^x\\)
  *  These two star-crossed functions agree at a single point, and they're changing in the same way, and consequently, they must be the same function. 
@@ -125,8 +125,7 @@
 * \\(\displaystyle \sum_{n=0}^{\infty} x^n = \frac{1}{1-x}\\)
 * Two ways to transfer \\(\frac{1}{(1-x)^2}\\)
     * First:
-        * \\(\frac{1}{(1-x)^2} = \frac{d}{dx} (\frac{1}{1-x}) = \frac{d}{dx} ({1-x})^{-1} = -1 \cdot (1-x)^{-2} \cdot -1 = \frac{1}{(1-x)^2}\\)
-        * \\(\displaystyle \frac{1}{(1-x)^2} = \frac{d}{dx} \sum_{n=0}^{\infty} x^n = \sum_{n=0}^{\infty} \frac{d}{dx}(x^n) = \sum_{n=1}^{\infty} n \cdot x^{n-1}\\)
+        * \\(\displaystyle \frac{1}{(1-x)^2} = \frac{d}{dx} (\frac{1}{1-x}) = \frac{d}{dx} \sum_{n=0}^{\infty} x^n = \sum_{n=0}^{\infty} \frac{d}{dx}(x^n) = \sum_{n=1}^{\infty} n \cdot x^{n-1}\\)
         * \\(= 1 \cdot x^0 + 2 \cdot x^1 + 3 \cdot x^2 + \cdots \\)
         * \\(\displaystyle = \sum_{n=0}^{\infty} (n+1) \cdot x^n\\)
     * Second:
@@ -146,9 +145,9 @@
     * \\( x \cdot f(x) = x^2 + x^3 + 2x^4 + 3x^5 + 5x^6 + \cdots\\)
     * \\( x^2 \cdot f(x) = x^3 + x^4 + 2x^5 + 3x^6 + 5x^7 + \cdots\\)  
 * Conclude above equations, we get:
-    * \\(f(x) - x \cdot f(x) - x^2 \cdot f(x) = x\\)\
+    * \\(f(x) - x \cdot f(x) - x^2 \cdot f(x) = x\\)
 * So \\(\displaystyle f(x) = \frac{x}{1-x-x^2}\\)
-* set \\(\displaystyle \phi = \frac{1+\sqrt{5} }{2}\\),
+* set \\(\displaystyle \phi = \frac{1+\sqrt{5} }{2}\\), after some calculation we get:
 * \\[\begin{aligned} 
     f(x) &= \frac{1/{\sqrt{5} } }{1-(x \cdot \phi)} + \frac{-1/{\sqrt{5} } }{1-(x \cdot (1-\phi))} \\
     &= \frac{1}{\sqrt{5} } \cdot \frac{1}{1-(x \cdot \phi)} + \frac{-1}{\sqrt{5} } \cdot \frac{1}{1-(x \cdot (1-\phi))} \\
