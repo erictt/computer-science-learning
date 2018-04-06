@@ -65,7 +65,7 @@
 * Quiz 6: Let \\(f(x) = \cos(x^5)\\). By considering the Taylor series for \\(f\\) around 0, compute \\(f^{(90)}(0)\\).
     * The Taylor Series for \\(\cos\\) around 0 is \\[f(x) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!} \cdot x^{2n}\\]
     * \\(f(x) = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots + \frac{x^{16} }{16!} - \frac{x^{18} }{18!} + \cdots\\)
-    * \\(f(x^5) = 1 - \frac{x^10}{2!} + \frac{x^20}{4!} - \frac{x^30}{6!} + \cdots + \frac{x^{80} }{16!} - \frac{x^{90} }{18!} + \cdots\\)
+    * \\(f(x^5) = 1 - \frac{x^{10} }{2!} + \frac{x^{20} }{4!} - \frac{x^{30} }{6!} + \cdots + \frac{x^{80} }{16!} - \frac{x^{90} }{18!} + \cdots\\)
     * So we just need to differentiate term \\(\frac{d^{90} }{dx^{90} } (- \frac{x^{90} }{18!})\\) which \\(= - \frac{90! \cdot x^0}{18!} = - \frac{90!}{18!}\\)
 
 ### Taylor's Theorem
@@ -183,7 +183,7 @@
 * \\[\frac{1}{1-x} = \sum_{n=0}^{\infty} x^n = 1 + x + x^2 + x^3 + \cdots, R = 1\\]
 * \\[e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots, R = \infty\\]
 * \\[\sin x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1} }{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots, R = \infty\\]
-* \\[\cos x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n} }{(2n)!} = x - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots, R = \infty\\]
+* \\[\cos x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n} }{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots, R = \infty\\]
 * \\[\tan^{-1} x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1} }{2n+1} = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots, R = 1\\]
 * \\[\ln (1 + x) = \sum_{n=0}^{\infty} \frac{(-1)^{n-1} x^{n} }{n} = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots, R = 1\\]
 * \\[(1 - x)^k = \sum_{n=0}^{\infty} (n {k})x^{n} = 1 + kx + \frac{k(k-1)}{2!}x^2 + \frac{k(k-1)(k-2)}{3!}x^3 + \cdots, R = 1\\]
