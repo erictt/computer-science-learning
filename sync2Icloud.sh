@@ -22,5 +22,7 @@ rsync -arve --delete \
   --exclude=algorithms-1/programming \
   --exclude=algorithms-1/algs4 \
   --exclude=sync2Icloud.sh \
+  --exclude=stanford-machine-learning/ex* \
+  --exclude=laff-linear-algebra/LAFF-2.0xM \
   $sourcePath \
   ~/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents/

@@ -1,9 +1,9 @@
 {
     "title": "Computer Science Learning",
-    "description": " I put my notes, exercise and some other stuff in here.",
+    "description": " notes, exercise and some other stuff.",
     "author": "Eric Yang",
     "plugins": [
-        "katex@git+https://github.com/erictt/plugin-katex.git#2.0.1",
+        "katex@git+https://github.com/erictt/plugin-katex.git#2.1.0",
         "simple-page-toc@git+https://github.com/erictt/gitbook-plugin-simple-page-toc.git",
         "github",
         "anchors",
