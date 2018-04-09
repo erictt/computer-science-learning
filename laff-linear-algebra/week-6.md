@@ -104,15 +104,82 @@
 
 1. Want to solve: \\(Ax = b\\)
     * Give A and b, solve x.
+    * \\[A = \left(\begin{array}{c c c}
+    2 & + 4 & - 2 \\
+    4 & - 2 & + 6 \\
+    6 & - 4 & + 2
+    \end{array}\right), 
+    b = \left(\begin{array}{c}
+    -10 \\ 20 \\ 18
+    \end{array}\right)\\]
 2. Now we find triangular L and U so that: \\(A = LU\\)
     * U is the transformed A matrix
     * A is the coefficients which transfers A to U
+    * Transfered: \\[A \to \left(\begin{array}{c c c}
+    2 & + 4 & - 2 \\
+    \scriptsize{2} & - 10 & - 10 \\
+    \scriptsize{3} & \scriptsize{1.6} & - 8
+    \end{array}\right),
+    L = \left(\begin{array}{c c c}
+    1 & 0 & 0 \\
+    2 & 1 & 0 \\
+    3 & 1.6 & 1
+    \end{array}\right),
+    U = \left(\begin{array}{c c c}
+    2 & + 4 & - 2 \\
+    0 & - 10 & + 10 \\
+    0 & 0 & - 8
+    \end{array}\right)\\]
 3. Substitute: \\((LU)x = b\\) => \\(L(Ux) = b\\)
 4. Replace Ux with y. (\\(y = Ux\\)) => \\(Ly = b\\)
 5. Solve \\(Ly = b\\) for \\(y\\). (**Next Section**)
     * This is forward substitution (applying the transforms to the right-hand side).
+    * \\[\left(\begin{array}{c c c}
+    1 & 0 & 0 \\
+    2 & 1 & 0 \\
+    3 & 1.6 & 1
+    \end{array}\right) \times 
+    \left(\begin{array}{c} 
+    y_0 \\ y_1 \\ y_2
+    \end{array}\right) =
+    \left(\begin{array}{c}
+    -10 \\ 20 \\ 18
+    \end{array}\right) \to \left(\begin{array}{c}
+        -10 \\
+        20 - 2 y_0 \\ 
+        18 - 3 y_0
+    \end{array}\right) \to \left(\begin{array}{c}
+        -10 \\
+        40 \\ 
+        48 - 1.6 y_1
+    \end{array}\right) \to \left(\begin{array}{c}
+        -10 \\
+        40 \\ 
+        -16
+    \end{array}\right)\\]
+    
 6. Solve \\(Ux = y\\) for \\(x\\). (**Next Next Section**)
     * This is back substitution (solve x).
+    * \\[\left(\begin{array}{c c c}
+    2 & + 4 & - 2 \\
+    0 & - 10 & + 10 \\
+    0 & 0 & - 8
+    \end{array}\right) \times 
+    \left(\begin{array}{c} 
+    x_0 \\ x_1 \\ x_2
+    \end{array}\right) = \left(\begin{array}{c}
+        -10 \\ 40 \\  -16
+    \end{array}\right) \\]
+    * \\[ \to \left(\begin{array}{c}
+        -10 \\ 40 \\  \frac{-16}{-8} = \color{blue}{2}
+    \end{array}\right) \to \left(\begin{array}{c} - 10 \\
+        \frac{40 - 10 \times \color{blue}{2} }{-10} = \color{red}{- 2} \\ 
+        \color{blue}{2}
+    \end{array}\right) \to \left(\begin{array}{c}
+        \frac{-10 - 4 \times ( \color{red}{- 2} ) - ( -2 ) \times \color{blue}{2}}{2} = \color{green}{1} \\ \color{red}{- 2} \\ \color{blue}{2}
+    \end{array}\right) \to \left(\begin{array}{c}
+        \color{green}{1} \\ \color{red}{- 2} \\ \color{blue}{2}
+    \end{array}\right)\\]
 
 ### Solving Lz = b (Forward substitution)
 
