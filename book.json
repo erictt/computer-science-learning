@@ -3,7 +3,7 @@
     "description": " notes, exercise and some other stuff.",
     "author": "Eric Yang",
     "plugins": [
-        "katex@git+https://github.com/erictt/plugin-katex.git#2.1.0",
+        "katex@git+https://github.com/erictt/plugin-katex.git#2.1.1",
         "simple-page-toc@git+https://github.com/erictt/gitbook-plugin-simple-page-toc.git",
         "github",
         "anchors",

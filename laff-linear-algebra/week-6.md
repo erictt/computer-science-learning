@@ -13,7 +13,7 @@
 ### Procedures
 
 * **Transform linear system of equations to an upper triangular system**
-    * Subtract \\(\lambda_{1,0} = (\color{blue}{4}/\color{red}{2}) = 2\\) times the first equation from the second equation: \\[\begin{array}{c | c}
+    * Subtract \\(\lambda_{1,0} = (\color{blue}{4} / \color{red}{2} ) = 2\\) times the first equation from the second equation: \\[\begin{array}{c | c}
         \text{Before} & \text{After} \\
         \begin{array}{c c c c c c}
     \color{red}{2} \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
@@ -26,7 +26,7 @@
     \end{array}
     \end{array}\\]
     
-    * Subtract \\(\lambda_{2,0} = (\color{blue}{6}/\color{red}{2}) = 3\\) times the first equation from the third equation: \\[\begin{array}{c | c}
+    * Subtract \\(\lambda_{2,0} = ( \color{blue}{6} / \color{red}{2} ) = 3\\) times the first equation from the third equation: \\[\begin{array}{c | c}
         \text{Before} & \text{After} \\
         \begin{array}{c c c c c c}
     \color{red}{2} \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
@@ -39,7 +39,7 @@
     \end{array}
     \end{array}\\]
     
-    * Subtract \\(\lambda_{2,0} = (\color{blue}{-16}/\color{red}{-10}) = 1.6\\) times the second equation from the third equation: \\[\begin{array}{c | c}
+    * Subtract \\(\lambda_{2,0} = ( \color{blue}{-16} / \color{red}{-10} ) = 1.6\\) times the second equation from the third equation: \\[\begin{array}{c | c}
         \text{Before} & \text{After} \\
         \begin{array}{c c c c c c}
     2 \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
@@ -57,8 +57,8 @@
 * **Back substitution (solve the upper triangular system)**
     * The equivalent upper triangular system of equations is now solved via back substitution:
         * Consider the last equation, \\[-8 \chi_2 = -16.\\] Scaling both sides by by 1/(−8) we find that \\[\chi_2 = -16/(-8) = 2.\\]
-        * Next, consider the second equation, \\[-10 \chi_1 + 10 \chi_2 = 40.\\] We know that \\(\chi_2 = 2\\), which we plug into this equation to yield \\[-10\chi_1 + 10(\color{blue}{2} = 40.)\\] Rearranging this we find that \\[\chi_1 = (40 - 10(\color{blue}{2}))/(-10) = -2.\\]
-        * Finally, consider the first equation, \\[2\chi_0 + 4\chi_1 - 2\chi_2 = -10 \\] We know that \\(\chi_2 = \color{blue}{2}\\) and \\(\chi_1 = \color{blue}{-2}\\), which we plug into this equation to yield \\[2\chi_0 + 4(\color{blue}{-2}) - 2(\color{blue}{2}) = -10.\\] Rearranging this we find that \\[\chi_0 = (-10 - (4(\color{blue}{-2}) - (2)(\color{blue}{2})))/2 = 1.\\]
+        * Next, consider the second equation, \\[-10 \chi_1 + 10 \chi_2 = 40.\\] We know that \\(\chi_2 = 2\\), which we plug into this equation to yield \\[-10\chi_1 + 10( \color{blue}{2} = 40.)\\] Rearranging this we find that \\[\chi_1 = (40 - 10( \color{blue}{2} ))/(-10) = -2.\\]
+        * Finally, consider the first equation, \\[2\chi_0 + 4\chi_1 - 2\chi_2 = -10 \\] We know that \\(\chi_2 =  \color{blue}{2} \\) and \\(\chi_1 = \color{blue}{-2} \\), which we plug into this equation to yield \\[2\chi_0 + 4( \color{blue}{-2} ) - 2( \color{blue}{2} ) = -10.\\] Rearranging this we find that \\[\chi_0 = (-10 - (4( \color{blue}{-2} ) - (2)( \color{blue}{2} )))/2 = 1.\\]
 * Thus, the solution is vector \\[x = \left(\begin{array}{c} \chi_0 \\ \chi_1 \\ \chi_2 \end{array}\right) = \left(\begin{array}{c} 1 \\ -2 \\ 2 \end{array}\right).\\]
 * **Check your answer** (by plugging \\(\chi_0 = 1, \chi_1 = -2, \text{and} \ \chi_2 = 2\\) into the original system).
 
@@ -105,11 +105,14 @@
 1. Want to solve: \\(Ax = b\\)
     * Give A and b, solve x.
 2. Now we find triangular L and U so that: \\(A = LU\\)
+    * U is the transformed A matrix
+    * A is the coefficients which transfers A to U
 3. Substitute: \\((LU)x = b\\) => \\(L(Ux) = b\\)
 4. Replace Ux with y. (\\(y = Ux\\)) => \\(Ly = b\\)
 5. Solve \\(Ly = b\\) for \\(y\\). (**Next Section**)
-    * Because solve a (lower) triangle matrix is easy.
+    * This is forward substitution (applying the transforms to the right-hand side).
 6. Solve \\(Ux = y\\) for \\(x\\). (**Next Next Section**)
+    * This is back substitution (solve x).
 
 ### Solving Lz = b (Forward substitution)
 
