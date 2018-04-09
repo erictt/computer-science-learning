@@ -129,8 +129,8 @@
         * \\(= 1 \cdot x^0 + 2 \cdot x^1 + 3 \cdot x^2 + \cdots \\)
         * \\(\displaystyle = \sum_{n=0}^{\infty} (n+1) \cdot x^n\\)
     * Second:
-        * \\(\displaystyle (\sum_{n=0}^{\infty} x^n)^2 = (\frac{1}{1-x})^2\\)
-        * \\((1+x+x^2+x^3+\cdots)(1+x+x^2+x^3+\cdots) = 1 + 2x + 3x^2 + 4x^3 + \cdots\\)
+        * \\(\displaystyle (\sum_{n=0}^{\infty} x^n)^2 = (1+x+x^2+x^3+\cdots)(1+x+x^2+x^3+\cdots) \\)
+        * \\(= 1 + 2x + 3x^2 + 4x^3 + \cdots\\)
         * \\(\displaystyle = \sum_{n=0}^{\infty} (n+1) \cdot x^n\\)
         * Or we can use the theorem of **Multiply Two Power Series** 
             * \\(\displaystyle \sum_{n=0}^{\infty} (\sum_{i=0}^{n} a_i b_{n-i}) x^n\\)

@@ -40,10 +40,9 @@
 * [Week 3 - Matrix-Vector Operations](laff-linear-algebra/week-3.md)
 * [Week 4 - Matrix-Vector to Matrix-Matrix Multiplication](laff-linear-algebra/week-4.md)
 * [Week 5 - Matrix- Matrix Multiplication](laff-linear-algebra/week-5.md)
-
+* [Week 6 - Gaussian Elimination](laff-linear-algebra/week-6.md)
 
 <!--
-* [Week 6 - Gaussian Elimination](laff-linear-algebra/week-6.md)
 * [Week 7 - More Gaussian Elimination and Matrix Inversion](laff-linear-algebra/week-7.md)
 * [Week 8 - More on Matrix Inversion](laff-linear-algebra/week-8.md)
 * [Week 9 - Vector Spaces](laff-linear-algebra/week-9.md)

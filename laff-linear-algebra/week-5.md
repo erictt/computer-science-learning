@@ -2,9 +2,7 @@
 
 [TOC]
 
-## Opening Remarks 
-
-### Composing Rotations
+## Composing Rotations
 
 * Rotate vector \\(\chi\\) through angle \\(\theta\\) then \\(\rho\\)
 * <img src="media/15230677242292.jpg" width=250/>
@@ -55,4 +53,11 @@
     * <img src="media/15230983608648.jpg" width=600/>
     * Inner loop: \\(C = a_1b_1^t + C\\)
     * Start with first column of A and first row of B. Notice that after calculating \\(a_0 \widetilde b_0^{T}\\), all of the elements in C are set to a new value. Like layer by layer to rewrite C.
+
+## Optimize Matrix Matrix Multiplication
+
+* [Slicing and Dicing for Performance](https://courses.edx.org/courses/course-v1:UTAustinX+UT.5.05x+2T2017/courseware/9fc355378f26481282ffa7961b74b402/c78ce0ba3206468c8629ae2817746439/1?activate_block_id=block-v1%3AUTAustinX%2BUT.5.05x%2B2T2017%2Btype%40vertical%2Bblock%4023ea74b30da04cada12135fa2592a61f)
+* [How It is Really Done](https://courses.edx.org/courses/course-v1:UTAustinX+UT.5.05x+2T2017/courseware/9fc355378f26481282ffa7961b74b402/c78ce0ba3206468c8629ae2817746439/2?activate_block_id=block-v1%3AUTAustinX%2BUT.5.05x%2B2T2017%2Btype%40vertical%2Bblock%4021df08b0e8fc41b0a34c992eeaf5d74b)
+* [(wiki)how-to-optimize-gemm](https://github.com/flame/how-to-optimize-gemm/wiki)
+
 
