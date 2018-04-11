@@ -100,13 +100,13 @@ is a unique output in R.
     * A represents a linear transformation that is a bijection.
     * Ax = b has a unique solution for all \\(b \in \mathbb{R}^n\\).
     * \\(Ax = 0\\) implies that \\(x = 0\\).
-    * \\(Ax = e_j\\) has a solution for all \\(j \in {0,...,n−1}\\).
+    * \\(Ax = e_j\\) has a solution for all \\(j \in {0, \ldots, n-1}\\).
     * The determinant of A is nonzero: \\(det(A) \ne 0\\).
 
 * **Theorem**: Let \\(P\\) be a permutation matrix. Then \\(P^{-1} = P^T\\).
 
 ### Inverses of special matrices
 
-* <img src="media/15234520168657.jpg" width=400 />
+* <img src="media/15234520168657.jpg" width=500 />
 
 
