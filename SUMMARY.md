@@ -42,9 +42,9 @@
 * [Week 5 - Matrix- Matrix Multiplication](laff-linear-algebra/week-5.md)
 * [Week 6 - Gaussian Elimination](laff-linear-algebra/week-6.md)
 * [Week 7 - More Gaussian Elimination and Matrix Inversion](laff-linear-algebra/week-7.md)
+* [Week 8 - More on Matrix Inversion](laff-linear-algebra/week-8.md)
 
 <!--
-* [Week 8 - More on Matrix Inversion](laff-linear-algebra/week-8.md)
 * [Week 9 - Vector Spaces](laff-linear-algebra/week-9.md)
 * [Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares](laff-linear-algebra/week-10.md)
 * [Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases](laff-linear-algebra/week-11.md)
