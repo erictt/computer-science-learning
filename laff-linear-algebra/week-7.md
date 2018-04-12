@@ -109,22 +109,4 @@ is a unique output in R.
 
 * <img src="media/15234520168657.jpg" width=500 />
 
-## Symmetric Positive Deﬁnite(SPD) Matrices
-
-* Deﬁnition: Let \\(A \in \mathbb{R}^{n \times n}\\). Matrix A is said to be symmetric positive definite(SPD) if
-    * A is symmetric; and
-    * \\(x^T A x > 0 \\) for all nonzero vector \\(x \in \mathbb{R}^n\\).
-
-### Solving Ax = b when A is Symmetric Positive Deﬁnite
-
-#### Cholesky factorization theorem
-
-* Let \\(A \in \mathbb{R}^{n \times n}\\) be a SPD matrix. Then there exists a lower trianglar matrix \\(L \in \mathbb{R}^{n \times n}\\) such that \\(A = LL^T\\). If the diagonal elements of L are chosen to be positive, this factorization is unique.
-* <img src="media/15235262730253.jpg" width=400 />
-* Algorithm:
-    * <img src="media/15235263481224.jpg" width=300 />
-* Notice that \\(\alpha_{11} := \sqrt{\alpha_{11} }\\) and \\(a_{21} := a_{21}/\alpha_{11}\\) which are legal if \\(\alpha > 0\\). It turns out that if **A** is SPD, then
-    * \\(\alpha_{11} > 0\\) in the first iteration and hence \\(\alpha_{11} := \sqrt{\alpha_{11} }\\) and \\(a_{21} := a_{21}/\alpha_{11}\\) are legal; and
-    * \\(A_{22} := A_{22} - a_{21} a_{21}^T\\) is again a SPD matrix. 
-
 
