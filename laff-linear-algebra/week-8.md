@@ -29,6 +29,11 @@
     * A is symmetric; and
     * \\(x^T A x > 0 \\) for all nonzero vector \\(x \in \mathbb{R}^n\\).
 
+* Consider the quadratic polynomial \\[p(\chi) = \alpha \chi^2 + \beta \chi + \gamma = \chi \alpha \chi + \beta \chi + \gamma\\]
+* The graph of this function is a parabola that is “concaved up” if \\(\alpha > 0\\). In that case, it attains a minimum at a unique value \\(\chi\\).
+* Now consider the vector function \\(f: \mathbb{R}^n \to \mathbb{R}\\) given by \\[f(x) = x^T A x + b^T x + \gamma\\] where \\(A \in \mathbb{R}^{n \times n}, b \in \mathbb{R}^n, \text{ and } \gamma \in \mathbb{R}\\) are all given. If A is a SPD matrix, then this equation is minimized for a unique vector x. If \\(n = 2\\), plotting this function when A is SPD yields a paraboloid that is concaved up:
+    * <img src="media/15242926515583.jpg" width=200 />
+
 ### Solving Ax = b when A is Symmetric Positive Deﬁnite
 
 #### Cholesky factorization theorem

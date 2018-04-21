@@ -110,3 +110,10 @@ is a unique output in R.
 * <img src="media/15234520168657.jpg" width=500 />
 
 
+## Words
+
+* **permutation** [,pə:mju:'teiʃən] n. [数] 排列；[数] 置换
+* **bijection** [bai'dʒekʃən] n. [数] 双射
+* **determinant** [di'tə:minənt] adj. 决定性的 n. 决定因素；[数] 行列式
+
+

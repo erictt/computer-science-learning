@@ -86,7 +86,7 @@
 * We know: \\(f^{(N+1)}(x) = \pm \sin x \ \text{or} \ \pm \cos x \\), so \\(f^{(N+1)}(x) \le 1\\)
 * Then, \\(R_N(x) \le \frac{1}{(N+1)!} X^{N+1}\\)
 * So, if \\(\displaystyle \lim_{N \to \infty}|\frac{x^{N+1} }{(N+1)!}| = 0\\), \\(\displaystyle \lim_{N \to \infty}|R_N(x)| = 0\\). 
-* Then \\(\displaystyle \sin{x} = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!} \cdot x^n = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!} \cdot x^{(2n+1)}\\)
+    * Then \\(\displaystyle \sin{x} = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!} \cdot x^n = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!} \cdot x^{(2n+1)}\\)
 * So we need to prove \\(\displaystyle \lim_{N \to \infty}|\frac{x^{N+1} }{(N+1)!}| = 0\\). 
     * And if \\(\displaystyle \sum_{N=0}^{\infty}|\frac{x^{N+1} }{(N+1)!}|\\) converge, then the limit must be **0**.
 * Now, use ratio test to prove the series converge:
@@ -100,7 +100,7 @@
     * the radius of convergence is 1.
 * \\(\displaystyle \frac{1}{1+x^2} = \sum_{n=0}^{\infty} (-1)^n(x^2)^n = \sum_{n=0}^{\infty} (-1)^n x^{2n}\\), if \\(|x| < 1\\).
     * the radius of convergence is 1.
-* The question is why the radius of convergence of function \\(\frac{1}{1+x^2}\\) at 0 is 1, and 1 is \\(\sqrt{2}\\)
+* The question is why the radius of convergence of function \\(\frac{1}{1+x^2}\\) at 0 is 1, and at 1 is \\(\sqrt{2}\\)
     * We can understand that the radius of convergence of \\(\frac{1}{1-x}\\) at 0 is 1, because \\(x \ne 1\\).
     * But \\(\sin x\\) is very similar to \\(\frac{1}{1+x^2}\\), and the radius of convergence of \\(\sin x\\) at 0 is \\(\infty\\).
         * \\(\displaystyle \sin x = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!} x^{2n+1}\\) for all **x**.

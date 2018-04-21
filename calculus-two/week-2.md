@@ -79,8 +79,14 @@
         s_n &< \sum_{k=0}^{\infty} 2^k \cdot a_{2^k}
         \end{aligned}\\]
 * Same example: Does \\(\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^2}\\) converges?
-    * \\(\displaystyle\sum_{n=0}^{\infty} 2^n \cdot a_{2^n} = \sum_{n=0}^{\infty} 2^n \cdot \frac{1}{(2^n)^2} = \sum_{n=0}^{\infty} \frac{1}{2^n} = 2\\)
-        * \\(\displaystyle\sum_{n=0}^{\infty} \frac{1}{2^n} = 1 + \frac{2^n-1}{2^n} = 2 - \frac{1}{2^n} \\)
-        * \\(\displaystyle\lim_{n \to \infty} 2 - \frac{1}{2^n} = 2\\)
-
+    * First way -> Use Telescoping Series:
+        * \\(\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^2}\\) converge, iff \\( \displaystyle\sum_{n=2}^{\infty} \frac{1}{n^2}\\) converge.
+        * \\(0 \le \frac{1}{n^2} \le \frac{1}{n^2 - n}\ \text{, }\ n \ge 2\\) => if \\(\displaystyle\sum_{n=2}^{\infty} \frac{1}{n^2 - n}\\), then \\(\displaystyle\sum_{n=2}^{\infty} \frac{1}{n^2}\\) converge.
+        * \\(\displaystyle\sum_{n=2}^{\infty} \frac{1}{n^2 - n} = \sum_{n=2}^{\infty} (\frac{1}{n-1} - \frac{1}{n})\\) which is a telescoping series.
+        * \\(\displaystyle \lim_{n \to \infty}\sum_{n=2}^{N} (\frac{1}{n-1} - \frac{1}{n}) = \lim_{n \to \infty}(1 - \frac{1}{N}) = 1\\)
+        * So \\(\displaystyle\sum_{n=2}^{\infty} \frac{1}{n^2 - n}\\) converge => \\(\displaystyle\sum_{n=2}^{\infty} \frac{1}{n^2}\\) converge => \\(\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^2}\\) converge
+    * Second way -> Use Conchy Condensation:
+        * The sequence \\(\{\frac{1}{n^2}\}\\) decreasing and \\(\frac{1}{n^2} > 0\\), So:
+        * \\(\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^2} < \sum_{n=0}^{\infty} 2^n \cdot \frac{1}{(2^n)^2} = \sum_{n=0}^{\infty} \frac{1}{2^n} = 2\\)
+        * With Geometric Series \\(\displaystyle\sum_{n=0}^{\infty} \frac{1}{2^n} = \frac{1}{1-1/2} = 2\\)
 

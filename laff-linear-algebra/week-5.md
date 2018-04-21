@@ -19,7 +19,7 @@
 ### Transposing a Product of Matrices 
 
 * Let \\(A \in \mathbb{R}^{m \times k} \text{ and }B \in \mathbb{R}^{k \times n}. (AB)^T = B^T A^T.\\)
-* Let \\(A,B \text{and} C\\) be conformal matrices so that \\(ABC\\) is well-defined. Then \\((ABC)^T = C^T B^T A^T\\).
+* Let \\(A,B \text{ and } C\\) be conformal matrices so that \\(ABC\\) is well-defined. Then \\((ABC)^T = C^T B^T A^T\\).
 
 ### Matrix-Matrix Multiplication with Special Matrices
 
@@ -34,7 +34,7 @@
     * \\((A^TA)^T = A^T(A^T)^T = A^TA\\)
 * Let \\(A,B \in \mathbb R^{n \times n}\\) be symmetric matrices. \\(AB\\) may be symmetric.
     1. \\(B = A\\)
-    2. \\(A = I or B = I\\)
+    2. \\(A = I \text{ or } B = I\\)
     3. An example when this is false: \\[A= \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} B=\begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix} AB=\begin{pmatrix} -1 & 2 \\ 1 & -1 \end{pmatrix} \\]
 
 ## Algorithms for Computing Matrix-Matrix Multiplication
@@ -59,5 +59,9 @@
 * [Slicing and Dicing for Performance](https://courses.edx.org/courses/course-v1:UTAustinX+UT.5.05x+2T2017/courseware/9fc355378f26481282ffa7961b74b402/c78ce0ba3206468c8629ae2817746439/1?activate_block_id=block-v1%3AUTAustinX%2BUT.5.05x%2B2T2017%2Btype%40vertical%2Bblock%4023ea74b30da04cada12135fa2592a61f)
 * [How It is Really Done](https://courses.edx.org/courses/course-v1:UTAustinX+UT.5.05x+2T2017/courseware/9fc355378f26481282ffa7961b74b402/c78ce0ba3206468c8629ae2817746439/2?activate_block_id=block-v1%3AUTAustinX%2BUT.5.05x%2B2T2017%2Btype%40vertical%2Bblock%4021df08b0e8fc41b0a34c992eeaf5d74b)
 * [(wiki)how-to-optimize-gemm](https://github.com/flame/how-to-optimize-gemm/wiki)
+
+## Words
+
+* **favorable** ['feivərəbl] adj. 有利的；良好的；赞成的，赞许的；讨人喜欢的
 
 
