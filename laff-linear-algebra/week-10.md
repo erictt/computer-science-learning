@@ -99,16 +99,27 @@
         * dimension: k
     * **Null space**: \\(\mathcal{N}(A) = \{x|Ax = 0\} \subset \mathbb{R}^n\\).
         * dimension: n - k
+        * \\(0\\) is vector \\(\in \mathbb{R}^n\\)
     * **Row space**: \\(\mathcal{R}(A) = \mathcal{C}(A^T) =\{y|y = A^T x\} \subset \mathbb{R}^n\\).
         * dimension: k
-    * **Left null space**: \\(\mathcal{N}(A^T) = \{x|x^T A = 0\} \subset \mathbb{R}^m\\).
+    * **Left null space**: \\(\mathcal{N}(A^T) = \{x|x^T A = 0^T\} \subset \mathbb{R}^m\\).
         * dimension: m - k
+        * \\(0\\) is vector \\(\in \mathbb{R}^m\\)
 * **Theorem**: Let \\(A \in \mathbb{R}^{m \times n}\\). Then:
     * \\(\mathcal{R}(A) \perp \mathcal{N}(A)\\).
     * every \\(x \in \mathbb{R}^n\\) can be written as \\(x = x_r + x_n\\) where \\(x_r \in \mathcal{R}(A)\\) and \\(x_r \in \mathcal{N}(A)\\).
     * \\(A\\) is a one-to-one, onto mapping from \\(\mathcal{R}(A)\\) to \\(\mathcal{C}(A)\\).
     * \\(\mathcal{N}(A^T)\\) is orthogonal to \\(\mathcal{C}(A)\\) and the dimension of \\(\mathcal{N}(A^T)\\) equals \\(m-r\\), where \\(r\\) is the dimension of \\(\mathcal{C}(A)\\).
+
 * <img src="media/15236191535339.jpg" width=400 />
+* For example: \\(A = \begin{bmatrix}2 & -1 & -3 \\ -4 & 2 & 6\end{bmatrix}\\)
+    * \\(T(x) = Ax\\), \\(T: \mathbb{R}^3 \Rightarrow \mathbb{R}^2\\)
+    * \\(\mathcal{C}(A) = \text{Span }(\begin{bmatrix} 2 \\ -4 \end{bmatrix}) \subseteq \mathbb{R}^2\\)
+    * \\(\mathcal{N}(A^T) = \text{Span }(\begin{bmatrix} 2 \\ 1 \end{bmatrix}) \subseteq \mathbb{R}^2\\)
+    * \\(\mathcal{N}(A) = \text{Span }(\begin{bmatrix} \frac{1}{2} \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} \frac{3}{2} \\ 0 \\ 1 \end{bmatrix}) \subseteq \mathbb{R}^3\\)
+    * \\(\mathcal{R}(A) = \mathcal{C}(A^T) = \text{Span }(\begin{bmatrix} 2 \\ -1 \\ -3 \end{bmatrix}) \subseteq \mathbb{R}^3\\)
+        * => \\(\mathcal{R}(A) \perp \mathcal{N}(A)\\)
+        * => \\(\mathcal{C}(A) \perp \mathcal{N}(A^T)\\)
 
 ## Approximating a Solution
 
@@ -121,9 +132,9 @@
 * So, here we are solving \\(Ax \approx b\\).
 * Set the projection of b = \\(z\\), \\(A\hat{x} = z\\)
     * <img src="media/15244915718882.jpg" width=200 />
-* we can get
+* We can get
     * \\(b = z + w\\) where \\( w^T v = 0\\) for all \\(v \in \mathcal{C}(A)\\).
-* also \\(w\\) is in the **left null space** of \\(A\\). So, \\(A^Tw = 0\\). But that means that
+* Also \\(w \subset \mathcal{C}(A)^{\perp}\\) => \\(w \subset \mathcal{N}(A^T)\\). So, \\(A^Tw = 0\\)(same as \\(w^T A = 0^T\\)), which means
     * \\(0 = A^Tw = A^T(b - z) = A^T(b - A \hat{x})\\)
     * Rewrite it, we get \\(A^TA \hat{x} = A^T b\\).
     * This is known as the **normal equation** associated with the problem \\(A\hat{x} \approx b\\).
