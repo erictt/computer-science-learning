@@ -21,12 +21,13 @@
             * => \\(\left(\begin{array}{c} 1/2 \\ 0 \\ 1/2 \\ 0\end{array}\right)\\)
     * A basis for the null space. 
         * Often called the **kernel** of the matrix. 
-        * Set right hand set to 0, and free variables to 0 or 1.
-            * <img src="media/15242984384731.jpg" width=240 />
+        * \\(\chi_0 + 3\chi_1 + \chi_2 + 2\chi_3 = 0, 2\chi_2 + 4\chi_3 = 0\\) => \\(\chi_2 = -2\chi_3, \chi_0 = -3\chi_1\\)
+        * \\(\begin{bmatrix} \chi_0 \\ \chi_1 \\ \chi_2 \\ \chi_3 \end{bmatrix} = \chi_1 \begin{bmatrix} -3 \\ 1 \\ 0 \\ 0 \end{bmatrix} + \chi_3\begin{bmatrix} 0 \\ 0 \\ -2 \\ 1\end{bmatrix}\\)
+        * So the basic for \\(\mathcal{N}(A) = \text{Span }(\begin{bmatrix} -3 \\ 1 \\ 0 \\ 0 \end{bmatrix},\begin{bmatrix} 0 \\ 0 \\ -2 \\ 1\end{bmatrix})\\)
     * A general solution. 
         * Often called a **complete** solution.
         * given by: 
-            * <img src="media/15236285708786.jpg" width=220 />
+            * \\(\begin{bmatrix} 1/2 \\ 0 \\ 1/2 \\ 0 \end{bmatrix} + \beta_0 \begin{bmatrix} -3 \\ 1 \\ 0 \\ 0 \end{bmatrix} + \beta_1 \begin{bmatrix} 0 \\ 0 \\ -2 \\ 1\end{bmatrix}\\)
     * A basis for the column space, \\(\mathcal{C}(A)\\). 
         * Often called the **range** of the matrix.
         * equal to the number of dependent variables.
@@ -44,16 +45,51 @@
         * = number of pivots
         * = 2
     * The dimension of the null space.
-        * = the number of columns - number of pivots
-        * = 4 - 2 = 2
+        * = the number of non-pivots columns
+        * = 2
     
 ## Orthogonal Vectors & Orthogonal Spaces
 
 * Vectors x and y are considered to be orthogonal (perpendicular) if they meet at a right angle: \\[x^T y = 0\\]
 
+### Normal Vector
+
+* The **normal vector**, often simply called the "normal," to a surface is a vector which is perpendicular to the surface at a given point. 
+* For example:
+    * <img src="media/15243624511933.jpg" width=260 />
+    * Define the plane as \\(Ax + By + Cz = D\\)
+        * Vector \\(\vec{n} = \begin{bmatrix} a \\ b \\ c \end{bmatrix}\\) is normal to the plane. 
+        * Vector \\(\vec{x_0} = \begin{bmatrix} x_0 \\ y_0 \\ z_0 \end{bmatrix}\\) is pointing to the plane. 
+        * Vector \\(\vec{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}\\) is pointing to the plane.
+    * Then \\(\vec{x} - \vec{x_0}\\) should be on the plane and perpendicular to \\(\vec{n}\\)
+    * Then \\((\vec{x} - \vec{x_0})^T \vec{n} = 0\\)
+    * \\(\begin{bmatrix} x - x_0 \\ y - y_0  \\ z - z_0  \end{bmatrix}^T \begin{bmatrix} a \\ b \\ c \end{bmatrix} = 0\\)
+    * \\(a(x - x_0) + b(y - y_0) + c(z - z_0) = 0 \\)
+    * So we can use \\(ax + by + cz = ax_0 + by_0 + cz_0\\) to represent the plane.
+
+#### Cross Product
+
+*  the **cross product** or **vector product** is a binary operation on **two** vectors in three-dimensional space (\\(\mathbb{R}^3\\)) and is denoted by the symbol **×**.
+    *  \\(\begin{bmatrix} a_0 \\ a_1 \\ a_2 \end{bmatrix} \times \begin{bmatrix} b_0 \\ b_1 \\ b_2 \end{bmatrix} = \begin{bmatrix} a_1 b_2 - a_2 b_1 \\ a_2 b_0 - a_0 b_2 \\ a_0 b_1 - a_1 b_0 \end{bmatrix} \\)
+* Given two linearly independent vectors a and b, the cross product, **a × b**, is a vector that is perpendicular to both a and b and thus **normal** to the plane containing them.
+    * Because \\(\begin{bmatrix} a_1 b_2 - a_2 b_1 \\ a_2 b_0 - a_0 b_2 \\ a_0 b_1 - a_1 b_0 \end{bmatrix}^T \begin{bmatrix} a_0 \\ a_1 \\ a_2 \end{bmatrix} = 0\\) and \\(\begin{bmatrix} a_1 b_2 - a_2 b_1 \\ a_2 b_0 - a_0 b_2 \\ a_0 b_1 - a_1 b_0 \end{bmatrix}^T \begin{bmatrix} b_0 \\ b_1 \\ b_2 \end{bmatrix} = 0\\)
+* <img src="media/15243639852754.jpg" width=200 />
+* So we can use vectors a and b to get n. (\\(n = a \times b\\))
+
+#### Visualizing a column space as a plane in R3
+
+* For example: 
+* \\(A = \begin{bmatrix} 1 & 1 & 1 & 1 \\ 2 & 1 & 4 & 3 \\ 3 & 4 & 1 & 2 \end{bmatrix}\\). \\(\text{rref }(A) = \begin{bmatrix} 1 & 0 & 3 & 2 \\ 0 & 1 & -2 & -1 \\ 0 & 0 & 0 & 0 \end{bmatrix}\\)
+    * **rref**: row-echelon form.
+* \\(\mathcal{C}(A) = \text{Span }(\begin{bmatrix}1 \\ 2 \\ 3\end{bmatrix}, \begin{bmatrix}1 \\ 1 \\ 4\end{bmatrix} )\\)
+* Define \\(n\\) is the normal vector to \\(\mathcal{C}(A)\\), And vector \\(\begin{bmatrix}x \\ y \\ z\end{bmatrix}\\) is point to the surface. Then:
+    * \\( n = \begin{bmatrix}1 \\ 2 \\ 3\end{bmatrix} \times \begin{bmatrix}1 \\ 1 \\ 4\end{bmatrix} = \begin{bmatrix}5 \\ -1 \\ -1\end{bmatrix}\\)
+    * \\( n \cdot (\begin{bmatrix}x \\ y \\ z\end{bmatrix} - \begin{bmatrix}1 \\ 2 \\ 3\end{bmatrix}) = 0\\)
+    * \\(5x - y - z = 0\\) <=> \\(\mathcal{C}(A)\\)
+    
 ### Orthogonal Spaces
 
-* **Definition**: Let \\(V, W \subset \mathbb{R}^n\\) be subspaces. Then \\(V\\) and \\(W\\) are said to be orthogonal iff \(v \in V\\) and \\(w \in W\\) implies \\(v^T w = 0\\). Denoted by \\(V \perp W\\)
+* **Definition**: Let \\(V, W \subset \mathbb{R}^n\\) be subspaces. Then \\(V\\) and \\(W\\) are said to be orthogonal iff \\(v \in V\\) and \\(w \in W\\) implies \\(v^T w = 0\\). Denoted by \\(V \perp W\\)
 * **Definition**: Given subspace \\(V \subset \mathbb{R}^n\\), the set of all vectors in \\(\mathbb{R}^n\\) that are orthogonal to \\(V\\) is denoted by \\(V^{\perp}\\) (pronounced as “V-perp”).
 
 ### Fundamental Spaces
@@ -74,7 +110,14 @@
     * \\(\mathcal{N}(A^T)\\) is orthogonal to \\(\mathcal{C}(A)\\) and the dimension of \\(\mathcal{N}(A^T)\\) equals \\(m-r\\), where \\(r\\) is the dimension of \\(\mathcal{C}(A)\\).
 * <img src="media/15236191535339.jpg" width=400 />
 
-* **Normal Vector**: a normal vector is perpendicular to the plane. or we can say perpendicular to all of the vector on the plane.
+
+
+## Refers
+
+* [https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/defining-a-plane-in-r3-with-a-point-and-normal-vector](https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/defining-a-plane-in-r3-with-a-point-and-normal-vector)
+* [https://en.wikipedia.org/wiki/Normal_(geometry)](https://en.wikipedia.org/wiki/Normal_(geometry))
+* [http://mathworld.wolfram.com/NormalVector.html](http://mathworld.wolfram.com/NormalVector.html)
+* [https://en.wikipedia.org/wiki/Cross_product](https://en.wikipedia.org/wiki/Cross_product)
 
 ## Words
 

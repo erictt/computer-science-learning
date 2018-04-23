@@ -106,6 +106,7 @@
 #### The Null Space
 
 * **Definition**: Let \\(A \in \mathbb{R}^{m \times n}\\). The set of all vectors \\(x \in \mathbb{R}^n\\) that have the property that \\(Ax = 0\\) is called **the null space** of A. 
+    * Frankly speaking, all of the possible vector x that satisfy \\(Ax = 0\\).
 * **Notation**: \\(\mathcal{N}(A) = \{x|Ax = 0\}\\)
 * **Theorem**: Let \\(A \in \mathbb{R}^{m \times n}\\). The null space of \\(A, \mathcal{N}(A)\\), is a subspace.
 * Example:
@@ -145,9 +146,16 @@
     
     * **Basis** is the minimum set of vectors  that spans the subspace.
     * Let \\(\{v_1, v_2, \cdots, v_n\} = \text{ Basis of subspace U }\\). Then \\(\{v_1, v_2, \cdots, v_n\}\\) are linear independent, 
-    * And all of the linear combinations of \\(\{v_1, v_2, \cdots, v_n\}\\) can get all of the possible components of \\(U\\). And each member of U can be uniquely defined by a unique combination of \\(\{v_1, v_2, \cdots, v_n\}\\).
+    * And all of the linear combinations of \\(\{v_1, v_2, \cdots, v_n\}\\) can get **all of the possible components** of \\(U\\). And each member of U can be uniquely defined by a unique combination of \\(\{v_1, v_2, \cdots, v_n\}\\).
 * **Theorem**: Let S be a subspace of \\(\mathbb{R}^m\\) and let \\(\{v_0, v_1, \cdots, v_{k-1} \} \subset \mathbb{R}^m\\) and \\(\{w_0, w_1, \cdots, w_{n-1} \} \subset \mathbb{R}^m\\) both be basis for S. Then \\(k = n\\). In other words, the number of vectors in a basis is unique.
 * **Definition**: **The dimension of a subspace S** equals the number of vectors in a basis for that subspace.
+    * For example: \\(A = \begin{bmatrix}1 & 1 & 2 & 3 & 2 \\ 1 & 1 & 3 & 1 & 4\end{bmatrix}\\)
+    * \\(\text{rref }(A) = \begin{bmatrix}1 & 1 & 2 & 3 & 2 \\ 0 & 0 & 1 & -2 & 2\end{bmatrix}\\)
+    * => \\(\begin{bmatrix} \chi_0 \\ \chi_1 \\ \chi_2 \\ \chi_3 \\ \chi_4 \end{bmatrix} = \chi_1 \begin{bmatrix} -1 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} + \chi_3\begin{bmatrix} -7 \\ 0 \\ 2 \\ 1 \\ 0 \end{bmatrix} + \chi_4\begin{bmatrix} 2 \\ 0 \\ -2 \\ 0 \\ 1 \end{bmatrix}\\)
+    * set \\(v_0 = \begin{bmatrix} -1 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} , v_1 = \begin{bmatrix} -7 \\ 0 \\ 2 \\ 1 \\ 0 \end{bmatrix}, v_2 = \begin{bmatrix} 2 \\ 0 \\ -2 \\ 0 \\ 1 \end{bmatrix}\\)
+    * then \\(\{v_0, v_1, v_2\}\\) is the basis of \\(\mathcal{N}(A)\\).
+    * then \\(\mathcal{N}(A) = \mathcal{N}(\text{rref}(A)) = \text{Span }(v_0, v_1, v_2)\\).
+    * then the dimension of null space of A = 3, which also = the number of non-pivot colums of \\(\text{rref}(A)\\).
 * **Definition**: Let \\(A \in \mathbb{R}^{m \times n}\\). **The rank of A** equals the number of vectors in a basis for the column space of A. Denoted by \\(\text{rank}(A)\\).
 
 ## Refers

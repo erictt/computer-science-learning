@@ -68,6 +68,20 @@
 * Let \\(x \in \mathbb{R}^n\\). Then the (Euclidean) length of a vector x (the two-norm) is given by \\[\lVert x \rVert _2 = \sqrt{x_0^2+x_1^2+\ldots+x_{n-1}^2} = \sqrt{\sum_{i=0}^{n-1}{}x_i^2}\\]
     * Here \\(\lVert x \rVert _2\\) notation stands for “the two norm of x”, which is another way of saying “the length of x”.
 
+### Cauchy-Schwarz inequality
+
+* Let \\( x, y \in R^n \\), then \\(|x y| \le \lVert x \rVert \lVert y \rVert\\)
+* And \\(|x y| = \lVert x \rVert \lVert y \rVert \\), iff \\( x = cy, c \in \mathbb{R}\\).
+* **Proof**: 
+    * Let's Define \\(P(t) = \lVert t y - x \rVert ^2\\)
+    * \\(P(t) = (t y - x) \cdot  (t y - x) \ge 0 \\)
+    * \\(P(t) = (y \cdot y)t^2 - 2 ( x \cdot y) t + x \cdot x \ge 0 \\)
+    * Set \\(a = y \cdot y, b = 2( x \cdot y ) , c = x \cdot x\\)
+    * \\(P(t) = a t^2 - b t + c \ge 0 \\)
+    * Set \\(t = \frac{b}{2a}\\)
+    * \\(P(t) = a \frac{b}{2a}^2 - b \frac{b}{2a} + c \ge 0 \\) => \\(4ac \ge b^2\\)
+    * \\(4 \lVert y \rVert ^2 \lVert x \rVert ^2 \ge (2 ( x \cdot y)^2\\) => \\( \lVert y \rVert \lVert x \rVert \ge | x \cdot y | \\)
+    
 ### Vector Functions
 
 * Sample:
@@ -118,7 +132,11 @@
 
 * For \\(x,y \in R^n, (x+y)^T(x+y)=x^Tx+2x^Ty+y^Ty\\).
 * For \\(x,y \in R^n, x^Ty=0\\) if and only if x and y are orthogonal.
-* Let \\(x,y \in R^n\\) be nonzero vectors and let the angle between them equal θ. Then \\(cos(\theta) = \frac{x^Ty}{||x||_2||y||_2}\\).
+* Let \\(x,y \in R^n\\) be nonzero vectors and let the angle between them equal θ. Then \\(\cos(\theta) = \frac{x^Ty}{||x||_2||y||_2}\\).
 * For \\(x \in R^n, x^Te_i=e_i^Tx=\chi_i\\) where \\(x_i\\) equals the `i`th component of x.
 
+
+## Refers
+
+* [https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality](https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality)
 
