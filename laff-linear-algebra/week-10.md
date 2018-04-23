@@ -83,7 +83,7 @@
     * **rref**: row-echelon form.
 * \\(\mathcal{C}(A) = \text{Span }(\begin{bmatrix}1 \\ 2 \\ 3\end{bmatrix}, \begin{bmatrix}1 \\ 1 \\ 4\end{bmatrix} )\\)
 * Define \\(n\\) is the normal vector to \\(\mathcal{C}(A)\\), And vector \\(\begin{bmatrix}x \\ y \\ z\end{bmatrix}\\) is point to the surface. Then:
-    * \\( n = \begin{bmatrix}1 \\ 2 \\ 3\end{bmatrix} \times \begin{bmatrix}1 \\ 1 \\ 4\end{bmatrix} = \begin{bmatrix}5 \\ -1 \\ -1\end{bmatrix}\\)
+    * Use cross product, we get \\( n = \begin{bmatrix}1 \\ 2 \\ 3\end{bmatrix} \times \begin{bmatrix}1 \\ 1 \\ 4\end{bmatrix} = \begin{bmatrix}5 \\ -1 \\ -1\end{bmatrix}\\)
     * \\( n \cdot (\begin{bmatrix}x \\ y \\ z\end{bmatrix} - \begin{bmatrix}1 \\ 2 \\ 3\end{bmatrix}) = 0\\)
     * \\(5x - y - z = 0\\) <=> \\(\mathcal{C}(A)\\)
     
@@ -97,11 +97,11 @@
 * Recall some definitions. Let \\(A \in \mathbb{R}^{m \times n}\\) and have k pivots. Then:
     * **Column space**: \\(\mathcal{C}(A) = \{y|y = Ax\}\subset \mathbb{R}^m\\).
         * dimension: k
-    * **Null space**: \\(\mathcal{N}(A) = \{y|Ax = 0\} \subset \mathbb{R}^n\\).
+    * **Null space**: \\(\mathcal{N}(A) = \{x|Ax = 0\} \subset \mathbb{R}^n\\).
         * dimension: n - k
     * **Row space**: \\(\mathcal{R}(A) = \mathcal{C}(A^T) =\{y|y = A^T x\} \subset \mathbb{R}^n\\).
         * dimension: k
-    * **Left null space**: \\(\mathcal{N}(A^T) = \{y|x^T A = 0\} \subset \mathbb{R}^m\\).
+    * **Left null space**: \\(\mathcal{N}(A^T) = \{x|x^T A = 0\} \subset \mathbb{R}^m\\).
         * dimension: m - k
 * **Theorem**: Let \\(A \in \mathbb{R}^{m \times n}\\). Then:
     * \\(\mathcal{R}(A) \perp \mathcal{N}(A)\\).
@@ -110,7 +110,29 @@
     * \\(\mathcal{N}(A^T)\\) is orthogonal to \\(\mathcal{C}(A)\\) and the dimension of \\(\mathcal{N}(A^T)\\) equals \\(m-r\\), where \\(r\\) is the dimension of \\(\mathcal{C}(A)\\).
 * <img src="media/15236191535339.jpg" width=400 />
 
+## Approximating a Solution
 
+* Find a line \\(y = \gamma_0 + \gamma_1 x\\) to interpolate these points:
+    * \\(x = \left(\begin{array}{c} \chi_0 \\ \chi_1 \\ \chi_2 \\ \chi_3 \end{array}\right) = \left(\begin{array}{c}1 \\ 2 \\ 3 \\ 4\end{array}\right) \text{ and } y = \left(\begin{array}{c} \psi_0 \\ \psi_1 \\ \psi_2 \\ \psi_3 \end{array}\right) = \left(\begin{array}{c}1.97 \\ 6.97 \\ 8.89 \\ 10.01\end{array}\right) \\)
+    * <img src="media/15244752774461.jpg" width=240 />
+* Clearly, there is no line could go through all these points, then what is the best approximation?
+* Set \\(A = \begin{bmatrix}1 & 1 \\ 1 & 2 \\ 1 & 3 \\ 1 & 4\end{bmatrix}, b = \begin{bmatrix}1.97 \\ 6.97 \\ 8.89 \\ 10.01\end{bmatrix}\\)
+* We've learned before that \\(Ax=b\\) has a solution iff \\(b \in \mathcal{C}(A)\\). In other words, b is in the plane of \\(\text{Span}(a_1, a_2,\ldots, a_n)\\).
+* So, here we are solving \\(Ax \approx b\\).
+* Set the projection of b = \\(z\\), \\(A\hat{x} = z\\)
+    * <img src="media/15244915718882.jpg" width=200 />
+* we can get
+    * \\(b = z + w\\) where \\( w^T v = 0\\) for all \\(v \in \mathcal{C}(A)\\).
+* also \\(w\\) is in the **left null space** of \\(A\\). So, \\(A^Tw = 0\\). But that means that
+    * \\(0 = A^Tw = A^T(b - z) = A^T(b - A \hat{x})\\)
+    * Rewrite it, we get \\(A^TA \hat{x} = A^T b\\).
+    * This is known as the **normal equation** associated with the problem \\(A\hat{x} \approx b\\).
+* Although \\(A^TA\\) is nonsingular, then
+    * \\(\hat{x} = (A^T A)^{-1} A^T b\\)
+* And the vector \\(z \in \mathcal{C}(A)\\) closest to \\(b\\) is given by
+    * \\(z = A \hat{x} = A (A^T A)^{-1} A^T b\\)
+* This shows that if A has linearly independent columns, then \\(z = A \hat{x} = A (A^T A)^{-1} A^T b\\) is the vector in the columns space closest to b. This is **the projection of b onto the column space of A**.
+* And the “best” solutionis known as the “**linear least-squares**” solution.
 
 ## Refers
 
