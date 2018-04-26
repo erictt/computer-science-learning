@@ -131,7 +131,8 @@
 * We've learned before that \\(Ax=b\\) has a solution iff \\(b \in \mathcal{C}(A)\\). In other words, b is in the plane of \\(\text{Span}(a_1, a_2,\ldots, a_n)\\).
 * So, here we are solving \\(Ax \approx b\\).
 * Set the projection of b = \\(z\\), \\(A\hat{x} = z\\)
-    * <img src="media/15244915718882.jpg" width=200 />
+    * <img src="media/15246604275638.jpg" width=200 />
+
 * We can get
     * \\(b = z + w\\) where \\( w^T v = 0\\) for all \\(v \in \mathcal{C}(A)\\).
 * Also \\(w \subset \mathcal{C}(A)^{\perp}\\) => \\(w \subset \mathcal{N}(A^T)\\). So, \\(A^Tw = 0\\)(same as \\(w^T A = 0^T\\)), which means
