@@ -84,7 +84,7 @@
 ### Solving the linear least-squares problem via the QR factorization
 
 * Given \\(A \in \mathbb{R}^{m \times n}\\) with linearly independent columns, there exists a matrix \\(Q \in \mathbb{R}^{m \times n}\\) with mutually orthonormal columns and upper triangular matrix \\(R \in \mathbb{R}^{n \times n}\\) such that \\(A = QR\\). The vector \\(\hat{x}\\) that is the best solution (in the linear least-squares sense) to \\(Ax \approx b\\) is given by
-    * \\(\hat{x} = (A^T A)^{−1} A^T b\\) (as shown in Week 10) computed by solving the normal equations \\[A^TAx = A^T b\\]
+    * \\(\hat{x} = (A^T A)^{-1} A^T b\\) (as shown in Week 10) computed by solving the normal equations \\[A^TAx = A^T b\\]
     * \\(\hat{x} = R^{-1} Q^T b\\) computed by solving \\[Rx = Q^Tb\\]
         * Notice \\(Q^T Q = I\\) and \\(R\\) is upper trianglar.
         * And Columns of A must be linear independent.
@@ -110,5 +110,5 @@
 * If we partition
     * <img src="media/15248058876303.jpg" style="width:500px" />
 * where \\(U_L\\) and \\(V_L\\) have \\(k\\) columns and \\(\Sigma_{TL}\\) is \\(k \times k\\), then \\(U_L \Sigma_{TL} V_L^T\\) is the “best” rank-k approximation to matrix B. So, the “best” rank-k approximation \\(B = AW^T\\) is given by the choices \\(A = U_L\\) and \\(W = \Sigma_{TL} V_L\\).
-    * Given \\(A \in \mathbb{R}^{m \times n}\\) with linearly independent columns, and \\(b \in \mathbb{R}^m\\) , the “best” solution to \\(Ax \approx b\\) (in the linear least-squares sense) via its SVD, \\(A = U \Sigma V^T\\) , is given by \\[\hat{x} = V \Sigma^{−1} U^T b\\]
+    * Given \\(A \in \mathbb{R}^{m \times n}\\) with linearly independent columns, and \\(b \in \mathbb{R}^m\\) , the “best” solution to \\(Ax \approx b\\) (in the linear least-squares sense) via its SVD, \\(A = U \Sigma V^T\\) , is given by \\[\hat{x} = V \Sigma^{-1} U^T b\\]
 
