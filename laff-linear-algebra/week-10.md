@@ -36,8 +36,9 @@
             * <img src="media/15236287969346.jpg" width=260 />
     * A basis for the row space, \\(\mathcal{R}(A) = \mathcal{C}(A^T)\\).
         * The row space is the subspace of all vectors that can be created by taking linear combinations of the rows of a matrix. 
-        * List the rows that have pivots in the row echelon form as column vectors:
+        * List the rows that have pivots in **the row echelon form** as column vectors:
             * <img src="media/15236291496349.jpg" width=240 />
+            * Notice these are the first and second row of A.
     * The dimension of the row and column space. 
         * = number of pivots
         * = 2
@@ -107,7 +108,7 @@
         * \\(0\\) is vector \\(\in \mathbb{R}^m\\)
 * **Theorem**: Let \\(A \in \mathbb{R}^{m \times n}\\). Then:
     * \\(\mathcal{R}(A) \perp \mathcal{N}(A)\\).
-    * every \\(x \in \mathbb{R}^n\\) can be written as \\(x = x_r + x_n\\) where \\(x_r \in \mathcal{R}(A)\\) and \\(x_r \in \mathcal{N}(A)\\).
+    * every \\(x \in \mathbb{R}^n\\) can be written as \\(x = x_r + x_n\\) where \\(x_r \in \mathcal{R}(A)\\) and \\(x_n \in \mathcal{N}(A)\\).
     * \\(A\\) is a one-to-one, onto mapping from \\(\mathcal{R}(A)\\) to \\(\mathcal{C}(A)\\).
     * \\(\mathcal{N}(A^T)\\) is orthogonal to \\(\mathcal{C}(A)\\) and the dimension of \\(\mathcal{N}(A^T)\\) equals \\(m-r\\), where \\(r\\) is the dimension of \\(\mathcal{C}(A)\\).
 
@@ -148,6 +149,7 @@
 
 ## Refers
 
+* [https://en.wikipedia.org/wiki/Row_and_column_spaces](https://en.wikipedia.org/wiki/Row_and_column_spaces)
 * [https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/defining-a-plane-in-r3-with-a-point-and-normal-vector](https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/defining-a-plane-in-r3-with-a-point-and-normal-vector)
 * [https://en.wikipedia.org/wiki/Normal_(geometry)](https://en.wikipedia.org/wiki/Normal_(geometry))
 * [http://mathworld.wolfram.com/NormalVector.html](http://mathworld.wolfram.com/NormalVector.html)

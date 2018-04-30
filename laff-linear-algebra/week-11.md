@@ -16,9 +16,9 @@
 * Provided \\(a \ne 0\\), \\(\chi = (a^T a)^{-1}(a^T b)\\).
 * Thus, the component of \\(b\\) in the direction of \\(a\\) is given by \\[z = \chi a = (a^T a)^{-1} (a^T b) a = a(a^T a)^{-1}(a^T b) = [a(a^T a)^{-1}a^T ] b = [\frac{1}{a^T a} a a^T ] b\\]
     * Notice \\((a^Ta)^{-1}\\) and \\(a^T b\\) are both scalars.
-    * We say that, given vector \\(a\\), the matrix that projects any given vector \\(b\\) onto the space spanned by a is given by \\[a(a^T a)^{-1}a^T = \frac{1}{a^T a} a a^T \\]
+    * We say that, given vector \\(a\\), the matrix that projects any given vector \\(b\\) onto the space spanned by \\(a\\) is given by \\[a(a^T a)^{-1}a^T = \frac{1}{a^T a} a a^T \\]
 * The component of \\(b\\) orthogonal (perpendicular) to \\(a\\) is given by \\[w = b - z = b - (a(a^T a)^{-1}a^T ) b = Ib - (a(a^T a)^{-1}a^T )b = (I - a(a^T a)^{-1}a^T )b\\]
-    * We say that, given vector \\(a\\), the matrix that projects any given vector \\(b\\) onto the space spanned by a is given by \\[I - a(a^T a)^{-1}a^T = I - \frac{1}{a^T a} a a^T \\]
+    * We say that, given vector \\(a\\), the matrix that projects any given vector \\(b\\) onto the space spanned by \\(a\\) is given by \\[I - a(a^T a)^{-1}a^T = I - \frac{1}{a^T a} a a^T \\]
 * Set \\(v^T = (a^T a)^{-1}a^T\\),
     * \\(z = (a v^T) b\\)
     * \\(w = (I - a v^T) b\\)
@@ -33,7 +33,7 @@
 
 ### Rank-k Approximation
 
-* "Best" **rank-k approximation** of \\(B \in \mathbb{R}^{m \times n}\\) using the column space of \\(A \in \mathbb{R}^{m \times k}\\) with linearly independent columns: \\[A(A^TA)^{-1}A^TB = AV^T, \text{ where } V^T = (A^TA)^{-1}A^TB\\]
+* "Best" **rank-k approximation** of \\(B \in \mathbb{R}^{m \times n}\\) using the column space of \\(A \in \mathbb{R}^{m \times k}\\) (pick \\(k\\) columns in B to get A) with linearly independent columns: \\[A(A^TA)^{-1}A^TB = AV, \text{ where } V = (A^TA)^{-1}A^TB\\]
     * To calculate \\(V = (A^TA)^{-1}A^TB\\)
     * First way is, to use LU factorization:
         * \\((A^TA)V = (A^TA)(A^TA)^{-1}A^TB\\)
@@ -53,6 +53,8 @@
 ### Orthonormal Vectors
 
 * Definition: Let \\(q_0, q_1, \ldots, q_{k-1} \in \mathbb{R}^m\\). Then these vectors are (mutally) orthonormal if for all \\(0 \le i,j < k\\): \\[q_i^T q_j = \begin{cases} 1 & \text{ if } i = j \\ 0 & \text{ otherwise. }\end{cases}\\]
+    * \\(\lVert q_i \rVert_2 = 1\\)
+    * \\(q_i\\) is orthogonal to \\(\{q_0, q_1, \ldots, q_{i-1}, q_{i+1}, \ldots, q_{m}\}\\).
 
 ### Gram-Schmidt orthogonalization (GS orthogonalization)
 
@@ -64,9 +66,11 @@
         * \\(a_i^{\perp} = a_i - q_0^T a_i q_0 - q_1^T a_i q_1 - \ldots - q_{i-1}^T a_i q_{i-1} \\) 
         * \\(=  a_i - \rho_{0,i} q_0 - \rho_{1,i} q_1 - \ldots - \rho_{i-1,i} q_{i-1}\\)
 * Notice:
-    * \\(\rho_{0,0} = \lVert a_0^{\perp} \rVert _2 = \lVert a_0 \rVert _2, q_0 = a_0^{\perp} / \rho_{0,0} = a_0 / \rho_{0,0}\\)
-        * \\(a_0^{\perp} = a_0\\)
-    * \\(\rho_{0,1} = q_0^T a_1\\)
+    * \\(\rho_{0,0} = \lVert a_0 \rVert _2, q_0 = a_0 / \rho_{0,0}\\)
+        * Notice that \\(\text{Span}(\{a_0\}) = \text{Span}(\{q_0\})\\) since \\(q_0\\) is simply a scalar multiple of \\(a_0\\).
+    * \\(\rho_{0,1} = (q_0^T q_0)^{-1} q_0^T a_1 = q_0^T a_1\\)
+        * \\(q_i\\) is orthonormal vector, so \\((q_0^T q_0)^{-1} = 1\\)
+        * \\(\rho_{0,1}\\) is like \\(\chi\\) in the image of the [first section of this week](#projecting-a-vector-onto-a-subspace).
     * \\(\rho_{0,2} = q_0^T a_2\\)
     * \\(\rho_{1,1} = \lVert a_1^{\perp} \rVert _2, q_1 = a_1^{\perp} / \rho_{1,1}\\)
         * \\(a_1^{\perp} = a_1 - \rho_{0,1} q_0\\)
@@ -96,19 +100,20 @@
 
 * A vector \\(b \in \mathbb{R}^m\\) and a matrix \\(Q \in \mathbb{R}^{m \times n}\\) with mutually orthonormal columns.
 * \\(Q^T Q = Q Q^T = Q^{-1} Q = Q Q^{-1} = I\\)
-* \\(b = Q Q^T b = \left(\begin{array}{c|c|c}q_0 & q_1 & \cdots & q_{n-1}\end{array}\right)\left(\begin{array}{c}q_0^T \\ q_1^T \\ \vdots \\ q_{n-1}^T\end{array}\right) b = q_0^T b q_0 - q_1^T b q_1 - \ldots - q_{i-1}^T b q_{i-1}\\)
+* \\(b = Q Q^T b = \left(\begin{array}{c|c|c}q_0 & q_1 & \cdots & q_{n-1}\end{array}\right)\left(\begin{array}{c}q_0^T \\ q_1^T \\ \vdots \\ q_{n-1}^T\end{array}\right) b = q_0^T b q_0 + q_1^T b q_1 + \ldots + q_{i-1}^T b q_{i-1}\\)
+    * \\(q_0^T b q_0 = q_0 q_0^T b\\) because \\(q_0^T b \\) is scalar.
     * notice that each of these terms is just a component of the vector \\(b\\) in the direction of the given basis vector.
 
 ### Singular Value Decomposition
 
-* Any matrix \\(B \in \mathbb{R}^{m \times n}\\) can be written as the product of three matrices, the Singular Value Decomposition (SVD): \\[B = U \Sigma V^T\\] where
+* Any matrix \\(A \in \mathbb{R}^{m \times n}\\) can be written as the product of three matrices, the Singular Value Decomposition (SVD): \\[A = U \Sigma V^T\\] where
     * \\(U \in \mathbb{R}^{m \times r}\\) and \\(U^T U = I\\) (U has orthonormal columns).
     * \\(\Sigma \in \mathbb{R}^{r \times r}\\) is a diagonal matrix with positive diagonal elements that are ordered so that \\(\sigma_{0,0} \ge \sigma_{1,1} \ge \ldots \ge \sigma_{(r-1),(r-1)} > 0\\).
     * \\(V \in \mathbb{R}^{n \times r}\\) and \\(V^T V = I\\) (V has orthonormal columns).
-    * \\(r\\) equals the rank of matrix \\(B\\).
+    * \\(r\\) equals the rank of matrix \\(A\\).
 
 * If we partition
     * <img src="media/15248058876303.jpg" style="width:500px" />
 * where \\(U_L\\) and \\(V_L\\) have \\(k\\) columns and \\(\Sigma_{TL}\\) is \\(k \times k\\), then \\(U_L \Sigma_{TL} V_L^T\\) is the “best” rank-k approximation to matrix B. So, the “best” rank-k approximation \\(B = AW^T\\) is given by the choices \\(A = U_L\\) and \\(W = \Sigma_{TL} V_L\\).
-    * Given \\(A \in \mathbb{R}^{m \times n}\\) with linearly independent columns, and \\(b \in \mathbb{R}^m\\) , the “best” solution to \\(Ax \approx b\\) (in the linear least-squares sense) via its SVD, \\(A = U \Sigma V^T\\) , is given by \\[\hat{x} = V \Sigma^{-1} U^T b\\]
+    * Given \\(A \in \mathbb{R}^{m \times n}\\) with linearly independent columns, and \\(b \in \mathbb{R}^m\\) , the “best” solution to \\(Ax \approx b\\) (in the linear least-squares sense) via its SVD, \\(A = U \Sigma V^T\\) , is given by \\[\begin{aligned}\hat{x} &= (A^TA)^{-1}A^T b \\ &= ((U \Sigma V^T)^T U \Sigma V^T)^{-1} (U \Sigma V^T)^T b \\ &= V \Sigma^{-1} U^T b \end{aligned}\\]
 

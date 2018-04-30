@@ -65,6 +65,9 @@
 
 ## The Inverse Matrix
 
+* **Definition**: an n-by-n **square** matrix A is called invertible (also nonsingular) if there exists an n-by-n square matrix B such that
+ \\[{\displaystyle \mathbf {AB} =\mathbf {BA} =\mathbf {I} _{n}\ } \mathbf {AB} =\mathbf {BA} =\mathbf {I} _{n}\\] 
+
 ### Inverse Functions in 1D
 
 * \\(f: \mathbb{R} \to \mathbb{R}\\) maps a rea to a real and it is a **bijection**(both one-to-one and onto)
@@ -101,14 +104,28 @@ is a unique output in R.
     * Ax = b has a unique solution for all \\(b \in \mathbb{R}^n\\).
     * \\(Ax = 0\\) implies that \\(x = 0\\).
     * \\(Ax = e_j\\) has a solution for all \\(j \in {0, \ldots, n-1}\\).
-    * The determinant of A is nonzero: \\(det(A) \ne 0\\).
+    * The determinant of A is nonzero: \\(\text{det}(A) \ne 0\\). Will talk this in next section.
 
 * **Theorem**: Let \\(P\\) be a permutation matrix. Then \\(P^{-1} = P^T\\).
+
+### Determinant
+
+* **The determinant of a matrix A** is denoted \\(\text{det}(A)\\)
+* Let \\(A = \begin{bmatrix}a & b \\ c & d \end{bmatrix}\\)
+* \\(\text{det}(A) = ad - bc\\)
+* \\(A^{-1} = \frac{1}{ad - bc} \begin{bmatrix}d & -b \\ -c & a \end{bmatrix}\\)
+* So if \\(\text{det}(A) = ad - bc = 0\\), then \\(A^{-1}\\) doesn't exist and \\(A\\) is non-invertible.
+* A formula for the determinant of a 3×3 matrix:
+    * <img src="media/15250772910572.jpg" width=500 />
+    * Similar to the \\(n \times n\\) matrix.
 
 ### Inverses of special matrices
 
 * <img src="media/15234520168657.jpg" width=500 />
 
+## Refers
+
+* [https://en.wikipedia.org/wiki/Invertible_matrix](https://en.wikipedia.org/wiki/Invertible_matrix)
 
 ## Words
 

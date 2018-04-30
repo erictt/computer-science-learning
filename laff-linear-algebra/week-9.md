@@ -89,7 +89,7 @@
 
 ### Subspaces
 
-* **Subspaces** of \\(\mathbb{R}^n\\) are also vector spaces and the subsets of \\(\mathbb{R}^n\\).
+* **Subspaces** of \\(\mathbb{R}^n\\) are the subsets of \\(\mathbb{R}^n\\), and also vector spaces.
 * **Examples**:
     * The set \\(S \subset \mathbb{R}^n\\) described by \\(\{\chi a | \chi \in \mathbb{R}\}\\), where \\(a \in \mathbb{R}^n\\), is a subspace of \\(\mathbb{R}^n\\).
         * \\(0 \in S\\): (pick \\(\chi = 0\\)).
@@ -107,12 +107,13 @@
 
 * **Definition**: Let \\(A \in \mathbb{R}^{m \times n}\\). The set of all vectors \\(x \in \mathbb{R}^n\\) that have the property that \\(Ax = 0\\) is called **the null space** of A. 
     * Frankly speaking, all of the possible vector x that satisfy \\(Ax = 0\\).
+        * So \\(x\\) should be perpendicular to \\(A\\).
 * **Notation**: \\(\mathcal{N}(A) = \{x|Ax = 0\}\\)
 * **Theorem**: Let \\(A \in \mathbb{R}^{m \times n}\\). The null space of \\(A, \mathcal{N}(A)\\), is a subspace.
 * Example:
     * \\(A = \begin{bmatrix} 1 & 1 & 1 & 1 \\ 1 & 2 & 3 & 4 \\ 4 & 3 & 2 & 1 \end{bmatrix}\\)
     * \\(\text{rref }(A) = \begin{bmatrix} 1 & 0 & -1 & -2 \\ 0 & 1 & 2 & 3 \\ 0 & 0 & 0 & 0 \end{bmatrix}\\)
-        * **rref**: row-echelon form.
+        * **rref**: reformed row-echelon form.
     * => \\(\chi_0 - \chi_2  - 2\chi_3 = 0, \chi_1 + 2 \chi_2 + 3 \chi_3 = 0\\)
     * => \\(\begin{bmatrix} \chi_0 \\ \chi_1 \\ \chi_2 \\ \chi_3 \end{bmatrix} = \chi_2 \begin{bmatrix} 1 \\ -2 \\ 1 \\ 0 \end{bmatrix} + \chi_3\begin{bmatrix} 2 \\ -3 \\ 0 \\ 1 \end{bmatrix}\\)
     * We defined: \\(\chi_2 \in \mathbb{R}, \chi_3 \in \mathbb{R}\\)
@@ -128,7 +129,8 @@
 * **Definition**: A **spanning set of a subspace** S is a set of vectors \\(\{v_0, v_1, \cdots, v_{n-1} \}\\) such that Span(\\(\{v_0, v_1, \cdots, v_{n-1} \}\\)) = S.
     * For example: \\(\text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 1\end{array}\right) \} = \mathbb{R}^2 \\)
 * **Definition**: Let \\(\{v_0, v_1, \cdots, v_{n-1} \} \subset \mathbb{R}^m\\). Then this set of vectors is said to be **linearly independent** if \\(\chi_0 v_0 + \chi_1 v_1 + \cdots + \chi_{n-1} v_{n-1} = 0\\) implies that \\(\chi_0 = \chi_1 = \cdots = \chi_{n-1} = 0\\). A set of vectors that is not linearly independent is said to be **linearly dependent**.
-    * * For example: \\(\text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 4\end{array}\right) \}\\) is **linearly dependent**.
+    * In other words, the only solution for \\(Ax = 0\\) is \\( \overrightarrow{x} = \overrightarrow{0}, \text{ where, } A = \{v_0, v_1, \cdots, v_{n-1}\}, x^T = \{\chi_0, \chi_1, \cdots, \chi_{n-1} \}\\)
+    * For example: \\(\text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 4\end{array}\right) \}\\) is **linearly dependent**.
         * Because the set \\(\left(\begin{array}{c}2 \\ 4\end{array}\right) \\) can be represent with \\( 2 \left(\begin{array}{c}1 \\ 2\end{array}\right)\\). We can do: \\(2 \left(\begin{array}{c}1 \\ 2\end{array}\right) - \left(\begin{array}{c}2 \\ 4\end{array}\right) = 0 \\) to make the linear combination to be 0. And don't have to make all \\(\chi_n = 0\\).
         * In other words, \\(\left(\begin{array}{c}2 \\ 4\end{array}\right) \\) doesn't give us any new dimension, still the same as \\(\left(\begin{array}{c}1 \\ 2\end{array}\right)\\).
         * So \\(\text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 4\end{array}\right) \} = \text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right) \}\\)
@@ -138,7 +140,7 @@
     * In other words, the dependent vector \\(a_j\\) can be written as a linear combination of the other n−1 vectors.
     * <img src="media/15242970114813.jpg" width=400 />
 
-* **Theorem**: Let  \\(\{  a_0, a_1 , \ldots , a_{n-1} \}  \subset \mathbb {R}^ m\\) and let \\( A = \left(\begin{array}{c|c|c|c} a_0 & a_1 & \cdots & a_{n-1}\end{array}\right) \\). Then the vectors \\(\{ a_0, a_1 , \ldots , a_{n-1} \}\\) are linearly independent if and only if \\(\mathcal{N}(A) = \{0\}\\).
+* **Theorem**: Let  \\(\{  a_0, a_1 , \ldots , a_{n-1} \}  \subset \mathbb {R}^ m\\) and let \\( A = \left(\begin{array}{c|c|c|c} a_0 & a_1 & \cdots & a_{n-1}\end{array}\right) \\). Then the vectors \\(\{ a_0, a_1 , \ldots , a_{n-1} \}\\) are **linearly independent** if and only if \\(\mathcal{N}(A) = \{0\}\\).
     * aka \\(\chi_0 = \chi_1 = \cdots = \chi_{n-1} = 0\\)
 * **Definition**: **A basis for a subspace S** of \\(R^n\\) is a set of vectors in S that 
     1. is linearly independent and 
@@ -154,13 +156,30 @@
     * => \\(\begin{bmatrix} \chi_0 \\ \chi_1 \\ \chi_2 \\ \chi_3 \\ \chi_4 \end{bmatrix} = \chi_1 \begin{bmatrix} -1 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} + \chi_3\begin{bmatrix} -7 \\ 0 \\ 2 \\ 1 \\ 0 \end{bmatrix} + \chi_4\begin{bmatrix} 2 \\ 0 \\ -2 \\ 0 \\ 1 \end{bmatrix}\\)
     * set \\(v_0 = \begin{bmatrix} -1 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} , v_1 = \begin{bmatrix} -7 \\ 0 \\ 2 \\ 1 \\ 0 \end{bmatrix}, v_2 = \begin{bmatrix} 2 \\ 0 \\ -2 \\ 0 \\ 1 \end{bmatrix}\\)
     * then \\(\{v_0, v_1, v_2\}\\) is the basis of \\(\mathcal{N}(A)\\).
-    * then \\(\mathcal{N}(A) = \mathcal{N}(\text{rref}(A)) = \text{Span }(v_0, v_1, v_2)\\).
-    * then the dimension of null space of A = 3, which also = the number of non-pivot colums of \\(\text{rref}(A)\\).
+    * \\(\mathcal{N}(A) = \mathcal{N}(\text{rref}(A)) = \text{Span }(v_0, v_1, v_2)\\).
+    * the dimension of null space of A = 3, which also equals to the number of non-pivot columns of \\(\text{rref}(A)\\).
+    * \\(\mathcal{C}(A) = \text{Span}(\begin{pmatrix}1 \\ 1\end{pmatrix}, \begin{pmatrix}2 \\ 3\end{pmatrix})\\).
+    * the dimension of A = 2, which also equals to the number of pivot columns of \\(\text{rref}(A)\\).
 * **Definition**: Let \\(A \in \mathbb{R}^{m \times n}\\). **The rank of A** equals the number of vectors in a basis for the column space of A. Denoted by \\(\text{rank}(A)\\).
+
+## Showing that A^T A is invertible
+
+* Let \\(A \in \mathbb{R}^{m \times k}\\), and \\(\{a_0, a_2, \cdots, a_{m-1}\}\\) are linearly independent. Is \\(A^T A\\) invertible?
+* \\(A^T A \in \mathbb{R}^{k \times k}\\).
+* So, we only need to prove \\(A^T A\\)'s columns also linear independent.
+    * Because, \\(A^T A\\) is a square matrix, if \\(A^T A\\)'s columns are linear independent, the reduced row-echelon form of \\(A^T A\\) will be \\(I\\).
+* Let \\(v \in \mathcal{N}(A^T A)\\)
+    * then \\(A^T A v = 0\\) => \\(v^T A^T A v = v^T \overrightarrow{0} = 0\\) => \\((A v)^T A v = 0\\) 
+    * which means \\(\lVert Av \rVert _2 = 0\\) => \\(A v = 0\\)
+    * We've assumed \\(A\\)'s columns are linearly independent, 
+    * so \\(v \in \mathcal{N}(A) = \{\overrightarrow{0}\}\\) => \\(v = \overrightarrow{0}\\)
+    * So, the only solution of \\(A^T A v = 0\\) is \\(v = \overrightarrow{0}\\)
+* Then \\(A^T A\\)'s columns are linearly independent, which means \\(A^T A\\) is invertible.
 
 ## Refers
 
 * [https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces](https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces)
+* [https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/lin-alg-showing-that-a-transpose-x-a-is-invertible](https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/lin-alg-showing-that-a-transpose-x-a-is-invertible)
 
 ## Words
 
