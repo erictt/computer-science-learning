@@ -46,10 +46,7 @@
 * [Week 9 - Vector Spaces](laff-linear-algebra/week-9.md)
 * [Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares](laff-linear-algebra/week-10.md)
 * [Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases](laff-linear-algebra/week-11.md)
-
-<!--
 * [Week 12 - Eigenvalues and Eigenvectors](laff-linear-algebra/week-12.md)
--->
 
 ## Stanford Machine Learning
 
