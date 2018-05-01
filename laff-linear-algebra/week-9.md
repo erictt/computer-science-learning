@@ -113,7 +113,7 @@
 * Example:
     * \\(A = \begin{bmatrix} 1 & 1 & 1 & 1 \\ 1 & 2 & 3 & 4 \\ 4 & 3 & 2 & 1 \end{bmatrix}\\)
     * \\(\text{rref }(A) = \begin{bmatrix} 1 & 0 & -1 & -2 \\ 0 & 1 & 2 & 3 \\ 0 & 0 & 0 & 0 \end{bmatrix}\\)
-        * **rref**: reformed row-echelon form.
+        * **rref**: reduced row-echelon form.
     * => \\(\chi_0 - \chi_2  - 2\chi_3 = 0, \chi_1 + 2 \chi_2 + 3 \chi_3 = 0\\)
     * => \\(\begin{bmatrix} \chi_0 \\ \chi_1 \\ \chi_2 \\ \chi_3 \end{bmatrix} = \chi_2 \begin{bmatrix} 1 \\ -2 \\ 1 \\ 0 \end{bmatrix} + \chi_3\begin{bmatrix} 2 \\ -3 \\ 0 \\ 1 \end{bmatrix}\\)
     * We defined: \\(\chi_2 \in \mathbb{R}, \chi_3 \in \mathbb{R}\\)

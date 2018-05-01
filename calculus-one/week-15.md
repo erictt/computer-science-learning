@@ -8,7 +8,7 @@
 * The rule that corresponds to the Product Rule for differentiation is called the rule for **integration by parts**.
 * The Product Rule states that if **f** and **g** are differentiable functions, then \\[\frac{d}{dx}[f(x)g(x)] = f(x)g'(x) + f'(x)g(x)\\]
 * In the notation for indefinite integrals this equation becomes \\[\int [f(x)g'(x) + f'(x)g(x)] dx = f(x)g(x)\\]
-* We can rearrange this equation as \\[\int f(x)g'(x) dx = f(x)g(x) - f'(x)g(x)\\]
+* We can rearrange this equation as \\[\int f(x)g'(x) dx = f(x)g(x) - \int f'(x)g(x)\\]
 * Let \\(u = f(x)\\) and \\(v = g(x)\\), we can simplify the equation: \\[\int u\ dv = uv - \int v\ du\\]
 
 ### Examples

@@ -27,7 +27,7 @@
     * If \\(Ax = \lambda x\\) and \\(Ay = \lambda y\\), then \\(A(x + y) = Ax + Ay = \lambda x + \lambda y = \lambda (x + y)\\)
 * We conclude that the set of all vectors \\(x\\) that satisfy \\(Ax = \lambda x\\) is a subspace.
 
-### Simple cases
+## Simple cases
 
 * The eigenvalue of the **zero** matrix is the scalar \\(\lambda = 0\\). All nonzero vectors are eigenvectors.
 * The eigenvalue of the **identity** matrix is the scalar \\(\lambda = 1\\). All nonzero vectors are eigenvectors.
@@ -37,19 +37,61 @@
 * The eigenvalues of a 2 × 2 matrix can be found by finding the roots of \\(p_2(\lambda) = \text{det}(A - \lambda I) = 0\\)
 * The eigenvalues of a 3 × 3 matrix can be found by finding the roots of \\(p_3(\lambda) = \text{det}(A - \lambda I) = 0\\)
 
-#### Compute the eigenvalues and eigenvectors of 2×2 matrices
+### Compute the eigenvalues and eigenvectors of 2×2 matrices
 
-* Compute \\[\text{det}(\begin{pmatrix} (\alpha_{0,0} - \lambda) & \alpha_{0,1} \\ \alpha_{1,0} & (\alpha_{1,1} - \lambda)\end{pmatrix}) = (\alpha_{0,0} - \lambda)(\alpha_{1,1} - \lambda) - \alpha_{0,1}\alpha_{1,0}\\]
+* Compute \\[\text{det}(\begin{pmatrix} (\alpha_{0,0} - \lambda) & \alpha_{0,1} \\ \alpha_{1,0} & (\alpha_{1,1} - \lambda)\end{pmatrix}) = (\alpha_{0,0} - \lambda)(\alpha_{1,1} - \lambda) - \alpha_{0,1}\alpha_{1,0} = 0\\]
 * Recognize that this is a second degree polynomial in \\(\lambda\\).
 * It is called the **characteristic polynomial** of the matrix \\(A, p_2(\lambda)\\).
 * Compute the coefficients of \\(p_2(\lambda)\\) so that \\[p_2(\lambda) = - \lambda^2 + \beta \lambda + \gamma\\]
 * Solve \\[- \lambda^2 + \beta \lambda + \gamma = 0\\]
 * for its roots. You can do this either by examination, or by using the quadratic formula: \\[\lambda = \frac{-\beta \pm \sqrt{\beta^2 + 4 \gamma} }{-2}\\]
-* For each of the roots, find an eigenvector that satisﬁes \\[\begin{pmatrix} (\alpha_{0,0} - \lambda) & \alpha_{0,1} \\ \alpha_{1,0} & (\alpha_{1,1} - \lambda)\end{pmatrix}\begin{pmatrix} \chi_0 \\ \chi_1\end{pmatrix} = \begin{pmatrix} 0 \\ 0\end{pmatrix}\\]
-* The easiest way to do this is to subtract the eigenvalue from the diagonal, set one of the components of \\(x\\) to 1, and then solve for the other component.
+* Find all of the eigenvectors that satisﬁes \\[\begin{pmatrix} (\alpha_{0,0} - \lambda) & \alpha_{0,1} \\ \alpha_{1,0} & (\alpha_{1,1} - \lambda)\end{pmatrix}\begin{pmatrix} \chi_0 \\ \chi_1\end{pmatrix} = \begin{pmatrix} 0 \\ 0\end{pmatrix}\\]
+    * Transform \\(\begin{pmatrix} (\alpha_{0,0} - \lambda) & \alpha_{0,1} \\ \alpha_{1,0} & (\alpha_{1,1} - \lambda)\end{pmatrix}\\) to row-echelon form with different \\(\lambda\\)s, find the eigenspaces.
 * Check your answer! It is a matter of plugging it into \\(Ax = \lambda x\\) and seeing if the computed \\(\lambda\\) and \\(x\\) satisfy the equation.
 
-### General case
+#### Example
+
+* \\(A = \begin{bmatrix} 1 & 2 \\ 4 & 3 \end{bmatrix}\\)
+* \\(\text{det}(\begin{bmatrix} 1 - \lambda & 2 \\ 4 & 3 - \lambda \end{bmatrix}) = 0\\)
+* \\((1 - \lambda) (3 - \lambda)- 8 = 0\\)
+* => \\(\lambda = 5 \text{ or } \lambda = -1\\)
+* For any eigenvalues \\(\lambda\\), \\(E_{\lambda} = \mathcal{N}(\lambda I_n - A)\\)
+    * \\(E_{\lambda}\\): **eigenspace**.
+* when \\(\lambda = 5\\), then \\(E_5 = \mathcal{N}(\begin{bmatrix} 4 & -2 \\ -4 & 2 \end{bmatrix})\\). 
+    * Transform to row-echelon form, we get \\(\begin{bmatrix} 1 & -1/2 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} \chi_0 \\ \chi_1 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\\)
+* then \\(\chi_0 = \frac{1}{2} \chi_1\\)
+* \\(E_5 = \{\begin{bmatrix} \chi_0 \\ \chi_1 \end{bmatrix} = \epsilon \begin{bmatrix} 1/2 \\ 1 \end{bmatrix}, \epsilon \in \mathbb{R}\}\\)
+* \\(E_5 = \text{Span}(\begin{bmatrix} 1/2 \\ 1 \end{bmatrix})\\)
+* Same way, we get \\(E_{-1} = \text{Span}(\begin{bmatrix} -1 \\ 1 \end{bmatrix})\\)
+
+## Diagonalization
+
+* **Theorem**: Let \\(A \in \mathbb{R}^{n \times n}\\). Then there exists a nonsingular matrix \\(X\\) such that \\(X^{-1} A X = \Lambda\\) iff \\(A\\) has **n** **linearly independent eigenvectors**. Then \\[\begin{aligned} X^{-1} A X &= \Lambda \\ A X &= X \Lambda \\ A &= X \Lambda X^{-1}\end{aligned}\\]
+    * \\[\Lambda = \begin{pmatrix} \lambda_1 & & & \\ & \lambda_2 & & \\ & & \ddots & \\ & & & \lambda_n \end{pmatrix}\\]
+* If \\(\Lambda\\) is in addition diagonal, then the diagonal elements of \\(\Lambda\\) are **eigenvalues** of **A** and the columns of **X** are **eigenvectors** of **A**.
+* For example:
+    * \\(A = \begin{pmatrix} 1 & -1 \\ 2 & 4 \end{pmatrix}\\)
+    * the eigenpairs are \\((2, \begin{pmatrix} -1 \\ 1 \end{pmatrix}), (3 \begin{pmatrix} -1 \\ 2 \end{pmatrix})\\)
+    * Then:
+    * <img src="media/15251022826855.jpg" width=600 />
+    * **The matrix A can be diagonalized**.
+
+
+### Defective matrices
+
+* A **defective matrix** is a square matrix that does not have a complete basis of eigenvectors, and is therefore not **diagonalizable**. In particular, an n × n matrix is defective if and only if it does **not** have **n linearly independent eigenvectors**.
+
+#### Jordan Block
+
+* In general, the k ×k matrix \\(J_k(\lambda)\\) given by \\[J_k(\lambda) = \begin{pmatrix} \lambda & 1 & 0 & \cdots & 0 & 0 \\ 0 & \lambda & 1 & \cdots & 0 & 0 \\ 0 & 0 & \lambda & \cdots & 0 & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 0 & 0 & 0 & \cdots & \lambda & 1 \\ 0 & 0 & 0 & \cdots & 0 & \lambda \end{pmatrix}\\] 
+* a simple example: \\[\begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}\\]
+* Any nontrivial Jordan block of size 2×2 or larger (that is, not completely diagonal) is defective.
+
+* **Example**
+    * A simple example of a defective matrix is: \\[{ {\begin{bmatrix}3&1\\0&3\end{bmatrix}}}\\]
+    * which has a double eigenvalue of **3** but only **one** distinct eigenvector \\[{\begin{bmatrix}1\\0\end{bmatrix}}\\]
+
+## General case
 
 * **Theorem**: The matrix \\(A \in \mathbb{R}^{n \times n}\\) is **nonsingular** iff \\(\text{det}(A) \ne 0\\).
 * **Theorem**: Given \\(A \in \mathbb{R}^{n \times n}\\), \\[p_n(\lambda) = \text{det}(A - \lambda I) = \lambda^n + \gamma_{n-1} \lambda^{n-1} + \cdots + \gamma_1 \lambda + \gamma_0\\] for some **coefficients** \\(\gamma_1, \ldots, \gamma_{n-1} \in \mathbb{R}\\)
@@ -57,20 +99,11 @@
 
 * <img src="media/15248058876304.jpg" style="width:650px" />
 
-## Diagonalization
-
-* **Theorem**: Let \\(A \in \mathbb{R}^{n \times n}\\). Then there exists a nonsingular matrix \\(X\\) such that \\(X^{-1} A X = \Lambda\\) iff \\(A\\) has **n** linearly independent eigenvectors.
-* If \\(X\\) is invertible (nonsingular, has linearly independent columns, etc.), then the following are equivalent \\[\begin{aligned} X^{-1} A X &= \Lambda \\ A X &= X \Lambda \\ A &= X \Lambda X^{-1}\end{aligned}\\]
-* If \\(\Lambda\\) is in addition diagonal, then the diagonal elements of \\(\Lambda\\) are eigenvectors of **A** and the columns of **X** are eigenvectors of **A**.
-
-### Defective matrices
-
-* It is **not** the case that for every \\(A \in \mathbb{R}^{n \times n}\\) there is a nonsingular matrix \\(A \in \mathbb{R}^{n \times n}\\) such that \\(X^{-1} A X = \Lambda\\), where \\(\Lambda\\) is diagonal.
-* In general, the k ×k matrix \\(J_k(\lambda)\\) given by \\[J_k(\lambda) = \begin{pmatrix} \lambda & 1 & 0 & \cdots & 0 & 0 \\ 0 & \lambda & 1 & \cdots & 0 & 0 \\ 0 & 0 & \lambda & \cdots & 0 & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 0 & 0 & 0 & \cdots & \lambda & 1 \\ 0 & 0 & 0 & \cdots & 0 & \lambda \end{pmatrix}\\] has eigenvalue \\(\lambda\\) of algebraic multiplicity **k**, but geometric multiplicity one (it has only one linearly independent eigenvector). Such a matrix is known as a Jordan block.
-
 ## Others
 
-* **A matrix is singular** if and only if 0 is one of its **eigenvalues**. A singular matrix can be either diagonalizable or not diagonalizable. For example, \\(\left(\begin{array}{c c} 1 & 0 \\ 0 & 0\end{array}\right)\\) is diagonalizable, and \\(\left(\begin{array}{c c} 0 & 1 \\ 0 & 0\end{array}\right)\\) is not diagonalizable.
+* **A matrix is singular** if and only if 0 is one of its **eigenvalues**. A singular matrix can be either diagonalizable or not diagonalizable. For example:
+    * \\(\left(\begin{array}{c c} 1 & 0 \\ 0 & 0\end{array}\right)\\) is diagonalizable
+    * \\(\left(\begin{array}{c c} 0 & 1 \\ 0 & 0\end{array}\right)\\) is not diagonalizable.
 
 
 ## Refers
@@ -78,6 +111,7 @@
 * [http://mathworld.wolfram.com/SingularMatrix.html](http://mathworld.wolfram.com/SingularMatrix.html)
 * [https://en.wikipedia.org/wiki/Invertible_matrix](https://en.wikipedia.org/wiki/Invertible_matrix)
 * [http://mathworld.wolfram.com/Determinant.html](http://mathworld.wolfram.com/Determinant.html)
+* [https://en.wikipedia.org/wiki/Defective_matrix](https://en.wikipedia.org/wiki/Defective_matrix)
 
 ## Words 
 
