@@ -70,7 +70,7 @@
         * Notice that \\(\text{Span}(\{a_0\}) = \text{Span}(\{q_0\})\\) since \\(q_0\\) is simply a scalar multiple of \\(a_0\\).
     * \\(\rho_{0,1} = (q_0^T q_0)^{-1} q_0^T a_1 = q_0^T a_1\\)
         * \\(q_i\\) is orthonormal vector, so \\((q_0^T q_0)^{-1} = 1\\)
-        * \\(\rho_{0,1}\\) is like \\(\chi\\) in the image of the [first section of this week](#projecting-a-vector-onto-a-subspace).
+        * \\(\rho_{0,1}\\) is like \\(\chi\\) in the image of the [first figure of this week](#projecting-a-vector-onto-a-subspace).
     * \\(\rho_{0,2} = q_0^T a_2\\)
     * \\(\rho_{1,1} = \lVert a_1^{\perp} \rVert _2, q_1 = a_1^{\perp} / \rho_{1,1}\\)
         * \\(a_1^{\perp} = a_1 - \rho_{0,1} q_0\\)

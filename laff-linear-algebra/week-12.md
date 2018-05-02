@@ -55,14 +55,14 @@
 * \\(\text{det}(\begin{bmatrix} 1 - \lambda & 2 \\ 4 & 3 - \lambda \end{bmatrix}) = 0\\)
 * \\((1 - \lambda) (3 - \lambda)- 8 = 0\\)
 * => \\(\lambda = 5 \text{ or } \lambda = -1\\)
-* For any eigenvalues \\(\lambda\\), \\(E_{\lambda} = \mathcal{N}(\lambda I_n - A)\\)
-    * \\(E_{\lambda}\\): **eigenspace**.
-* when \\(\lambda = 5\\), then \\(E_5 = \mathcal{N}(\begin{bmatrix} 4 & -2 \\ -4 & 2 \end{bmatrix})\\). 
+* For any eigenvalues \\(\lambda\\), \\(\mathcal{E}_A(\lambda) = \mathcal{N}(\lambda I_n - A)\\)
+    * \\(\mathcal{E}_A(\lambda)\\): **eigenspace**.
+* when \\(\lambda = 5\\), then \\(\mathcal{E}_A(5) = \mathcal{N}(\begin{bmatrix} 4 & -2 \\ -4 & 2 \end{bmatrix})\\). 
     * Transform to row-echelon form, we get \\(\begin{bmatrix} 1 & -1/2 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} \chi_0 \\ \chi_1 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\\)
 * then \\(\chi_0 = \frac{1}{2} \chi_1\\)
-* \\(E_5 = \{\begin{bmatrix} \chi_0 \\ \chi_1 \end{bmatrix} = \epsilon \begin{bmatrix} 1/2 \\ 1 \end{bmatrix}, \epsilon \in \mathbb{R}\}\\)
-* \\(E_5 = \text{Span}(\begin{bmatrix} 1/2 \\ 1 \end{bmatrix})\\)
-* Same way, we get \\(E_{-1} = \text{Span}(\begin{bmatrix} -1 \\ 1 \end{bmatrix})\\)
+* \\(\mathcal{E}_A(5) = \{\begin{bmatrix} \chi_0 \\ \chi_1 \end{bmatrix} = \epsilon \begin{bmatrix} 1/2 \\ 1 \end{bmatrix}, \epsilon \in \mathbb{R}\}\\)
+* \\(\mathcal{E}_A(5) = \text{Span}(\begin{bmatrix} 1/2 \\ 1 \end{bmatrix})\\)
+* Same way, we get \\(\mathcal{E}_A(-1) = \text{Span}(\begin{bmatrix} -1 \\ 1 \end{bmatrix})\\)
 
 ## Diagonalization
 
@@ -88,8 +88,8 @@
 * Any nontrivial Jordan block of size 2×2 or larger (that is, not completely diagonal) is defective.
 
 * **Example**
-    * A simple example of a defective matrix is: \\[{ {\begin{bmatrix}3&1\\0&3\end{bmatrix}}}\\]
-    * which has a double eigenvalue of **3** but only **one** distinct eigenvector \\[{\begin{bmatrix}1\\0\end{bmatrix}}\\]
+    * A simple example of a defective matrix is: \\[{ {\begin{bmatrix}3&1\\0&3\end{bmatrix} } }\\]
+    * which has a double eigenvalue of **3** but only **one** distinct eigenvector \\[{\begin{bmatrix}1\\0\end{bmatrix} }\\]
 
 ## General case
 
@@ -99,11 +99,43 @@
 
 * <img src="media/15248058876304.jpg" style="width:650px" />
 
-## Others
+## Properties of eigenvalues and eigenvectors
+
+* **Definition**: Given \\(A \in \mathbb{R}^{n \times n}\\) and nonzero vector \\(x \in \mathbb{R}^{n}\\) , the scalar \\(x^T Ax/x^T x\\) is known as the **Rayleigh quotient**.
+* **Theorem**: Let \\(A \in \mathbb{R}^{n \times n}\\) and x equal an eigenvector of A. Assume that x is real valued as is the T eigenvalue λ with \\(Ax = \lambda x\\). Then \\(\lambda = x x^T Ax x\\) is the eigenvalue associated with the eigenvector x.
+* **Theorem**: Let \\(A \in \mathbb{R}^{n \times n}\\) , β be a scalar, and \\(\lambda \in \Lambda(A)\\). Then \\(\beta \lambda \in \Lambda(\beta A)\\).
+* **Theorem**: Let \\(A \in \mathbb{R}^{n \times n}\\) be nonsingular, \\(\lambda \in \Lambda(A)\\), and \\(Ax = \lambda x\\). Then \\(A^{-1} x = \frac{1}{\lambda} x\\).
+* **Theorem**: Let \\(A \in \mathbb{R}^{n \times n}\\), \\(\lambda \in \Lambda(A)\\),  Then \\((\lambda - \mu ) \in \Lambda(A - \mu I)\\).
+
+## Relative Definitions
+
+### Eigenspaces
+
+* the nullspace \\(A - I\lambda\\) is the **eigenspace** of A for λ denoted by \\(\mathcal{E}_A(\lambda)\\). In other words, \\(\mathcal{E}_A(\lambda)\\) consists of all the eigenvectors of A for λ and the zero vector.
+
+
+### Algebraic and Geometric Multiplicity
+
+* Example: Let \\(A = \begin{bmatrix} 1 & 2 \\ 1 & 0 \end{bmatrix}\\)
+    * -1 is an eigenvalue of A. and the correspond eigenvector is \\(\begin{bmatrix} -1 \\ 1 \end{bmatrix}\\)
+* \\(\mathcal{E}_A(-1) = \text{Span}(\begin{bmatrix} -1 \\ 1\end{bmatrix})\\)
+* The **geometric multiplicity** of an eigenvalue λ of A is the dimension of \\(\mathcal{E}_A(\lambda)\\)
+    * the geometric multiplicity of −1 is 1.
+* The **algebraic multiplicity** of an eigenvalue λ of A is the number of times λ appears as a root of \\(p_A\\). 
+    * −1  appears only **once** as a root.  the algebraic multiplicity of -1 is 1.
+* In general, the algebraic multiplicity and geometric multiplicity of an eigenvalue can differ. However, the geometric multiplicity can **never exceed** the algebraic multiplicity.
+* If for every eigenvalue of A, the **geometric multiplicity** equals the **algebraic multiplicity**, then A is said to be **diagonalizable**.
+
+### Singular Matrix
 
 * **A matrix is singular** if and only if 0 is one of its **eigenvalues**. A singular matrix can be either diagonalizable or not diagonalizable. For example:
     * \\(\left(\begin{array}{c c} 1 & 0 \\ 0 & 0\end{array}\right)\\) is diagonalizable
     * \\(\left(\begin{array}{c c} 0 & 1 \\ 0 & 0\end{array}\right)\\) is not diagonalizable.
+
+### Polynomial Roots
+
+* A root of a polynomial \\(P(z)\\) is a number \\(z_i\\) such that \\(P(z_i)=0\\). The fundamental theorem of algebra states that a polynomial \\(P(z)\\) of degree n has n roots, some of which may be degenerate. 
+* For example, the roots of the polynomial \\(x^3-2x^2-x+2=(x-2)(x-1)(x+1)\\) are -1, 1, and 2. 
 
 
 ## Refers
@@ -112,11 +144,17 @@
 * [https://en.wikipedia.org/wiki/Invertible_matrix](https://en.wikipedia.org/wiki/Invertible_matrix)
 * [http://mathworld.wolfram.com/Determinant.html](http://mathworld.wolfram.com/Determinant.html)
 * [https://en.wikipedia.org/wiki/Defective_matrix](https://en.wikipedia.org/wiki/Defective_matrix)
+* [http://people.math.carleton.ca/~kcheung/math/notes/MATH1107/wk10/10_algebraic_and_geometric_multiplicities.html](http://people.math.carleton.ca/~kcheung/math/notes/MATH1107/wk10/10_algebraic_and_geometric_multiplicities.html)
+* [http://mathworld.wolfram.com/PolynomialRoots.html](http://mathworld.wolfram.com/PolynomialRoots.html)
 
 ## Words 
 
 * **eigenvalue** ['aiɡən,vælju:] n. [数] 特征值
 * **eigenvector** ['aiɡən,vektə] n. [数] 特征向量；本征矢量
 * **diagonalization** [dai,æɡənəlai'zeiʃən, -li'z-] n. [数] 对角化；对角线化
+* **multiplicity** [,mʌlti'plisəti] n. 多样性；[物] 多重性
+* **algebraic and geometric multiplicity** 代数重数与几何重数
+* **companion matrix** 友（矩）[数] 阵
+* **spectrum** ['spektrəm] n. 光谱；频谱；范围；余象
 
 
