@@ -57,7 +57,7 @@
     pylab.legend()
     ```
     
-    <img src='media/15017341787524.jpg' width=400/>
+    <img src='media/15017341787524.jpg' style="width:400px"/>
     
     * Conclusion:
         * It doesn’t matter what the shape of the distribution of values happens to be
@@ -69,7 +69,7 @@
 ### Finding π
 
 * Think about inscribing a circle in a square with sides of length 2, so that the radius, r, of the circle is of length 1. (Invented by the French mathematicians Buffon (17071788) and Laplace (1749-1827))
-    * <img src="media/15018156431740.jpg" width=200 />
+    * <img src="media/15018156431740.jpg" style="width:200px" />
     * By the definition of π, area = πr^2 . Since r is 1, π = area.
     * If the locations of the needles are truly random, we know that,
         * \\(\frac{\text{needles in circle}}{\text{needles in square}}=\frac{\text{area of circle}}{\text{area of square}}\\)

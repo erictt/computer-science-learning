@@ -9,21 +9,21 @@
 * Start with logistic regression, and modify it a bit to get the SVM.
 * The logistic regression hypothesis is: \\[h_{\theta}(x) = \frac{1}{1+e^{-\theta^{T}x} }\\]
 * And the sigmoid activation function looks like: 
-    * <img src="media/15110745968244.jpg" width=250 />
+    * <img src="media/15110745968244.jpg" style="width:250px" />
 * If \\(y = 1\\), we want \\(h_{\theta}(x) \approx 1\\), \\(\theta^{T}x \gg  0\\)
 * If \\(y = 0\\), we want \\(h_{\theta}(x) \approx 0\\), \\(\theta^{T}x \ll  0\\)
 * Cost of single example: \\[\begin{aligned} & -(y\log{h_{\theta}(x)} + (1 - y)\log{(1 - h_{\theta}(x)}))z \\ = &-(y\log{\frac{1}{1+e^{-\theta^{T}x} }} - (1 - y)\log{(1 - \frac{1}{1+e^{-\theta^{T}x} }}))\end{aligned}\\]
 * If \\(y = 1\\) (want \\(\theta^Tx \gg 0\\)), then the cost will be: \\(-\log\dfrac{1}{1+e^{-z} }\\)
-    * <img src="media/15110758415475.jpg" width=200 />
+    * <img src="media/15110758415475.jpg" style="width:200px" />
 * If \\(y = 0\\) (want \\(\theta^Tx \ll 0\\)), then the cost will be: \\(-\log{(1 - \dfrac{1}{1+e^{-z} }})\\)
-    * <img src="media/15110759959259.jpg" width=200 />
+    * <img src="media/15110759959259.jpg" style="width:200px" />
 * To build SVM, we redefine the cost functions:
     * If \\(y = 1\\):
-        * <img src="media/15110762661173.jpg" width=200 />
+        * <img src="media/15110762661173.jpg" style="width:200px" />
         * Instead of a curve line, we create two straight lines which acts as an approximation to the logistic regression.
         * We call this function \\(cost_1(z)\\).
     * If \\(y = 0\\):
-        * <img src="media/15110762746306.jpg" width=200 />
+        * <img src="media/15110762746306.jpg" style="width:200px" />
         * We call this function \\(cost_0(z)\\).
     * **How to use formula to represent those two lines?** At least to calculate the cost?
         * Everything Prof Ng said about SVM training was an intuition. The actual SVM training method provided in the `svmTrain()` function is the SMO method. That method is too complex to be included as part of the course. -- from [Discuss Forms](https://www.coursera.org/learn/machine-learning/discussions/weeks/7/threads/uCyF4elMEeWK_Q7eN25hdw)
@@ -53,7 +53,7 @@
 
 * Sometimes SVM called **Large Margin Classifier**. 
 * Here are two plots for the cost function:
-    * <img src="media/15110839402275.jpg" width=500 />
+    * <img src="media/15110839402275.jpg" style="width:500px" />
 * If we want the cost to be small, then we will need \\(z\\) to be more that **1** not just **0**. then:
     * If \\(y = 1\\), we want \\(\theta^Tx \ge 1\\) (not just \\( \ge 0\\)).
     * If \\(y = 0\\), we want \\(\theta^Tx \le -1\\) (not just \\( \le 0\\)).
@@ -66,21 +66,21 @@
     * Whenever \\(y^{(i)} = 0\\): \\(\theta^Tx^{(i)} \le -1\\).
     * \\(\underset{\theta}{\text{min} }\ \dfrac{1}{2}\sum_{i=1}^n\theta_j^2\\)
 * Let's check the result in a **linearly separable case**
-    * <img src="media/15110849542444.jpg" width=200 />
+    * <img src="media/15110849542444.jpg" style="width:200px" />
     * The green and magenta lines are functional decision boundaries which could be chosen by logistic regression
     * The black line, by contrast is chosen by the SVM because of this safety net imposed by the optimization graph
     * We can see that, there is a large margin between the black line and the training sets  which is called **the margin of the support vector machine**.
-        * <img src="media/15110853199457.jpg" width=200 />
+        * <img src="media/15110853199457.jpg" style="width:200px" />
     * In another situation:
-        *  <img src="media/15110854412052.jpg" width=200 />
+        *  <img src="media/15110854412052.jpg" style="width:200px" />
         *  We can't get the result like the black line, since we set **A** to **0**, so the SVM is very sensitive to outliers. And we probably will get the magenta line below. Which lead to another way to fix this: set **C** to a small number, which means ignoring some outliers.
-            * <img src="media/15110853883558.jpg" width=360 />
+            * <img src="media/15110853883558.jpg" style="width:360px" />
 
 ## Mathematics Behind Large Margin Classification
 
 ### Vector Inter Productions
 
-* <img src="media/15110919405825.jpg" width=250 />
+* <img src="media/15110919405825.jpg" style="width:250px" />
 * \\(u = \begin{bmatrix} u_1 \\ u_2 \end{bmatrix}\\), \\(v = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix}\\)
 * length of vector: \\(\lVert u \rVert = \sqrt{u_1^2+u_2^2}\\)
 * **p** = length of projection of **v** onto **u**.
@@ -94,30 +94,30 @@
 * **Simplification**: set \\(\theta_0 = 0\text{, }n = 2\\)(only 2 features). Then: 
     * \\(\underset{\theta}{\text{min} }\ \dfrac{1}{2}\sum_{i=1}^n\theta_j^2 = \frac{1}{2}(\theta_1^2+\theta_2^2) = \frac{1}{2}(\sqrt{\theta_1^2+\theta_2^2})^2 = \frac{1}{2}{\lVert \theta \rVert}^2\\)
     * \\(\theta^Tx^{(i)} = \theta_1x_1^{(i)} + \theta_2x_2^{(i)} = p^{(i)} \cdot {\lVert \theta \rVert}\\)
-        * <img src="media/15110932235479.jpg" width=200 />
+        * <img src="media/15110932235479.jpg" style="width:200px" />
     * Redefine these functions, we get:
         * \\(\begin{aligned}\text{s.t. } p^{(i)} \cdot {\lVert \theta \rVert} &\ge 1\ \text{ if }y^{(i)} = 1 \\ p^{(i)} \cdot {\lVert \theta \rVert} &\le -1\ \text{ if } y^{(i)} = 0\end{aligned}\\)
         * where \\(p^{(i)}\\) is the projection of \\(x^{(i)}\\) onto the vector \\(\theta\\).
     * So we want to maximize \\(p^{(i)}\\), so \\(\lVert \theta \rVert\\) can be small.
     * Note that, \\(\theta_0 = 0\\), so  the boundary has to pass through the origin (0,0).
     * Let's consider the training examples like this:
-        * <img src="media/15111408336667.jpg" width=200 />
+        * <img src="media/15111408336667.jpg" style="width:200px" />
     * And draw an option, to see if it's possible that SVM would choose.
         * <img src="media/15111410451240.jpg" width = 200 />
         * Note that **θ is always at 90 degrees to the decision boundary** (check linear algebra to find out why).
         * So vector \\(\theta\\) should be:
-            * <img src="media/15111414587704.jpg" width=200 />
+            * <img src="media/15111414587704.jpg" style="width:200px" />
         * Then we can find the projection \\(p^{(i)}\\) of \\(x^{(i)}\\) onto \\(\theta\\):
-            * <img src="media/15111425521477.jpg" width=200 />
+            * <img src="media/15111425521477.jpg" style="width:200px" />
             * We know that we need to make \\(p^{(i)} \cdot {\lVert \theta \rVert} \ge 1\\), so: 
                 * if **p** is small, then \\({\lVert \theta \rVert}\\) should be very large
             * Similarly, for the negative examples.
         * But the optimization objective is trying to find a set of parameters where the norm of theta is small. So this doesn't seem like a good choice.
     * Let's another option:
-        * <img src="media/15111425011358.jpg" width=200 />
+        * <img src="media/15111425011358.jpg" style="width:200px" />
         * Now if you look at the projection \\(p^{(i)}\\) of \\(x^{(i)}\\) onto \\(\theta\\), we find that **p** becomes large and \\({\lVert \theta \rVert}\\) can be small.
         * This is why the SVM choses this hypothesis as the better one, and how we generate the large margin.
-        * <img src="media/15111429372332.jpg" width=280 />
+        * <img src="media/15111429372332.jpg" style="width:280px" />
 * Finally, we did this derivation assuming \\(\theta_0 = 0\\). 
     * It just means we are entertaining decision boundaries that pass through the origins of decision boundaries pass through the origin (0,0). 
     * If you allow \\(\theta_0\\) to be other values then this simply means you can have decision boundaries which cross through the x and y values at points other than (0,0).
@@ -126,7 +126,7 @@
 
 * Kernels is used to adapt support vector machines in order to develop complex nonlinear classifiers. 
 * Let's see a example(find a non-linear boundary):
-    * <img src="media/15111488560912.jpg" width=300 />
+    * <img src="media/15111488560912.jpg" style="width:300px" />
     * One way to distinguish the positive and negative examples is to come up with a set of complex polynomial features: \\[h_{\theta}(x) = \left\{ \begin{array}{rl} 
         1 & \text{, if }\ \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_3 x_1 x_2 + \theta_4 x_1^2 + \theta_5 x_2^2 + \cdots \ge 0 \\ 
         0 & \text{, otherwise}. 
@@ -140,7 +140,7 @@
 ### Create New Features
 
 * First, manually pick a few points. In this case, we picked three points, and call them **landmarks** (\\(l^{(1)}, l^{(2)}, l^{(3)}\\)).
-    * <img src="media/15111543447671.jpg" width=250 />
+    * <img src="media/15111543447671.jpg" style="width:250px" />
     * Later, will explain how to choose \\(l^{(i)}\\)
 * Second, define \\(f_1, f_2, f_3\\) as the similarity between \\(x\\) and \\(l^{(i)}\\)(ignore \\(x_0\\)). Then: \\[\begin{aligned}
     f_1 &= \text{similarity}(x, l^{(1)}) = \text{exp}(-\frac{ {\lVert x - l^{(1)} \rVert}^2 }{2\sigma^2}) \\
@@ -160,17 +160,17 @@
 * Example:
     * \\(l^{(1)} = \begin{bmatrix}3 \\ 5\end{bmatrix}\\), \\(f_1 = \text{exp}(-\dfrac{ {\lVert x - l^{(1)} \rVert}^2 }{2\sigma^2})\\).
     * Plot \\(f_1\\) vs the kernel function, we get plots like:
-        * <img src="media/15111559967418.jpg" width=450 />
+        * <img src="media/15111559967418.jpg" style="width:450px" />
         * Notice that when x = [3, 5], then \\(f_1 = 1\\).
         * As x moves away from [3,5], then the feature takes on values close to zero. So this measures how close **x** is to this **landmark**.
         * \\(\sigma^2\\) is parameter of the Gaussian Kernel, which defines the steepness of the rise around the landmark. We can see that the slop are getting smoother as \\(\sigma^2\\) are bigger.
 * Given this definition, what kind of hypothesis we can learn:
     * For example, let's say we already run the algorithm and got \\(\theta_0 = -0.5, \theta_1 = 1, \theta_2 = 1, \theta_3 = 0 \\). What happens if we evaluate the **magenta dot** below?
-        * <img src="media/15111567309863.jpg" width=200 />
+        * <img src="media/15111567309863.jpg" style="width:200px" />
         * We know that \\(x\\) is close to \\(l^{(1)}\\), so \\(f_1\\) will be close to 1, and \\(f_2\\) and \\(f_3\\) and will be close to 0. 
         * So \\(\theta_0 + \theta_1 f_1 + \theta_2 f_2 + \theta_3 f_3 = -0.5 + 1 + 0 + 0 = 0.5 \ge 0\\). Then we predict \\(y = 1\\).
         * After we tried different points, we will eventually get this non-linear boundary:
-            * <img src="media/15111571113719.jpg" width=250 />
+            * <img src="media/15111571113719.jpg" style="width:250px" />
 * Next segment will talk about:
     * How we choose the landmarks;
     * What other kernels we can use (other than the Gaussian Kernel).

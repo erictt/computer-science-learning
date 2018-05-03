@@ -7,7 +7,7 @@
 * Important attributes of a linear system \\(Ax = b\\) and associated matrix A:
     * (example:\\(\left(\begin{array}{c c c c}1 & 3 & 1 & 2 \\ 2 & 6 & 4 & 8 \\ 0 & 0 & 2 & 4\end{array}\right)\left(\begin{array}{c} \chi_0 \\ \chi_1 \\ \chi_2 \\ \chi_3\end{array}\right) = \left(\begin{array}{c} 1 \\ 3 \\ 1\end{array}\right)\\))
     * The row-echelon form of the system.
-        * <img src="media/15236279050627.jpg" width=350 />
+        * <img src="media/15236279050627.jpg" style="width:350px" />
     * The pivots.
         * the first nonzero entry in each row: 1, 2.
     * The free variables.
@@ -32,12 +32,12 @@
         * Often called the **range** of the matrix.
         * equal to the number of dependent variables.
         * The columns that have pivots in them are linearly independent. The corresponding columns in the original matrix are also linearly independent:
-            * <img src="media/15236287600994.jpg" width=120 />
-            * <img src="media/15236287969346.jpg" width=260 />
+            * <img src="media/15236287600994.jpg" style="width:120px" />
+            * <img src="media/15236287969346.jpg" style="width:260px" />
     * A basis for the row space, \\(\mathcal{R}(A) = \mathcal{C}(A^T)\\).
         * The row space is the subspace of all vectors that can be created by taking linear combinations of the rows of a matrix. 
         * List the rows that have pivots in **the row echelon form** as column vectors:
-            * <img src="media/15236291496349.jpg" width=240 />
+            * <img src="media/15236291496349.jpg" style="width:240px" />
             * Notice these are the first and second row of A.
     * The dimension of the row and column space. 
         * = number of pivots
@@ -57,7 +57,7 @@
 
 * The **normal vector**, often simply called the "normal," to a surface is a vector which is perpendicular to the surface at a given point. 
 * For example:
-    * <img src="media/15243624511933.jpg" width=260 />
+    * <img src="media/15243624511933.jpg" style="width:260px" />
     * Define the plane as \\(Ax + By + Cz = D\\)
         * Vector \\(\vec{n} = \begin{bmatrix} a \\ b \\ c \end{bmatrix}\\) is normal to the plane. 
         * Vector \\(\vec{x_0} = \begin{bmatrix} x_0 \\ y_0 \\ z_0 \end{bmatrix}\\) is pointing to the plane. 
@@ -74,7 +74,7 @@
     *  \\(\begin{bmatrix} a_0 \\ a_1 \\ a_2 \end{bmatrix} \times \begin{bmatrix} b_0 \\ b_1 \\ b_2 \end{bmatrix} = \begin{bmatrix} a_1 b_2 - a_2 b_1 \\ a_2 b_0 - a_0 b_2 \\ a_0 b_1 - a_1 b_0 \end{bmatrix} \\)
 * Given two linearly independent vectors a and b, the cross product, **a × b**, is a vector that is perpendicular to both a and b and thus **normal** to the plane containing them.
     * Because \\(\begin{bmatrix} a_1 b_2 - a_2 b_1 \\ a_2 b_0 - a_0 b_2 \\ a_0 b_1 - a_1 b_0 \end{bmatrix}^T \begin{bmatrix} a_0 \\ a_1 \\ a_2 \end{bmatrix} = 0\\) and \\(\begin{bmatrix} a_1 b_2 - a_2 b_1 \\ a_2 b_0 - a_0 b_2 \\ a_0 b_1 - a_1 b_0 \end{bmatrix}^T \begin{bmatrix} b_0 \\ b_1 \\ b_2 \end{bmatrix} = 0\\)
-* <img src="media/15243639852754.jpg" width=200 />
+* <img src="media/15243639852754.jpg" style="width:200px" />
 * So we can use vectors a and b to get n. (\\(n = a \times b\\))
 
 #### Visualizing a column space as a plane in R3
@@ -112,7 +112,7 @@
     * \\(A\\) is a one-to-one, onto mapping from \\(\mathcal{R}(A)\\) to \\(\mathcal{C}(A)\\).
     * \\(\mathcal{N}(A^T)\\) is orthogonal to \\(\mathcal{C}(A)\\) and the dimension of \\(\mathcal{N}(A^T)\\) equals \\(m-r\\), where \\(r\\) is the dimension of \\(\mathcal{C}(A)\\).
 
-* <img src="media/15236191535339.jpg" width=400 />
+* <img src="media/15236191535339.jpg" style="width:400px" />
 * For example: \\(A = \begin{bmatrix}2 & -1 & -3 \\ -4 & 2 & 6\end{bmatrix}\\)
     * \\(T(x) = Ax\\), \\(T: \mathbb{R}^3 \Rightarrow \mathbb{R}^2\\)
     * \\(\mathcal{C}(A) = \text{Span }(\begin{bmatrix} 2 \\ -4 \end{bmatrix}) \subseteq \mathbb{R}^2\\)
@@ -126,13 +126,13 @@
 
 * Find a line \\(y = \gamma_0 + \gamma_1 x\\) to interpolate these points:
     * \\(x = \left(\begin{array}{c} \chi_0 \\ \chi_1 \\ \chi_2 \\ \chi_3 \end{array}\right) = \left(\begin{array}{c}1 \\ 2 \\ 3 \\ 4\end{array}\right) \text{ and } y = \left(\begin{array}{c} \psi_0 \\ \psi_1 \\ \psi_2 \\ \psi_3 \end{array}\right) = \left(\begin{array}{c}1.97 \\ 6.97 \\ 8.89 \\ 10.01\end{array}\right) \\)
-    * <img src="media/15244752774461.jpg" width=240 />
+    * <img src="media/15244752774461.jpg" style="width:240px" />
 * Clearly, there is no line could go through all these points, then what is the best approximation?
 * Set \\(A = \begin{bmatrix}1 & 1 \\ 1 & 2 \\ 1 & 3 \\ 1 & 4\end{bmatrix}, b = \begin{bmatrix}1.97 \\ 6.97 \\ 8.89 \\ 10.01\end{bmatrix}\\)
 * We've learned before that \\(Ax=b\\) has a solution iff \\(b \in \mathcal{C}(A)\\). In other words, b is in the plane of \\(\text{Span}(a_1, a_2,\ldots, a_n)\\).
 * So, here we are solving \\(Ax \approx b\\).
 * Set the projection of b = \\(z\\), \\(A\hat{x} = z\\)
-    * <img src="media/15246604275638.jpg" width=200 />
+    * <img src="media/15246604275638.jpg" style="width:200px" />
 
 * We can get
     * \\(b = z + w\\) where \\( w^T v = 0\\) for all \\(v \in \mathcal{C}(A)\\).

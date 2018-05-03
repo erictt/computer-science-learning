@@ -52,6 +52,6 @@
 ## How can derivatives help me to understand rates of change in the real world?
 
 * A light is placed on the ground 30 ft from a building. A man 6 ft tall walks from the light toward the building at the rate of 5 ft/sec. Find the rate at which the length of his shadow is changing when he is 15 ft from the building.
-    * <img src="media/15094341802303.jpg" width=300/>
+    * <img src="media/15094341802303.jpg" style="width:300px"/>
     * [Rate of shadow in the wall of a building](https://www.mathalino.com/reviewer/differential-calculus/17-18-rate-shadow-wall-building)
 

@@ -7,7 +7,7 @@
 * If **f and g are both differentiable**, then \\[\frac{d}{dx}[f(x)g(x)]=f(x)\frac{d}{dx}g(x) + \frac{d}{dx}f(x)g(x)\\]
 * Two ways to prove
     * the area of rectangle
-        * <img src="media/15039140120421.jpg" width=200 />
+        * <img src="media/15039140120421.jpg" style="width:200px" />
         * We start by assuming that `u = f(x)` and `v = g(x)`.
         * Then we can interpret the `product uv` as an area of a rectangle
         * If `x` changes by an amount \\(\Delta x\\), then the corresponding changes in `u` and `v` are
@@ -51,11 +51,11 @@
 
 * If `f` is a differentiable function, then its derivative `f'` is also a function, so `f'` may have a derivative of its own, denoted by `(f')' = f''`.
 * This new function \\(f''(x)\\) is called the second derivative of `f` because it is the derivative of the derivative of `f`. Using Leibniz notation, we write the second derivative of `y = f(x)` as
-    * <img src="media/15039270050273.jpg" width=200 />
+    * <img src="media/15039270050273.jpg" style="width:200px" />
 * For example: 
     * \\(f(x) = x^3 - x\\)
     * \\(f'(x)=3x^2-1\\), \\(f''(x)=6x\\)
-    * <img src="media/15039271618904.jpg" width=200 />
+    * <img src="media/15039271618904.jpg" style="width:200px" />
     * We can interpret `f''(x)` as the slope of the curve `y=f'(x)` at the point `(x, f(x))`. In other words, it is the rate of change of the slope of the original curve `y=f(x)`.
 * Take another sample:
     * If `s=s(t)` is the position function of an object that moves in a straight line, we know that its first derivative represents the velocity `v(t)` of the object as a function of time:

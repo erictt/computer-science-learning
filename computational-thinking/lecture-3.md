@@ -27,7 +27,7 @@
 #### Samples
 
 * Leonhard Euler’s Model (First Reported Use of Graph Theory)
-    * <img src='media/unit-1-3.png' width=400/>
+    * <img src='media/unit-1-3.png' style="width:400px"/>
     * Each island a node
     * Each bridge an undirected edge
     * **Model abstracts away irrelevant details**
@@ -50,7 +50,7 @@
 #### Sample
 
 * Finding a route from one city to another
-    * <img src='media/unit-1-4.png' width=400/>
+    * <img src='media/unit-1-4.png' style="width:400px"/>
 
 * Four classes:
     * Node

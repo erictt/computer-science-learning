@@ -78,7 +78,7 @@ getMeansAndSDs(population, sample, True)
    Standard deviation of sample = 10.390314372
    ```
    
-   <img src="media/15020122920744.jpg" width=400 />
+   <img src="media/15020122920744.jpg" style="width:400px" />
 
 * Try it 1000 times and plot **the sample means** results
 
@@ -120,7 +120,7 @@ pylab.axvline(x = popMean, color = 'r')
    Maximum difference in standard deviations = 2.457
    ```
    
-   <img src="media/15020131712390.jpg" width=400 />
+   <img src="media/15020131712390.jpg" style="width:400px" />
 
 * To get a tighter bound, we tried:
     * drawing 2000 samples instead of 1000,
@@ -136,7 +136,7 @@ pylab.axvline(x = popMean, color = 'r')
         fmt = 'o', label = '95% Confidence Interval')
     ```
 
-    <img src="media/15020143820967.jpg" width=400 />
+    <img src="media/15020143820967.jpg" style="width:400px" />
 
 * Result:
     * Going from a sample size of 100 to 400 reduced the confidence interval from \\(1.8\ ^{\circ}C\\) to about \\(1 \ ^{\circ}C\\).
@@ -196,7 +196,7 @@ pylab.title('SEM vs. SD for 50 Means')
 pylab.legend()
 ```
 
-<img src="media/15021794267155.jpg" width=300 />
+<img src="media/15021794267155.jpg" style="width:300px" />
 
 * So, we can say, the SEM is very close to the standard deviation of the sample means when we are using the Population Standard Deviation. But can we use the Sample Standard Deviation to instead the Population Standard Deviation?
     
@@ -232,7 +232,7 @@ plotDiffs(sampleSizes, diffs,
          label = 'High temps')
 ```
     
-<img src="media/15021854615979.jpg" width=300 />
+<img src="media/15021854615979.jpg" style="width:300px" />
     
 * Once sample reaches a reasonable size, **Sample Standard Deviation** is a pretty good approximation to **Population Standard Deviation**.
 
@@ -240,7 +240,7 @@ plotDiffs(sampleSizes, diffs,
 
 * **Does the Distribution of Population matter?**
     * Try Three Different Distributions: Uniform, Gaussian and Exponential
-    * <img src="media/15021858573377.jpg" width=500 />
+    * <img src="media/15021858573377.jpg" style="width:500px" />
 
     ```python
     def compareDists():
@@ -266,7 +266,7 @@ plotDiffs(sampleSizes, diffs,
     compareDists()  
     ```
     
-    <img src="media/15021859358634.jpg" width=300 />
+    <img src="media/15021859358634.jpg" style="width:300px" />
 
     * Conclusion
         * It does. Different Distribution of Population has different differences.
@@ -286,7 +286,7 @@ plotDiffs(sampleSizes, diffs,
                   'Population size = ' + str(size))
     ```
     
-    <img src="media/15021861471010.jpg" width=300 />
+    <img src="media/15021861471010.jpg" style="width:300px" />
     
     * Conclusion
         * It doesn't. Different Population Size has almost the same  differences.

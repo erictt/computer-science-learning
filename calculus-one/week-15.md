@@ -66,12 +66,12 @@
 
 ## Tables of Indefinite Integrals
 
-* <img src="media/15133099702627.jpg" width=500 />
+* <img src="media/15133099702627.jpg" style="width:500px" />
     * \\(tan^{-1}x = \arctan{x}\\)
     * Hyperbolic functions 
         * In mathematics, hyperbolic functions are analogs of the ordinary trigonometric, or circular, functions. --from [Wikipedia](https://en.wikipedia.org/wiki/Hyperbolic_function)
-        * <img src="media/15133242016684.jpg" width=300 />
-        * <img src="media/15133241702183.jpg" width=600 />
+        * <img src="media/15133242016684.jpg" style="width:300px" />
+        * <img src="media/15133241702183.jpg" style="width:600px" />
 
 ## Words
 

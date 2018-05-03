@@ -7,19 +7,19 @@
 * Given a set of N objects.
     * **Union command**: connect two objects.
     * **Find/connected query**: is there a path connecting the two objects?
-* <img src="media/15140831154396.jpg" width=500 />
+* <img src="media/15140831154396.jpg" style="width:500px" />
 * **We assume "is connected to" is an equivalence relation**:
     * Reflexive: **p** is connected to **p**.
     * Symmetric: if **p** is connected to **q**, then **q** is connected to **p**. 
     * Transitive: if **p** is connected to **q** and **q** is connected to **r**, then **p** is connected to **r**.
 * **Connected components.** Maximal set of objects that are mutually connected.
-* <img src="media/15140833574857.jpg" width=250 />
+* <img src="media/15140833574857.jpg" style="width:250px" />
 
 ### Implementation
 
 * The method called **Weighted quick-union with path compression**.
 * **quick-union**:
-    * <img src="media/15153361943661.jpg" width=580 />
+    * <img src="media/15153361943661.jpg" style="width:580px" />
 * **weighted**: Keep track of size of each tree (number of objects). Balance by linking root of smaller tree to root of larger tree.
     * Keep the depth of any node `x` is at most `lg N`.
 * **path compression**: Make every other node in path point to its grandparent.

@@ -12,7 +12,7 @@
     * Online transactions -> fraudulent?
     * Tumor -> Malignant/benign
 * Sometimes, Linear Regression may work, like the sample below:
-    * <img src="media/15057384338295.jpg" width=400 />
+    * <img src="media/15057384338295.jpg" style="width:400px" />
     * But most time the training set won't be so perfect
 * Here we use **Logistic regression**, which generates a value where is always either 0 or 1
 

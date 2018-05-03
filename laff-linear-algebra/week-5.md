@@ -5,7 +5,7 @@
 ## Composing Rotations
 
 * Rotate vector \\(\chi\\) through angle \\(\theta\\) then \\(\rho\\)
-* <img src="media/15230677242292.jpg" width=250/>
+* <img src="media/15230677242292.jpg" style="width:250px"/>
 * \\[R_{\theta}(\left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right)) =\left( \begin{array}{c|c} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) &  \cos(\theta) \end{array} \right)\left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right)\\]
 * \\[R_{\rho}(R_{\theta}(\left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right))) = \left( \begin{array}{c|c} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) &  \cos(\theta) \end{array} \right) \left( \left( \begin{array}{c|c} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) &  \cos(\theta) \end{array} \right) \left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right) \right) \\]
 * \\[R_{\rho}(R_{\theta}(\left(\begin{array}{c} \chi_{0} \\\chi_1\end{array}\right))) = \left( \begin{array}{c|c} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) &  \cos(\theta) \end{array} \right) \left( \begin{array}{c|c} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) &  \cos(\theta) \end{array} \right) \left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right)\\]
@@ -41,16 +41,16 @@
 
 * Loops for computing C := AB
     * The easiest way is three loops via dot product:
-        * <img src="media/15230981916448.jpg" width=600/>
+        * <img src="media/15230981916448.jpg" style="width:600px"/>
 * Three other different ways: by Columns, by Rows and with Rank-1 Updates.
 * Computing C := AB by columns
-    * <img src="media/15230983184445.jpg" width=600/>
+    * <img src="media/15230983184445.jpg" style="width:600px"/>
     * Inner loop: \\(c_1^T = a_1^T B + c_1^T\\)
 * Computing C := AB by rows
-    * <img src="media/15230983390128.jpg" width=600/>
+    * <img src="media/15230983390128.jpg" style="width:600px"/>
     * Inner loop: \\(c_1 = A b_1 + c_1\\)
 * Computing C := AB via rank-1 updates
-    * <img src="media/15230983608648.jpg" width=600/>
+    * <img src="media/15230983608648.jpg" style="width:600px"/>
     * Inner loop: \\(C = a_1b_1^t + C\\)
     * Start with first column of A and first row of B. Notice that after calculating \\(a_0 \widetilde b_0^{T}\\), all of the elements in C are set to a new value. Like layer by layer to rewrite C.
 

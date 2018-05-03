@@ -6,14 +6,14 @@
 
 * \\(1, \log{N}, N \log{N}, N^2, N^3, \text{ and } 2^N\\)
     * order of growth discards leading coefficient
-* <img src="media/15159109817755.jpg" width=300 />
+* <img src="media/15159109817755.jpg" style="width:300px" />
     * \\(\text{time} = \lg{T(N)}\\)
     * \\(\text{size} = \lg{N}\\)
-* <img src="media/15159110767827.jpg" width=600 />
+* <img src="media/15159110767827.jpg" style="width:600px" />
 
 ## Theory of Algorithms
 
-* <img src="media/15159115431400.jpg" width=600 />
+* <img src="media/15159115431400.jpg" style="width:600px" />
 
 
 ## Why Big-Oh Notation ? // TODO
@@ -24,11 +24,11 @@
 * [NOTE] It kinds of says, we use \\(n^k\\), but not \\(n^{k-1}\\)
     * Because \\(O(n^{k-1}) = c \cdot n^{k-1}\\) will always less then \\(n^k\\) (**c** is a constant, but n is not).
     * And we need that, T(n) is bounded above by a constant multiple of f(n).
-        * <img src="media/15139367090341.jpg" width=200 />
+        * <img src="media/15139367090341.jpg" style="width:200px" />
 * Example
-    * <img src="media/15139362728539.jpg" width=400 />
+    * <img src="media/15139362728539.jpg" style="width:400px" />
 
-* <img src="media/15140235475862.jpg" width=500 />
+* <img src="media/15140235475862.jpg" style="width:500px" />
 
 ## Words
 

@@ -45,7 +45,7 @@
 
 #### Pivot matrix
 
-* <img src="media/15234335856239.jpg" width=400 />
+* <img src="media/15234335856239.jpg" style="width:400px" />
     * Swap the \\(\pi\\)th row with the \\(0\\)th.
 
 * \\(\widetilde P(\pi) = (\widetilde P(\pi))^T\\)
@@ -56,7 +56,7 @@
 
 ### LU factorization algorithm that incorporates row (partial) pivoting
 
-* <img src="media/15234370309760.jpg" width=400 />
+* <img src="media/15234370309760.jpg" style="width:400px" />
 * Solving \\(Ax = b\\) then changes to 
     * Compute \\(P, L \text{ and } U\\) such that \\(PA = LU\\).
     * Update \\(b:= Pb\\).
@@ -116,12 +116,12 @@ is a unique output in R.
 * \\(A^{-1} = \frac{1}{ad - bc} \begin{bmatrix}d & -b \\ -c & a \end{bmatrix}\\)
 * So if \\(\text{det}(A) = ad - bc = 0\\), then \\(A^{-1}\\) doesn't exist and \\(A\\) is non-invertible.
 * A formula for the determinant of a 3×3 matrix:
-    * <img src="media/15250772910572.jpg" width=500 />
+    * <img src="media/15250772910572.jpg" style="width:500px" />
     * Similar to the \\(n \times n\\) matrix.
 
 ### Inverses of special matrices
 
-* <img src="media/15234520168657.jpg" width=500 />
+* <img src="media/15234520168657.jpg" style="width:500px" />
 
 ## Refers
 

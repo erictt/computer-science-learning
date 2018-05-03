@@ -14,7 +14,7 @@
 * This consists of differentiating both sides of the equation with respect to `x` and then solving the resulting equation for `y'`.
 
 * Sample 1: \\(x^2+y^2=25\\), find \\(\frac{d}{dx}y\\), and the tangent to the circle at point `(3, 4)`.
-    * <img src="media/15047908083942.jpg" width=400 />
+    * <img src="media/15047908083942.jpg" style="width:400px" />
         * \\[\begin{aligned}
             \frac{d}{dx}(x^2+y^2) &= \frac{d}{dx}(25) \\
             \frac{d}{dx}(x^2) + \frac{d}{dx}(y^2) &= 0 \\
@@ -25,7 +25,7 @@
     * At the point `(3, 4)` we have `x = 3` and `y = 4`, so \\[\frac{d}{dx}y = -\frac{3}{4}\\]
 * Sample 2: \\(x^3+y^3=axy\\) (**folium of Descartes**)
     * \\(x^3+y^3=6xy\\), find \\(\frac{d}{dx}y\\)
-    * <img src="media/15047911364682.jpg" width=150 />
+    * <img src="media/15047911364682.jpg" style="width:150px" />
     * \\[\begin{aligned}
         3x^2 + 3y^2y' &= 6xy' + 6y \\
         x^2 + y^2y' &= 2xy' + 2y \\

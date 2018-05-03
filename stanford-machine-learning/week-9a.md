@@ -46,7 +46,7 @@
 
 #### Example
 
-* <img src="media/15128021940264.jpg" width=500 />
+* <img src="media/15128021940264.jpg" style="width:500px" />
 
 ## Building an Anomaly Detection System
 
@@ -106,14 +106,14 @@
         * \\(x^{\frac{1}{3}}\\)
         * ...
         * to make it more Gaussian
-            * <img src="media/15128061163963.jpg" width=500 />
+            * <img src="media/15128061163963.jpg" style="width:500px" />
 
 * **Error analysis for anomaly detection**
     * When we get a wrong result on CV test, need to find out why the algorithm doesn't work.
     * For example:
         * We have one dimension, and our anomalous value is sort of buried in it (in green - Gaussian superimposed in blue)
         * So we need to come out a new feature to make this data set in two dimensions, and hopefully, the green spot will be out of our normal range.
-        * <img src="media/15128062759791.jpg" width=450 />
+        * <img src="media/15128062759791.jpg" style="width:450px" />
 
     * Another example:
         * Monitoring computers in a data center
@@ -131,9 +131,9 @@
     * \\(\mu \in \mathbb{R}^n, \Sigma \in \mathbb{R}^{n \times n}\\) (covariance matrix)
     * \\(\lvert \Sigma \rvert\\): matrix determinant. In Matlab: `det(Sigma)`
 * Examples
-    * <img src="media/15128095167216.jpg" width=500 />
-    * <img src="media/15128095318391.jpg" width=500 />
-    * <img src="media/15128095440459.jpg" width=500 />
+    * <img src="media/15128095167216.jpg" style="width:500px" />
+    * <img src="media/15128095318391.jpg" style="width:500px" />
+    * <img src="media/15128095440459.jpg" style="width:500px" />
 
 ### Anomaly Detection using the Multivariate Gaussian Distribution
 

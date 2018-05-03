@@ -75,7 +75,7 @@
 
 ### Proof of the Integral Test
 
-* <img src="media/15181757684961.jpg" width=400 />
+* <img src="media/15181757684961.jpg" style="width:400px" />
 * For the general series \\(\sum a_n\\), look at the figures above. The area of the first shaded rectangle is the value of **f** at the right endpoint of [1, 2], that is, \\(f(2) = a_2\\). So, comparing the areas of the shaded rectangles with the area under \\(y = f(x)\\) from 1 to n, we see that
     * \\(\displaystyle a_2 + \ldots + a_n = s_n - a_1 = \sum_{i=2}^n a_i \le \int_1^n f(x) dx \le a_1 + \ldots + a_{n-1} = s_{n-1} \le \sum_{i=1}^n a_i\\)
         * Notice that this inequality depends on the fact that f is decreasing.

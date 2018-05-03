@@ -40,13 +40,13 @@ The Fundamental Theorem of Calculus is appropriately named because it establishe
         \end{aligned}\\]
 
 * The area between \\(\sqrt{x}\\) and \\(x^2\\):
-    * <img src="media/15133058435652.jpg" width=100 />
+    * <img src="media/15133058435652.jpg" style="width:100px" />
 
     * \\[\int_0^1 \sqrt{x} - x^2 dx = [\frac{x^{3/2} }{3/2} - \frac{x^3}{3}]_0^1 = (\frac{2}{3} - \frac{1}{3}) - 0 = \frac{1}{3}\\]
 
 
 * \\(\int_0^t\sqrt{1-x^2}dx\\)
-    * <img src="media/15133064708700.jpg" width=300 />
+    * <img src="media/15133064708700.jpg" style="width:300px" />
     * Method 1 (use geometrical calculation):
         * Break the area to a circular sector and a triangle.
         * Then, we get:

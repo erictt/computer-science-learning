@@ -11,7 +11,7 @@
     * \\(s_l\\) = number of units (not counting bias unit) in layer \\(l\\)
     * \\(K\\) = number of output units/classes
     * For example:
-        * <img src="media/15095864858380.jpg" width=300 />
+        * <img src="media/15095864858380.jpg" style="width:300px" />
         * \\(L = 4\\)
         * \\(s_1 = 3, s_2 = 5, s_3 = 5, s_4 = S_L = 4\\)
         * \\(K = 4\\)
@@ -61,7 +61,7 @@
 3. For training example `i=1` to `m`:
     1. Set \\(a^{(1)} := x^{(t)}\\)
     2. Perform forward propagation to compute \\(a^{(l)} \text{ for l = 2,3,...,L}\\).
-        1. <img src="media/15097795052628.jpg" width=400 />
+        1. <img src="media/15097795052628.jpg" style="width:400px" />
     3. Using \\(y^{(i)}\\), compute \\(\delta^{(L)} = a^{(L)} - y^{(i)}\\)
         1. `L` is the total number of layers
         2. \\(a^{(L)}\\) is the vector of outputs of the activation units for the last layer.
@@ -89,11 +89,11 @@
 ### Backpropagation intuition
 
 * The detail of forward propagation:
-    * <img src="media/15097928601418.jpg" width=400 />
+    * <img src="media/15097928601418.jpg" style="width:400px" />
 * Recall that the cost function for a neural network. If we consider simple non-multiclass classification (k=1) and disregard regularization, the cost is computed with: \\[cost(t) =y^{(t)} \ \log (h_\Theta (x^{(t)})) + (1 - y^{(t)})\ \log (1 - h_\Theta(x^{(t)}))\\]
 * Intuitively, \\(\delta_j^{(l)}\\) is the "error" for \\(a_j^{(l)}\\) (unit `j` in layer `l`). More formally, the delta values are actually the derivative of the cost function: \\[\delta_j^{(l)}=\frac{d}{dz_j^{(l)}}cost(t)\\]
 * Recall that our derivative is the slope of a line tangent to the cost function, so the steeper the slope the more incorrect we are. Let us consider the following neural network below and see how we could calculate some \\(\delta_j^{(l)}\\) :
-    * <img src="media/15097941164576.jpg" width=500 />
+    * <img src="media/15097941164576.jpg" style="width:500px" />
     * To calculate every single possible \\(\delta_j^{(l)}\\), we could start from the right of our diagram. We can think of our edges as our \\(\Theta_{ij}\\). Going from right to left, to calculate the value of \\(\delta_j^{(l)}\\), you can just take the over all sum of each weight times the \\(\delta\\) it is coming from. For example: \\[\begin{aligned}\delta_2^{(3)} &= \Theta_{12}^{(3)} * \delta_1^{(4)} \\ \delta_2^{(2)} &= \Theta_{12}^{(2)} * \delta_1^{(3)} + \Theta_{22}^{(2)} * \delta_2^{(3)} \end{aligned}\\].
 
 ## Backpropagation Practice
@@ -197,7 +197,7 @@
     ```
     
 * The following image gives us an intuition of what is happening as we are implementing our neural network:
-    * <img src="media/15098595840774.jpg" width=400 />
+    * <img src="media/15098595840774.jpg" style="width:400px" />
 * Ideally, you want \\(h_{\Theta}(x^{(i)}) \approx y^{(i)}\\). This will minimize our cost function. However, keep in mind that \\(J(\Theta)\\) is not convex and thus we can end up in a local minimum instead.
 
 

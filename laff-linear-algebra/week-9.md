@@ -32,12 +32,12 @@
 #### Some terminology
 
 * **row-echelon form**: 
-    * <img src="media/15235397947372.jpg" width=120 />
+    * <img src="media/15235397947372.jpg" style="width:120px" />
     * The boxed values are known as the **pivots**.
     * In each row to the left of the vertical bar, the left-most nonzero element is the pivot for that row. 
     * Notice that the pivots in later rows appear to the right of the pivots in earlier rows.
 * **reduced row-echelon form**: 
-    * <img src="media/15235398106730.jpg" width=120 />
+    * <img src="media/15235398106730.jpg" style="width:120px" />
 
 ### Summary
 
@@ -138,7 +138,7 @@
         * Also, we know that two vectors with different directions can span a plane. So if we add any vectors to \\(\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 1\end{array}\right) \} \\), it will be linear dependent set.
 * **Theorem**: Let the set of vectors \\(\{  v_0, v_1 , \ldots , v_{n-1} \}  \subset \mathbb {R}^ m\\) be linearly dependent. Then at least one of these vectors can be written as a linear combination of the others.
     * In other words, the dependent vector \\(a_j\\) can be written as a linear combination of the other n−1 vectors.
-    * <img src="media/15242970114813.jpg" width=400 />
+    * <img src="media/15242970114813.jpg" style="width:400px" />
 
 * **Theorem**: Let  \\(\{  a_0, a_1 , \ldots , a_{n-1} \}  \subset \mathbb {R}^ m\\) and let \\( A = \left(\begin{array}{c|c|c|c} a_0 & a_1 & \cdots & a_{n-1}\end{array}\right) \\). Then the vectors \\(\{ a_0, a_1 , \ldots , a_{n-1} \}\\) are **linearly independent** if and only if \\(\mathcal{N}(A) = \{0\}\\).
     * aka \\(\chi_0 = \chi_1 = \cdots = \chi_{n-1} = 0\\)

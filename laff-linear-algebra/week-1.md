@@ -7,7 +7,7 @@
 ### Notation
 
 * A two-dimensional vector:
-    * <img src="media/15095033769682.jpg" width=200/>
+    * <img src="media/15095033769682.jpg" style="width:200px"/>
 * Vector in higher dimensions:
     * \\(x = \begin{pmatrix} x_0 \\ x_1 \\ \vdots \\ x_{n-1} \end{pmatrix}\\)
         * It is an ordered array.
@@ -27,9 +27,9 @@
 ### Unit Basis Vectors (Standard Basis Vectors)
 
 * An important set of vectors is the set of unit basis vectors given by
-    * <img src="media/15095053286178.jpg" width=200/>
+    * <img src="media/15095053286178.jpg" style="width:200px"/>
     * Where the "1" appears as the component indexed by `j`. Thus, we get the set \\(\{e_0,e_1,\ldots,e_{n-1}\} \subset \mathbb{R}^n\\) given by
-        * <img src="media/15095055075149.jpg" width=300/>
+        * <img src="media/15095055075149.jpg" style="width:300px"/>
 * Different with **unit vector**, which is any vector of length one (unit length). For example, the vector  \\(\begin{pmatrix}\frac{\sqrt{2}}{2} \\ \frac{\sqrt{2}}{2}\end{pmatrix}\\) has length one.
 
 ## Simple Vector Operations
@@ -38,30 +38,30 @@
 
 * Two vectors \\(x,y \in \mathbb{R}^n\\) are equal if all their components are element-wise equal: \\[x=y\ \text{if and only if}\ x_i = \psi_i, \text{for all}\ 0 \le i < n\\]
 * operation `y := x`:
-    * <img src="media/15095060143984.jpg" width=250/>
+    * <img src="media/15095060143984.jpg" style="width:250px"/>
 
 ### Vector Addition(ADD), Scaling(SCAL), Subtraction
 
 * Addition and Subtraction
-    * <img src="media/15095066472358.jpg" width=120/>
-    * <img src="media/15095067641781.jpg" width=300/>
-    * <img src="media/15095067848460.jpg" width=300/>
+    * <img src="media/15095066472358.jpg" style="width:120px"/>
+    * <img src="media/15095067641781.jpg" style="width:300px"/>
+    * <img src="media/15095067848460.jpg" style="width:300px"/>
 * Scaling
-    * <img src="media/15095066774541.jpg" width=200/>
+    * <img src="media/15095066774541.jpg" style="width:200px"/>
 
 ## Advanced Vector Operations
 
 ### Scaled Vector Addition (AXPY)
 
 * axpy: \\(\alpha x + y\\)
-    * <img src="media/15095069762490.jpg" width=300/>
+    * <img src="media/15095069762490.jpg" style="width:300px"/>
 * The AXPY operation requires `3n + 1` **memops**(memory operations) and `2n` **flops**(floating point operations). The reason is that \\(\alpha\\) is only brought in from memory once and kept in a register for reuse.
     * `3n+1`: x, ax, y, a
     * `2n`: ax, ax+y
 
 ### Dot or Inner Product (DOT)
 
-* <img src="media/15095133742389.jpg" width=400/>
+* <img src="media/15095133742389.jpg" style="width:400px"/>
 
 ### Vector Length(NORM2)
 
@@ -85,13 +85,13 @@
 ### Vector Functions
 
 * Sample:
-    * <img src="media/15095166701751.jpg" width=400/>
+    * <img src="media/15095166701751.jpg" style="width:400px"/>
 
 ### Vector Functions that Map a Vector to a Vector
 
 * \\(f: \mathbb{R}^n \to \mathbb{R}^m\\)
 * Sample:
-    * <img src="media/15095168033911.jpg" width=400/>
+    * <img src="media/15095168033911.jpg" style="width:400px"/>
 
 ## Enrichment  
 

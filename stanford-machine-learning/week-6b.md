@@ -11,7 +11,7 @@
     * Spam --> e.g. buy, discount, deal
     * Not Spam --> Andrew, now
 * Define a feature vector **x** which is 0 or 1 if a word corresponding to spam/not spam.
-    * <img src="media/15105579504822.jpg" width=200 />
+    * <img src="media/15105579504822.jpg" style="width:200px" />
     * In practice, take most frequently occurring \\(n\\) words (10,000 to 50,000) in training set, rather than 100 words.
 * Next thing is, how to improve system accuracy ?
     * Collect lots of data
@@ -56,7 +56,7 @@
 
 #### Precision and Recall (精确度和召回率)
 
-* <img src="media/15105667530555.jpg" width=200 />
+* <img src="media/15105667530555.jpg" style="width:200px" />
 * **Precision**: Of all patients we predicted have cancer, what fraction of them actually have cancer.
     * = true positives / # predicted positive
     * = true positives / (true positive + false positive)
@@ -84,11 +84,11 @@
     * So now we have have a higher recall, but lower precision
         * Risk of false positives, because we're less discriminating in deciding what means the person has cancer
 * plotting precision vs. recall:
-    * <img src="media/15105715004267.jpg" width=200 />
+    * <img src="media/15105715004267.jpg" style="width:200px" />
 * Is there a way to automatically choose the threshold? Or how to decide which algorithms is best for us?
     * Can we just average the sum of Precision and Recall?
 * For example: 
-    * <img src="media/15105720348353.jpg" width=250 />
+    * <img src="media/15105720348353.jpg" style="width:250px" />
 * If we use average(\\(\frac{P+R}{2}\\)), the **Algorithm 3** will be best one. But it almost predict **y = 1** all the time.
 * The better ways is to use \\(F_1\\)**Score (F score)** \\(= 2\frac{PR}{P+R}\\) (P: Precision, R: Recall)
     * Then the best choice is **Algorithm 1**.

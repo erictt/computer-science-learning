@@ -6,7 +6,7 @@
 ### Supervised Learning
 * Regression, to predict results within a continuous output. 
     * For example, predict housing prices:
-        * <img src="media/15057389349240.jpg" width=200 />
+        * <img src="media/15057389349240.jpg" style="width:200px" />
         * Given this data, how to predict the value of a specific size?
         * How to solve this?
             * Straight line through data
@@ -85,7 +85,7 @@
     * \\(\theta=1\\), then \\(h_{\theta}(x) = 0 + 1\times x\\) , then \\(h_\theta (x_{i}) - y_{i} =0\\) , then \\(J(\theta_{1})=0\\) 
     * Plots: ( \\(\theta_{1}=1, J(\theta_{1})=0\\) ), (\\(\theta_{1}=0.5, J(\theta_{1})\approx0.58\\) ), (\\(\theta_{1}=0, J(\theta_{1})\approx2.3\\) )
     * Then we got:
-        * <img src="media/week-1-8.png" width=300 />
+        * <img src="media/week-1-8.png" style="width:300px" />
     * The optimization objective for the learning algorithm is find the value of \\(\theta_{1}\\) which \\(\text{minimizes }  J(\theta_{1})\\)
         * So, here \\(\theta_{1} = 1\\) is the best value for \\(\theta_{1}\\)
 * Using our original complex hypothesis with two paribles,So cost function is \\(J(\theta_{0}, \theta_{1})\\)
@@ -93,12 +93,12 @@
         * \\(X = \theta_{0}\\)
         * \\(Z = \theta_{0}\\)
         * \\(Y=J(\theta_{0}, \theta_{1})\\)
-        * <img src="media/week-1-9.png" width=400 />
+        * <img src="media/week-1-9.png" style="width:400px" />
     * Instead of a surface plot we can use a **contour figures/plots**
         * Set of ellipses in different colors
         * Each color is the same value of \\(J(\theta_{0}, \theta_{1})\\) , but obviously plot to different locations because \\(\theta_{1}\\) and \\(\theta_{0}\\) will vary
         * Imagine a bowl shape function coming out of the screen so the middle is the concentric circles
-        * <img src="media/week-1-10.png" width=500 />
+        * <img src="media/week-1-10.png" style="width:500px" />
 
 ## Parameter Learning
 
@@ -117,7 +117,7 @@
 * Outline:
     * Start with some \\(\theta_{0}, \theta_{1}\\), 
     * Keep changing \\(\theta_{0}, \theta_{1}\\) to reduce \\(J(\theta_{0}, \theta_{1})\\) until we hopefully end up at a minimum
-    * <img src="media/week-1-11.png" width=500 />
+    * <img src="media/week-1-11.png" style="width:500px" />
     * Here we can see one initialization point led to one local minimum
     * The other led to a different one
 

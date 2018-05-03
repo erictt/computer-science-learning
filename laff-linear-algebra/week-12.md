@@ -73,7 +73,7 @@
     * \\(A = \begin{pmatrix} 1 & -1 \\ 2 & 4 \end{pmatrix}\\)
     * the eigenpairs are \\((2, \begin{pmatrix} -1 \\ 1 \end{pmatrix}), (3 \begin{pmatrix} -1 \\ 2 \end{pmatrix})\\)
     * Then:
-    * <img src="media/15251022826855.jpg" width=600 />
+    * <img src="media/15251022826855.jpg" style="width:600px" />
     * **The matrix A can be diagonalized**.
 
 

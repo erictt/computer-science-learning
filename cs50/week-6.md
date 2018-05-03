@@ -7,7 +7,7 @@
 * Internet Protocol
 * IP is responsible for getting information from point A to point B, and breaking the information into small pieces, so that the network isn't overly taxed.
 * Trace route sample:
-    * <img src="media/15038995086492.jpg" width=500 />
+    * <img src="media/15038995086492.jpg" style="width:500px" />
 
 ### IPv4
 

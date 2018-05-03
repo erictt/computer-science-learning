@@ -5,11 +5,11 @@
 ## Trigonometry 
 
 * Trigonometric Functions
-    * <img src="media/15054475000459.jpg" width=200 />
+    * <img src="media/15054475000459.jpg" style="width:200px" />
         * \\(\sin{\theta} = \frac{opp}{hyp}\\), \\(\csc{\theta} = \frac{hyp}{opp}\\)
         * \\(\cos{\theta} = \frac{adj}{hyp}\\), \\(\sec{\theta} = \frac{hyp}{adj}\\)
         * \\(\tan{\theta} = \frac{opp}{adj}\\), \\(\cot{\theta} = \frac{adj}{opp}\\)
-    * <img src="media/15054533933475.jpg" width=200 />
+    * <img src="media/15054533933475.jpg" style="width:200px" />
         * \\(\sin{\theta} = \frac{y}{r}\\), \\(\csc{\theta} = \frac{r}{y}\\)
         * \\(\cos{\theta} = \frac{x}{r}\\), \\(\sec{\theta} = \frac{r}{x}\\)
         * \\(\tan{\theta} = \frac{y}{x}\\), \\(\cot{\theta} = \frac{x}{y}\\)
@@ -25,10 +25,10 @@
 
 
 * \\(\theta = \frac{a}{r}\\), \\(a = r\theta\\)
-    * <img src="media/15054531930497.jpg" width=100 /> <img src="media/15054532954639.jpg" width=100 />
-* <img src="media/15054540341363.jpg" width=500 />
+    * <img src="media/15054531930497.jpg" style="width:100px" /> <img src="media/15054532954639.jpg" style="width:100px" />
+* <img src="media/15054540341363.jpg" style="width:500px" />
 
-    * <img src="media/15054535310654.jpg" width=250 />
+    * <img src="media/15054535310654.jpg" style="width:250px" />
 
 ### Some of Trigonometric Identities
 
@@ -39,8 +39,8 @@
 
 ### Graphs of the Trigonometric Functions
 
-* <img src="media/15054545195715.jpg" width=350 />
-* <img src="media/15054541524283.jpg" width=350 />
+* <img src="media/15054545195715.jpg" style="width:350px" />
+* <img src="media/15054541524283.jpg" style="width:350px" />
 
 ## Differentiate Trig Functions
 
@@ -75,12 +75,12 @@
 ## Inverse Trigonometric Functions
 
 * \\(y = \sin{x}\\)
-    * <img src="media/15055425361328.jpg" width=150 />
+    * <img src="media/15055425361328.jpg" style="width:150px" />
 * \\(y = \sin^{-1}{x} = \arcsin{x} \Leftrightarrow \sin{y} = x\ and\ -\frac{\pi}{2} \le x \le \frac{\pi}{2}\\)
-    * <img src="media/15055425474054.jpg" width=150 />
+    * <img src="media/15055425474054.jpg" style="width:150px" />
     * we can conclude this: \\(\arcsin{(\sin{x})} = x\\)
 * Sample: Simplify the expression \\(\cos{(\tan^{-1}x)}\\):
-    * If \\(y=\tan^{-1}x\\), then \\(\tan{y}=x\\), we can use a diagram to express this: <img src="media/15055436291821.jpg" width=150 />
+    * If \\(y=\tan^{-1}x\\), then \\(\tan{y}=x\\), we can use a diagram to express this: <img src="media/15055436291821.jpg" style="width:150px" />
     * Then \\[\cos{(\tan^{-1}x)} = \cos{y} = \frac{1}{\sqrt{1+x^2}}\\]
 
 ### The Derivatives of Inverse Trig Functions
