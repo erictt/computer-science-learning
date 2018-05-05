@@ -66,7 +66,7 @@
 
 * <img src="media/15231973476841.jpg" style="width:600px"/>
 
-### Transform to matrix to upper triangular matrix
+### Transform matrix to upper triangular matrix
 
 * <img src="media/15231974994600.jpg" style="width:600px"/>
 

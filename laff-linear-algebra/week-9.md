@@ -124,7 +124,7 @@
 
 * **Definition**: Let \\(\{v_0, v_1, \cdots, v_{n-1} \} \subset \mathbb{R}^m\\). Then the **span** of these vectors, Span \\(\{v_0, v_1, \cdots, v_{n-1}\}\\), is said to be the set of all vectors that are a linear combination of the given set of vectors. \\[\text{If}\ V = \left(\begin{array}{c|c|c|c} v_0 & v_1 & \cdots & v_{n-1} \end{array}\right)\ \text{then Span}\left(\begin{array}{c c c c} v_0, v_1, \cdots, v_{n-1} \end{array}\right) = \mathcal{C}(V).\\]
     * **Linear Combination**: Let \\(u,v \in \mathbb{R}^m\\) and \\(α,β \in \mathbb{R}\\). Then \\(αu + βv\\) is said to be a **linear combination** of vectors \\(u\\) and \\(v\\).
-    * Let \\(u,v \in \mathbb{R}^m\\). \\(\text{Span }(u, v) = \mathbb{R}^m\\) means we can use the linear combination of vectors **m** and **n** to represent all of the vectors \\(\in \mathbb{R}^m\\).
+    * Let \\(u,v \in \mathbb{R}^m\\). \\(\text{Span }(u, v) = \mathbb{R}^m\\) means we can use the linear combination of vectors **u** and **v** to represent all of the vectors \\(\in \mathbb{R}^m\\).
 
 * **Definition**: A **spanning set of a subspace** S is a set of vectors \\(\{v_0, v_1, \cdots, v_{n-1} \}\\) such that Span(\\(\{v_0, v_1, \cdots, v_{n-1} \}\\)) = S.
     * For example: \\(\text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 1\end{array}\right) \} = \mathbb{R}^2 \\)

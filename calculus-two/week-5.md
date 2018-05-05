@@ -55,8 +55,8 @@
 
 * \\(\displaystyle\sum_{n=0}^{\infty}c_n (x - a)^n\\)
 * Use ratio test:
-    * \\(\displaystyle \lim_{n \to \infty} |\frac{C_{n+1} \cdot (x - a)^{n+1} }{C_n \cdot (x - a)^n}| = \lim_{n \to \infty} |\frac{C_{n+1} }{C_n}| \cdot |x - a|\\)
-    * To get the interval of convergence, let's set \\(|\frac{C_{n+1} }{C_n}| = \frac{1}{R}\\)
+    * \\(\displaystyle \lim_{n \to \infty} |\frac{c_{n+1} \cdot (x - a)^{n+1} }{c_n \cdot (x - a)^n}| = \lim_{n \to \infty} |\frac{c_{n+1} }{c_n}| \cdot |x - a|\\)
+    * To get the interval of convergence, let's set \\(|\frac{c_{n+1} }{c_n}| = \frac{1}{R}\\)
         * \\(\frac{1}{R} \cdot |x - a| < 1\\)
         * \\(a - R < x < a + R\\)
 

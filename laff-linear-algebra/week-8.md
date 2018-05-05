@@ -7,6 +7,10 @@
 * The key of Gauss-Jordan Elimination is to transfer matrix A to the identity matrix:
     * <img src="media/15235069828193.jpg" style="width:400px" />
 
+* \\(Ax=b\\)
+* If A is non-singular, then:
+    * \\(A^{-1}Ax = x \to A^{-1}b = x \to x = A^{-1}b\\)
+
 ### Computing A^−1 via Gauss-Jordan Elimination
 
 * <img src="media/15235069828192.jpg" style="width:600px" />

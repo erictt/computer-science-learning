@@ -81,7 +81,7 @@
 
 * For example: 
 * \\(A = \begin{bmatrix} 1 & 1 & 1 & 1 \\ 2 & 1 & 4 & 3 \\ 3 & 4 & 1 & 2 \end{bmatrix}\\). \\(\text{rref }(A) = \begin{bmatrix} 1 & 0 & 3 & 2 \\ 0 & 1 & -2 & -1 \\ 0 & 0 & 0 & 0 \end{bmatrix}\\)
-    * **rref**: row-echelon form.
+    * **rref**: reduced row-echelon form.
 * \\(\mathcal{C}(A) = \text{Span }(\begin{bmatrix}1 \\ 2 \\ 3\end{bmatrix}, \begin{bmatrix}1 \\ 1 \\ 4\end{bmatrix} )\\)
 * Define \\(n\\) is the normal vector to \\(\mathcal{C}(A)\\), And vector \\(\begin{bmatrix}x \\ y \\ z\end{bmatrix}\\) is point to the surface. Then:
     * Use cross product, we get \\( n = \begin{bmatrix}1 \\ 2 \\ 3\end{bmatrix} \times \begin{bmatrix}1 \\ 1 \\ 4\end{bmatrix} = \begin{bmatrix}5 \\ -1 \\ -1\end{bmatrix}\\)

@@ -8,7 +8,7 @@
 * where \\(A \in \mathbb{R}^{n \times n}\\) is a square matrix, \\(\lambda\\) is a scalar, and \\(x\\) is a nonzero vector.
     * If \\(x \ne 0\\), then \\(\lambda\\) is said to be an eigenvalue and x is said to be an **eigenvector** associated with the **eigenvalue** \\(\lambda\\).
     * The tuple \\((\lambda, x)\\) is said to be an **eigenpair**.
-    * The set of all vectors that satisfy \\(Ax = \lambda x\\) is a subspace.
+    * The set of all vectors **x** that satisfy \\(Ax = \lambda x\\) is a subspace, called **eigenspace**.
 * Equivalent statements:
     * \\(Ax = \lambda x\\), where \\(x \ne 0\\).
     * \\((A - \lambda I) x = 0\\), where \\(x \ne 0\\).

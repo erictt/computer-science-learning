@@ -25,8 +25,8 @@
 
 * Let \\(A \in \mathbb{R}^{m \times n}\\) and let \\(I\\) denote the identity matrix of appropriate size.
     * \\(A I = I A = A\\)
-* Let \\(A \in \mathbb R^{m \times n}\\) and let \\(D\\) denote the diagonal matrix with diagonal elements \\(\delta_0, \delta_1, \cdots, \delta_{n-1}\\). Partition \\(A\\) by columns : \\[A= \left( \begin{array}{r|r|r|r} a_0 &  a_1 & \dots &  a_{n-1} \end{array} \right).\\] \\[AD= \left ( \begin{array}{r|r|r|r} \delta_0 a_0 &  \delta_1 a_1 &   \dots  &  \delta_{n-1}a_{n-1} \end{array} \right).\\]
-* Let \\(A \in \mathbb R^{m \times n}\\) and let \\(D\\) denote the diagonal matrix with diagonal elements \\(\delta_0, \delta_1, \cdots, \delta_{m-1}\\). Partition \\(A\\) by rows : \\[A= \left( \begin{array}{c} \widetilde a_0^{T} \\   \widetilde a_1^{T} \\  \vdots \\   \widetilde a_{m-1}^{T} \end{array} \right).\\] \\[DA= \left ( \begin{array}{c} \delta_0 \widetilde a_0^{T} \\   \delta_1 \widetilde a_1^{T} \\    \vdots  \\   \delta_{m-1} \widetilde a_{m-1}^{T} \end{array} \right).\\]
+* Let \\(A \in \mathbb R^{m \times n}\\) and let \\(D\\) denote the diagonal matrix with diagonal elements \\(\delta_0, \delta_1, \cdots, \delta_{n-1}\\). Partition \\(A\\) by columns : \\[A= \left( \begin{array}{r|r|r|r} a_0 &  a_1 & \dots &  a_{n-1} \end{array} \right). AD= \left ( \begin{array}{r|r|r|r} \delta_0 a_0 &  \delta_1 a_1 &   \dots  &  \delta_{n-1}a_{n-1} \end{array} \right).\\]
+* Let \\(A \in \mathbb R^{m \times n}\\) and let \\(D\\) denote the diagonal matrix with diagonal elements \\(\delta_0, \delta_1, \cdots, \delta_{m-1}\\). Partition \\(A\\) by rows : \\[A= \left( \begin{array}{c} \widetilde a_0^{T} \\   \widetilde a_1^{T} \\  \vdots \\   \widetilde a_{m-1}^{T} \end{array} \right). DA= \left ( \begin{array}{c} \delta_0 \widetilde a_0^{T} \\   \delta_1 \widetilde a_1^{T} \\    \vdots  \\   \delta_{m-1} \widetilde a_{m-1}^{T} \end{array} \right).\\]
 * Let \\(U, R \in \mathbb{R}^{n \times n}\\) be upper triangular matrices.
     * The product \\(UR\\) is an upper triangular matrix.
     * same as lower triangular.

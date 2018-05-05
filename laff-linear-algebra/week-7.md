@@ -66,7 +66,7 @@
 ## The Inverse Matrix
 
 * **Definition**: an n-by-n **square** matrix A is called invertible (also nonsingular) if there exists an n-by-n square matrix B such that
- \\[{\displaystyle \mathbf {AB} =\mathbf {BA} =\mathbf {I} _{n}\ } \mathbf {AB} =\mathbf {BA} =\mathbf {I} _{n}\\] 
+ \\[\mathbf {AB} =\mathbf {BA} =\mathbf {I} _{n}\\] 
 
 ### Inverse Functions in 1D
 
