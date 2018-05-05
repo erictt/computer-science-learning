@@ -4,6 +4,7 @@
 
 ### Current Curriculums
 
+* Multivariable calculus [[Course](https://www.khanacademy.org/math/multivariable-calculus)]
 * MITx: 6.041x Introduction to Probability - The Science of Uncertainty [[Course](https://courses.edx.org/courses/course-v1:MITx+6.041x_4+1T2017/course/)]
 * Stanford University: Statistical Learning [[Course](https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/info)]
 * Princeton University: Algorithms Part I [[Course](https://www.coursera.org/learn/algorithms-part1/home/welcome)]

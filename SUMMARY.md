@@ -5,9 +5,36 @@
 * [Introduction](README.md)
 * [Symbols of Mathematics](SYMBOLS.md)
 
-## Stanford Statistical Learning
+## Introduction to Probability
+
+* [Unit 1: Probability models and axioms](introduction-to-probability/unit-1.md)
 
 <!--
+* [Unit 2: Conditioning and independence](introduction-to-probability/unit-2.md)
+* [Unit 3: Counting](introduction-to-probability/unit-3.md)
+* [Unit 4: Discrete random variables](introduction-to-probability/unit-4.md)
+* [Unit 5: Continuous random variables](introduction-to-probability/unit-5.md)
+* [Unit 6: Further topics on random variables](introduction-to-probability/unit-6.md)
+* [Unit 7: Bayesian inference](introduction-to-probability/unit-7.md)
+* [Unit 8: Limit theorems and classical statistics](introduction-to-probability/unit-8.md)
+* [Unit 9: Bernoulli and Poisson processes](introduction-to-probability/unit-9.md)
+* [Unit 10: Markov chains](introduction-to-probability/unit-10.md)
+-->
+
+## Multivariable Calculus
+
+* [Unit 1: Thinking about multivariable functions](multivariable-calculus/unit-1.md)
+
+<!--
+* [Unit 2: Derivatives of multivariable functions](multivariable-calculus/unit-2.md)
+* [Unit 3: Applications of multivariable derivatives](multivariable-calculus/unit-3.md)
+* [Unit 4: Integrating multivariable functions](multivariable-calculus/unit-4.md)
+* [Unit 5: Green's, Stokes', and the divergence theorems](multivariable-calculus/unit-5.md)
+-->
+
+<!--
+## Stanford Statistical Learning
+
 * [Chapter 2 - Overview of Statistical Learning](statistical-learning/chapter-2.md)
 * Chapter 3 - Linear Regression
 * Chapter 4 - Classification
@@ -19,10 +46,12 @@
 * Chapter 10 - Unsupervised Learning
 -->
 
+<!--
 ## Algorithms: Part I
 
 * [1 - Union-Find](algorithms-1/1-union-find.md)
 * [2 - Analysis of Algorithms](algorithms-1/2-analysis-of-algorithms.md)
+-->
 
 ## Calculus Two: Sequences and Series
 
