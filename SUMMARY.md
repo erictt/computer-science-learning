@@ -8,9 +8,9 @@
 ## Introduction to Probability
 
 * [Unit 1: Probability models and axioms](introduction-to-probability/unit-1.md)
+* [Unit 2: Conditioning and independence](introduction-to-probability/unit-2.md)
 
 <!--
-* [Unit 2: Conditioning and independence](introduction-to-probability/unit-2.md)
 * [Unit 3: Counting](introduction-to-probability/unit-3.md)
 * [Unit 4: Discrete random variables](introduction-to-probability/unit-4.md)
 * [Unit 5: Continuous random variables](introduction-to-probability/unit-5.md)
