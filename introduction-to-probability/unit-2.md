@@ -68,7 +68,7 @@
 
 ### Independence
 
-* Two events A and B are said to **independent** if \\[P(A \cap B) = P(A)P(B)\\] If in addition, \\(P(B) > 0\\), independence is equivalent to the condition \\(P(A | B) = P(A)\\]
+* Two events A and B are said to **independent** if \\[P(A \cap B) = P(A)P(B)\\] If in addition, \\(P(B) > 0\\), independence is equivalent to the condition \\[P(A | B) = P(A)\\]
 * If A and B are independent, so are A and \\(B^c\\).
 * Two events A and B are said to be **conditionally independent**, given another event C with \\(P(C) > 0\\), if \\[P(A \cap B | C) = P(A | C)P(B | C).\\] If in addition, \\(P(B \cap C) > 0\\), conditional independence is equivalent to the condition \\[P(A | B \cap C) = P(A | C).\\]
 * **Independence does not imply conditional independence**, and vice versa.
