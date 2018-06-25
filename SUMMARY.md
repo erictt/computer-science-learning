@@ -9,9 +9,9 @@
 
 * [Unit 1: Probability models and axioms](introduction-to-probability/unit-1.md)
 * [Unit 2: Conditioning and independence](introduction-to-probability/unit-2.md)
+* [Unit 3: Counting](introduction-to-probability/unit-3.md)
 
 <!--
-* [Unit 3: Counting](introduction-to-probability/unit-3.md)
 * [Unit 4: Discrete random variables](introduction-to-probability/unit-4.md)
 * [Unit 5: Continuous random variables](introduction-to-probability/unit-5.md)
 * [Unit 6: Further topics on random variables](introduction-to-probability/unit-6.md)
@@ -24,9 +24,9 @@
 ## Multivariable Calculus
 
 * [Unit 1: Thinking about multivariable functions](multivariable-calculus/unit-1.md)
+* [Unit 2: Derivatives of multivariable functions](multivariable-calculus/unit-2.md)
 
 <!--
-* [Unit 2: Derivatives of multivariable functions](multivariable-calculus/unit-2.md)
 * [Unit 3: Applications of multivariable derivatives](multivariable-calculus/unit-3.md)
 * [Unit 4: Integrating multivariable functions](multivariable-calculus/unit-4.md)
 * [Unit 5: Green's, Stokes', and the divergence theorems](multivariable-calculus/unit-5.md)
