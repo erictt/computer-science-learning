@@ -84,17 +84,21 @@ public class KnifeFactory {
 * ![-w574](media/15378904848603.jpg)
 
 ### Chain of Responsibility Pattern
-* Like the switch function
+
+* Like `switch` and `try/catch` block
 * ![-w514](media/15379013737005.jpg)
 
 ### State Pattern
+
 * Change the behaviour of an object based on the state that it's in at run-time. 
 * ![-w635](media/15379015822307.jpg)
 
 ### Command Pattern
+
 * ![-w533](media/15379019173343.jpg)
 
 ### Observer Pattern
+
 * ![-w270](media/15379020909299.jpg)
 
 * ![-w621](media/15379020717517.jpg)
@@ -103,47 +107,46 @@ public class KnifeFactory {
 
 ### MVC Pattern
 
+* Basic Model-View-Control Pattern.
+
 ### Open/Closed Principle
-* ![-w434](media/15379022260343.jpg)
-* ![-w518](media/15379024534850.jpg)
-* ![-w503](media/15379025207676.jpg)
+
+* Consider a class as being `closed` to editing once it has been:
+    * Tested to be functioning properly
+    * All the attributes and behaviours are encapsulated
+    * Proven to be stable within your system
 
 ### Dependency Inversion Principle
-* ![-w521](media/15379026409815.jpg)
+
+* The principle states that high level modules should be depend on high level generalizations, and not on low level details.
 * The client classes should depend on an interface or abstract class instead of referring to concrete resources.
 * ![-w617](media/15379028292063.jpg)
 
 ### Composing Objects Principle
-* ![-w528](media/15379031568909.jpg)
-* inheritance should be only used to extend classes.
-* ![-w524](media/15379033903420.jpg)
-* ![-w507](media/15379034532582.jpg)
+
+* This principle states that classes should achieve code reuse through **aggregation** rather that inheritance to reduce coupling.
+* Inheritance should be only used to extend classes.
 
 ### Interface Segregation Principle
-* ![-w521](media/15379036093067.jpg)
+
+* The Interface Segregation Principle states that **a class should bot be forced to depend on methods it does not use**. This means that any classes that implement an interface, should not have "dummy" implementations of any methods defined in the interface. Instead, you should **split large interfaces into smaller generalizations**.
 * ![-w573](media/15379036609100.jpg)
 
 ### Principle of Least Knowledge
-* ![-w543](media/15379037487389.jpg)
-* ![-w456](media/15379037939476.jpg)
-* ![-w440](media/15379038045321.jpg)
-* ![-w399](media/15379038150048.jpg)
-* ![-w466](media/15379038318110.jpg)
-* ![-w530](media/15379038504003.jpg)
-    *  The term "reaching through" means that you'd need to use another object to pass along your request
 
+* **Classes should know about and interact with as few other classes as possible.**
+* A method, M, of an object should only call other methods if they are:
+    1. Encapsulated within the same object.
+    2. Encapsulated within an object that is in the parameters of M.
+    3. Encapsulated within an object that is instantiated inside the M.
+    4. Encapsulated within an object that is referenced in an instance variable of the class for M.
 
 ## UML
 
 * https://www.uml-diagrams.org/index-examples.html
 * https://tallyfy.com/uml-diagram/
 
-
-
-1. 菱形 线 1对多 多对1 1对1
-
-
-Aggregation: "Has-a"
+## Words
 
 * encapsulate vt. 压缩；将…装入胶囊；将…封进内部；概述 vi. 形成胶囊
 * delegate ['deliɡət, -ɡeit, 'deliɡeit] vt. 委派…为代表 n. 代表
@@ -152,9 +155,3 @@ Aggregation: "Has-a"
 * abstraction 抽象化
 * polymorphism [,pɔli'mɔ:fizm] n. 多态性；多形性；同质多晶
 * segregation [,seɡri'ɡeiʃən] n. 隔离，分离；种族隔离
-
-
-robust
-reusable
-flexible 
-maintainable

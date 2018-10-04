@@ -53,6 +53,10 @@
 * [2 - Analysis of Algorithms](algorithms-1/2-analysis-of-algorithms.md)
 -->
 
+## Introduction to Software Design and Architecture
+
+* [Design Pattern](introduction-to-software-design-and-architecture/design-pattern.md)
+
 ## Calculus Two: Sequences and Series
 
 * [Week 1 - Sequences](calculus-two/week-1.md)
