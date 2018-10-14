@@ -48,7 +48,7 @@
 
 * Sample 1: 
     \\[\begin{aligned}
-        f(x) &= e^x,\ f'(x) = e^x (proved\ in\ end\ of\ week 5) \\
+        f(x) &= e^x,\ f'(x) = e^x \text{(proved in the end of week 5)} \\
         f^{-1}(x) &= \log{x} \\
         (f^{-1})'(x) &= \frac{1}{f'(f^{-1}(x))} = \frac{1}{f'(\log{x})} = \frac{1}{e^{\log{x}}} \\
         &= \frac{1}{x}
@@ -63,7 +63,7 @@
     \\[\begin{aligned}
         f(x) &= b^x \\
         &= (e^{\log{b}})^x = e^{\log{b} \cdot x} \\
-        f'(x) &= e^{\log{b} \cdot x} \cdot \frac{d}{dx}(\log{b} \cdot x)\ (chain\ rules) \\
+        f'(x) &= e^{\log{b} \cdot x} \cdot \frac{d}{dx}(\log{b} \cdot x)\ \text{(chain rules)} \\
         &= (e^{\log{b}})^{\cdot x} \cdot \log{b} \\
         &= b^x \cdot \log{b}
       \end{aligned}\\]  
@@ -118,8 +118,8 @@
 * Use logarithms to prove: 
     \\[\begin{aligned}
         f(x) &> 0,\ g(x) > 0, \\
-        log(f(x)g(x)) &= log(f(x)) + log(g(x)) \\
-        \frac{d}{dx}log(f(x)g(x)) &= \frac{d}{dx}log(f(x)) + \frac{d}{dx}log(g(x)) \\
+        \log(f(x)g(x)) &= \log(f(x)) + \log(g(x)) \\
+        \frac{d}{dx} \log(f(x)g(x)) &= \frac{d}{dx} \log(f(x)) + \frac{d}{dx} \log(g(x)) \\
         \frac{1}{f(x)g(x)} \cdot \frac{d}{dx}f(x)g(x) &= \frac{1}{f(x)} \cdot \frac{d}{dx}f(x) + \frac{1}{g(x)} \cdot \frac{d}{dx}g(x) \\
         \frac{d}{dx}f(x)g(x) &= g(x) \cdot \frac{d}{dx}f(x) + f(x) \cdot \frac{d}{dx}g(x)
       \end{aligned}\\]
@@ -128,7 +128,7 @@
 
 * First we need to calculate the derivative of \\(\frac{1}{g(x)}\\) : 
     \\[\begin{aligned}
-        we\ have\ proved\ this:\ f(x) &= \frac{1}{x},\ f'(x) = -\frac{1}{x^2} \\
+        \text{we have proved this:} f(x) &= \frac{1}{x},\ f'(x) = -\frac{1}{x^2} \\
         so,\ \frac{d}{dx}\frac{1}{g(x)} &= - \frac{1}{(g(x))^2} \cdot g'(x)
       \end{aligned}\\]
       
@@ -148,7 +148,7 @@
     But 
     \\[\epsilon = \frac{\Delta y}{\Delta x}-f'(a)\ \Rightarrow \Delta y = f'(a)\Delta x + \epsilon \Delta x\ \\]. 
     If we define \\(\epsilon\\) to be 0 when `∆x = 0`, then \\(\epsilon\\) become a continuous function of `∆x`. Thus, for a differentiable function `f`, we can write 
-    \\[\Delta y = f'(a)\Delta x + \epsilon \Delta x\ where\ \epsilon \to 0\ as\ \Delta x \to 0\\]
+    \\[\Delta y = f'(a)\Delta x + \epsilon \Delta x \text{ where } \epsilon \to 0\ as\ \Delta x \to 0\\]
     and \\(\epsilon\\) is a continuous function of `∆x`. This property of differentiable functions is what enables us to prove the Chain Rule.
 * **Now to Prove**: Suppose `u=g(x)` is differentiable at `a` and `y=f(u)` is differentiable at `b=g(a)`, If `∆x` is an increment in `x` and `∆u` and   `∆y` are corresponding increments in `u` and `y`, then we can use last equation to write 
     \\[\Delta u = g'(a)\Delta x + \epsilon_1\Delta x = (g'(a) + \epsilon_1)\Delta x\\]

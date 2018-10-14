@@ -76,7 +76,7 @@
 
 * \\(y = \sin{x}\\)
     * <img src="media/15055425361328.jpg" style="width:150px" />
-* \\(y = \sin^{-1}{x} = \arcsin{x} \Leftrightarrow \sin{y} = x\ and\ -\frac{\pi}{2} \le x \le \frac{\pi}{2}\\)
+* \\(y = \sin^{-1}{x} = \arcsin{x} \Leftrightarrow \sin{y} = x \text{ and } -\frac{\pi}{2} \le x \le \frac{\pi}{2}\\)
     * <img src="media/15055425474054.jpg" style="width:150px" />
     * we can conclude this: \\(\arcsin{(\sin{x})} = x\\)
 * Sample: Simplify the expression \\(\cos{(\tan^{-1}x)}\\):

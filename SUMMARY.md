@@ -5,6 +5,20 @@
 * [Introduction](README.md)
 * [Symbols of Mathematics](SYMBOLS.md)
 
+<!--
+## Stanford Statistical Learning
+
+* [Chapter 2 - Overview of Statistical Learning](statistical-learning/chapter-2.md)
+* Chapter 3 - Linear Regression
+* Chapter 4 - Classification
+* Chapter 5 - Resampling Methods
+* Chapter 6 - Linear Model Selection and Regularization
+* Chapter 7 - Moving Beyond Linearity
+* Chapter 8 - Tree-Based Methods
+* Chapter 9 - Support Vector Machines
+* Chapter 10 - Unsupervised Learning
+-->
+
 ## Introduction to Probability
 
 * [Unit 1: Probability models and axioms](introduction-to-probability/unit-1.md)
@@ -32,26 +46,10 @@
 * [Unit 5: Green's, Stokes', and the divergence theorems](multivariable-calculus/unit-5.md)
 -->
 
-<!--
-## Stanford Statistical Learning
-
-* [Chapter 2 - Overview of Statistical Learning](statistical-learning/chapter-2.md)
-* Chapter 3 - Linear Regression
-* Chapter 4 - Classification
-* Chapter 5 - Resampling Methods
-* Chapter 6 - Linear Model Selection and Regularization
-* Chapter 7 - Moving Beyond Linearity
-* Chapter 8 - Tree-Based Methods
-* Chapter 9 - Support Vector Machines
-* Chapter 10 - Unsupervised Learning
--->
-
-<!--
 ## Algorithms: Part I
 
 * [1 - Union-Find](algorithms-1/1-union-find.md)
 * [2 - Analysis of Algorithms](algorithms-1/2-analysis-of-algorithms.md)
--->
 
 ## Introduction to Software Design and Architecture
 

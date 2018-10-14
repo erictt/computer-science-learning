@@ -36,7 +36,7 @@
 * \\(\int_{x=0}^2 2x(x^2+1)^3 dx\\)
 * set \\(u = x^2+1\\), we get \\(\int_{x=0}^2 u^3 du \\)
 * In the normal way, \\(\int_{x=0}^2 u^3 du = \frac{u^4}{4}\big]_{x=0}^2 = \frac{(x^2+1)^4}{4}\big]_{x=0}^2 = \frac{(2^2+1)^4}{4} - \frac{(0^2+1)^4}{4} = 156\\).
-* Another way, change the endpoints. \\(\int_{x=0}^2 u^3 du = \int_{u=1}^7 u^3 du = \frac{u^4}{4}\big]_{u=1}^7 = \frac{7^4}{4} - \frac{1^4}{4} = 156\\).
+* Another way, change the endpoints. \\(\int_{x=0}^2 u^3 du = \int_{u=1}^5 u^3 du = \frac{u^4}{4}\big]_{u=1}^5 = \frac{5^4}{4} - \frac{1^4}{4} = 156\\).
 
 ## Do U-substitution More Than Once
 

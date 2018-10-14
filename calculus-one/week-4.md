@@ -25,11 +25,11 @@
 
     * the tangent line is the limiting position of the secant line PQ as Q approaches P.
         * <img src="media/15031337323520.jpg" style="width:250px" />
-    * The tangent line to the curve `y = f(x)` at the point `P(a, f(a))` is the line through `P` with slope \\(m=\displaystyle\lim_{x -> a}\frac{f(x) - f(a)}{x - a}\\) provided that this limit exists.
+    * The tangent line to the curve `y = f(x)` at the point `P(a, f(a))` is the line through `P` with slope \\(t=\displaystyle\lim_{x -> a}\frac{f(x) - f(a)}{x - a}\\) provided that this limit exists.
     * Example: Find an equation of the tangent line to the parabola \\(y=x^2\\) at the point `P(1, 1)`.
         * <img src="media/15031340698210.jpg" style="width:450px" />
 
-### How Can A Function Fail To Be Differentiable?    
+### How Can A Function Fail To Be Differentiable (Three situations)?    
 
 * First: the left and right limits are different.
     * Why is `f(x) = |x|` not differentiable at `x = 0` ?
@@ -38,7 +38,7 @@
         * \\(f'(0) = \displaystyle\lim_{h->0}\frac{|h|}{h} \\) <- DNE(does not exist) 
             * Because \\(\displaystyle\lim_{h->0^{+}}\frac{|h|}{h} = 1 \ne -1 = \displaystyle\lim_{h->0^{-}}\frac{|h|}{h} \\)
 * Second: if `f` is not continuous at `a`, then `f` is not differentiable at `a`.
-* Third: the curve has a vertical tangent line when `x = a`; that is, `f` is continuous at `a` and \\(lim_{x->a}|f'(x)|=\infty\\)
+* Third: the curve has a vertical tangent line when `x = a`; that is, `f` is continuous at `a` and \\(\displaystyle\lim_{x->a}|f'(x)|=\infty\\)
 
 ### Why Would I Care To Find The Derivative?
 
@@ -49,7 +49,7 @@
     * we know that the tangent line of \\(f(x)=\sqrt{x}\\) at 10000 is `1/200` which is `0.005`.
     * so \\(0.005*(10000-9999) \approx 100 - \sqrt{9999}\\)
     * then we got \\(\sqrt{9999} \approx 100 - 0.005 * 1 = 99.995\\)
-    * in other words, \\(\sqrt{9999} \approx 100 - 1 * (derivative\ at\ 10000) = 99.995\\)
+    * in other words, \\(\sqrt{9999} \approx 100 - 1 * (\text{derivative at}\ 10000) = 99.995\\)
     * **Conclusion**:
         * \\(f(x+h) \approx f(x)+h*f'(x)\\)
 

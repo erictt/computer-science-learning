@@ -12,7 +12,7 @@
 * For example, \\(f(x)=\sqrt{x}, g(x) = \sqrt{2x-1}, a = 0, b = 1\\)
     * <img src="media/15133918711067.jpg" style="width:150px" />
     * If treat them as functions of **x**, we need to split the area to two parts.
-    * So we rewrite the functions to \\(f(y) = y^2, g(y) = y^2 + 1, c = 0, d = 1\\)
+    * So we rewrite the functions to \\(f(y) = y^2, g(y) = \frac{y^2 + 1}{2}, c = 0, d = 1\\)
     * <img src="media/15133921653408.jpg" style="width:400px" />
 
 ## Volumes

@@ -11,7 +11,7 @@
 ## Euler's Method 
 
 * AKA, **Repeated Linear Approximation**
-* Definition: Approximate values for the solution of the initial-value problem \\(y' = F(x,y)\\), \\(y(x_0) = y_0\\), with step size **h**, at \\(x_n = x_{n-1} + h\\), are \\[y_n = y_{n-1 + hF(x_{n-1},y_{n-1})}\text{   }n=1,2,3,...\\]
+* Definition: Approximate values for the solution of the initial-value problem \\(y' = F(x,y)\\), \\(y(x_0) = y_0\\), with step size **h**, at \\(x_n = x_{n-1} + h\\), are \\[y_n = y_{n-1} + hF(x_{n-1},y_{n-1}) \text{, } n=1,2,3,...\\]
     * <img src="media/15107381979054.jpg" style="width:200px" />
     * Let's say \\(f(0) = a\\), \\(a \in \mathbb{R}\\), and **h** is small number.
     * So, \\[\begin{aligned}

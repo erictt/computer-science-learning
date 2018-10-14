@@ -84,7 +84,7 @@
 * **Example**: \\(a_1 = 1, a_{n+1} = \sqrt{a_n +2}\\)
     * To prove the limit of this sequence exists, we need to this sequence is
         * **bounded**: \\(0 \le a_n \le 2\\)
-            * \\(0 \le a_{n+1} \le \sqrt{2+2} = 2\\)
+            * \\(0 \le a_{n+1} = \sqrt{2+2} = 2\\)
             * \\(0 \le a_1 \le 2 \implies 0 \le a_2 \le 2 \implies \ldots\\)
         * **monotone**(non-decreasing): \\(a_n \le a_{n+1}\\) 
             * \\(a_n \le a_{n+1} = \sqrt{a_n + 2}\\) 

@@ -21,7 +21,7 @@
         \frac{d}{dx}(uv) &= \lim_{\Delta x \to 0}\frac{\Delta (uv)}{\Delta x} \\ 
         &= \lim_{\Delta x \to 0}(u\frac{\Delta v}{\Delta x} + v\frac{\Delta u}{\Delta x} + \Delta u\frac{\Delta v}{\Delta x}) \\ 
         &= u\lim_{\Delta x \to 0}\frac{\Delta v}{\Delta x} + v\lim_{\Delta x \to 0}\frac{\Delta u}{\Delta x} + (\lim_{\Delta x \to 0}\Delta u)(\lim_{\Delta x \to 0}(\frac{\Delta v}{\Delta x}) \\ 
-        &= u\frac{d}{dx}v + v\frac{d}{dx}u + 0 * u\frac{d}{dx}v
+        &= u\frac{d}{dx}v + v\frac{d}{dx}u + 0 \cdot u\frac{d}{dx}v
         \end{aligned}\\]
         
         * \\(\frac{d}{dx}(uv) = u\frac{d}{dx}v + v\frac{d}{dx}u\\)
@@ -32,7 +32,7 @@
     \frac{d}{dx}(f(x) \cdot g(x)) &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x) \cdot g(x)}{h} \\ 
     &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x+h) \cdot g(x)+f(x+h)g(x)-f(x) \cdot g(x)}{h} \\
     &= \lim_{h \to 0}\frac{f(x+h) \cdot g(x+h)-f(x+h) \cdot g(x)}{h} + \lim_{h \to 0}\frac{f(x+h) \cdot g(x)-f(x) \cdot g(x)}{h} \\
-    &= \lim_{h \to 0}\frac{g(x+h)-g(x)}{h}*\lim_{h \to 0}f(x+h) + \lim_{h \to 0}\frac{f(x+h)-f(x)}{h}*\lim_{h \to 0}g(x) \\
+    &= \lim_{h \to 0}\frac{g(x+h)-g(x)}{h} \cdot \lim_{h \to 0}f(x+h) + \lim_{h \to 0}\frac{f(x+h)-f(x)}{h} \cdot \lim_{h \to 0}g(x) \\
     &= \frac{d}{dx}g(x)\lim_{h \to 0}f(x+h) + \frac{d}{dx}f(x)\lim_{h \to 0}g(x) \\
     &= f(x)\frac{d}{dx}g(x) + g(x)\frac{d}{dx}f(x) \\
     \end{aligned}\\]
@@ -95,11 +95,11 @@
 
 ### e^x
 
-* To function \\(g(x) = \lim_{h \to 0}\frac{x^h-1}{h}\\), we know:
-    * \\(\lim_{h \to 0}\frac{2^h-1}{h} \approx 0.693\\)
-    * \\(\lim_{h \to 0}\frac{3^h-1}{h} \approx 1.099\\)
-* Then there is an `x` such that \\(\lim_{h \to 0}\frac{x^h-1}{h} = 1\\).
-* We call the `x` value: \\(e\\), \\(\lim_{h \to 0}\frac{e^h-1}{h} = 1\\)
+* To function \\(\displaystyle g(x) = \lim_{h \to 0}\frac{x^h-1}{h}\\), we know:
+    * \\(\displaystyle \lim_{h \to 0}\frac{2^h-1}{h} \approx 0.693\\)
+    * \\(\displaystyle \lim_{h \to 0}\frac{3^h-1}{h} \approx 1.099\\)
+* Then there is an `x` such that \\(\displaystyle \lim_{h \to 0}\frac{x^h-1}{h} = 1\\).
+* We call the `x` value: \\(e\\), \\(\displaystyle \lim_{h \to 0}\frac{e^h-1}{h} = 1\\)
 * To calculate the derivative of \\(e^x\\): \\[\begin{aligned}
     f'(x) &= \lim_{h \to 0}\frac{e^{x+h} - e^x}{h} \\
           &= \lim_{h \to 0}\frac{e^{x}e^{h} - e^x}{h} \\
@@ -107,5 +107,5 @@
           &= e^{x} * \lim_{h \to 0}\frac{(e^{h} - 1)}{h} 
     \end{aligned}\\]
 
-* We already assume that \\(\lim_{h \to 0}\frac{e^h-1}{h} = 1\\), so we got: \\[f'(x) = e^{x} * 1 = e^{x} = f(x)\\]
+* We already assume that \\(\displaystyle \lim_{h \to 0}\frac{e^h-1}{h} = 1\\), so we got: \\[f'(x) = e^{x} \cdot 1 = e^{x} = f(x)\\]
 

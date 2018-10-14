@@ -29,7 +29,7 @@
     * Step 2: List the critical points \\(x = 0\\), and the endpoints ( \\(\displaystyle\lim_{x \to -1^{+}}f(x) = \infty\\), \\(\displaystyle\lim_{x \to +1^{+}}f(x) = \infty\\))
     * Step 3: We got the minimum point (x = 0) and no maximum point.
     * Step 4: the domain is an open interval, and when x = -1/1, f(x) goes infinity. So it's fine.
-* Let try another domain: \\((1, \infty)\\)
+* Try another domain: \\((1, \infty)\\)
     * We know that it doesn't have critical points, so there is no maximum and minimum values in this domain.
 
 #### Don't forgot to check the endpoints
@@ -64,7 +64,7 @@
 * Five Steps: 
     * Draw a picture of the situation;
     * Label everything with variables;
-    * Write down the thing I'm tying to optimize;
+    * Write down the thing you're tying to optimize;
     * Solve my goal for a single variable;
     * Apply calculus.
 
@@ -81,7 +81,7 @@
     * **x + y = 24**, calculate **max(xy)**.
     * We can use calculus, but let take another way, use **AM-GM theorem**([inequality of arithmetic and geometric means](https://en.wikipedia.org/wiki/Inequality_of_arithmetic_and_geometric_means))
         * \\(\frac{x+y}{2} \ge \sqrt{xy}\\)
-        * So \\(24 \ge xy\\), which is maximum value of **xy**.
+        * So \\(144 \ge xy\\), which is maximum value of **xy**.
 
 ## Optimization in Action 
 
@@ -90,7 +90,7 @@
     * I want to move this red stick around this corner without it getting stuck. 
     * The real problem is to figure out the longest length, the maximum length of a stick that can be navigated around that corner. which end up solving a minimization problem.
     * Base on the diagram, we got: \\[l = a \cdot \csc\theta + b \cdot \sec\theta\\]
-    * And we want to minimize \\(l\\). 
+    * And we want to maxmize \\(l\\). 
         * Don't forget \\(0 < \theta < \pi/2\\)
     * To get the critical points, set \\[l'(\theta) = -a \cdot \csc\theta \cot\theta+ b \cdot \sec\theta \tan \theta = 0\\]
     * Then \\(\tan^3\theta = \frac{a}{b}\\), \\(\tan\theta = \sqrt[3]{\frac{a}{b}}\\)
