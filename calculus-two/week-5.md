@@ -20,7 +20,7 @@
 
 * Prove:
     * Suppose \\(\displaystyle \sum_{n = 0}^{\infty} a_n x^n\\) converge when \\(x = x_0\\)
-    * So, \\(\lim_{n \to \infty} a_n x_o^n = 0\\),
+    * So, \\(\displaystyle \lim_{n \to \infty} a_n x_0^n = 0\\),
     * There is an **M**, so that for all **n**, \\(|a_n x_0^n| \le M\\),
     * Pick \\(x \in (-|x_0|, |x_0|)\\),
     * \\(|a_n x^n| = |a_n x_0^n| \cdot |\frac{x^n}{x_0^n}| \le M \cdot |\frac{x^n}{x_0^n}|\\)

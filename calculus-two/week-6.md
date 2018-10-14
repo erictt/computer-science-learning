@@ -72,7 +72,7 @@
 
 * Suppose \\(f: \mathbb{R} \to \mathbb{R}\\) is infinitely differentiable.
     * \\[f(x) = (\sum_{n=0}^{N} \frac{f^{(n)}(0)}{n!} \cdot x^n) + R_N{x}\\]. **R** stands for remainder.
-* Then \\[R_N(x) = \frac{f^{(N+1)}(z)}{(N+1)!} X^{N+1}\\] for some **z** between **x** and **0**.
+* Then \\[R_N(x) = \frac{f^{(N+1)}(z)}{(N+1)!} x^{N+1}\\] for some **z** between **x** and **0**.
 
 
 #### Usage
@@ -81,10 +81,10 @@
 * \\(f(x) = \sin x\\)
 * With Taylor's Theorem, \\[\begin{aligned}
     \sin{x} &- \sum_{n=0}^{N} \frac{f^{(n)}(0)}{n!} \cdot x^n = R_N(x) \\ 
-    R_N(x) &= \frac{f^{(N+1)}(z)}{(N+1)!} X^{N+1}
+    R_N(x) &= \frac{f^{(N+1)}(z)}{(N+1)!} x^{N+1}
     \end{aligned}\\]
 * We know: \\(f^{(N+1)}(x) = \pm \sin x \ \text{or} \ \pm \cos x \\), so \\(f^{(N+1)}(x) \le 1\\)
-* Then, \\(R_N(x) \le \frac{1}{(N+1)!} X^{N+1}\\)
+* Then, \\(R_N(x) \le \frac{1}{(N+1)!} x^{N+1}\\)
 * So, if \\(\displaystyle \lim_{N \to \infty}|\frac{x^{N+1} }{(N+1)!}| = 0\\), \\(\displaystyle \lim_{N \to \infty}|R_N(x)| = 0\\). 
     * Then \\(\displaystyle \sin{x} = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!} \cdot x^n = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!} \cdot x^{(2n+1)}\\)
 * So we need to prove \\(\displaystyle \lim_{N \to \infty}|\frac{x^{N+1} }{(N+1)!}| = 0\\). 
@@ -113,7 +113,7 @@
 
 #### Mean Value Theorem
 
-* \\(f: [a, b] \to \mathbb{R} \text{continuous}\\)
+* \\(f: [a, b] \to \mathbb{R} \text{ continuous}\\)
     * and, on \\((a, b)\\) differentiable,
 * Then, there is a point \\(c \in (a, b)\\), so that \\[f'(c) = \frac{f(b) - f(a)}{b - a}\\]
 * replace **c** and **b** with **z** and **x**, we get:

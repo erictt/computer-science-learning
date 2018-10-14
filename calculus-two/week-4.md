@@ -17,7 +17,7 @@
 
 ### Procedures to Analyze Series
 
-* Check \\(\lim_{n \to \infty} a_n\\), 
+* Check \\(\displaystyle \lim_{n \to \infty} a_n\\), 
     * if \\( \ne 0\\) then diverge.
     * else if \\(a_n \ge 0\\), apply usual convergence tests, like Ratio Test, Root Test and Integral Test. 
     * else: Apply tests to \\(\sum \lvert a_n \rvert\\). Try to prove the series convergence.
@@ -57,10 +57,10 @@
 
 * <img src="media/15182335484877.jpg" style="width:400px" />
 * From this figure, we can get:
-    * \\(s_{2n}\\) is increasing and bounded above by \\(s_1\\), so \\(\lim_{n \to \infty} s_{2n}\\) exists.
-    * \\(s_{2n-1}\\) is decreasing and bounded below by \\(s_2\\), so \\(\lim_{n \to \infty} s_{2n-1}\\) exists.
-* And we know \\(\lim_{n \to \infty}(s_{2n} - s_{2n-1}) = \lim_{n \to \infty}(-b_{2n})\\), and our conditions already says \\(\lim_{n \to \infty}(b_{n}) = 0\\)
-* So, \\(\lim_{n \to \infty}(s_{2n}) - \lim_{n \to \infty}(s_{2n-1}) = 0\\), then we can say \\(\lim_{n \to \infty}(s_{n})\\) also exits and \\(= \lim_{n \to \infty}(s_{2n}) = \lim_{n \to \infty}(s_{2n-1}) = s\\).
+    * \\(s_{2n}\\) is increasing and bounded above by \\(s_1\\), so \\(\displaystyle \lim_{n \to \infty} s_{2n}\\) exists.
+    * \\(s_{2n-1}\\) is decreasing and bounded below by \\(s_2\\), so \\(\displaystyle \lim_{n \to \infty} s_{2n-1}\\) exists.
+* And we know \\(\displaystyle \lim_{n \to \infty}(s_{2n} - s_{2n-1}) = \lim_{n \to \infty}(-b_{2n})\\), and our conditions already says \\(\displaystyle \lim_{n \to \infty}(b_{n}) = 0\\)
+* So, \\(\displaystyle \lim_{n \to \infty}(s_{2n}) - \lim_{n \to \infty}(s_{2n-1}) = 0\\), then we can say \\(\displaystyle \lim_{n \to \infty}(s_{n})\\) also exits and \\(\displaystyle = \lim_{n \to \infty}(s_{2n}) = \lim_{n \to \infty}(s_{2n-1}) = s\\).
 * And also, we know, alternating series, is between neighboring partial sums: \\(s_{2n-1} \le s \le s_{2n}\\)
 
 #### Examples
@@ -81,7 +81,7 @@
 
 ### Theorem
 
-* If \\(a_n \ge 0\\), \\(b_n \ge 0\\) and \\(\lim_{n \to \infty} \frac{a_n}{b_n} = L > 0\\), 
+* If \\(a_n \ge 0\\), \\(b_n \ge 0\\) and \\(\displaystyle \lim_{n \to \infty} \frac{a_n}{b_n} = L > 0\\), 
 * Then, \\(\sum b_n\\) converges, if and only if \\(\sum a_n\\) converges.
 
 ## One of the Practice Quiz
