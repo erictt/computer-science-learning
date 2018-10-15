@@ -27,7 +27,7 @@
 ### Matrix-Vector Multiplication with Special Matrices
 
 * When doing calculation, we always concern flops and memops. And later we will prove that, **memops** is much slower that **flops**.
-* Let's take an example. If we want calculate \\(y := A^T x + y\\). What we are going to do are, set \\(B = A^T\\), then \\(y := B x +y\\)
+* Let's take an example. If we want calculate \\(y := A^T x + y\\). Normally, we will do, set \\(B = A^T\\), then \\(y := B x +y\\)
     * Which means, we are going to spend the most time to transpose matrix **A** to **B**, and little time computing.
     * What we want is, compute with \\(A^T\\) without actually transposing.
     * The solution is, we can simply use columns of A for the dot products in the dot product based algorithm for \\(y := Ax + y\\).

@@ -18,7 +18,8 @@
         * Often called a **particular** solution.
         * The most straightforward way is to set the free variables equal to zero 
             * => \\(\chi_1 = \chi_3 = 0\\) 
-            * => \\(\left(\begin{array}{c} 1/2 \\ 0 \\ 1/2 \\ 0\end{array}\right)\\)
+            * => \\(\left(\begin{array}{c c c c}1 & 3 & 1 & 2 \\ 0 & 0 & 2 & 4\end{array}\right)\left(\begin{array}{c} \chi_0 \\ 0 \\ \chi_2 \\ 0\end{array}\right) = \left(\begin{array}{c} 1 \\ 1\end{array}\right)\\)
+            * => \\(x_p = \left(\begin{array}{c} 1/2 \\ 0 \\ 1/2 \\ 0\end{array}\right)\\)
     * A basis for the null space. 
         * Often called the **kernel** of the matrix. 
         * \\(\chi_0 + 3\chi_1 + \chi_2 + 2\chi_3 = 0, 2\chi_2 + 4\chi_3 = 0\\) => \\(\chi_2 = -2\chi_3, \chi_0 = -3\chi_1\\)
@@ -38,7 +39,7 @@
         * The row space is the subspace of all vectors that can be created by taking linear combinations of the rows of a matrix. 
         * List the rows that have pivots in **the row echelon form** as column vectors:
             * <img src="media/15236291496349.jpg" style="width:240px" />
-            * Notice these are the first and second row of A.
+            * Notice these are the first and third row of A.
     * The dimension of the row and column space. 
         * = number of pivots
         * = 2
@@ -58,7 +59,7 @@
 * The **normal vector**, often simply called the "normal," to a surface is a vector which is perpendicular to the surface at a given point. 
 * For example:
     * <img src="media/15243624511933.jpg" style="width:260px" />
-    * Define the plane as \\(Ax + By + Cz = D\\)
+    * Define the plane as format: \\(Ax + By + Cz = D\\)
         * Vector \\(\vec{n} = \begin{bmatrix} a \\ b \\ c \end{bmatrix}\\) is normal to the plane. 
         * Vector \\(\vec{x_0} = \begin{bmatrix} x_0 \\ y_0 \\ z_0 \end{bmatrix}\\) is pointing to the plane. 
         * Vector \\(\vec{x} = \begin{bmatrix} x \\ y \\ z \end{bmatrix}\\) is pointing to the plane.

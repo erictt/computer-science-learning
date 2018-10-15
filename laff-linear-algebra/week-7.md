@@ -71,8 +71,7 @@
 ### Inverse Functions in 1D
 
 * \\(f: \mathbb{R} \to \mathbb{R}\\) maps a rea to a real and it is a **bijection**(both one-to-one and onto)
-    * bijection means: every element in R, there
-is a unique output in R. 
+    * bijection means: every element in R, there is a unique output in R. 
 * then
     * \\(f(x) = y\\) has a unique solution for all \\(y \in  \mathbb{R}\\).
     * The function that maps y to x so that \\(g(y) = x\\) is called the inverse of \\(f\\).

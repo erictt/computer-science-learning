@@ -12,7 +12,7 @@
 
 #### Formal Definition
 
-* \\[ \frac{\partial f}{\color{green}{ \partial x} }(x_0, y_0) = \lim_{h \to 0} \frac{ f(x_0 \color{green}{+ h}, y - f(x_0, y_0) } { \color{green}{ h } }\\] 
+* \\[ \frac{\partial f}{\color{green}{ \partial x} }(x_0, y_0) = \lim_{h \to 0} \frac{ f(x_0 \color{green}{+ h}, y) - f(x_0, y_0) } { \color{green}{ h } }\\] 
 
 | Symbol | Informal understanding | Formal understanding |
 | ---- | ---- | ---- |

@@ -133,7 +133,7 @@
 * For \\(x,y \in R^n, (x+y)^T(x+y)=x^Tx+2x^Ty+y^Ty\\).
 * For \\(x,y \in R^n, x^Ty=0\\) if and only if x and y are orthogonal.
 * Let \\(x,y \in R^n\\) be nonzero vectors and let the angle between them equal θ. Then \\(\cos(\theta) = \frac{x^Ty}{||x||_2||y||_2}\\).
-* For \\(x \in R^n, x^Te_i=e_i^Tx=\chi_i\\) where \\(x_i\\) equals the `i`th component of x.
+* For \\(x \in R^n, x^Te_i=e_i^Tx=\chi_i\\) where \\(\chi_i\\) equals the `i`th component of x.
 
 
 ## Refers

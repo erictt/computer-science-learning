@@ -37,7 +37,7 @@
 
 ## Cost of Matrix-Vector Multiplication
 
-* Consider \\(y := Ax+y\ \text{, where}\ A \in R m \times n\\) :
+* Consider \\(y := Ax+y\ \text{, where } A \in R^{m \times n}\\) :
     * Notice that there is a multiply and an add for every element of A.
     * Since A has \\(m \times n = mn\\) elements, \\(y := Ax+y\\), requires **mn** multiplies and **mn** adds, for a total of **2mn** ﬂoating point operations (ﬂops).
 

@@ -7,8 +7,8 @@
 * Rotate vector \\(\chi\\) through angle \\(\theta\\) then \\(\rho\\)
 * <img src="media/15230677242292.jpg" style="width:250px"/>
 * \\[R_{\theta}(\left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right)) =\left( \begin{array}{c|c} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) &  \cos(\theta) \end{array} \right)\left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right)\\]
-* \\[R_{\rho}(R_{\theta}(\left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right))) = \left( \begin{array}{c|c} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) &  \cos(\theta) \end{array} \right) \left( \left( \begin{array}{c|c} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) &  \cos(\theta) \end{array} \right) \left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right) \right) \\]
-* \\[R_{\rho}(R_{\theta}(\left(\begin{array}{c} \chi_{0} \\\chi_1\end{array}\right))) = \left( \begin{array}{c|c} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) &  \cos(\theta) \end{array} \right) \left( \begin{array}{c|c} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) &  \cos(\theta) \end{array} \right) \left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right)\\]
+* \\[R_{\rho}(R_{\theta}(\left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right))) = \left( \begin{array}{c|c} \cos(\rho) & -\sin(\rho) \\ \sin(\rho) &  \cos(\rho) \end{array} \right) \left( \left( \begin{array}{c|c} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) &  \cos(\theta) \end{array} \right) \left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right) \right) \\]
+* \\[R_{\rho}(R_{\theta}(\left(\begin{array}{c} \chi_{0} \\\chi_1\end{array}\right))) = \left( \begin{array}{c|c} \cos(\rho) & -\sin(\rho) \\ \sin(\rho) &  \cos(\rho) \end{array} \right) \left( \begin{array}{c|c} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) &  \cos(\theta) \end{array} \right) \left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right)\\]
     * \\[ = \left( \begin{array}{c|c} \cos(\rho)\cos(\theta) -\sin(\rho)\sin(\theta) & -\cos(\rho)\sin(\theta) - \sin(\rho)\cos(\theta)\\ \cos(\rho)\sin(\theta) + \sin(\rho)\cos(\theta) &  \cos(\rho)\cos(\theta) - \sin(\rho)\sin(\theta) \end{array} \right) \left(\begin{array}{c|c} \chi_{0} \\ \chi_1\end{array}\right)\\]
 * \\[R_{\rho}(R_{\theta}(\left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right))) = R_{\theta + \rho}(\left(\begin{array}{c|c} \chi_{0} \\ \chi_1\end{array}\right)) = \left( \begin{array}{c|c} \cos(\theta + \rho) & -\sin(\theta + \rho) \\ \sin(\theta + \rho) &  \cos(\theta + \rho) \end{array} \right) \left(\begin{array}{c} \chi_{0} \\ \chi_1\end{array}\right)\\]
     * \\(\cos(\theta + \rho) =\cos(\rho)\cos(\theta) -\sin(\rho)\sin(\theta)\\)
@@ -28,7 +28,7 @@
 * Let \\(A \in \mathbb R^{m \times n}\\) and let \\(D\\) denote the diagonal matrix with diagonal elements \\(\delta_0, \delta_1, \cdots, \delta_{n-1}\\). Partition \\(A\\) by columns : \\[A= \left( \begin{array}{r|r|r|r} a_0 &  a_1 & \dots &  a_{n-1} \end{array} \right). AD= \left ( \begin{array}{r|r|r|r} \delta_0 a_0 &  \delta_1 a_1 &   \dots  &  \delta_{n-1}a_{n-1} \end{array} \right).\\]
 * Let \\(A \in \mathbb R^{m \times n}\\) and let \\(D\\) denote the diagonal matrix with diagonal elements \\(\delta_0, \delta_1, \cdots, \delta_{m-1}\\). Partition \\(A\\) by rows : \\[A= \left( \begin{array}{c} \widetilde a_0^{T} \\   \widetilde a_1^{T} \\  \vdots \\   \widetilde a_{m-1}^{T} \end{array} \right). DA= \left ( \begin{array}{c} \delta_0 \widetilde a_0^{T} \\   \delta_1 \widetilde a_1^{T} \\    \vdots  \\   \delta_{m-1} \widetilde a_{m-1}^{T} \end{array} \right).\\]
 * Let \\(U, R \in \mathbb{R}^{n \times n}\\) be upper triangular matrices.
-    * The product \\(UR\\) is an upper triangular matrix.
+    * The product \\(UR\\) is still an upper triangular matrix.
     * same as lower triangular.
 * Let \\(A \in \mathbb R^{m \times n}\\). \\(A^TA\\) is symmetric.
     * \\((A^TA)^T = A^T(A^T)^T = A^TA\\)

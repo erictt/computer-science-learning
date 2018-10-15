@@ -132,7 +132,7 @@
     \end{array}\right)\\]
 3. Substitute: \\((LU)x = b\\) => \\(L(Ux) = b\\)
 4. Replace Ux with y. (\\(y = Ux\\)) => \\(Ly = b\\)
-5. Solve \\(Ly = b\\) for \\(y\\). (**Next Section**)
+5. Solve \\(Ly = b\\) for \\(y\\). (**More details in next section**)
     * This is forward substitution (applying the transforms to the right-hand side).
     * \\[\left(\begin{array}{c c c}
     1 & 0 & 0 \\
@@ -144,7 +144,8 @@
     \end{array}\right) =
     \left(\begin{array}{c}
     -10 \\ 20 \\ 18
-    \end{array}\right) \to \left(\begin{array}{c}
+    \end{array}\right) \\]
+    * \\[\to \left(\begin{array}{c}
         -10 \\
         20 - 2 y_0 \\ 
         18 - 3 y_0
@@ -158,7 +159,7 @@
         -16
     \end{array}\right)\\]
     
-6. Solve \\(Ux = y\\) for \\(x\\). (**Next Next Section**)
+6. Solve \\(Ux = y\\) for \\(x\\). (**More details in next next section**)
     * This is back substitution (solve x).
     * \\[\left(\begin{array}{c c c}
     2 & + 4 & - 2 \\
