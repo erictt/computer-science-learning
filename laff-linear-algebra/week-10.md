@@ -36,7 +36,7 @@
             * <img src="media/15236287600994.jpg" style="width:120px" />
             * <img src="media/15236287969346.jpg" style="width:260px" />
     * A basis for the row space, \\(\mathcal{R}(A) = \mathcal{C}(A^T)\\).
-        * The row space is the subspace of all vectors that can be created by taking linear combinations of the rows of a matrix. 
+        * The **row space** is the subspace of all vectors that can be created by taking linear combinations of the rows of a matrix. 
         * List the rows that have pivots in **the row echelon form** as column vectors:
             * <img src="media/15236291496349.jpg" style="width:240px" />
             * Notice these are the first and third row of A.

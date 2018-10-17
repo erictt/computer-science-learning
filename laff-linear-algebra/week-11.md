@@ -58,23 +58,12 @@
 
 ### Gram-Schmidt orthogonalization (GS orthogonalization)
 
-* Definition: Transform a given set of basis vectors into a set of **orthonormal vectors** that form a basis for the same space.
+* Definition: Transform a given set of basis vectors into a set of **orthonormal vectors** that form a basis for the same space is called **GS orthogonalization**.
 * Starting with linearly independent vectors \\(a_0, a_1, \ldots, a_{n-1} \in \mathbb{R}^m\\), the following algorithm computes the mutually orthonormal vectors \\(q_0, q_1, \ldots, q_{n-1} \in \mathbb{R}^m\\) such that \\(\text{Span}(\{a_0, a_1, \ldots, a_{n-1}\}) = \text{Span}(\{q_0, q_1, \ldots, q_{n-1}\})\\):
-* <img src="media/15248052802711.jpg" style="width:600px" />
-* The key of this transformation is:
-    * We are trying to find the orthogonal \\(a_i^{\perp}\\) to the vectors \\(q_0, q_1, \ldots, q_{i-1}\\), then divided by the length of \\(a_i\\) ( i.e. \\(\lVert a_i^{\perp} \rVert _2\\)).
-        * \\(a_i^{\perp} = a_i - q_0^T a_i q_0 - q_1^T a_i q_1 - \ldots - q_{i-1}^T a_i q_{i-1} \\) 
-        * \\(=  a_i - \rho_{0,i} q_0 - \rho_{1,i} q_1 - \ldots - \rho_{i-1,i} q_{i-1}\\)
-* Notice:
-    * \\(\rho_{0,0} = \lVert a_0 \rVert _2, q_0 = a_0 / \rho_{0,0}\\)
-        * Notice that \\(\text{Span}(\{a_0\}) = \text{Span}(\{q_0\})\\) since \\(q_0\\) is simply a scalar multiple of \\(a_0\\).
-    * \\(\rho_{0,1} = (q_0^T q_0)^{-1} q_0^T a_1 = q_0^T a_1\\)
-        * \\(q_i\\) is orthonormal vector, so \\((q_0^T q_0)^{-1} = 1\\)
-        * \\(\rho_{0,1}\\) is like \\(\chi\\) in the image of the [first figure of this week](#projecting-a-vector-onto-a-subspace).
-    * \\(\rho_{0,2} = q_0^T a_2\\)
-    * \\(\rho_{1,1} = \lVert a_1^{\perp} \rVert _2, q_1 = a_1^{\perp} / \rho_{1,1}\\)
-        * \\(a_1^{\perp} = a_1 - \rho_{0,1} q_0\\)
-    * \\(\rho_{1,2} = q_1^T a_2\\)
+* <img src="media/15251022826860.jpg" style="width:600px" />
+* <img src="media/15397008238987.jpg" style="width:600px" />
+* The algorithm:
+    * <img src="media/15248052802711.jpg" style="width:600px" />
 
 ### The QR factorization
 

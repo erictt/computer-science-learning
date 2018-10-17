@@ -96,14 +96,34 @@
         * If \\(u, w \in S\\) then \\((u + w) \in S\\): Pick \\(u, w \in S\\). Then for some scalars \\(\upsilon\\) and some scalars \\(\omega\\), vector \\(v = \upsilon a\\) and vector \\(w = \omega a\\). Then \\(v+w = \upsilon a+ \omega a= (\upsilon + \omega)a\\), which is also in S.
         * If \\(\alpha \in \mathbb{R}\\) and \\(v \in S\\) then \\(\alpha v \in S\\): Pick \\(\alpha \in \mathbb{R}\\) and \\(v \in S\\). Then for some \\(\upsilon\\), \\(v = \upsilon a\\). But \\(\alpha v = \alpha (\upsilon a) = (\alpha \upsilon) a\\). which is also in S.
 
-#### The Column Space
+### Span and Linear Independence
+
+* **Definition**: 
+    * **Linear Combination**: Let \\(u,v \in \mathbb{R}^m\\) and \\(α,β \in \mathbb{R}\\). Then \\(αu + βv\\) is said to be a **linear combination** of vectors \\(u\\) and \\(v\\).
+        * like we use `α` and `β` to scale vectors `u` and `v`.
+        * For example, we can use vectors \\( u = \left(\begin{array}{c}1 \\ 2\end{array}\right) \text{ and } v = \left(\begin{array}{c}2 \\ 1\end{array}\right) \\) to represent a plane by scaling them with `α` and `β`.
+    * **Span**: Let \\(\{v_0, v_1, \cdots, v_{n-1} \} \subset \mathbb{R}^m\\). Then the **span** of these vectors, Span \\(\{v_0, v_1, \cdots, v_{n-1}\}\\), is said to be the set of all vectors that are a **linear combination** of the given set of vectors. 
+       * Let \\(u,v \in \mathbb{R}^m\\). \\(\text{Span }(u, v) = \mathbb{R}^m\\) means we can use the linear combination of vectors **u** and **v** to represent all of the vectors \\(\in \mathbb{R}^m\\).
+
+* **Definition**: A **spanning set of a subspace** S is a set of vectors \\(\{v_0, v_1, \cdots, v_{n-1} \}\\) such that Span(\\(\{v_0, v_1, \cdots, v_{n-1} \}\\)) = S.
+    * For example: \\(\text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 1\end{array}\right) \} = \mathbb{R}^2 \\)
+* **Definition**: Let \\(\{v_0, v_1, \cdots, v_{n-1} \} \subset \mathbb{R}^m\\). Then this set of vectors is said to be **linearly independent** if \\(\chi_0 v_0 + \chi_1 v_1 + \cdots + \chi_{n-1} v_{n-1} = 0\\) implies that \\(\chi_0 = \chi_1 = \cdots = \chi_{n-1} = 0\\). A set of vectors that is not linearly independent is said to be **linearly dependent**.
+    * In other words, the only solution for \\(Ax = 0\\) is \\( \overrightarrow{x} = \overrightarrow{0}, \text{ where, } A = \{v_0, v_1, \cdots, v_{n-1}\}, x^T = \{\chi_0, \chi_1, \cdots, \chi_{n-1} \}\\)
+    * For example: \\(\text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 4\end{array}\right) \}\\) is **linearly dependent**.
+        * Because the set \\(\left(\begin{array}{c}2 \\ 4\end{array}\right) \\) can be represent with \\( 2 \left(\begin{array}{c}1 \\ 2\end{array}\right)\\). We can do: \\(2 \left(\begin{array}{c}1 \\ 2\end{array}\right) - \left(\begin{array}{c}2 \\ 4\end{array}\right) = 0 \\) to make the linear combination to be 0. And don't have to make all \\(\chi_n = 0\\).
+        * In other words, \\(\left(\begin{array}{c}2 \\ 4\end{array}\right) \\) doesn't give us any new dimension, still the same as \\(\left(\begin{array}{c}1 \\ 2\end{array}\right)\\).
+        * So \\(\text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 4\end{array}\right) \} = \text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right) \}\\)
+        * \\(\left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 1\end{array}\right)\\) is **linear independent** set.
+        * Also, we know that two vectors with different directions can span a plane. So if we add any vectors to \\(\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 1\end{array}\right) \} \\), it will be linear dependent set.
+
+### The Column Space
 
 * **Definition**: Let \\(A \in \mathbb{R}^{m \times n}\\). Then **the column space** of A equals the set \\(\{Ax | x \in \mathbb{R}^n\}\\). It is denoted by \\(\mathcal{C}(A)\\). \\[Ax = \left(\begin{array}{c|c|c|c} a_0 & a_1 & \cdots & a_{n-1}\end{array}\right) \left(\begin{array}{c} \chi_0 \\ \chi_1 \\ \vdots \\ \chi_{n-1}\end{array}\right) = \chi_0 a_0 + \chi_1 a_1 + \cdots + \chi_{n-1} a_{n-1}\\]
     * Thus \\(\mathcal{C}(A)\\) equals the set of **all linear combinations** of the columns of matrix A.
 * **Theorem**: The column space of \\(A \in \mathbb{R}^{m \times n}\\) is a subspace of \\(\mathbb{R}^m\\)
 * **Theorem**: Let \\(A \in \mathbb{R}^{m \times n}, x \in \mathbb{R}^n\\), and \\(b \in \mathbb{R}^m\\). Then \\(Ax = b\\) has a solution if and only if \\(b \in \mathcal{C}(A)\\).
 
-#### The Null Space
+### The Null Space
 
 * **Definition**: Let \\(A \in \mathbb{R}^{m \times n}\\). The set of all vectors \\(x \in \mathbb{R}^n\\) that have the property that \\(Ax = 0\\) is called **the null space** of A. 
     * Frankly speaking, all of the possible vector x that satisfy \\(Ax = 0\\).
@@ -120,26 +140,11 @@
     * So, \\(\mathcal{N}(A) = \text{Span }\left( \begin{bmatrix} 1 \\ -2 \\ 1 \\ 0 \end{bmatrix},\begin{bmatrix} 2 \\ -3 \\ 0 \\ 1 \end{bmatrix}\right)\\)
     * \\(\mathcal{N}(A) = \mathcal{N}(\text{rref }(A))\\)
 
-## Span, Linear Independence, and Bases
+### More about Span, Linear Independence, and Bases
 
-* **Definition**: Let \\(\{v_0, v_1, \cdots, v_{n-1} \} \subset \mathbb{R}^m\\). Then the **span** of these vectors, Span \\(\{v_0, v_1, \cdots, v_{n-1}\}\\), is said to be the set of all vectors that are a linear combination of the given set of vectors. \\[\text{If}\ V = \left(\begin{array}{c|c|c|c} v_0 & v_1 & \cdots & v_{n-1} \end{array}\right)\ \text{then Span}\left(\begin{array}{c c c c} v_0, v_1, \cdots, v_{n-1} \end{array}\right) = \mathcal{C}(V).\\]
-    * **Linear Combination**: Let \\(u,v \in \mathbb{R}^m\\) and \\(α,β \in \mathbb{R}\\). Then \\(αu + βv\\) is said to be a **linear combination** of vectors \\(u\\) and \\(v\\).
-    * Let \\(u,v \in \mathbb{R}^m\\). \\(\text{Span }(u, v) = \mathbb{R}^m\\) means we can use the linear combination of vectors **u** and **v** to represent all of the vectors \\(\in \mathbb{R}^m\\).
-
-* **Definition**: A **spanning set of a subspace** S is a set of vectors \\(\{v_0, v_1, \cdots, v_{n-1} \}\\) such that Span(\\(\{v_0, v_1, \cdots, v_{n-1} \}\\)) = S.
-    * For example: \\(\text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 1\end{array}\right) \} = \mathbb{R}^2 \\)
-* **Definition**: Let \\(\{v_0, v_1, \cdots, v_{n-1} \} \subset \mathbb{R}^m\\). Then this set of vectors is said to be **linearly independent** if \\(\chi_0 v_0 + \chi_1 v_1 + \cdots + \chi_{n-1} v_{n-1} = 0\\) implies that \\(\chi_0 = \chi_1 = \cdots = \chi_{n-1} = 0\\). A set of vectors that is not linearly independent is said to be **linearly dependent**.
-    * In other words, the only solution for \\(Ax = 0\\) is \\( \overrightarrow{x} = \overrightarrow{0}, \text{ where, } A = \{v_0, v_1, \cdots, v_{n-1}\}, x^T = \{\chi_0, \chi_1, \cdots, \chi_{n-1} \}\\)
-    * For example: \\(\text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 4\end{array}\right) \}\\) is **linearly dependent**.
-        * Because the set \\(\left(\begin{array}{c}2 \\ 4\end{array}\right) \\) can be represent with \\( 2 \left(\begin{array}{c}1 \\ 2\end{array}\right)\\). We can do: \\(2 \left(\begin{array}{c}1 \\ 2\end{array}\right) - \left(\begin{array}{c}2 \\ 4\end{array}\right) = 0 \\) to make the linear combination to be 0. And don't have to make all \\(\chi_n = 0\\).
-        * In other words, \\(\left(\begin{array}{c}2 \\ 4\end{array}\right) \\) doesn't give us any new dimension, still the same as \\(\left(\begin{array}{c}1 \\ 2\end{array}\right)\\).
-        * So \\(\text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 4\end{array}\right) \} = \text{Span }\{ \left(\begin{array}{c}1 \\ 2\end{array}\right) \}\\)
-        * \\(\left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 1\end{array}\right)\\) is **linear independent** set.
-        * Also, we know that two vectors with different directions can span a plane. So if we add any vectors to \\(\{ \left(\begin{array}{c}1 \\ 2\end{array}\right), \left(\begin{array}{c}2 \\ 1\end{array}\right) \} \\), it will be linear dependent set.
 * **Theorem**: Let the set of vectors \\(\{  v_0, v_1 , \ldots , v_{n-1} \}  \subset \mathbb {R}^ m\\) be linearly dependent. Then at least one of these vectors can be written as a linear combination of the others.
     * In other words, the dependent vector \\(a_j\\) can be written as a linear combination of the other n−1 vectors.
     * <img src="media/15242970114813.jpg" style="width:400px" />
-
 * **Theorem**: Let  \\(\{  a_0, a_1 , \ldots , a_{n-1} \}  \subset \mathbb {R}^ m\\) and let \\( A = \left(\begin{array}{c|c|c|c} a_0 & a_1 & \cdots & a_{n-1}\end{array}\right) \\). Then the vectors \\(\{ a_0, a_1 , \ldots , a_{n-1} \}\\) are **linearly independent** if and only if \\(\mathcal{N}(A) = \{0\}\\).
     * aka \\(\chi_0 = \chi_1 = \cdots = \chi_{n-1} = 0\\)
 * **Definition**: **A basis for a subspace S** of \\(R^n\\) is a set of vectors in S that 
