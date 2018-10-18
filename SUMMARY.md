@@ -48,8 +48,8 @@
 
 ## Algorithms: Part I
 
-* [1 - Union-Find](algorithms-1/1-union-find.md)
-* [2 - Analysis of Algorithms](algorithms-1/2-analysis-of-algorithms.md)
+* [Week 1 - Union-Find & Analysis of Algorithms](algorithms-1/week-1.md)
+* [Week 2 - Stacks and Queues & Elementary Sorts](algorithms-1/week-2.md)
 
 ## Introduction to Software Design and Architecture
 
