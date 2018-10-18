@@ -139,12 +139,3 @@ for numItems in (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024):
     items = buildLargeMenu(numItems, 90, 250)
     testMaxVal(items, 750, countingFastMaxVal, False)
     print('Number of calls =', numCalls)
-
-
-
-
-
-
-
-
-

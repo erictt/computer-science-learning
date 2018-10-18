@@ -108,10 +108,6 @@ def myCombinations(iterable, r):
             
         yield tuple(pool[x] for x in indices) 
 
-sets = [1, 2, 3, 4, 5]
-
-for i in myCombinations(sets, 3):
-    print("output:  ", i)
 
 
 #for i in powerset_generator(sets):
@@ -119,3 +115,38 @@ for i in myCombinations(sets, 3):
 #    print("==============o=========\n")
 
 
+def anotherCombinations(iterable, distLen):
+
+    pool = tuple(iterable)
+    
+    poolLen = len(pool)
+    
+    if poolLen < distLen or distLen < 1:
+        return
+    
+    indices = list(range(distLen))
+    
+    yield tuple([pool[x]] for x in indices)
+
+    i = distLen - 1    
+    while indices[0] <= poolLen - distLen and i < distLen and i >= 0:
+
+        if indices[i] < poolLen - distLen + i:
+            indices[i] += 1
+            for j in range(i+1, distLen):
+                indices[j] = indices[j-1] + 1
+            i += distLen - i - 1
+            yield tuple([pool[x]] for x in indices)
+        else:
+            i -= 1
+
+    return
+
+sets1 = [1, 2, 3, 4, 5]
+sets2 = [1]
+
+for subset in chain.from_iterable(anotherCombinations(sets1, n) for n in range(len(sets1)+1)):
+    print("output:  ", subset)
+print("------")
+for subset in anotherCombinations(sets2, 1):
+    print("output:  ", subset)
