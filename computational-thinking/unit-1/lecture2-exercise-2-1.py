@@ -115,6 +115,12 @@ def myCombinations(iterable, r):
 #    print("==============o=========\n")
 
 
+def subsets(nums):
+    for i in range(len(nums)):
+        for singleList in anotherCombinations(nums, i):
+            yield singleList
+
+
 def anotherCombinations(iterable, distLen):
 
     pool = tuple(iterable)
@@ -142,11 +148,29 @@ def anotherCombinations(iterable, distLen):
 
     return
 
+class Solution:
+    
+    def search(self, nums, S, index):
+        if index == len(nums):
+            self.results.append(S)
+            return
+        
+        self.search(nums, S + [nums[index]], index + 1)
+        self.search(nums, S, index + 1)
+        
+    def subsets(self, nums):
+        self.results = []
+        self.search(nums, [], 0)
+        return self.results
+
+so = Solution()
+
 sets1 = [1, 2, 3, 4, 5]
 sets2 = [1]
 
-for subset in chain.from_iterable(anotherCombinations(sets1, n) for n in range(len(sets1)+1)):
+#for subset in chain.from_iterable(anotherCombinations(sets1, n) for n in range(len(sets1)+1)):
+#    print("output:  ", subset)
+#print("------")
+for subset in so.subsets(sets1):
     print("output:  ", subset)
-print("------")
-for subset in anotherCombinations(sets2, 1):
-    print("output:  ", subset)
+

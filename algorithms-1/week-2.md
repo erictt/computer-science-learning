@@ -24,6 +24,7 @@
 
 * push(): double size of array s[] when array is full.
 * pop(): halve size of array s[] when array is one-quarter full.
+* Array is between 25% and 100% full.
 
 ### Queues
 
@@ -38,6 +39,8 @@
         * Update head and tail modulo the capacity.
         * Add resizing array.
         * Q. How to resize?
+            * create another array with double size of the original array and duplicate all of the nodes in the new array
+            * create another array as the second array, and create a linkedlist to link the first queue and the second queue.
 
 ### Generics 
 
@@ -51,14 +54,12 @@
 
 * <img src="media/15398940938016.jpg" style="width:600px" />
 
-
 ## Elementary Sorts
 
 ### Selection Sort
 
 * In iteration **i**, find index **min** of smallest remaining entry.
 ・Swap a[i] and a[min].
-
 
 ### Insertion sort 
 
@@ -73,7 +74,6 @@
         * OK. Easy to compute.
     * Sedgewick. 1, 5, 19, 41, 109, 209, 505, 929, 2161, 3905, …
         * Good. Tough to beat in empirical studies.
-* I'm thinking about inserting sort, what if in every comparison, i don't compare with the nearest left one, but use binary search way, start with the left center one? that will be `O(N*lgN)`.
 
 ### Shuffle
 

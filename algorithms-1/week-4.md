@@ -4,6 +4,12 @@
 
 ## Priority Queues
 
+* Insert and delete items. Which item to delete?
+    * **Stack**. Remove the item most recently added. 
+    * **Queue**. Remove the item least recently added. 
+    * **Randomized queue**. Remove a random item.
+    * **Priority queue**. Remove the **largest** (or **smallest**) item.
+
 ### Binary Tree
 
 * Empty or node with links to left and right binary trees.
@@ -28,7 +34,7 @@
 * **Insertion in a heap**
     * Add node at end, then **swim** it up.
 
-        ```    
+        ```java
         private void swim(int k) {
             while (k > 1 && less(k/2, k)) {
                 exch(k, k/2);
@@ -46,7 +52,7 @@
 * **Delete the maximum in a heap**
     * Exchange root with node at end, then sink it down.
 
-        ```
+        ```java
         private void sink(int k) {
             while(2*k <= N) {
                 int j = 2*k;
@@ -68,15 +74,26 @@
 
 ### Heapsort
 
-* **First**: Build heap using bottom-up method.
-* **Second**: Remove the maximum, one at a time.
-    
+* **Step 1**: Build heap using bottom-up method.
+
+    ```java
+    for (int k = N/2; k >= 1; k--) 
+        sink(a, k, N);
     ```
+    
+    * `N` is just used to count
+
+    * <img src="media/15411186673428.jpg" style="width:400px" />
+
+* **Step 2**: Remove the maximum, one at a time. exchange the first element(maximum one) to the end, then sink the first element.
+    
+    ```java
     while (N > 1) {
         exch(a, 1, N--);
         sink(a, 1, N);
     }
     ```
+    * `N` is just used to count
     
 * <img src="media/15401518329481.jpg" style="width:300px" />
 

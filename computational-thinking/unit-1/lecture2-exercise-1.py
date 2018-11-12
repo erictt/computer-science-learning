@@ -6,12 +6,13 @@ Created on Thu Mar  9 16:14:49 2017
 @author: eric
 """
 
+
 def yieldAllCombos(items):
     """
-        Generates all combinations of N items into two bags, whereby each 
+        Generates all combinations of N items into two bags, whereby each
         item is in one or zero bags.
 
-        Yields a tuple, (bag1, bag2), where each bag is represented as a list 
+        Yields a tuple, (bag1, bag2), where each bag is represented as a list
         of which item(s) are in each bag.
     """
     # Your code here
@@ -29,7 +30,7 @@ def yieldAllCombos(items):
             # we want to check the third "1"
             # first move the second bit to the end(>>j), will be "0 0 0 1 1"
             # then remove all the other bits(%2), we got "0 0 0 0 1"
-            # compare it with 1, which is true, 
+            # compare it with 1, which is true,
             # so we take the item with the position, which will be item[2]
             if (i >> j) % 2 == 1:
                 combo.append(items[j])
@@ -40,10 +41,10 @@ def yieldAllCombos(items):
             for l in range(M):
                 if(k >> l) % 2 == 1:
                     bag1.append(combo[l])
-                else :
+                else:
                     bag2.append(combo[l])
             yield bag1, bag2
-        
-        
-for bag1, bag2 in yieldAllCombos([1,2, 3, 4, 5]):
+
+
+for bag1, bag2 in yieldAllCombos([1, 2, 3, 4, 5]):
     print(bag1, bag2)
