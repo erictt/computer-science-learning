@@ -97,6 +97,10 @@
     
 * <img src="media/15401518329481.jpg" style="width:300px" />
 
+### Summary
+
+* <img src="media/15420584789869.jpg" style="width:600px" />
+
 ## Elementary Symbols
 
 ### Binary Search Trees
