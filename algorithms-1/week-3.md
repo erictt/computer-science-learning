@@ -1,4 +1,4 @@
-# Mergesort & Quicksort
+# Week 3 - Mergesort & Quicksort
 
 [TOC]
 
