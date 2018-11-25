@@ -44,7 +44,7 @@
 
 <img src="media/15401697547197.jpg" style="width:400px" />
  
-```
+```java
 private Node rotateLeft(Node h) {
     Node x = h.right;
     h.right = x.left;
@@ -63,7 +63,7 @@ private Node rotateLeft(Node h) {
 
 <img src="media/15401700430829.jpg" style="width:500px" />
 
-```
+```java
 private void flipColors(Node h) {
     h.color = RED;
     h.left.color = BLACK;
@@ -77,6 +77,17 @@ private void flipColors(Node h) {
 
 * Search is the same as for elementary BST (ignore color).
 
+### Balance in LLRB trees
+
+* **Proposition**. Height of tree is **≤ 2 lg N** in the worst case.
+* **Pf.**
+    * Every path from root to null link has same number of black links.
+    * Never two red links in-a-row.
+
+### Summary
+
+* <img src="media/15426791701303.jpg" style="width:600px" />
+
 ## B-trees
 
 * Generalize 2-3 trees by allowing up to M - 1 key-link pairs per node.
@@ -87,7 +98,7 @@ private void flipColors(Node h) {
 * Insert at bottom.
 * Split nodes with M key-link pairs on the way up the tree.
 
-<img src="media/15401703009871.jpg" style="width:500px" />
+* <img src="media/15401703009871.jpg" style="width:500px" />
 
 
 ## Geometric Applications of BSTs
@@ -111,12 +122,14 @@ private void flipColors(Node h) {
     * h-segment (left endpoint): insert y-coordinate into BST.
     * h-segment (right endpoint): remove y-coordinate from BST.
     * v-segment: range search for interval of y-endpoints.
-* <img src="media/15401787647775.jpg" style="width:500px" />
+* <img src="media/15427297724208.jpg" style="width:600px" />
+
 * The sweep-line algorithm takes time proportional to **N log N + R** to find all R intersections among N orthogonal line segments.
     * Put x-coordinates on a PQ (or sort). <-- N log N
     * Insert y-coordinates into BST. <-- N log N
     * Delete y-coordinates from BST. <-- N log N
     * Range searches in BST. <-- N log N + R
+        * **R**: enumerate all of the intersections, after we got the ranges.
 
 ### kd trees
     
@@ -132,7 +145,12 @@ private void flipColors(Node h) {
 * <img src="media/15401790355697.jpg" style="width:600px" />
 * <img src="media/15401790837008.jpg" style="width:600px" />
 
-#### Kd tree. 
+#### Analysis
+
+* Typical case. **R + log N**.
+* Worst case (assuming tree is balanced). **R + √N**.
+
+#### Higher dimensions 
 
 * Recursively partition k-dimensional space into 2 halfspaces.
 * **Implementation**. BST, but cycle through dimensions ala 2d trees.
@@ -152,6 +170,17 @@ private void flipColors(Node h) {
     * Else go left.
     * <img src="media/15401793397812.jpg" style="width:500px" />
 
+* ```java
+  Node x = root; 
+  while (x != null) {
+      if (x.interval.intersects(lo, hi)) return x.interval;
+      else if (x.left == null) x = x.right;
+      else if (x.left.max < lo) x = x.right;
+      else x = x.left; 
+  } 
+  return null;
+  ```
+
 ### rectangle intersection
 
 * **sweep-line algorithm**. Sweep vertical line from left to right.
@@ -160,3 +189,7 @@ private void flipColors(Node h) {
     * Left endpoint: interval search for y-interval of rectangle; insert y-interval. 
     * Right endpoint: remove y-interval.
 * <img src="media/15401794220767.jpg" style="width:500px" />
+
+### Applications of BSTs
+
+* <img src="media/15429093951898.jpg" style="width:500px" />

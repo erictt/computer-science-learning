@@ -103,13 +103,22 @@
 
 ## Elementary Symbols
 
+* Key-value pair abstraction.
+    * **Insert** a value with specified key.
+    * Given a **key**, **search** for the corresponding value.
+
+* APIs
+    * <img src="media/15426599448110.jpg" style="width:600px" />
+* Ordered APIs
+    * <img src="media/15426608799052.jpg" style="width:500px" />
+
 ### Binary Search Trees
 
 * A BST is a **binary tree** in **symmetric order**.
     * A binary tree is either:
         * Empty.
         * Two disjoint binary trees (left and right).
-    * Symmetric order. Each node has a key, and every node’s key is:
+    * **Symmetric order**. Each node has a key, and every node’s key is:
         * Larger than all keys in its left subtree. 
         * Smaller than all keys in its right subtree
 * A Node is comprised of four fields:
@@ -148,6 +157,10 @@
 * **Counts**
     * In each node, we store the number of nodes in the subtree rooted at that node; to implement size(), return the count at the root.
     * <img src="media/15401555093210.jpg" style="width:600px" />
+* **Rank**
+    * how many keys < _k_?
+    * <img src="media/15426616553904.jpg" style="width:500px" />
+
 * **Inorder traversal** (Iteration)
     * Traverse left subtree. 
     * Enqueue key.
