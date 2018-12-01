@@ -46,6 +46,10 @@
 * [Unit 5: Green's, Stokes', and the divergence theorems](multivariable-calculus/unit-5.md)
 -->
 
+## Algorithms: Part II
+
+* [Week 1 - Undirected Graph & Directed Graph](algorithms-2/week-1.md)
+
 ## Algorithms: Part I
 
 * [Week 1 - Union-Find & Analysis of Algorithms](algorithms-1/week-1.md)
