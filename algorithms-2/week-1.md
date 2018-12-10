@@ -95,5 +95,59 @@
     *  Find the diameter of the tree (the longest path between two vertices) and return a vertex in the middle.
 *  **Parallel edge detection**. Devise a linear-time algorithm to count the parallel edges in a graph.
     *  Hint: maintain a boolean array of the neighbors of a vertex, and reuse this array by only reinitializing the entries as needed.
+    *  I'm still not able to fully understand this "parallel edge" means. Does it mean two edges with the same start vertex and end vertex? or just need start with the same start vertex? // TODO got to figure out this later on.
 
-## Directed Graphs
+## Directed Graphs (Digraphs)
+
+* Set of vertices connected pairwise by directed edges.
+* <img src="media/15437226422240.jpg" style="width:550px" />
+
+### Digraph API
+
+* <img src="media/15437972866221.jpg" style="width:550px" />
+* toString()
+    
+    ```java
+    In in = new In(args[0]);
+    Digraph G = new Digraph(in);
+    for (int v = 0; v < G.V(); v++) 
+        for (int w: G.adj(v))
+            StdOut.pringln(v + "->" + w);
+    ```
+* Adjacency-lists digraph representation
+    * same as graph APIs. only difference is:
+
+        ```java
+        public void addEdge(int v, int w) { 
+            adj[v].add(w);
+        }
+        ```
+        
+### Digraph Search
+
+* same as Undirected Graph.
+
+### Topological(拓扑) Sort
+
+* **Goal**. Given a set of **tasks** to be completed with **precedence constraints,** in which order should we schedule the tasks?
+    * Digraph model. 
+        * vertex = task; 
+        * edge = precedence constraint.
+* <img src="media/15438749018591.jpg" style="width:500px" />
+* **DAG**. Directed **acyclic** graph.
+* **Topological sort**. Redraw DAG so all edges point upwards.
+    * Run depth-first search.
+    * Return vertices in reverse postorder.
+    * <img src="media/15438760745621.jpg" style="width:500px" />
+
+* A digraph has a topological order **iff no directed cycle**.
+
+### Strong Components
+
+* **Def**. Vertices v and w are **strongly connected** if there is both a directed path from v to w and a directed path from w to v.
+* **Def**. A **strong component** is a maximal subset of strongly-connected vertices.
+    * <img src="media/15438758011206.jpg" style="width:300px" />
+
+* **Kosaraju-Sharir algorithm**
+
+    * **Reverse graph**. Strong components in G are same as in G R .
