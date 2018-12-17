@@ -88,14 +88,15 @@
 * **Diameter of a tree.** Given a graph that is a tree (connected and acyclic), find the longest path, i.e., a pair of vertices v and w that are as far apart as possible. Your algorithm should run in linear time.
     1. Assume **x** and **y** are the vertices with the longest diameter.
     2. Randomly pick any vertex **v**, and its furthest vertex **w** should be either **x** or **y**. Because the distance between any two vertices is definitely less than or equal to **x-y**.
-        1. Remember there are always paths from **v** to **x** and **y**, so **v-w > v-x & v-w > v-y** can't be true in the same time. otherwise, **y** or **x** should be equal to **w**.
+        1. Remember there are always paths from **v** to **x** and **y**, so **[v-w] > [v-x]** and **[v-w] > [v-y]** can't be true in the same time. otherwise, **y** or **x** should be equal to **w**.
     3. Then just use **x** or **y** to find **y** or **x** which correspond to its furthest vertex.
 
 * **Center of a tree**. Given a graph that is a tree (connected and acyclic), find a vertex such that its maximum distance from any other vertex is minimized.
     *  Find the diameter of the tree (the longest path between two vertices) and return a vertex in the middle.
 *  **Parallel edge detection**. Devise a linear-time algorithm to count the parallel edges in a graph.
     *  Hint: maintain a boolean array of the neighbors of a vertex, and reuse this array by only reinitializing the entries as needed.
-    *  I'm still not able to fully understand this "parallel edge" means. Does it mean two edges with the same start vertex and end vertex? or just need start with the same start vertex? // TODO got to figure out this later on.
+    *  I'm still not able to fully understand this "parallel edge" means. Does it mean two edges with the same start vertex and end vertex? or just need start with the same start vertex? 
+    *  **// TODO got to figure out this later on.**
 
 ## Directed Graphs (Digraphs)
 
@@ -148,6 +149,28 @@
 * **Def**. A **strong component** is a maximal subset of strongly-connected vertices.
     * <img src="media/15438758011206.jpg" style="width:300px" />
 
-* **Kosaraju-Sharir algorithm**
+#### Connected components vs. strongly-connected components
 
-    * **Reverse graph**. Strong components in G are same as in G R .
+* <img src="media/15450228663087.jpg" style="width:600px" />
+
+
+#### Kosaraju-Sharir algorithm
+
+* **Reverse graph**. **Strong components in G are same as in G^R**.
+    * G^R denotes reversed G.
+* **Kernel DAG.** Contract each strong component into a single vertex.
+    * Compute topological order (reverse postorder) in kernel DAG. 
+    * Run DFS, considering vertices in reverse topological order.
+    * <img src="media/15450220638577.jpg" style="width:300px" />
+* Phases:
+    1. Compute reverse postorder in G^R.
+    2. run DFS on G, considering vertices in order given by first DFS
+* <img src="media/15450235382541.jpg" style="width:600px" />
+
+* Java Implement(Strong components in a digraph (with two DFSs))
+    * <img src="media/15450236016154.jpg" style="width:450px" />
+
+        
+## Digraph-processing summary
+
+<img src="media/15450223065120.jpg" style="width:600px" />
