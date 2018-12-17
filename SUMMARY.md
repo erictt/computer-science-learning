@@ -49,6 +49,8 @@
 ## Algorithms: Part II
 
 * [Week 1 - Undirected Graph & Directed Graph](algorithms-2/week-1.md)
+* [Week 3 - Maximum Flow and Minimum Cut & Radix Sort](algorithms-2/week-3.md)
+* [Week 4 - Tries & Substring Search](algorithms-2/week-4.md)
 
 ## Algorithms: Part I
 
