@@ -1,4 +1,4 @@
-# Graphs
+# Week 1 - Graphs
 
 [TOC]
 

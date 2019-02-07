@@ -5,7 +5,9 @@
 ## What are multivariable functions?
 
 * A function is called **multivariable** if its input is made up of multiple numbers. \\[\underbrace{f(x, y)}_{\text{Multiple numbers in the input} } = x^2 y\\]
+* A function with single-number inputs and a single-number outputs is called a **single-variable function**.
 * If the output of a function consists of multiple numbers are called **vector-valued functions**. \\[f(x) = \begin{bmatrix} \cos(x) \\ \sin(x) \end{bmatrix} \gets \text{Multiple numbers in output}\\]
+* functions with a single number as their output are called either **scalar-valued**, as is common in engineering, or **real-valued**, as is common is pure math (real as in real number).
 
 ### Parametric Equation
 
