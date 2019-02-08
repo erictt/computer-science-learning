@@ -81,10 +81,10 @@
     * An edge having the same vertex as both its end vertices is called a **self-loop**.
     * Two edges with the same end vertices are referred to as **parallel edges**.
     * A graph that has neither self-loops nor parallel edges is called a **simple graph**.
-    * The **eccentricity** of a vertex v is the the length of the shortest path from that vertex to the furthest vertex from v. 
-    * The **diameter** of a graph is the maximum eccentricity of any vertex. 
-    * The **radius** of a graph is the smallest eccentricity of any vertex. radius is the middle vertex to one of the diameter vertex.
-    * A **center** is a vertex whose eccentricity is the radius.
+    * The **eccentricity** of a vertex **v** in a connected graph **G** is the maximum graph distance between v and any other vertex in the graph G. 
+    * The maximum eccentricity is the graph **diameter**. The minimum graph eccentricity is called the graph **radius**.
+    * The **center** of a graph **G** is the set of vertices of graph eccentricity equal to the graph radius. (i.e., the set of central points).
+    * [From Wolfram Mathworld](http://mathworld.wolfram.com/GraphEccentricity.html)
 * **Diameter of a tree.** Given a graph that is a tree (connected and acyclic), find the longest path, i.e., a pair of vertices v and w that are as far apart as possible. Your algorithm should run in linear time.
     1. Assume **x** and **y** are the vertices with the longest diameter.
     2. Randomly pick any vertex **v**, and its furthest vertex **w** should be either **x** or **y**. Because the distance between any two vertices is definitely less than or equal to **x-y**.
@@ -94,9 +94,8 @@
 * **Center of a tree**. Given a graph that is a tree (connected and acyclic), find a vertex such that its maximum distance from any other vertex is minimized.
     *  Find the diameter of the tree (the longest path between two vertices) and return a vertex in the middle.
 *  **Parallel edge detection**. Devise a linear-time algorithm to count the parallel edges in a graph.
-    *  Hint: maintain a boolean array of the neighbors of a vertex, and reuse this array by only reinitializing the entries as needed.
-    *  I'm still not able to fully understand this "parallel edge" means. Does it mean two edges with the same start vertex and end vertex? or just need start with the same start vertex? 
-    *  **// TODO got to figure out this later on.**
+    *  Hint: maintain a boolean array of the neighbors of a vertex, and reuse this array by only reinitializing the entries as needed. 
+    *  **// TODO Don't understand.**
 
 ## Directed Graphs (Digraphs)
 
@@ -159,12 +158,15 @@
 * **Reverse graph**. **Strong components in G are same as in G^R**.
     * G^R denotes reversed G.
 * **Kernel DAG.** Contract each strong component into a single vertex.
-    * Compute topological order (reverse postorder) in kernel DAG. 
+    * Compute topological order in kernel DAG. 
     * Run DFS, considering vertices in reverse topological order.
-    * <img src="media/15450220638577.jpg" style="width:300px" />
+    * <img src="media/15496421648273.jpg" style="width:600px" />
+
 * Phases:
-    1. Compute reverse postorder in G^R.
+    1. Compute topological order in G^R.
+        * <img src="media/15496428205707.jpg" style="width:400px" />
     2. run DFS on G, considering vertices in order given by first DFS
+        * <img src="media/15496428750658.jpg" style="width:400px" />
 * <img src="media/15450235382541.jpg" style="width:600px" />
 
 * Java Implement(Strong components in a digraph (with two DFSs))
