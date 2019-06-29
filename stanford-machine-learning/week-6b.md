@@ -12,7 +12,7 @@
     * Not Spam --> Andrew, now
 * Define a feature vector **x** which is 0 or 1 if a word corresponding to spam/not spam.
     * <img src="media/15105579504822.jpg" style="width:200px" />
-    * In practice, take most frequently occurring \\(n\\) words (10,000 to 50,000) in training set, rather than 100 words.
+    * In practice, take most frequently occurring $$n$$ words (10,000 to 50,000) in training set, rather than 100 words.
 * Next thing is, how to improve system accuracy ?
     * Collect lots of data
         ‐ E.g. “honeypot” project.
@@ -47,7 +47,7 @@
 
 * Let's take an example:
 * Cancer classification:
-    * Train logistic regression model \\(h_{\theta}(x)\\).(`y = 1` if cancer, `y = 0` otherwise)
+    * Train logistic regression model $$h_{\theta}(x)$$.(`y = 1` if cancer, `y = 0` otherwise)
     * Find that you got `1%` error on test set. (`99%` correct diagnoses)
     * But the truth is, only `0.50%` of patients have cancer.
     * It means if we write a fake function, which always return `0`, will have `99.50%` accuracy.
@@ -67,20 +67,20 @@
 #### Trading Off Precision and Recall(精确度和召回率的权衡)
 
 * Before we set **0.5** as the threshold of the logistic regression for classification, then:
-    * Predict 1 if \\(h_{\theta}(x) \ge 0.5\\)
-    * Predict 0 if \\(h_{\theta}(x) < 0.5\\)
+    * Predict 1 if $$h_{\theta}(x) \ge 0.5$$
+    * Predict 0 if $$h_{\theta}(x) < 0.5$$
 * To predict **y = 1**(cancer) only if very confident
     * One way is change the threshold to **0.8**, then:
-        * Predict 1 if \\(h_{\theta}(x) \ge 0.8\\)
-        * Predict 0 if \\(h_{\theta}(x) < 0.2\\)
+        * Predict 1 if $$h_{\theta}(x) \ge 0.8$$
+        * Predict 0 if $$h_{\theta}(x) < 0.2$$
     * Now we can be more confident that 1 is a true positive
     * But also the classifier has lower recall(predict y = 1) for a smaller number of patients
         * Risk of false negatives
 * Avoid false negatives (avoid missing too many cases of cancer)
     * This is probably worse for the cancer example
     * Set a lower threshold
-        * Predict 1 if \\(h_{\theta}(x) \ge 0.3\\)
-        * Predict 0 if \\(h_{\theta}(x) < 0.7\\)
+        * Predict 1 if $$h_{\theta}(x) \ge 0.3$$
+        * Predict 0 if $$h_{\theta}(x) < 0.7$$
     * So now we have have a higher recall, but lower precision
         * Risk of false positives, because we're less discriminating in deciding what means the person has cancer
 * plotting precision vs. recall:
@@ -89,8 +89,8 @@
     * Can we just average the sum of Precision and Recall?
 * For example: 
     * <img src="media/15105720348353.jpg" style="width:250px" />
-* If we use average(\\(\frac{P+R}{2}\\)), the **Algorithm 3** will be best one. But it almost predict **y = 1** all the time.
-* The better ways is to use \\(F_1\\)**Score (F score)** \\(= 2\frac{PR}{P+R}\\) (P: Precision, R: Recall)
+* If we use average($$\frac{P+R}{2}$$), the **Algorithm 3** will be best one. But it almost predict **y = 1** all the time.
+* The better ways is to use $$F_1$$**Score (F score)** $$= 2\frac{PR}{P+R}$$ (P: Precision, R: Recall)
     * Then the best choice is **Algorithm 1**.
 * **Fscore** gives a single real number evaluation metric
     * If you're trying to automatically set the threshold, one way is:

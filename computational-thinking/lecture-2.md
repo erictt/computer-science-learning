@@ -14,9 +14,9 @@
 
 * Time based on number of nodes generated
 * Number of levels is number of items to choose from
-* Number of nodes at level **i** is\\(2^i\\)
+* Number of nodes at level **i** is$$2^i$$
 * So, if there are **n** items, the number of nodes is
-  * \\(\sum_{i=0}^{i=n}2^i\\), i.e., \\(O(2^{i+1})\\)
+  * $$\sum_{i=0}^{i=n}2^i$$, i.e., $$O(2^{i+1})$$
 * An obvious optimization: don’t explore parts of tree that violate constraint
 
 ## Header for Decision Tree Implementation
