@@ -56,7 +56,7 @@
 
 #### Minkowski Metric 
 
-* $$dist(X1, X2, p)=(\displaystyle\sum_{k-1}^{len}abs(X1_{k}-X2_{k})^p)^{1/p}$$
+* \\(dist(X1, X2, p)=(\displaystyle\sum_{k-1}^{len}abs(X1_{k}-X2_{k})^p)^{1/p}\\)
 * p = 1: Manhattan Distance
 * P = 2: Euclidean Distance
    
@@ -73,7 +73,7 @@
    * <img src="media/15029424517678.jpg" style="width:150px" />
    * To compare the distance between star and circle and the distance between cross and circle
    * Use Manhattan Distance, they should be 3 and 4
-   * Use Euclidean Distance, they should be 3 and 2.8 = $$\sqrt{2^2+2^2}$$
+   * Use Euclidean Distance, they should be 3 and 2.8 = \\(\sqrt{2^2+2^2}\\)
 
 ##### Using Distance Matrix for Classification
 
@@ -151,9 +151,9 @@
 * To compute the variability of the examples within a cluster
     * First compute the mean(`sum(V)/float(len(V))`, more precisely the Euclidean mean) of the feature vectors of all the examples in the cluster. , `V` is a list of feature vectors. 
     * Compute the distance between feature vectors
-        * $$\text{variability}(c)=\displaystyle\sum_{e \in c}\text{distance}(\text{mean}(c), e)^2$$
+        * \\(\text{variability}(c)=\displaystyle\sum_{e \in c}\text{distance}(\text{mean}(c), e)^2\\)
 * The definition of variability within a single cluster, `c`, can be extended to define a dissimilarity metric for a set of clusters, `C`:
-   * $$\text{dissimilarity}(C)=\displaystyle\sum_{e \in c}\text{variability(c)}$$
+   * \\(\text{dissimilarity}(C)=\displaystyle\sum_{e \in c}\text{variability(c)}\\)
 * It's NOT the optimization problem to find a set of clusters, C, such that `dissimilarity(C)` is minimized. Because it can easily be minimized by putting each example in its own cluster.
 * We could put a constraint on the distance between clusters or require that the maximum number of clusters is `k`. Then to find the minimum between clusters.
 

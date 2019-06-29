@@ -123,11 +123,11 @@ whose id equals id[p] to id[q].
 
 ### Common Order-of-growth Classifications
 
-* $$1, \log{N}, N \log{N}, N^2, N^3, \text{ and } 2^N$$
+* \\(1, \log{N}, N \log{N}, N^2, N^3, \text{ and } 2^N\\)
     * order of growth discards leading coefficient
 * <img src="media/15159109817755.jpg" style="width:300px" />
-    * $$\text{time} = \lg{T(N)}$$
-    * $$\text{size} = \lg{N}$$
+    * \\(\text{time} = \lg{T(N)}\\)
+    * \\(\text{size} = \lg{N}\\)
 * <img src="media/15159110767827.jpg" style="width:600px" />
 
 ### Theory of Algorithms
@@ -137,11 +137,11 @@ whose id equals id[p] to id[q].
 
 ### Why Big-Oh Notation
 
-* Formal Definition: $$T(n) = O(f(n))$$ if and only if there exist constants $$c,n_0 > 0$$ such that $$T(n) \le c \cdot f(n)$$ for all $$n \ge n_0$$
-    * $$T(n)$$ is the function of the running time of an algorithm.
-    * Warning $$c, n_0$$ cannot depend on **n**.
-* [NOTE] It kinds of says, we use $$n^k$$, but not $$n^{k-1}$$
-    * Because $$O(n^{k-1}) = c \cdot n^{k-1}$$ will always less then $$n^k$$ (**c** is a constant, but n is not).
+* Formal Definition: \\(T(n) = O(f(n))\\) if and only if there exist constants \\(c,n_0 > 0\\) such that \\(T(n) \le c \cdot f(n)\\) for all \\(n \ge n_0\\)
+    * \\(T(n)\\) is the function of the running time of an algorithm.
+    * Warning \\(c, n_0\\) cannot depend on **n**.
+* [NOTE] It kinds of says, we use \\(n^k\\), but not \\(n^{k-1}\\)
+    * Because \\(O(n^{k-1}) = c \cdot n^{k-1}\\) will always less then \\(n^k\\) (**c** is a constant, but n is not).
     * And we need that, T(n) is bounded above by a constant multiple of f(n).
         * <img src="media/15139367090341.jpg" style="width:200px" />
 * Example
