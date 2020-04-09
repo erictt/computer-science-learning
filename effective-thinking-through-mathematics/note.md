@@ -1,14 +1,14 @@
-# Note
+# NOTE
 
-\[TOC\]
+[TOC]
 
 ## The 5 Elements of Effective Thinking
 
-The surprising fact is that just a few learnable strategies of thinking can make you more effective in the classroom, the boardroom, and the living room. You can personally choose to become more successful by adopting five learnable habits, which, in this course, we not only explain in detail but also make concrete and practical. This puzzle module introduces those important habits.
+The surprising fact is that just a few learnable strategies of thinking can make you more effective in the classroom, the boardroom, and the living room. You can personally choose to become more successful by adopting five learnable habits, which, in this course, we not only explain in detail but also make concrete and practical. This puzzle module introduces those important habits.
 
 1: Understand deeply
 
-* Don’t face complex issues head-on; first understand simple ideas deeply. Clear the clutter and expose what is really important. Be brutally honest about what you know and don’t know. Then see what’s missing, identify the gaps, and fill them in. Let go of bias, prejudice, and preconceived notions. There are degrees to understanding \(it’s not just a yes-or-no proposition\) and you can always heighten yours. Rock solid understanding is the foundation for success.
+* Don’t face complex issues head-on; first understand simple ideas deeply. Clear the clutter and expose what is really important. Be brutally honest about what you know and don’t know. Then see what’s missing, identify the gaps, and fill them in. Let go of bias, prejudice, and preconceived notions. There are degrees to understanding (it’s not just a yes-or-no proposition) and you can always heighten yours. Rock solid understanding is the foundation for success.
 
 2: Make mistakes
 
@@ -25,4 +25,5 @@ The surprising fact is that just a few learnable strategies of thinking can make
 5: Change
 
 * The unchanging element is change—By mastering the first four elements, you can change the way you think and learn. You can always improve, grow, and extract more out of your education, yourself, and the way you live your life. Change is the universal constant that allows you to get the most out of living and learning.
+
 

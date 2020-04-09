@@ -1,6 +1,6 @@
-# Lecture 2 - Decision Trees and Dynamic Programming
+# Lecture 2
 
-\[TOC\]
+[TOC]
 
 ## Search Tree Implementation
 
@@ -16,7 +16,7 @@
 * Number of levels is number of items to choose from
 * Number of nodes at level **i** is\\(2^i\\)
 * So, if there are **n** items, the number of nodes is
-  * \\(\sum\_{i=0}^{i=n}2^i\\), i.e., \\(O\(2^{i+1}\)\\)
+  * \\(\sum_{i=0}^{i=n}2^i\\), i.e., \\(O(2^{i+1})\\)
 * An obvious optimization: don’t explore parts of tree that violate constraint
 
 ## Header for Decision Tree Implementation
@@ -40,15 +40,18 @@ def maxVal(toConsider, avail):
     return result
 ```
 
-* **toConsider**: Those items that nodes higher up in the tree \(corresponding to earlier calls in the recursive call stack\) have not yet considered
+* **toConsider**: Those items that nodes higher up in the tree (corresponding to earlier calls in the recursive call stack) have not yet considered
 * **avail**: The amount of space still available
 * Does not actually build search tree, local variable result records best solution found so far
 
 ## Dynamic Programming
 
 * **Optimal substructure**: a globally optimal solution can be found by combining optimal solutions to local subproblems
+
   * For `x > 1`, `fib(x) = fib(x - 1) + fib(x – 2)`
+
 * **Overlapping subproblems**: finding an optimal solution involves solving the same problem multiple times
+
   * Compute `fib(x)` or many times
 
 ### Recursive Implementation of Fibonacci
@@ -65,7 +68,7 @@ def fib(n):
 
 #### Call Tree for Recursive Fibonacci\(6\) = 13
 
-![unit-1-1](../../.gitbook/assets/unit-1-1.png)
+![unit-1-1](media/unit-1-1.png)
 
 ### To avoid repeat work
 
@@ -93,7 +96,7 @@ def fastFib(n, memo = {}):
 
 ### Take another sample for knapsack
 
-![unit-1-1](../../.gitbook/assets/unit-1-2%20%281%29.jpg)
+![unit-1-1](media/unit-1-2.jpg)
 
 * Since `a` and `b` have the same calories, the rest calculations of the two which marked by red box will be the same. This will be a **overlapping subproblems** which can be optimized.
 
@@ -102,7 +105,7 @@ def fastFib(n, memo = {}):
 * Add memo as a third argument: 
   * def fastMaxVal\(toConsider, avail, memo = {}\):
 * Key of memo is a tuple
-  * take \(items left to be considered, available weight\) as the key, which will be `memo[(len(toConsider), avail)]`.
+  * take (items left to be considered, available weight) as the key, which will be `memo[(len(toConsider), avail)]`.
   * Items left to be considered represented by `len(toConsider)`
   * The value will always be the same.
 * First thing body of function does is check whether the optimal choice of items given the the available weight is already in the memo
@@ -112,7 +115,7 @@ def fastFib(n, memo = {}):
 ## Summary of Lectures 1-2
 
 * Many problems of practical importance can be formulated as **optimization problems**
-* **Greedy algorithms** often provide adequate \(though not necessarily optimal\) solutions
+* **Greedy algorithms** often provide adequate (though not necessarily optimal) solutions
 * Finding an optimal solution is usually **exponentially hard**
 * But **dynamic programming** often yields good performance for a subclass of optimization problems—those with optimal substructure and overlapping subproblems
   * Solution always correct

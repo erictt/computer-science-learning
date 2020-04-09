@@ -1,42 +1,43 @@
 # Week 3 - Matrix-Vector Operations
 
-\[TOC\]
+[TOC]
 
 ## Special Matrices
 
-* ![](../.gitbook/assets/15115164411731.jpg)
+* <img src="media/15115164411731.jpg" style="width:550px" />
+
 * Special Vectors:
-  * **Unit Vector**: Any vector of length one \(unit length\). For example, the vector  \\(\begin{pmatrix}\frac{\sqrt{2}}{2} \ \frac{\sqrt{2}}{2}\end{pmatrix}\\) has length one.
-  * **Standard Unit Vector**: 
-    * ![](../.gitbook/assets/15095053286178.jpg)
+    * **Unit Vector**: Any vector of length one (unit length). For example, the vector  \\(\begin{pmatrix}\frac{\sqrt{2}}{2} \\ \frac{\sqrt{2}}{2}\end{pmatrix}\\) has length one.
+    * **Standard Unit Vector**: 
+        * <img src="media/15095053286178.jpg" style="width:200px"/>
 
 ## Triangular Matrices
 
-* ![](../.gitbook/assets/15115164709330%20%281%29.jpg)
+* <img src="media/15115164709330.jpg" style="width:550px" />
 
 ## Transpose Matrix
 
-* ![](../.gitbook/assets/15115165059094%20%281%29.jpg)
+* <img src="media/15115165059094.jpg" style="width:550px" />
 
 ## Symmetric Matrix
 
-* ![](../.gitbook/assets/15115165316994.jpg)
+* <img src="media/15115165316994.jpg" style="width:550px" />
 
 ## Scaling a Matrix
 
-* ![](../.gitbook/assets/15115165585084.jpg)
+* <img src="media/15115165585084.jpg" style="width:550px" />
 
 ## Adding Matrices
 
-* ![](../.gitbook/assets/15115170233025%20%281%29.jpg)
+* <img src="media/15115170233025.jpg" style="width:550px" />
 
 ## Matrix-vector Multiplication
 
-* ![](../.gitbook/assets/15115166290203%20%281%29.jpg)
+* <img src="media/15115166290203.jpg" style="width:550px" />
 
 ## Cost of Matrix-Vector Multiplication
 
-* Consider \\(y := Ax+y \text{, where } A \in R^{m \times n}\\) :
-  * Notice that there is a multiply and an add for every element of A.
-  * Since A has \\(m \times n = mn\\) elements, \\(y := Ax+y\\), requires **mn** multiplies and **mn** adds, for a total of **2mn** ﬂoating point operations \(ﬂops\).
+* Consider \\(y := Ax+y\ \text{, where } A \in R^{m \times n}\\) :
+    * Notice that there is a multiply and an add for every element of A.
+    * Since A has \\(m \times n = mn\\) elements, \\(y := Ax+y\\), requires **mn** multiplies and **mn** adds, for a total of **2mn** ﬂoating point operations (ﬂops).
 

@@ -1,6 +1,6 @@
-# Week 7-10 - Machine Learning/Python/SQL/Javascript
+# Week 7 - 10
 
-\[TOC\]
+[TOC]
 
 ## Machine Learning
 
