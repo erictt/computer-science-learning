@@ -1,6 +1,6 @@
 # Lecture 4-5 - Plotting
 
-[TOC]
+\[TOC\]
 
 ## Plotting
 
@@ -25,7 +25,7 @@ pylab.plot(mySamples, myCubic, 'g^', label = 'cubic', linewidth = 4.0)
 pylab.plot(mySamples, myExponential, 'r--',label = 'exponential', linewidth = 5.0)
 pylab.legend()
 pylab.title('Cubic vs. Exponential')
-``` 
+```
 
-* <img src='media/unit-2-1.jpg' style="width:600px"/>
+* ![](../.gitbook/assets/unit-2-1%20%281%29.jpg)
 

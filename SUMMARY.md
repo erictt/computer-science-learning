@@ -1,23 +1,11 @@
-# Summary
+# Table of contents
+
+* [Introduction](README.md)
 
 ## Introduction
 
-* [Introduction](README.md)
-* [Symbols of Mathematics](SYMBOLS.md)
-
-<!--
-## Stanford Statistical Learning
-
-* [Chapter 2 - Overview of Statistical Learning](statistical-learning/chapter-2.md)
-* Chapter 3 - Linear Regression
-* Chapter 4 - Classification
-* Chapter 5 - Resampling Methods
-* Chapter 6 - Linear Model Selection and Regularization
-* Chapter 7 - Moving Beyond Linearity
-* Chapter 8 - Tree-Based Methods
-* Chapter 9 - Support Vector Machines
-* Chapter 10 - Unsupervised Learning
--->
+* [Introduction](introduction/readme.md)
+* [Symbols of Mathematics](introduction/symbols.md)
 
 ## Introduction to Probability
 
@@ -25,41 +13,25 @@
 * [Unit 2: Conditioning and independence](introduction-to-probability/unit-2.md)
 * [Unit 3: Counting](introduction-to-probability/unit-3.md)
 
-<!--
-* [Unit 4: Discrete random variables](introduction-to-probability/unit-4.md)
-* [Unit 5: Continuous random variables](introduction-to-probability/unit-5.md)
-* [Unit 6: Further topics on random variables](introduction-to-probability/unit-6.md)
-* [Unit 7: Bayesian inference](introduction-to-probability/unit-7.md)
-* [Unit 8: Limit theorems and classical statistics](introduction-to-probability/unit-8.md)
-* [Unit 9: Bernoulli and Poisson processes](introduction-to-probability/unit-9.md)
-* [Unit 10: Markov chains](introduction-to-probability/unit-10.md)
--->
-
 ## Multivariable Calculus
 
 * [Unit 1: Thinking about multivariable functions](multivariable-calculus/unit-1.md)
 * [Unit 2: Derivatives of multivariable functions](multivariable-calculus/unit-2.md)
 
-<!--
-* [Unit 3: Applications of multivariable derivatives](multivariable-calculus/unit-3.md)
-* [Unit 4: Integrating multivariable functions](multivariable-calculus/unit-4.md)
-* [Unit 5: Green's, Stokes', and the divergence theorems](multivariable-calculus/unit-5.md)
--->
-
 ## Algorithms: Part II
 
-* [Week 1 - Undirected Graph & Directed Graph](algorithms-2/week-1.md)
-* [Week 3 - Maximum Flow and Minimum Cut & Radix Sort](algorithms-2/week-3.md)
-* [Week 4 - Tries & Substring Search](algorithms-2/week-4.md)
+* [Week 1 - Undirected Graph & Directed Graph](algorithms-part-ii/week-1.md)
+* [Week 3 - Maximum Flow and Minimum Cut & Radix Sort](algorithms-part-ii/week-3.md)
+* [Week 4 - Tries & Substring Search](algorithms-part-ii/week-4.md)
 
 ## Algorithms: Part I
 
-* [Week 1 - Union-Find & Analysis of Algorithms](algorithms-1/week-1.md)
-* [Week 2 - Stacks and Queues & Elementary Sorts](algorithms-1/week-2.md)
-* [Week 3 - Mergesort & Quicksort](algorithms-1/week-3.md)
-* [Week 4 - Priority Queues & Elementary Symbols](algorithms-1/week-4.md)
-* [Week 5 - Balanced Search Trees](algorithms-1/week-5.md)
-* [Week 6 - Hash Tables](algorithms-1/week-6.md)
+* [Week 1 - Union-Find & Analysis of Algorithms](algorithms-part-i/week-1.md)
+* [Week 2 - Stacks and Queues & Elementary Sorts](algorithms-part-i/week-2.md)
+* [Week 3 - Mergesort & Quicksort](algorithms-part-i/week-3.md)
+* [Week 4 - Priority Queues & Elementary Symbols](algorithms-part-i/week-4.md)
+* [Week 5 - Balanced Search Trees](algorithms-part-i/week-5.md)
+* [Week 6 - Hash Tables](algorithms-part-i/week-6.md)
 
 ## Introduction to Software Design and Architecture
 
@@ -67,18 +39,18 @@
 
 ## Calculus Two: Sequences and Series
 
-* [Week 1 - Sequences](calculus-two/week-1.md)
-* [Week 2 - Series](calculus-two/week-2.md)
-* [Week 3 - Convergence Tests](calculus-two/week-3.md)
-* [Week 4 - Alternating Series](calculus-two/week-4.md)
-* [Week 5 - Power Series](calculus-two/week-5.md)
-* [Week 6 - Taylor Series](calculus-two/week-6.md)
+* [Week 1 - Sequences](calculus-two-sequences-and-series/week-1.md)
+* [Week 2 - Series](calculus-two-sequences-and-series/week-2.md)
+* [Week 3 - Convergence Tests](calculus-two-sequences-and-series/week-3.md)
+* [Week 4 - Alternating Series](calculus-two-sequences-and-series/week-4.md)
+* [Week 5 - Power Series](calculus-two-sequences-and-series/week-5.md)
+* [Week 6 - Taylor Series](calculus-two-sequences-and-series/week-6.md)
 
 ## LAFF Linear Algebra
 
-* [Week 1 - Vectors in Linear Algebra](laff-linear-algebra/week-1.md) 
-* [Week 2 - Linear Transformations and Matrices](laff-linear-algebra/week-2.md)
-* [Week 3 - Matrix-Vector Operations](laff-linear-algebra/week-3.md)
+* [Week 1 - Vectors in Linear Algebra](laff-linear-algebra/week-1.md)
+* [Week 2 - Linear Transformations and Matrices](laff-linear-algebra/week-2.md)
+* [Week 3 - Matrix-Vector Operations](laff-linear-algebra/week-3.md)
 * [Week 4 - Matrix-Vector to Matrix-Matrix Multiplication](laff-linear-algebra/week-4.md)
 * [Week 5 - Matrix- Matrix Multiplication](laff-linear-algebra/week-5.md)
 * [Week 6 - Gaussian Elimination](laff-linear-algebra/week-6.md)
@@ -124,8 +96,8 @@
 ## Computational Thinking
 
 * [Lecture 1 - Optimization and Knapsack Problem](computational-thinking/lecture-1.md)
-* [Lecture 2 - Decision Trees and Dynamic Programming](computational-thinking/lecture-2.md)
-  * [Exercise: Power Set Function](computational-thinking/lecture-2-powerset.md)
+* [Lecture 2 - Decision Trees and Dynamic Programming](computational-thinking/lecture-2/README.md)
+  * [Exercise: Power Set Function](computational-thinking/lecture-2/lecture-2-powerset.md)
 * [Lecture 3 - Graphs](computational-thinking/lecture-3.md)
 * [Lecture 4-5 - Plotting](computational-thinking/lecture-4-5.md)
 * [Lecture 6-7 - Stochastic Programs & Inferential Statistics](computational-thinking/lecture-6-7.md)
@@ -135,21 +107,20 @@
 * [Lecture 12 - Machine Learning](computational-thinking/lecture-12.md)
 * [Lecture 13 - Statistical Abuses](computational-thinking/lecture-13.md)
 
-
 ## Effective Thinking Through Mathematics
 
 * [Note](effective-thinking-through-mathematics/note.md)
-* [Week 4 (Telling the Story of Infinity)](effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity.md)
-* [Week 5 (Telling the Story of Euler Circuit Theorem)](effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem.md)
-
+* [Week 4 \(Telling the Story of Infinity\)](effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity.md)
+* [Week 5 \(Telling the Story of Euler Circuit Theorem\)](effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem.md)
 
 ## CS50 Introduction to Computer Science
 
-* [Week 1 - C](cs50/week-1.md)
-* [Week 2 - Arrays](cs50/week-2.md)
-* [Week 3 - Algorithms](cs50/week-3.md)
-* [Week 4 - Memory](cs50/week-4.md)
-* [Week 5 - Data Structures](cs50/week-5.md)
-* [Week 6 - HTTP](cs50/week-6.md)
-* [Week 7-10 - Machine Learning/Python/SQL/Javascript](cs50/week-7-10.md)
+* [Week 1 - C](cs50-introduction-to-computer-science/week-1.md)
+* [Week 2 - Arrays](cs50-introduction-to-computer-science/week-2.md)
+* [Week 3 - Algorithms](cs50-introduction-to-computer-science/week-3.md)
+* [Week 4 - Memory](cs50-introduction-to-computer-science/week-4.md)
+* [Week 5 - Data Structures](cs50-introduction-to-computer-science/week-5.md)
+* [Week 6 - HTTP](cs50-introduction-to-computer-science/week-6.md)
+* [Week 7-10 - Machine Learning/Python/SQL/Javascript](cs50-introduction-to-computer-science/week-7-10.md)
+* [Untitled](untitled.md)
 

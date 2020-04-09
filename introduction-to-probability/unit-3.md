@@ -1,7 +1,6 @@
 # Unit 3: Counting
 
-[TOC]
+\[TOC\]
 
 ## Lec. 4: Counting
-
 
