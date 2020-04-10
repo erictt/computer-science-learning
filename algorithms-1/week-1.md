@@ -9,7 +9,8 @@
 * Given a set of N objects.
     * **Union command**: connect two objects.
     * **Find/connected query**: is there a path connecting the two objects?
-* <img src="media/15140831154396.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/PanRco4.jpg" style="width:500px" />
+
 * **We assume "is connected to" is an equivalence relation**:
     * Reflexive: **p** is connected to **p**.
     * Symmetric: if **p** is connected to **q**, then **q** is connected to **p**. 
@@ -18,27 +19,27 @@
 ### First Solution: Connected components
 
 * Maximal set of objects that are mutually connected.
-* <img src="media/15140833574857.jpg" style="width:250px" />
+* <img src="https://i.imgur.com/HffCUzo.jpg" style="width:250px" />
 
 ### Second Solution: Quick Find
 
 * To merge components containing p and q, change all entries
 whose id equals id[p] to id[q].
-* <img src="media/15398914071057.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/kVqWbnt.jpg" style="width:500px" />
 
 ### Third Solution: Quick Union
 
-* <img src="media/15398915864237.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/kLwiO2O.jpg" style="width:500px" />
 
 ### Forth Solution: Improved Quick Union
 
-* <img src="media/15398916678179.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/6kAXl04.jpg" style="width:500px" />
 
 
 ### Final Solution: Weighted quick-union with path compression
 
 * **quick-union**:
-    * <img src="media/15153361943661.jpg" style="width:580px" />
+    * <img src="https://i.imgur.com/wZrkcK7.jpg" style="width:580px" />
 * **weighted**: Keep track of size of each tree (number of objects). Balance by linking root of smaller tree to root of larger tree.
     * Keep the depth of any node `x` is at most `lg N`.
 * **path compression**: Make every other node in path point to its grandparent.
@@ -125,14 +126,14 @@ whose id equals id[p] to id[q].
 
 * \\(1, \log{N}, N \log{N}, N^2, N^3, \text{ and } 2^N\\)
     * order of growth discards leading coefficient
-* <img src="media/15159109817755.jpg" style="width:300px" />
+* <img src="https://i.imgur.com/zVwGKBU.jpg" style="width:300px" />
     * \\(\text{time} = \lg{T(N)}\\)
     * \\(\text{size} = \lg{N}\\)
-* <img src="media/15159110767827.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/1L86Sel.jpg" style="width:600px" />
 
 ### Theory of Algorithms
 
-* <img src="media/15159115431400.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/ReIJab3.jpg" style="width:600px" />
 
 
 ### Why Big-Oh Notation
@@ -143,11 +144,11 @@ whose id equals id[p] to id[q].
 * [NOTE] It kinds of says, we use \\(n^k\\), but not \\(n^{k-1}\\)
     * Because \\(O(n^{k-1}) = c \cdot n^{k-1}\\) will always less then \\(n^k\\) (**c** is a constant, but n is not).
     * And we need that, T(n) is bounded above by a constant multiple of f(n).
-        * <img src="media/15139367090341.jpg" style="width:200px" />
+        * <img src="https://i.imgur.com/e4QDv7A.jpg" style="width:200px" />
 * Example
-    * <img src="media/15139362728539.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/xaIpA3R.jpg" style="width:400px" />
 
-* <img src="media/15140235475862.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/NAo87Zc.jpg" style="width:500px" />
 
 ## Assignment (Percolation)
 
