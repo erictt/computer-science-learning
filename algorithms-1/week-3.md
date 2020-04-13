@@ -1,7 +1,5 @@
 # Week 3 - Mergesort & Quicksort
 
-[TOC]
-
 ## Mergesort
 
 * **Basic plan**
@@ -55,7 +53,7 @@
 
 * A **stable** sort preserves the relative order of items with equal keys.
 * For example:
-    * <img src="media/15419868934791.jpg" style="width:500px" />
+    * <img src="https://i.imgur.com/Xv2ezl4.jpg" style="width:500px" />
     * The second sort changed the order of the students of section 3. So it's not stable.
 * To check whether a sort algorithm is stable or not is to check if it has long-distance exchange.
 * Insertion sort: every exchange is small steps. **Stable**
@@ -78,7 +76,7 @@
 * Check [https://cs.ericyy.me/cs50/week-3.html#quick-sort](https://cs.ericyy.me/cs50/week-3.html#quick-sort)
 
 * **empirical analysis**
-    * <img src="media/15419901049025.jpg" style="width:500px" />
+    * <img src="https://i.imgur.com/knEcDAc.jpg" style="width:500px" />
 * **Best case**. Number of compares is ~ N lg N.
 * **Worst case**. Number of compares is ~ ½ N 2 .
 * **Average case**. Number of compares is ~ 1.39 N lg N.
@@ -113,7 +111,7 @@
 * Often, purpose of sort is to bring items with equal keys together.
 * **Mergesort with duplicate keys**. Between ½ N lg N and N lg N compares.
 * **Quicksort with duplicate keys.** Algorithm goes **quadratic** unless partitioning stops on equal keys!
-* <img src="media/15419938087895.jpg" style="width: 400px" />
+* <img src="https://i.imgur.com/lN9Q2xv.jpg" style="width: 400px" />
 
 #### 3-way partitioning
 
@@ -122,8 +120,8 @@
     - (a[i] < v): exchange a[lt] with a[i]; increment both lt and i
     - (a[i] > v): exchange a[gt] with a[i]; decrement gt
     - (a[i] == v): increment i
-* <img src="media/15419939097699.jpg" style="width:300px" />
-* <img src="media/15419939466464.jpg" style="width:300px" />
+* <img src="https://i.imgur.com/BA8VtqI.jpg" style="width:300px" />
+* <img src="https://i.imgur.com/0BM7JEx.jpg" style="width:300px" />
 
 ```java
 private static void sort(Comparable[] a, int lo, int hi) {
@@ -152,4 +150,4 @@ private static void sort(Comparable[] a, int lo, int hi) {
 
 ## Sorting Summary
 
-<img src="media/15419941575031.jpg" style="width:600px" />
+<img src="https://i.imgur.com/wccIzWF.jpg" style="width:600px" />

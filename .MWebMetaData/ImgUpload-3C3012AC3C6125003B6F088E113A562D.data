@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>C99D54460C891C5D77D25D877696EEDF</key>
+	<array>
+		<dict>
+			<key>localURL</key>
+			<string>media/week-2-1.png</string>
+			<key>remoteURL</key>
+			<string>https://i.imgur.com/OsFaou2.png</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/week-2-2.png</string>
+			<key>remoteURL</key>
+			<string>https://i.imgur.com/Yu3uUW3.png</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/week-2-3.png</string>
+			<key>remoteURL</key>
+			<string>https://i.imgur.com/uSHJaTs.png</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/week-2-4.png</string>
+			<key>remoteURL</key>
+			<string>https://i.imgur.com/XeUDjO7.png</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/week-2-5.png</string>
+			<key>remoteURL</key>
+			<string>https://i.imgur.com/TtstrDZ.png</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/week-2-6.png</string>
+			<key>remoteURL</key>
+			<string>https://i.imgur.com/1fxm3mW.png</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/week-2-10.png</string>
+			<key>remoteURL</key>
+			<string>https://i.imgur.com/rsAi6DV.png</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/week-2-11.png</string>
+			<key>remoteURL</key>
+			<string>https://i.imgur.com/rbQ2fdS.png</string>
+		</dict>
+	</array>
+	<key>selectedItem</key>
+	<string>C99D54460C891C5D77D25D877696EEDF</string>
+</dict>
+</plist>

@@ -1,12 +1,10 @@
 # Week 1 - Introduction
 
-[TOC]
-
 ## Several types of learning algorithms
 ### Supervised Learning
 * Regression, to predict results within a continuous output. 
     * For example, predict housing prices:
-        * <img src="media/15057389349240.jpg" style="width:200px" />
+        * <img src="https://i.imgur.com/0DzSACe.jpg" style="width:200px" />
         * Given this data, how to predict the value of a specific size?
         * How to solve this?
             * Straight line through data
@@ -30,7 +28,7 @@
 
     * To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function h : X → Y so that \\(h^{(x)}\\) is a “good” predictor for the corresponding value of y. For historical reasons, this function h is called a hypothesis. Seen pictorially, the process is therefore like this:
     
-    ![week-1-1](media/week-1-1.png)
+    ![week-1-1](https://i.imgur.com/n1JQvxA.png)
     
     * \\(h_{\theta}(x)=\theta_{0}+\theta_{1}x\\), and this means:
     
@@ -67,7 +65,7 @@
 
 * The following image summarizes what the cost function does:
 
-    * ![week-1-2](media/week-1-2.png)
+    * ![week-1-2](https://i.imgur.com/ClNM3A6.png)
 
     * **Hypothesis** - is like your prediction machine, throw in an `x` value, get a putative `y` value
     * **Cost** - is a way to, using your training data, determine values for your \\(\theta\\) values which make the hypothesis as accurate as possible
@@ -81,11 +79,11 @@
     * \\(J(\theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2\\) 
     * \\(\displaystyle {\text{minimize} \atop \theta_{1}}\\), \\(J(\theta_{1})\\)
     * For example:
-        * ![week-1-3-1](media/week-1-3-1.png)
+        * ![week-1-3-1](https://i.imgur.com/ZnZVjgk.png)
     * \\(\theta=1\\), then \\(h_{\theta}(x) = 0 + 1\times x\\) , then \\(h_\theta (x_{i}) - y_{i} =0\\) , then \\(J(\theta_{1})=0\\) 
     * Plots: ( \\(\theta_{1}=1, J(\theta_{1})=0\\) ), (\\(\theta_{1}=0.5, J(\theta_{1})\approx0.58\\) ), (\\(\theta_{1}=0, J(\theta_{1})\approx2.3\\) )
     * Then we got:
-        * <img src="media/week-1-8.png" style="width:300px" />
+        * <img src="https://i.imgur.com/O2Rofhd.png" style="width:300px" />
     * The optimization objective for the learning algorithm is find the value of \\(\theta_{1}\\) which \\(\text{minimizes }  J(\theta_{1})\\)
         * So, here \\(\theta_{1} = 1\\) is the best value for \\(\theta_{1}\\)
 * Using our original complex hypothesis with two paribles,So cost function is \\(J(\theta_{0}, \theta_{1})\\)
@@ -93,12 +91,12 @@
         * \\(X = \theta_{0}\\)
         * \\(Z = \theta_{0}\\)
         * \\(Y=J(\theta_{0}, \theta_{1})\\)
-        * <img src="media/week-1-9.png" style="width:400px" />
+        * <img src="https://i.imgur.com/HabDxKp.png" style="width:400px" />
     * Instead of a surface plot we can use a **contour figures/plots**
         * Set of ellipses in different colors
         * Each color is the same value of \\(J(\theta_{0}, \theta_{1})\\) , but obviously plot to different locations because \\(\theta_{1}\\) and \\(\theta_{0}\\) will vary
         * Imagine a bowl shape function coming out of the screen so the middle is the concentric circles
-        * <img src="media/week-1-10.png" style="width:500px" />
+        * <img src="https://i.imgur.com/KIgwr4H.png" style="width:500px" />
 
 ## Parameter Learning
 
@@ -117,7 +115,7 @@
 * Outline:
     * Start with some \\(\theta_{0}, \theta_{1}\\), 
     * Keep changing \\(\theta_{0}, \theta_{1}\\) to reduce \\(J(\theta_{0}, \theta_{1})\\) until we hopefully end up at a minimum
-    * <img src="media/week-1-11.png" style="width:500px" />
+    * <img src="https://i.imgur.com/2ri1yJQ.png" style="width:500px" />
     * Here we can see one initialization point led to one local minimum
     * The other led to a different one
 
@@ -137,7 +135,7 @@
 * How this gradient descent algrorithm is impliemented
     * Do this for \\(\theta_{0}\\) and \\(\theta_{1}\\)
     * For \\(j=0\\) and \\(j=1\\) means we **simultaneously** update both, like:
-        * ![week-1-12](media/week-1-12.png)
+        * ![week-1-12](https://i.imgur.com/525ReBw.png)
 
 
 * Understanding the algorithm
@@ -157,11 +155,11 @@
         * Lets take the tangent at the point and look at the slope of the line
         * So moving towards the mimum (down) will create a negative derivative, alpha is always positive, so will update \\(j(\theta_{1})\\) to a smaller value
         * Similarly, if we're moving up a slope we make \\(j(\theta_{1})\\) a bigger numbers
-        * ![week-1-13](media/week-1-13.png)
+        * ![week-1-13](https://i.imgur.com/7mMHqms.png)
 
     * Alpha term (α)
 
-        * ![week-1-14](media/week-1-14.png)
+        * ![week-1-14](https://i.imgur.com/DpIDY9z.png)
 
     * How does gradient descent converge with a fixed step size α?
 
@@ -169,7 +167,7 @@
 
             * > \\(\theta_{1}:=\theta_{1}-\alpha \times 0\\)
 
-        * ![week-1-15](media/week-1-15.png)
+        * ![week-1-15](https://i.imgur.com/reURNYU.png)
 
 ### Gradient Descent For Linear Regression
 
@@ -177,7 +175,7 @@
 
 * Now we have a partial derivative:
 
-    * ![week-1-16](media/week-1-16.png)
+    * ![week-1-16](https://i.imgur.com/gR8YSJq.png)
 
 * So we need to determine the derivative for each parameter:
 
@@ -189,7 +187,7 @@
 
     * To check this you need to know **multivariate calculus**. So go back here when you finished **multivariable calculus**.
         * We have separated out the two cases for \\(\theta_{j}\\) into separate equations for \\(\theta_{0}\\) and \\(\theta_{1}\\); and that for \\(\theta_1\\) we are multiplying \\(x_i\\) at the end due to the derivative. The following is a derivation of \\(\frac{\partial}{\partial \theta_j} J(\theta)\\) for a single example :
-        * ![week-1-18](media/week-1-18.png)
+        * ![week-1-18](https://i.imgur.com/FrbNCcI.png)
 
 * How does it work
 
@@ -201,7 +199,7 @@
                 * So gradient descent will always converge to global optima
     * In action
         * Initialize values to \\(\theta_{0} = 900, \theta_{1} = -0.1\\)
-        * ![week-1-17](media/week-1-17.png)
+        * ![week-1-17](https://i.imgur.com/jWBzyEO.png)
     * End up at a global minimum
     * This is actually **"Batch" Gradient Descent**
         * Refers to the fact that over each step you look at all the training data
@@ -246,16 +244,16 @@
 
 ### Matrix Vector Multiplication 
 
-* ![week-1-m-11](media/week-1-m-11.jpg)
+* ![week-1-m-11](https://i.imgur.com/2l4ZCrt.jpg)
 * Example:
     * \\(\begin{bmatrix} 1 & 2 & 3 \\ 3 & 4 & 5 \end{bmatrix} \times \begin{bmatrix} 4 \\ 3 \\ 2 \end{bmatrix} = \begin{bmatrix} 16 \\ 34 \end{bmatrix}\\)
     * Row 1: \\(1 \times 4 + 2 \times 3 + 3 \times 2 = 16\\)​
-* ![week-1-m-13](media/week-1-m-13.jpg)
+* ![week-1-m-13](https://i.imgur.com/boak1WX.jpg)
 
 ### Matrix Matrix Multiplication
 
-* ![week-1-m-16](media/week-1-m-16.jpg)
-* ![week-1-m-18](media/week-1-m-18.jpg)
+* ![week-1-m-16](https://i.imgur.com/8VFL9TD.jpg)
+* ![week-1-m-18](https://i.imgur.com/1MWrKEX.jpg)
 
 ### Matrix Multiplication Properties
 
@@ -264,12 +262,12 @@
     * Let \\(D = B * C\\). Compute \\(A * D\\)
     * Let \\(E = A * B\\). Compute \\(E * C\\)
 * Identity Matrix:
-    * ![week-1-m-22](media/week-1-m-22.jpg)
+    * ![week-1-m-22](https://i.imgur.com/OZBqfVn.jpg)
 
 ### Inverse and Transpose
 
 * **Inverse**: \\(AA^{-1} = A^{-1}A = I\\) . Like \\(3 * 3^{-1} = 1\\)
-    * ![week-1-m-24](media/week-1-m-24.png)
+    * ![week-1-m-24](https://i.imgur.com/OvRvp7c.png)
     * Not all numbers have an inverse. Like `0` doesn't have.
     * Matrices that don't have an inverse are "singular" or "degenerate".
     * How did you find the inverse
@@ -277,7 +275,7 @@
         * Numerical software for computing a matrices inverse
             * Lots of open source libraries
 * **Transpose**:
-    * ![week-1-m-25](media/week-1-m-25.jpg)
+    * ![week-1-m-25](https://i.imgur.com/YGZ5PKV.jpg)
 
 ## Words
 

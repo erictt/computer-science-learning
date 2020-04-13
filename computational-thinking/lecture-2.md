@@ -1,7 +1,5 @@
 # Lecture 2
 
-[TOC]
-
 ## Search Tree Implementation
 
 * The first element is selected from the still to be considered items
@@ -68,7 +66,7 @@ def fib(n):
 
 #### Call Tree for Recursive Fibonacci\(6\) = 13
 
-![unit-1-1](media/unit-1-1.png)
+![unit-1-1](https://i.imgur.com/x98x7kW.png)
 
 ### To avoid repeat work
 
@@ -96,7 +94,7 @@ def fastFib(n, memo = {}):
 
 ### Take another sample for knapsack
 
-![unit-1-1](media/unit-1-2.jpg)
+![unit-1-1](https://i.imgur.com/byGt1mG.jpg)
 
 * Since `a` and `b` have the same calories, the rest calculations of the two which marked by red box will be the same. This will be a **overlapping subproblems** which can be optimized.
 

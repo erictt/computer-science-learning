@@ -1,7 +1,5 @@
 # Week 6 - Taylor Series
 
-[TOC]
-
 ## Brief 
 
 * This week talks about how to transfer a function \\(f(x)\\) to a power series.

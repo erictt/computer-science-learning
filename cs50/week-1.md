@@ -1,7 +1,5 @@
 # Week 1
 
-[TOC]
-
 ## Basic Linux Command
 
 * `cd` for change directory, to move around to different folders

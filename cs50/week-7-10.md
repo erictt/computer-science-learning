@@ -1,7 +1,5 @@
 # Week 7 - 10
 
-[TOC]
-
 ## Machine Learning
 
 * Have token the same courses in `mathematical thinking` and `machine learning`

@@ -1,7 +1,5 @@
 # Week 4 - The Beginning of Derivatives
 
-[TOC]
-
 ## Derivatives
 
 ### Definition
@@ -24,10 +22,10 @@
 * Tangent Line
 
     * the tangent line is the limiting position of the secant line PQ as Q approaches P.
-        * <img src="media/15031337323520.jpg" style="width:250px" />
+        * <img src="https://i.imgur.com/nGyDG2t.jpg" style="width:250px" />
     * The tangent line to the curve `y = f(x)` at the point `P(a, f(a))` is the line through `P` with slope \\(t=\displaystyle\lim_{x -> a}\frac{f(x) - f(a)}{x - a}\\) provided that this limit exists.
     * Example: Find an equation of the tangent line to the parabola \\(y=x^2\\) at the point `P(1, 1)`.
-        * <img src="media/15031340698210.jpg" style="width:450px" />
+        * <img src="https://i.imgur.com/zZa3reZ.jpg" style="width:450px" />
 
 ### How Can A Function Fail To Be Differentiable (Three situations)?    
 

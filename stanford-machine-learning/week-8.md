@@ -1,13 +1,11 @@
 # Week 8 - Unsupervised Learning & Dimensionality Reduction
 
-[TOC]
-
 ## Unsupervised Learning
 
 ### Clustering
 
 * Check [Computational Thinking(Lecture 12)](https://cs.ericyy.me/computational-thinking/lecture-12.html#clustering) for the **clustering** and **k-means algorithm** notes.
-* <img src="media/15114179881526.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/Oiob5tT.jpg" style="width:500px" />
 
 #### Optimization Objective
 
@@ -26,14 +24,14 @@
      
 * How to fix **Local Optima**
     * the situation like:
-        * <img src="media/15114196883603.jpg" style="width:300px" />
+        * <img src="https://i.imgur.com/G4suxPy.jpg" style="width:300px" />
     * The solution is: Try multiple times of random initialization.
-    * <img src="media/15114197571420.jpg" style="width:360px" />
+    * <img src="https://i.imgur.com/fozIOTI.jpg" style="width:360px" />
      
 ####  Choosing the Number of Clusters
     
 * First method is to use **Elbow method**: 
-    * <img src="media/15114210748168.jpg" style="width:200px" />
+    * <img src="https://i.imgur.com/hOwyMSc.jpg" style="width:200px" />
     * Sometimes, you won't get an elbow, instead with a smooth line, which means this method doesn't work in this way.
 * Another method: **market segmentation**
     * For example: T-shirt size
@@ -47,37 +45,37 @@
 
 1. **Data Compression**
     * For Example, Reduce data from 2D to 1D
-    * <img src="media/15120152083175.jpg" style="width:200px"/>
+    * <img src="https://i.imgur.com/tTm93dC.jpg" style="width:200px"/>
     * When the features are highly correlated, they can be combined into a single attribute.
     * It can speed up our algorithms and reduce the spaces.
     * Another example: 3D -> 2D
-        * <img src="media/15120153785793.jpg" style="width:500px" />
+        * <img src="https://i.imgur.com/qKY3SzH.jpg" style="width:500px" />
 
 2. **Visualization**
     * It's hard to visualize highly dimensional(>3D) data. So we can reduce the dimension to help us to understand the data better.
     * For example, collect a large data set about many facts of a country around the world:
-        * <img src="media/15120156320083.jpg" style="width:400px"/>
+        * <img src="https://i.imgur.com/P7Klc7H.jpg" style="width:400px"/>
         * If we reduce the dimension to 2D:
-            * <img src="media/15120156974596.jpg" style="width:200px" />
+            * <img src="https://i.imgur.com/loyltSx.jpg" style="width:200px" />
         * Then visualize:
-            * <img src="media/15120157612341.jpg" style="width:300px" />
+            * <img src="https://i.imgur.com/Vd0bNrg.jpg" style="width:300px" />
 
 ### Principal Component Analysis(PCA)
 
 #### Problem Formulation
 
 * Say we want to reduce a 2D data to 1D:
-    * <img src="media/15121829729385.jpg" style="width:200px" />
+    * <img src="https://i.imgur.com/cqJCGCa.jpg" style="width:200px" />
     * In other words, find a single line which to project the data, and minimize the distance between each point and the line.
     * This distance we call it **projection error** (the blue lines below):
-        * <img src="media/15121837447256.jpg" style="width:200px" />
+        * <img src="https://i.imgur.com/qNhC97G.jpg" style="width:200px" />
 * A more formal description is:
     * Reduce from **2**-dimension to **1**­‐dimension: Find a direction (a vector \\(u^{(1)} \in \mathbb{R}^n\\))onto which to project the data so as to minimize the projection error.
 * More general:
     * Reduce from **n**-dimension to **k**­‐dimension: Find **k** vectors \\(u^{(1)}, u^{(2)}, \ldots, u^{(k)}\\)) onto which to project the data so as to minimize the projection error.
 
 * **PCA is not linear regression**
-    * <img src="media/15121841094696.jpg" style="width:420px" />
+    * <img src="https://i.imgur.com/3oTdkHi.jpg" style="width:420px" />
     * Linear regression is trying to minimize the distance **vertically**
     * PCA is trying to find the shortest orthogonal distances.
 
@@ -105,7 +103,7 @@
         * In Matlab: `[U, S, V] = svd(Sigma);`
             * `svd`: singular value decomposition
         * `U,S,V`: Matrix
-            * <img src="media/15121850958877.jpg" style="width:300px" />
+            * <img src="https://i.imgur.com/WfFMGjY.jpg" style="width:300px" />
             * And we are going to take the first **k** columns of U to find \\(z\\), which will be a [n x k] matrix. We call this matrix **U_reduce** matrix.
             * Then \\(z = U_{\text{reduce}}'X\\), and z will be a \\((k \times 1)\\) vector.
     * In summay:

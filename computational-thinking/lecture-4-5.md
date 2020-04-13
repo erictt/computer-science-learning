@@ -1,7 +1,5 @@
 # Lecture 4-5 - Plotting
 
-[TOC]
-
 ## Plotting
 
 * Just an example.
@@ -27,5 +25,5 @@ pylab.legend()
 pylab.title('Cubic vs. Exponential')
 ``` 
 
-* <img src='media/unit-2-1.jpg' style="width:600px"/>
+* <img src='https://i.imgur.com/0PnJ0gJ.jpg' style="width:600px"/>
 

@@ -1,7 +1,5 @@
 # Lecture 3
 
-[TOC]
-
 ## Computational Models
 
 * Programs that help us understand the world and solve practical problems
@@ -27,7 +25,7 @@
 #### Samples
 
 * Leonhard Euler’s Model (First Reported Use of Graph Theory)
-    * <img src='media/unit-1-3.png' style="width:400px"/>
+    * <img src='https://i.imgur.com/nE4hbIS.png' style="width:400px"/>
     * Each island a node
     * Each bridge an undirected edge
     * **Model abstracts away irrelevant details**
@@ -50,7 +48,7 @@
 #### Sample
 
 * Finding a route from one city to another
-    * <img src='media/unit-1-4.png' style="width:400px"/>
+    * <img src='https://i.imgur.com/sadQXWL.png' style="width:400px"/>
 
 * Four classes:
     * Node

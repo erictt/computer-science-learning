@@ -1,12 +1,10 @@
 # Week 4
 
-[TOC]
-
 ## Memory
 
 * take memory as a rectangle:
 
-    <img src="media/week-4-1.jpg" style="width:200px" />
+    <img src="https://i.imgur.com/9aNd320.jpg" style="width:200px" />
             
     * "text": machine code
     * "data": variables
@@ -158,11 +156,11 @@
     }
     ```
     
-    <img src="media/week-4-2.jpg" style="width:260px" />
+    <img src="https://i.imgur.com/8uXBoDh.jpg" style="width:260px" />
 
     * With a short string less than 12, it will be still ok. But if large than 12, it will overwritten with the address of the beginning of the string, even rewrite the main function:
     
-        <img src="media/week-4-3.jpg" style="width:260px" />
+        <img src="https://i.imgur.com/1SDa825.jpg" style="width:260px" />
 
 ## Images
 
@@ -172,7 +170,7 @@
     * `255` in decimal is `1111 1111`, and `216` is `1101 1000`. Each of those four bits, since they can hold 16 values, map perfectly to hexadecimal. `1111` is `f`, `1101` is `d`, and `1000` is `8`. So `255` is the same as `ff`, and `216` is the same as `d8`. And it’s convention to write hexadecimal as `0xff` and `0xd8`.
 * BMP
 
-    <img src="media/week-4-4.jpg" style="width:360px" />
+    <img src="https://i.imgur.com/rJGcuXe.jpg" style="width:360px" />
 
     * Files are just a sequence of bits, and if we think of each byte as having some offset from the beginning, we can specify exactly what should be in a file for it to be valid.
 

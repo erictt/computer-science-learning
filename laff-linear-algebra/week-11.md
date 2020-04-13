@@ -1,12 +1,10 @@
 # Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases
 
-[TOC]
-
 ## Rank-k Approximation
 
 ### Projecting a Vector onto a Subspace
 
-* <img src="media/15246609225677.jpg" style="width:300px" />
+* <img src="https://i.imgur.com/jh4ivTV.jpg" style="width:300px" />
 * Here, we have two vectors, \\(a, b \in \mathbb{R}^m\\). They exist in the plane deﬁned by \\(\text{Span}({a, b})\\) which is a two dimensional space (unless a and b point in the same direction). 
 * \\(b = z + w\\)
 * \\(z = \chi a \text{ with } \chi \in \mathbb{R}\\)
@@ -60,18 +58,18 @@
 
 * Definition: Transform a given set of basis vectors into a set of **orthonormal vectors** that form a basis for the same space is called **GS orthogonalization**.
 * Starting with linearly independent vectors \\(a_0, a_1, \ldots, a_{n-1} \in \mathbb{R}^m\\), the following algorithm computes the mutually orthonormal vectors \\(q_0, q_1, \ldots, q_{n-1} \in \mathbb{R}^m\\) such that \\(\text{Span}(\{a_0, a_1, \ldots, a_{n-1}\}) = \text{Span}(\{q_0, q_1, \ldots, q_{n-1}\})\\):
-* <img src="media/15251022826860.jpg" style="width:600px" />
-* <img src="media/15397008238987.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/qJrUQYB.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/O8WzGxr.jpg" style="width:600px" />
 * The algorithm:
-    * <img src="media/15248052802711.jpg" style="width:600px" />
+    * <img src="https://i.imgur.com/bvQi9pX.jpg" style="width:600px" />
 
 ### The QR factorization
 
 * Given \\(A \in \mathbb{R}^{m \times n}\\) with linearly independent columns, there exists a matrix \\(Q \in \mathbb{R}^{m \times n}\\) with mutually orthonormal columns and upper triangular matrix \\(R \in \mathbb{R}^{n \times n}\\) such that \\(A = QR\\).
 * If one partitions
-* <img src="media/15248055719429.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/vIYoBE2.jpg" style="width:600px" />
 * then 
-* <img src="media/15248055975514.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/v4EuayB.jpg" style="width:600px" />
 * and **Gram-Schmidt orthogonalization** (the Gram-Schmidt process) in the above algorithm computes the columns of Q and elements of R.
 
 ### Solving the linear least-squares problem via the QR factorization
@@ -83,7 +81,7 @@
         * And Columns of A must be linear independent.
 
 * An algorithm for computing the QR factorization is given by
-    * <img src="media/15248058147454.jpg" style="width:500px" />
+    * <img src="https://i.imgur.com/fM5fD4G.jpg" style="width:500px" />
 
 #### Change of Basis
 
@@ -102,7 +100,7 @@
     * \\(r\\) equals the rank of matrix \\(A\\).
 
 * If we partition
-    * <img src="media/15248058876303.jpg" style="width:500px" />
+    * <img src="https://i.imgur.com/rWqF8hr.jpg" style="width:500px" />
 * where \\(U_L\\) and \\(V_L\\) have \\(k\\) columns and \\(\Sigma_{TL}\\) is \\(k \times k\\), then \\(U_L \Sigma_{TL} V_L^T\\) is the “best” rank-k approximation to matrix B. So, the “best” rank-k approximation \\(B = AW^T\\) is given by the choices \\(A = U_L\\) and \\(W = \Sigma_{TL} V_L\\).
     * Given \\(A \in \mathbb{R}^{m \times n}\\) with linearly independent columns, and \\(b \in \mathbb{R}^m\\) , the “best” solution to \\(Ax \approx b\\) (in the linear least-squares sense) via its SVD, \\(A = U \Sigma V^T\\) , is given by \\[\begin{aligned}\hat{x} &= (A^TA)^{-1}A^T b \\ &= ((U \Sigma V^T)^T U \Sigma V^T)^{-1} (U \Sigma V^T)^T b \\ &= V \Sigma^{-1} U^T b \end{aligned}\\]
 

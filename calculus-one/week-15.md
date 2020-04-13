@@ -1,7 +1,5 @@
 # Week 15 - Techniques of Integration
 
-[TOC]
-
 ## Integration by Parts
 
 * Every differentiation rule has a corresponding integration rule.
@@ -66,12 +64,12 @@
 
 ## Tables of Indefinite Integrals
 
-* <img src="media/15133099702627.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/rmEVt7K.jpg" style="width:500px" />
     * \\(tan^{-1}x = \arctan{x}\\)
     * Hyperbolic functions 
         * In mathematics, hyperbolic functions are analogs of the ordinary trigonometric, or circular, functions. --from [Wikipedia](https://en.wikipedia.org/wiki/Hyperbolic_function)
-        * <img src="media/15133242016684.jpg" style="width:300px" />
-        * <img src="media/15133241702183.jpg" style="width:600px" />
+        * <img src="https://i.imgur.com/NtCnBwP.jpg" style="width:300px" />
+        * <img src="https://i.imgur.com/S2Ot3Y4.jpg" style="width:600px" />
 
 ## Words
 

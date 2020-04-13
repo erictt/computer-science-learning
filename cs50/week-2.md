@@ -1,7 +1,5 @@
 # Week 2
 
-[TOC]
-
 ## Cryptography
 
 ### String

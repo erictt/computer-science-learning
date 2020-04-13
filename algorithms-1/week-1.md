@@ -1,7 +1,5 @@
 # Union-Find & Analysis of Algorithms
 
-[TOC]
-
 * This case shows that, how to improve algorithm step by step.
 
 ## Dynamic Connectivity

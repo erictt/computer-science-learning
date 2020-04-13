@@ -1,7 +1,5 @@
 # Unit 1: Thinking about multivariable functions
 
-[TOC]
-
 ## What are multivariable functions?
 
 * A function is called **multivariable** if its input is made up of multiple numbers. \\[\underbrace{f(x, y)}_{\text{Multiple numbers in the input} } = x^2 y\\]
@@ -22,7 +20,7 @@
 * Contour maps. Contour maps only show the input space and are useful for functions with a **two**-dimensional input and a **one**-dimensional output.
 * Parametric curves/surfaces. Parametric curves and surfaces only show the **output space** and are used for functions whose output space has more dimensions than the input space.
     * For example: \\(f(x) = \begin{bmatrix} \cos(t) - 3 + \frac{1}{2\pi} t\\ t \sin(t)\end{bmatrix}, t \in [0, 12 \pi]\\)
-    * <img src="media/15259190682743.jpg" style="width: 400px" />
+    * <img src="https://i.imgur.com/GtuKx9u.jpg" style="width: 400px" />
 * Vector fields. These apply to functions whose input space and output space have the **same number of dimensions**.
 * Transformations. These have the benefit of applying to any function, **no matter the dimension** of the input and output space. However, the downside is that they are **impractical** for representing the function precisely.
 * [https://www.khanacademy.org/math/multivariable-calculus/thinking-about-multivariable-function/ways-to-represent-multivariable-functions/a/visualizing-multivariable-functions](https://www.khanacademy.org/math/multivariable-calculus/thinking-about-multivariable-function/ways-to-represent-multivariable-functions/a/visualizing-multivariable-functions)

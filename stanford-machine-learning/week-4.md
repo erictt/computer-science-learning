@@ -1,19 +1,17 @@
 # Week 4 - Neural Networks: Representation
 
-[TOC]
-
 ## Model Representation
 
 ### Neuron in the brain
 
-* <img src="media/15093521242541.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/Nl97TRr.jpg" style="width:400px" />
     * neurons are basically computational units that take inputs (**dendrites**) as electrical inputs (called "spikes") that are channeled to outputs (**axons**).
 
 ### Artificial neural network
 
 #### Neural Model: Logistic unit
 
-* <img src="media/15093529603201.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/gNu2evI.jpg" style="width:400px" />
 * Our **dendrites** are like the **input** features \\(x_1⋯x_n\\),
 * The **output** is the result of our hypothesis function.
 * \\(x_0\\) input node is called the "**bias unit**", always equal to 1.
@@ -25,7 +23,7 @@
 
 ##### Neural Network
 
-* <img src="media/15093535677939.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/URi3zkD.jpg" style="width:400px" />
 * Layers of nodes between the input and output layers called the "**hidden layers**".
 * \\(a^{(j)}_{i}\\) = "activation" of unit `i` in layer `j`
 * \\(\Theta^{(j)}\\) = matrix of weights controlling function mapping from layer `j` to layer `j+1`
@@ -57,12 +55,12 @@
 ## Examples and Intuitions
 
 * A simple example of applying neural networks is by predicting \\(x_1\\) **AND** \\(x_2\\), which is the logical 'and' operator and is only true if both \\(x_1\\) and \\(x_2\\) are **1**.
-    * <img src="media/15093564887517.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/nvun1ZZ.jpg" style="width:400px" />
         * So we have constructed one of the fundamental operations in computers by using a small neural network rather than using an actual **AND** gate.
 * Sample **OR**: 
-    * <img src="media/15093566432940.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/4MxSHmE.jpg" style="width:400px" />
 * Sample **XNOR** \\((A \cap B) \cup (!A \cap !B)\\): 
-    * <img src="media/15093567150806.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/ccTN2Xo.jpg" style="width:400px" />
 * Sample **XOR**:
     * \\((A \cap !B) \cup (!A \cap B)\\) 
     * or \\((A \cap B) \cap (!A \cap !B)\\) = OR & NOR -> AND
@@ -71,7 +69,7 @@
 
 ## Multiclass Classification
 
-* <img src="media/15093568652084.jpg" style="width:500px" />
-* <img src="media/15093568800050.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/WVJnWMy.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/CmzE6oP.jpg" style="width:500px" />
 
 

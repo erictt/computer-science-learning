@@ -1,7 +1,5 @@
 # Lecture 1
 
-[TOC]
-
 ## Computational Models
 
 * Optimization models

@@ -1,12 +1,10 @@
 # Week 2 - Linear Transformations and Matrices
 
-[TOC]
-
 ## Opening Remarks  
 
 ### Rotations in 2D
 
-* <img src="media/15112325156585.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/pFAMSiE.jpg" style="width:400px" />
 * \\(\alpha R_{\theta}(x) = R_{\theta}(\alpha x)\\),
 * \\(R_{\theta}(x+y) = R_{\theta}(x) + R_{\theta}(x)\\)
 
@@ -38,11 +36,11 @@
 
 ## Representing Linear Transformations as Matrices
 
-* <img src="media/15112563461870.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/UFUjKgr.jpg" style="width:600px" />
 * **The Big Idea**. The linear transformation **L** is completely described by the vectors 
     * \\(a_0 ,a_1 ,...,a_{n-1}\\), where \\(a_j = L(e_j)\\)
 * because for any vector **x**, \\(L(x) = \sum^{n-1}_{j=0} x_j a_j\\).
-* <img src="media/15112562875793.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/a7OYOtf.jpg" style="width:600px" />
 
 ### Theorem
 
@@ -62,8 +60,8 @@
 
 ### Rotations and Reflections, Revisited
 
-<img src="media/15113451668588.jpg" style="width:600px" />
-<img src="media/15113452371581.jpg" style="width:600px" />
+<img src="https://i.imgur.com/N4lDdfv.jpg" style="width:600px" />
+<img src="https://i.imgur.com/5D5NEid.jpg" style="width:600px" />
 
 ## Some Summations will be Used in Future Weeks
 

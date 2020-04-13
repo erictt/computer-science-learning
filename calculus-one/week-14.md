@@ -1,7 +1,5 @@
 # Week 14 - Substitution Rule
 
-[TOC]
-
 ## Theorem
 
 * If \\(u = g(x)\\) is a differentiable function whose range is an interval \\(I\\) and \\(f\\) is continuous on \\(I\\), then \\[\int f(g(x))g'(x)dx = \int f(u) du\\]

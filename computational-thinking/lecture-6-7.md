@@ -1,7 +1,5 @@
 # Lecture 6-7 - Stochastic Programs & Inferential Statistics
 
-[TOC]
-
 ## Stochastic Programs
 
 * A stochastic model is one in which randomness is present, and variable states are not described by unique values, but rather by **probability distributions**. The behavior of this model cannot be entirely predicted.
@@ -104,7 +102,7 @@ numSteps = (10,100,1000,10000)
 simAll((UsualDrunk, ColdDrunk), numSteps, 100)
 ```
 
-<img src='media/unit-2-3.jpg' style="width:400px"/>
+<img src='https://i.imgur.com/ejWtMNt.jpg' style="width:400px"/>
 
 * plot every final locations
 
@@ -149,7 +147,7 @@ random.seed(0)
 plotLocs((UsualDrunk, ColdDrunk), 10000, 1000)
 ```
 
-<img src='media/unit-2-4.jpg' style="width:400px"/>
+<img src='https://i.imgur.com/lyiuPUT.jpg' style="width:400px"/>
 
 
 * [complete code](https://github.com/erictt/computer-science-learning/blob/master/computational-thinking/unit-2/lecture6-segment3.py)
@@ -266,8 +264,8 @@ plotLocs((UsualDrunk, ColdDrunk), 10000, 1000)
         flipPlot1(4, 20, 20)
     ```
     
-    <img src='media/unit-2-2.jpg' style="width:600px"/>
-    <img src='media/15043566360658.jpg' style="width:600px"/>
+    <img src='https://i.imgur.com/XxwLx54.jpg' style="width:600px"/>
+    <img src='https://i.imgur.com/RyEMdQ3.jpg' style="width:600px"/>
 
 * Conclusion 
     * The ratio heads/tails is converging towards 1 and log of standard deviation is falling linearly with the log of the number of flips per trail. 
@@ -337,7 +335,7 @@ def flipPlot1(minExp, maxExp, numTrials):
              'Coeff. of Var.', 'bo', logX = True, logY = True)
 ```
 
-<img src='media/15016457519417.jpg' style="width:600px"/>
+<img src='https://i.imgur.com/XU5mKZc.jpg' style="width:600px"/>
     
 * Conclusion
     * the plot of coefficient of variation for the heads/tails ratio is not much different from the plot of the standard deviation, cause the mean is close to 1.
@@ -355,7 +353,7 @@ def flipPlot1(minExp, maxExp, numTrials):
     pylab.hist(vals, bins = 10)
     ```
     
-    <img src='media/15017304680216.jpg' style="width:300px"/>
+    <img src='https://i.imgur.com/tWdEMxQ.jpg' style="width:300px"/>
 
     
 #### Normal Distributions and Confidence Levels
@@ -410,7 +408,7 @@ def flipPlot1(minExp, maxExp, numTrials):
     makePlots(100,1000,100000)
     ```
     
-    <img src='media/15017329340640.jpg' style="width:600px"/>
+    <img src='https://i.imgur.com/HDvBX8A.jpg' style="width:600px"/>
 
 
 * **empirical rule** for normal distributions:

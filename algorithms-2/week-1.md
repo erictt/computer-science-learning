@@ -1,7 +1,5 @@
 # Week 1 - Graphs
 
-[TOC]
-
 ## Undirected Graphs
 
 ### Graph terminology
@@ -9,7 +7,7 @@
 * **Path**. Sequence of vertices connected by edges. 
 * **Cycle**. Path whose first and last vertices are the same.
 * Two vertices are **connected** if there is a path between them.
-* <img src="media/15431850805002.jpg" style="width:300px" />
+* <img src="https://i.imgur.com/aZGpPYB.jpg" style="width:300px" />
 
 * Some graph-processing problems
     * **Path**. Is there a path between s and t ?
@@ -23,14 +21,14 @@
 
 ### Graph API
 
-* <img src="media/15431854035422.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/yyQ6YXO.jpg" style="width:500px" />
 * Typical graph-processing code
-* <img src="media/15431857114154.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/7hSyI4F.jpg" style="width:500px" />
 
 #### Adjacency-list graph representation
 
-* <img src="media/15431858971942.jpg" style="width:500px" />
-* <img src="media/15431859350056.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/VNUOo3u.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/Wfa1Ph6.jpg" style="width:500px" />
 
 ### Depth-first Search
 
@@ -42,7 +40,7 @@
     * **boolean[]** marked to mark visited vertices.
     * **int[]** edgeTo to keep tree of paths.
     * **(edgeTo[w] == v)** means that edge v-w taken to visit w for first time 
-* <img src="media/15431870581703.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/Y2Qscrz.jpg" style="width:500px" />
 
 
 ### Breadth-first Search
@@ -56,25 +54,25 @@
     * Repeat until the queue is empty:
         - remove the least recently added vertex v
         - add each of v's unvisited neighbors to the queue, and mark them as visited.
-* <img src="media/15434458142004.jpg" style="width:360px" />
+* <img src="https://i.imgur.com/o0vVonE.jpg" style="width:360px" />
 
 ### Connected Components
 
 * **Goal**:
     * Vertices v and w are **connected** if there is a path between them.
     * Preprocess graph to answer queries of the form is v connected to w? in **constant** time.
-    * <img src="media/15434474649027.jpg" style="width:500px" />
+    * <img src="https://i.imgur.com/90uTQFU.jpg" style="width:500px" />
 * The relation "is connected to" is an equivalence relation:
     * **Reflexive**: v is connected to v.
     * **Symmetric**: if v is connected to w, then w is connected to v.
     * **Transitive**: if v connected to w and w connected to x, then v connected to x.
 * A connected component is a maximal set of connected vertices.
-    * <img src="media/15434475320846.jpg" style="width:300px" />
+    * <img src="https://i.imgur.com/pIKSkio.jpg" style="width:300px" />
 * **Algorithm**:
     * Initialize all vertices v as unmarked.
     * For each unmarked vertex v, run DFS to identify all vertices discovered as part of the same component.
-* <img src="media/15434475971201.jpg" style="width:550px" />
-* <img src="media/15434476062692.jpg" style="width:550px" />
+* <img src="https://i.imgur.com/gVeloZT.jpg" style="width:550px" />
+* <img src="https://i.imgur.com/bW0P9fW.jpg" style="width:550px" />
 
 ### Some Quizzes
 * Some definitions:
@@ -100,11 +98,11 @@
 ## Directed Graphs (Digraphs)
 
 * Set of vertices connected pairwise by directed edges.
-* <img src="media/15437226422240.jpg" style="width:550px" />
+* <img src="https://i.imgur.com/FzhwPnb.jpg" style="width:550px" />
 
 ### Digraph API
 
-* <img src="media/15437972866221.jpg" style="width:550px" />
+* <img src="https://i.imgur.com/SXcNJOo.jpg" style="width:550px" />
 * toString()
     
     ```java
@@ -133,12 +131,12 @@
     * Digraph model. 
         * vertex = task; 
         * edge = precedence constraint.
-* <img src="media/15438749018591.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/jW9iffc.jpg" style="width:500px" />
 * **DAG**. Directed **acyclic** graph.
 * **Topological sort**. Redraw DAG so all edges point upwards.
     * Run depth-first search.
     * Return vertices in reverse postorder.
-    * <img src="media/15438760745621.jpg" style="width:500px" />
+    * <img src="https://i.imgur.com/2wfG1RA.jpg" style="width:500px" />
 
 * A digraph has a topological order **iff no directed cycle**.
 
@@ -146,11 +144,11 @@
 
 * **Def**. Vertices v and w are **strongly connected** if there is both a directed path from v to w and a directed path from w to v.
 * **Def**. A **strong component** is a maximal subset of strongly-connected vertices.
-    * <img src="media/15438758011206.jpg" style="width:300px" />
+    * <img src="https://i.imgur.com/zJ4XtaV.jpg" style="width:300px" />
 
 #### Connected components vs. strongly-connected components
 
-* <img src="media/15450228663087.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/763nvSM.jpg" style="width:600px" />
 
 
 #### Kosaraju-Sharir algorithm
@@ -160,19 +158,19 @@
 * **Kernel DAG.** Contract each strong component into a single vertex.
     * Compute topological order in kernel DAG. 
     * Run DFS, considering vertices in reverse topological order.
-    * <img src="media/15496421648273.jpg" style="width:600px" />
+    * <img src="https://i.imgur.com/k1NMHbs.jpg" style="width:600px" />
 
 * Phases:
     1. Compute topological order in G^R.
-        * <img src="media/15496428205707.jpg" style="width:400px" />
+        * <img src="https://i.imgur.com/76PLRyJ.jpg" style="width:400px" />
     2. run DFS on G, considering vertices in order given by first DFS
-        * <img src="media/15496428750658.jpg" style="width:400px" />
-* <img src="media/15450235382541.jpg" style="width:600px" />
+        * <img src="https://i.imgur.com/u8A4xG2.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/nvslAWq.jpg" style="width:600px" />
 
 * Java Implement(Strong components in a digraph (with two DFSs))
-    * <img src="media/15450236016154.jpg" style="width:450px" />
+    * <img src="https://i.imgur.com/DyfJ6mv.jpg" style="width:450px" />
 
         
 ## Digraph-processing summary
 
-<img src="media/15450223065120.jpg" style="width:600px" />
+<img src="https://i.imgur.com/IGKLsoE.jpg" style="width:600px" />

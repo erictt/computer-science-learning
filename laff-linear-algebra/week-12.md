@@ -1,7 +1,5 @@
 # Week 12 - Eigenvalues and Eigenvectors
 
-[TOC]
-
 ## The Algebraic Eigenvalue Problem
 
 * The algebraic eigenvalue problem is given by \\[Ax = \lambda x\\]
@@ -73,7 +71,7 @@
     * \\(A = \begin{pmatrix} 1 & -1 \\ 2 & 4 \end{pmatrix}\\)
     * the eigenpairs are \\((2, \begin{pmatrix} -1 \\ 1 \end{pmatrix}), (3 \begin{pmatrix} -1 \\ 2 \end{pmatrix})\\)
     * Then:
-    * <img src="media/15251022826855.jpg" style="width:600px" />
+    * <img src="https://i.imgur.com/UYfYgSZ.jpg" style="width:600px" />
     * **The matrix A can be diagonalized**.
 
 
@@ -97,7 +95,7 @@
 * **Theorem**: Given \\(A \in \mathbb{R}^{n \times n}\\), \\[p_n(\lambda) = \text{det}(A - \lambda I) = \lambda^n + \gamma_{n-1} \lambda^{n-1} + \cdots + \gamma_1 \lambda + \gamma_0\\] for some **coefficients** \\(\gamma_1, \ldots, \gamma_{n-1} \in \mathbb{R}\\)
 * **Definition**: Given \\(A \in \mathbb{R}^{n \times n}\\), \\(p_n(\lambda) = \text{det}(A - \lambda I)\\) is called the **characteristic polynomial**.
 
-* <img src="media/15248058876304.jpg" style="width:650px" />
+* <img src="https://i.imgur.com/kcwPmSK.jpg" style="width:650px" />
 
 ## Properties of eigenvalues and eigenvectors
 

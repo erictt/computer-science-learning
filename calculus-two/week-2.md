@@ -1,7 +1,5 @@
 # Week 2 - Series
 
-[TOC]
-
 ## Definition
 
 * In general, if we try to add the terms of an infinite sequence \\(\{a_n\}_{n=1}^{\infty}\\) we get an expression of the form \\[a_1+a_2+a_3+\cdots+a_n+\cdots\\]
@@ -26,7 +24,7 @@
 * If \\(-1 \le r \le 1\\), then \\(r^n \to 0,\ \text{as}\  n \to \infty\\), so \\[\lim_{n \to \infty}s_n = \lim_{n \to \infty}\frac{a(1-r^n)}{1-r} = \frac{a}{1-r} - \frac{a}{1-r}\lim_{n \to \infty}r^n = \frac{a}{1-r}\\]
 * **Summarize the results** The geometric series \\[\sum_{n=1}^{\infty} ar^{n-1} = a + ar + ar^2 + \cdots\\] is convergent if \\(|r| < 1\\) and its sum is \\[\sum_{n=1}^{\infty} ar^{n-1} = \frac{a}{1-r}\ \ \ \  |r| < 1\\] If \\(|r| \ge 1\\), the geometric series is divergent.
 * Another way to get the conclusion (\\(-1 \le r \le 1\\)): 
-    * <img src="media/15160952898029.jpg" style="width:200px" />
+    * <img src="https://i.imgur.com/PNLcUAu.jpg" style="width:200px" />
     * This figure provides a geometric demonstration of the result in the example. If the triangles are constructed as shown and s is the sum of the series, then, by similar triangles, \\[\frac{s}{a} = \frac{a}{a- ar}\ \text{, so}\ s= \frac{a}{1-r}\\]
 * Example: \\(0.\bar{9}\\)
     * \\[\begin{aligned} 0.\bar{9} &= \sum_{n=1}^{\infty}9 \cdot 10^{-n} \\
@@ -46,7 +44,7 @@
 
 * \\[\sum_{n=1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \cdots\\] is divergent.
 * Solution: For this particular series it’s convenient to consider the partial sums \\(s_2, s_4, s_8, s_{16}, s_{32}, \ldots\\) and show that they become large.
-    * <img src="media/15161001611740.jpg" style="width:500px" />
+    * <img src="https://i.imgur.com/9kI0FCC.jpg" style="width:500px" />
     * Similarly, \\(s_{32} > 1 + \frac{5}{2}, s_{64} > 1 + \frac{6}{2}\\), and in general \\[s_{2^n} > 1 + \frac{n}{2}\\]
 
 ## Theorem

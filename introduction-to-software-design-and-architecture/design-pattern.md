@@ -1,7 +1,5 @@
 # Design Pattern
 
-[TOC]
-
 ## Creational and Structural Design Patterns
 
 ### Singleton Pattern
@@ -62,18 +60,18 @@ public class KnifeFactory {
 
 * Enforcing polymorphism across each class through implementing an interface (or inheriting from a superclass).
 
-* ![-w592](media/15378891794805.jpg)
+* ![-w592](https://i.imgur.com/Xhymsyn.jpg)
 
 ### Proxy Pattern
 
-* ![-w685](media/15379016761283.jpg)
+* ![-w685](https://i.imgur.com/95TrYe3.jpg)
 * In this example, class `OderFulfillment` is the proxy class, which implement interface `IOrder`, and send the requests to `Warehouse`.
 
 ### Decorator Pattern
 
 * Add additional functions to the original classes
 * Serves as the abstract superclass of concrete decorator classes that will each provide an increment of behaviour
-* ![-w588](media/15378898010827.jpg)
+* ![-w588](https://i.imgur.com/JoZnT6O.jpg)
 
 ## Behavioural Design Patterns
 
@@ -81,27 +79,27 @@ public class KnifeFactory {
 
 ### Template Method Pattern
 
-* ![-w574](media/15378904848603.jpg)
+* ![-w574](https://i.imgur.com/lrUfvaH.jpg)
 
 ### Chain of Responsibility Pattern
 
 * Like `switch` and `try/catch` block
-* ![-w514](media/15379013737005.jpg)
+* ![-w514](https://i.imgur.com/mMWOELQ.jpg)
 
 ### State Pattern
 
 * Change the behaviour of an object based on the state that it's in at run-time. 
-* ![-w635](media/15379015822307.jpg)
+* ![-w635](https://i.imgur.com/dvRauOx.jpg)
 
 ### Command Pattern
 
-* ![-w533](media/15379019173343.jpg)
+* ![-w533](https://i.imgur.com/xxQcOIl.jpg)
 
 ### Observer Pattern
 
-* ![-w270](media/15379020909299.jpg)
+* ![-w270](https://i.imgur.com/jrftBty.jpg)
 
-* ![-w621](media/15379020717517.jpg)
+* ![-w621](https://i.imgur.com/TRO9yzx.jpg)
 
 ## Design Principles
 
@@ -120,7 +118,7 @@ public class KnifeFactory {
 
 * The principle states that high level modules should be depend on high level generalizations, and not on low level details.
 * The client classes should depend on an interface or abstract class instead of referring to concrete resources.
-* ![-w617](media/15379028292063.jpg)
+* ![-w617](https://i.imgur.com/BEws7g1.jpg)
 
 ### Composing Objects Principle
 
@@ -130,7 +128,7 @@ public class KnifeFactory {
 ### Interface Segregation Principle
 
 * The Interface Segregation Principle states that **a class should bot be forced to depend on methods it does not use**. This means that any classes that implement an interface, should not have "dummy" implementations of any methods defined in the interface. Instead, you should **split large interfaces into smaller generalizations**.
-* ![-w573](media/15379036609100.jpg)
+* ![-w573](https://i.imgur.com/mVplPsi.jpg)
 
 ### Principle of Least Knowledge
 

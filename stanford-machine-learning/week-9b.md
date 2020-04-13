@@ -1,7 +1,5 @@
 # Week 9b - Recommender Systems
 
-[TOC]
-
 ## Introduction
 
 * Two motivations for talking about recommender systems
@@ -12,7 +10,7 @@
 ## Problem Formulation
 
 * Example: Predicting movie ratings
-    * <img src="media/15128288255335.jpg" style="width:500px" />
+    * <img src="https://i.imgur.com/YF4H0KX.jpg" style="width:500px" />
     * The users have already rated some of movies. And we want to know that if they like the movies they haven't rated.
     * To simplify this example, we set that, users rates movies using from zero to five stars.
     * Notations:
@@ -48,7 +46,7 @@
 * One of the property of collaborative filtering is: **feature learning**, which is an algorithm that can learn for itself what features to use.
 
 * Let's make a different assumption: 
-    * <img src="media/15128720496298.jpg" style="width:500px" />
+    * <img src="https://i.imgur.com/wcqYMwY.jpg" style="width:500px" />
     * We don't know the movies' categories, romance or action. 
     * But we know our users' hobbits. Alice and Bob like romance movie, and Carol and Dave like action movie. So we generated the \\(\theta{ (j) }\\) vectors above.
     * So, to movie "Love at last" (\\(x^{ (1) }\\)) and User "Alice" (\\(\theta^{ (1) }\\)), we should get \\((\theta^{ (1) })^Tx^{ (1) } = 5\\), and to the rest users: \\((\theta^{ (2) })^Tx^{ (1) } = 5, (\theta^{ (3) })^Tx^{ (1) } = 0, (\theta^{ (4) })^Tx^{ (1) } = 0\\), then we can guess: \\[x^{ (1) } = \begin {bmatrix}1 \\ 1.0 \\ 0.0 \end {bmatrix}\\]
@@ -91,7 +89,7 @@
 
 ### Vectorization: Low Rank Matrix Factorization
 
-* <img src="media/15128992659042.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/rTKruWo.jpg" style="width:400px" />
 * Group the data with matrix, we get: \\[Y = \begin {bmatrix}5 & 5 & 0 & 0 \\ 5 & ? & ? & 0 \\ ? & 4 & 0 & ? \\ 0 & 0 & 5 & 4 \\ 0 & 0 & 5 & 0 \end {bmatrix}\\]
 * And the predicted ratings algorithms can be writen as: \\[\begin {bmatrix} (\theta^{ (1) })^T(x^{ (1) }) & (\theta^{ (2) })^T(x^{ (1) }) & \ldots & (\theta^{ (n_u) })^T(x^{ (1) }) \\ (\theta^{ (1) })^T(x^{ (2) }) & (\theta^{ (2) })^T(x^{ (2) }) & \ldots & (\theta^{ (n_u) })^T(x^{ (2) }) \\ 
   \vdots & \vdots & \vdots & \vdots & \\
@@ -115,7 +113,7 @@
 ### Implementational Detail: Mean Normalization
 
 * Say, we have a user **Eve** who haven't rated any movie yet. So,
-    * <img src="media/15129130667661.jpg" style="width:500px" />
+    * <img src="https://i.imgur.com/JEJffVt.jpg" style="width:500px" />
 * We can initial all of the rating values to **0**. Then to minimize cost **J**.
     * Since all of the ratings are **0**, the other terms are irrelevant. We just need to minimize \\(\frac{ \lambda }{ 2 }\sum_{ j=1 }^{ n_u }\sum_{ k=1 }^n(\theta_k^{ (j) })^2\\), which equals \\(\frac{ \lambda }{ 2 }\Big[(\theta^{ (5) }_1)^2 + (\theta^{ (5) }_2)^2\Big]\\). We can easily get \\(\theta^{ (5) } = \begin {bmatrix}0 \\ 0\end {bmatrix}\\). But this conclusion doesn't help, we need a better way to do this.
 

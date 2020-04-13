@@ -1,8 +1,5 @@
 # Week 3
 
-[TOC]
-
-
 ## Computational Complexity
 
 * worst-case scenario: \\(O\\)
@@ -104,11 +101,11 @@ on input of n elements
 
 * An example:
 
-    ![week-3-2](media/week-3-2.gif)
+    ![week-3-2](https://i.imgur.com/GViydxe.gif)
 
 * Calculate the complexity: \\(\Theta(n\log{n})\\):
     
-    ![week-3-1](media/week-3-1.png)
+    ![week-3-1](https://i.imgur.com/e59kMdy.png)
     
     * `c` is the single step takes. In this case, c = 1, cause we only need to put an element into memory. 
     * Then use formula: `T(n) = T(n/2) + T(n/2) + n`. 

@@ -1,12 +1,10 @@
 # Lecture 13
 
-[TOC]
-
 ## Statistical Abuses
 
 ### Anscombe’s Quartet
 
-* <img src="media/15030265292064.jpg" style="width:250px" />
+* <img src="https://i.imgur.com/UuRhuG0.jpg" style="width:250px" />
 * Summary statistics for groups identical
     * Mean x = 9.0
     * Mean y = 7.5
@@ -14,16 +12,16 @@
     * Variance of y = 3.75
     * Linear regression model: y = 0.5x + 3
 * Are four data sets really similar?
-    * <img src="media/15030266004376.jpg" style="width:250px" />
+    * <img src="https://i.imgur.com/W0woCgG.jpg" style="width:250px" />
 * Moral:
     * **Sometimes, Statistics about the data is not the same as the data**
     * **Use visualization tools to look at the data itself**
 
 ### Lying with Pictures
 
-* <img src="media/15030266994655.jpg" style="width:250px" />
+* <img src="https://i.imgur.com/wyJlc0G.jpg" style="width:250px" />
 * Telling the Truth with Pictures
-    * <img src="media/15030267393713.jpg" style="width:250px" />
+    * <img src="https://i.imgur.com/7JhE7n8.jpg" style="width:250px" />
 * Moral: **Look carefully at the axes labels and scales**
 
 ### GIGO (Garbage In, Garbage Out)
@@ -56,7 +54,7 @@
 
 ### Lurking Variable
 
-* <img src="media/15030272486412.jpg" style="width:200px" />
+* <img src="https://i.imgur.com/OOz0nRW.jpg" style="width:200px" />
 * Does going to school contribute to the spread of flu?
 * Moral:
     * **Establishing Causation**

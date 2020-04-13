@@ -1,7 +1,5 @@
 # Week 9 - Optimization
 
-[TOC]
-
 ## Maximum And Minimum Values
 
 * Let `c` be a number in the domain `D` of a function `f`. Then `f(c)` is the 
@@ -86,7 +84,7 @@
 ## Optimization in Action 
 
 * Example: How large of an object can you carry around a corner?
-    * <img src="media/15104787435820.jpg" style="width:200px" />
+    * <img src="https://i.imgur.com/3GbdXV1.jpg" style="width:200px" />
     * I want to move this red stick around this corner without it getting stuck. 
     * The real problem is to figure out the longest length, the maximum length of a stick that can be navigated around that corner. which end up solving a minimization problem.
     * Base on the diagram, we got: \\[l = a \cdot \csc\theta + b \cdot \sec\theta\\]

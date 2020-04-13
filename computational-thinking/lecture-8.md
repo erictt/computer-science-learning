@@ -1,7 +1,5 @@
 # Lecture 8
 
-[TOC]
-
 ## The Central Limit Theorem (CLT)
 * Given a sufficiently large sample:
     1. The means of the samples in a set of samples (the sample means) will be approximately normally distributed,
@@ -57,7 +55,7 @@
     pylab.legend()
     ```
     
-    <img src='media/15017341787524.jpg' style="width:400px"/>
+    <img src='https://i.imgur.com/xEj6BKF.jpg' style="width:400px"/>
     
     * Conclusion:
         * It doesn’t matter what the shape of the distribution of values happens to be
@@ -69,7 +67,7 @@
 ### Finding π
 
 * Think about inscribing a circle in a square with sides of length 2, so that the radius, r, of the circle is of length 1. (Invented by the French mathematicians Buffon (17071788) and Laplace (1749-1827))
-    * <img src="media/15018156431740.jpg" style="width:200px" />
+    * <img src="https://i.imgur.com/1PQdu4V.jpg" style="width:200px" />
     * By the definition of π, area = πr^2 . Since r is 1, π = area.
     * If the locations of the needles are truly random, we know that,
         * \\(\frac{\text{needles in circle}}{\text{needles in square}}=\frac{\text{area of circle}}{\text{area of square}}\\)

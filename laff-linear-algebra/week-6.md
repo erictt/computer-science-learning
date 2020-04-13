@@ -1,7 +1,5 @@
 # Week 6 - Gaussian Elimination
 
-[TOC]
-
 ## Gaussian Elimination
 
 * To solv the linear system: \\[\begin{array}{c c c c c c}
@@ -64,20 +62,20 @@
 
 ### Representing the system of equations with an appended matrix
 
-* <img src="media/15231973476841.jpg" style="width:600px"/>
+* <img src="https://i.imgur.com/HFSA6WW.jpg" style="width:600px"/>
 
 ### Transform matrix to upper triangular matrix
 
-* <img src="media/15231974994600.jpg" style="width:600px"/>
+* <img src="https://i.imgur.com/rD9H7JO.jpg" style="width:600px"/>
 
 * **Forward substitution (applying the transforms to the right-hand side)**
-* <img src="media/15231975659888.jpg" style="width:600px"/>
+* <img src="https://i.imgur.com/ObC3S09.jpg" style="width:600px"/>
 
 ### Algorithms
 
-* <img src="media/15231979384284.jpg" style="width:400px"/>
+* <img src="https://i.imgur.com/lfzsMPk.jpg" style="width:400px"/>
 
-* <img src="media/15231979559406.jpg" style="width:400px"/>
+* <img src="https://i.imgur.com/nCTV7ZP.jpg" style="width:400px"/>
 
 ## Solving Ax = b via LU Factorization
 
@@ -86,10 +84,10 @@
 * A matrix \\(A \in R^{n \times n}\\) can be factored into the product of two matrices \\(L,U \in R^{n \times n}\\) : \\[A= LU\\] where L is unit lower triangular and U is upper triangular.
 * LU Factorization is transfer A to a LU combined matrix.
     * We can do this, because L is unit lower triangle matrix and U is upper triangle matrix.
-* <img src="media/15231982087014.jpg" style="width:500px" />
-* <img src="media/15231982335804.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/ZVxZcHg.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/cVsUXUh.jpg" style="width:400px" />
 * After rearrange, we get:
-    * <img src="media/15231983143005.jpg" style="width:250px"/>
+    * <img src="https://i.imgur.com/RTmD8SE.jpg" style="width:250px"/>
 * Partition matrix A:
     * Update \\(a_{21} = a_{21}/ \alpha_{11} (= l_{21})\\)
     * Update \\(A_{22} = A_{22} - a_{21} a_{12}^T\\) (Rank-1 update!)
@@ -98,7 +96,7 @@
 
 #### Algorithm
 
-* <img src="media/15231985740688.jpg" style="width:450px" />
+* <img src="https://i.imgur.com/983FmHX.jpg" style="width:450px" />
 
 ### Where is this going?
 
@@ -185,21 +183,21 @@
 ### Solving Lz = b (Forward substitution)
 
 * Given a unit lower triangular matrix \\(L \in \mathbb{R}^{n \times n}\\) and vectors \\(z, b \in \mathbb{R}^{n}\\) , consider the equation \\(Lz = b\\) where L and b are known and z is to be computed. Partition
-* <img src="media/15232550852200.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/ONX0l4W.jpg" style="width:600px" />
 * So, solving \\(Lz = b\\), overwriting b with z, is forward substitution when L is the unit lower triangular matrix that results from LU factorization.
 
 #### Algorithm
 
 * Algorithm for solving Lx = b, overwriting b with the result vector x. Here L is a lower triangular matrix.
-* <img src="media/15231996544107.jpg" style="width:450px" />
+* <img src="https://i.imgur.com/iRBy5F4.jpg" style="width:450px" />
 
 ### Solving Ux = b (Back substitution)
 
-* <img src="media/15232553109209.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/6vXQbnS.jpg" style="width:600px" />
 
 #### Algorithm
 
-* <img src="media/15231996940363.jpg" style="width:380px" />
+* <img src="https://i.imgur.com/zSTyPXy.jpg" style="width:380px" />
 
 ### Cost
 

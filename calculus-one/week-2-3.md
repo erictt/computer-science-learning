@@ -1,7 +1,5 @@
 # Week 2-3 - Functions & Limits
 
-[TOC]
-
 ## Functions
 
 * **Deﬁnition**: A function `f` is a rule that assigns to each element `x` in a set `D` exactly **one** element, called \\(f(x)\\), in a set `E`.
@@ -19,42 +17,42 @@
 
     * **linear function**
         * \\(f(x) = mx+b\\)
-        * <img src="media/15024462298833.jpg" style="width:200px" />
+        * <img src="https://i.imgur.com/3r7owFO.jpg" style="width:200px" />
 
     * **polynomials**
         * \\(P(x)=a_{n}x^{n}+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}+...+a_{2}x^{2}+a_{1}x^{1}+a_{0}\\)
         * The domain of any polynomial is \\(\mathbb{R} = (-\infty, + \infty)\\). 
         * If the leading coefficient \\(a_{n}\ne 0\\), then the degree of the polynomial is **n**.
             * `n=2`: quadratic function
-                * <img src="media/15024462939316.jpg" style="width:200px" />
+                * <img src="https://i.imgur.com/CcPVMjC.jpg" style="width:200px" />
             * `n=3`: cubic function
-                * <img src="media/15024463264432.jpg" style="width:200px" />
+                * <img src="https://i.imgur.com/oyf9Pi7.jpg" style="width:200px" />
 
     * **power function**
         * \\(f(x) = x^a\\)
             * `a = n`, where `n` is a positive integer
-                * <img src="media/15024463784212.jpg" style="width:500px" />
+                * <img src="https://i.imgur.com/OkGtWkc.jpg" style="width:500px" />
             * `a = 1/n`, where `n` is a positive integer. It's a **root function.**
-                * <img src="media/15024464837012.jpg" style="width:400px" />
+                * <img src="https://i.imgur.com/6orEt3n.jpg" style="width:400px" />
             * `a = -1`: **reciprocal function**
-                * <img src="media/15024466410913.jpg" style="width:180px" />
+                * <img src="https://i.imgur.com/R2X7zDy.jpg" style="width:180px" />
 
     * **rational function** 
         * A rational function `f` is a ratio of two polynomials:
             * \\(f(x)=\frac{P(x)}{Q(x)}\\), \\(\{Q(x)\ne0\}\\)
             * \\(f(x)=\frac{2x^{4}-x^{2}+1}{x^{2}-4}\\), \\(\{x|x \ne \pm 2\}\\):
-                * <img src="media/15024469156211.jpg" style="width:180px" />
+                * <img src="https://i.imgur.com/KH1bUTU.jpg" style="width:180px" />
 
     * **algebraic function**
         * A function `f` is called an **algebraic function** if it can be constructed using algebraic operations (such as addition, subtraction, multiplication, division, and taking roots)
 
     * **trigonometric function**
         * \\(f(x)=\sin{x}\\)
-        * <img src="media/15024491142827.jpg" style="width:400px" />
+        * <img src="https://i.imgur.com/awOfzga.jpg" style="width:400px" />
     
     * **exponential function**
         * \\(f(x)=b^x\\)
-        * <img src="media/15024492581080.jpg" style="width:200px" />
+        * <img src="https://i.imgur.com/2iYr1Mh.jpg" style="width:200px" />
         * law of exponential function:
             * \\(b^{x+y}=b^x+b^y\\)
             * \\(b^{x-y}=\frac{b^x}{b^y}\\)
@@ -63,7 +61,7 @@
 
     * **logarithmic function**
         * \\(f(x)=\log_{b}{x}\\)
-        * <img src="media/15024492690657.jpg" style="width:220px" />
+        * <img src="https://i.imgur.com/aWHnHCe.jpg" style="width:220px" />
 
 ### Combinations of Functions
 
@@ -73,7 +71,7 @@
 * \\((\frac{f}{g})(x)=\frac{f(x)}{g(x)}\\), the domain of `f/g` is \\(\{x \in A \cap B\ |\ g(x) \ne 0\}\\).
 * \\((f \circ g)(x) = f(g(x))\\)
     * composition (or composite) of `f` and `g`, denoted by \\(f \circ g\\) (“f circle g”). 
-    * <img src="media/15025011094110.jpg" style="width:150px" />
+    * <img src="https://i.imgur.com/VfFMZV1.jpg" style="width:150px" />
 
 ### Inverse of Functions
 
@@ -146,10 +144,10 @@
 #### The Intermediate Value Theorem
 
 * Suppose that `f` is continuous on the closed interval `[a, b]` and let `N` be any number between `f(a)` and `f(b)`, where \\(f(a) \ne f(b)\\). Then there exists a number `c` in `[a, b]` such that \\(f(c) = N\\).
-    * <img src="media/15025099052105.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/BbcKgTC.jpg" style="width:400px" />
 * For example: how to approximate root two?
     * use function \\(f(x)=x^2-2\\)
-   * <img src="media/15025201064198.jpg" style="width:240px" />
+   * <img src="https://i.imgur.com/Be8DurQ.jpg" style="width:240px" />
    * when \\(x=\sqrt{2}\\), this function equals `0`,
    * so i just need to look for a positive value, that I can plug into this function to make it equals zero. 
    * We know that `f(1)=-1<0` and `f(2)=2>0`. So base on **The Intermediate Value Theorem**, there must be a value in domain (1, 2) that exist `c` such that `f(c) = 0`.
@@ -174,7 +172,7 @@
     * \\(\displaystyle\lim_{x \to \infty}f(x) = L\\) means that `f(x)` is close enough to `L` provided `x` is large enough.
         * \\(\displaystyle\lim_{x \to \infty}\tan^{-1}(x) = \frac{\pi}{2}\\)
     * if  \\(\displaystyle\lim_{x \to \infty}f(x) = L\\) or \\(\displaystyle\lim_{x \to -\infty}f(x) = L\\), then the line `y = L` is called a **horizontal asymptote** of the curve `y = f(x)` :
-        * <img src="media/15025276793783.jpg" style="width:200px" />
+        * <img src="https://i.imgur.com/67E1ysF.jpg" style="width:200px" />
 
 * Potential Infinity vs Actual Infinity (from [Wikipedia](https://en.wikipedia.org/wiki/Actual_infinity))
     * Actual Infinity is the idea that numbers, or some other type of **mathematical object**, can form an actual, completed totality;

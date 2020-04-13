@@ -1,7 +1,5 @@
 # Hash Tables
 
-[TOC]
-
 ## Hashing
 
 * Save items in a **key-indexed table** (index is a function of the key).
@@ -49,7 +47,7 @@
     * Hash: map key to integer i between 0 and M - 1.
     * Insert: put at front of i^th chain (if not already there). 
     * Search: need to search only i^th chain.
-* <img src="media/15431826257317.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/ubxBtRh.jpg" style="width:400px" />
 * Typical choice: M ~ N / 5 ⇒ constant-time ops.
 
 #### Collision resolution: Open addressing
@@ -59,5 +57,5 @@
     * Insert. Put at table index i if free; if not try i+1, i+2, etc.
     * Search. Search table index i; if occupied but no match, try i+1, i+2, etc.
     * Note. Array size M **must be** greater than number of key-value pairs N.
-* <img src="media/15431827965606.jpg" style="width:300px" />
+* <img src="https://i.imgur.com/Am6yr2b.jpg" style="width:300px" />
 * Typical choice: α = N / M ~ ½.

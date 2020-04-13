@@ -1,11 +1,9 @@
 # Lecture 12
 
-[TOC]
-
 ## Machine Learning
 
 * Definition
-    * <img src="media/15029368642985.jpg" style="width:200px" />
+    * <img src="https://i.imgur.com/KABd2dx.jpg" style="width:200px" />
 * Basic Paradigm
     * Observe set of examples: **training data**
     * Infer something about process that generated that data
@@ -37,7 +35,7 @@
 
 ### Difference between Supervised and Unsupervised
 
-* <img src="media/15029416213452.jpg" style="width:300px" />
+* <img src="https://i.imgur.com/cSdabJu.jpg" style="width:300px" />
 * with label, we can classify the data to two clusters by wight or height, or four clusters by wight and height, which is Supervised Learning
 * without label, to figure out how to clustering the data, is Unsupervised Learning.
 
@@ -70,7 +68,7 @@
        return dist**(1.0/p)
    ```
 * For example:
-   * <img src="media/15029424517678.jpg" style="width:150px" />
+   * <img src="https://i.imgur.com/6htFCaX.jpg" style="width:150px" />
    * To compare the distance between star and circle and the distance between cross and circle
    * Use Manhattan Distance, they should be 3 and 4
    * Use Euclidean Distance, they should be 3 and 2.8 = \\(\sqrt{2^2+2^2}\\)
@@ -84,14 +82,14 @@
         * Find the nearest example in the training data
         * Predict the label associated with that example
 * To predict the color of `X`
-    * <img src="media/15029428811354.jpg" style="width:300px" />
+    * <img src="https://i.imgur.com/ytCzwnn.jpg" style="width:300px" />
     * The closest one is pink, so X should be pink
 
 *  K-nearest Neighbors
     
     * Find `K` nearest neighbors, and choose the label associated with the majority of those neighbors.
     * Usually, we use odd number. This sample, we use `k = 3`
-    * <img src="media/15029431105574.jpg" style="width:300px" />
+    * <img src="https://i.imgur.com/Pf5xuga.jpg" style="width:300px" />
 
 *  Advantages and Disadvantages of KNN
     
@@ -105,15 +103,15 @@
         * No model to shed light on process that generated data
 
 * For Example
-    * <img src="media/15029434979100.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/20zasHX.jpg" style="width:400px" />
     * To predict whether zebra, python and alligator are reptile or not.
     * Calculate the distances, we got:
-        * <img src="media/15029442452006.jpg" style="width:400px" />
+        * <img src="https://i.imgur.com/dIPjgHs.jpg" style="width:400px" />
         * The closest three animals to alligator are boa constrictor, chicken and dark frog, and two of them are not reptile, so alligator is not reptile.
         * But we know alligator is reptile. So what's wrong?
         * We notice, all of the features are 0 or 1, except number of legs, which gets disproportionate weight.
             * So, Instead of number of legs, we say "has legs." And then this becomes a one.
-    * <img src="media/15029435107208.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/9cR0I6e.jpg" style="width:400px" />
         * The closest three animals to alligator are boa constrictor, chicken and cobra, and two of them are reptile, so alligator is reptile.
 
 * A More General Approach: Scaling
@@ -176,14 +174,14 @@
     
     * Sample: [lecture12-4.py](./unit-4/lecture12-3.py)
         * `k=4`, Initial Centroids: 
-            * <img src="media/15030232055203.jpg" style="width:200px" />
+            * <img src="https://i.imgur.com/V8dCSjw.jpg" style="width:200px" />
         * Result: 
-            * <img src="media/15030232562025.jpg" style="width:200px" />
+            * <img src="https://i.imgur.com/AlE5EKX.jpg" style="width:200px" />
 * Unlucky Initial Centroids
     * `k=4`, Initial Centroids: 
-        * <img src="media/15030232825749.jpg" style="width:200px" />
+        * <img src="https://i.imgur.com/wp4iegG.jpg" style="width:200px" />
     * Result: 
-        * <img src="media/15030233010651.jpg" style="width:200px" />
+        * <img src="https://i.imgur.com/AH4D3uZ.jpg" style="width:200px" />
     * Mitigating Dependence on Initial Centroids
         
         ```

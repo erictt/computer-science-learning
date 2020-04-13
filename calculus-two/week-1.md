@@ -1,7 +1,5 @@
 # Week 1 - Sequences
 
-[TOC]
-
 ## Definition
 
 * A sequence can be thought of as a list of numbers written in a definite order:

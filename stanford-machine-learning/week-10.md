@@ -1,7 +1,5 @@
 # Week 10 - Large Scale Machine Learning
 
-[TOC]
-
 ## Gradient Descent with Large Datasets
 
 * Before we try to learn with large datasets. First we need to make sure our algorithm is high variance, which will need more data to minimize the error between \\(J_{CV}\\) and \\(J_{\text{train} }\\)
@@ -25,9 +23,9 @@
 
 * Comparison with Batch Gradient Descent
     * As we saw, batch gradient descent does something like this to get to a global minimum:
-        * <img src="media/15134129386186.jpg" style="width:300px" />
+        * <img src="https://i.imgur.com/8bQcOSX.jpg" style="width:300px" />
     * With stochastic gradient descent every iteration is much faster, but every iteration is flitting a single example. So, stochastic gradient descent will never converges like batch gradient descent, but ends up wandering around some region close to the global minimum.
-        * <img src="media/15134129600916.jpg" style="width:300px" />
+        * <img src="https://i.imgur.com/fkX087F.jpg" style="width:300px" />
 
 ### Mini-batch Gradient Descent
 
@@ -55,7 +53,7 @@
     * \\[\text{cost}(\theta, (x^{(i)}, y^{(i)})) = \frac{1}{2}(h_{\theta}(x^{(i)}) - y^{(i)})^2\\]
     * During learning compute \\(\text{cost}(\theta, (x^{(i)}, y^{(i)}))\\) before updating \\(\theta\\) using \\((x^{(i)}, y^{(i)})\\).
     * Every 1000 iterations (say), plot \\(\text{cost}(\theta, (x^{(i)}, y^{(i)}))\\) averaged over the last 1000 examples processed by algorithm. we may get different result:
-        * <img src="media/15134141387345.jpg" style="width:500px" />
+        * <img src="https://i.imgur.com/1UARsw9.jpg" style="width:500px" />
         * In the top two figures, we can see, if we average 5000 examples, the curve will be smoother.
         * The bottom left shows that, sometimes, a large average examples can make the the tendency more clear.
         * The bottom right shows, if the curve increases, you may need a smaller learning rate(\\(\alpha\\)).
@@ -89,7 +87,7 @@
 
 ## Map Reduce and Data Parallelism
 
-<img src="media/15134178399063.jpg" style="width:600px" />
+<img src="https://i.imgur.com/agbEw4a.jpg" style="width:600px" />
 
 
 ## Words

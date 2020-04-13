@@ -1,10 +1,8 @@
 # Week 10 - Linear Approximation
 
-[TOC]
-
 ## What is Linear Approximation
 
-* <img src="media/15106684044634.jpg" style="width:200px" />
+* <img src="https://i.imgur.com/lixorO6.jpg" style="width:200px" />
 * We call the tangent line is the **linear approximation** to the function at \\(x=a\\).
 * \\(f(x+h) \approx f(x) + h \cdot f'(x)\\)
 
@@ -12,7 +10,7 @@
 
 * AKA, **Repeated Linear Approximation**
 * Definition: Approximate values for the solution of the initial-value problem \\(y' = F(x,y)\\), \\(y(x_0) = y_0\\), with step size **h**, at \\(x_n = x_{n-1} + h\\), are \\[y_n = y_{n-1} + hF(x_{n-1},y_{n-1}) \text{, } n=1,2,3,...\\]
-    * <img src="media/15107381979054.jpg" style="width:200px" />
+    * <img src="https://i.imgur.com/lKFQF40.jpg" style="width:200px" />
     * Let's say \\(f(0) = a\\), \\(a \in \mathbb{R}\\), and **h** is small number.
     * So, \\[\begin{aligned}
         f(h) &\approx f(0) + h \cdot F(0) \\
@@ -38,7 +36,7 @@
 
 * Also called the **Newton-Raphson method**
 * To solve the equation of the form \\(f(x) = 0\\), so the roots of the equation(方程的根) correspond to the x-intercepts of the graph of \\(f\\). The root that we are trying to find is labeled \\(r\\) in the figure.
-    * <img src="media/15107501431432.jpg" style="width:200px" />
+    * <img src="https://i.imgur.com/jOZq5fU.jpg" style="width:200px" />
     * We start with a first approximation \\(x_1\\) , which is obtained by guessing,
     * Consider the tangent line **L** to the curve \\(y = f(x)\\) at the point \\((x_1, f(x_1))\\) and look at the x-intercept of **L**, labeled \\(x_2\\).
     * The idea behind **Newton’s method** is that the tangent line is close to the curve and so its x-intercept, \\(x_2\\), is close to the x-intercept of the curve (namely, the root \\(r\\) that we are seeking). Because the tangent is a line, we can easily find its x-intercept.
@@ -50,13 +48,13 @@
         * \\(x_2 = x_1 - \frac{f(x_1)}{f'(x_1)}\\)
         * Then \\(x_3 = x_2 - \frac{f(x_2)}{f'(x_2)}\\)
     * If we keep repeating this process, we obtain a sequence of approximations \\(x_1, x_2, x_3, x_4, \dots\\) as shown:
-        * <img src="media/15107508161148.jpg" style="width:180px" />
+        * <img src="https://i.imgur.com/hHtnG2a.jpg" style="width:180px" />
     * In general, if the \\(n\\)th approximation is \\(x_n\\) and \\(f'(x_n) \ne 0\\), then the next approximation is given by:
         * \\(x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}\\)
     * If the number \\(x_n\\) become closer and closer to \\(r\\) as \\(n\\) becomes large, then we say that the sequence **converges** to \\(r\\) and we write \\[\lim_{n \to \infty}x_n = r\\]
 * Sometimes **The Newton’s method fails**:
     * For example, if we choose \\(x_2\\), then the approximation falls outside the domain of \\(f\\):
-        * <img src="media/15107512854725.jpg" style="width:180px" />
+        * <img src="https://i.imgur.com/LfmlPd1.jpg" style="width:180px" />
     * Then we need a better initial approximation \\(x_1\\).
 
 ### Use Newton's Method to Divide Quickly

@@ -1,7 +1,5 @@
 # Unit 2: Conditioning and independence
 
-[TOC]
-
 ## Lec. 2: Conditioning and Bayes' rule
   
 ### Conditional probability
@@ -12,7 +10,7 @@
 
 * Let \\(\color{red}{B}\\) be the event: \\(\min(X, Y) = 2\\)
 * Let \\(\color{blue}{M}\\) be the event: \\(\max(X, Y)\\)
-* <img src="media/15254978309610.jpg" style="width:300px" />
+* <img src="https://i.imgur.com/pZQJvaK.jpg" style="width:300px" />
 * \\(P(\color{blue}{M = 1}|\color{red}{B}) = 0\\)
 * \\(P(\color{blue}{M = 3}|\color{red}{B}) = \frac{P(M = 3 \cap B)}{P(B)} = \frac{2/16}{5/16} = 2/5\\)
 
@@ -21,7 +19,7 @@
 * A radar example: 
 * Event \\(\color{blue}{A}\\): Airplane is flying above
 * Event \\(\color{red}{B}\\): Something registers on radar screen
-* <img src="media/15254988153051.jpg" style="width:300px" />
+* <img src="https://i.imgur.com/3B9B1G2.jpg" style="width:300px" />
 
 * \\(P(\color{blue}{A} \cap \color{red}{B}) = 0.05 \cdot 0.99\\)
     * An airplane flight, and radar found it.
@@ -36,7 +34,7 @@
     * \\(P(\color{blue}{A} \cap \color{red}{B}) = P(\color{red}{B}) P(\color{blue}{A} | \color{red}{B}) = P(\color{blue}{A}) P(\color{red}{B} |\color{blue}{A})\\)
     * Check the figure, we will find this is the trace of the branch from the origin, then \\(\color{blue}{A}\\), and finally end with \\(\color{blue}{A} \cap \color{red}{B}\\).
 * Consider the experiment has an additional event \\(C\\),
-    * <img src="media/15255225188889.jpg" style="width:300px" />
+    * <img src="https://i.imgur.com/mds8COB.jpg" style="width:300px" />
 
     * Check this figure, we will get,
     * \\(P(A^c \cap B \cap C^c) = P(A^c) P(B | A^c) P(C^c | A^c \cap B) \\)
@@ -48,7 +46,7 @@
 
 * **Theorem**: Let \\(A_1, \ldots, A_n\\) be disjoint events that form a partition of the sample space and assume that \\(P(A_i) > 0\\), for all \\(i = 1, \ldots, n\\). Then, for any event \\(B\\), we have \\[\begin{aligned}P(B) &= P(A_1 \cap B) + \ldots + P(A_n \cap B) \\ &= P(A_1 )P(B | A_1 ) + \ldots + P(A_n) P(B | A_n )\end{aligned}\\].
 * B occurs is a **weighted average** of its conditional probability under each scenario, where each scenario is weighted according to its (unconditional) probability (\\(P(A_i)\\)).
-* <img src="media/15255233436170.jpg" style="width:200px" />
+* <img src="https://i.imgur.com/FM25Sbt.jpg" style="width:200px" />
 
 #### Bayes' rules( -> inference) 
 
@@ -60,7 +58,7 @@
 ### A coin tossing example
 
 * 3 tosses of a biased coin: \\(P(H) = p, P(T) = 1 - p\\)
-* <img src="media/15255268282636.jpg" style="width:200px" />
+* <img src="https://i.imgur.com/58oJg5I.jpg" style="width:200px" />
 
 * \\(P(\text{only 1 head}) = 3 p (1 - p)^2\\)
 * \\(P(H_1 | \text{only 1 head}) = \frac{P(H_1 \cap \text{ only 1 head})}{\text{only 1 head} } = \frac{p (1-p)^2}{3 p (1-p)^2} = \frac{1}{3}\\)
@@ -78,7 +76,7 @@
 * Two unfair coins, A and B:
     * \\(P(H | \text{coin } A) = 0.9, P(H | \text{coin } B) = 0.1\\)
 * choose either coin with equal probability.
-* <img src="media/15255750032414.jpg" style="width:150px" />
+* <img src="https://i.imgur.com/VwF01AU.jpg" style="width:150px" />
 * Compare:
     * \\(P(\text{toss } 11 = H) = P(A) P(H_{11} | A) + P(B) P(H_{11}| B) = 0.5 * 0.9 + 0.5 * 0.1 = 0.5\\)
     * \\(P(\text{toss } 11 = H | \text{first 10 tosses are heads}) = P(H_{11} | A) = 0.9\\)

@@ -1,7 +1,5 @@
 # Week 4 - Matrix-Vector to Matrix-Matrix Multiplication
 
-[TOC]
-
 ## Preparation
 
 ### Partitioned Matrix-vector Multiplication
@@ -9,7 +7,7 @@
 * \\[\displaystyle  \left( \begin{array}{ c | c | c | c } A_{0,0} &  A_{0,1} &  \cdots &  A_{0,N-1} \\ A_{1,0} &  A_{1,1} &  \cdots &  A_{1,N-1} \\ \vdots &  \vdots &  \ddots &  \vdots \\ A_{M-1,0} &  A_{M-1,1} &  \cdots &  A_{M-1,N-1} \end{array} \right) \left( \begin{array}{ c } x_0 \\ x_1 \\ \vdots \\ x_{N-1} \end{array} \right) = \left( \begin{array}{ c } A_{0,0} x_{0} + A_{0,1} x_{1} + \cdots + A_{0,N-1} x_{N-1} \\ A_{1,0} x_{0} + A_{1,1} x_{1} + \cdots + A_{1,N-1} x_{N-1} \\ \vdots \\ A_{M-1,0} x_{0} + A_{M-1,1} x_{1} + \cdots + A_{M-1,N-1} x_{N-1} \end{array} \right)\\]
 
 * Two different algorithms to calculate Matrix-vector Multiplication
-    * <img src="media/15135850465955.png" style="width:600px" />
+    * <img src="https://i.imgur.com/bfCSSzl.png" style="width:600px" />
     * First one, is calculating by rows.
         * \\(\psi_1 := a_{10}^T x_0 + \alpha_{11} x_1 + a_{12}^T x_2 + \psi_1\\)
     * Second one is by columns.
@@ -22,7 +20,7 @@
 * \\[\left( \begin{array}{c | c | c | c} A_{0,0} &  A_{0,1} &  \cdots &  A_{0,N-1} \\ A_{1,0} &  A_{1,1} &  \cdots &  A_{1,N-1} \\ \vdots &  \vdots & &  \vdots \\ A_{M-1,0} &  A_{M-1,1} &  \cdots &  A_{M-1,N-1} \end{array} \right)^ T = \left( \begin{array}{c | c | c | c} A_{0,0}^ T &  A_{1,0}^ T &  \cdots &  A_{M-1,0}^ T \\ A_{0,1}^ T &  A_{1,1}^ T &  \cdots &  A_{M-1,1}^ T \\ \vdots &  \vdots & &  \vdots \\ A_{0,N-1}^ T &  A_{1,N-1}^ T &  \cdots &  A_{M-1,N-1}^ T \end{array} \right).\\]
 
 * Example
-    * <img src="media/15135847876743.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/rOKh3xR.jpg" style="width:400px" />
 
 ### Matrix-Vector Multiplication with Special Matrices
 
@@ -36,7 +34,7 @@
 #### Triangular Matrix-Vector Multiplication
 
 * Let \\(U \in \mathbb{R}^{n \times n}\\) be an upper triangular matrix and \\(x \in \mathbb{R}^n\\) be a vector. Consider
-    * <img src="media/15135903112429.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/B7xe83S.jpg" style="width:400px" />
     * We notice that \\(u^T = 0\\) (a vector of two zeroes) and hence we need not compute with it.
     * Let's calculate the **flops**:
         * The calculate step: \\(\psi_1 := u_{11} x_1 + u_{12}^T x_2 + \psi_1\\), (without \\(u_{10}^T x_0\\))
@@ -46,7 +44,7 @@
 
 #### Symmetric Matrix-Vector Multiplication
 
-* <img src="media/15136459114869.jpg" style="width:300px" />
+* <img src="https://i.imgur.com/LAGhDU3.jpg" style="width:300px" />
 * We purposely chose the matrix on the right to be symmetric. We notice that \\(a_{10}^T = a_{01}\\) , \\(A_{20}^T = A_{02}\\) , and \\(a_{12}^T = a_{21}\\).
 * So we just need to change the step of calculation
     * By rows:
@@ -80,10 +78,10 @@
     xy^T &= \left( \begin{array}{c} \chi _0 \\ \chi _1 \\ \vdots \\ \chi _{m-1} \end{array} \right) \left( \begin{array}{c} \psi _0 \\ \psi _1 \\ \vdots \\ \psi _{n-1} \end{array} \right)^ T = \left( \begin{array}{c} \chi _0 \\ \chi _1 \\ \vdots \\ \chi _{m-1} \end{array} \right) \left( \begin{array}{c c c c} \psi _0 &  \psi _1 &  \cdots &  \psi _{n-1} \end{array} \right) \\
     &= \left( \begin{array}{c c c c} \chi _0 \psi _0 &  \chi _0 \psi _1 &  \cdots &  \chi _0 \psi _{n-1} \\ \chi _1 \psi _0 &  \chi _1 \psi _1 &  \cdots &  \chi _1 \psi _{n-1} \\ \vdots &  \vdots & &  \vdots \\ \chi _{m-1} \psi _0 &  \chi _{m-1} \psi _1 &  \cdots &  \chi _{m-1} \psi _{n-1} \end{array} \right).
      \end{aligned}\\]
-* <img src="media/15135832658388.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/X0nGqs6.jpg" style="width:600px" />
 * The cost of memops of matrix-matrix multiplication is \\(2kmn\\).
 
 ### Flops and Memops
 
-* <img src="media/15136529506851.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/OHXo3JN.jpg" style="width:600px" />
 

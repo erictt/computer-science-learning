@@ -1,7 +1,5 @@
 # Week 2 - Linear Regression with Multiple Variables
 
-[TOC]
-
 ## Multivariate Linear Regression 
 
 ### Multiple features
@@ -21,7 +19,7 @@
   * m : number of examples ( i.e. number of rows in a table )
   * \\(x^{(i)}\\) : input (features) of \\(i^{th}\\) training example.
   * \\(x^{(i)}_{j}\\) : value of feature \\(j\\) in \\(i^{th}\\) training example.
-  * ![week-2-1](media/week-2-1.png)
+  * ![week-2-1](https://i.imgur.com/OsFaou2.png)
 * Cost function with multiple features
   * \\(h_{\theta}(x) = \theta_{0}x_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \theta_{3}x_{3} + \theta_{4}x_{4}\\) (\\(x_{0} = 1\\) )
     * for convenience of notation, define \\(x_0 = 1\\)
@@ -43,7 +41,7 @@
 
     * \\(J(\theta) = J(\theta_0, \theta_1,..., \theta_n)\\) 
 
-* ![week-2-2](media/week-2-2.png)
+* ![week-2-2](https://i.imgur.com/Yu3uUW3.png)
 
 ### Feature Scaling
 
@@ -53,7 +51,7 @@
   * x2 = number of bedrooms(1 - 5)
   * Means the contours generated if we plot \\(\theta_1\\) vs. \\(\theta_2\\) give a very tall and thin shape due to the huge range difference
 * Running gradient descent on this kind of cost function can take a long time to find the globale minumum
-  * ![week-2-3](media/week-2-3.png)
+  * ![week-2-3](https://i.imgur.com/uSHJaTs.png)
 * The way to prevent this is to modify the ranges of our input variables so that they are all roughly the same. Ideally:
   * \\(-1 \le x_{(i)} \le 1\\) or \\(-0.5 \le x_{(i)} \le 0.5\\) 
   * The goal is to get all input variables into roughly one of these ranges, give or take a few.
@@ -77,9 +75,9 @@
 #### Automatic convergence test
 
 * Declare convergence if **J(θ)** decreases by less than **E** in one iteration, where **E** is some small value such as \\(10^{-3}\\). However in practice it's difficult to choose this threshold value.
-* ![week-2-4](media/week-2-4.png)
+* ![week-2-4](https://i.imgur.com/XeUDjO7.png)
 * It has been proven that if learning rate \\(\alpha\\) is sufficiently small, then \\(J(θ)\\) will decrease on every iteration.
-* ![week-2-5](media/week-2-5.png)
+* ![week-2-5](https://i.imgur.com/TtstrDZ.png)
 
 #### Summarize
 
@@ -108,9 +106,9 @@
 * For housing data could use a quadratic function: \\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2\\) 
   * But may not fit data so well, because inflection point means housing prices decrease when size gets really big.
   * So instead must use a cubic function: \\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2 + \theta_3 x_1^3\\) 
-  * ![week-2-6](media/week-2-6.png)
+  * ![week-2-6](https://i.imgur.com/1fxm3mW.png)
   * In the cubic version, we have created new features \\(x_2\\) and \\(x_3\\) where.\\(x_2 = x_1^2\\) and \\(x_3 = x_1^3\\) . 
-    * ![week-2-10](media/week-2-10.png)
+    * ![week-2-10](https://i.imgur.com/rsAi6DV.png)
   * One important thing to keep in mind is, if you choose your features this way then feature scaling becomes very important.
     * eg. if \\(x_1\\) has range 1 - 1000 then range of \\(x^2_1\\) becomes 1 - 1000000 and that of \\(x^3_1\\) becomes 1 - 1000000000
   * Or we can make it a square root function, we could do: \\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 \sqrt{x_1}\\) .
@@ -124,7 +122,7 @@
 * Method to solve for \\(\theta\\) analytically.Minimize J by explicitly taking its derivatives with respect to the θj ’s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below:
 
   * \\(\theta = (X^T X)^{-1}X^T y\\) 
-  * ![week-2-11](media/week-2-11.png)
+  * ![week-2-11](https://i.imgur.com/rbQ2fdS.png)
 
 * **no need** to do feature scaling with the normal equation.
 

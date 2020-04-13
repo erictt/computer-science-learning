@@ -1,7 +1,5 @@
 # Week 3 - Logistic Regression & Regularization
 
-[TOC]
-
 ## Classification and Representation
 
 ### Classification
@@ -12,7 +10,7 @@
     * Online transactions -> fraudulent?
     * Tumor -> Malignant/benign
 * Sometimes, Linear Regression may work, like the sample below:
-    * <img src="media/15057384338295.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/ya0BsNY.jpg" style="width:400px" />
     * But most time the training set won't be so perfect
 * Here we use **Logistic regression**, which generates a value where is always either 0 or 1
 
@@ -25,7 +23,7 @@
     * \\(\begin{aligned} g(z) = \dfrac{1}{1 + e^{-z}}\end{aligned}\\) 
         * \\(e\\) : Exponents 
 * The following image shows us what the logistic function looks like:
-    * ![week-3-1](media/week-3-1.png)
+    * ![week-3-1](https://i.imgur.com/owUeGBY.png)
 * Interpreting hypothesis output, we can use:
     * \\(h_\theta(x) = P(y=1 | x ; \theta)\\) , it give us the **probability** that output is 1.
         * probability that y = 1, given x, paramerterized by \\(\theta\\)
@@ -40,7 +38,7 @@
         * so if our input to \\(g\\) is \\(\theta^TX\\) , then that means: \\(\begin{aligned}& h_\theta(x) = g(\theta^T x) \geq 0.5 \text{, when}\ \theta^T x \geq 0\end{aligned}\\) 
 * Sample:
     * \\(h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2x_2)\\) :
-    * ![week-3-2](media/week-3-2.png)
+    * ![week-3-2](https://i.imgur.com/xT54x7N.png)
     * \\(\theta_0 = -3, \theta_1 = 1, \theta_2 = 1\\) 
 * So our parameter vector is a column vector with the above values: \\(\theta = \begin{bmatrix} -3\\1\\1\end{bmatrix}\\) 
 * Then \\(z\\) becomes \\(\theta^TX\\) 
@@ -49,7 +47,7 @@
         -3 + x_1 + x_2 &\geq 0 \\
         x_1 + x_2 &\geq 3\end{aligned}\\]
 * So \\(x_1 + x_2 = 3\\) we graphically plot our decision boundary:
-    * ![week-3-3](media/week-3-3.png)
+    * ![week-3-3](https://i.imgur.com/zjCbytD.png)
     * Means:
         * Blue = false, Magenta = true
         * Line = decision boundary
@@ -61,7 +59,7 @@
 * Say \\(\theta^T = \begin{bmatrix}-1, 0, 0, 1, 1\end{bmatrix}\\) :
 * Predict that " \\(y = 1\\) ", if \\(x_1^2 + x_2^2 \geq 1\\) 
 * If we plot \\(x_1^2 + x_2^2 = 1\\) , then this gives us a circle with a radius of 1 around 0:
-    * ![week-3-4](media/week-3-4.png)
+    * ![week-3-4](https://i.imgur.com/4NeARsm.png)
 * Mean we can build more complex decision boundaries by fitting complex parameters to this (relatively) simple hypothesis
 
 ## Logistic Regression Model
@@ -82,12 +80,12 @@
     * to further simplify it, we can get rid of the superscripts:
         * \\( J(\theta) = \dfrac{1}{m} \displaystyle \sum_{i=1}^m \mathrm{Cost}(h_\theta(x),y)\\) 
 * If we use this function for logistic regression, it will be a **non-convex function** which has many local optimum. Like:
-    * ![week-3-5](media/week-3-5.png)
+    * ![week-3-5](https://i.imgur.com/6CSilDl.png)
 * So we come out a new convex logistic regression cost function:
     * \\(\begin{aligned} & \mathrm{Cost}(h_\theta(x),y) = -\log(h_\theta(x)) \; & \text{if y = 1} \\ & \mathrm{Cost}(h_\theta(x),y) = -\log(1-h_\theta(x)) \; & \text{if y = 0}\end{aligned}\\) 
     * We only care \\((0 \le h(x) \le 1)\\), so:
-    * ![week-3-6](media/week-3-6.png)
-    * ![week-3-7](media/week-3-7.png)
+    * ![week-3-6](https://i.imgur.com/Ezj2ukK.png)
+    * ![week-3-7](https://i.imgur.com/0laO8CR.png)
     * \\(\begin{aligned}& \mathrm{Cost}(h_\theta(x),y) = 0 \text{ if } h_\theta(x) = y \\ & \mathrm{Cost}(h_\theta(x),y) \rightarrow \infty \text{ if } y = 0 \; \mathrm{and} \; h_\theta(x) \rightarrow 1 \\ & \mathrm{Cost}(h_\theta(x),y) \rightarrow \infty \text{ if } y = 1 \; \mathrm{and} \; h_\theta(x) \rightarrow 0 \\ \end{aligned}\\) 
 
 ### Simplified cost function and gradient descent
@@ -177,7 +175,7 @@
 * Divide our problem into n+1 (+1 because the index starts at 0) binary classification problems; in each one, we predict the probability that `y` is a member of one of our classes.
     * \\(\begin{aligned}& y \in \lbrace0, 1 ... n\rbrace \\& h_\theta^{(0)}(x) = P(y = 0 | x ; \theta) \\& h_\theta^{(1)}(x) = P(y = 1 | x ; \theta) \\& \cdots \\& h_\theta^{(n)}(x) = P(y = n | x ; \theta) \\& \mathrm{prediction} = \max_i( h_\theta ^{(i)}(x) )\\\end{aligned}\\) 
     * The following image show how one could classify 3 classes:
-    * ![week-3-8](media/week-3-8.png)
+    * ![week-3-8](https://i.imgur.com/dUx6MP7.png)
 * Overall
     * Train a logistic regression classifier \\(h_{θ}^{(i)}(x)\\) for each class i to predict the probability that \\(y = i\\) 
     * On a new input, \\(x\\) to make a prediction, pick the class \\(i\\) that maximizes the probability that \\(h_θ^{(i)}(x) = 1\\) 
@@ -189,7 +187,7 @@
 ### Problems:
 
 * Three figures to shows that **underfitting**, **fitting** and **overfitting**: (take housing price as sample)
-     * ![week-3-9](media/week-3-9.png)
+     * ![week-3-9](https://i.imgur.com/1vYilQz.png)
      * under-fitting or high bias: leftmost, \\(y = θ_0 + θ_1x\\) , doesn't really lie on straight line.
      * overfitting: rightmost, \\(y = \sum_{j=0} ^5 \theta_j x^j\\) , not a good predictor.
      * fitting one: \\(y = \theta_0 + \theta_1x + \theta_2x^2\\) , obtain a slightly better fit to the data.
@@ -240,7 +238,7 @@
 * Regularize this equation by adding a term to the end:
     * \\(J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2\\) 
     * The second sum, \\(\sum_{j=1}^n \theta_j^2\\) means to explicitly exclude the bias term, \\(\theta_0\\) . I.e. the \\(\theta\\) vector is indexed from 0 to n (holding n+1 values, \\(\theta_0\\) through \\(\theta_n\\) ), and this sum explicitly skips \\(\theta_0\\) , by running from 1 to n, skipping 0 (This is because for regularization we don't penalize \\(θ_0\\) so treat it slightly differently). Thus, when computing the equation, we should continuously update the two following equations:
-    * ![week-3-10](media/week-3-10.png)
+    * ![week-3-10](https://i.imgur.com/vfaLQ8g.png)
 
 ## Words 
 

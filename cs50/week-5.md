@@ -1,14 +1,12 @@
 # Week 5
 
-[TOC]
-
 ## Data Structure
 
 ### Linked Lists
 
 #### Singly-Linked Lists
 
-<img src="media/15032809637878.jpg" style="width:400px" />
+<img src="https://i.imgur.com/dZC3sKO.jpg" style="width:400px" />
 
 * Structure
 
@@ -211,7 +209,7 @@
         * Make that node's prev pointer point to NULL.
 
 ### Binary Search Tree
-* <img src="media/15032894082395.jpg" style="width:250px"/>
+* <img src="https://i.imgur.com/eeuMuCg.jpg" style="width:250px"/>
     * Each node can only have a maximum of 2 children,
     * we can simply add new nodes by allocating memory for them and changing pointers to point to them.
 * Structure
@@ -251,7 +249,7 @@
 
 ### Hash Tables
 
-* <img src="media/15032895917805.jpg" style="width:250px" />
+* <img src="https://i.imgur.com/RGZaN0m.jpg" style="width:250px" />
 * A hash table amounts to a combination of two things:
     * First, a **hash function**, which returns an nonnegative integer value called a **hash code**.
         ```
@@ -272,7 +270,7 @@
 
 ### Tries
 
-<img src="media/15033015224683.jpg" style="width:300px" />
+<img src="https://i.imgur.com/fk8FGcd.jpg" style="width:300px" />
 
 ```c
 typedef struct _trie

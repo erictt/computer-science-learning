@@ -1,7 +1,5 @@
 # Week 4 - Alternating Series
 
-[TOC]
-
 ## Absolutely Convergent Series
 
 ### Theorem
@@ -55,7 +53,7 @@
 
 #### Proven
 
-* <img src="media/15182335484877.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/qLDVjBv.jpg" style="width:400px" />
 * From this figure, we can get:
     * \\(s_{2n}\\) is increasing and bounded above by \\(s_1\\), so \\(\displaystyle \lim_{n \to \infty} s_{2n}\\) exists.
     * \\(s_{2n-1}\\) is decreasing and bounded below by \\(s_2\\), so \\(\displaystyle \lim_{n \to \infty} s_{2n-1}\\) exists.
