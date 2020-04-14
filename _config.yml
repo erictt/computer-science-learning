@@ -118,3 +118,9 @@ markdown_it_plus:
   typographer:
   quotes: “”‘’
   pre_class: highlight
+  plugins:
+    - plugin:
+      name: "@neilsustc/markdown-it-katex"
+      enable: true
+      options:
+        strict: false

@@ -137,7 +137,7 @@ pylab.axvline(x = popMean, color = 'r')
     <img src="https://i.imgur.com/LPMrEIZ.jpg" style="width:400px" />
 
 * Result:
-    * Going from a sample size of 100 to 400 reduced the confidence interval from \\(1.8\ ^{\circ}C\\) to about \\(1 \ ^{\circ}C\\).
+    * Going from a sample size of 100 to 400 reduced the confidence interval from $1.8\ ^{\circ}C$ to about $1 \ ^{\circ}C$.
 
 #### Conclusion
 
@@ -154,14 +154,14 @@ pylab.axvline(x = popMean, color = 'r')
     * 我们期望随机样本在特定 CI (比如95%=1.96个标准偏差)下的可靠度足够高。比如温度预测，我们肯定不希望95%的 CI 下差值范围超过 1 度。显然这样的预测是不准确的。
     * 标准误的价值在于，通常情况下，我们无法得知整体样本的数据情况，所以必须使用随机抽样+计算SEM来保证样本大小足够以及结论的可靠性。
 * To formulate it, SEM is estimated by the sample estimate of the population standard deviation (sample standard deviation) divided by the square root of the sample size (assuming statistical independence of the values in the sample):
-    * \\(SE_{\bar{x}}=\frac{s}{\sqrt{n}}\\)
+    * $SE_{\bar{x}}=\frac{s}{\sqrt{n}}$
     * where
         * `s` is the **sample standard deviation** (i.e., the sample-based estimate of the standard deviation of the population). 
             * Because, most time, we can't get the standard deviation of the population. Later, we will prove the sample-based estimate of the standard deviation of the population is close to the standard deviation of the population.
         * `n` is the size (number of observations) of the sample.
     * Recall the formula (from [CLT](lecture-8.md#the-central-limit-theorem-clt)) of the standard deviation of the sample means: 
-        * The variance of the sample means (\\(\sigma_{\bar{x}}^2\\)) will be close to the variance of the population (\\(\sigma^2\\)) divided by the sample size (N).
-       * \\(\sigma^2_{\bar{x}}=\frac{\sigma^2}{N}\\)
+        * The variance of the sample means ($\sigma_{\bar{x}}^2$) will be close to the variance of the population ($\sigma^2$) divided by the sample size (N).
+       * $\sigma^2_{\bar{x}}=\frac{\sigma^2}{N}$
        * where
            * `σ` is the standard deviation of the population.
 
@@ -360,7 +360,7 @@ plotDiffs(sampleSizes, diffs,
     * These must be checked before applying the theory!
 
 #### Usage of SE and SEM
-* The notation for standard error can be any one of SE, SEM (for standard error of measurement or mean), or \\(S_{E}\\).
+* The notation for standard error can be any one of SE, SEM (for standard error of measurement or mean), or $S_{E}$.
 * If its sampling distribution is normally distributed, the sample mean, its standard error, and the quantiles of the normal distribution can be used to calculate confidence intervals for the mean. Like the sample, we calculate  if 200 is enough for sample size.
 * [https://en.wikipedia.org/wiki/Standard_error#Assumptions_and_usage](https://en.wikipedia.org/wiki/Standard_error#Assumptions_and_usage)
 

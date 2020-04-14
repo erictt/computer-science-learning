@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
     
     <!-- katex -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
 
     
     
@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <meta name="generator" content="Hexo 4.2.0"></head>
+
 
 <body>
 
@@ -269,11 +270,11 @@ function sidebar_toggle() {
   <h1 id="week-6-gaussian-elimination"><a class="markdownIt-Anchor" href="#week-6-gaussian-elimination"></a> Week 6 - Gaussian Elimination</h1>
 <h2 id="gaussian-elimination"><a class="markdownIt-Anchor" href="#gaussian-elimination"></a> Gaussian Elimination</h2>
 <ul>
-<li>To solv the linear system: \[\begin{array}{c c c c c c}<br />
+<li>To solv the linear system: $$\begin{array}{c c c c c c}<br />
 2 \chi_0 &amp; + &amp; 4 \chi_1 &amp; - &amp; 2 \chi_2 &amp; = &amp; -10 \<br />
 4 \chi_0 &amp; - &amp; 2 \chi_1 &amp; + &amp; 6 \chi_2 &amp; = &amp; 20 \<br />
 6 \chi_0 &amp; - &amp; 4 \chi_1 &amp; + &amp; 2 \chi_2 &amp; = &amp; 18<br />
-\end{array}\]</li>
+\end{array}$$</li>
 </ul>
 <h3 id="procedures"><a class="markdownIt-Anchor" href="#procedures"></a> Procedures</h3>
 <ul>
@@ -281,7 +282,7 @@ function sidebar_toggle() {
 <p><strong>Transform linear system of equations to an upper triangular system</strong></p>
 <ul>
 <li>
-<p>Subtract \(\lambda_{1,0} = (\color{blue}{4} / \color{red}{2} ) = 2\) times the first equation from the second equation: \[\begin{array}{c | c}<br />
+<p>Subtract <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mrow><mn>1</mn><mo separator="true">,</mo><mn>0</mn></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><mstyle mathcolor="blue"><mn>4</mn><mi mathvariant="normal">/</mi><mstyle mathcolor="red"><mn>2</mn><mo stretchy="false">)</mo><mo>=</mo><mn>2</mn></mstyle></mstyle></mrow><annotation encoding="application/x-tex">\lambda_{1,0} = (\color{blue}{4} / \color{red}{2} ) = 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord" style="color:blue;"><span class="mord" style="color:blue;">4</span></span><span class="mord" style="color:blue;">/</span><span class="mord" style="color:red;"><span class="mord" style="color:red;">2</span></span><span class="mclose" style="color:red;">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel" style="color:red;">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">2</span></span></span></span> times the first equation from the second equation: $$\begin{array}{c | c}<br />
 \text{Before} &amp; \text{After} \<br />
 \begin{array}{c c c c c c}<br />
 \color{red}{2} \chi_0 &amp; + &amp; 4 \chi_1 &amp; - &amp; 2 \chi_2 &amp; = &amp; -10 \<br />
@@ -292,10 +293,10 @@ function sidebar_toggle() {
 &amp; - &amp; 10 \chi_1 &amp; + &amp; 10 \chi_2 &amp; = &amp; 40 \<br />
 6 \chi_0 &amp; - &amp; 4 \chi_1 &amp; + &amp; 2 \chi_2 &amp; = &amp; 18<br />
 \end{array}<br />
-\end{array}\]</p>
+\end{array}$$</p>
 </li>
 <li>
-<p>Subtract \(\lambda_{2,0} = ( \color{blue}{6} / \color{red}{2} ) = 3\) times the first equation from the third equation: \[\begin{array}{c | c}<br />
+<p>Subtract <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mrow><mn>2</mn><mo separator="true">,</mo><mn>0</mn></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><mstyle mathcolor="blue"><mn>6</mn><mi mathvariant="normal">/</mi><mstyle mathcolor="red"><mn>2</mn><mo stretchy="false">)</mo><mo>=</mo><mn>3</mn></mstyle></mstyle></mrow><annotation encoding="application/x-tex">\lambda_{2,0} = ( \color{blue}{6} / \color{red}{2} ) = 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mpunct mtight">,</span><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord" style="color:blue;"><span class="mord" style="color:blue;">6</span></span><span class="mord" style="color:blue;">/</span><span class="mord" style="color:red;"><span class="mord" style="color:red;">2</span></span><span class="mclose" style="color:red;">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel" style="color:red;">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">3</span></span></span></span> times the first equation from the third equation: $$\begin{array}{c | c}<br />
 \text{Before} &amp; \text{After} \<br />
 \begin{array}{c c c c c c}<br />
 \color{red}{2} \chi_0 &amp; + &amp; 4 \chi_1 &amp; - &amp; 2 \chi_2 &amp; = &amp; -10 \<br />
@@ -306,10 +307,10 @@ function sidebar_toggle() {
 &amp; - &amp; 10 \chi_1 &amp; + &amp; 10 \chi_2 &amp; = &amp; 40 \<br />
 &amp; - &amp; 16 \chi_1 &amp; + &amp; 8 \chi_2 &amp; = &amp; 48<br />
 \end{array}<br />
-\end{array}\]</p>
+\end{array}$$</p>
 </li>
 <li>
-<p>Subtract \(\lambda_{2,0} = ( \color{blue}{-16} / \color{red}{-10} ) = 1.6\) times the second equation from the third equation: \[\begin{array}{c | c}<br />
+<p>Subtract <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mrow><mn>2</mn><mo separator="true">,</mo><mn>0</mn></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><mstyle mathcolor="blue"><mrow><mo>−</mo><mn>16</mn></mrow><mi mathvariant="normal">/</mi><mstyle mathcolor="red"><mrow><mo>−</mo><mn>10</mn></mrow><mo stretchy="false">)</mo><mo>=</mo><mn>1.6</mn></mstyle></mstyle></mrow><annotation encoding="application/x-tex">\lambda_{2,0} = ( \color{blue}{-16} / \color{red}{-10} ) = 1.6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mpunct mtight">,</span><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord" style="color:blue;"><span class="mord" style="color:blue;">−</span><span class="mord" style="color:blue;">1</span><span class="mord" style="color:blue;">6</span></span><span class="mord" style="color:blue;">/</span><span class="mord" style="color:red;"><span class="mord" style="color:red;">−</span><span class="mord" style="color:red;">1</span><span class="mord" style="color:red;">0</span></span><span class="mclose" style="color:red;">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel" style="color:red;">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:red;">1</span><span class="mord" style="color:red;">.</span><span class="mord" style="color:red;">6</span></span></span></span> times the second equation from the third equation: $$\begin{array}{c | c}<br />
 \text{Before} &amp; \text{After} \<br />
 \begin{array}{c c c c c c}<br />
 2 \chi_0 &amp; + &amp; 4 \chi_1 &amp; - &amp; 2 \chi_2 &amp; = &amp; -10 \<br />
@@ -320,7 +321,7 @@ function sidebar_toggle() {
 &amp; - &amp; 10 \chi_1 &amp; + &amp; 10 \chi_2 &amp; = &amp; 40 \<br />
 &amp; &amp; &amp; - &amp; 8 \chi_2 &amp; = &amp; - 16<br />
 \end{array}<br />
-\end{array}\]</p>
+\end{array}$$</p>
 </li>
 <li>
 <p>This now leaves us with an upper triangular system of linear equations.</p>
@@ -332,18 +333,18 @@ function sidebar_toggle() {
 <ul>
 <li>The equivalent upper triangular system of equations is now solved via back substitution:
 <ul>
-<li>Consider the last equation, \[-8 \chi_2 = -16.\] Scaling both sides by by 1/(−8) we find that \[\chi_2 = -16/(-8) = 2.\]</li>
-<li>Next, consider the second equation, \[-10 \chi_1 + 10 \chi_2 = 40.\] We know that \(\chi_2 = 2\), which we plug into this equation to yield \[-10\chi_1 + 10( \color{blue}{2} = 40.)\] Rearranging this we find that \[\chi_1 = (40 - 10( \color{blue}{2} ))/(-10) = -2.\]</li>
-<li>Finally, consider the first equation, \[2\chi_0 + 4\chi_1 - 2\chi_2 = -10 \] We know that \(\chi_2 =  \color{blue}{2} \) and \(\chi_1 = \color{blue}{-2} \), which we plug into this equation to yield \[2\chi_0 + 4( \color{blue}{-2} ) - 2( \color{blue}{2} ) = -10.\] Rearranging this we find that \[\chi_0 = (-10 - (4( \color{blue}{-2} ) - (2)( \color{blue}{2} )))/2 = 1.\]</li>
+<li>Consider the last equation, $$-8 \chi_2 = -16.$$ Scaling both sides by by 1/(−8) we find that $$\chi_2 = -16/(-8) = 2.$$</li>
+<li>Next, consider the second equation, $$-10 \chi_1 + 10 \chi_2 = 40.$$ We know that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>χ</mi><mn>2</mn></msub><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\chi_2 = 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>, which we plug into this equation to yield $$-10\chi_1 + 10( \color{blue}{2} = 40.)$$ Rearranging this we find that $$\chi_1 = (40 - 10( \color{blue}{2} ))/(-10) = -2.$$</li>
+<li>Finally, consider the first equation, $$2\chi_0 + 4\chi_1 - 2\chi_2 = -10$$ We know that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>χ</mi><mn>2</mn></msub><mo>=</mo><mstyle mathcolor="blue"><mn>2</mn></mstyle></mrow><annotation encoding="application/x-tex">\chi_2 =  \color{blue}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord" style="color:blue;"><span class="mord" style="color:blue;">2</span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>χ</mi><mn>1</mn></msub><mo>=</mo><mstyle mathcolor="blue"><mrow><mo>−</mo><mn>2</mn></mrow></mstyle></mrow><annotation encoding="application/x-tex">\chi_1 = \color{blue}{-2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord" style="color:blue;"><span class="mord" style="color:blue;">−</span><span class="mord" style="color:blue;">2</span></span></span></span></span>, which we plug into this equation to yield $$2\chi_0 + 4( \color{blue}{-2} ) - 2( \color{blue}{2} ) = -10.$$ Rearranging this we find that $$\chi_0 = (-10 - (4( \color{blue}{-2} ) - (2)( \color{blue}{2} )))/2 = 1.$$</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<p>Thus, the solution is vector \[x = \left(\begin{array}{c} \chi_0 \ \chi_1 \ \chi_2 \end{array}\right) = \left(\begin{array}{c} 1 \ -2 \ 2 \end{array}\right).\]</p>
+<p>Thus, the solution is vector $$x = \left(\begin{array}{c} \chi_0 \ \chi_1 \ \chi_2 \end{array}\right) = \left(\begin{array}{c} 1 \ -2 \ 2 \end{array}\right).$$</p>
 </li>
 <li>
-<p><strong>Check your answer</strong> (by plugging \(\chi_0 = 1, \chi_1 = -2, \text{and} \ \chi_2 = 2\) into the original system).</p>
+<p><strong>Check your answer</strong> (by plugging <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>χ</mi><mn>0</mn></msub><mo>=</mo><mn>1</mn><mo separator="true">,</mo><msub><mi>χ</mi><mn>1</mn></msub><mo>=</mo><mo>−</mo><mn>2</mn><mo separator="true">,</mo><mtext>and </mtext><msub><mi>χ</mi><mn>2</mn></msub><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\chi_0 = 1, \chi_1 = -2, \text{and} \ \chi_2 = 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">−</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">and</span></span><span class="mspace"> </span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> into the original system).</p>
 </li>
 </ul>
 <h3 id="representing-the-system-of-equations-with-an-appended-matrix"><a class="markdownIt-Anchor" href="#representing-the-system-of-equations-with-an-appended-matrix"></a> Representing the system of equations with an appended matrix</h3>
@@ -376,7 +377,7 @@ function sidebar_toggle() {
 <h2 id="solving-ax-b-via-lu-factorization"><a class="markdownIt-Anchor" href="#solving-ax-b-via-lu-factorization"></a> Solving Ax = b via LU Factorization</h2>
 <h3 id="lu-factorization"><a class="markdownIt-Anchor" href="#lu-factorization"></a> LU Factorization</h3>
 <ul>
-<li>A matrix \(A \in R^{n \times n}\) can be factored into the product of two matrices \(L,U \in R^{n \times n}\) : \[A= LU\] where L is unit lower triangular and U is upper triangular.</li>
+<li>A matrix <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∈</mo><msup><mi>R</mi><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></msup></mrow><annotation encoding="application/x-tex">A \in R^{n \times n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.771331em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">×</span><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span></span> can be factored into the product of two matrices <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo separator="true">,</mo><mi>U</mi><mo>∈</mo><msup><mi>R</mi><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></msup></mrow><annotation encoding="application/x-tex">L,U \in R^{n \times n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.771331em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">×</span><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span></span> : $$A= LU$$ where L is unit lower triangular and U is upper triangular.</li>
 <li>LU Factorization is transfer A to a LU combined matrix.
 <ul>
 <li>We can do this, because L is unit lower triangle matrix and U is upper triangle matrix.</li>
@@ -397,9 +398,9 @@ function sidebar_toggle() {
 </li>
 <li>Partition matrix A:
 <ul>
-<li>Update \(a_{21} = a_{21}/ \alpha_{11} (= l_{21})\)</li>
-<li>Update \(A_{22} = A_{22} - a_{21} a_{12}^T\) (Rank-1 update!)</li>
-<li>Overwrite \(A_{22}\) with \(L_{22}\) and \(U_{22}\) by repeating with \(A = A_{22}\).</li>
+<li>Update <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mn>21</mn></msub><mo>=</mo><msub><mi>a</mi><mn>21</mn></msub><mi mathvariant="normal">/</mi><msub><mi>α</mi><mn>11</mn></msub><mo stretchy="false">(</mo><mo>=</mo><msub><mi>l</mi><mn>21</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">a_{21} = a_{21}/ \alpha_{11} (= l_{21})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">/</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>Update <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mn>22</mn></msub><mo>=</mo><msub><mi>A</mi><mn>22</mn></msub><mo>−</mo><msub><mi>a</mi><mn>21</mn></msub><msubsup><mi>a</mi><mn>12</mn><mi>T</mi></msubsup></mrow><annotation encoding="application/x-tex">A_{22} = A_{22} - a_{21} a_{12}^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.0894389999999998em;vertical-align:-0.24810799999999997em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.4518920000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">2</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span></span></span></span> (Rank-1 update!)</li>
+<li>Overwrite <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mn>22</mn></msub></mrow><annotation encoding="application/x-tex">A_{22}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mn>22</mn></msub></mrow><annotation encoding="application/x-tex">L_{22}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><mn>22</mn></msub></mrow><annotation encoding="application/x-tex">U_{22}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> by repeating with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><msub><mi>A</mi><mn>22</mn></msub></mrow><annotation encoding="application/x-tex">A = A_{22}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</li>
 </ul>
 </li>
 <li>This will leave U in the upper triangular part of A and the strictly lower triangular part of L in the strictly lower triangular part of A. The diagonal elements of L need not be stored, since they are known to equal one.</li>
@@ -413,25 +414,27 @@ function sidebar_toggle() {
 <h3 id="where-is-this-going"><a class="markdownIt-Anchor" href="#where-is-this-going"></a> Where is this going?</h3>
 <ol>
 <li>
-<p>Want to solve: \(Ax = b\)</p>
+<p>Want to solve: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>x</mi><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">Ax = b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span></p>
 <ul>
 <li>Give A and b, solve x.</li>
-<li>\[A = \left(\begin{array}{c c c}<br />
-2 &amp; + 4 &amp; - 2 \<br />
-4 &amp; - 2 &amp; + 6 \<br />
+<li>
+A = \left(\begin{array}{c c c}
+
+</li>
+</ul>
+<p>4 &amp; - 2 &amp; + 6 \<br />
 6 &amp; - 4 &amp; + 2<br />
 \end{array}\right),<br />
 b = \left(\begin{array}{c}<br />
 -10 \ 20 \ 18<br />
-\end{array}\right)\]</li>
-</ul>
+\end{array}\right)$$</p>
 </li>
 <li>
-<p>Now we find triangular L and U so that: \(A = LU\)</p>
+<p>Now we find triangular L and U so that: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mi>L</mi><mi>U</mi></mrow><annotation encoding="application/x-tex">A = LU</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span></span></span></span></p>
 <ul>
 <li>U is the transformed A matrix</li>
 <li>A is the coefficients which transfers A to U</li>
-<li>Transfered: \[A \to \left(\begin{array}{c c c}<br />
+<li>Transfered: $$A \to \left(\begin{array}{c c c}<br />
 2 &amp; + 4 &amp; - 2 \<br />
 \scriptsize{2} &amp; - 10 &amp; - 10 \<br />
 \scriptsize{3} &amp; \scriptsize{1.6} &amp; - 8<br />
@@ -445,22 +448,25 @@ U = \left(\begin{array}{c c c}<br />
 2 &amp; + 4 &amp; - 2 \<br />
 0 &amp; - 10 &amp; + 10 \<br />
 0 &amp; 0 &amp; - 8<br />
-\end{array}\right)\]</li>
+\end{array}\right)$$</li>
 </ul>
 </li>
 <li>
-<p>Substitute: \((LU)x = b\) =&gt; \(L(Ux) = b\)</p>
+<p>Substitute: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>L</mi><mi>U</mi><mo stretchy="false">)</mo><mi>x</mi><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">(LU)x = b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mclose">)</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span> =&gt; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>U</mi><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">L(Ux) = b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span></p>
 </li>
 <li>
-<p>Replace Ux with y. (\(y = Ux\)) =&gt; \(Ly = b\)</p>
+<p>Replace Ux with y. (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>U</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">y = Ux</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mord mathdefault">x</span></span></span></span>) =&gt; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>y</mi><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">Ly = b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span></p>
 </li>
 <li>
-<p>Solve \(Ly = b\) for \(y\). (<strong>More details in next section</strong>)</p>
+<p>Solve <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>y</mi><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">Ly = b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span> for <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>. (<strong>More details in next section</strong>)</p>
 <ul>
 <li>This is forward substitution (applying the transforms to the right-hand side).</li>
-<li>\[\left(\begin{array}{c c c}<br />
-1 &amp; 0 &amp; 0 \<br />
-2 &amp; 1 &amp; 0 \<br />
+<li>
+\left(\begin{array}{c c c}
+
+</li>
+</ul>
+<p>2 &amp; 1 &amp; 0 \<br />
 3 &amp; 1.6 &amp; 1<br />
 \end{array}\right) \times<br />
 \left(\begin{array}{c}<br />
@@ -468,12 +474,14 @@ y_0 \ y_1 \ y_2<br />
 \end{array}\right) =<br />
 \left(\begin{array}{c}<br />
 -10 \ 20 \ 18<br />
-\end{array}\right) \]</li>
-<li>\[\to \left(\begin{array}{c}<br />
--10 \<br />
-20 - 2 y_0 \<br />
-18 - 3 y_0<br />
-\end{array}\right) \to \left(\begin{array}{c}<br />
+\end{array}\right)$$</p>
+<ul>
+<li>
+\to \left(\begin{array}{c}
+  -10 \\
+  20 - 2 y_0 \\ 
+  18 - 3 y_0
+
 -10 \<br />
 40 \<br />
 48 - 1.6 y_1<br />
@@ -481,43 +489,48 @@ y_0 \ y_1 \ y_2<br />
 -10 \<br />
 40 \<br />
 -16<br />
-\end{array}\right)\]</li>
+\end{array}\right)$$</li>
 </ul>
 </li>
 <li>
-<p>Solve \(Ux = y\) for \(x\). (<strong>More details in next next section</strong>)</p>
+<p>Solve <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mi>x</mi><mo>=</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">Ux = y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> for <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>. (<strong>More details in next next section</strong>)</p>
 <ul>
 <li>This is back substitution (solve x).</li>
-<li>\[\left(\begin{array}{c c c}<br />
-2 &amp; + 4 &amp; - 2 \<br />
-0 &amp; - 10 &amp; + 10 \<br />
+<li>
+\left(\begin{array}{c c c}
+
+</li>
+</ul>
+<p>0 &amp; - 10 &amp; + 10 \<br />
 0 &amp; 0 &amp; - 8<br />
 \end{array}\right) \times<br />
 \left(\begin{array}{c}<br />
 x_0 \ x_1 \ x_2<br />
 \end{array}\right) = \left(\begin{array}{c}<br />
 -10 \ 40 \  -16<br />
-\end{array}\right) \]</li>
-<li>\[ \to \left(\begin{array}{c}<br />
--10 \ 40 \  \frac{-16}{-8} = \color{blue}{2}<br />
-\end{array}\right) \to \left(\begin{array}{c} - 10 \<br />
+\end{array}\right)$$</p>
+<ul>
+<li>
+\to \left(\begin{array}{c}
+  -10 \\ 40 \\  \frac{-16}{-8} = \color{blue}{2}
+
 \frac{40 - 10 \times \color{blue}{2} }{-10} = \color{red}{- 2} \<br />
 \color{blue}{2}<br />
 \end{array}\right) \to \left(\begin{array}{c}<br />
 \frac{-10 - 4 \times ( \color{red}{- 2} ) - ( -2 ) \times \color{blue}{2}}{2} = \color{green}{1} \ \color{red}{- 2} \ \color{blue}{2}<br />
 \end{array}\right) \to \left(\begin{array}{c}<br />
 \color{green}{1} \ \color{red}{- 2} \ \color{blue}{2}<br />
-\end{array}\right)\]</li>
+\end{array}\right)$$</li>
 </ul>
 </li>
 </ol>
 <h3 id="solving-lz-b-forward-substitution"><a class="markdownIt-Anchor" href="#solving-lz-b-forward-substitution"></a> Solving Lz = b (Forward substitution)</h3>
 <ul>
-<li>Given a unit lower triangular matrix \(L \in \mathbb{R}^{n \times n}\) and vectors \(z, b \in \mathbb{R}^{n}\) , consider the equation \(Lz = b\) where L and b are known and z is to be computed. Partition</li>
+<li>Given a unit lower triangular matrix <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></msup></mrow><annotation encoding="application/x-tex">L \in \mathbb{R}^{n \times n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.771331em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathbb">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">×</span><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span></span> and vectors <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo separator="true">,</mo><mi>b</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">z, b \in \mathbb{R}^{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathbb">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span></span> , consider the equation <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>z</mi><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">Lz = b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span> where L and b are known and z is to be computed. Partition</li>
 <li>
 <img src="https://i.imgur.com/ONX0l4W.jpg" style="width:600px" />
 </li>
-<li>So, solving \(Lz = b\), overwriting b with z, is forward substitution when L is the unit lower triangular matrix that results from LU factorization.</li>
+<li>So, solving <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>z</mi><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">Lz = b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>, overwriting b with z, is forward substitution when L is the unit lower triangular matrix that results from LU factorization.</li>
 </ul>
 <h4 id="algorithm-2"><a class="markdownIt-Anchor" href="#algorithm-2"></a> Algorithm</h4>
 <ul>
@@ -540,9 +553,9 @@ x_0 \ x_1 \ x_2<br />
 </ul>
 <h3 id="cost"><a class="markdownIt-Anchor" href="#cost"></a> Cost</h3>
 <ul>
-<li>Factoring \(A = LU\) requires, approximately, \(\frac{2}{3}n^3\) floating point operations.</li>
-<li>Solve \(Lz = b\) requires, approximately, \(n^2\) floating point operations.</li>
-<li>Solve \(Ux = z\) requires, approximately, \(n^2\) floating point operations.</li>
+<li>Factoring <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mi>L</mi><mi>U</mi></mrow><annotation encoding="application/x-tex">A = LU</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span></span></span></span> requires, approximately, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>2</mn><mn>3</mn></mfrac><msup><mi>n</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">\frac{2}{3}n^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span> floating point operations.</li>
+<li>Solve <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>z</mi><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">Lz = b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span> requires, approximately, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> floating point operations.</li>
+<li>Solve <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mi>x</mi><mo>=</mo><mi>z</mi></mrow><annotation encoding="application/x-tex">Ux = z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span> requires, approximately, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> floating point operations.</li>
 </ul>
 
 </div>
@@ -559,6 +572,23 @@ x_0 \ x_1 \ x_2<br />
 
 
 <script src="/js/book-post.js"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
 
         </div>
       </div>
@@ -583,7 +613,7 @@ x_0 \ x_1 \ x_2<br />
     <!-- Author title -->
     <div class="author-title">
       <div>Eric Yang</div>
-      <div>2020-04-13</div>
+      <div>2020-04-14</div>
     </div>
   </div>
 
@@ -603,25 +633,6 @@ x_0 \ x_1 \ x_2<br />
 
 
 <script src="/js/book-toc.js"></script>
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
-
-<!-- The loading of KaTeX is deferred to speed up page rendering -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-
-<!-- To automatically render math in text elements, include the auto-render extension: -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-            delimiters: [
-                {left: "$$", right: "$$", display: true},
-                {left: "\\(", right: "\\)", display: false},
-                {left: "\\[", right: "\\]", display: true}
-            ]
-        });
-    });
-</script>
 
 </div>
 

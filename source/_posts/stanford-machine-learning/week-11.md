@@ -17,7 +17,7 @@
 #### Supervised Learning for Pedestrian Detection
 
 * Given the training set:
-    * \\(x\\) = pixels in 82x36 image patches
+    * $x$ = pixels in 82x36 image patches
     * <img src="https://i.imgur.com/GcSVSY5.jpg" style="width:500px" />
 * Now we have a new image - how do we find pedestrians in it?
     * <img src="https://i.imgur.com/btQ6fVk.jpg" style="width:400px" />

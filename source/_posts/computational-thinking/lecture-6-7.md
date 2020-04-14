@@ -173,10 +173,10 @@ plotLocs((UsualDrunk, ColdDrunk), 10000, 1000)
 #### The ratio heads/tails (the law of large number)
 * How many samples do we need to look at before we can have justified confidence in our answer?
 * **variance** is measure of how much spread there is in the possible different outcomes, which can help us to justify.
-    * \\(\text{variance}(X) = \frac{\sum_{x\in{X}}{(x-\mu)^{2}}}{\lvert{X}\rvert}\\)
+    * $\text{variance}(X) = \frac{\sum_{x\in{X}}{(x-\mu)^{2}}}{\lvert{X}\rvert}$
 * **standard deviation** tells us what fraction of the values are close to the mean. If many values are relatively close to the mean, the standard deviation is relatively small.
-    * \\(\sigma(X) = \sqrt{\frac{1}{\lvert{X}\rvert}\sum_{x\in{X}}{(x-\mu)^{2}}}\\)
-        *  where |X| is the size of the collection and (\\(\mu\\)) its mean.
+    * $\sigma(X) = \sqrt{\frac{1}{\lvert{X}\rvert}\sum_{x\in{X}}{(x-\mu)^{2}}}$
+        *  where |X| is the size of the collection and ($\mu$) its mean.
 
         ```python
         def stdDev(X):
@@ -358,7 +358,7 @@ def flipPlot1(minExp, maxExp, numTrials):
     
 #### Normal Distributions and Confidence Levels
 
-* formula of normal distribution: \\(f(x)=\frac{1}{\sigma\sqrt{2\pi}}*e^{-\frac{(x-\mu)^2}{2\sigma^2}}\\)  ( μ is the mean, σ the standard deviation)
+* formula of normal distribution: $f(x)=\frac{1}{\sigma\sqrt{2\pi}}*e^{-\frac{(x-\mu)^2}{2\sigma^2}}$  ( μ is the mean, σ the standard deviation)
 * Normal distributions are frequently used in constructing probabilistic models for three reasons:
     1. they have nice mathematical properties, 
     2. many naturally occurring distributions are indeed close to normal

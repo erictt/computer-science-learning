@@ -30,9 +30,9 @@
 * A vector, `L`, of length n, represents the set of available items. Each element of the vector is an item
 * A vector, `V`, of length n, is used to indicate whether or not items are taken. If **V[i] = 1**, item **I[i]** is taken. If **V[i] = 0**, item **I[i]** is not taken
 * Find a `V` that Maximizes:
-    * \\(\displaystyle\sum_{i=0}^{n-1}V[i]*I[i].\text{value}\\) 
+    * $\displaystyle\sum_{i=0}^{n-1}V[i]*I[i].\text{value}$ 
     * Subject to the constraint that:
-        * \\(\displaystyle\sum_{i=0}^{n-1}V[i]*I[i].\text{weight} \le w\\) 
+        * $\displaystyle\sum_{i=0}^{n-1}V[i]*I[i].\text{weight} \le w$ 
 
 ## Brute Force Algorithm
 
