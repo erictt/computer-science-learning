@@ -20,6 +20,7 @@
     "hexo-renderer-markdown-it-plus": "^1.0.4",
     "hexo-renderer-scss": "^1.2.0",
     "hexo-renderer-stylus": "^1.1.0",
+    "kind-of": ">=6.0.3",
     "hexo-server": "^1.0.0"
   }
 }
