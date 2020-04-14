@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          laff-linear-algebra/week-10 - Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li><a href="/README/index.html">Introduction</a></li>
+<li><a href="/SYMBOLS/index.html">Symbols of Mathematics</a></li>
+</ul>
+<!--
+## Stanford Statistical Learning
+
+* [Chapter 2 - Overview of Statistical Learning](/statistical-learning/chapter-2/index.html)
+* Chapter 3 - Linear Regression
+* Chapter 4 - Classification
+* Chapter 5 - Resampling Methods
+* Chapter 6 - Linear Model Selection and Regularization
+* Chapter 7 - Moving Beyond Linearity
+* Chapter 8 - Tree-Based Methods
+* Chapter 9 - Support Vector Machines
+* Chapter 10 - Unsupervised Learning
+-->
+<h2 id="introduction-to-probability"><a class="markdownIt-Anchor" href="#introduction-to-probability"></a> Introduction to Probability</h2>
+<ul>
+<li><a href="/introduction-to-probability/unit-1/index.html">Unit 1: Probability models and axioms</a></li>
+<li><a href="/introduction-to-probability/unit-2/index.html">Unit 2: Conditioning and independence</a></li>
+<li><a href="/introduction-to-probability/unit-3/index.html">Unit 3: Counting</a></li>
+</ul>
+<!--
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<h2 id="multivariable-calculus"><a class="markdownIt-Anchor" href="#multivariable-calculus"></a> Multivariable Calculus</h2>
+<ul>
+<li><a href="/multivariable-calculus/unit-1/index.html">Unit 1: Thinking about multivariable functions</a></li>
+<li><a href="/multivariable-calculus/unit-2/index.html">Unit 2: Derivatives of multivariable functions</a></li>
+</ul>
+<!--
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; Radix Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="week-10-vector-spaces-orthogonality-and-linear-least-squares"><a class="markdownIt-Anchor" href="#week-10-vector-spaces-orthogonality-and-linear-least-squares"></a> Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</h1>
+<h2 id="solving-underdetermined-systems"><a class="markdownIt-Anchor" href="#solving-underdetermined-systems"></a> Solving underdetermined systems</h2>
+<ul>
+<li>Important attributes of a linear system \(Ax = b\) and associated matrix A:
+<ul>
+<li>(example:\(\left(\begin{array}{c c c c}1 &amp; 3 &amp; 1 &amp; 2 \ 2 &amp; 6 &amp; 4 &amp; 8 \ 0 &amp; 0 &amp; 2 &amp; 4\end{array}\right)\left(\begin{array}{c} \chi_0 \ \chi_1 \ \chi_2 \ \chi_3\end{array}\right) = \left(\begin{array}{c} 1 \ 3 \ 1\end{array}\right)\))</li>
+<li>The row-echelon form of the system.
+<ul>
+<li>
+<img src="https://i.imgur.com/5MOb3Nv.jpg" style="width:350px" />
+</li>
+</ul>
+</li>
+<li>The pivots.
+<ul>
+<li>the first nonzero entry in each row: 1, 2.</li>
+</ul>
+</li>
+<li>The free variables.
+<ul>
+<li>the columns that has no pivots: \(\chi_1, \chi_3\)</li>
+</ul>
+</li>
+<li>The dependent variables.
+<ul>
+<li>the columns that has pivots: \(\chi_0, \chi_2\)</li>
+</ul>
+</li>
+<li>A specific solution.
+<ul>
+<li>Often called a <strong>particular</strong> solution.</li>
+<li>The most straightforward way is to set the free variables equal to zero
+<ul>
+<li>=&gt; \(\chi_1 = \chi_3 = 0\)</li>
+<li>=&gt; \(\left(\begin{array}{c c c c}1 &amp; 3 &amp; 1 &amp; 2 \ 0 &amp; 0 &amp; 2 &amp; 4\end{array}\right)\left(\begin{array}{c} \chi_0 \ 0 \ \chi_2 \ 0\end{array}\right) = \left(\begin{array}{c} 1 \ 1\end{array}\right)\)</li>
+<li>=&gt; \(x_p = \left(\begin{array}{c} 1/2 \ 0 \ 1/2 \ 0\end{array}\right)\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A basis for the null space.
+<ul>
+<li>Often called the <strong>kernel</strong> of the matrix.</li>
+<li>\(\chi_0 + 3\chi_1 + \chi_2 + 2\chi_3 = 0, 2\chi_2 + 4\chi_3 = 0\) =&gt; \(\chi_2 = -2\chi_3, \chi_0 = -3\chi_1\)</li>
+<li>\(\begin{bmatrix} \chi_0 \ \chi_1 \ \chi_2 \ \chi_3 \end{bmatrix} = \chi_1 \begin{bmatrix} -3 \ 1 \ 0 \ 0 \end{bmatrix} + \chi_3\begin{bmatrix} 0 \ 0 \ -2 \ 1\end{bmatrix}\)</li>
+<li>So the basic for \(\mathcal{N}(A) = \text{Span }(\begin{bmatrix} -3 \ 1 \ 0 \ 0 \end{bmatrix},\begin{bmatrix} 0 \ 0 \ -2 \ 1\end{bmatrix})\)</li>
+</ul>
+</li>
+<li>A general solution.
+<ul>
+<li>Often called a <strong>complete</strong> solution.</li>
+<li>given by:
+<ul>
+<li>\(\begin{bmatrix} 1/2 \ 0 \ 1/2 \ 0 \end{bmatrix} + \beta_0 \begin{bmatrix} -3 \ 1 \ 0 \ 0 \end{bmatrix} + \beta_1 \begin{bmatrix} 0 \ 0 \ -2 \ 1\end{bmatrix}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A basis for the column space, \(\mathcal{C}(A)\).
+<ul>
+<li>Often called the <strong>range</strong> of the matrix.</li>
+<li>equal to the number of dependent variables.</li>
+<li>The columns that have pivots in them are linearly independent. The corresponding columns in the original matrix are also linearly independent:
+<ul>
+<li>
+<img src="https://i.imgur.com/tzQqnwO.jpg" style="width:120px" />
+</li>
+<li>
+<img src="https://i.imgur.com/zK2Neax.jpg" style="width:260px" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A basis for the row space, \(\mathcal{R}(A) = \mathcal{C}(A^T)\).
+<ul>
+<li>The <strong>row space</strong> is the subspace of all vectors that can be created by taking linear combinations of the rows of a matrix.</li>
+<li>List the rows that have pivots in <strong>the row echelon form</strong> as column vectors:
+<ul>
+<li>
+<img src="https://i.imgur.com/Lr5JN2I.jpg" style="width:240px" />
+</li>
+<li>Notice these are the first and third row of A.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The dimension of the row and column space.
+<ul>
+<li>= number of pivots</li>
+<li>= 2</li>
+</ul>
+</li>
+<li>The rank of the matrix.
+<ul>
+<li>= number of pivots</li>
+<li>= 2</li>
+</ul>
+</li>
+<li>The dimension of the null space.
+<ul>
+<li>= the number of non-pivots columns</li>
+<li>= 2</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="orthogonal-vectors-orthogonal-spaces"><a class="markdownIt-Anchor" href="#orthogonal-vectors-orthogonal-spaces"></a> Orthogonal Vectors &amp; Orthogonal Spaces</h2>
+<ul>
+<li>Vectors x and y are considered to be orthogonal (perpendicular) if they meet at a right angle: \[x^T y = 0\]</li>
+</ul>
+<h3 id="normal-vector"><a class="markdownIt-Anchor" href="#normal-vector"></a> Normal Vector</h3>
+<ul>
+<li>The <strong>normal vector</strong>, often simply called the “normal,” to a surface is a vector which is perpendicular to the surface at a given point.</li>
+<li>For example:
+<ul>
+<li>
+<img src="https://i.imgur.com/eQemqb9.jpg" style="width:260px" />
+</li>
+<li>Define the plane as format: \(Ax + By + Cz = D\)
+<ul>
+<li>Vector \(\vec{n} = \begin{bmatrix} a \ b \ c \end{bmatrix}\) is normal to the plane.</li>
+<li>Vector \(\vec{x_0} = \begin{bmatrix} x_0 \ y_0 \ z_0 \end{bmatrix}\) is pointing to the plane.</li>
+<li>Vector \(\vec{x} = \begin{bmatrix} x \ y \ z \end{bmatrix}\) is pointing to the plane.</li>
+</ul>
+</li>
+<li>Then \(\vec{x} - \vec{x_0}\) should be on the plane and perpendicular to \(\vec{n}\)</li>
+<li>Then \((\vec{x} - \vec{x_0})^T \vec{n} = 0\)</li>
+<li>\(\begin{bmatrix} x - x_0 \ y - y_0  \ z - z_0  \end{bmatrix}^T \begin{bmatrix} a \ b \ c \end{bmatrix} = 0\)</li>
+<li>\(a(x - x_0) + b(y - y_0) + c(z - z_0) = 0 \)</li>
+<li>So we can use \(ax + by + cz = ax_0 + by_0 + cz_0\) to represent the plane.</li>
+</ul>
+</li>
+</ul>
+<h4 id="cross-product"><a class="markdownIt-Anchor" href="#cross-product"></a> Cross Product</h4>
+<ul>
+<li>the <strong>cross product</strong> or <strong>vector product</strong> is a binary operation on <strong>two</strong> vectors in three-dimensional space (\(\mathbb{R}^3\)) and is denoted by the symbol <strong>×</strong>.
+<ul>
+<li>\(\begin{bmatrix} a_0 \ a_1 \ a_2 \end{bmatrix} \times \begin{bmatrix} b_0 \ b_1 \ b_2 \end{bmatrix} = \begin{bmatrix} a_1 b_2 - a_2 b_1 \ a_2 b_0 - a_0 b_2 \ a_0 b_1 - a_1 b_0 \end{bmatrix} \)</li>
+</ul>
+</li>
+<li>Given two linearly independent vectors a and b, the cross product, <strong>a × b</strong>, is a vector that is perpendicular to both a and b and thus <strong>normal</strong> to the plane containing them.
+<ul>
+<li>Because \(\begin{bmatrix} a_1 b_2 - a_2 b_1 \ a_2 b_0 - a_0 b_2 \ a_0 b_1 - a_1 b_0 \end{bmatrix}^T \begin{bmatrix} a_0 \ a_1 \ a_2 \end{bmatrix} = 0\) and \(\begin{bmatrix} a_1 b_2 - a_2 b_1 \ a_2 b_0 - a_0 b_2 \ a_0 b_1 - a_1 b_0 \end{bmatrix}^T \begin{bmatrix} b_0 \ b_1 \ b_2 \end{bmatrix} = 0\)</li>
+</ul>
+</li>
+<li>
+<img src="https://i.imgur.com/0axQmMv.jpg" style="width:200px" />
+</li>
+<li>So we can use vectors a and b to get n. (\(n = a \times b\))</li>
+</ul>
+<h4 id="visualizing-a-column-space-as-a-plane-in-r3"><a class="markdownIt-Anchor" href="#visualizing-a-column-space-as-a-plane-in-r3"></a> Visualizing a column space as a plane in R3</h4>
+<ul>
+<li>For example:</li>
+<li>\(A = \begin{bmatrix} 1 &amp; 1 &amp; 1 &amp; 1 \ 2 &amp; 1 &amp; 4 &amp; 3 \ 3 &amp; 4 &amp; 1 &amp; 2 \end{bmatrix}\). \(\text{rref }(A) = \begin{bmatrix} 1 &amp; 0 &amp; 3 &amp; 2 \ 0 &amp; 1 &amp; -2 &amp; -1 \ 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}\)
+<ul>
+<li><strong>rref</strong>: reduced row-echelon form.</li>
+</ul>
+</li>
+<li>\(\mathcal{C}(A) = \text{Span }(\begin{bmatrix}1 \ 2 \ 3\end{bmatrix}, \begin{bmatrix}1 \ 1 \ 4\end{bmatrix} )\)</li>
+<li>Define \(n\) is the normal vector to \(\mathcal{C}(A)\), And vector \(\begin{bmatrix}x \ y \ z\end{bmatrix}\) is point to the surface. Then:
+<ul>
+<li>Use cross product, we get \( n = \begin{bmatrix}1 \ 2 \ 3\end{bmatrix} \times \begin{bmatrix}1 \ 1 \ 4\end{bmatrix} = \begin{bmatrix}5 \ -1 \ -1\end{bmatrix}\)</li>
+<li>\( n \cdot (\begin{bmatrix}x \ y \ z\end{bmatrix} - \begin{bmatrix}1 \ 2 \ 3\end{bmatrix}) = 0\)</li>
+<li>\(5x - y - z = 0\) &lt;=&gt; \(\mathcal{C}(A)\)</li>
+</ul>
+</li>
+</ul>
+<h3 id="orthogonal-spaces"><a class="markdownIt-Anchor" href="#orthogonal-spaces"></a> Orthogonal Spaces</h3>
+<ul>
+<li><strong>Definition</strong>: Let \(V, W \subset \mathbb{R}^n\) be subspaces. Then \(V\) and \(W\) are said to be orthogonal iff \(v \in V\) and \(w \in W\) implies \(v^T w = 0\). Denoted by \(V \perp W\)</li>
+<li><strong>Definition</strong>: Given subspace \(V \subset \mathbb{R}^n\), the set of all vectors in \(\mathbb{R}^n\) that are orthogonal to \(V\) is denoted by \(V^{\perp}\) (pronounced as “V-perp”).</li>
+</ul>
+<h3 id="fundamental-spaces"><a class="markdownIt-Anchor" href="#fundamental-spaces"></a> Fundamental Spaces</h3>
+<ul>
+<li>
+<p>Recall some definitions. Let \(A \in \mathbb{R}^{m \times n}\) and have k pivots. Then:</p>
+<ul>
+<li><strong>Column space</strong>: \(\mathcal{C}(A) = {y|y = Ax}\subset \mathbb{R}^m\).
+<ul>
+<li>dimension: k</li>
+</ul>
+</li>
+<li><strong>Null space</strong>: \(\mathcal{N}(A) = {x|Ax = 0} \subset \mathbb{R}^n\).
+<ul>
+<li>dimension: n - k</li>
+<li>\(0\) is vector \(\in \mathbb{R}^n\)</li>
+</ul>
+</li>
+<li><strong>Row space</strong>: \(\mathcal{R}(A) = \mathcal{C}(A^T) ={y|y = A^T x} \subset \mathbb{R}^n\).
+<ul>
+<li>dimension: k</li>
+</ul>
+</li>
+<li><strong>Left null space</strong>: \(\mathcal{N}(A^T) = {x|x^T A = 0^T} \subset \mathbb{R}^m\).
+<ul>
+<li>dimension: m - k</li>
+<li>\(0\) is vector \(\in \mathbb{R}^m\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Theorem</strong>: Let \(A \in \mathbb{R}^{m \times n}\). Then:</p>
+<ul>
+<li>\(\mathcal{R}(A) \perp \mathcal{N}(A)\).</li>
+<li>every \(x \in \mathbb{R}^n\) can be written as \(x = x_r + x_n\) where \(x_r \in \mathcal{R}(A)\) and \(x_n \in \mathcal{N}(A)\).</li>
+<li>\(A\) is a one-to-one, onto mapping from \(\mathcal{R}(A)\) to \(\mathcal{C}(A)\).</li>
+<li>\(\mathcal{N}(A^T)\) is orthogonal to \(\mathcal{C}(A)\) and the dimension of \(\mathcal{N}(A^T)\) equals \(m-r\), where \(r\) is the dimension of \(\mathcal{C}(A)\).</li>
+</ul>
+</li>
+<li>
+<img src="https://i.imgur.com/hrifsbT.jpg" style="width:400px" />
+</li>
+<li>
+<p>For example: \(A = \begin{bmatrix}2 &amp; -1 &amp; -3 \ -4 &amp; 2 &amp; 6\end{bmatrix}\)</p>
+<ul>
+<li>\(T(x) = Ax\), \(T: \mathbb{R}^3 \Rightarrow \mathbb{R}^2\)</li>
+<li>\(\mathcal{C}(A) = \text{Span }(\begin{bmatrix} 2 \ -4 \end{bmatrix}) \subseteq \mathbb{R}^2\)</li>
+<li>\(\mathcal{N}(A^T) = \text{Span }(\begin{bmatrix} 2 \ 1 \end{bmatrix}) \subseteq \mathbb{R}^2\)</li>
+<li>\(\mathcal{N}(A) = \text{Span }(\begin{bmatrix} \frac{1}{2} \ 1 \ 0 \end{bmatrix}, \begin{bmatrix} \frac{3}{2} \ 0 \ 1 \end{bmatrix}) \subseteq \mathbb{R}^3\)</li>
+<li>\(\mathcal{R}(A) = \mathcal{C}(A^T) = \text{Span }(\begin{bmatrix} 2 \ -1 \ -3 \end{bmatrix}) \subseteq \mathbb{R}^3\)
+<ul>
+<li>=&gt; \(\mathcal{R}(A) \perp \mathcal{N}(A)\)</li>
+<li>=&gt; \(\mathcal{C}(A) \perp \mathcal{N}(A^T)\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="approximating-a-solution"><a class="markdownIt-Anchor" href="#approximating-a-solution"></a> Approximating a Solution</h2>
+<ul>
+<li>
+<p>Find a line \(y = \gamma_0 + \gamma_1 x\) to interpolate these points:</p>
+<ul>
+<li>\(x = \left(\begin{array}{c} \chi_0 \ \chi_1 \ \chi_2 \ \chi_3 \end{array}\right) = \left(\begin{array}{c}1 \ 2 \ 3 \ 4\end{array}\right) \text{ and } y = \left(\begin{array}{c} \psi_0 \ \psi_1 \ \psi_2 \ \psi_3 \end{array}\right) = \left(\begin{array}{c}1.97 \ 6.97 \ 8.89 \ 10.01\end{array}\right) \)</li>
+<li>
+<img src="https://i.imgur.com/6zkgVmz.jpg" style="width:240px" />
+</li>
+</ul>
+</li>
+<li>
+<p>Clearly, there is no line could go through all these points, then what is the best approximation?</p>
+</li>
+<li>
+<p>Set \(A = \begin{bmatrix}1 &amp; 1 \ 1 &amp; 2 \ 1 &amp; 3 \ 1 &amp; 4\end{bmatrix}, b = \begin{bmatrix}1.97 \ 6.97 \ 8.89 \ 10.01\end{bmatrix}\)</p>
+</li>
+<li>
+<p>We’ve learned before that \(Ax=b\) has a solution iff \(b \in \mathcal{C}(A)\). In other words, b is in the plane of \(\text{Span}(a_1, a_2,\ldots, a_n)\).</p>
+</li>
+<li>
+<p>So, here we are solving \(Ax \approx b\).</p>
+</li>
+<li>
+<p>Set the projection of b = \(z\), \(A\hat{x} = z\)</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/8VPlYjC.jpg" style="width:200px" />
+</li>
+</ul>
+</li>
+<li>
+<p>We can get</p>
+<ul>
+<li>\(b = z + w\) where \( w^T v = 0\) for all \(v \in \mathcal{C}(A)\).</li>
+</ul>
+</li>
+<li>
+<p>Also \(w \subset \mathcal{C}(A)^{\perp}\) =&gt; \(w \subset \mathcal{N}(A^T)\). So, \(A^Tw = 0\)(same as \(w^T A = 0^T\)), which means</p>
+<ul>
+<li>\(0 = A^Tw = A^T(b - z) = A^T(b - A \hat{x})\)</li>
+<li>Rewrite it, we get \(A^TA \hat{x} = A^T b\).</li>
+<li>This is known as the <strong>normal equation</strong> associated with the problem \(A\hat{x} \approx b\).</li>
+</ul>
+</li>
+<li>
+<p>Although \(A^TA\) is nonsingular, then</p>
+<ul>
+<li>\(\hat{x} = (A^T A)^{-1} A^T b\)</li>
+</ul>
+</li>
+<li>
+<p>And the vector \(z \in \mathcal{C}(A)\) closest to \(b\) is given by</p>
+<ul>
+<li>\(z = A \hat{x} = A (A^T A)^{-1} A^T b\)</li>
+</ul>
+</li>
+<li>
+<p>This shows that if A has linearly independent columns, then \(z = A \hat{x} = A (A^T A)^{-1} A^T b\) is the vector in the columns space closest to b. This is <strong>the projection of b onto the column space of A</strong>.</p>
+</li>
+<li>
+<p>And the “best” solutionis known as the “<strong>linear least-squares</strong>” solution.</p>
+</li>
+</ul>
+<h2 id="refers"><a class="markdownIt-Anchor" href="#refers"></a> Refers</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Row_and_column_spaces" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Row_and_column_spaces</a></li>
+<li><a href="https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/defining-a-plane-in-r3-with-a-point-and-normal-vector" target="_blank" rel="noopener">https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/defining-a-plane-in-r3-with-a-point-and-normal-vector</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Normal_(geometry)" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Normal_(geometry)</a></li>
+<li><a href="http://mathworld.wolfram.com/NormalVector.html" target="_blank" rel="noopener">http://mathworld.wolfram.com/NormalVector.html</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cross_product" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Cross_product</a></li>
+</ul>
+<h2 id="words"><a class="markdownIt-Anchor" href="#words"></a> Words</h2>
+<ul>
+<li><strong>orthogonality</strong> [,ɔ:θɔɡə’næləti] n. [数] 正交性；相互垂直</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="E"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Eric Yang</div>
+      <div>2020-04-13</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    });
+</script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

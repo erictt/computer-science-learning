@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          calculus-one/week-11-12 - Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li><a href="/README/index.html">Introduction</a></li>
+<li><a href="/SYMBOLS/index.html">Symbols of Mathematics</a></li>
+</ul>
+<!--
+## Stanford Statistical Learning
+
+* [Chapter 2 - Overview of Statistical Learning](/statistical-learning/chapter-2/index.html)
+* Chapter 3 - Linear Regression
+* Chapter 4 - Classification
+* Chapter 5 - Resampling Methods
+* Chapter 6 - Linear Model Selection and Regularization
+* Chapter 7 - Moving Beyond Linearity
+* Chapter 8 - Tree-Based Methods
+* Chapter 9 - Support Vector Machines
+* Chapter 10 - Unsupervised Learning
+-->
+<h2 id="introduction-to-probability"><a class="markdownIt-Anchor" href="#introduction-to-probability"></a> Introduction to Probability</h2>
+<ul>
+<li><a href="/introduction-to-probability/unit-1/index.html">Unit 1: Probability models and axioms</a></li>
+<li><a href="/introduction-to-probability/unit-2/index.html">Unit 2: Conditioning and independence</a></li>
+<li><a href="/introduction-to-probability/unit-3/index.html">Unit 3: Counting</a></li>
+</ul>
+<!--
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<h2 id="multivariable-calculus"><a class="markdownIt-Anchor" href="#multivariable-calculus"></a> Multivariable Calculus</h2>
+<ul>
+<li><a href="/multivariable-calculus/unit-1/index.html">Unit 1: Thinking about multivariable functions</a></li>
+<li><a href="/multivariable-calculus/unit-2/index.html">Unit 2: Derivatives of multivariable functions</a></li>
+</ul>
+<!--
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; Radix Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="week-11-12-antidifferentiation-integration"><a class="markdownIt-Anchor" href="#week-11-12-antidifferentiation-integration"></a> Week 11-12 - Antidifferentiation &amp; Integration</h1>
+<h2 id="antiderivatives"><a class="markdownIt-Anchor" href="#antiderivatives"></a> Antiderivatives</h2>
+<ul>
+<li>Anti-differentiation is a bridge between the differentiation and the integration.</li>
+<li><strong>Theorem</strong> If \(f\) is an antiderivative of \(f\) on an interval <strong>I</strong>, then the most general antiderivative of \(f\) on <strong>I</strong> is \(F(x) + C\) where <strong>C</strong> is an arbitrary constant.</li>
+<li>
+<img src="https://i.imgur.com/sJdPchR.jpg" style="width:500px" />
+</li>
+<li><strong>the sum of antiderivatives</strong>
+<ul>
+<li>\(\int(f(x) +g(x)) dx = \int(f(x)) dx + \int(g(x) dx\)</li>
+</ul>
+</li>
+<li>The antiderivative of \(f(mx+b)\)
+<ul>
+<li>\(\int f(mx+b) dx = \dfrac{F(mx+b)}{m} + C\)</li>
+</ul>
+</li>
+</ul>
+<h2 id="integration"><a class="markdownIt-Anchor" href="#integration"></a> Integration</h2>
+<h3 id="summation-notation"><a class="markdownIt-Anchor" href="#summation-notation"></a> Summation Notation</h3>
+<ul>
+<li>
+<p><a href="https://brilliant.org/wiki/sum-of-n-n2-or-n3/" target="_blank" rel="noopener">Sum of n, n², or n³(Brilliant.org)</a></p>
+</li>
+<li>
+<p>\(\displaystyle\sum_{i=0}^{n}i = \frac{n(n+1)}{2}\)</p>
+<ul>
+<li><img src="https://i.imgur.com/fXlTYnX.jpg" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>\(\displaystyle\sum_{i=0}^{n}(2i-1) = n^2\)</p>
+<ul>
+<li><img src="https://i.imgur.com/S677WYx.jpg" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>\(\displaystyle\sum_{i=0}<sup>{n}i</sup>2 = \frac{(2n+1)(n+1)n}{6}\)</p>
+<ul>
+<li>Animation: <a href="http://www.takayaiwamoto.com/Sums_and_Series/sumsqr_1_anim.gif" target="_blank" rel="noopener">http://www.takayaiwamoto.com/Sums_and_Series/sumsqr_1_anim.gif</a></li>
+<li><a href="https://www.khanacademy.org/math/calculus-home/series-calc/series-basics-challenge/v/sum-of-n-squares-1" target="_blank" rel="noopener">khanacademy.org</a></li>
+</ul>
+</li>
+<li>
+<p>\(\displaystyle\sum_{i=0}<sup>{n}i</sup>3 = (\sum_{i=0}<sup>{n}i)</sup>2\)</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/1gsWr8i.gif" style="width:300px" />
+</li>
+<li>From <a href="http://www.takayaiwamoto.com/Sums_and_Series/Sums_and_Series.html" target="_blank" rel="noopener">Math can be fun with CAD</a></li>
+</ul>
+</li>
+<li>
+<p>What about \(\displaystyle\sum_{i=0}<sup>{n}i</sup>m\)?</p>
+<ul>
+<li><a href="http://www.takayaiwamoto.com/Sums_and_Series/sum_mpower.html" target="_blank" rel="noopener">Sum of 1 to N^m,</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="the-area-problem"><a class="markdownIt-Anchor" href="#the-area-problem"></a> The Area Problem</h3>
+<ul>
+<li>Find the area of the region <strong>S</strong> that lies under the curve \(y = f(x)\) from <strong>a</strong> to <strong>b</strong>.
+<ul>
+<li>
+<img src="https://i.imgur.com/GXzQMj3.jpg" style="width:200px" />
+</li>
+</ul>
+</li>
+<li>Riemann Sum:
+<ul>
+<li>Patition the intervel \([a, b]\) and \(x_0 = a &lt; x_1 &lt; x_2 &lt; \ldots &lt; x_n = b\). Choose sample points \(x_i\), then \[\text{Area}\ \approx \sum_{i=1}^nf(x_i) \cdot (x_i - x_{i-1})\]</li>
+<li>Left Riemann Sum: \(x_i^* = x_{i-1}\)
+<ul>
+<li>\(\displaystyle\sum_{i=1}^nf(x_{i-1}) \cdot (x_i-x_{i-1})\)</li>
+</ul>
+</li>
+<li>Right Riemann Sum: \(x_i^* = x_{i}\)
+<ul>
+<li>\(\displaystyle\sum_{i=1}^nf(x_{i}) \cdot (x_i-x_{i-1})\)</li>
+</ul>
+</li>
+<li>
+<img src="https://i.imgur.com/mavTwAo.jpg" style="width:400px" />
+</li>
+<li>PS: \(x_i^*\) can be any number in the <strong>i</strong>th subinterval \([x_{i-1}, x_i]\).</li>
+</ul>
+</li>
+</ul>
+<h3 id="definition-of-a-definite-integral"><a class="markdownIt-Anchor" href="#definition-of-a-definite-integral"></a> Definition of a Definite Integral</h3>
+<ul>
+<li>If \(f\) is a function defined for \(a \le x \le b\), we divide the interval \([a, b]\) into <strong>n</strong> subintervals of equal width \(\Delta x = (b - a)/n\). We let \(x_0(=a), x_1, x_2, \ldots, x_n(=b)\) be the endpoints of these subintervals and we let \(x_1^<em>, x_2^</em>, \ldots, x_n^<em>\) be any <strong>samples points</strong> in these subintervals, so \(x^</em>\) lies in the <strong>i</strong>th subinterval \([x_{i-1}, x_i]\). Then the <strong>definite integral of f from a to b</strong> is \[\int_a^bf(x)dx = \lim_{n \to \infty}^n f(x_i^*) \Delta x\]</li>
+<li>provided that this limit exists and gives the same value for all possible choices of sample points. If it does exist, we say that <strong>f</strong> is integrable on \([a, b]\).</li>
+</ul>
+<h3 id="compute-integrals"><a class="markdownIt-Anchor" href="#compute-integrals"></a> Compute Integrals</h3>
+<ul>
+<li>What is the integral of x^2 from x=0 to 1? (\(\int_0^1 x^2 dx\))
+<ul>
+<li>\(\displaystyle \int_0^1 x^2 dx = \sum_{i=1}^n f(x_i^*) \cdot (x_i - x_{i-1}) \)</li>
+<li>Each rectangle has width \(\frac{1}{n}\) and the heights are the values of the function \(f(x) = x^2\) at the points \(\frac{1}{n}, \frac{2}{n}, \ldots, \frac{n}{n}\); that is, the heights are \((\frac{1}{n})^2, (\frac{2}{n})^2, \ldots, (\frac{n}{n})^2\).</li>
+<li>\(\begin{aligned}\int_0^1 x^2 dx &amp;= \lim_{n \to \infty} \sum_{i=1}^n (\frac{i}{n})^2 \cdot \frac{1}{n} \<br />
+&amp;= \lim_{n \to \infty} \frac{1}{n^2} \sum_{i=1}^n i^2 \cdot \frac{1}{n} = \lim_{n \to \infty} \frac{1}{n^3} \cdot \sum_{i=1}^n i^2 \<br />
+&amp;= \lim_{n \to \infty}(\frac{1}{n^3} \cdot \frac{(n)(n+1)(2n+1)}{6}) \<br />
+&amp;= \lim_{n \to \infty}(\frac{1}{n^3} \cdot \frac{2n<sup>3+3n</sup>2+n}{6}) \<br />
+&amp;= \frac{1}{3}<br />
+\end{aligned}\)</li>
+<li>So, \(3\int_0^1 x^2 dx = \int_0^1 3x^2 dx = 1\): like stretching the area vertically, then we get \(\int_0^1 3x^2 dx\)</li>
+</ul>
+</li>
+<li>What is the integral of x^3 from x = 1 to 2?
+<ul>
+<li>\[\begin{aligned}<br />
+\sum_{i=1}^n f(x_i^*) \cdot (x_i - x_{i-1}) &amp;= \sum_{i=1}^n f(\frac{2}{n} \cdot i) \cdot \frac{2}{n} \<br />
+&amp;= \sum_{i=1}^n (\frac{2}{n} \cdot i)^3 \cdot \frac{2}{n} \<br />
+&amp;= \sum_{i=1}<sup>n\frac{16}{n</sup>4} \cdot i^3<br />
+\end{aligned}\]</li>
+<li>\[\begin{aligned}\int_0^2 x^3 dx &amp;= \lim_{n \to \infty} \sum_{i=1}^n \frac{16}{n^4} \cdot i^3 \<br />
+&amp;= \lim_{n \to \infty} \sum_{i=1}^n \frac{16}{n^4} \cdot \sum_{i=1}^n i^3 = \lim_{n \to \infty} \sum_{i=1}^n \frac{16}{n^4} \cdot (\sum_{i=1}^n i)^2 \<br />
+&amp;= \lim_{n \to \infty} \sum_{i=1}^n \frac{16}{n^4} \cdot (\frac{(n)(n+1)}{2})^2 = \lim_{n \to \infty} \frac{4n<sup>2(n+1)</sup>2}{n^4} \<br />
+&amp;= 4<br />
+\end{aligned}\]</li>
+<li>Use same deduction, we get \(\displaystyle\int_0^1 x^3 dx = \frac{1}{4}\)</li>
+<li>Then \(\displaystyle\int_0^2 x^3 dx = \displaystyle\int_0^1 x^3 dx + \displaystyle\int_1^2 x^3 dx = 1/4 + 4\)</li>
+</ul>
+</li>
+</ul>
+<h4 id="properties-of-the-integral"><a class="markdownIt-Anchor" href="#properties-of-the-integral"></a> Properties of the Integral</h4>
+<ul>
+<li>\(\displaystyle \int_a^b c dx = c(b-a) \), where c is any constant</li>
+<li>\(\displaystyle \int_a^b [f(x) + g(x)] dx = \int_a^b f(x) dx + \int_a^b g(x) dx \)
+<ul>
+<li>
+<img src="https://i.imgur.com/b7CuOdl.jpg" style="width:200px" />
+</li>
+</ul>
+</li>
+<li>\(\displaystyle \int_a^b [f(x) - g(x)] dx = \int_a^b f(x) dx - \int_a^b g(x) dx \)</li>
+<li>\(\displaystyle \int_a^b c f(x) dx = c \int_a^b f(x) dx \)</li>
+<li>\(\displaystyle \int_a^c f(x) dx + \int_c^b f(x) dx = \int_a^b f(x) dx \)
+<ul>
+<li>
+<img src="https://i.imgur.com/Hf4fMji.jpg" style="width:200px" />
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="the-accumulation-function-increasingdecreasing"><a class="markdownIt-Anchor" href="#the-accumulation-function-increasingdecreasing"></a> The Accumulation Function Increasing/Decreasing</h4>
+<ul>
+<li>If <strong>f</strong> takes on both <em>positive</em> and <em>negative</em> values, as in the figure below, then the <strong>Riemann sum</strong> is the sum of the areas of the rectangles that lie above the x-axis and the negatives of the areas of the rectangles that lie below the x-axis (the areas of the blue rectangles minus the areas of the gold rectangles).</li>
+<li>
+<img src="https://i.imgur.com/Kji2NhE.jpg" style="width:200px" />
+</li>
+<li>So when <strong>f</strong> is positive, <strong>A(x)</strong> increasing, and <strong>A’(x) &gt; 0</strong>. In other way, when <strong>f</strong> is negative, <strong>A(x)</strong> decreasing, and <strong>A’(x) &lt; 0</strong>.</li>
+</ul>
+<h3 id="the-integral-of-sin-x-from-1-to-1"><a class="markdownIt-Anchor" href="#the-integral-of-sin-x-from-1-to-1"></a> The Integral of Sin x From -1 To 1</h3>
+<ul>
+<li>\[\begin{aligned}<br />
+\int_{-1}^1 \sin x dx &amp;= \int_{-1}^0 \sin x dx + \int_0^1 \sin x dx \<br />
+&amp;= \int_0^1 \sin (-x) dx + \int_0^1 \sin x dx \<br />
+&amp;= \int_0^1 - \sin x dx + \int_0^1 \sin x dx \<br />
+&amp;= - \int_0^1 \sin x dx + \int_0^1 \sin x dx \<br />
+&amp;= 0<br />
+\end{aligned}\]</li>
+<li>So, symmetry can be exploited to calculate some integrals.</li>
+</ul>
+<h2 id="refers"><a class="markdownIt-Anchor" href="#refers"></a> Refers</h2>
+<ul>
+<li><a href="http://www.takayaiwamoto.com/Sums_and_Series/Sums_and_Series.html" target="_blank" rel="noopener">http://www.takayaiwamoto.com/Sums_and_Series/Sums_and_Series.html</a></li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="E"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Eric Yang</div>
+      <div>2020-04-13</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    });
+</script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

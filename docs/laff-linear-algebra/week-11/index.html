@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          laff-linear-algebra/week-11 - Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li><a href="/README/index.html">Introduction</a></li>
+<li><a href="/SYMBOLS/index.html">Symbols of Mathematics</a></li>
+</ul>
+<!--
+## Stanford Statistical Learning
+
+* [Chapter 2 - Overview of Statistical Learning](/statistical-learning/chapter-2/index.html)
+* Chapter 3 - Linear Regression
+* Chapter 4 - Classification
+* Chapter 5 - Resampling Methods
+* Chapter 6 - Linear Model Selection and Regularization
+* Chapter 7 - Moving Beyond Linearity
+* Chapter 8 - Tree-Based Methods
+* Chapter 9 - Support Vector Machines
+* Chapter 10 - Unsupervised Learning
+-->
+<h2 id="introduction-to-probability"><a class="markdownIt-Anchor" href="#introduction-to-probability"></a> Introduction to Probability</h2>
+<ul>
+<li><a href="/introduction-to-probability/unit-1/index.html">Unit 1: Probability models and axioms</a></li>
+<li><a href="/introduction-to-probability/unit-2/index.html">Unit 2: Conditioning and independence</a></li>
+<li><a href="/introduction-to-probability/unit-3/index.html">Unit 3: Counting</a></li>
+</ul>
+<!--
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<h2 id="multivariable-calculus"><a class="markdownIt-Anchor" href="#multivariable-calculus"></a> Multivariable Calculus</h2>
+<ul>
+<li><a href="/multivariable-calculus/unit-1/index.html">Unit 1: Thinking about multivariable functions</a></li>
+<li><a href="/multivariable-calculus/unit-2/index.html">Unit 2: Derivatives of multivariable functions</a></li>
+</ul>
+<!--
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; Radix Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="week-11-orthogonal-projection-low-rank-approximation-and-orthogonal-bases"><a class="markdownIt-Anchor" href="#week-11-orthogonal-projection-low-rank-approximation-and-orthogonal-bases"></a> Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</h1>
+<h2 id="rank-k-approximation"><a class="markdownIt-Anchor" href="#rank-k-approximation"></a> Rank-k Approximation</h2>
+<h3 id="projecting-a-vector-onto-a-subspace"><a class="markdownIt-Anchor" href="#projecting-a-vector-onto-a-subspace"></a> Projecting a Vector onto a Subspace</h3>
+<ul>
+<li>
+<img src="https://i.imgur.com/jh4ivTV.jpg" style="width:300px" />
+</li>
+<li>
+<p>Here, we have two vectors, \(a, b \in \mathbb{R}^m\). They exist in the plane deﬁned by \(\text{Span}({a, b})\) which is a two dimensional space (unless a and b point in the same direction).</p>
+</li>
+<li>
+<p>\(b = z + w\)</p>
+</li>
+<li>
+<p>\(z = \chi a \text{ with } \chi \in \mathbb{R}\)</p>
+</li>
+<li>
+<p>\(a^T w = 0\)</p>
+</li>
+<li>
+<p>\(0 = a^T w = a^T(b - z) = a^T (b - \chi a)\)</p>
+</li>
+<li>
+<p>\(a^T a \chi = a^T b\).</p>
+</li>
+<li>
+<p>Provided \(a \ne 0\), \(\chi = (a^T a)<sup>{-1}(a</sup>T b)\).</p>
+</li>
+<li>
+<p>Thus, the component of \(b\) in the direction of \(a\) is given by \[z = \chi a = (a^T a)^{-1} (a^T b) a = a(a^T a)<sup>{-1}(a</sup>T b) = [a(a^T a)<sup>{-1}a</sup>T ] b = [\frac{1}{a^T a} a a^T ] b\]</p>
+<ul>
+<li>Notice \((a<sup>Ta)</sup>{-1}\) and \(a^T b\) are both scalars.</li>
+<li>We say that, given vector \(a\), the matrix that projects any given vector \(b\) onto the space spanned by \(a\) is given by \[a(a^T a)<sup>{-1}a</sup>T = \frac{1}{a^T a} a a^T \]</li>
+</ul>
+</li>
+<li>
+<p>The component of \(b\) orthogonal (perpendicular) to \(a\) is given by \[w = b - z = b - (a(a^T a)<sup>{-1}a</sup>T ) b = Ib - (a(a^T a)<sup>{-1}a</sup>T )b = (I - a(a^T a)<sup>{-1}a</sup>T )b\]</p>
+<ul>
+<li>We say that, given vector \(a\), the matrix that projects any given vector \(b\) onto the space spanned by \(a\) is given by \[I - a(a^T a)<sup>{-1}a</sup>T = I - \frac{1}{a^T a} a a^T \]</li>
+</ul>
+</li>
+<li>
+<p>Set \(v^T = (a^T a)<sup>{-1}a</sup>T\),</p>
+<ul>
+<li>\(z = (a v^T) b\)</li>
+<li>\(w = (I - a v^T) b\)</li>
+<li>Notice \((I - a v^T)\) is a rank-1 update to the identity matrix.</li>
+</ul>
+</li>
+<li>
+<p>Given \(a, x \in \mathbb {R}^ m\), we can use \(P_ a( x )\) and \(P_ a ^{\perp}( x )\) to represent the projection of vector \(x\) onto \({\rm Span}({ a} )\) and \({\rm Span}({ a} )^{\perp}\).</p>
+</li>
+<li>
+<p>Given \(A \in \mathbb{R}^{m \times n}\) with linearly independent columns and vector \(b \in \mathbb{R}^m\) :</p>
+<ul>
+<li>Component of \(b\) in \(\mathcal{C}(A)\): \[u = A(A<sup>TA)</sup>{-1} A^Tb\]</li>
+<li>Matrix that projects onto \(\mathcal{C}(A)\): \[A(A<sup>TA)</sup>{-1}A^T\]</li>
+<li>Component of \(b\) in \(\mathcal{C}(A)^{\perp} = \mathcal{N}(A^T)\): \[w = b - A(A<sup>TA)</sup>{-1}A^T b = (I - A(A<sup>TA)</sup>{-1}A^T) b\]</li>
+<li>Matrix that projects onto \(\mathcal{C}(A)^{\perp} = \mathcal{N}(A^T)\): \[(I - A(A<sup>TA)</sup>{-1}A^T)\]</li>
+</ul>
+</li>
+</ul>
+<h3 id="rank-k-approximation-2"><a class="markdownIt-Anchor" href="#rank-k-approximation-2"></a> Rank-k Approximation</h3>
+<ul>
+<li>“Best” <strong>rank-k approximation</strong> of \(B \in \mathbb{R}^{m \times n}\) using the column space of \(A \in \mathbb{R}^{m \times k}\) (pick \(k\) columns in B to get A) with linearly independent columns: \[A(A<sup>TA)</sup>{-1}A^TB = AV, \text{ where } V = (A<sup>TA)</sup>{-1}A^TB\]
+<ul>
+<li>To calculate \(V = (A<sup>TA)</sup>{-1}A^TB\)</li>
+<li>First way is, to use LU factorization:
+<ul>
+<li>\((A^TA)V = (A<sup>TA)(A</sup>TA)<sup>{-1}A</sup>TB\)</li>
+<li>\((A^TA)V = A^TB\)</li>
+<li>solve \(C = A^TA\) and \(Y = A^TB\) separately, then solve \( C V = Y\) by LU factorization.</li>
+</ul>
+</li>
+<li>Second way is, to use Cholesky factorization:
+<ul>
+<li>\((A^TA)V = A^TB\)</li>
+<li>Since \(A^TA\) is a symmetric positive deﬁnite(SPD) matrix. Then, we can transfer it to \(LL^T = A^TA\)</li>
+<li>\(LL^TV = A^TB\)</li>
+<li>set \(U = L^TV\)</li>
+<li>solve \(Y = A^TB\)</li>
+<li>Then solve \(LU = Y\), to get \(U\).</li>
+<li>solve \(L^TV = U\), to get \(V\).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="orthonormal-bases"><a class="markdownIt-Anchor" href="#orthonormal-bases"></a> Orthonormal Bases</h2>
+<h3 id="orthonormal-vectors"><a class="markdownIt-Anchor" href="#orthonormal-vectors"></a> Orthonormal Vectors</h3>
+<ul>
+<li>Definition: Let \(q_0, q_1, \ldots, q_{k-1} \in \mathbb{R}^m\). Then these vectors are (mutally) orthonormal if for all \(0 \le i,j &lt; k\): \[q_i^T q_j = \begin{cases} 1 &amp; \text{ if } i = j \ 0 &amp; \text{ otherwise. }\end{cases}\]
+<ul>
+<li>\(\lVert q_i \rVert_2 = 1\)</li>
+<li>\(q_i\) is orthogonal to \({q_0, q_1, \ldots, q_{i-1}, q_{i+1}, \ldots, q_{m}}\).</li>
+</ul>
+</li>
+</ul>
+<h3 id="gram-schmidt-orthogonalization-gs-orthogonalization"><a class="markdownIt-Anchor" href="#gram-schmidt-orthogonalization-gs-orthogonalization"></a> Gram-Schmidt orthogonalization (GS orthogonalization)</h3>
+<ul>
+<li>Definition: Transform a given set of basis vectors into a set of <strong>orthonormal vectors</strong> that form a basis for the same space is called <strong>GS orthogonalization</strong>.</li>
+<li>Starting with linearly independent vectors \(a_0, a_1, \ldots, a_{n-1} \in \mathbb{R}^m\), the following algorithm computes the mutually orthonormal vectors \(q_0, q_1, \ldots, q_{n-1} \in \mathbb{R}^m\) such that \(\text{Span}({a_0, a_1, \ldots, a_{n-1}}) = \text{Span}({q_0, q_1, \ldots, q_{n-1}})\):</li>
+<li>
+<img src="https://i.imgur.com/qJrUQYB.jpg" style="width:600px" />
+</li>
+<li>
+<img src="https://i.imgur.com/O8WzGxr.jpg" style="width:600px" />
+</li>
+<li>The algorithm:
+<ul>
+<li>
+<img src="https://i.imgur.com/bvQi9pX.jpg" style="width:600px" />
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-qr-factorization"><a class="markdownIt-Anchor" href="#the-qr-factorization"></a> The QR factorization</h3>
+<ul>
+<li>Given \(A \in \mathbb{R}^{m \times n}\) with linearly independent columns, there exists a matrix \(Q \in \mathbb{R}^{m \times n}\) with mutually orthonormal columns and upper triangular matrix \(R \in \mathbb{R}^{n \times n}\) such that \(A = QR\).</li>
+<li>If one partitions</li>
+<li>
+<img src="https://i.imgur.com/vIYoBE2.jpg" style="width:600px" />
+</li>
+<li>then</li>
+<li>
+<img src="https://i.imgur.com/v4EuayB.jpg" style="width:600px" />
+</li>
+<li>and <strong>Gram-Schmidt orthogonalization</strong> (the Gram-Schmidt process) in the above algorithm computes the columns of Q and elements of R.</li>
+</ul>
+<h3 id="solving-the-linear-least-squares-problem-via-the-qr-factorization"><a class="markdownIt-Anchor" href="#solving-the-linear-least-squares-problem-via-the-qr-factorization"></a> Solving the linear least-squares problem via the QR factorization</h3>
+<ul>
+<li>
+<p>Given \(A \in \mathbb{R}^{m \times n}\) with linearly independent columns, there exists a matrix \(Q \in \mathbb{R}^{m \times n}\) with mutually orthonormal columns and upper triangular matrix \(R \in \mathbb{R}^{n \times n}\) such that \(A = QR\). The vector \(\hat{x}\) that is the best solution (in the linear least-squares sense) to \(Ax \approx b\) is given by</p>
+<ul>
+<li>\(\hat{x} = (A^T A)^{-1} A^T b\) (as shown in Week 10) computed by solving the normal equations \[A^TAx = A^T b\]</li>
+<li>\(\hat{x} = R^{-1} Q^T b\) computed by solving \[Rx = Q^Tb\]
+<ul>
+<li>Notice \(Q^T Q = I\) and \(R\) is upper trianglar.</li>
+<li>And Columns of A must be linear independent.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>An algorithm for computing the QR factorization is given by</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/fM5fD4G.jpg" style="width:500px" />
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="change-of-basis"><a class="markdownIt-Anchor" href="#change-of-basis"></a> Change of Basis</h4>
+<ul>
+<li>A vector \(b \in \mathbb{R}^m\) and a matrix \(Q \in \mathbb{R}^{m \times n}\) with mutually orthonormal columns.</li>
+<li>\(Q^T Q = Q Q^T = Q^{-1} Q = Q Q^{-1} = I\)</li>
+<li>\(b = Q Q^T b = \left(\begin{array}{c|c|c}q_0 &amp; q_1 &amp; \cdots &amp; q_{n-1}\end{array}\right)\left(\begin{array}{c}q_0^T \ q_1^T \ \vdots \ q_{n-1}^T\end{array}\right) b = q_0^T b q_0 + q_1^T b q_1 + \ldots + q_{i-1}^T b q_{i-1}\)
+<ul>
+<li>\(q_0^T b q_0 = q_0 q_0^T b\) because \(q_0^T b \) is scalar.</li>
+<li>notice that each of these terms is just a component of the vector \(b\) in the direction of the given basis vector.</li>
+</ul>
+</li>
+</ul>
+<h3 id="singular-value-decomposition"><a class="markdownIt-Anchor" href="#singular-value-decomposition"></a> Singular Value Decomposition</h3>
+<ul>
+<li>
+<p>Any matrix \(A \in \mathbb{R}^{m \times n}\) can be written as the product of three matrices, the Singular Value Decomposition (SVD): \[A = U \Sigma V^T\] where</p>
+<ul>
+<li>\(U \in \mathbb{R}^{m \times r}\) and \(U^T U = I\) (U has orthonormal columns).</li>
+<li>\(\Sigma \in \mathbb{R}^{r \times r}\) is a diagonal matrix with positive diagonal elements that are ordered so that \(\sigma_{0,0} \ge \sigma_{1,1} \ge \ldots \ge \sigma_{(r-1),(r-1)} &gt; 0\).</li>
+<li>\(V \in \mathbb{R}^{n \times r}\) and \(V^T V = I\) (V has orthonormal columns).</li>
+<li>\(r\) equals the rank of matrix \(A\).</li>
+</ul>
+</li>
+<li>
+<p>If we partition</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/rWqF8hr.jpg" style="width:500px" />
+</li>
+</ul>
+</li>
+<li>
+<p>where \(U_L\) and \(V_L\) have \(k\) columns and \(\Sigma_{TL}\) is \(k \times k\), then \(U_L \Sigma_{TL} V_L^T\) is the “best” rank-k approximation to matrix B. So, the “best” rank-k approximation \(B = AW^T\) is given by the choices \(A = U_L\) and \(W = \Sigma_{TL} V_L\).</p>
+<ul>
+<li>Given \(A \in \mathbb{R}^{m \times n}\) with linearly independent columns, and \(b \in \mathbb{R}^m\) , the “best” solution to \(Ax \approx b\) (in the linear least-squares sense) via its SVD, \(A = U \Sigma V^T\) , is given by \[\begin{aligned}\hat{x} &amp;= (A<sup>TA)</sup>{-1}A^T b \ &amp;= ((U \Sigma V<sup>T)</sup>T U \Sigma V<sup>T)</sup>{-1} (U \Sigma V<sup>T)</sup>T b \ &amp;= V \Sigma^{-1} U^T b \end{aligned}\]</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="E"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Eric Yang</div>
+      <div>2020-04-13</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    });
+</script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

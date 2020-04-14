@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          computational-thinking/lecture-3 - Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li><a href="/README/index.html">Introduction</a></li>
+<li><a href="/SYMBOLS/index.html">Symbols of Mathematics</a></li>
+</ul>
+<!--
+## Stanford Statistical Learning
+
+* [Chapter 2 - Overview of Statistical Learning](/statistical-learning/chapter-2/index.html)
+* Chapter 3 - Linear Regression
+* Chapter 4 - Classification
+* Chapter 5 - Resampling Methods
+* Chapter 6 - Linear Model Selection and Regularization
+* Chapter 7 - Moving Beyond Linearity
+* Chapter 8 - Tree-Based Methods
+* Chapter 9 - Support Vector Machines
+* Chapter 10 - Unsupervised Learning
+-->
+<h2 id="introduction-to-probability"><a class="markdownIt-Anchor" href="#introduction-to-probability"></a> Introduction to Probability</h2>
+<ul>
+<li><a href="/introduction-to-probability/unit-1/index.html">Unit 1: Probability models and axioms</a></li>
+<li><a href="/introduction-to-probability/unit-2/index.html">Unit 2: Conditioning and independence</a></li>
+<li><a href="/introduction-to-probability/unit-3/index.html">Unit 3: Counting</a></li>
+</ul>
+<!--
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<h2 id="multivariable-calculus"><a class="markdownIt-Anchor" href="#multivariable-calculus"></a> Multivariable Calculus</h2>
+<ul>
+<li><a href="/multivariable-calculus/unit-1/index.html">Unit 1: Thinking about multivariable functions</a></li>
+<li><a href="/multivariable-calculus/unit-2/index.html">Unit 2: Derivatives of multivariable functions</a></li>
+</ul>
+<!--
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; Radix Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="lecture-3"><a class="markdownIt-Anchor" href="#lecture-3"></a> Lecture 3</h1>
+<h2 id="computational-models"><a class="markdownIt-Anchor" href="#computational-models"></a> Computational Models</h2>
+<ul>
+<li>Programs that help us understand the world and solve practical problems</li>
+</ul>
+<h3 id="graph"><a class="markdownIt-Anchor" href="#graph"></a> Graph</h3>
+<h4 id="definition"><a class="markdownIt-Anchor" href="#definition"></a> Definition</h4>
+<ul>
+<li>Set of nodes (vertices) with properties</li>
+<li>Set of edges (arcs) each consisting of a pair of nodes
+<ul>
+<li>Undirected (graph)</li>
+<li>Directed (digraph)
+<ul>
+<li>Source (parent) and destination (child) nodes</li>
+</ul>
+</li>
+<li>Unweighted or weighted</li>
+</ul>
+</li>
+</ul>
+<h4 id="usage"><a class="markdownIt-Anchor" href="#usage"></a> Usage</h4>
+<ul>
+<li>To capture useful relationships among entities
+<ul>
+<li>Rail links between Paris and London</li>
+<li>How the atoms in a molecule related to one another</li>
+<li>Ancestral relationships</li>
+</ul>
+</li>
+</ul>
+<h4 id="samples"><a class="markdownIt-Anchor" href="#samples"></a> Samples</h4>
+<ul>
+<li>Leonhard Euler’s Model (First Reported Use of Graph Theory)
+<ul>
+<li>
+<img src='https://i.imgur.com/nE4hbIS.png' style="width:400px"/>
+</li>
+<li>Each island a node</li>
+<li>Each bridge an undirected edge</li>
+<li><strong>Model abstracts away irrelevant details</strong>
+<ul>
+<li>Size of islands</li>
+<li>Length of bridges</li>
+</ul>
+</li>
+<li>Is there a path that contains each edge exactly once?</li>
+</ul>
+</li>
+</ul>
+<h2 id="graph-theoretic-models"><a class="markdownIt-Anchor" href="#graph-theoretic-models"></a> Graph-theoretic Models</h2>
+<h3 id="common-representations-of-digraphs"><a class="markdownIt-Anchor" href="#common-representations-of-digraphs"></a> Common Representations of Digraphs</h3>
+<ul>
+<li>Adjacency matrix
+<ul>
+<li>Rows: source nodes</li>
+<li>Columns: destination nodes</li>
+<li>Cell[s, d] = 1 if there is an edge from s to d
+<ul>
+<li>0 otherwise</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Adjacency list</strong> (We are trying this one first)
+<ul>
+<li>Associate with each node a list of destination nodes</li>
+</ul>
+</li>
+</ul>
+<h4 id="sample"><a class="markdownIt-Anchor" href="#sample"></a> Sample</h4>
+<ul>
+<li>
+<p>Finding a route from one city to another</p>
+<ul>
+<li>
+<img src='https://i.imgur.com/sadQXWL.png' style="width:400px"/>
+</li>
+</ul>
+</li>
+<li>
+<p>Four classes:</p>
+<ul>
+<li>
+<p>Node</p>
+<ul>
+<li>property: <code>name</code></li>
+</ul>
+</li>
+<li>
+<p>Edge</p>
+<ul>
+<li>properties: <code>source</code> and <code>dest</code> which are substances of class <code>Node</code></li>
+</ul>
+</li>
+<li>
+<p>Digraph</p>
+<ul>
+<li>properties: <code>edges</code> is a <code>K-V</code> sets data, <code>K</code> for source node, and <code>V</code> for destination node.</li>
+<li>method <code>addNode</code> to add Node object as the <code>K</code> of <code>edges</code>.</li>
+<li>method <code>addEdge</code> to add Edge object, which will append the <code>dest</code> property of Edge object to <code>edges</code> with the specific <code>K</code>.</li>
+<li>method <code>chirdrenOf</code> to return all the child nodes</li>
+<li>method <code>hasNode</code> in <code>self.edges</code></li>
+<li>method <code>getNode</code> by node’s name</li>
+</ul>
+</li>
+<li>
+<p>Graph - is a subclass of Digraph</p>
+<ul>
+<li><code>addEdge</code>: rewrite the <code>addEdge</code> method to add another set with reversed source and destination nodes.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/erictt/computer-science-learning/tree/master/computational-thinking/unit-1/lecture3-segment2.py" target="_blank" rel="noopener">Codes</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="algorithm-depth-first-searchdfs"><a class="markdownIt-Anchor" href="#algorithm-depth-first-searchdfs"></a> Algorithm: Depth First Search[DFS]</h3>
+<ul>
+<li>
+<p>Similar to left-first depth-first method of enumerating a search tree, mainly difference is that graph might have cycles, so we must keep track of what nodes we have visited</p>
+</li>
+<li>
+<p>Implement <a href="https://github.com/erictt/computer-science-learning/tree/master/computational-thinking/unit-1/lecture3-segment3.py" target="_blank" rel="noopener">Codes</a></p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">DFS</span><span class="params">(graph, start, end, path, shortest, toPrint)</span>:</span></span><br><span class="line">    path = path + [start]     </span><br><span class="line">    <span class="keyword">if</span> start == end:</span><br><span class="line">        <span class="keyword">return</span> path</span><br><span class="line">    <span class="keyword">for</span> node <span class="keyword">in</span> graph.childrenOf(start):</span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">not</span> <span class="keyword">in</span> path: <span class="comment">#avoid cycles</span></span><br><span class="line">            <span class="keyword">if</span> shortest == <span class="literal">None</span> <span class="keyword">or</span> len(path) &lt; len(shortest):</span><br><span class="line">                <span class="string">"""Will have values until node == end,</span></span><br><span class="line"><span class="string">                     then save as shortest</span></span><br><span class="line"><span class="string">                   And compare it with current path </span></span><br><span class="line"><span class="string">                     if path is still shorter</span></span><br><span class="line"><span class="string">                     (don't need to continue if it isn't shorter), </span></span><br><span class="line"><span class="string">                   unless this shortest one will be returned</span></span><br><span class="line"><span class="string">                """</span></span><br><span class="line">                newPath = DFS(graph, node, end, path, shortest, toPrint)</span><br><span class="line">                <span class="keyword">if</span> newPath != <span class="literal">None</span>:</span><br><span class="line">                    shortest = newPath</span><br><span class="line">    <span class="keyword">return</span> shortest</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">shortestPath</span><span class="params">(graph, start, end)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> DFS(graph, start, end, [], <span class="literal">None</span>, toPrint)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="algorithm-breadth-first-searchbfs"><a class="markdownIt-Anchor" href="#algorithm-breadth-first-searchbfs"></a> Algorithm: Breadth First Search[BFS]</h3>
+<ul>
+<li>
+<p>Explore the nodes layer by layer, like first we got a node as start node, then check all the children nodes, then children’s children, it will keep going until we got the node equal the end node. And that’s the path we are looking for, just return it.</p>
+</li>
+<li>
+<p>Implement <a href="https://github.com/erictt/computer-science-learning/tree/master/computational-thinking/unit-1/lecture3-segment3.py" target="_blank" rel="noopener">Codes</a></p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""" Explore all paths with n hops </span></span><br><span class="line"><span class="string">    before exploring any path with more than n hops"""</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">BFS</span><span class="params">(graph, start, end, toPrint = False)</span>:</span></span><br><span class="line">    <span class="string">"""Assumes graph is a Digraph; start and end are nodes</span></span><br><span class="line"><span class="string">       Returns a shortest path from start to end in graph"""</span></span><br><span class="line">    initPath = [start]</span><br><span class="line">    pathQueue = [initPath]</span><br><span class="line">    <span class="keyword">while</span> len(pathQueue) != <span class="number">0</span>:</span><br><span class="line">        <span class="comment">#Get and remove oldest element in pathQueue</span></span><br><span class="line">        tmpPath = pathQueue.pop(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> toPrint:</span><br><span class="line">            print(<span class="string">'Current BFS path:'</span>, printPath(tmpPath))</span><br><span class="line">        lastNode = tmpPath[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">if</span> lastNode == end:</span><br><span class="line">            <span class="keyword">return</span> tmpPath</span><br><span class="line">        <span class="keyword">for</span> nextNode <span class="keyword">in</span> graph.childrenOf(lastNode):</span><br><span class="line">            <span class="keyword">if</span> nextNode <span class="keyword">not</span> <span class="keyword">in</span> tmpPath:</span><br><span class="line">                newPath = tmpPath + [nextNode]</span><br><span class="line">                pathQueue.append(newPath)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h2>
+<ul>
+<li>Graph is used to create a model of many things
+<ul>
+<li>Capture relationships among objects</li>
+</ul>
+</li>
+<li>DFS and BFS can be used for searching shortest path</li>
+</ul>
+<h2 id="words"><a class="markdownIt-Anchor" href="#words"></a> Words</h2>
+<p><strong>digraph</strong>  ['daiɡrɑ:f, -ɡræf] n. 有向图</p>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="E"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Eric Yang</div>
+      <div>2020-04-13</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    });
+</script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

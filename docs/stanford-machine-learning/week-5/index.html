@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          stanford-machine-learning/week-5 - Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li><a href="/README/index.html">Introduction</a></li>
+<li><a href="/SYMBOLS/index.html">Symbols of Mathematics</a></li>
+</ul>
+<!--
+## Stanford Statistical Learning
+
+* [Chapter 2 - Overview of Statistical Learning](/statistical-learning/chapter-2/index.html)
+* Chapter 3 - Linear Regression
+* Chapter 4 - Classification
+* Chapter 5 - Resampling Methods
+* Chapter 6 - Linear Model Selection and Regularization
+* Chapter 7 - Moving Beyond Linearity
+* Chapter 8 - Tree-Based Methods
+* Chapter 9 - Support Vector Machines
+* Chapter 10 - Unsupervised Learning
+-->
+<h2 id="introduction-to-probability"><a class="markdownIt-Anchor" href="#introduction-to-probability"></a> Introduction to Probability</h2>
+<ul>
+<li><a href="/introduction-to-probability/unit-1/index.html">Unit 1: Probability models and axioms</a></li>
+<li><a href="/introduction-to-probability/unit-2/index.html">Unit 2: Conditioning and independence</a></li>
+<li><a href="/introduction-to-probability/unit-3/index.html">Unit 3: Counting</a></li>
+</ul>
+<!--
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<h2 id="multivariable-calculus"><a class="markdownIt-Anchor" href="#multivariable-calculus"></a> Multivariable Calculus</h2>
+<ul>
+<li><a href="/multivariable-calculus/unit-1/index.html">Unit 1: Thinking about multivariable functions</a></li>
+<li><a href="/multivariable-calculus/unit-2/index.html">Unit 2: Derivatives of multivariable functions</a></li>
+</ul>
+<!--
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; Radix Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="week-5-neural-networks-learning"><a class="markdownIt-Anchor" href="#week-5-neural-networks-learning"></a> Week 5 - Neural Networks: Learning</h1>
+<h2 id="cost-function-and-back-propagation-algorithm"><a class="markdownIt-Anchor" href="#cost-function-and-back-propagation-algorithm"></a> Cost Function and Back-propagation Algorithm</h2>
+<h3 id="cost-function"><a class="markdownIt-Anchor" href="#cost-function"></a> Cost Function</h3>
+<ul>
+<li>Let’s first define a few variables that we will need to use:
+<ul>
+<li>\(L\) = total number of layers in the network</li>
+<li>\(s_l\) = number of units (not counting bias unit) in layer \(l\)</li>
+<li>\(K\) = number of output units/classes</li>
+<li>For example:
+<ul>
+<li>
+<img src="https://i.imgur.com/xf9ujBl.jpg" style="width:300px" />
+</li>
+<li>\(L = 4\)</li>
+<li>\(s_1 = 3, s_2 = 5, s_3 = 5, s_4 = S_L = 4\)</li>
+<li>\(K = 4\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="types-of-classification-problems"><a class="markdownIt-Anchor" href="#types-of-classification-problems"></a> Types of classification problems</h4>
+<ul>
+<li>Binary classification
+<ul>
+<li>1 output (0 or 1)</li>
+<li>So, \(k = 1, s_L = 1\)</li>
+<li>\(h_{\theta}(x) \in \mathbb{R}\)</li>
+</ul>
+</li>
+<li>Multi-class classification(K classes)
+<ul>
+<li>K output units</li>
+<li>\(h_{\theta}(x) \in \mathbb{R}^K\)</li>
+<li>\(S_L = K\)</li>
+</ul>
+</li>
+</ul>
+<h4 id="cost-function-for-neural-networks"><a class="markdownIt-Anchor" href="#cost-function-for-neural-networks"></a> Cost function for neural networks</h4>
+<ul>
+<li>The (regularized) logistic regression cost function is as follows: \[J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2\]</li>
+<li>For neural networks, it is: \[J(\Theta) = - \frac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[y^{(i)}<em>k \log ((h</em>\Theta (x^{(i)}))<em>k) + (1 - y^{(i)}<em>k)\log (1 - (h</em>\Theta(x^{(i)}))<em>k)\right] + \frac{\lambda}{2m}\sum</em>{l=1}^{L-1} \sum</em>{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} ( \Theta_{j,i}<sup>{(l)})</sup>2\]
+<ul>
+<li>Note:
+<ul>
+<li>the double sum simply adds up the logistic regression costs calculated for each cell in the output layer.</li>
+<li>the triple sum simply adds up the squares of all the individual Θs in the entire network.
+<ul>
+<li>Like three loops to fetch all of the Θs</li>
+</ul>
+</li>
+<li>the i in the triple sum does <strong>not</strong> refer to training example i</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="backpropagation-algorithm"><a class="markdownIt-Anchor" href="#backpropagation-algorithm"></a> Backpropagation Algorithm</h3>
+<ul>
+<li>The Backpropagation algorithm is used to learn the weights of a multilayer neural network with a ﬁxed architecture. It performs gradient descent to try to minimize the sum squared error between the network’s output values and the given target values.</li>
+<li>Our goal is to compute: \[\min_\Theta J(\Theta)\]. In this section, it is \[\dfrac{\partial}{\partial \Theta_{i,j}^{(l)}}J(\Theta), (\Theta_{i,j}^{(l)} \in \mathbb{R})\]</li>
+</ul>
+<h4 id="the-concepts-of-back-propagation-and-forward-propagation"><a class="markdownIt-Anchor" href="#the-concepts-of-back-propagation-and-forward-propagation"></a> The Concepts of Back Propagation and Forward Propagation:</h4>
+<ul>
+<li><strong>Forward Propagation</strong>:
+<ul>
+<li>Takes your neural network and the initial input into that network and pushes the input through the network.</li>
+<li>It leads to the generation of an output hypothesis, which may be a single real number, or a vector.</li>
+</ul>
+</li>
+<li><strong>Back Propagation</strong>:
+<ul>
+<li>Compare the output to the real value(y) and calculates how wrong the weights were.</li>
+<li>Then, using the error you’ve just calculated, back-calculates the error associated with each unit from the preceding layer(i.e. layer L-1) to the input layer.</li>
+<li>These “error” measurements for each unit can be used to calculate the <strong>partial derivatives</strong></li>
+<li>Use the <strong>partial derivatives</strong> with gradient descent to try minimize the cost function and update all the \(\Theta\)s.</li>
+<li>This repeats until gradient descent reports convergence.</li>
+</ul>
+</li>
+</ul>
+<h4 id="the-detail-of-using-backpropagation-to-minimize-partial-derivatives"><a class="markdownIt-Anchor" href="#the-detail-of-using-backpropagation-to-minimize-partial-derivatives"></a> The Detail of Using Backpropagation to Minimize Partial Derivatives</h4>
+<ol>
+<li>Given training set \(\lbrace (x^{(1)}, y^{(1)}) \cdots (x^{(m)}, y^{(m)})\rbrace\)</li>
+<li>Set \(\Delta_{ij}^{(l)} = 0 \text{ (for all l,i,j)}\) . (use to capture \(\dfrac{\partial}{\partial \Theta_{i,j}^{(l)}}J(\Theta)\))</li>
+<li>For training example <code>i=1</code> to <code>m</code>:
+<ol>
+<li>Set \(a^{(1)} := x^{(t)}\)</li>
+<li>Perform forward propagation to compute \(a^{(l)} \text{ for l = 2,3,…,L}\).
+<ol>
+<li>
+<img src="https://i.imgur.com/WxALDnD.jpg" style="width:400px" />
+</li>
+</ol>
+</li>
+<li>Using \(y^{(i)}\), compute \(\delta^{(L)} = a^{(L)} - y^{(i)}\)
+<ol>
+<li><code>L</code> is the total number of layers</li>
+<li>\(a^{(L)}\) is the vector of outputs of the activation units for the last layer.</li>
+<li>So our “error values” for the last layer are \(a^{(L)} - y^{(i)}\).</li>
+</ol>
+</li>
+<li>Compute \(\delta^{(L-1)}, \delta^{(L-2)}, \ldots, \delta^{(2)}\) using \(\delta^{(l)} = ((\Theta<sup>{(l)})</sup>T \delta^{(l+1)})\ .* g’(z^{(l)})\) that steps us back from right to left.
+<ol>
+<li>算出每一层每个节点的偏差之和，即节点中每个元素乘以相应的 \(\Theta\) 后出现的偏差之和</li>
+<li>\((\Theta<sup>{(l)})</sup>T \delta^{(l+1)}\): has the same dimensionality with \(a^{(l)}\).
+<ul>
+<li>\((\Theta<sup>{(3)})</sup>T\): [5 X 4]; \(\delta^{(4)}\): [4 X 1], then \((\Theta<sup>{(3)})</sup>T \delta^{(4)}\): [5 X 1]</li>
+</ul>
+</li>
+<li>\(g’(z^{(l)}) = a^{(l)}\ .*\ (1 - a^{(l)})\): the derivative of the activation function <code>g</code> with the input values given by \(z^{(l)}\).</li>
+<li>There will be no \(\delta^{(1)}\), because the first layer corresponds to the input layer.</li>
+</ol>
+</li>
+<li>\(\Delta^{(l)}<em>{i,j} := \Delta^{(l)}</em>{i,j} + a_j^{(l)} \delta_i^{(l+1)}\) or with vectorization, \(\Delta^{(l)} := \Delta^{(l)} + \delta<sup>{(l+1)}(a</sup>{(l)})^T\)
+<ol>
+<li>由上一步中得出的偏差“和”算出每个节点中每个元素的偏差，并总和，在下一步中求平均</li>
+<li>Last step, we got \(\delta^{(l)}\) for the nodes in every layer. This step we split the \(\delta^{(l)}\) to every \(a^{(l-1)}\) in the node, i.e. \(\Theta_{10}<sup>{(1)}a</sup>{(1)}<em>0 + \Theta</em>{11}<sup>{(1)}a</sup>{(1)}<em>1 + \Theta</em>{12}<sup>{(1)}a</sup>{(1)}<em>2 + \Theta</em>{13}<sup>{(1)}a</sup>{(1)}_3\)</li>
+<li>Note this:
+<ol>
+<li><code>i</code> is the error of the affected node of layer <code>l</code>.</li>
+<li><code>j</code> is the node of layer <code>l</code>.</li>
+<li>the number of nodes(<code>m</code>) in layer <code>l</code> equals the number of the errors of the affected(<code>n</code>) in layer <code>l+1</code>.</li>
+<li>and \(\delta<sup>{(l+1)}(a</sup>{(l)})^T\) will be a <code>m*n</code> matrix, same as \(\Theta^{(l)}\).</li>
+<li>Check the <strong>Derivation of Backpropagation</strong> in <a href="#refers">Refers</a>.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Hence we update our new \(\Delta\) matrix.
+<ul>
+<li>\(D^{(l)}<em>{i,j} := \dfrac{1}{m}\left(\Delta^{(l)}</em>{i,j} + \lambda\Theta^{(l)}_{i,j}\right)\), if \(j \ne 0\).</li>
+<li>\(D^{(l)}<em>{i,j} := \dfrac{1}{m}\Delta^{(l)}</em>{i,j}\), if \(j = 0\).</li>
+</ul>
+</li>
+<li>The capital-delta matrix <code>D</code> is used as an “accumulator” to add up our values as we go along and eventually compute our partial derivative. Thus we get \(\frac \partial {\partial \Theta_{ij}^{(l)}} J(\Theta) = D^{(l)}_{i,j}\)</li>
+</ol>
+<h3 id="backpropagation-intuition"><a class="markdownIt-Anchor" href="#backpropagation-intuition"></a> Backpropagation intuition</h3>
+<ul>
+<li>The detail of forward propagation:
+<ul>
+<li>
+<img src="https://i.imgur.com/mdK7fzD.jpg" style="width:400px" />
+</li>
+</ul>
+</li>
+<li>Recall that the cost function for a neural network. If we consider simple non-multiclass classification (k=1) and disregard regularization, the cost is computed with: \[cost(t) =y^{(t)} \ \log (h_\Theta (x^{(t)})) + (1 - y^{(t)})\ \log (1 - h_\Theta(x^{(t)}))\]</li>
+<li>Intuitively, \(\delta_j^{(l)}\) is the “error” for \(a_j^{(l)}\) (unit <code>j</code> in layer <code>l</code>). More formally, the delta values are actually the derivative of the cost function: \[\delta_j<sup>{(l)}=\frac{d}{dz_j</sup>{(l)}}cost(t)\]</li>
+<li>Recall that our derivative is the slope of a line tangent to the cost function, so the steeper the slope the more incorrect we are. Let us consider the following neural network below and see how we could calculate some \(\delta_j^{(l)}\) :
+<ul>
+<li>
+<img src="https://i.imgur.com/4NzaksE.jpg" style="width:500px" />
+</li>
+<li>To calculate every single possible \(\delta_j^{(l)}\), we could start from the right of our diagram. We can think of our edges as our \(\Theta_{ij}\). Going from right to left, to calculate the value of \(\delta_j^{(l)}\), you can just take the over all sum of each weight times the \(\delta\) it is coming from. For example: \[\begin{aligned}\delta_2^{(3)} &amp;= \Theta_{12}^{(3)} * \delta_1^{(4)} \ \delta_2^{(2)} &amp;= \Theta_{12}^{(2)} * \delta_1^{(3)} + \Theta_{22}^{(2)} * \delta_2^{(3)} \end{aligned}\].</li>
+</ul>
+</li>
+</ul>
+<h2 id="backpropagation-practice"><a class="markdownIt-Anchor" href="#backpropagation-practice"></a> Backpropagation Practice</h2>
+<h3 id="implementation-note-unrolling-parameters"><a class="markdownIt-Anchor" href="#implementation-note-unrolling-parameters"></a> Implementation Note: Unrolling Parameters</h3>
+<ul>
+<li>
+<p>With neural networks, we are working with sets of matrices: \[\begin{aligned} \Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}, \ldots \ D^{(1)}, D^{(2)}, D^{(3)}, \ldots \end{aligned}\]</p>
+</li>
+<li>
+<p>In order to use optimizing functions such as “fminunc()”, we will want to “unroll” all the elements and put them into one long vector:</p>
+  <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    thetaVector = [ Theta1(:); Theta2(:); Theta3(:); ]</span><br><span class="line">    deltaVector = [ D1(:); D2(:); D3(:) ]</span><br><span class="line">    ``` </span><br><span class="line">    </span><br><span class="line">* If the dimensions of Theta1 is <span class="number">10</span>x11, Theta2 is <span class="number">10</span>x11 and Theta3 is <span class="number">1</span>x11, then we can get back our original matrices from the <span class="string">"unrolled"</span> versions as follows: </span><br><span class="line"></span><br><span class="line">    ```matlab</span><br><span class="line">    Theta1 = <span class="built_in">reshape</span>(thetaVector(<span class="number">1</span>:<span class="number">110</span>),<span class="number">10</span>,<span class="number">11</span>)</span><br><span class="line">    Theta2 = <span class="built_in">reshape</span>(thetaVector(<span class="number">111</span>:<span class="number">220</span>),<span class="number">10</span>,<span class="number">11</span>)</span><br><span class="line">    Theta3 = <span class="built_in">reshape</span>(thetaVector(<span class="number">221</span>:<span class="number">231</span>),<span class="number">1</span>,<span class="number">11</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Summarize:</p>
+<ul>
+<li>
+<p>Have initial parameters \(\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}\).</p>
+</li>
+<li>
+<p>Unroll to get <strong>initialTheta</strong> to pass to <strong>fminumc(@costFunction, initialTheta, options)</strong></p>
+<ul>
+<li><strong>function [jval, gradientVec] = costFunction(thetaVec)</strong>
+<ul>
+<li>From <strong>thetaVec</strong>, get \(\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}\).</li>
+<li>Use forward prop/back prop to compute \(D^1, D^2, D^3\) and \(J(\Theta)\).</li>
+<li>Unroll \(D^1, D^2, D^3\) to get <strong>gradientVec</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="gradient-checking"><a class="markdownIt-Anchor" href="#gradient-checking"></a> Gradient Checking</h3>
+<ul>
+<li>
+<p>Gradient checking will assure that our backpropagation works as intended. We can approximate the derivative of our cost function with: \[\dfrac{\partial}{\partial\Theta}J(\Theta) \approx \dfrac{J(\Theta + \epsilon) - J(\Theta - \epsilon)}{2\epsilon}\]</p>
+</li>
+<li>
+<p>With multiple theta matrices, we can approximate the derivative with respect to \(\Theta_j\) as follows: \[\dfrac{\partial}{\partial\Theta_j}J(\Theta) \approx \dfrac{J(\Theta_1, \ldots, \Theta_j + \epsilon, \ldots, \Theta_n) - J(\Theta_1, \ldots, \Theta_j - \epsilon, \ldots, \Theta_n)}{2\epsilon}\]</p>
+</li>
+<li>
+<p>A small value for ϵ (epsilon) such as \({\epsilon = 10^{-4}}\), guarantees that the math works out properly. If the value for ϵ is too small, we can end up with numerical problems.</p>
+</li>
+<li>
+<p>Hence, we are only adding or subtracting epsilon to the \(\Theta_j\) matrix. In octave we can do it as follows:</p>
+  <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">epsilon = <span class="number">1e-4</span>;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:n,</span><br><span class="line">  thetaPlus = theta;</span><br><span class="line">  thetaPlus(<span class="built_in">i</span>) += epsilon;</span><br><span class="line">  thetaMinus = theta;</span><br><span class="line">  thetaMinus(<span class="built_in">i</span>) -= epsilon;</span><br><span class="line">  gradApprox(<span class="built_in">i</span>) = (J(thetaPlus) - J(thetaMinus))/(<span class="number">2</span>*epsilon)</span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>We previously saw how to calculate the deltaVector. So once we compute our gradApprox vector, we can check that gradApprox ≈ deltaVector.</p>
+</li>
+<li>
+<p>Once you have verified <strong>once</strong> that your backpropagation algorithm is correct, you don’t need to compute gradApprox again. The code to compute gradApprox can be very slow.</p>
+</li>
+</ul>
+<h3 id="random-initialization-symmetry-breaking"><a class="markdownIt-Anchor" href="#random-initialization-symmetry-breaking"></a> Random Initialization: Symmetry Breaking</h3>
+<ul>
+<li>
+<p>Initializing all theta weights to zero does not work with neural networks. When we backpropagate, all nodes will update to the same value repeatedly. Instead we can randomly initialize our weights for our \(\Theta\) matrices using the following method:</p>
+<ul>
+<li>
+<p>Initialize each \(\Theta_{ij}^{(l)}\) to a random value in \([-\epsilon, \epsilon]\) (i.e. \(-\epsilon \le \Theta_{ij}^{(l)}\))</p>
+  <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Theta1 = <span class="built_in">rand</span>(<span class="number">10</span>,<span class="number">11</span>)*(<span class="number">2</span>*INIT+EPSILON) - INIT_EPSILON;</span><br><span class="line">Theta2 = <span class="built_in">rand</span>(<span class="number">1</span>,<span class="number">11</span>)*(<span class="number">2</span>*INIT+EPSILON) - INIT_EPSILON;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>(Note: the \(\epsilon\) used above is unrelated to the epsilon from Gradient Checking)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Hence, we initialize each \(\Theta_{ij}^{(l)}\) to a random value between \([-\epsilon, \epsilon]\). Using the above formula guarantees that we get the desired bound. The same procedure applies to all the Θ’s. Below is some working code you could use to experiment.</p>
+  <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">If the dimensions of Theta1 is <span class="number">10</span>x11, Theta2 is <span class="number">10</span>x11 and Theta3 is <span class="number">1</span>x11.</span><br><span class="line"></span><br><span class="line">Theta1 = <span class="built_in">rand</span>(<span class="number">10</span>,<span class="number">11</span>) * (<span class="number">2</span> * INIT_EPSILON) - INIT_EPSILON;</span><br><span class="line">Theta2 = <span class="built_in">rand</span>(<span class="number">10</span>,<span class="number">11</span>) * (<span class="number">2</span> * INIT_EPSILON) - INIT_EPSILON;</span><br><span class="line">Theta3 = <span class="built_in">rand</span>(<span class="number">1</span>,<span class="number">11</span>) * (<span class="number">2</span> * INIT_EPSILON) - INIT_EPSILON;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>rand(x,y)</strong> is just a function in octave that will initialize a matrix[x*y] of random real numbers between <strong>0</strong> and <strong>1</strong>.</p>
+</li>
+</ul>
+<h3 id="putting-it-together"><a class="markdownIt-Anchor" href="#putting-it-together"></a> Putting it Together</h3>
+<h4 id="pick-a-network-architecture"><a class="markdownIt-Anchor" href="#pick-a-network-architecture"></a> Pick a Network Architecture</h4>
+<ul>
+<li>
+<p>choose the layout of your neural network, including how many hidden units in each layer and how many layers in total you want to have.</p>
+<ul>
+<li>Number of input units = dimension of features \(x^{(i)}\)</li>
+<li>Number of output units = number of classes</li>
+<li>Number of hidden units per layer = usually more the better (must balance with cost of computation as it increases with more hidden units)</li>
+<li>Defaults: 1 hidden layer. If you have more than 1 hidden layer, then it is recommended that you have the same number of units in every hidden layer.</li>
+</ul>
+</li>
+</ul>
+<h4 id="training-a-neural-network"><a class="markdownIt-Anchor" href="#training-a-neural-network"></a> Training a Neural Network</h4>
+<ol>
+<li>Randomly initialize the weights</li>
+<li>Implement forward propagation to get \(h_{\Theta}<sup>{(x</sup>{(i)}}\) for any \(x^{(i)}\)</li>
+<li>Implement the cost function</li>
+<li>Implement backpropagation to compute partial derivatives</li>
+<li>Use gradient checking to confirm that your backpropagation works. Then disable gradient checking.</li>
+<li>Use gradient descent or a built-in optimization function to minimize the cost function with the weights in theta.</li>
+</ol>
+<ul>
+<li>
+<p>When we perform forward and back propagation, we loop on every training example:</p>
+  <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:m,</span><br><span class="line">   Perform forward propagation and backpropagation using example (x(<span class="built_in">i</span>),y(<span class="built_in">i</span>))</span><br><span class="line">   (Get activations a(l) and delta terms d(l) <span class="keyword">for</span> l = <span class="number">2</span>,...,L</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>The following image gives us an intuition of what is happening as we are implementing our neural network:</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/oSJP7cW.jpg" style="width:400px" />
+</li>
+</ul>
+</li>
+<li>
+<p>Ideally, you want \(h_{\Theta}(x^{(i)}) \approx y^{(i)}\). This will minimize our cost function. However, keep in mind that \(J(\Theta)\) is not convex and thus we can end up in a local minimum instead.</p>
+</li>
+</ul>
+<h2 id="refers"><a class="markdownIt-Anchor" href="#refers"></a> Refers</h2>
+<ul>
+<li><a href="http://www.holehouse.org/mlclass/09_Neural_Networks_Learning.html" target="_blank" rel="noopener">http://www.holehouse.org/mlclass/09_Neural_Networks_Learning.html</a></li>
+<li><a href="files/BackPropDeriv.pdf">Derivation of Backpropagation(PDF)</a></li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="E"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Eric Yang</div>
+      <div>2020-04-13</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    });
+</script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          stanford-machine-learning/week-1 - Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li><a href="/README/index.html">Introduction</a></li>
+<li><a href="/SYMBOLS/index.html">Symbols of Mathematics</a></li>
+</ul>
+<!--
+## Stanford Statistical Learning
+
+* [Chapter 2 - Overview of Statistical Learning](/statistical-learning/chapter-2/index.html)
+* Chapter 3 - Linear Regression
+* Chapter 4 - Classification
+* Chapter 5 - Resampling Methods
+* Chapter 6 - Linear Model Selection and Regularization
+* Chapter 7 - Moving Beyond Linearity
+* Chapter 8 - Tree-Based Methods
+* Chapter 9 - Support Vector Machines
+* Chapter 10 - Unsupervised Learning
+-->
+<h2 id="introduction-to-probability"><a class="markdownIt-Anchor" href="#introduction-to-probability"></a> Introduction to Probability</h2>
+<ul>
+<li><a href="/introduction-to-probability/unit-1/index.html">Unit 1: Probability models and axioms</a></li>
+<li><a href="/introduction-to-probability/unit-2/index.html">Unit 2: Conditioning and independence</a></li>
+<li><a href="/introduction-to-probability/unit-3/index.html">Unit 3: Counting</a></li>
+</ul>
+<!--
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<h2 id="multivariable-calculus"><a class="markdownIt-Anchor" href="#multivariable-calculus"></a> Multivariable Calculus</h2>
+<ul>
+<li><a href="/multivariable-calculus/unit-1/index.html">Unit 1: Thinking about multivariable functions</a></li>
+<li><a href="/multivariable-calculus/unit-2/index.html">Unit 2: Derivatives of multivariable functions</a></li>
+</ul>
+<!--
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; Radix Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="week-1-introduction"><a class="markdownIt-Anchor" href="#week-1-introduction"></a> Week 1 - Introduction</h1>
+<h2 id="several-types-of-learning-algorithms"><a class="markdownIt-Anchor" href="#several-types-of-learning-algorithms"></a> Several types of learning algorithms</h2>
+<h3 id="supervised-learning"><a class="markdownIt-Anchor" href="#supervised-learning"></a> Supervised Learning</h3>
+<ul>
+<li>Regression, to predict results within a continuous output.
+<ul>
+<li>For example, predict housing prices:
+<ul>
+<li>
+<img src="https://i.imgur.com/0DzSACe.jpg" style="width:200px" />
+</li>
+<li>Given this data, how to predict the value of a specific size?</li>
+<li>How to solve this?
+<ul>
+<li>Straight line through data
+<ul>
+<li>Maybe $150,000</li>
+</ul>
+</li>
+<li>Polynomial
+<ul>
+<li>Maybe $200,000</li>
+</ul>
+</li>
+<li>We’ll learn how to choose function later.</li>
+</ul>
+</li>
+<li>After we fitted a line to the data, we can predict the actual values for houses</li>
+</ul>
+</li>
+<li>From the sample, all of the data we plotted called <strong>training data</strong>, and the action we fit lines to the data called <strong>linear regression</strong></li>
+</ul>
+</li>
+<li>Classification, to predict results in a discrete output.
+<ul>
+<li>For example, checking a tumor is malignant or not.</li>
+</ul>
+</li>
+</ul>
+<h3 id="unsupervised-learning"><a class="markdownIt-Anchor" href="#unsupervised-learning"></a> Unsupervised Learning</h3>
+<ul>
+<li>derive this structure by clustering the data based on relationships among the variables in the data.
+<ul>
+<li>For example, grouping news stories into cohesive groups</li>
+</ul>
+</li>
+</ul>
+<h2 id="linear-regression-model-and-cost-function"><a class="markdownIt-Anchor" href="#linear-regression-model-and-cost-function"></a> Linear Regression (Model and Cost Function)</h2>
+<ul>
+<li>
+<p>Model Representation</p>
+<ul>
+<li>To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function h : X → Y so that \(h^{(x)}\) is a “good” predictor for the corresponding value of y. For historical reasons, this function h is called a hypothesis. Seen pictorially, the process is therefore like this:</li>
+</ul>
+<p><img src="https://i.imgur.com/n1JQvxA.png" alt="week-1-1" /></p>
+<ul>
+<li>
+<p>\(h_{\theta}(x)=\theta_{0}+\theta_{1}x\), and this means:</p>
+<ul>
+<li><strong>Y</strong> is a linear function of <strong>x</strong>
+<ul>
+<li>\(\theta_{i}\) are <strong>parameters</strong></li>
+<li>\(\theta_{0}\) is zero condition</li>
+<li>\(\theta_{1}\) is gradient</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>This kind of function is a <strong>Linear Regression</strong> with one variable,</p>
+<ul>
+<li>also called <strong>Univariate Linear Regression</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="cost-function"><a class="markdownIt-Anchor" href="#cost-function"></a> Cost Function</h3>
+<ul>
+<li>
+<p>A cost function lets us figure out how to fit the best straight line to our data</p>
+</li>
+<li>
+<p>Choosing values for \(\theta_{1}\) (parameters)</p>
+<ul>
+<li>Different values give you different functions</li>
+<li>If \(\theta_{0}\) is 1.5 and \(\theta_{1}\) is 0 then we get straight line parallel with X along 1.5 @ y</li>
+<li>If \(\theta_{1}\) is &gt; 0 then we get a positive slope</li>
+<li>We want to find a straight line which colse to the actual <code>y</code>s as possible</li>
+</ul>
+</li>
+<li>
+<p>To formalize this:</p>
+<ul>
+<li>We want to solve a minimization problem</li>
+<li>Minimize \((h_{\theta}(x)-y)^{2}\)
+<ul>
+<li>minimize the difference between h(x) and y for each/any/every example</li>
+</ul>
+</li>
+<li>Sum this over the training set:\(\dfrac {1}{2m} \displaystyle \sum <em>{i=1}^m \left (h</em>\theta (x_{i}) - y_{i} \right)^2\)
+<ul>
+<li>\(\frac{1}{2m}\)
+<ul>
+<li>\(\frac{1}{m}\) - means we determine the average</li>
+<li>\(\frac{1}{2m}\) - the 2 makes the math a bit easier, and doesn’t change the constants we determine at all (i.e. half the smallest value is still the smallest value)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>This is a cost function:
+<ul>
+<li>\(J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum <em>{i=1}^m \left ( \hat{y}</em>{i}- y_{i} \right)^2 = \dfrac {1}{2m} \displaystyle \sum <em>{i=1}^m \left (h</em>\theta (x_{i}) - y_{i} \right)^2\)</li>
+<li>And we want to minimize this cost function
+<ul>
+<li>Our cost function is (because of the summation term) inherently looking at ALL the data in the training set at any time</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>The following image summarizes what the cost function does:</p>
+<ul>
+<li>
+<p><img src="https://i.imgur.com/ClNM3A6.png" alt="week-1-2" /></p>
+</li>
+<li>
+<p><strong>Hypothesis</strong> - is like your prediction machine, throw in an <code>x</code> value, get a putative <code>y</code> value</p>
+</li>
+<li>
+<p><strong>Cost</strong> - is a way to, using your training data, determine values for your \(\theta\) values which make the hypothesis as accurate as possible</p>
+<ul>
+<li>This cost function is also called the squared <strong>error cost function</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="cost-function-intuition"><a class="markdownIt-Anchor" href="#cost-function-intuition"></a> Cost Function - Intuition</h3>
+<ul>
+<li>Simplified hypothesis (Assumes \(θ_{0}= 0\))
+<ul>
+<li>So we got: \(h_{\theta}(x)=\theta_{1}x\), then the cost function will be:</li>
+<li>\(J(\theta_1) = \dfrac {1}{2m} \displaystyle \sum <em>{i=1}^m \left (h</em>\theta (x_{i}) - y_{i} \right)^2\)</li>
+<li>\(\displaystyle {\text{minimize} \atop \theta_{1}}\), \(J(\theta_{1})\)</li>
+<li>For example:
+<ul>
+<li><img src="https://i.imgur.com/ZnZVjgk.png" alt="week-1-3-1" /></li>
+</ul>
+</li>
+<li>\(\theta=1\), then \(h_{\theta}(x) = 0 + 1\times x\) , then \(h_\theta (x_{i}) - y_{i} =0\) , then \(J(\theta_{1})=0\)</li>
+<li>Plots: ( \(\theta_{1}=1, J(\theta_{1})=0\) ), (\(\theta_{1}=0.5, J(\theta_{1})\approx0.58\) ), (\(\theta_{1}=0, J(\theta_{1})\approx2.3\) )</li>
+<li>Then we got:
+<ul>
+<li>
+<img src="https://i.imgur.com/O2Rofhd.png" style="width:300px" />
+</li>
+</ul>
+</li>
+<li>The optimization objective for the learning algorithm is find the value of \(\theta_{1}\) which \(\text{minimizes }  J(\theta_{1})\)
+<ul>
+<li>So, here \(\theta_{1} = 1\) is the best value for \(\theta_{1}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Using our original complex hypothesis with two paribles,So cost function is \(J(\theta_{0}, \theta_{1})\)
+<ul>
+<li>Generates a 3D surface plot where axis are
+<ul>
+<li>\(X = \theta_{0}\)</li>
+<li>\(Z = \theta_{0}\)</li>
+<li>\(Y=J(\theta_{0}, \theta_{1})\)</li>
+<li>
+<img src="https://i.imgur.com/HabDxKp.png" style="width:400px" />
+</li>
+</ul>
+</li>
+<li>Instead of a surface plot we can use a <strong>contour figures/plots</strong>
+<ul>
+<li>Set of ellipses in different colors</li>
+<li>Each color is the same value of \(J(\theta_{0}, \theta_{1})\) , but obviously plot to different locations because \(\theta_{1}\) and \(\theta_{0}\) will vary</li>
+<li>Imagine a bowl shape function coming out of the screen so the middle is the concentric circles</li>
+<li>
+<img src="https://i.imgur.com/KIgwr4H.png" style="width:500px" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="parameter-learning"><a class="markdownIt-Anchor" href="#parameter-learning"></a> Parameter Learning</h2>
+<h3 id="gradient-descent"><a class="markdownIt-Anchor" href="#gradient-descent"></a> Gradient Descent</h3>
+<ul>
+<li>Minimize cost function \(J\)</li>
+<li>Gradient descent
+<ul>
+<li>Used all over machine learning for minimization</li>
+</ul>
+</li>
+<li>Start by looking at a general \(J()\) function</li>
+<li>Problem
+<ul>
+<li>We have \(J(\theta_{0}, \theta_{1})\)</li>
+<li>We want to get \(\min J(\theta_{0}, \theta_{1})\)</li>
+</ul>
+</li>
+<li>Gradient descent applies to more general functions
+<ul>
+<li>\(J(\theta_{0}, \theta_{1}, \theta_{2}… \theta_{n})\)</li>
+<li>\(\min J(\theta_{0}, \theta_{1}, \theta_{2}… \theta_{n})\)</li>
+</ul>
+</li>
+<li>Outline:
+<ul>
+<li>Start with some \(\theta_{0}, \theta_{1}\),</li>
+<li>Keep changing \(\theta_{0}, \theta_{1}\) to reduce \(J(\theta_{0}, \theta_{1})\) until we hopefully end up at a minimum</li>
+<li>
+<img src="https://i.imgur.com/2ri1yJQ.png" style="width:500px" />
+</li>
+<li>Here we can see one initialization point led to one local minimum</li>
+<li>The other led to a different one</li>
+</ul>
+</li>
+</ul>
+<h3 id="gradient-descent-intuition"><a class="markdownIt-Anchor" href="#gradient-descent-intuition"></a> Gradient Descent Intuition</h3>
+<ul>
+<li>
+<p>\(\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\) for \(( j=0, j=1)\)</p>
+</li>
+<li>
+<p>What does this all mean?</p>
+<ul>
+<li>Update \(\theta_{j}\) by setting it to \((\theta_{j} - \alpha)\) times the <strong>partial derivative</strong> of the cost function with respect to \(\theta_{j}\)</li>
+</ul>
+</li>
+<li>
+<p>Notation</p>
+<ul>
+<li>\(:=\)
+<ul>
+<li>Denotes assignment</li>
+<li>\(\alpha\) (alpha) Is a number called the <strong>learning rate</strong></li>
+<li>Controls how big a step you take
+<ul>
+<li>If α is big have an aggressive gradient descent</li>
+<li>If α is small take tiny steps</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Derivative term: \(\frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\), will derive it later</p>
+</li>
+<li>
+<p>How this gradient descent algrorithm is impliemented</p>
+<ul>
+<li>Do this for \(\theta_{0}\) and \(\theta_{1}\)</li>
+<li>For \(j=0\) and \(j=1\) means we <strong>simultaneously</strong> update both, like:
+<ul>
+<li><img src="https://i.imgur.com/525ReBw.png" alt="week-1-12" /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Understanding the algorithm</p>
+<ul>
+<li>
+<p>back to simpler function where we minimize one parameter</p>
+<ul>
+<li>\(\min_{\theta_{1}}J(\theta_{1})\) where \(\theta_{1}\) is a real number</li>
+</ul>
+</li>
+<li>
+<p>Two key terms in the algorithm</p>
+<ul>
+<li>\(\alpha\) Alpha</li>
+<li>\(\frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\) Derivative term</li>
+</ul>
+</li>
+<li>
+<p>Notation nuances</p>
+<ul>
+<li><strong>Partial derivative</strong> vs. <strong>Derivative</strong>
+<ul>
+<li>Use partial derivative when we have multiple variables but only derive with respect to one</li>
+<li>Use derivative when we are deriving with respect to all the variables</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Derivative term</p>
+<ul>
+<li>Lets take the tangent at the point and look at the slope of the line</li>
+<li>So moving towards the mimum (down) will create a negative derivative, alpha is always positive, so will update \(j(\theta_{1})\) to a smaller value</li>
+<li>Similarly, if we’re moving up a slope we make \(j(\theta_{1})\) a bigger numbers</li>
+<li><img src="https://i.imgur.com/7mMHqms.png" alt="week-1-13" /></li>
+</ul>
+</li>
+<li>
+<p>Alpha term (α)</p>
+<ul>
+<li><img src="https://i.imgur.com/DpIDY9z.png" alt="week-1-14" /></li>
+</ul>
+</li>
+<li>
+<p>How does gradient descent converge with a fixed step size α?</p>
+<ul>
+<li>
+<p>The intuition behind the convergence is that \(\frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\), \(\theta_{1}\) approaches 0 as we approach the bottom of our convex function. At the minimum, the derivative will always be 0 and thus we get:</p>
+<ul>
+<li>
+<blockquote>
+<p>\(\theta_{1}:=\theta_{1}-\alpha \times 0\)</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><img src="https://i.imgur.com/reURNYU.png" alt="week-1-15" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="gradient-descent-for-linear-regression"><a class="markdownIt-Anchor" href="#gradient-descent-for-linear-regression"></a> Gradient Descent For Linear Regression</h3>
+<ul>
+<li>
+<p>Apply gradient descent to minimize the squared error cost function \(J(\theta_{0},\theta_{1})\)</p>
+</li>
+<li>
+<p>Now we have a partial derivative:</p>
+<ul>
+<li><img src="https://i.imgur.com/gR8YSJq.png" alt="week-1-16" /></li>
+</ul>
+</li>
+<li>
+<p>So we need to determine the derivative for each parameter:</p>
+</li>
+<li>
+<p>\[\begin{aligned}<br />
+\text{repeat until convergence: } \lbrace \<br />
+\theta_0 := &amp; \theta_0 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m}(h_\theta(x_{i}) - y_{i}) \<br />
+\theta_1 := &amp; \theta_1 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m}\left((h_\theta(x_{i}) - y_{i}) x_{i}\right) \<br />
+\rbrace \end{aligned}\]</p>
+<ul>
+<li>To check this you need to know <strong>multivariate calculus</strong>. So go back here when you finished <strong>multivariable calculus</strong>.
+<ul>
+<li>We have separated out the two cases for \(\theta_{j}\) into separate equations for \(\theta_{0}\) and \(\theta_{1}\); and that for \(\theta_1\) we are multiplying \(x_i\) at the end due to the derivative. The following is a derivation of \(\frac{\partial}{\partial \theta_j} J(\theta)\) for a single example :</li>
+<li><img src="https://i.imgur.com/FrbNCcI.png" alt="week-1-18" /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>How does it work</p>
+<ul>
+<li>Risk of meeting different local optimum</li>
+<li>The linear regression cost function is always a <strong>convex function</strong></li>
+<li>always has a single minimum
+<ul>
+<li>Bowl shaped
+<ul>
+<li>One global optima
+<ul>
+<li>So gradient descent will always converge to global optima</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In action
+<ul>
+<li>Initialize values to \(\theta_{0} = 900, \theta_{1} = -0.1\)</li>
+<li><img src="https://i.imgur.com/jWBzyEO.png" alt="week-1-17" /></li>
+</ul>
+</li>
+<li>End up at a global minimum</li>
+<li>This is actually <strong>“Batch” Gradient Descent</strong>
+<ul>
+<li>Refers to the fact that over each step you look at all the training data
+<ul>
+<li>Each step compute over <strong>m</strong> training examples</li>
+</ul>
+</li>
+<li>Sometimes non-batch versions exist, which look at small data subsets
+<ul>
+<li>We’ll look at other forms of gradient descent (to use when <strong>m</strong> is too large) later in the course</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>There exists a numerical solution for finding a solution for a minimum function
+<ul>
+<li><strong>Normal equations</strong> method Gradient descent scales better to large data sets though</li>
+<li>Used in lots of contexts and machine learning</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="linear-algebra"><a class="markdownIt-Anchor" href="#linear-algebra"></a> Linear Algebra</h2>
+<h3 id="matrices-and-vectors"><a class="markdownIt-Anchor" href="#matrices-and-vectors"></a> Matrices and Vectors</h3>
+<ul>
+<li>
+<p><strong>Matrix</strong>: Rectangular array of numbers:</p>
+<ul>
+<li>\(X =  \begin{bmatrix} 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \ 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 \ 9 &amp; 10 &amp; 11 &amp; 12 &amp; 13 \end{bmatrix}\)</li>
+</ul>
+</li>
+<li>
+<p>Dimension of matrix: number of rows x number of columns</p>
+</li>
+<li>
+<p>\(X_{ij}\) = “i,j entry” in the \(i^{th}\) row, \(j^{th}\) column.</p>
+</li>
+<li>
+<p><strong>Vector</strong>: An n x 1 matrix.</p>
+<ul>
+<li>\(y = \begin{bmatrix} 1 \ 3 \ 13 \end{bmatrix}\)</li>
+<li>\(y_{i}\) = \(i^{th}\) element</li>
+</ul>
+</li>
+<li>
+<p>Uppercase letter for Matrix, and lowwercase for Vector.</p>
+</li>
+</ul>
+<h3 id="addition-and-scalar-multiplication"><a class="markdownIt-Anchor" href="#addition-and-scalar-multiplication"></a> Addition and Scalar Multiplication</h3>
+<ul>
+<li>
+<p>Matrix Addition:</p>
+<ul>
+<li>Two matrices must have an equal number of rows and columns to be added.</li>
+<li>Sample:
+<ul>
+<li>\(\begin{bmatrix} 1 &amp; 2 &amp; 3 \ 3 &amp; 4 &amp; 5 \end{bmatrix} +  \begin{bmatrix} 3 &amp; 1 &amp; 6 \ 6 &amp; 7 &amp; 2 \end{bmatrix} = \begin{bmatrix} 4 &amp; 3 &amp; 9 \ 9 &amp; 11 &amp; 7 \end{bmatrix}\)</li>
+<li><strong>Error!!</strong> \(\begin{bmatrix} 1 &amp; 2 &amp; 3 \ 3 &amp; 4 &amp; 5 \end{bmatrix} +  \begin{bmatrix} 3 &amp; 1 \ 6 &amp; 7 \end{bmatrix}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Scalar Multiplication</p>
+<ul>
+<li>Sample:
+<ul>
+<li>\(3 \times \begin{bmatrix} 3 &amp; 1 \ 6 &amp; 7 \end{bmatrix} = \begin{bmatrix} 9 &amp; 3 \ 18 &amp; 21 \end{bmatrix}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="matrix-vector-multiplication"><a class="markdownIt-Anchor" href="#matrix-vector-multiplication"></a> Matrix Vector Multiplication</h3>
+<ul>
+<li><img src="https://i.imgur.com/2l4ZCrt.jpg" alt="week-1-m-11" /></li>
+<li>Example:
+<ul>
+<li>\(\begin{bmatrix} 1 &amp; 2 &amp; 3 \ 3 &amp; 4 &amp; 5 \end{bmatrix} \times \begin{bmatrix} 4 \ 3 \ 2 \end{bmatrix} = \begin{bmatrix} 16 \ 34 \end{bmatrix}\)</li>
+<li>Row 1: \(1 \times 4 + 2 \times 3 + 3 \times 2 = 16\)​</li>
+</ul>
+</li>
+<li><img src="https://i.imgur.com/boak1WX.jpg" alt="week-1-m-13" /></li>
+</ul>
+<h3 id="matrix-matrix-multiplication"><a class="markdownIt-Anchor" href="#matrix-matrix-multiplication"></a> Matrix Matrix Multiplication</h3>
+<ul>
+<li><img src="https://i.imgur.com/8VFL9TD.jpg" alt="week-1-m-16" /></li>
+<li><img src="https://i.imgur.com/1MWrKEX.jpg" alt="week-1-m-18" /></li>
+</ul>
+<h3 id="matrix-multiplication-properties"><a class="markdownIt-Anchor" href="#matrix-multiplication-properties"></a> Matrix Multiplication Properties</h3>
+<ul>
+<li>Let A and B be matirces. Then in general, \(A * B \ne B * A\) . (not commutative)</li>
+<li>\(A * B * C\) :
+<ul>
+<li>Let \(D = B * C\). Compute \(A * D\)</li>
+<li>Let \(E = A * B\). Compute \(E * C\)</li>
+</ul>
+</li>
+<li>Identity Matrix:
+<ul>
+<li><img src="https://i.imgur.com/OZBqfVn.jpg" alt="week-1-m-22" /></li>
+</ul>
+</li>
+</ul>
+<h3 id="inverse-and-transpose"><a class="markdownIt-Anchor" href="#inverse-and-transpose"></a> Inverse and Transpose</h3>
+<ul>
+<li><strong>Inverse</strong>: \(AA^{-1} = A^{-1}A = I\) . Like \(3 * 3^{-1} = 1\)
+<ul>
+<li><img src="https://i.imgur.com/OvRvp7c.png" alt="week-1-m-24" /></li>
+<li>Not all numbers have an inverse. Like <code>0</code> doesn’t have.</li>
+<li>Matrices that don’t have an inverse are “singular” or “degenerate”.</li>
+<li>How did you find the inverse
+<ul>
+<li>Turns out that you can sometimes do it by hand, although this is very hard</li>
+<li>Numerical software for computing a matrices inverse
+<ul>
+<li>Lots of open source libraries</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Transpose</strong>:
+<ul>
+<li><img src="https://i.imgur.com/YGZ5PKV.jpg" alt="week-1-m-25" /></li>
+</ul>
+</li>
+</ul>
+<h2 id="words"><a class="markdownIt-Anchor" href="#words"></a> Words</h2>
+<ul>
+<li><strong>algebra</strong>   ['ældʒibrə] n. 代数学</li>
+<li><strong>gradient</strong>   ['ɡreidiənt] n. 梯度；坡度</li>
+<li><strong>descent</strong>   [di’sent] n. 下降；血统；袭击</li>
+<li><strong>gradient descent</strong>  梯度下降法</li>
+<li><strong>intuition</strong>   [,intju:'iʃən] n. 直觉；直觉力；</li>
+<li><strong>linear</strong>   ['liniə] adj. 线的，线型的；</li>
+<li><strong>regression</strong>   [ri’ɡreʃən] n. 回归；退化；</li>
+<li><strong>plot</strong>   [plɔt] vt. 密谋；绘图；划分；标绘</li>
+<li><strong>contour</strong>   ['kɔntuə] n. 轮廓；等高线；周线；电路；概要</li>
+<li><strong>contour plot</strong>  等值线图</li>
+<li><strong>contour figure</strong> 轮廓图</li>
+<li><strong>denote</strong>   [di’nəut] vt. 表示，指示</li>
+<li><strong>derivative</strong>  [də’rɪvətɪv] n. 派生物；导数</li>
+<li><strong>derivative term</strong> 导数项</li>
+<li><strong>subtly</strong>   ['sʌtli] adv. 精细地；巧妙地；敏锐地</li>
+<li><strong>nuance</strong>   ['nju:ɑ:ns, nju:'ɑ:ns] n. 细微差别</li>
+<li><strong>tangent</strong>   ['tændʒənt] n. [数] 切线，[数] 正切</li>
+<li><strong>slope</strong>   [sləup] n. 斜坡；倾斜；斜率</li>
+<li><strong>converge</strong>   [kən’və:dʒ] vt. 使汇聚 vi. 聚集；靠拢；收敛</li>
+<li><strong>convex</strong>   [kɔn’veks] adj. 凸面的；凸圆的</li>
+<li><strong>scalar</strong>   ['skeilə, -lɑ:] n. [数] 标量；[数] 数量</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="E"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Eric Yang</div>
+      <div>2020-04-13</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    });
+</script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

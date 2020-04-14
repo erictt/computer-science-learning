@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          laff-linear-algebra/week-9 - Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li><a href="/README/index.html">Introduction</a></li>
+<li><a href="/SYMBOLS/index.html">Symbols of Mathematics</a></li>
+</ul>
+<!--
+## Stanford Statistical Learning
+
+* [Chapter 2 - Overview of Statistical Learning](/statistical-learning/chapter-2/index.html)
+* Chapter 3 - Linear Regression
+* Chapter 4 - Classification
+* Chapter 5 - Resampling Methods
+* Chapter 6 - Linear Model Selection and Regularization
+* Chapter 7 - Moving Beyond Linearity
+* Chapter 8 - Tree-Based Methods
+* Chapter 9 - Support Vector Machines
+* Chapter 10 - Unsupervised Learning
+-->
+<h2 id="introduction-to-probability"><a class="markdownIt-Anchor" href="#introduction-to-probability"></a> Introduction to Probability</h2>
+<ul>
+<li><a href="/introduction-to-probability/unit-1/index.html">Unit 1: Probability models and axioms</a></li>
+<li><a href="/introduction-to-probability/unit-2/index.html">Unit 2: Conditioning and independence</a></li>
+<li><a href="/introduction-to-probability/unit-3/index.html">Unit 3: Counting</a></li>
+</ul>
+<!--
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<h2 id="multivariable-calculus"><a class="markdownIt-Anchor" href="#multivariable-calculus"></a> Multivariable Calculus</h2>
+<ul>
+<li><a href="/multivariable-calculus/unit-1/index.html">Unit 1: Thinking about multivariable functions</a></li>
+<li><a href="/multivariable-calculus/unit-2/index.html">Unit 2: Derivatives of multivariable functions</a></li>
+</ul>
+<!--
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; Radix Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="week-9-vector-spaces"><a class="markdownIt-Anchor" href="#week-9-vector-spaces"></a> Week 9 - Vector Spaces</h1>
+<h2 id="when-systems-dont-have-a-unique-solution"><a class="markdownIt-Anchor" href="#when-systems-dont-have-a-unique-solution"></a> When Systems Don’t Have a Unique Solution</h2>
+<ul>
+<li>To solve \(Ax = b\), we may face three different situations: Unique Solution, No Solution and Many Solutions.</li>
+<li>For example \(\left(\begin{array}{c c c} 2 &amp; 2 &amp; -2 \ -2 &amp; -3 &amp; 4 \ 4 &amp; 3 &amp; -2\end{array}\right) \left(\begin{array}{c}\chi_0 \ \chi_1 \ \chi_2 \end{array}\right) = \left(\begin{array}{c} 0 \ 3 \ 4 \end{array}\right)\)
+<ul>
+<li>We will end up with \(\left(\begin{array}{c c c} 2 &amp; 2 &amp; -2 \ 0 &amp; -1 &amp; 2 \ 0 &amp; 0 &amp; 0\end{array}\right) \left(\begin{array}{c} 0 \ 3 \ 1 \end{array}\right)\)</li>
+<li>But \(0 \ne 1\) =&gt; No solution</li>
+</ul>
+</li>
+<li>For example \(\left(\begin{array}{c c c} 2 &amp; 2 &amp; -2 \ -2 &amp; -3 &amp; 4 \ 4 &amp; 3 &amp; -2\end{array}\right) \left(\begin{array}{c}\chi_0 \ \chi_1 \ \chi_2 \end{array}\right) = \left(\begin{array}{c} 0 \ 3 \ 3 \end{array}\right)\)
+<ul>
+<li>\(\left(\begin{array}{c}\chi_0 \ \chi_1 \ \chi_2 \end{array}\right) = \left(\begin{array}{c} 3 \ -3 \ 0 \end{array}\right) + \beta \left(\begin{array}{c} -1 \ 2 \ 1 \end{array}\right)\)</li>
+<li>Many solutions</li>
+</ul>
+</li>
+</ul>
+<h3 id="when-we-have-many-solutions"><a class="markdownIt-Anchor" href="#when-we-have-many-solutions"></a> When we have many solutions</h3>
+<ul>
+<li>Consider \(Ax=b\) and assume that we have
+<ul>
+<li>One solution to the system \(Ax = b\), the specific solution we denote by \(x_s\) so that \(Ax_s = b\).</li>
+<li>One solution to the system \(Ax = 0\) that we denote by \(x_n\) so that \(Ax_n = 0\).</li>
+</ul>
+</li>
+<li>Then
+<ul>
+<li>\[A(x_s + x_n) = Ax_s + Ax_n = b + 0 = b\]</li>
+</ul>
+</li>
+<li>So \(x_s + x_n\) is also a solution</li>
+<li>Now \(A(x_s + \beta x_n) = Ax_s + A(\beta x_n) = Ax_s + \beta A x_n = b + 0 = b\)</li>
+<li>So \(A(x_s + \beta x_n)\) is a solution for every \(\beta \in \mathbb{R}\).</li>
+<li>Recall the example \(\left(\begin{array}{c c c} 2 &amp; 2 &amp; -2 \ -2 &amp; -3 &amp; 4 \ 4 &amp; 3 &amp; -2\end{array}\right) \left(\begin{array}{c}\chi_0 \ \chi_1 \ \chi_2 \end{array}\right) = \left(\begin{array}{c} 0 \ 3 \ 3 \end{array}\right)\)
+<ul>
+<li>After two steps of LU factorization, we get \[\begin{aligned} \chi_0 + \chi_2 &amp;= 3 \ \chi_1 - 2\chi_2 &amp;= -3 \ 0 &amp;= 0 \end{aligned}\]</li>
+<li>Set \(\chi_2 = 0\), we conclude that a specific solution is given by \[x_s = \left(\begin{array}{c}\chi_0 \ \chi_1 \ \chi_2 \end{array}\right) = \left(\begin{array}{c} 3 \ -3 \ 0 \end{array}\right)\]</li>
+</ul>
+</li>
+<li>Now, to calculate \(x_n\). If we choose the free variable \(\chi_2 = 0\), then it is easy to see that \(\chi_0 = \chi_1 = 0\), and we end up with the trivial solution, \(x = 0\). So, instead choose \(\chi_2 = 1\): \[\begin{aligned} \chi_0 + 1 &amp;= 0 \ \chi_1 - 2(1) &amp;= 0 \ 0 &amp;= 0 \end{aligned}\]</li>
+<li>\(Ax = 0\): \[x_n = \left(\begin{array}{c} -1 \ 2 \ 1 \end{array}\right)\]</li>
+<li>But if \(Ax_n = 0\), then \(A(\beta x_n) = 0\). This means that all vectors \[x_s + \beta x_n = \left(\begin{array}{c} 3 \ -3 \ 0 \end{array}\right) + \beta \left(\begin{array}{c} -1 \ 2 \ 1 \end{array}\right)\]</li>
+</ul>
+<h4 id="some-terminology"><a class="markdownIt-Anchor" href="#some-terminology"></a> Some terminology</h4>
+<ul>
+<li><strong>row-echelon form</strong>:
+<ul>
+<li>
+<img src="https://i.imgur.com/cedWScz.jpg" style="width:120px" />
+</li>
+<li>The boxed values are known as the <strong>pivots</strong>.</li>
+<li>In each row to the left of the vertical bar, the left-most nonzero element is the pivot for that row.</li>
+<li>Notice that the pivots in later rows appear to the right of the pivots in earlier rows.</li>
+</ul>
+</li>
+<li><strong>reduced row-echelon form</strong>:
+<ul>
+<li>
+<img src="https://i.imgur.com/tsfoTco.jpg" style="width:120px" />
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h3>
+<ul>
+<li>Whether a linear system of equations \(Ax = b\) has a unique solution, no solution, or multiple solutions can be determined by writing the system as an appended system \[\left(A | b\right)\] and transforming this appended system to <strong>row echelon form</strong>, swapping rows if necessary.</li>
+</ul>
+<h2 id="review-of-sets"><a class="markdownIt-Anchor" href="#review-of-sets"></a> Review of Sets</h2>
+<ul>
+<li>A <strong>set</strong> is a collection of distinct objects.</li>
+<li>The objects are the elements of the set.</li>
+<li>\(x \in S\): (object) x is an element of set \(S\). an element of S.</li>
+<li>If S contains object x, y and z: \[{x, y, z}\]
+<ul>
+<li>Order doesn’t matter.</li>
+</ul>
+</li>
+<li>The size of a set denoted by \(|S|\).</li>
+<li>\((S \subset T) \iff (x \in S \Rightarrow x \in T)\)</li>
+</ul>
+<h3 id="examples"><a class="markdownIt-Anchor" href="#examples"></a> Examples</h3>
+<ul>
+<li>\({1, 2, 3}\)</li>
+<li>\(|{1, 2, 3}| = 3\)</li>
+<li>The collection of all integers denoted by \(\mathbb{Z}\) =&gt; \({\ldots, -2, -1, 0, 1, 2, \ldots}\). \(|\mathbb{Z}| = \infty\)</li>
+<li>The collection of all real numbers denoted by \(\mathbb{R}\). \(|\mathbb{R}| = \infty\)</li>
+<li>The set of all vectors of size \(n\) whose components are real valued is denoted by \(\mathbb{R}^n\).</li>
+</ul>
+<h3 id="operations-with-sets"><a class="markdownIt-Anchor" href="#operations-with-sets"></a> Operations with Sets</h3>
+<ul>
+<li><strong>Union of two set</strong>
+<ul>
+<li>Notation: \(S \cup T\)</li>
+<li>Formal definition: \(S \cup T = { x | x \in S \vee x \in T}\)</li>
+</ul>
+</li>
+<li><strong>Interaction of two sets</strong>
+<ul>
+<li>Notation: \(S \cap T\)</li>
+<li>Formal definition: \(S \cap T = { x | x \in S \land x \in T}\)</li>
+</ul>
+</li>
+<li><strong>Complement of two sets</strong>
+<ul>
+<li>Notation: \(T \backslash S\)</li>
+<li>Formal definition: \(T \backslash S = { x | x \notin S \land x \in T}\)</li>
+</ul>
+</li>
+</ul>
+<h2 id="vector-spaces"><a class="markdownIt-Anchor" href="#vector-spaces"></a> Vector Spaces</h2>
+<h3 id="definition"><a class="markdownIt-Anchor" href="#definition"></a> Definition</h3>
+<ul>
+<li>
+<p>a vector space is a subset, \(S\), of \(\mathbb{R}^n\) with the following properties:</p>
+</li>
+<li>
+<p>\(0 \in S\) (the zero vector of size n is in the set S); and</p>
+</li>
+<li>
+<p>If \(v, w \in S\) then \((v+w) \in S\); and</p>
+</li>
+<li>
+<p>If \(\alpha \in \mathbb{R}\) and \(v \in S\) then \(\alpha v \in S\).</p>
+</li>
+<li>
+<p>Example: The set \(\mathbb{R}^n\) is a vector space:</p>
+<ul>
+<li>\(0 \in \mathbb{R}^n\)</li>
+<li>If \(v, w \in \mathbb{R}^n\) then \((v+w) \in \mathbb{R}^n\); and</li>
+<li>If \(\alpha \in \mathbb{R}\) and \(v \in \mathbb{R}^n\) then \(\alpha v \in \mathbb{R}^n\).</li>
+</ul>
+</li>
+</ul>
+<h3 id="subspaces"><a class="markdownIt-Anchor" href="#subspaces"></a> Subspaces</h3>
+<ul>
+<li><strong>Subspaces</strong> of \(\mathbb{R}^n\) are the subsets of \(\mathbb{R}^n\), and also vector spaces.</li>
+<li><strong>Examples</strong>:
+<ul>
+<li>The set \(S \subset \mathbb{R}^n\) described by \({\chi a | \chi \in \mathbb{R}}\), where \(a \in \mathbb{R}^n\), is a subspace of \(\mathbb{R}^n\).
+<ul>
+<li>\(0 \in S\): (pick \(\chi = 0\)).</li>
+<li>If \(u, w \in S\) then \((u + w) \in S\): Pick \(u, w \in S\). Then for some scalars \(\upsilon\) and some scalars \(\omega\), vector \(v = \upsilon a\) and vector \(w = \omega a\). Then \(v+w = \upsilon a+ \omega a= (\upsilon + \omega)a\), which is also in S.</li>
+<li>If \(\alpha \in \mathbb{R}\) and \(v \in S\) then \(\alpha v \in S\): Pick \(\alpha \in \mathbb{R}\) and \(v \in S\). Then for some \(\upsilon\), \(v = \upsilon a\). But \(\alpha v = \alpha (\upsilon a) = (\alpha \upsilon) a\). which is also in S.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="span-and-linear-independence"><a class="markdownIt-Anchor" href="#span-and-linear-independence"></a> Span and Linear Independence</h3>
+<ul>
+<li>
+<p><strong>Definition</strong>:</p>
+<ul>
+<li><strong>Linear Combination</strong>: Let \(u,v \in \mathbb{R}^m\) and \(α,β \in \mathbb{R}\). Then \(αu + βv\) is said to be a <strong>linear combination</strong> of vectors \(u\) and \(v\).
+<ul>
+<li>like we use <code>α</code> and <code>β</code> to scale vectors <code>u</code> and <code>v</code>.</li>
+<li>For example, we can use vectors \( u = \left(\begin{array}{c}1 \ 2\end{array}\right) \text{ and } v = \left(\begin{array}{c}2 \ 1\end{array}\right) \) to represent a plane by scaling them with <code>α</code> and <code>β</code>.</li>
+</ul>
+</li>
+<li><strong>Span</strong>: Let \({v_0, v_1, \cdots, v_{n-1} } \subset \mathbb{R}^m\). Then the <strong>span</strong> of these vectors, Span \({v_0, v_1, \cdots, v_{n-1}}\), is said to be the set of all vectors that are a <strong>linear combination</strong> of the given set of vectors.
+<ul>
+<li>Let \(u,v \in \mathbb{R}^m\). \(\text{Span }(u, v) = \mathbb{R}^m\) means we can use the linear combination of vectors <strong>u</strong> and <strong>v</strong> to represent all of the vectors \(\in \mathbb{R}^m\).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Definition</strong>: A <strong>spanning set of a subspace</strong> S is a set of vectors \({v_0, v_1, \cdots, v_{n-1} }\) such that Span(\({v_0, v_1, \cdots, v_{n-1} }\)) = S.</p>
+<ul>
+<li>For example: \(\text{Span }{ \left(\begin{array}{c}1 \ 2\end{array}\right), \left(\begin{array}{c}2 \ 1\end{array}\right) } = \mathbb{R}^2 \)</li>
+</ul>
+</li>
+<li>
+<p><strong>Definition</strong>: Let \({v_0, v_1, \cdots, v_{n-1} } \subset \mathbb{R}^m\). Then this set of vectors is said to be <strong>linearly independent</strong> if \(\chi_0 v_0 + \chi_1 v_1 + \cdots + \chi_{n-1} v_{n-1} = 0\) implies that \(\chi_0 = \chi_1 = \cdots = \chi_{n-1} = 0\). A set of vectors that is not linearly independent is said to be <strong>linearly dependent</strong>.</p>
+<ul>
+<li>In other words, the only solution for \(Ax = 0\) is \( \overrightarrow{x} = \overrightarrow{0}, \text{ where, } A = {v_0, v_1, \cdots, v_{n-1}}, x^T = {\chi_0, \chi_1, \cdots, \chi_{n-1} }\)</li>
+<li>For example: \(\text{Span }{ \left(\begin{array}{c}1 \ 2\end{array}\right), \left(\begin{array}{c}2 \ 4\end{array}\right) }\) is <strong>linearly dependent</strong>.
+<ul>
+<li>Because the set \(\left(\begin{array}{c}2 \ 4\end{array}\right) \) can be represent with \( 2 \left(\begin{array}{c}1 \ 2\end{array}\right)\). We can do: \(2 \left(\begin{array}{c}1 \ 2\end{array}\right) - \left(\begin{array}{c}2 \ 4\end{array}\right) = 0 \) to make the linear combination to be 0. And don’t have to make all \(\chi_n = 0\).</li>
+<li>In other words, \(\left(\begin{array}{c}2 \ 4\end{array}\right) \) doesn’t give us any new dimension, still the same as \(\left(\begin{array}{c}1 \ 2\end{array}\right)\).</li>
+<li>So \(\text{Span }{ \left(\begin{array}{c}1 \ 2\end{array}\right), \left(\begin{array}{c}2 \ 4\end{array}\right) } = \text{Span }{ \left(\begin{array}{c}1 \ 2\end{array}\right) }\)</li>
+<li>\(\left(\begin{array}{c}1 \ 2\end{array}\right), \left(\begin{array}{c}2 \ 1\end{array}\right)\) is <strong>linear independent</strong> set.</li>
+<li>Also, we know that two vectors with different directions can span a plane. So if we add any vectors to \({ \left(\begin{array}{c}1 \ 2\end{array}\right), \left(\begin{array}{c}2 \ 1\end{array}\right) } \), it will be linear dependent set.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-column-space"><a class="markdownIt-Anchor" href="#the-column-space"></a> The Column Space</h3>
+<ul>
+<li><strong>Definition</strong>: Let \(A \in \mathbb{R}^{m \times n}\). Then <strong>the column space</strong> of A equals the set \({Ax | x \in \mathbb{R}^n}\). It is denoted by \(\mathcal{C}(A)\). \[Ax = \left(\begin{array}{c|c|c|c} a_0 &amp; a_1 &amp; \cdots &amp; a_{n-1}\end{array}\right) \left(\begin{array}{c} \chi_0 \ \chi_1 \ \vdots \ \chi_{n-1}\end{array}\right) = \chi_0 a_0 + \chi_1 a_1 + \cdots + \chi_{n-1} a_{n-1}\]
+<ul>
+<li>Thus \(\mathcal{C}(A)\) equals the set of <strong>all linear combinations</strong> of the columns of matrix A.</li>
+</ul>
+</li>
+<li><strong>Theorem</strong>: The column space of \(A \in \mathbb{R}^{m \times n}\) is a subspace of \(\mathbb{R}^m\)</li>
+<li><strong>Theorem</strong>: Let \(A \in \mathbb{R}^{m \times n}, x \in \mathbb{R}^n\), and \(b \in \mathbb{R}^m\). Then \(Ax = b\) has a solution if and only if \(b \in \mathcal{C}(A)\).</li>
+</ul>
+<h3 id="the-null-space"><a class="markdownIt-Anchor" href="#the-null-space"></a> The Null Space</h3>
+<ul>
+<li><strong>Definition</strong>: Let \(A \in \mathbb{R}^{m \times n}\). The set of all vectors \(x \in \mathbb{R}^n\) that have the property that \(Ax = 0\) is called <strong>the null space</strong> of A.
+<ul>
+<li>Frankly speaking, all of the possible vector x that satisfy \(Ax = 0\).
+<ul>
+<li>So \(x\) should be perpendicular to \(A\).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Notation</strong>: \(\mathcal{N}(A) = {x|Ax = 0}\)</li>
+<li><strong>Theorem</strong>: Let \(A \in \mathbb{R}^{m \times n}\). The null space of \(A, \mathcal{N}(A)\), is a subspace.</li>
+<li>Example:
+<ul>
+<li>\(A = \begin{bmatrix} 1 &amp; 1 &amp; 1 &amp; 1 \ 1 &amp; 2 &amp; 3 &amp; 4 \ 4 &amp; 3 &amp; 2 &amp; 1 \end{bmatrix}\)</li>
+<li>\(\text{rref }(A) = \begin{bmatrix} 1 &amp; 0 &amp; -1 &amp; -2 \ 0 &amp; 1 &amp; 2 &amp; 3 \ 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}\)
+<ul>
+<li><strong>rref</strong>: reduced row-echelon form.</li>
+</ul>
+</li>
+<li>=&gt; \(\chi_0 - \chi_2  - 2\chi_3 = 0, \chi_1 + 2 \chi_2 + 3 \chi_3 = 0\)</li>
+<li>=&gt; \(\begin{bmatrix} \chi_0 \ \chi_1 \ \chi_2 \ \chi_3 \end{bmatrix} = \chi_2 \begin{bmatrix} 1 \ -2 \ 1 \ 0 \end{bmatrix} + \chi_3\begin{bmatrix} 2 \ -3 \ 0 \ 1 \end{bmatrix}\)</li>
+<li>We defined: \(\chi_2 \in \mathbb{R}, \chi_3 \in \mathbb{R}\)</li>
+<li>So, \(\mathcal{N}(A) = \text{Span }\left( \begin{bmatrix} 1 \ -2 \ 1 \ 0 \end{bmatrix},\begin{bmatrix} 2 \ -3 \ 0 \ 1 \end{bmatrix}\right)\)</li>
+<li>\(\mathcal{N}(A) = \mathcal{N}(\text{rref }(A))\)</li>
+</ul>
+</li>
+</ul>
+<h3 id="more-about-span-linear-independence-and-bases"><a class="markdownIt-Anchor" href="#more-about-span-linear-independence-and-bases"></a> More about Span, Linear Independence, and Bases</h3>
+<ul>
+<li>
+<p><strong>Theorem</strong>: Let the set of vectors \({  v_0, v_1 , \ldots , v_{n-1} }  \subset \mathbb {R}^ m\) be linearly dependent. Then at least one of these vectors can be written as a linear combination of the others.</p>
+<ul>
+<li>In other words, the dependent vector \(a_j\) can be written as a linear combination of the other n−1 vectors.</li>
+<li>
+<img src="https://i.imgur.com/3Yb11Fc.jpg" style="width:400px" />
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Theorem</strong>: Let  \({  a_0, a_1 , \ldots , a_{n-1} }  \subset \mathbb {R}^ m\) and let \( A = \left(\begin{array}{c|c|c|c} a_0 &amp; a_1 &amp; \cdots &amp; a_{n-1}\end{array}\right) \). Then the vectors \({ a_0, a_1 , \ldots , a_{n-1} }\) are <strong>linearly independent</strong> if and only if \(\mathcal{N}(A) = {0}\).</p>
+<ul>
+<li>aka \(\chi_0 = \chi_1 = \cdots = \chi_{n-1} = 0\)</li>
+</ul>
+</li>
+<li>
+<p><strong>Definition</strong>: <strong>A basis for a subspace S</strong> of \(R^n\) is a set of vectors in S that</p>
+<ol>
+<li>is linearly independent and</li>
+<li>Spans S.</li>
+</ol>
+<ul>
+<li><strong>Basis</strong> is the minimum set of vectors  that spans the subspace.</li>
+<li>Let \({v_1, v_2, \cdots, v_n} = \text{ Basis of subspace U }\). Then \({v_1, v_2, \cdots, v_n}\) are linear independent,</li>
+<li>And all of the linear combinations of \({v_1, v_2, \cdots, v_n}\) can get <strong>all of the possible components</strong> of \(U\). And each member of U can be uniquely defined by a unique combination of \({v_1, v_2, \cdots, v_n}\).</li>
+</ul>
+</li>
+<li>
+<p><strong>Theorem</strong>: Let S be a subspace of \(\mathbb{R}^m\) and let \({v_0, v_1, \cdots, v_{k-1} } \subset \mathbb{R}^m\) and \({w_0, w_1, \cdots, w_{n-1} } \subset \mathbb{R}^m\) both be basis for S. Then \(k = n\). In other words, the number of vectors in a basis is unique.</p>
+</li>
+<li>
+<p><strong>Definition</strong>: <strong>The dimension of a subspace S</strong> equals the number of vectors in a basis for that subspace.</p>
+<ul>
+<li>For example: \(A = \begin{bmatrix}1 &amp; 1 &amp; 2 &amp; 3 &amp; 2 \ 1 &amp; 1 &amp; 3 &amp; 1 &amp; 4\end{bmatrix}\)</li>
+<li>\(\text{rref }(A) = \begin{bmatrix}1 &amp; 1 &amp; 2 &amp; 3 &amp; 2 \ 0 &amp; 0 &amp; 1 &amp; -2 &amp; 2\end{bmatrix}\)</li>
+<li>=&gt; \(\begin{bmatrix} \chi_0 \ \chi_1 \ \chi_2 \ \chi_3 \ \chi_4 \end{bmatrix} = \chi_1 \begin{bmatrix} -1 \ 1 \ 0 \ 0 \ 0 \end{bmatrix} + \chi_3\begin{bmatrix} -7 \ 0 \ 2 \ 1 \ 0 \end{bmatrix} + \chi_4\begin{bmatrix} 2 \ 0 \ -2 \ 0 \ 1 \end{bmatrix}\)</li>
+<li>set \(v_0 = \begin{bmatrix} -1 \ 1 \ 0 \ 0 \ 0 \end{bmatrix} , v_1 = \begin{bmatrix} -7 \ 0 \ 2 \ 1 \ 0 \end{bmatrix}, v_2 = \begin{bmatrix} 2 \ 0 \ -2 \ 0 \ 1 \end{bmatrix}\)</li>
+<li>then \({v_0, v_1, v_2}\) is the basis of \(\mathcal{N}(A)\).</li>
+<li>\(\mathcal{N}(A) = \mathcal{N}(\text{rref}(A)) = \text{Span }(v_0, v_1, v_2)\).</li>
+<li>the dimension of null space of A = 3, which also equals to the number of non-pivot columns of \(\text{rref}(A)\).</li>
+<li>\(\mathcal{C}(A) = \text{Span}(\begin{pmatrix}1 \ 1\end{pmatrix}, \begin{pmatrix}2 \ 3\end{pmatrix})\).</li>
+<li>the dimension of A = 2, which also equals to the number of pivot columns of \(\text{rref}(A)\).</li>
+</ul>
+</li>
+<li>
+<p><strong>Definition</strong>: Let \(A \in \mathbb{R}^{m \times n}\). <strong>The rank of A</strong> equals the number of vectors in a basis for the column space of A. Denoted by \(\text{rank}(A)\).</p>
+</li>
+</ul>
+<h2 id="showing-that-at-a-is-invertible"><a class="markdownIt-Anchor" href="#showing-that-at-a-is-invertible"></a> Showing that A^T A is invertible</h2>
+<ul>
+<li>Let \(A \in \mathbb{R}^{m \times k}\), and \({a_0, a_2, \cdots, a_{m-1}}\) are linearly independent. Is \(A^T A\) invertible?</li>
+<li>\(A^T A \in \mathbb{R}^{k \times k}\).</li>
+<li>So, we only need to prove \(A^T A\)'s columns also linear independent.
+<ul>
+<li>Because, \(A^T A\) is a square matrix, if \(A^T A\)'s columns are linear independent, the reduced row-echelon form of \(A^T A\) will be \(I\).</li>
+</ul>
+</li>
+<li>Let \(v \in \mathcal{N}(A^T A)\)
+<ul>
+<li>then \(A^T A v = 0\) =&gt; \(v^T A^T A v = v^T \overrightarrow{0} = 0\) =&gt; \((A v)^T A v = 0\)</li>
+<li>which means \(\lVert Av \rVert _2 = 0\) =&gt; \(A v = 0\)</li>
+<li>We’ve assumed \(A\)'s columns are linearly independent,</li>
+<li>so \(v \in \mathcal{N}(A) = {\overrightarrow{0}}\) =&gt; \(v = \overrightarrow{0}\)</li>
+<li>So, the only solution of \(A^T A v = 0\) is \(v = \overrightarrow{0}\)</li>
+</ul>
+</li>
+<li>Then \(A^T A\)'s columns are linearly independent, which means \(A^T A\) is invertible.</li>
+</ul>
+<h2 id="refers"><a class="markdownIt-Anchor" href="#refers"></a> Refers</h2>
+<ul>
+<li><a href="https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces" target="_blank" rel="noopener">https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces</a></li>
+<li><a href="https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/lin-alg-showing-that-a-transpose-x-a-is-invertible" target="_blank" rel="noopener">https://www.khanacademy.org/math/linear-algebra/matrix-transformations/matrix-transpose/v/lin-alg-showing-that-a-transpose-x-a-is-invertible</a></li>
+</ul>
+<h2 id="words"><a class="markdownIt-Anchor" href="#words"></a> Words</h2>
+<ul>
+<li><strong>echelon</strong> ['eʃəlɔn] n. 梯形；梯次编队；梯阵；阶层 vi. 形成梯队 vt. 排成梯队</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="E"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Eric Yang</div>
+      <div>2020-04-13</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    });
+</script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

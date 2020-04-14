@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          calculus-two/week-6 - Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li><a href="/README/index.html">Introduction</a></li>
+<li><a href="/SYMBOLS/index.html">Symbols of Mathematics</a></li>
+</ul>
+<!--
+## Stanford Statistical Learning
+
+* [Chapter 2 - Overview of Statistical Learning](/statistical-learning/chapter-2/index.html)
+* Chapter 3 - Linear Regression
+* Chapter 4 - Classification
+* Chapter 5 - Resampling Methods
+* Chapter 6 - Linear Model Selection and Regularization
+* Chapter 7 - Moving Beyond Linearity
+* Chapter 8 - Tree-Based Methods
+* Chapter 9 - Support Vector Machines
+* Chapter 10 - Unsupervised Learning
+-->
+<h2 id="introduction-to-probability"><a class="markdownIt-Anchor" href="#introduction-to-probability"></a> Introduction to Probability</h2>
+<ul>
+<li><a href="/introduction-to-probability/unit-1/index.html">Unit 1: Probability models and axioms</a></li>
+<li><a href="/introduction-to-probability/unit-2/index.html">Unit 2: Conditioning and independence</a></li>
+<li><a href="/introduction-to-probability/unit-3/index.html">Unit 3: Counting</a></li>
+</ul>
+<!--
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<h2 id="multivariable-calculus"><a class="markdownIt-Anchor" href="#multivariable-calculus"></a> Multivariable Calculus</h2>
+<ul>
+<li><a href="/multivariable-calculus/unit-1/index.html">Unit 1: Thinking about multivariable functions</a></li>
+<li><a href="/multivariable-calculus/unit-2/index.html">Unit 2: Derivatives of multivariable functions</a></li>
+</ul>
+<!--
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; Radix Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="week-6-taylor-series"><a class="markdownIt-Anchor" href="#week-6-taylor-series"></a> Week 6 - Taylor Series</h1>
+<h2 id="brief"><a class="markdownIt-Anchor" href="#brief"></a> Brief</h2>
+<ul>
+<li>This week talks about how to transfer a function \(f(x)\) to a power series.</li>
+</ul>
+<h2 id="better-than-linear-approximation"><a class="markdownIt-Anchor" href="#better-than-linear-approximation"></a> Better Than Linear Approximation</h2>
+<ul>
+<li>In calculus one, we’ve learned \(f(x) \approx f(a) + f’(a) (x - a)\) to approximately get value of \(f(x)\).</li>
+<li>This time we use another function \(g(x) = f(a) + f’(a) \cdot (x - a) + \frac{f’’(a)}{2} \cdot (x -a)^2 + \frac{f’’’(a)}{6} \cdot (x - a)^3\)</li>
+<li>With some calculation, we can get:
+<ul>
+<li>\(g(a) = f(a)\)</li>
+<li>\(g’(a) = f’(a)\)</li>
+<li>\(g’’(a) = f’’(a) + f’’(a) (x - a)\)</li>
+<li>\(g’’’(a) = f’’’(a) + f’’’(a) (x - a)\)</li>
+</ul>
+</li>
+<li>So, \(g(x)\) is a better approximation for \(f(x)\).</li>
+<li>Example: \(f(x) = \sin(x)\)
+<ul>
+<li>\(f(x) = \sin(x), f(0) = 0\)</li>
+<li>\(f(x) = \cos(x), f’(0) = 1\)</li>
+<li>\(f(x) = - \sin(x), f’’(0) = 0\)</li>
+<li>\(f(x) = - \cos(x), f’’’(0) = -1\)</li>
+<li>\(g(x) = 0 + 1 \cdot x + \frac{0}{2} \cdot (x)^2 + \frac{-1}{6}(x)^3 = x - \frac{x^3}{6}\)</li>
+<li>\(f(\frac{1}{2}) = \sin(\frac{1}{2}) \approx 0.4794\)</li>
+<li>\(g(\frac{1}{2}) = \frac{1}{2} - \frac{(1/2)^3}{6} \approx 0.4792\)</li>
+</ul>
+</li>
+</ul>
+<h2 id="taylor-theorem"><a class="markdownIt-Anchor" href="#taylor-theorem"></a> Taylor Theorem</h2>
+<h3 id="the-taylor-series-for-f-around-zeromaclaurin-series"><a class="markdownIt-Anchor" href="#the-taylor-series-for-f-around-zeromaclaurin-series"></a> the Taylor Series for f Around Zero(Maclaurin Series)</h3>
+<ul>
+<li>
+<p>Suppose \(f(x) = \sum_{n=0}^{\infty} a_n x^n,\ |x| &lt; R\)</p>
+<ul>
+<li>\(= a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots\)</li>
+</ul>
+</li>
+<li>
+<p>Then, \(f(0) = a_0 + a_1 \cdot 0 + a_2 \cdot 0 + a_3 \cdot 0 + \cdots = a_0\)</p>
+</li>
+<li>
+<p>\(f’(x) = \sum_{n=1}^{\infty} a_n \cdot n \cdot x^{n-1}, |x| &lt; R\)</p>
+<ul>
+<li>\(= a_1 + a_2 \cdot 2 \cdot x + \cdots\)</li>
+<li>=&gt; \(f’(0) = a_1\)</li>
+</ul>
+</li>
+<li>
+<p>\(f’’(x) = \sum_{n=2}^{\infty} a_n \cdot n \cdot (n-1) \cdot x^{n-2}, |x| &lt; R\)</p>
+<ul>
+<li>\(= a_2 \cdot 2 \cdot 1 \cdot 1  + a_3 \cdot 3 \cdot 2 \cdot x + \cdots\)</li>
+<li>=&gt; \(f’’(0) = a_2 \cdot 2\)</li>
+<li>=&gt; \(a_2 = \frac{f’’(0)}{2}\)</li>
+</ul>
+</li>
+<li>
+<p>\(a_3 = \frac{f’’’(0)}{3!}\)</p>
+</li>
+<li>
+<p>\(\cdots\)</p>
+</li>
+<li>
+<p>So, Assume \(f(x) = \sum_{n=0}^{\infty} a_n x^n,\ |x| &lt; R\)</p>
+<ul>
+<li>Then \(a_n = \frac{f^{n}(0)}{n!}\)</li>
+</ul>
+</li>
+</ul>
+<h4 id="definition"><a class="markdownIt-Anchor" href="#definition"></a> Definition</h4>
+<ul>
+<li>If \(\displaystyle f(x) = \sum_{n=0}^{\infty} a_n x^n,\ \text{where}\ |x| &lt; R\)</li>
+<li>Then \(\displaystyle f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!} \cdot x^n\)
+<ul>
+<li>This series is called Taylor series of the function <strong>f</strong> at <strong>0</strong> or <strong>Maclaurin series</strong>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-taylor-series-for-f-centered-around-a"><a class="markdownIt-Anchor" href="#the-taylor-series-for-f-centered-around-a"></a> The Taylor Series for f Centered Around a</h3>
+<ul>
+<li>\(\displaystyle f(x) = \sum_{n=0}^{\infty} c_n (x-a)^n\)
+<ul>
+<li>\(c_0 + c_1 (x - a) + c_2 (x - a)^2 + \cdots\)</li>
+<li>\(f(a) = c_0\)</li>
+<li>\(f’(a) = c_1\)</li>
+<li>…</li>
+</ul>
+</li>
+<li>To summary this:
+<ul>
+<li>The Taylor Series for f Centered Around a is \[f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} \cdot (x-a)^n\]</li>
+</ul>
+</li>
+<li>Example \(f(x) = \sin(x)\)
+<ul>
+<li>The Taylor Series for \(\sin\) around 0 is \[f(x) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!} \cdot x^{2n+1}\]</li>
+</ul>
+</li>
+<li>Quiz 6: Let \(f(x) = \cos(x^5)\). By considering the Taylor series for \(f\) around 0, compute \(f^{(90)}(0)\).
+<ul>
+<li>The Taylor Series for \(\cos\) around 0 is \[f(x) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!} \cdot x^{2n}\]</li>
+<li>\(f(x) = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots + \frac{x^{16} }{16!} - \frac{x^{18} }{18!} + \cdots\)</li>
+<li>\(f(x^5) = 1 - \frac{x^{10} }{2!} + \frac{x^{20} }{4!} - \frac{x^{30} }{6!} + \cdots + \frac{x^{80} }{16!} - \frac{x^{90} }{18!} + \cdots\)</li>
+<li>So we just need to differentiate term \(\frac{d^{90} }{dx^{90} } (- \frac{x^{90} }{18!})\) which \(= - \frac{90! \cdot x^0}{18!} = - \frac{90!}{18!}\)</li>
+</ul>
+</li>
+</ul>
+<h3 id="taylors-theorem"><a class="markdownIt-Anchor" href="#taylors-theorem"></a> Taylor’s Theorem</h3>
+<ul>
+<li>Suppose \(f: \mathbb{R} \to \mathbb{R}\) is infinitely differentiable.
+<ul>
+<li>\[f(x) = (\sum_{n=0}^{N} \frac{f^{(n)}(0)}{n!} \cdot x^n) + R_N{x}\]. <strong>R</strong> stands for remainder.</li>
+</ul>
+</li>
+<li>Then \[R_N(x) = \frac{f^{(N+1)}(z)}{(N+1)!} x^{N+1}\] for some <strong>z</strong> between <strong>x</strong> and <strong>0</strong>.</li>
+</ul>
+<h4 id="usage"><a class="markdownIt-Anchor" href="#usage"></a> Usage</h4>
+<ul>
+<li>Use Taylor’s Theorem to prove \[\sin{x} = \sum_{n=0}<sup>{\infty}\frac{(-1)</sup>n}{(2n+1)!} \cdot x^{2n+1}\]</li>
+<li>\(f(x) = \sin x\)</li>
+<li>With Taylor’s Theorem, \[\begin{aligned}<br />
+\sin{x} &amp;- \sum_{n=0}^{N} \frac{f^{(n)}(0)}{n!} \cdot x^n = R_N(x) \<br />
+R_N(x) &amp;= \frac{f^{(N+1)}(z)}{(N+1)!} x^{N+1}<br />
+\end{aligned}\]</li>
+<li>We know: \(f^{(N+1)}(x) = \pm \sin x \ \text{or} \ \pm \cos x \), so \(f^{(N+1)}(x) \le 1\)</li>
+<li>Then, \(R_N(x) \le \frac{1}{(N+1)!} x^{N+1}\)</li>
+<li>So, if \(\displaystyle \lim_{N \to \infty}|\frac{x^{N+1} }{(N+1)!}| = 0\), \(\displaystyle \lim_{N \to \infty}|R_N(x)| = 0\).
+<ul>
+<li>Then \(\displaystyle \sin{x} = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!} \cdot x^n = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!} \cdot x^{(2n+1)}\)</li>
+</ul>
+</li>
+<li>So we need to prove \(\displaystyle \lim_{N \to \infty}|\frac{x^{N+1} }{(N+1)!}| = 0\).
+<ul>
+<li>And if \(\displaystyle \sum_{N=0}<sup>{\infty}|\frac{x</sup>{N+1} }{(N+1)!}|\) converge, then the limit must be <strong>0</strong>.</li>
+</ul>
+</li>
+<li>Now, use ratio test to prove the series converge:
+<ul>
+<li>\(\displaystyle \lim_{N \to \infty } \frac{x^{N+2}/{(N+2)!} } { x^{N+1}/{(N+1)!} } = \lim_{N \to \infty} \frac{x \cdot (N+1)! } { (N+2)! } = \lim_{N \to \infty} \frac{x } { N+2 } = 0 \)</li>
+</ul>
+</li>
+</ul>
+<h4 id="the-radius-of-convergence-of-11x2"><a class="markdownIt-Anchor" href="#the-radius-of-convergence-of-11x2"></a> the Radius of Convergence of 1/(1+x^2)</h4>
+<ul>
+<li>\(\displaystyle \frac{1}{1-x} = \sum_{n=0}^{\infty} x^n\), if \(|x| &lt; 1\).
+<ul>
+<li>the radius of convergence is 1.</li>
+</ul>
+</li>
+<li>\(\displaystyle \frac{1}{1+x} = \sum_{n=0}^{\infty} (-x)^n = \sum_{n=0}^{\infty} (-1)^n x^n\), if \(|x| &lt; 1\).
+<ul>
+<li>the radius of convergence is 1.</li>
+</ul>
+</li>
+<li>\(\displaystyle \frac{1}{1+x^2} = \sum_{n=0}^{\infty} (-1)<sup>n(x</sup>2)^n = \sum_{n=0}^{\infty} (-1)^n x^{2n}\), if \(|x| &lt; 1\).
+<ul>
+<li>the radius of convergence is 1.</li>
+</ul>
+</li>
+<li>The question is why the radius of convergence of function \(\frac{1}{1+x^2}\) at 0 is 1, and at 1 is \(\sqrt{2}\)
+<ul>
+<li>We can understand that the radius of convergence of \(\frac{1}{1-x}\) at 0 is 1, because \(x \ne 1\).</li>
+<li>But \(\sin x\) is very similar to \(\frac{1}{1+x^2}\), and the radius of convergence of \(\sin x\) at 0 is \(\infty\).
+<ul>
+<li>\(\displaystyle \sin x = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!} x^{2n+1}\) for all <strong>x</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The answer is, if we set \(i = \sqrt{-1}\), then \[f(i) = \frac{1}{1+(i)^2} = \frac{1}{1+(-1)}\], which doesn’t exist.</li>
+<li>So there is a bad point(间断点) where the function is undefined. It’s just the bad point isn’t a real point.(这个间断点不在实轴上，是个虚数)</li>
+<li>The bad point in the complex plane is messing up the radius of convergence even along the real line. So complex numbers is very important, even in the thery of real value Taylor Series.(这个在复平面上的间断点限制了收敛半径，所以复数在实数域的泰勒展开式中同样重要。)</li>
+<li>Additional evidence is \[e^{ix} = \cos x + i \cdot \sin x. \ (i = \sqrt{-1})\] . Interpret this as a statement about power series: \[<br />
+\sum_{n=0}^{\infty} \frac{(ix)^n}{n!} = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n} }{2n!} +     i \cdot \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1} }{(2n+1)!} \]. Set \(x = \pi\): \[e^{i \pi} = \cos \pi + i \cdot \sin \pi = -1\]</li>
+<li>Taylor series are the first step into the theory of complex analysis(复分析理论).</li>
+</ul>
+<h4 id="mean-value-theorem"><a class="markdownIt-Anchor" href="#mean-value-theorem"></a> Mean Value Theorem</h4>
+<ul>
+<li>\(f: [a, b] \to \mathbb{R} \text{ continuous}\)
+<ul>
+<li>and, on \((a, b)\) differentiable,</li>
+</ul>
+</li>
+<li>Then, there is a point \(c \in (a, b)\), so that \[f’© = \frac{f(b) - f(a)}{b - a}\]</li>
+<li>replace <strong>c</strong> and <strong>b</strong> with <strong>z</strong> and <strong>x</strong>, we get:
+<ul>
+<li>\(f’(z) = \frac{f(x) - f(a)}{x - a}\)</li>
+<li>\(f(x) = f(a) + R_0(x), \text{where}\ R_0(x) = \frac{f’(z)}{1!} \cdot (x-a)^1\), and <strong>z</strong> is between <strong>x</strong> and <strong>a</strong>.</li>
+<li>It is the Taylor Theorem when \(N = 0\)</li>
+</ul>
+</li>
+<li>Example \(f(t) = \text{your position at time t sec}\)
+<ul>
+<li>\(f(0) = 0\), \(f’(0) = 0\), \(f’’(t) \le 250 \frac{m}{s^2}\)</li>
+<li>Question: How big can \(f(60)\) be?</li>
+<li>Use Taylor Theorem, we get:
+<ul>
+<li>\(f(t) = f(0) + f’(0) \cdot (t - 0) + R_1(t)\), \(R_1(t) = \frac{f’’(z)}{2!} \cdot (t - 0)^2\)</li>
+<li>\(|R_1(t)| \le \frac{250}{2!} \cdot t^2\)</li>
+</ul>
+</li>
+<li>So \(f(t) \le f(0) + f’(0) \cdot t + \frac{250}{2!} \cdot t^2 = 125 t^2\)</li>
+<li>\(f(60) \le 125 \cdot 60^2 = 450000 \text{m} = 450 \text{km}\)</li>
+</ul>
+</li>
+</ul>
+<h2 id="practice"><a class="markdownIt-Anchor" href="#practice"></a> Practice</h2>
+<h3 id="uniform-convergence"><a class="markdownIt-Anchor" href="#uniform-convergence"></a> Uniform Convergence</h3>
+<h4 id="approximate-cos-x-when-x-is-near-zero"><a class="markdownIt-Anchor" href="#approximate-cos-x-when-x-is-near-zero"></a> Approximate cos x when x is near zero</h4>
+<ul>
+<li>Goal: Find polynomial \(p(x)\) so that \(|p(x) - \cos x| &lt; \frac{1}{100}\), where \(x \in [-1, 1]\)</li>
+<li>\(\displaystyle \cos x = \sum_{n=0}<sup>{\infty}\frac{(-1)</sup>n}{(2n)!} \cdot x^{2n}\)</li>
+<li>\(\displaystyle \cos x - \sum_{n=0}<sup>{N}\frac{f</sup>{(n)}(0)}{n!} \cdot x^{n} = R_N(x)\)</li>
+<li>\(\displaystyle R_N(x) = \frac{f^{(N+1)}(z)}{(N+1)!} \cdot x^{N+1}\), \(z \in (0, x)\)</li>
+<li>\(x \in [-1, 1]\), then \(|x^{N+1}| \le 1\)
+<ul>
+<li>=&gt; \( R_N(x) \le \frac{f^{(N+1)}(z)}{(N+1)!} \)</li>
+</ul>
+</li>
+<li>\(f^{(N+1)}(z) = \pm \sin z\ \text{or}\ \pm \cos z \le 1\)
+<ul>
+<li>=&gt; \( R_N(x) \le \frac{1}{(N+1)!} \)</li>
+</ul>
+</li>
+<li>We want \(\frac{1}{(N+1)!} &lt; \frac{1}{100}\) and \(\frac{1}{5!} = \frac{1}{120}\)
+<ul>
+<li>=&gt; \(N = 4\)</li>
+</ul>
+</li>
+<li>\(\cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} -\frac{x^6}{720} + \cdots\)
+<ul>
+<li>There is no x to the 5th term, so we can make \(N = 5\)</li>
+</ul>
+</li>
+<li>\(\cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} -R_5\)
+<ul>
+<li>=&gt; \( R_5(x) \le \frac{1}{(5+1)!} = \frac{1}{6!} = \frac{1}{720} &lt; \frac{1}{100} \)</li>
+</ul>
+</li>
+<li>So \(p(x) = 1 - \frac{x^2}{2} + \frac{x^4}{24} \approx \cos x\)</li>
+</ul>
+<h3 id="limits"><a class="markdownIt-Anchor" href="#limits"></a> Limits</h3>
+<ul>
+<li>\(\displaystyle \lim_{x \to 0} \frac{\sin x}{x}\)</li>
+<li>use Taylor Series, we know:
+<ul>
+<li>\(\sin x = x - \frac{x^3}{6} + \frac{x^5}{5!} - \cdots\)</li>
+<li>\(\sin x \approx x +\ \text{higher order terms}\)</li>
+</ul>
+</li>
+<li>then \(\displaystyle \lim_{x \to 0} \frac{\sin x}{x} = \lim_{x \to 0} \frac{x + \text{higher order terms} }{x} = 1 + \lim_{x \to 0} \frac{\text{higher order terms} }{x}\)</li>
+</ul>
+<h3 id="real-analytic-function"><a class="markdownIt-Anchor" href="#real-analytic-function"></a> Real Analytic Function</h3>
+<ul>
+<li>Theorem:
+<ul>
+<li>The function \(f\) is <strong>real analytic</strong> at <strong>a</strong> if there is some \(R &gt; 0\),</li>
+<li>So that \[f(x) = \sum_{n = 0}^{\infty} \frac{f<sup>{(n)}(a)}{n!}(x-a)</sup>n \ \text{when } |x-a|&lt;R\]</li>
+</ul>
+</li>
+<li>Real Analytic Functions ∈ Infinitely Differentiable Functions(Smooth Functions(\(C^{\infty}\))) ∈ Differentiable Functions ∈ Continuous Functions ∈ All Functions</li>
+</ul>
+<h4 id="holograms"><a class="markdownIt-Anchor" href="#holograms"></a> Holograms</h4>
+<ul>
+<li>A little bit of a hologram records everything in the function.</li>
+<li>For example \(\sin x\).
+<ul>
+<li>Only look the points near 0, we know:
+<ul>
+<li>\(f(0) = 0\)</li>
+<li>\(f’(0) = 1\)</li>
+<li>\(f’’(0) = 0\)</li>
+<li>\(f’’’(0) = -1\)</li>
+<li>We can calculate all of the derivatives of the function by just looking the area near 0.</li>
+</ul>
+</li>
+<li>And use Taylor Series, we can get \(\displaystyle f(x) = \sum_{n = 0}^{\infty} \frac{f{(n)}(0)}{n!} x^n\)</li>
+</ul>
+</li>
+</ul>
+<h2 id="important-taylor-series-and-their-radii-of-convergence"><a class="markdownIt-Anchor" href="#important-taylor-series-and-their-radii-of-convergence"></a> Important Taylor Series and Their Radii of Convergence</h2>
+<ul>
+<li>\[\frac{1}{1-x} = \sum_{n=0}^{\infty} x^n = 1 + x + x^2 + x^3 + \cdots, R = 1\]</li>
+<li>\[e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots, R = \infty\]</li>
+<li>\[\sin x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1} }{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots, R = \infty\]</li>
+<li>\[\cos x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n} }{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots, R = \infty\]</li>
+<li>\[\tan^{-1} x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1} }{2n+1} = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots, R = 1\]</li>
+<li>\[\ln (1 + x) = \sum_{n=0}^{\infty} \frac{(-1)^{n-1} x^{n} }{n} = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots, R = 1\]</li>
+<li>\[(1 - x)^k = \sum_{n=0}^{\infty} (n {k})x^{n} = 1 + kx + \frac{k(k-1)}{2!}x^2 + \frac{k(k-1)(k-2)}{3!}x^3 + \cdots, R = 1\]</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="E"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Eric Yang</div>
+      <div>2020-04-13</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    });
+</script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

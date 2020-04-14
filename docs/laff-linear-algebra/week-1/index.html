@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          laff-linear-algebra/week-1 - Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li><a href="/README/index.html">Introduction</a></li>
+<li><a href="/SYMBOLS/index.html">Symbols of Mathematics</a></li>
+</ul>
+<!--
+## Stanford Statistical Learning
+
+* [Chapter 2 - Overview of Statistical Learning](/statistical-learning/chapter-2/index.html)
+* Chapter 3 - Linear Regression
+* Chapter 4 - Classification
+* Chapter 5 - Resampling Methods
+* Chapter 6 - Linear Model Selection and Regularization
+* Chapter 7 - Moving Beyond Linearity
+* Chapter 8 - Tree-Based Methods
+* Chapter 9 - Support Vector Machines
+* Chapter 10 - Unsupervised Learning
+-->
+<h2 id="introduction-to-probability"><a class="markdownIt-Anchor" href="#introduction-to-probability"></a> Introduction to Probability</h2>
+<ul>
+<li><a href="/introduction-to-probability/unit-1/index.html">Unit 1: Probability models and axioms</a></li>
+<li><a href="/introduction-to-probability/unit-2/index.html">Unit 2: Conditioning and independence</a></li>
+<li><a href="/introduction-to-probability/unit-3/index.html">Unit 3: Counting</a></li>
+</ul>
+<!--
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<h2 id="multivariable-calculus"><a class="markdownIt-Anchor" href="#multivariable-calculus"></a> Multivariable Calculus</h2>
+<ul>
+<li><a href="/multivariable-calculus/unit-1/index.html">Unit 1: Thinking about multivariable functions</a></li>
+<li><a href="/multivariable-calculus/unit-2/index.html">Unit 2: Derivatives of multivariable functions</a></li>
+</ul>
+<!--
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; Radix Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="week-1-vectors-in-linear-algebra"><a class="markdownIt-Anchor" href="#week-1-vectors-in-linear-algebra"></a> Week 1 - Vectors in Linear Algebra</h1>
+<h2 id="what-is-vector"><a class="markdownIt-Anchor" href="#what-is-vector"></a> What is Vector?</h2>
+<h3 id="notation"><a class="markdownIt-Anchor" href="#notation"></a> Notation</h3>
+<ul>
+<li>A two-dimensional vector:
+<ul>
+<li>
+<img src="https://i.imgur.com/UuyqJcB.jpg" style="width:200px"/>
+</li>
+</ul>
+</li>
+<li>Vector in higher dimensions:
+<ul>
+<li>\(x = \begin{pmatrix} x_0 \ x_1 \ \vdots \ x_{n-1} \end{pmatrix}\)
+<ul>
+<li>It is an ordered array.</li>
+<li>The entries in the array are called components.</li>
+<li>We start indexing the components at zero.</li>
+<li>The component indexed with <code>i</code> is denoted by \(x_i\).</li>
+<li>Each number is a real number: \(x_i \in \mathbb{R}\).</li>
+<li>\(x \in \mathbb{R}^n\)</li>
+<li>A vector has a direction and a length.
+<ul>
+<li>Draw an arrow from the origin to the point\((x_0,x_1,\ldots,x_{n-1})\).</li>
+<li>The length is \(\sqrt{x_0<sup>2+x_1</sup>2+\ldots+x_{n-1}^2}\).</li>
+<li><strong>A vector does not have a location.</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Summary
+<ul>
+<li>A vector has a direction and a length.</li>
+<li>We will write it as a column of values which we call a (column) vector.</li>
+</ul>
+</li>
+</ul>
+<h3 id="unit-basis-vectors-standard-basis-vectors"><a class="markdownIt-Anchor" href="#unit-basis-vectors-standard-basis-vectors"></a> Unit Basis Vectors (Standard Basis Vectors)</h3>
+<ul>
+<li>An important set of vectors is the set of unit basis vectors given by
+<ul>
+<li>
+<img src="https://i.imgur.com/7qO9tks.jpg" style="width:200px"/>
+</li>
+<li>Where the “1” appears as the component indexed by <code>j</code>. Thus, we get the set \({e_0,e_1,\ldots,e_{n-1}} \subset \mathbb{R}^n\) given by
+<ul>
+<li>
+<img src="https://i.imgur.com/fL5d4j0.jpg" style="width:300px"/>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Different with <strong>unit vector</strong>, which is any vector of length one (unit length). For example, the vector  \(\begin{pmatrix}\frac{\sqrt{2}}{2} \ \frac{\sqrt{2}}{2}\end{pmatrix}\) has length one.</li>
+</ul>
+<h2 id="simple-vector-operations"><a class="markdownIt-Anchor" href="#simple-vector-operations"></a> Simple Vector Operations</h2>
+<h3 id="equality-assignment-and-copy"><a class="markdownIt-Anchor" href="#equality-assignment-and-copy"></a> Equality (=), Assignment (:=), and Copy</h3>
+<ul>
+<li>Two vectors \(x,y \in \mathbb{R}^n\) are equal if all their components are element-wise equal: \[x=y\ \text{if and only if}\ x_i = \psi_i, \text{for all}\ 0 \le i &lt; n\]</li>
+<li>operation <code>y := x</code>:
+<ul>
+<li>
+<img src="https://i.imgur.com/GZtSw0k.jpg" style="width:250px"/>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="vector-additionadd-scalingscal-subtraction"><a class="markdownIt-Anchor" href="#vector-additionadd-scalingscal-subtraction"></a> Vector Addition(ADD), Scaling(SCAL), Subtraction</h3>
+<ul>
+<li>Addition and Subtraction
+<ul>
+<li>
+<img src="https://i.imgur.com/03UN1T2.jpg" style="width:120px"/>
+</li>
+<li>
+<img src="https://i.imgur.com/uc28BgJ.jpg" style="width:300px"/>
+</li>
+<li>
+<img src="https://i.imgur.com/X2LgVzB.jpg" style="width:300px"/>
+</li>
+</ul>
+</li>
+<li>Scaling
+<ul>
+<li>
+<img src="https://i.imgur.com/61QdDwA.jpg" style="width:200px"/>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="advanced-vector-operations"><a class="markdownIt-Anchor" href="#advanced-vector-operations"></a> Advanced Vector Operations</h2>
+<h3 id="scaled-vector-addition-axpy"><a class="markdownIt-Anchor" href="#scaled-vector-addition-axpy"></a> Scaled Vector Addition (AXPY)</h3>
+<ul>
+<li>axpy: \(\alpha x + y\)
+<ul>
+<li>
+<img src="https://i.imgur.com/7C85bLp.jpg" style="width:300px"/>
+</li>
+</ul>
+</li>
+<li>The AXPY operation requires <code>3n + 1</code> <strong>memops</strong>(memory operations) and <code>2n</code> <strong>flops</strong>(floating point operations). The reason is that \(\alpha\) is only brought in from memory once and kept in a register for reuse.
+<ul>
+<li><code>3n+1</code>: x, ax, y, a</li>
+<li><code>2n</code>: ax, ax+y</li>
+</ul>
+</li>
+</ul>
+<h3 id="dot-or-inner-product-dot"><a class="markdownIt-Anchor" href="#dot-or-inner-product-dot"></a> Dot or Inner Product (DOT)</h3>
+<ul>
+<li>
+<img src="https://i.imgur.com/eTfIpLf.jpg" style="width:400px"/>
+</li>
+</ul>
+<h3 id="vector-lengthnorm2"><a class="markdownIt-Anchor" href="#vector-lengthnorm2"></a> Vector Length(NORM2)</h3>
+<ul>
+<li>Let \(x \in \mathbb{R}^n\). Then the (Euclidean) length of a vector x (the two-norm) is given by \[\lVert x \rVert <em>2 = \sqrt{x_0<sup>2+x_1</sup>2+\ldots+x</em>{n-1}^2} = \sqrt{\sum_{i=0}<sup>{n-1}{}x_i</sup>2}\]
+<ul>
+<li>Here \(\lVert x \rVert _2\) notation stands for “the two norm of x”, which is another way of saying “the length of x”.</li>
+</ul>
+</li>
+</ul>
+<h3 id="cauchy-schwarz-inequality"><a class="markdownIt-Anchor" href="#cauchy-schwarz-inequality"></a> Cauchy-Schwarz inequality</h3>
+<ul>
+<li>Let \( x, y \in R^n \), then \(|x y| \le \lVert x \rVert \lVert y \rVert\)</li>
+<li>And \(|x y| = \lVert x \rVert \lVert y \rVert \), iff \( x = cy, c \in \mathbb{R}\).</li>
+<li><strong>Proof</strong>:
+<ul>
+<li>Let’s Define \(P(t) = \lVert t y - x \rVert ^2\)</li>
+<li>\(P(t) = (t y - x) \cdot  (t y - x) \ge 0 \)</li>
+<li>\(P(t) = (y \cdot y)t^2 - 2 ( x \cdot y) t + x \cdot x \ge 0 \)</li>
+<li>Set \(a = y \cdot y, b = 2( x \cdot y ) , c = x \cdot x\)</li>
+<li>\(P(t) = a t^2 - b t + c \ge 0 \)</li>
+<li>Set \(t = \frac{b}{2a}\)</li>
+<li>\(P(t) = a \frac{b}{2a}^2 - b \frac{b}{2a} + c \ge 0 \) =&gt; \(4ac \ge b^2\)</li>
+<li>\(4 \lVert y \rVert ^2 \lVert x \rVert ^2 \ge (2 ( x \cdot y)^2\) =&gt; \( \lVert y \rVert \lVert x \rVert \ge | x \cdot y | \)</li>
+</ul>
+</li>
+</ul>
+<h3 id="vector-functions"><a class="markdownIt-Anchor" href="#vector-functions"></a> Vector Functions</h3>
+<ul>
+<li>Sample:
+<ul>
+<li>
+<img src="https://i.imgur.com/TXuRjfw.jpg" style="width:400px"/>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="vector-functions-that-map-a-vector-to-a-vector"><a class="markdownIt-Anchor" href="#vector-functions-that-map-a-vector-to-a-vector"></a> Vector Functions that Map a Vector to a Vector</h3>
+<ul>
+<li>\(f: \mathbb{R}^n \to \mathbb{R}^m\)</li>
+<li>Sample:
+<ul>
+<li>
+<img src="https://i.imgur.com/KWZRlVs.jpg" style="width:400px"/>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="enrichment"><a class="markdownIt-Anchor" href="#enrichment"></a> Enrichment</h2>
+<h3 id="the-greek-alphabet"><a class="markdownIt-Anchor" href="#the-greek-alphabet"></a> The Greek Alphabet</h3>
+<ul>
+<li>Lowercase Greek letters (α, β, etc.) are used for scalars.</li>
+<li>Lowercase (Roman) letters (a, b, etc) are used for vectors.</li>
+<li>Uppercase (Roman) letters (A, B, etc) are used for matrices.</li>
+<li><a href="https://cs.ericyy.me/symbols/index.html" target="_blank" rel="noopener">The Alphabet</a></li>
+</ul>
+<h3 id="other-norms"><a class="markdownIt-Anchor" href="#other-norms"></a> Other Norms</h3>
+<ul>
+<li><strong>A norm</strong> is a function, in our case of a vector in \(\mathbb{R}^n\), that maps every vector to a nonnegative real number. The simplest example is the absolute value of a real number: Given \(\alpha \in \mathbb{R}\), the absolute value of α, often written as |α|, equals the magnitude of α: \[\lvert \alpha \rvert = \left{<br />
+\begin{array}{rl}<br />
+\alpha &amp; \text{if } \alpha \ge 0,\<br />
+-\alpha &amp; \text{otherwise}.<br />
+\end{array} \right.\]</li>
+<li>Similarly, one can find functions, called <strong>norms</strong>, that measure the magnitude of vectors. One example is the (Euclidean) length of a vector, which we call the 2-norm: for \(x \in \mathbb{R}^n\), \[\lVert x \rVert <em>2 = \sqrt{\sum</em>{i=0}<sup>{n-1}x_i</sup>2}\]</li>
+<li>Other norms:
+<ul>
+<li>1-norm (also called taxi-cab norm): \[\lVert x \rVert <em>1 = \sqrt{\sum</em>{i=0}^{n-1}|x_i|}\]</li>
+<li>For \(1 \le p \le \infty\), the p-norm: \[\lVert x \rVert <em>p = \sqrt[p]{\sum</em>{i=0}<sup>{n-1}|x_i|</sup>p}\]</li>
+</ul>
+</li>
+</ul>
+<h2 id="summary-of-the-properties-for-vector-operations"><a class="markdownIt-Anchor" href="#summary-of-the-properties-for-vector-operations"></a> Summary of the Properties for Vector Operations</h2>
+<h3 id="vector-addition"><a class="markdownIt-Anchor" href="#vector-addition"></a> Vector Addition</h3>
+<ul>
+<li>Is commutative. That is, for all vectors \(x,y\in \mathbb R^n, x+y=y+x.\).</li>
+<li>Is associative. That is, for all vectors \(x,y,z\in \mathbb R^n, (x+y)+z=x+(y+z)\).</li>
+<li>Has the zero vector as an identity. For all vectors \(x \in \mathbb R^n, x+\mathbf 0=\mathbf0+x=x\) where 0 is the vector of size n with 0 for each component.</li>
+<li>Has an inverse, −x. That is \(x+(-x)=\mathbf 0\).</li>
+</ul>
+<h3 id="the-dot-product-of-vectors"><a class="markdownIt-Anchor" href="#the-dot-product-of-vectors"></a> The dot product of vectors</h3>
+<ul>
+<li>Is commutative. That is, for all vectors \(x,y\in R<sup>n,x</sup>Ty = y^Tx\).</li>
+<li>Distributes over vector addition. That is, for all vectors \(x,y,z\in R<sup>n,x</sup>T(y+z)=x<sup>Ty+x</sup>Tz\). Also, \((x+y)<sup>Tz=x</sup>Tz+y^Tz\).</li>
+</ul>
+<h3 id="other-properties"><a class="markdownIt-Anchor" href="#other-properties"></a> Other Properties</h3>
+<ul>
+<li>For \(x,y \in R^n, (x+y)<sup>T(x+y)=x</sup>Tx+2x<sup>Ty+y</sup>Ty\).</li>
+<li>For \(x,y \in R^n, x^Ty=0\) if and only if x and y are orthogonal.</li>
+<li>Let \(x,y \in R^n\) be nonzero vectors and let the angle between them equal θ. Then \(\cos(\theta) = \frac{x^Ty}{||x||_2||y||_2}\).</li>
+<li>For \(x \in R^n, x<sup>Te_i=e_i</sup>Tx=\chi_i\) where \(\chi_i\) equals the <code>i</code>th component of x.</li>
+</ul>
+<h2 id="refers"><a class="markdownIt-Anchor" href="#refers"></a> Refers</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality</a></li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="E"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Eric Yang</div>
+      <div>2020-04-13</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    });
+</script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

@@ -20,3 +20,11 @@ _book
 
 # Java
 *.class
+
+.DS_Store
+Thumbs.db
+db.json
+*.log
+
+.deploy*/
+

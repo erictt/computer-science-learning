@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          computational-thinking/lecture-12 - Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li><a href="/README/index.html">Introduction</a></li>
+<li><a href="/SYMBOLS/index.html">Symbols of Mathematics</a></li>
+</ul>
+<!--
+## Stanford Statistical Learning
+
+* [Chapter 2 - Overview of Statistical Learning](/statistical-learning/chapter-2/index.html)
+* Chapter 3 - Linear Regression
+* Chapter 4 - Classification
+* Chapter 5 - Resampling Methods
+* Chapter 6 - Linear Model Selection and Regularization
+* Chapter 7 - Moving Beyond Linearity
+* Chapter 8 - Tree-Based Methods
+* Chapter 9 - Support Vector Machines
+* Chapter 10 - Unsupervised Learning
+-->
+<h2 id="introduction-to-probability"><a class="markdownIt-Anchor" href="#introduction-to-probability"></a> Introduction to Probability</h2>
+<ul>
+<li><a href="/introduction-to-probability/unit-1/index.html">Unit 1: Probability models and axioms</a></li>
+<li><a href="/introduction-to-probability/unit-2/index.html">Unit 2: Conditioning and independence</a></li>
+<li><a href="/introduction-to-probability/unit-3/index.html">Unit 3: Counting</a></li>
+</ul>
+<!--
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<h2 id="multivariable-calculus"><a class="markdownIt-Anchor" href="#multivariable-calculus"></a> Multivariable Calculus</h2>
+<ul>
+<li><a href="/multivariable-calculus/unit-1/index.html">Unit 1: Thinking about multivariable functions</a></li>
+<li><a href="/multivariable-calculus/unit-2/index.html">Unit 2: Derivatives of multivariable functions</a></li>
+</ul>
+<!--
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; Radix Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="lecture-12"><a class="markdownIt-Anchor" href="#lecture-12"></a> Lecture 12</h1>
+<h2 id="machine-learning"><a class="markdownIt-Anchor" href="#machine-learning"></a> Machine Learning</h2>
+<ul>
+<li>Definition
+<ul>
+<li>
+<img src="https://i.imgur.com/KABd2dx.jpg" style="width:200px" />
+</li>
+</ul>
+</li>
+<li>Basic Paradigm
+<ul>
+<li>Observe set of examples: <strong>training data</strong></li>
+<li>Infer something about process that generated that data</li>
+<li>Use inference to make predictions about previously unseen data: <strong>test data</strong></li>
+</ul>
+</li>
+<li>Procedures
+<ul>
+<li>Representation of the features
+<ul>
+<li>separate people with features(man/woman, educated/not, etc.)</li>
+</ul>
+</li>
+<li>Distance metric for feature vectors
+<ul>
+<li>make feature vectors can be calculated in a same range.</li>
+</ul>
+</li>
+<li>Objective function and constraints</li>
+<li>Optimization method for learning the model</li>
+<li>Evaluation method</li>
+</ul>
+</li>
+</ul>
+<h3 id="supervised-learning"><a class="markdownIt-Anchor" href="#supervised-learning"></a> Supervised Learning</h3>
+<ul>
+<li>Start with set of feature vector/value pairs</li>
+<li>Goal: find a model that predicts a value for a previously unseen feature vector</li>
+<li><strong>Regression models</strong> predict a real
+<ul>
+<li>As with linear regression</li>
+</ul>
+</li>
+<li><strong>Classification models</strong> predict a label (chosen from a finite set of labels)</li>
+</ul>
+<h3 id="unsupervised-learning"><a class="markdownIt-Anchor" href="#unsupervised-learning"></a> Unsupervised Learning</h3>
+<ul>
+<li>Start with a set of feature vectors</li>
+<li>Goal: uncover some latent structure in the set of feature vectors</li>
+<li><strong>Clustering</strong> the most common technique
+<ul>
+<li>Define some metric that captures how similar one feature vector is to another</li>
+<li>Group examples based on this metric</li>
+</ul>
+</li>
+</ul>
+<h3 id="difference-between-supervised-and-unsupervised"><a class="markdownIt-Anchor" href="#difference-between-supervised-and-unsupervised"></a> Difference between Supervised and Unsupervised</h3>
+<ul>
+<li>
+<img src="https://i.imgur.com/cSdabJu.jpg" style="width:300px" />
+</li>
+<li>with label, we can classify the data to two clusters by wight or height, or four clusters by wight and height, which is Supervised Learning</li>
+<li>without label, to figure out how to clustering the data, is Unsupervised Learning.</li>
+</ul>
+<h3 id="choose-feature-vectors"><a class="markdownIt-Anchor" href="#choose-feature-vectors"></a> Choose Feature Vectors</h3>
+<ul>
+<li>Why should careful?
+<ul>
+<li>Irrelevant features can lead to a bad model.</li>
+<li>Irrelevant features can greatly slow the learning process.</li>
+</ul>
+</li>
+<li>How?
+<ul>
+<li><strong>signal-to-noise ratio (SNR)</strong>
+<ul>
+<li>Think of it as the ratio of useful input to irrelevant input.</li>
+</ul>
+</li>
+<li>The purpose of feature extraction is to separate those features in the available data that contribute to the signal from those that are merely noise.</li>
+</ul>
+</li>
+</ul>
+<h3 id="distance-between-vectors"><a class="markdownIt-Anchor" href="#distance-between-vectors"></a> Distance Between Vectors</h3>
+<h4 id="minkowski-metric"><a class="markdownIt-Anchor" href="#minkowski-metric"></a> Minkowski Metric</h4>
+<ul>
+<li>
+<p>\(dist(X1, X2, p)=(\displaystyle\sum_{k-1}<sup>{len}abs(X1_{k}-X2_{k})</sup>p)^{1/p}\)</p>
+</li>
+<li>
+<p>p = 1: Manhattan Distance</p>
+</li>
+<li>
+<p>P = 2: Euclidean Distance</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">minkowskiDist</span><span class="params">(v1, v2, p)</span>:</span></span><br><span class="line">    <span class="string">"""Assumes v1 and v2 are equal-length arrays of numbers </span></span><br><span class="line"><span class="string">       Returns Minkowski distance of order p between v1 and v2"""</span> </span><br><span class="line">    dist = <span class="number">0.0</span> </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(v1)):</span><br><span class="line">        dist += abs(v1[i] - v2[i])**p </span><br><span class="line">    <span class="keyword">return</span> dist**(<span class="number">1.0</span>/p)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>For example:</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/6htFCaX.jpg" style="width:150px" />
+</li>
+<li>To compare the distance between star and circle and the distance between cross and circle</li>
+<li>Use Manhattan Distance, they should be 3 and 4</li>
+<li>Use Euclidean Distance, they should be 3 and 2.8 = \(\sqrt{2<sup>2+2</sup>2}\)</li>
+</ul>
+</li>
+</ul>
+<h5 id="using-distance-matrix-for-classification"><a class="markdownIt-Anchor" href="#using-distance-matrix-for-classification"></a> Using Distance Matrix for Classification</h5>
+<ul>
+<li>
+<p>Procedures</p>
+<ul>
+<li>Simplest approach is probably nearest neighbor</li>
+<li>Remember training data</li>
+<li>When predicting the label of a new example
+<ul>
+<li>Find the nearest example in the training data</li>
+<li>Predict the label associated with that example</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>To predict the color of <code>X</code></p>
+<ul>
+<li>
+<img src="https://i.imgur.com/ytCzwnn.jpg" style="width:300px" />
+</li>
+<li>The closest one is pink, so X should be pink</li>
+</ul>
+</li>
+<li>
+<p>K-nearest Neighbors</p>
+<ul>
+<li>Find <code>K</code> nearest neighbors, and choose the label associated with the majority of those neighbors.</li>
+<li>Usually, we use odd number. This sample, we use <code>k = 3</code></li>
+<li>
+<img src="https://i.imgur.com/Pf5xuga.jpg" style="width:300px" />
+</li>
+</ul>
+</li>
+<li>
+<p>Advantages and Disadvantages of KNN</p>
+<ul>
+<li>Advantages
+<ul>
+<li>Learning fast, no explicit training</li>
+<li>No theory required</li>
+<li>Easy to explain method and results</li>
+</ul>
+</li>
+<li>Disadvantages
+<ul>
+<li>Memory intensive and predictions can take a long time</li>
+<li>Are better algorithms than brute force</li>
+<li>No model to shed light on process that generated data</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>For Example</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/20zasHX.jpg" style="width:400px" />
+</li>
+<li>To predict whether zebra, python and alligator are reptile or not.</li>
+<li>Calculate the distances, we got:
+<ul>
+<li>
+<img src="https://i.imgur.com/dIPjgHs.jpg" style="width:400px" />
+</li>
+<li>The closest three animals to alligator are boa constrictor, chicken and dark frog, and two of them are not reptile, so alligator is not reptile.</li>
+<li>But we know alligator is reptile. So what’s wrong?</li>
+<li>We notice, all of the features are 0 or 1, except number of legs, which gets disproportionate weight.
+<ul>
+<li>So, Instead of number of legs, we say “has legs.” And then this becomes a one.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<img src="https://i.imgur.com/9cR0I6e.jpg" style="width:400px" />
+  * The closest three animals to alligator are boa constrictor, chicken and cobra, and two of them are reptile, so alligator is reptile.
+</li>
+</ul>
+</li>
+<li>
+<p>A More General Approach: Scaling</p>
+<ul>
+<li>Z-scaling
+<ul>
+<li>Each feature has a mean of 0 &amp; a standard deviation of 1</li>
+</ul>
+</li>
+<li>Interpolation
+<ul>
+<li>Map minimum value to 0, maximum value to 1, and linearly interpolate</li>
+</ul>
+</li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">zScaleFeatures</span><span class="params">(vals)</span>:</span></span><br><span class="line">        <span class="string">"""Assumes vals is a sequence of floats"""</span></span><br><span class="line">        result = pylab.array(vals)</span><br><span class="line">        mean = float(sum(result))/len(result)</span><br><span class="line">        result = result - mean</span><br><span class="line">        <span class="keyword">return</span> result/stdDev(result)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">iScaleFeatures</span><span class="params">(vals)</span>:</span></span><br><span class="line">        <span class="string">"""Assumes vals is a sequence of floats"""</span></span><br><span class="line">        minVal, maxVal = min(vals), max(vals)</span><br><span class="line">        fit = pylab.polyfit([minVal, maxVal], [<span class="number">0</span>, <span class="number">1</span>], <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> pylab.polyval(fit, vals)</span><br><span class="line">    ``` </span><br><span class="line">    </span><br><span class="line"><span class="comment">### Clustering</span></span><br><span class="line"></span><br><span class="line">* Partition examples into groups (clusters) such that examples <span class="keyword">in</span> a group are more similar to each other than to examples <span class="keyword">in</span> other groups</span><br><span class="line">* Unlike classification, there <span class="keyword">is</span> <span class="keyword">not</span> typically a “right answer”</span><br><span class="line">    * Answer dictated by feature vector <span class="keyword">and</span> distance metric, <span class="keyword">not</span> by a ground truth label</span><br><span class="line"></span><br><span class="line"><span class="comment">#### Optimization Problem</span></span><br><span class="line"></span><br><span class="line">* Clustering <span class="keyword">is</span> an optimization problem. The goal <span class="keyword">is</span> to find a set of clusters that optimizes an objective function, subject to some set of constraints.</span><br><span class="line">* Given a distance metric that can be used to decide how close two examples are to each other, we need to define an **objective function** that</span><br><span class="line">    * Minimizes the distance between examples <span class="keyword">in</span> the same clusters, i.e., minimizes the dissimilarity of the examples within a cluster.</span><br><span class="line">* To compute the variability of the examples within a cluster</span><br><span class="line">    * First compute the mean(`sum(V)/float(len(V))`, more precisely the Euclidean mean) of the feature vectors of all the examples <span class="keyword">in</span> the cluster. , `V` <span class="keyword">is</span> a list of feature vectors. </span><br><span class="line">    * Compute the distance between feature vectors</span><br><span class="line">        * \\(\text&#123;variability&#125;(c)=\displaystyle\sum_&#123;e \<span class="keyword">in</span> c&#125;\text&#123;distance&#125;(\text&#123;mean&#125;(c), e)^<span class="number">2</span>\\)</span><br><span class="line">* The definition of variability within a single cluster, `c`, can be extended to define a dissimilarity metric <span class="keyword">for</span> a set of clusters, `C`:</span><br><span class="line">   * \\(\text&#123;dissimilarity&#125;(C)=\displaystyle\sum_&#123;e \<span class="keyword">in</span> c&#125;\text&#123;variability(c)&#125;\\)</span><br><span class="line">* It<span class="string">'s NOT the optimization problem to find a set of clusters, C, such that `dissimilarity(C)` is minimized. Because it can easily be minimized by putting each example in its own cluster.</span></span><br><span class="line"><span class="string">* We could put a constraint on the distance between clusters or require that the maximum number of clusters is `k`. Then to find the minimum between clusters.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">##### K-means Clustering</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">* Constraint: exactly `k` non-empty clusters</span></span><br><span class="line"><span class="string">* Use a greedy algorithm to find an approximation to minimizing objective function</span></span><br><span class="line"><span class="string">* Algorithm</span></span><br></pre></td></tr></table></figure>
+<p>randomly chose k examples as initial centroids<br />
+while true:<br />
+create k clusters by assigning each<br />
+example to closest centroid<br />
+compute k new centroids by averaging<br />
+examples in each cluster<br />
+if centroids don’t change:<br />
+break</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">    * Sample: [lecture12-4.py](.&#x2F;unit-4&#x2F;lecture12-3.py)</span><br><span class="line">        * &#96;k&#x3D;4&#96;, Initial Centroids: </span><br><span class="line">            * &lt;img src&#x3D;&quot;https:&#x2F;&#x2F;i.imgur.com&#x2F;V8dCSjw.jpg&quot; style&#x3D;&quot;width:200px&quot; &#x2F;&gt;</span><br><span class="line">        * Result: </span><br><span class="line">            * &lt;img src&#x3D;&quot;https:&#x2F;&#x2F;i.imgur.com&#x2F;AlE5EKX.jpg&quot; style&#x3D;&quot;width:200px&quot; &#x2F;&gt;</span><br><span class="line">* Unlucky Initial Centroids</span><br><span class="line">    * &#96;k&#x3D;4&#96;, Initial Centroids: </span><br><span class="line">        * &lt;img src&#x3D;&quot;https:&#x2F;&#x2F;i.imgur.com&#x2F;wp4iegG.jpg&quot; style&#x3D;&quot;width:200px&quot; &#x2F;&gt;</span><br><span class="line">    * Result: </span><br><span class="line">        * &lt;img src&#x3D;&quot;https:&#x2F;&#x2F;i.imgur.com&#x2F;AH4D3uZ.jpg&quot; style&#x3D;&quot;width:200px&quot; &#x2F;&gt;</span><br><span class="line">    * Mitigating Dependence on Initial Centroids</span><br></pre></td></tr></table></figure>
+<pre><code>  best = kMeans(points)
+  for t in range(numTrials):
+      C = kMeans(points)
+      if dissimilarity(C) &lt; dissimilarity(best):
+      best = C
+  return best
+  ```
+</code></pre>
+</li>
+</ul>
+<h3 id="wrapping-up-machine-learning"><a class="markdownIt-Anchor" href="#wrapping-up-machine-learning"></a> Wrapping Up Machine Learning</h3>
+<ul>
+<li>Use data to build statistical models that can be used to
+<ul>
+<li>Shed light on system that produced data</li>
+<li>Make predictions about unseen data</li>
+</ul>
+</li>
+<li>Supervised learning</li>
+<li>Unsupervised learning</li>
+<li>Feature engineering</li>
+<li>Goal was to expose you to some important ideas
+<ul>
+<li>Not to get you to the point where you could apply them</li>
+<li>Much more detail, including implementations, in text</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="E"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Eric Yang</div>
+      <div>2020-04-13</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    });
+</script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
