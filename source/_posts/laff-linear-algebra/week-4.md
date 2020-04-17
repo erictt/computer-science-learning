@@ -74,10 +74,11 @@
 
 ### Outer product
 
-* Let $x \in \mathbb{R}^m$ and $y \in \mathbb{R}^n$. Then the outer product of **x** and **y** is given by $xy^T$. Notice that this yields an $m \times n$ matrix: $$\begin{aligned}
-    xy^T &= \left( \begin{array}{c} \chi _0 \\ \chi _1 \\ \vdots \\ \chi _{m-1} \end{array} \right) \left( \begin{array}{c} \psi _0 \\ \psi _1 \\ \vdots \\ \psi _{n-1} \end{array} \right)^ T = \left( \begin{array}{c} \chi _0 \\ \chi _1 \\ \vdots \\ \chi _{m-1} \end{array} \right) \left( \begin{array}{c c c c} \psi _0 &  \psi _1 &  \cdots &  \psi _{n-1} \end{array} \right) \\
-    &= \left( \begin{array}{c c c c} \chi _0 \psi _0 &  \chi _0 \psi _1 &  \cdots &  \chi _0 \psi _{n-1} \\ \chi _1 \psi _0 &  \chi _1 \psi _1 &  \cdots &  \chi _1 \psi _{n-1} \\ \vdots &  \vdots & &  \vdots \\ \chi _{m-1} \psi _0 &  \chi _{m-1} \psi _1 &  \cdots &  \chi _{m-1} \psi _{n-1} \end{array} \right).
-     \end{aligned}$$
+* Let $x \in \mathbb{R}^m$ and $y \in \mathbb{R}^n$. Then the outer product of **x** and **y** is given by $xy^T$. Notice that this yields an $m \times n$ matrix: 
+    * $$\begin{aligned}
+        xy^T &= \left( \begin{array}{c} \chi _0 \\ \chi _1 \\ \vdots \\ \chi _{m-1} \end{array} \right) \left( \begin{array}{c} \psi _0 \\ \psi _1 \\ \vdots \\ \psi _{n-1} \end{array} \right)^ T = \left( \begin{array}{c} \chi _0 \\ \chi _1 \\ \vdots \\ \chi _{m-1} \end{array} \right) \left( \begin{array}{c c c c} \psi _0 &  \psi _1 &  \cdots &  \psi _{n-1} \end{array} \right) \\
+        &= \left( \begin{array}{c c c c} \chi _0 \psi _0 &  \chi _0 \psi _1 &  \cdots &  \chi _0 \psi _{n-1} \\ \chi _1 \psi _0 &  \chi _1 \psi _1 &  \cdots &  \chi _1 \psi _{n-1} \\ \vdots &  \vdots & &  \vdots \\ \chi _{m-1} \psi _0 &  \chi _{m-1} \psi _1 &  \cdots &  \chi _{m-1} \psi _{n-1} \end{array} \right).
+         \end{aligned}$$
 * <img src="https://i.imgur.com/X0nGqs6.jpg" style="width:600px" />
 * The cost of memops of matrix-matrix multiplication is $2kmn$.
 

@@ -7,37 +7,33 @@
 
 ### Permutation
 
-* Let $p = (k_0, \ldots, k_{n-1})^T$ be a permutation vector. Then $$
-    P = P(p) = \left(\begin{array}{c}
-    e_{k_0}^T \\ e_{k_1}^T \\ \vdots \\ e_{k_{n-1} }^T
-    \end{array}\right)
-$$ is said to be a **permutation matrix**.
+* Let $p = (k_0, \ldots, k_{n-1})^T$ be a permutation vector. Then $P = P(p) = \left(\begin{array}{c} e_{k_0}^T \\ e_{k_1}^T \\ \vdots \\ e_{k_{n-1} }^T \end{array}\right)$ is said to be a **permutation matrix**.
     * $$\text{If}\ p = \left(\begin{array}{c}0 \\ 1 \\ 2 \\ 3\end{array}\right)\ \text{then}\ P(p) = \left(\begin{array}{c c c c}1 & 0 & 0 & 0\\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{array}\right)$$
-* $$
-    P x = P(p) x = \left(\begin{array}{c}
+* $$P x = P(p) x = \left(\begin{array}{c}
     e_{k_0}^T \\ e_{k_1}^T \\ \vdots \\ e_{k_{n-1} }^T
     \end{array}\right) x = \left(\begin{array}{c}
     e_{k_0}^T x \\ e_{k_1}^T x \\ \vdots \\ e_{k_{n-1} }^T x
     \end{array}\right) = \left(\begin{array}{c}
     x_{k_0} \\ x_{k_1} \\ \vdots \\ x_{k_{n-1} }
-    \end{array}\right)
-$$
+    \end{array}\right)$$
 
-* Let $$A = \left(\begin{array}{c}
-    	\widetilde a_0^T \\ \widetilde a_1^T \\ \vdots \\ \widetilde a_{n-1}^T
-    \end{array}\right)$$
+* Let 
+    * $$A = \left(\begin{array}{c}
+        	\widetilde a_0^T \\ \widetilde a_1^T \\ \vdots \\ \widetilde a_{n-1}^T
+        \end{array}\right)$$
     * $$PA = P(p)A = \left(\begin{array}{c}
-    e_{k_0}^T \\ e_{k_1}^T \\ \vdots \\ e_{k_{n-1} }^T
-    \end{array}\right) A = \left(\begin{array}{c}
-    \widetilde a_{k_0}^T \\ \widetilde a_{k_1}^T \\ \vdots \\ \widetilde a_{k_{n-1} }^T
-    \end{array}\right)$$
+        e_{k_0}^T \\ e_{k_1}^T \\ \vdots \\ e_{k_{n-1} }^T
+        \end{array}\right) A = \left(\begin{array}{c}
+        \widetilde a_{k_0}^T \\ \widetilde a_{k_1}^T \\ \vdots \\ \widetilde a_{k_{n-1} }^T
+        \end{array}\right)$$
     
-* Let $$A = \left(\begin{array}{c | c | c | c}
-    	a_0 & a_1 & \ldots & a_{n-1}
-    \end{array}\right)$$
+* Let 
+    * $$A = \left(\begin{array}{c | c | c | c}
+        	a_0 & a_1 & \ldots & a_{n-1}
+        \end{array}\right)$$
     * $$AP^T = \left(\begin{array}{c | c | c | c}
-    	a_{k_0} & a_{k_1} & \ldots & a_{k_{n-1} }
-    \end{array}\right)$$
+        	a_{k_0} & a_{k_1} & \ldots & a_{k_{n-1} }
+        \end{array}\right)$$
 
 * If $P$ is a permutation matrix, then so is $P^T$.
 

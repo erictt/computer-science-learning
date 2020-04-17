@@ -63,7 +63,8 @@
 
 ### Vector Length(NORM2)
 
-* Let $x \in \mathbb{R}^n$. Then the (Euclidean) length of a vector x (the two-norm) is given by $$\lVert x \rVert _2 = \sqrt{x_0^2+x_1^2+\ldots+x_{n-1}^2} = \sqrt{\sum_{i=0}^{n-1}{}x_i^2}$$
+* Let $x \in \mathbb{R}^n$. Then the (Euclidean) length of a vector x (the two-norm) is given by 
+    * $$\lVert x \rVert _2 = \sqrt{x_0^2+x_1^2+\ldots+x_{n-1}^2} = \sqrt{\sum_{i=0}^{n-1}{}x_i^2}$$
     * Here $\lVert x \rVert _2$ notation stands for “the two norm of x”, which is another way of saying “the length of x”.
 
 ### Cauchy-Schwarz inequality
@@ -102,15 +103,19 @@
 
 ### Other Norms
 
-* **A norm** is a function, in our case of a vector in $\mathbb{R}^n$, that maps every vector to a nonnegative real number. The simplest example is the absolute value of a real number: Given $\alpha \in \mathbb{R}$, the absolute value of α, often written as |α|, equals the magnitude of α: $$\lvert \alpha \rvert = \left\{ 
-    \begin{array}{rl} 
-    \alpha & \text{if } \alpha \ge 0,\\ 
-    -\alpha & \text{otherwise}. 
-    \end{array} \right.$$
-* Similarly, one can find functions, called **norms**, that measure the magnitude of vectors. One example is the (Euclidean) length of a vector, which we call the 2-norm: for $x \in \mathbb{R}^n$, $$\lVert x \rVert _2 = \sqrt{\sum_{i=0}^{n-1}x_i^2}$$
+* **A norm** is a function, in our case of a vector in $\mathbb{R}^n$, that maps every vector to a nonnegative real number. The simplest example is the absolute value of a real number: Given $\alpha \in \mathbb{R}$, the absolute value of α, often written as |α|, equals the magnitude of α: 
+    * $$\lvert \alpha \rvert = \left\{ 
+        \begin{array}{rl} 
+        \alpha & \text{if } \alpha \ge 0,\\ 
+        -\alpha & \text{otherwise}. 
+        \end{array} \right.$$
+* Similarly, one can find functions, called **norms**, that measure the magnitude of vectors. One example is the (Euclidean) length of a vector, which we call the 2-norm: for $x \in \mathbb{R}^n$, 
+    * $$\lVert x \rVert _2 = \sqrt{\sum_{i=0}^{n-1}x_i^2}$$
 * Other norms:
-    * 1-norm (also called taxi-cab norm): $$\lVert x \rVert _1 = \sqrt{\sum_{i=0}^{n-1}|x_i|}$$
-    * For $1 \le p \le \infty$, the p-norm: $$\lVert x \rVert _p = \sqrt[p]{\sum_{i=0}^{n-1}|x_i|^p}$$
+    * 1-norm (also called taxi-cab norm): 
+        * $$\lVert x \rVert _1 = \sqrt{\sum_{i=0}^{n-1}|x_i|}$$
+    * For $1 \le p \le \infty$, the p-norm: 
+        * $$\lVert x \rVert _p = \sqrt[p]{\sum_{i=0}^{n-1}|x_i|^p}$$
 
 ## Summary of the Properties for Vector Operations
 

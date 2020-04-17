@@ -2,53 +2,52 @@
 
 ## Gaussian Elimination
 
-* To solv the linear system: $$\begin{array}{c c c c c c}
-    2 \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
-    4 \chi_0 & - & 2 \chi_1 & + & 6 \chi_2 & = & 20 \\
-    6 \chi_0 & - & 4 \chi_1 & + & 2 \chi_2 & = & 18
-    \end{array}$$
+* To solv the linear system: 
+    * $$\begin{array}{c c c c c c}
+        2 \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
+        4 \chi_0 & - & 2 \chi_1 & + & 6 \chi_2 & = & 20 \\
+        6 \chi_0 & - & 4 \chi_1 & + & 2 \chi_2 & = & 18
+        \end{array}$$
 
 ### Procedures
 
 * **Transform linear system of equations to an upper triangular system**
-    * Subtract $\lambda_{1,0} = (\color{blue}{4} / \color{red}{2} ) = 2$ times the first equation from the second equation: $$\begin{array}{c | c}
-        \text{Before} & \text{After} \\
-        \begin{array}{c c c c c c}
-    \color{red}{2} \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
-    4 \chi_0 & - & 2 \chi_1 & + & 6 \chi_2 & = & 20 \\
-    6 \chi_0 & - & 4 \chi_1 & + & 2 \chi_2 & = & 18
-    \end{array} & \begin{array}{c c c c c c}
-    2 \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
-    & - & 10 \chi_1 & + & 10 \chi_2 & = & 40 \\
-    6 \chi_0 & - & 4 \chi_1 & + & 2 \chi_2 & = & 18
-    \end{array}
-    \end{array}$$
+    * Subtract $\lambda_{1,0} = (\color{blue}{4} / \color{red}{2} ) = 2$ times the first equation from the second equation: 
+        * $$\begin{array}{c | c}
+            \text{Before} & \text{After} \\
+            \begin{array}{c c c c c c} \color{red}{2} \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
+            4 \chi_0 & - & 2 \chi_1 & + & 6 \chi_2 & = & 20 \\
+            6 \chi_0 & - & 4 \chi_1 & + & 2 \chi_2 & = & 18
+            \end{array} & \begin{array}{c c c c c c} 2 \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
+            & - & 10 \chi_1 & + & 10 \chi_2 & = & 40 \\
+            6 \chi_0 & - & 4 \chi_1 & + & 2 \chi_2 & = & 18
+            \end{array}
+            \end{array}$$
     
-    * Subtract $\lambda_{2,0} = ( \color{blue}{6} / \color{red}{2} ) = 3$ times the first equation from the third equation: $$\begin{array}{c | c}
-        \text{Before} & \text{After} \\
-        \begin{array}{c c c c c c}
-    \color{red}{2} \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
-    & - & 10 \chi_1 & + & 10 \chi_2 & = & 40 \\
-    \color{blue}{6} \chi_0 & - & 4 \chi_1 & + & 2 \chi_2 & = & 18
-    \end{array} & \begin{array}{c c c c c c}
-    2 \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
-    & - & 10 \chi_1 & + & 10 \chi_2 & = & 40 \\
-    & - & 16 \chi_1 & + & 8 \chi_2 & = & 48
-    \end{array}
-    \end{array}$$
+    * Subtract $\lambda_{2,0} = ( \color{blue}{6} / \color{red}{2} ) = 3$ times the first equation from the third equation: 
+        * $$\begin{array}{c | c}
+            \text{Before} & \text{After} \\
+            \begin{array}{c c c c c c} \color{red}{2} \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
+            & - & 10 \chi_1 & + & 10 \chi_2 & = & 40 \\
+            \color{blue}{6} \chi_0 & - & 4 \chi_1 & + & 2 \chi_2 & = & 18 \end{array} & \begin{array}{c c c c c c} 2 \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
+            & - & 10 \chi_1 & + & 10 \chi_2 & = & 40 \\
+            & - & 16 \chi_1 & + & 8 \chi_2 & = & 48
+            \end{array}
+            \end{array}$$
     
-    * Subtract $\lambda_{2,0} = ( \color{blue}{-16} / \color{red}{-10} ) = 1.6$ times the second equation from the third equation: $$\begin{array}{c | c}
+    * Subtract $\lambda_{2,0} = ( \color{blue}{-16} / \color{red}{-10} ) = 1.6$ times the second equation from the third equation: 
+    * $$\begin{array}{c | c}
         \text{Before} & \text{After} \\
         \begin{array}{c c c c c c}
-    2 \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
-    & \color{red}{-} & \color{red}{10 \chi_1} & + & 10 \chi_2 & = & 40 \\
-    & \color{red}{-} & \color{red}{16 \chi_1} & + & 8 \chi_2 & = & 48
-    \end{array} & \begin{array}{c c c c c c}
-    2 \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
-    & - & 10 \chi_1 & + & 10 \chi_2 & = & 40 \\
-    & & & - & 8 \chi_2 & = & - 16
-    \end{array}
-    \end{array}$$
+        2 \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
+        & \color{red}{-} & \color{red}{10 \chi_1} & + & 10 \chi_2 & = & 40 \\
+        & \color{red}{-} & \color{red}{16 \chi_1} & + & 8 \chi_2 & = & 48
+        \end{array} & \begin{array}{c c c c c c}
+        2 \chi_0 & + & 4 \chi_1 & - & 2 \chi_2 & = & -10 \\
+        & - & 10 \chi_1 & + & 10 \chi_2 & = & 40 \\
+        & & & - & 8 \chi_2 & = & - 16
+        \end{array}
+        \end{array}$$
     
     * This now leaves us with an upper triangular system of linear equations.
 
@@ -103,82 +102,83 @@
 1. Want to solve: $Ax = b$
     * Give A and b, solve x.
     * $$A = \left(\begin{array}{c c c}
-    2 & + 4 & - 2 \\
-    4 & - 2 & + 6 \\
-    6 & - 4 & + 2
-    \end{array}\right), 
-    b = \left(\begin{array}{c}
-    -10 \\ 20 \\ 18
-    \end{array}\right)$$
+        2 & + 4 & - 2 \\
+        4 & - 2 & + 6 \\
+        6 & - 4 & + 2
+        \end{array}\right), 
+        b = \left(\begin{array}{c}
+        -10 \\ 20 \\ 18
+        \end{array}\right)$$
 2. Now we find triangular L and U so that: $A = LU$
     * U is the transformed A matrix
     * A is the coefficients which transfers A to U
-    * Transfered: $$A \to \left(\begin{array}{c c c}
-    2 & + 4 & - 2 \\
-    \scriptsize{2} & - 10 & - 10 \\
-    \scriptsize{3} & \scriptsize{1.6} & - 8
-    \end{array}\right),
-    L = \left(\begin{array}{c c c}
-    1 & 0 & 0 \\
-    2 & 1 & 0 \\
-    3 & 1.6 & 1
-    \end{array}\right),
-    U = \left(\begin{array}{c c c}
-    2 & + 4 & - 2 \\
-    0 & - 10 & + 10 \\
-    0 & 0 & - 8
-    \end{array}\right)$$
+    * Transfered: 
+        * $$A \to \left(\begin{array}{c c c}
+            2 & + 4 & - 2 \\
+            \scriptsize{2} & - 10 & - 10 \\
+            \scriptsize{3} & \scriptsize{1.6} & - 8
+            \end{array}\right),
+            L = \left(\begin{array}{c c c}
+            1 & 0 & 0 \\
+            2 & 1 & 0 \\
+            3 & 1.6 & 1
+            \end{array}\right),
+            U = \left(\begin{array}{c c c}
+            2 & + 4 & - 2 \\
+            0 & - 10 & + 10 \\
+            0 & 0 & - 8
+            \end{array}\right)$$
 3. Substitute: $(LU)x = b$ => $L(Ux) = b$
 4. Replace Ux with y. ($y = Ux$) => $Ly = b$
 5. Solve $Ly = b$ for $y$. (**More details in next section**)
     * This is forward substitution (applying the transforms to the right-hand side).
     * $$\left(\begin{array}{c c c}
-    1 & 0 & 0 \\
-    2 & 1 & 0 \\
-    3 & 1.6 & 1
-    \end{array}\right) \times 
-    \left(\begin{array}{c} 
-    y_0 \\ y_1 \\ y_2
-    \end{array}\right) =
-    \left(\begin{array}{c}
-    -10 \\ 20 \\ 18
-    \end{array}\right)$$
+        1 & 0 & 0 \\
+        2 & 1 & 0 \\
+        3 & 1.6 & 1
+        \end{array}\right) \times 
+        \left(\begin{array}{c} 
+        y_0 \\ y_1 \\ y_2
+        \end{array}\right) =
+        \left(\begin{array}{c}
+        -10 \\ 20 \\ 18
+        \end{array}\right)$$
     * $$\to \left(\begin{array}{c}
-        -10 \\
-        20 - 2 y_0 \\ 
-        18 - 3 y_0
-    \end{array}\right) \to \left(\begin{array}{c}
-        -10 \\
-        40 \\ 
-        48 - 1.6 y_1
-    \end{array}\right) \to \left(\begin{array}{c}
-        -10 \\
-        40 \\ 
-        -16
-    \end{array}\right)$$
+            -10 \\
+            20 - 2 y_0 \\ 
+            18 - 3 y_0
+        \end{array}\right) \to \left(\begin{array}{c}
+            -10 \\
+            40 \\ 
+            48 - 1.6 y_1
+        \end{array}\right) \to \left(\begin{array}{c}
+            -10 \\
+            40 \\ 
+            -16
+        \end{array}\right)$$
     
 6. Solve $Ux = y$ for $x$. (**More details in next next section**)
     * This is back substitution (solve x).
     * $$\left(\begin{array}{c c c}
-    2 & + 4 & - 2 \\
-    0 & - 10 & + 10 \\
-    0 & 0 & - 8
-    \end{array}\right) \times 
-    \left(\begin{array}{c} 
-    x_0 \\ x_1 \\ x_2
-    \end{array}\right) = \left(\begin{array}{c}
-        -10 \\ 40 \\  -16
-    \end{array}\right)$$
-    * $$\to \left(\begin{array}{c}
-        -10 \\ 40 \\  \frac{-16}{-8} = \color{blue}{2}
-    \end{array}\right) \to \left(\begin{array}{c} - 10 \\
-        \frac{40 - 10 \times \color{blue}{2} }{-10} = \color{red}{- 2} \\ 
-        \color{blue}{2}
-    \end{array}\right) \to \left(\begin{array}{c}
-        \frac{-10 - 4 \times ( \color{red}{- 2} ) - ( -2 ) \times \color{blue}{2}}{2} = \color{green}{1} \\ \color{red}{- 2} \\ \color{blue}{2}
-    \end{array}\right) \to \left(\begin{array}{c}
-        \color{green}{1} \\ \color{red}{- 2} \\ \color{blue}{2}
-    \end{array}\right)$$
+        2 & + 4 & - 2 \\
+        0 & - 10 & + 10 \\
+        0 & 0 & - 8
+        \end{array}\right) \times 
+        \left(\begin{array}{c} 
+        x_0 \\ x_1 \\ x_2
+        \end{array}\right) = \left(\begin{array}{c}
+            -10 \\ 40 \\  -16
+        \end{array}\right)$$
+        * $$\to \left(\begin{array}{c}
+                -10 \\ 40 \\  \frac{-16}{-8} = \color{blue}{2}
+            \end{array}\right) \to \left(\begin{array}{c} - 10 \\
+                \frac{40 - 10 \times \color{blue}{2} }{-10} = \color{red}{- 2} \\ 
+                \color{blue}{2}
+            \end{array}\right) \to \left(\begin{array}{c}
+                \frac{-10 - 4 \times ( \color{red}{- 2} ) - ( -2 ) \times \color{blue}{2}}{2} = \color{green}{1} \\ \color{red}{- 2} \\ \color{blue}{2}
+            \end{array}\right) \to \left(\begin{array}{c}
+                \color{green}{1} \\ \color{red}{- 2} \\ \color{blue}{2}
+            \end{array}\right)$$
 
 ### Solving Lz = b (Forward substitution)
 

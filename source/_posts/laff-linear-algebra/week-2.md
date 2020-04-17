@@ -29,9 +29,10 @@
         * So this proves the base case.
     * **Inductive step**: Inductive Hypothesis (IH): Assume that the result is true for $n = k$ where $k \ge 1$: $\displaystyle\sum_{i=0}^{k-1}{i} = k(k-1)/2$
         * We need to show that the result is then also true for $n=k+1$: $\displaystyle\sum_{i=0}^{(k+1)-1}{i} = (k+1)((k+1)-1)/2$
-        * Assume that $k \ge 1$, Then $$\begin{aligned}\sum_{i=0}^{(k+1)-1}{i} &= \sum_{i=0}^{k-1}{i} + k \\
-            &= k(k-1)/2 + k = k(k+1)/2 \\
-            &= (k+1)((k+1)-1)/2 \end{aligned}$$
+        * Assume that $k \ge 1$, Then 
+            * $$\begin{aligned}\sum_{i=0}^{(k+1)-1}{i} &= \sum_{i=0}^{k-1}{i} + k \\
+                &= k(k-1)/2 + k = k(k+1)/2 \\
+                &= (k+1)((k+1)-1)/2 \end{aligned}$$
         * This proves the inductive step.
 
 ## Representing Linear Transformations as Matrices

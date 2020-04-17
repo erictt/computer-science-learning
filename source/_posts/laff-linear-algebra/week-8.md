@@ -7,7 +7,7 @@
 
 * $Ax=b$
 * If A is non-singular, then:
-1.     * $A^{-1}Ax = x \to A^{-1}b = x \to x = A^{-1}b$
+    * $A^{-1}Ax = x \to A^{-1}b = x \to x = A^{-1}b$
 
 ### Computing A^−1 via Gauss-Jordan Elimination
 

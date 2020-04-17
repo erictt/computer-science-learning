@@ -81,7 +81,8 @@
 
 #### Jordan Block
 
-* In general, the k ×k matrix $J_k(\lambda)$ given by $$J_k(\lambda) = \begin{pmatrix} \lambda & 1 & 0 & \cdots & 0 & 0 \\ 0 & \lambda & 1 & \cdots & 0 & 0 \\ 0 & 0 & \lambda & \cdots & 0 & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 0 & 0 & 0 & \cdots & \lambda & 1 \\ 0 & 0 & 0 & \cdots & 0 & \lambda \end{pmatrix}$$ 
+* In general, the k ×k matrix $J_k(\lambda)$ given by 
+    * $$J_k(\lambda) = \begin{pmatrix} \lambda & 1 & 0 & \cdots & 0 & 0 \\ 0 & \lambda & 1 & \cdots & 0 & 0 \\ 0 & 0 & \lambda & \cdots & 0 & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 0 & 0 & 0 & \cdots & \lambda & 1 \\ 0 & 0 & 0 & \cdots & 0 & \lambda \end{pmatrix}$$ 
 * a simple example: $$\begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}$$
 * Any nontrivial Jordan block of size 2×2 or larger (that is, not completely diagonal) is defective.
 

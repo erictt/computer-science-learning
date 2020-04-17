@@ -102,5 +102,6 @@
 * If we partition
     * <img src="https://i.imgur.com/rWqF8hr.jpg" style="width:500px" />
 * where $U_L$ and $V_L$ have $k$ columns and $\Sigma_{TL}$ is $k \times k$, then $U_L \Sigma_{TL} V_L^T$ is the “best” rank-k approximation to matrix B. So, the “best” rank-k approximation $B = AW^T$ is given by the choices $A = U_L$ and $W = \Sigma_{TL} V_L$.
-    * Given $A \in \mathbb{R}^{m \times n}$ with linearly independent columns, and $b \in \mathbb{R}^m$ , the “best” solution to $Ax \approx b$ (in the linear least-squares sense) via its SVD, $A = U \Sigma V^T$ , is given by $$\begin{aligned}\hat{x} &= (A^TA)^{-1}A^T b \\ &= ((U \Sigma V^T)^T U \Sigma V^T)^{-1} (U \Sigma V^T)^T b \\ &= V \Sigma^{-1} U^T b \end{aligned}$$
+    * Given $A \in \mathbb{R}^{m \times n}$ with linearly independent columns, and $b \in \mathbb{R}^m$ , the “best” solution to $Ax \approx b$ (in the linear least-squares sense) via its SVD, $A = U \Sigma V^T$ , is given by 
+        * $$\begin{aligned}\hat{x} &= (A^TA)^{-1}A^T b \\ &= ((U \Sigma V^T)^T U \Sigma V^T)^{-1} (U \Sigma V^T)^T b \\ &= V \Sigma^{-1} U^T b \end{aligned}$$
 
