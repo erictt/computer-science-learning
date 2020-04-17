@@ -14,7 +14,8 @@
     * Transforming a scaled vector is the same as scaling the transformed vector: $$L(\alpha x) = \alpha L(x)$$
     * Transforming the sum of two vectors is the same as summing the two transformed vectors: $$L(x + y) = L(x) + L(y)$$
 * **Lemma**: $L: \mathbb{R}^n \to \mathbb{R}^m$ is a linear transformation if and only if(iff) for all $u,v \in \mathbb{R}^n$ and $\alpha, \beta \in \mathbb{R}^n$ $$L(\alpha u + \beta v) = \alpha L(u) + \beta L(v)$$
-* **Lemma**: Let $v_0, v_1, \ldots, v_{k-1} \in \mathbb{R}^n$ and let $L: \mathbb{R}^n \to \mathbb{R}^m$ be a linear transformation. Then $$L(v_0 + v_1 + \ldots + v_{k-1}) = L(v_0) + L(v_1) + \ldots + L(v_{k-1})$$
+* **Lemma**: Let $v_0, v_1, \ldots, v_{k-1} \in \mathbb{R}^n$ and let $L: \mathbb{R}^n \to \mathbb{R}^m$ be a linear transformation. Then 
+    * $$L(v_0 + v_1 + \ldots + v_{k-1}) = L(v_0) + L(v_1) + \ldots + L(v_{k-1})$$
 
 ## Mathematical Induction
 
