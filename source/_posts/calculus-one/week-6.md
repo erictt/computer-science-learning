@@ -125,16 +125,16 @@
 ### The Quotient Rule
 
 * First we need to calculate the derivative of $\frac{1}{g(x)}$ : 
-    $$\begin{aligned}
+    * $$\begin{aligned}
         \text{we have proved this:} f(x) &= \frac{1}{x},\ f'(x) = -\frac{1}{x^2} \\
         so,\ \frac{d}{dx}\frac{1}{g(x)} &= - \frac{1}{(g(x))^2} \cdot g'(x)
       \end{aligned}$$
       
 * Then: $$\begin{aligned}
-        \frac{d}{dx}\frac{f(x)}{g(x)} &= \frac{d}{dx}(f(x) \cdot \frac{1}{g(x)}) \\
-        &= f'(x) \cdot \frac{1}{g(x)} + f(x) \cdot (- \frac{1}{(g(x))^2} \cdot g'(x)) \\
-        &= \frac{f'(x) \cdot g(x) -  f(x) \cdot g'(x)}{(g(x))^2} \\
-      \end{aligned}$$
+          \frac{d}{dx}\frac{f(x)}{g(x)} &= \frac{d}{dx}(f(x) \cdot \frac{1}{g(x)}) \\
+          &= f'(x) \cdot \frac{1}{g(x)} + f(x) \cdot (- \frac{1}{(g(x))^2} \cdot g'(x)) \\
+          &= \frac{f'(x) \cdot g(x) -  f(x) \cdot g'(x)}{(g(x))^2} \\
+          \end{aligned}$$
 
 ### Proof the Chain Rule
 
@@ -144,7 +144,7 @@
     $$\lim_{\Delta x \to o}\frac{\Delta y}{\Delta x}=f'(a)$$. So if we denote by $\epsilon$ the difference between the difference quotient and the derivative, we obtain 
     $$\lim_{\Delta x \to 0}\epsilon = \lim_{\Delta x \to 0}(\frac{\Delta y}{\Delta x}-f'(a)) = f'(a)-f'(a) = 0$$. 
     But 
-    $$\epsilon = \frac{\Delta y}{\Delta x}-f'(a)\ \Rightarrow \Delta y = f'(a)\Delta x + \epsilon \Delta x\$$. 
+    $$\epsilon = \frac{\Delta y}{\Delta x}-f'(a)\ \Rightarrow \Delta y = f'(a)\Delta x + \epsilon \Delta x$$. 
     If we define $\epsilon$ to be 0 when `∆x = 0`, then $\epsilon$ become a continuous function of `∆x`. Thus, for a differentiable function `f`, we can write 
     $$\Delta y = f'(a)\Delta x + \epsilon \Delta x \text{ where } \epsilon \to 0\ as\ \Delta x \to 0$$
     and $\epsilon$ is a continuous function of `∆x`. This property of differentiable functions is what enables us to prove the Chain Rule.

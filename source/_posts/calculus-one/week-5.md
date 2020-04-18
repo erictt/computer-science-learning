@@ -98,12 +98,13 @@
     * $\displaystyle \lim_{h \to 0}\frac{3^h-1}{h} \approx 1.099$
 * Then there is an `x` such that $\displaystyle \lim_{h \to 0}\frac{x^h-1}{h} = 1$.
 * We call the `x` value: $e$, $\displaystyle \lim_{h \to 0}\frac{e^h-1}{h} = 1$
-* To calculate the derivative of $e^x$: $$\begin{aligned}
-    f'(x) &= \lim_{h \to 0}\frac{e^{x+h} - e^x}{h} \\
-          &= \lim_{h \to 0}\frac{e^{x}e^{h} - e^x}{h} \\
-          &= \lim_{h \to 0}\frac{e^{x}(e^{h} - 1)}{h} \\
-          &= e^{x} * \lim_{h \to 0}\frac{(e^{h} - 1)}{h} 
-    \end{aligned}$$
+* To calculate the derivative of $e^x$: 
+    * $$\begin{aligned}
+        f'(x) &= \lim_{h \to 0}\frac{e^{x+h} - e^x}{h} \\
+              &= \lim_{h \to 0}\frac{e^{x}e^{h} - e^x}{h} \\
+              &= \lim_{h \to 0}\frac{e^{x}(e^{h} - 1)}{h} \\
+              &= e^{x} * \lim_{h \to 0}\frac{(e^{h} - 1)}{h} 
+        \end{aligned}$$
 
 * We already assume that $\displaystyle \lim_{h \to 0}\frac{e^h-1}{h} = 1$, so we got: $$f'(x) = e^{x} \cdot 1 = e^{x} = f(x)$$
 
