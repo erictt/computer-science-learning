@@ -34,7 +34,8 @@
 ### Derivatives of Inverse Function
 
 * If `f` is a differentiable function, and `f'` is continuous, and $f'(a) \ne 0$, then
-    * $f^{-1}(y)$ is defined for `y` near `f(a)`, $f^{-1}$ is differentiable near `f(a)`, $(f^{-1})'$ is continuous near `f(a)`, and $$(f^{-1})'(y)=\frac{1}{f'(f^{-1}(y))}$$
+    * $f^{-1}(y)$ is defined for `y` near `f(a)`, $f^{-1}$ is differentiable near `f(a)`, $(f^{-1})'$ is continuous near `f(a)`, and 
+        * $$(f^{-1})'(y)=\frac{1}{f'(f^{-1}(y))}$$
 * Sample: 
     $$\begin{aligned}
         f(x) &= x^2\ (x>0),\ f'(x) = 2x \\
