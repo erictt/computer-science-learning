@@ -52,15 +52,14 @@
         * $= - \frac{1}{2n+1}u^{2n+1} + \frac{1}{4n+1}u^{4n} + C$
         * $= - \frac{1}{2n+1}\cos^{2n+1}{x} + \frac{1}{4n+1}\cos^{4n}{x} + C$
     * **The conclusion is**, we can always transfer the odd one to $\sin^{2n}{x} \cdot \sin{x}$ or $\cos^{2n}{x} \cdot \cos{x}$, and use the equation $\sin^2{x} + \cos^2{x} = 1$ to transfer between $\sin$ and $\cos$ .
-* If the powers of both sine and cosine are even, use the **half-­angle identities**:$$
-    \sin^2{x} = \frac{1}{2}(1 - \cos(2x)),\ \cos^2{x} = \frac{1}{2}(1 + \cos(2x))
-   $$
+* If the powers of both sine and cosine are even, use the **half-­angle identities**:$$ \sin^2{x} = \frac{1}{2}(1 - \cos(2x)),\ \cos^2{x} = \frac{1}{2}(1 + \cos(2x)) $$
     * It is sometimes helpful to use the identity $$\sin{x}\cos{x} = \frac{1}{2}\sin{2x}$$
-    * For example: $$\begin{aligned}
-        \int_0^{\pi} \sin^2{x} \ dx &= \frac{1}{2} \int_0^{\pi}(1 - \cos{2x})\ dx \\
-        &= \big[\frac{1}{2}(x-\frac{1}{2}\sin{2x})\big]_0^{\pi} \\
-        &= \frac{1}{2}(\pi - \frac{1}{2} \sin{2\pi}) - \frac{1}{2}(0 - \frac{1}{2}\sin{0}) = \frac{1}{2}\pi
-        \end{aligned}$$
+    * For example: 
+        * $$\begin{aligned}
+            \int_0^{\pi} \sin^2{x} \ dx &= \frac{1}{2} \int_0^{\pi}(1 - \cos{2x})\ dx \\
+            &= \big[\frac{1}{2}(x-\frac{1}{2}\sin{2x})\big]_0^{\pi} \\
+            &= \frac{1}{2}(\pi - \frac{1}{2} \sin{2\pi}) - \frac{1}{2}(0 - \frac{1}{2}\sin{0}) = \frac{1}{2}\pi
+            \end{aligned}$$
 
 ## Tables of Indefinite Integrals
 

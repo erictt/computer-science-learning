@@ -19,19 +19,22 @@
 
 * <img src="https://i.imgur.com/tvybTNG.jpg" style="width:200px" />
 * The cross-sectional area is $$A(x) = \pi y^2 = \pi(r^2 - x^2)$$
-* Using the definition of volume with $a = -r$ and $b = r$, we have $$\begin{aligned}
-    V &= \int_{-r}^{r}A(x) dx = \int_{-r}^{r} \pi(r^2 - x^2) dx \\
-    &= 2\pi \int_0^r(r^2 - x^2)\ dx \\
-    &= 2\pi \big[r^2x - \frac{x^3}{3}\big]_0^r = 2\pi(r^3-\frac{r^3}{3}) \\
-    &= \frac{4}{3}\pi r^3
-    \end{aligned}$$
+* Using the definition of volume with $a = -r$ and $b = r$, we have 
+    * $$\begin{aligned}
+        V &= \int_{-r}^{r}A(x) dx = \int_{-r}^{r} \pi(r^2 - x^2) dx \\
+        &= 2\pi \int_0^r(r^2 - x^2)\ dx \\
+        &= 2\pi \big[r^2x - \frac{x^3}{3}\big]_0^r = 2\pi(r^3-\frac{r^3}{3}) \\
+        &= \frac{4}{3}\pi r^3
+        \end{aligned}$$
 
 ### Use Washer Method
 
 * The region $\mathscr{R}$ enclosed by the curves $f(x) = x, g(x) = x^2$ is rotated about the x-axis. Find the volume of the resulting solid.
 * <img src="https://i.imgur.com/nPAJljm.jpg" style="width:500px" />
-* The curves $y = x \text{ and } y = x^2$ intersect at the points **(0, 0)** and **(1, 1)**. The region between them, the solid of rotation, and a cross-section perpendicular to the x-axis are shown above. A cross-section in the plane $P_x$ has the shape of a **washer** (an annular ring) with inner radius $x^2$ and outer radius $x$, so we find the cross-sectional area by subtracting the area of the inner circle from the area of the outer circle: $$A(x) = \pi x^2 - \pi (x^2)^2 = \pi(x^2 - x^4)$$
-* Therefore we have $$V = \int_0^1 A(x)dx = \int_0^1 \pi(x^2 - x^4) \ dx  = \pi \big[\frac{x^3}{3} - \frac{x^5}{5}\big]_0^1 = \frac{2\pi}{15}$$
+* The curves $y = x \text{ and } y = x^2$ intersect at the points **(0, 0)** and **(1, 1)**. The region between them, the solid of rotation, and a cross-section perpendicular to the x-axis are shown above. A cross-section in the plane $P_x$ has the shape of a **washer** (an annular ring) with inner radius $x^2$ and outer radius $x$, so we find the cross-sectional area by subtracting the area of the inner circle from the area of the outer circle: 
+    * $$A(x) = \pi x^2 - \pi (x^2)^2 = \pi(x^2 - x^4)$$
+* Therefore we have 
+    * $$V = \int_0^1 A(x)dx = \int_0^1 \pi(x^2 - x^4) \ dx  = \pi \big[\frac{x^3}{3} - \frac{x^5}{5}\big]_0^1 = \frac{2\pi}{15}$$
 
 ### Use Shells Method
 
@@ -47,11 +50,12 @@
 * For example: Find the volume of the solid obtained by rotating the region bounded by $y=x-x^2$ and $y=0$ about the line $x = 2$.
     * The figure below shows the region and a cylindrical shell formed by rotation about the line $x = 2$. It has radius $2 - x$, circumference $2\pi (2-x)$, and height $x - x^2$.
     * <img src="https://i.imgur.com/5C6eyWm.jpg" style="width:500px" />
-    * The volume of the given solid is: $$\begin{aligned}
-        V &= \int_0^1 2 \pi (2 - x) (x - x^2) dx \\
-        &= 2 \pi \int_0^1 (x^3-3x^2 + 2x) dx \\
-        &= 2 \pi \big[\frac{x^4}{4} - x^3 + x^2\big]_0^1 = \frac{\pi}{2}
-        \end{aligned}$$
+    * The volume of the given solid is: 
+        * $$\begin{aligned}
+            V &= \int_0^1 2 \pi (2 - x) (x - x^2) dx \\
+            &= 2 \pi \int_0^1 (x^3-3x^2 + 2x) dx \\
+            &= 2 \pi \big[\frac{x^4}{4} - x^3 + x^2\big]_0^1 = \frac{\pi}{2}
+            \end{aligned}$$
 
 
 ### Disks and Washers versus Cylindrical Shells
@@ -67,11 +71,12 @@
     * Suppose that a curve **C** is defined by the equation $y = f(x)$, where $f$ is continuous and $a \le x \le b$. We obtain a polygonal approximation to **C** by dividing the interval **[a, b]** into n subintervals with endpoints $x_0, x_1, \ldots, x_n$ and equal width $\Delta x$. If $y_i = f(x_i)$, then the point $P_i(x_i, y_i)$ lies on **C** and the polygon with vertices $P_0, P_1, \ldots, P_n$, is an approximation of **C**.
     * <img src="https://i.imgur.com/ETradYS.jpg" style="width:250px" />
     * We define the length **L** of the curve **C** as thee limit of the lengths $|P_{i-1}P_i|$: $$L = \lim_{n \to \infty} \sum_{i=1}^n |P_{i-1}P_i|$$
-    * If we let $\Delta y_i = y_i - y_{i-1}$, then $$\begin{aligned} 
-        |P_{i-1}P_i| &= \sqrt{(x_i-x_{i-1})^2 + (y_i-y_{i-1})^2} = \sqrt{(\Delta x_i)^2 + (\Delta y_i)^2} \\
-        &= \Delta x_i \sqrt{1 + (\frac{\Delta y_i}{\Delta x_i})^2} \\
-        &= \sqrt{1 + (f'(x))^2}dx
-        \end{aligned}$$
+    * If we let $\Delta y_i = y_i - y_{i-1}$, then 
+        * $$\begin{aligned} 
+            |P_{i-1}P_i| &= \sqrt{(x_i-x_{i-1})^2 + (y_i-y_{i-1})^2} = \sqrt{(\Delta x_i)^2 + (\Delta y_i)^2} \\
+            &= \Delta x_i \sqrt{1 + (\frac{\Delta y_i}{\Delta x_i})^2} \\
+            &= \sqrt{1 + (f'(x))^2}dx
+            \end{aligned}$$
     * So $$L = \int_a^b\sqrt{1 + [f'(x)]^2}dx$$
 
 

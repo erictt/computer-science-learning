@@ -12,16 +12,18 @@
 * Definition: Approximate values for the solution of the initial-value problem $y' = F(x,y)$, $y(x_0) = y_0$, with step size **h**, at $x_n = x_{n-1} + h$, are $$y_n = y_{n-1} + hF(x_{n-1},y_{n-1}) \text{, } n=1,2,3,...$$
     * <img src="https://i.imgur.com/lKFQF40.jpg" style="width:200px" />
     * Let's say $f(0) = a$, $a \in \mathbb{R}$, and **h** is small number.
-    * So, $$\begin{aligned}
-        f(h) &\approx f(0) + h \cdot F(0) \\
-        f(2h) &\approx f(h) + h \cdot F(h) \\
-        f(3h) &\approx f(h) + h \cdot F(2h)
-        \end{aligned}$$
-    * Since this is just an approximation of the derivative, it's better not to pick a point which is all the way on the **left hand side** of the interval, instead with **the middle value**: $$\begin{aligned}
-        f(h) &\approx f(0) + h \cdot F(\frac{h}{2}) \\
-        f(2h) &\approx f(h) + h \cdot F(\frac{3h}{2}) \\
-        f(3h) &\approx f(h) + h \cdot F(\frac{5h}{2})
-        \end{aligned}$$
+    * So, 
+        * $$\begin{aligned}
+            f(h) &\approx f(0) + h \cdot F(0) \\
+            f(2h) &\approx f(h) + h \cdot F(h) \\
+            f(3h) &\approx f(h) + h \cdot F(2h)
+            \end{aligned}$$
+    * Since this is just an approximation of the derivative, it's better not to pick a point which is all the way on the **left hand side** of the interval, instead with **the middle value**: 
+        * $$\begin{aligned}
+            f(h) &\approx f(0) + h \cdot F(\frac{h}{2}) \\
+            f(2h) &\approx f(h) + h \cdot F(\frac{3h}{2}) \\
+            f(3h) &\approx f(h) + h \cdot F(\frac{5h}{2})
+            \end{aligned}$$
 * Take another example, why is $\log_{2}{3} \approx 19/12$?
     * Since $\log_{2}{3} = \frac{\log3}{\log2}$, Let's separate it, to estimate $\log2$ first.
     * Set our function $f(x) = \log{x}$, then $\log(1) = 0$, so let's start with $\log(1)$ with step size: **1/4** : 

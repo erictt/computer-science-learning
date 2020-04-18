@@ -12,11 +12,15 @@
 * $0 = a^T w = a^T(b - z) = a^T (b - \chi a)$
 * $a^T a \chi = a^T b$.
 * Provided $a \ne 0$, $\chi = (a^T a)^{-1}(a^T b)$.
-* Thus, the component of $b$ in the direction of $a$ is given by $$z = \chi a = (a^T a)^{-1} (a^T b) a = a(a^T a)^{-1}(a^T b) = [a(a^T a)^{-1}a^T ] b = [\frac{1}{a^T a} a a^T ] b$$
+* Thus, the component of $b$ in the direction of $a$ is given by 
+    * $$z = \chi a = (a^T a)^{-1} (a^T b) a = a(a^T a)^{-1}(a^T b) = [a(a^T a)^{-1}a^T ] b = [\frac{1}{a^T a} a a^T ] b$$
     * Notice $(a^Ta)^{-1}$ and $a^T b$ are both scalars.
-    * We say that, given vector $a$, the matrix that projects any given vector $b$ onto the space spanned by $a$ is given by $$a(a^T a)^{-1}a^T = \frac{1}{a^T a} a a^T$$
-* The component of $b$ orthogonal (perpendicular) to $a$ is given by $$w = b - z = b - (a(a^T a)^{-1}a^T ) b = Ib - (a(a^T a)^{-1}a^T )b = (I - a(a^T a)^{-1}a^T )b$$
-    * We say that, given vector $a$, the matrix that projects any given vector $b$ onto the space spanned by $a$ is given by $$I - a(a^T a)^{-1}a^T = I - \frac{1}{a^T a} a a^T$$
+    * We say that, given vector $a$, the matrix that projects any given vector $b$ onto the space spanned by $a$ is given by 
+        * $$a(a^T a)^{-1}a^T = \frac{1}{a^T a} a a^T$$
+* The component of $b$ orthogonal (perpendicular) to $a$ is given by 
+    * $$w = b - z = b - (a(a^T a)^{-1}a^T ) b = Ib - (a(a^T a)^{-1}a^T )b = (I - a(a^T a)^{-1}a^T )b$$
+    * We say that, given vector $a$, the matrix that projects any given vector $b$ onto the space spanned by $a$ is given by 
+        * $$I - a(a^T a)^{-1}a^T = I - \frac{1}{a^T a} a a^T$$
 * Set $v^T = (a^T a)^{-1}a^T$,
     * $z = (a v^T) b$
     * $w = (I - a v^T) b$

@@ -102,7 +102,8 @@
         &= - nx^{-2n+n-1} \\
         &= - nx^{-n-1}
       \end{aligned}$$
-* Sample: Differentiate $y=x^{\sqrt{2}},\ (x>0)$, $$\begin{aligned}
+* Sample: Differentiate $y=x^{\sqrt{2}},\ (x>0)$, 
+    * $$\begin{aligned}
         \log{y} &= \log{x^{\sqrt{2}}} \\
         \frac{d}{dx}\log{y} &= \frac{d}{dx}\log{x^{\sqrt{2}}} \\
         \frac{1}{y} \cdot \frac{d}{dx}y &= \frac{d}{dx}\sqrt{2}\log{x} \\
@@ -114,7 +115,7 @@
 ### The Product Rule
 
 * Use logarithms to prove: 
-    $$\begin{aligned}
+    * $$\begin{aligned}
         f(x) &> 0,\ g(x) > 0, \\
         \log(f(x)g(x)) &= \log(f(x)) + \log(g(x)) \\
         \frac{d}{dx} \log(f(x)g(x)) &= \frac{d}{dx} \log(f(x)) + \frac{d}{dx} \log(g(x)) \\
@@ -130,36 +131,21 @@
         so,\ \frac{d}{dx}\frac{1}{g(x)} &= - \frac{1}{(g(x))^2} \cdot g'(x)
       \end{aligned}$$
       
-* Then: $$\begin{aligned}
-          \frac{d}{dx}\frac{f(x)}{g(x)} &= \frac{d}{dx}(f(x) \cdot \frac{1}{g(x)}) \\
-          &= f'(x) \cdot \frac{1}{g(x)} + f(x) \cdot (- \frac{1}{(g(x))^2} \cdot g'(x)) \\
-          &= \frac{f'(x) \cdot g(x) -  f(x) \cdot g'(x)}{(g(x))^2} \\
-          \end{aligned}$$
+* Then: 
+    * $$\begin{aligned}
+      \frac{d}{dx}\frac{f(x)}{g(x)} &= \frac{d}{dx}(f(x) \cdot \frac{1}{g(x)}) \\
+      &= f'(x) \cdot \frac{1}{g(x)} + f(x) \cdot (- \frac{1}{(g(x))^2} \cdot g'(x)) \\
+      &= \frac{f'(x) \cdot g(x) -  f(x) \cdot g'(x)}{(g(x))^2} \\
+      \end{aligned}$$
 
 ### Proof the Chain Rule
 
-* **Recall** If `y = f(x)` and `x` changes from `a` to `a + ∆x`, we define the increment of `y` as 
-    $$\Delta y = f(a+\Delta x)-f(a)$$. 
-    According to the definition of a derivative, we have 
-    $$\lim_{\Delta x \to o}\frac{\Delta y}{\Delta x}=f'(a)$$. So if we denote by $\epsilon$ the difference between the difference quotient and the derivative, we obtain 
-    $$\lim_{\Delta x \to 0}\epsilon = \lim_{\Delta x \to 0}(\frac{\Delta y}{\Delta x}-f'(a)) = f'(a)-f'(a) = 0$$. 
-    But 
-    $$\epsilon = \frac{\Delta y}{\Delta x}-f'(a)\ \Rightarrow \Delta y = f'(a)\Delta x + \epsilon \Delta x$$. 
-    If we define $\epsilon$ to be 0 when `∆x = 0`, then $\epsilon$ become a continuous function of `∆x`. Thus, for a differentiable function `f`, we can write 
-    $$\Delta y = f'(a)\Delta x + \epsilon \Delta x \text{ where } \epsilon \to 0\ as\ \Delta x \to 0$$
-    and $\epsilon$ is a continuous function of `∆x`. This property of differentiable functions is what enables us to prove the Chain Rule.
-* **Now to Prove**: Suppose `u=g(x)` is differentiable at `a` and `y=f(u)` is differentiable at `b=g(a)`, If `∆x` is an increment in `x` and `∆u` and   `∆y` are corresponding increments in `u` and `y`, then we can use last equation to write 
-    $$\Delta u = g'(a)\Delta x + \epsilon_1\Delta x = (g'(a) + \epsilon_1)\Delta x$$
-    where $\epsilon_1 \to 0$ as $\Delta x \to 0$. 
-    Similarly 
-    $$\Delta y = f'(b)\Delta u + \epsilon_2\Delta u = (f'(b) + \epsilon_2)\Delta u$$ 
-    where $\epsilon_2 \to 0$ as $\Delta x \to 0$. If we now substitute the expression for `∆u`, we get 
-    $$\Delta y = [f'(b) + \epsilon_2][g'(a) + \epsilon_1]\Delta x$$, so $$\frac{\Delta y}{\Delta x} = [f'(b) + \epsilon_2][g'(a) + \epsilon_1]$$ 
-    As $\Delta x \to 0$. So both $\epsilon_2 \to 0$ and $\epsilon_1 \to 0$ as $\Delta x \to 0$. Therefore 
-    $$\begin{aligned}
-        \frac{dy}{dx} &= \lim_{\Delta x \to 0}\frac{\Delta y}{\Delta x} =   \lim_{\Delta x \to 0}[f'(b) + \epsilon_2][g'(a) + \epsilon_1] \\
+* **Recall** If `y = f(x)` and `x` changes from `a` to `a + ∆x`, we define the increment of `y` as $$\Delta y = f(a+\Delta x)-f(a)$$. According to the definition of a derivative, we have $$\lim_{\Delta x \to o}\frac{\Delta y}{\Delta x}=f'(a)$$ . So if we denote by $\epsilon$ the difference between the difference quotient and the derivative, we obtain $$\lim_{\Delta x \to 0}\epsilon = \lim_{\Delta x \to 0}(\frac{\Delta y}{\Delta x}-f'(a)) = f'(a)-f'(a) = 0$$. But $$\epsilon = \frac{\Delta y}{\Delta x}-f'(a)\ \Rightarrow \Delta y = f'(a)\Delta x + \epsilon \Delta x$$. If we define $\epsilon$ to be 0 when `∆x = 0`, then $\epsilon$ become a continuous function of `∆x`. Thus, for a differentiable function `f`, we can write $$\Delta y = f'(a)\Delta x + \epsilon \Delta x \text{ where } \epsilon \to 0\ as\ \Delta x \to 0$$ and $\epsilon$ is a continuous function of `∆x`. This property of differentiable functions is what enables us to prove the Chain Rule.
+* **Now to Prove**: Suppose `u=g(x)` is differentiable at `a` and `y=f(u)` is differentiable at `b=g(a)`, If `∆x` is an increment in `x` and `∆u` and   `∆y` are corresponding increments in `u` and `y`, then we can use last equation to write $$\Delta u = g'(a)\Delta x + \epsilon_1\Delta x = (g'(a) + \epsilon_1)\Delta x$$ where $\epsilon_1 \to 0$ as $\Delta x \to 0$. Similarly $$\Delta y = f'(b)\Delta u + \epsilon_2\Delta u = (f'(b) + \epsilon_2)\Delta u$$ where $\epsilon_2 \to 0$ as $\Delta x \to 0$. If we now substitute the expression for `∆u`, we get $$\Delta y = [f'(b) + \epsilon_2][g'(a) + \epsilon_1]\Delta x$$, so $$\frac{\Delta y}{\Delta x} = [f'(b) + \epsilon_2][g'(a) + \epsilon_1]$$. As $\Delta x \to 0$. So both $\epsilon_2 \to 0$ and $\epsilon_1 \to 0$ as $\Delta x \to 0$. Therefore 
+    * $$\begin{aligned}
+        \frac{dy}{dx} &= \lim_{\Delta x \to 0}\frac{\Delta y}{\Delta x} = \lim_{\Delta x \to 0}[f'(b) + \epsilon_2][g'(a) + \epsilon_1] \\
         &= f'(b)g'(a) = f'(g(a))g'(a)
-          \end{aligned}$$. 
+        \end{aligned}$$
     This prove the **Chain Rule**.
 
 

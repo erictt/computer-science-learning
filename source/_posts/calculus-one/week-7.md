@@ -57,7 +57,8 @@
         &= - 1 \cdot (\frac{0}{1 + 1}) \\
         \lim_{\theta \to 0}\frac{\cos{\theta} - 1}{\theta} &= 0
         \end{aligned}$$
-    * So, $$\begin{aligned}
+    * So, 
+        * $$\begin{aligned}
             f'(x) &= \sin{x}\lim_{h \to 0}\frac{\cos{h} - 1}{h} + \cos{x}\lim_{h \to 0}\frac{\sin{h}}{h} \\
             &= (\sin{x}) \cdot 0 + (\cos{x}) \cdot 1 \\
             &= \cos{x}
@@ -86,7 +87,8 @@
 * $\frac{d}{dx}\arcsin{x} = ?$
     * Let's say $f(x) = \arcsin{x}$
         * We know $f(\sin{x}) = x$
-        * So use the chain rules, derivative the both sides, we got: $$\begin{aligned}
+        * So use the chain rules, derivative the both sides, we got: 
+            * $$\begin{aligned}
                 f'(\sin{x}) \cdot \cos{x} &= 1 \\
                 f'(\sin{x}) &= \frac{1}{\cos{x}} \\
                 f'(\sin{x}) &= \frac{1}{\sqrt{1-\sin^2{x}}} \\
@@ -104,12 +106,13 @@
 * $\frac{d}{dx}\arctan{x} = ?$
     * set $f(x) = \arctan{x}$, 
         * then $f(\tan{x}) = x$
-    * use the chain rules: $$\begin{aligned}
-        f'(\tan{x}) \cdot \sec^2{x} &= 1 \\
-        f'(\tan{x}) &= \frac{1}{\sec^2{x}} \\
-        f'(\tan{x}) &= \frac{1}{\tan^2{x}+1} \\
-        f'(x) &= \frac{1}{x^2+1} \\
-        \end{aligned}$$
+    * use the chain rules: 
+        * $$\begin{aligned}
+            f'(\tan{x}) \cdot \sec^2{x} &= 1 \\
+            f'(\tan{x}) &= \frac{1}{\sec^2{x}} \\
+            f'(\tan{x}) &= \frac{1}{\tan^2{x}+1} \\
+            f'(x) &= \frac{1}{x^2+1} \\
+            \end{aligned}$$
 
 ### Why do Sine and Cosine Oscillate?
 
