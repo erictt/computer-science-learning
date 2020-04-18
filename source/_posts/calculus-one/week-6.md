@@ -13,12 +13,12 @@
 
 * Sample 1: $x^2+y^2=25$, find $\frac{d}{dx}y$, and the tangent to the circle at point `(3, 4)`.
     * <img src="https://i.imgur.com/MzPu9NF.jpg" style="width:400px" />
-        * $$\begin{aligned}
-            \frac{d}{dx}(x^2+y^2) &= \frac{d}{dx}(25) \\
-            \frac{d}{dx}(x^2) + \frac{d}{dx}(y^2) &= 0 \\
-            2x + 2y \cdot \frac{d}{dx}y &= 0 \\
-            \frac{d}{dx}y &= -\frac{x}{y}
-          \end{aligned}$$
+    * $$\begin{aligned}
+        \frac{d}{dx}(x^2+y^2) &= \frac{d}{dx}(25) \\
+        \frac{d}{dx}(x^2) + \frac{d}{dx}(y^2) &= 0 \\
+        2x + 2y \cdot \frac{d}{dx}y &= 0 \\
+        \frac{d}{dx}y &= -\frac{x}{y}
+        \end{aligned}$$
         * PS: `y` is a function of `x` and using the Chain Rule, we have $$\frac{d}{dx}(y^2) = \frac{d}{dy}(y^2) \cdot \frac{d}{dx}y = 2y\frac{d}{dx}y$$
     * At the point `(3, 4)` we have `x = 3` and `y = 4`, so $$\frac{d}{dx}y = -\frac{3}{4}$$
 * Sample 2: $x^3+y^3=axy$ (**folium of Descartes**)
