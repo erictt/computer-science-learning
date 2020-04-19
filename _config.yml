@@ -107,7 +107,11 @@ theme: book
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/erictt/computer-science-learning
+  # example, https://github.com/hexojs/hexojs.github.io
+  branch: gh-pages
+
 markdown_it_plus:
   highlight: true
   html: true
@@ -124,3 +128,4 @@ markdown_it_plus:
       enable: true
       options:
         strict: false
+
