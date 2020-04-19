@@ -1,8 +1,3 @@
-## Introduction
-
-* [Symbols of Mathematics](/symbols/index.html)
-* [Glossary](/glossary/index.html)
-
 <!--
 ## Stanford Statistical Learning
 
@@ -150,4 +145,9 @@
 * [Week 5 - Data Structures](/cs50/week-5/index.html)
 * [Week 6 - HTTP](/cs50/week-6/index.html)
 * [Week 7-10 - Machine Learning/Python/SQL/Javascript](/cs50/week-7-10/index.html)
+
+## Others
+
+* [Symbols of Mathematics](/symbols/index.html)
+* [Glossary](/glossary/index.html)
 

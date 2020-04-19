@@ -1,7 +1,8 @@
-home_page: home.md        # filepath under /source/_posts/
+home_page: index.md        # filepath under /source/_posts/
 menu_page: menu.md        # filepath under /source/_posts/
-author_img:               # filepath of author image
 favicon_url: favicon.png  # filepath of favicon
+author_img: favicon.png
+menu_url: notebook.png    # filepath of author image
 
 zoom_image: true
 codeblock:
