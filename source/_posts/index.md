@@ -1,8 +1,10 @@
 # Computer Science & Machine Learning
 
-* [https://cs.ericyy.me](https://cs.ericyy.me)
+* I'm Eric Yang, being a software engineer for 10 years, now working for SoundHound. This is the place i write my CS and ML notes.
 
-* [All courses](/menu)
+* About me: https://ericyy.me/about/
+
+* [all my courses](/menu)
 
 ## Progress
 
