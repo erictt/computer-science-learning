@@ -92,8 +92,8 @@
 * **Center of a tree**. Given a graph that is a tree (connected and acyclic), find a vertex such that its maximum distance from any other vertex is minimized.
     *  Find the diameter of the tree (the longest path between two vertices) and return a vertex in the middle.
 *  **Parallel edge detection**. Devise a linear-time algorithm to count the parallel edges in a graph.
-    *  Hint: maintain a boolean array of the neighbors of a vertex, and reuse this array by only reinitializing the entries as needed. 
-    *  **// TODO Don't understand.**
+    *  Maintain a boolean array of the neighbors of a vertex, and reuse this array by only reinitializing the entries as needed.  
+    *  By the end, just use the amount of edges minus the amount used to reinitialize the graph.
 
 ## Directed Graphs (Digraphs)
 
