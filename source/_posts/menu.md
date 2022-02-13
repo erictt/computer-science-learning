@@ -13,12 +13,12 @@
 * [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
 -->
 
+<!--
 ## Multivariable Calculus
 
 * [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
 * [Unit 2: Derivatives of multivariable functions](/multivariable-calculus/unit-2/index.html)
 
-<!--
 * [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
 * [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
 * [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
