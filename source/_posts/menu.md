@@ -1,24 +1,9 @@
 <!--
-## Stanford Statistical Learning
-
-* [Chapter 2 - Overview of Statistical Learning](/statistical-learning/chapter-2/index.html)
-* Chapter 3 - Linear Regression
-* Chapter 4 - Classification
-* Chapter 5 - Resampling Methods
-* Chapter 6 - Linear Model Selection and Regularization
-* Chapter 7 - Moving Beyond Linearity
-* Chapter 8 - Tree-Based Methods
-* Chapter 9 - Support Vector Machines
-* Chapter 10 - Unsupervised Learning
--->
-
 ## Introduction to Probability
 
 * [Unit 1: Probability models and axioms](/introduction-to-probability/unit-1/index.html)
 * [Unit 2: Conditioning and independence](/introduction-to-probability/unit-2/index.html)
 * [Unit 3: Counting](/introduction-to-probability/unit-3/index.html)
-
-<!--
 * [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
 * [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
 * [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
