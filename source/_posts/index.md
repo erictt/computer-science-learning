@@ -4,7 +4,7 @@
 
 * About me: https://ericyy.me/about/
 
-* [all my courses](/menu)
+* [TOC](/menu)
 
 ## Progress
 
