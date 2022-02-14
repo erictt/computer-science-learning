@@ -36,6 +36,10 @@
                 &= (k+1)((k+1)-1)/2 \end{aligned}$$
         * This proves the inductive step.
 
+## What is Matrices
+
+* $\begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix}$ is a 3 by 2 **matrix**: m = 3 **rows** and n = 2 **columns**.
+
 ## Representing Linear Transformations as Matrices
 
 * <img src="https://i.imgur.com/UFUjKgr.jpg" style="width:600px" />
@@ -43,6 +47,7 @@
     * $a_0 ,a_1 ,...,a_{n-1}$, where $a_j = L(e_j)$
 * because for any vector **x**, $L(x) = \sum^{n-1}_{j=0} x_j a_j$.
 * <img src="https://i.imgur.com/a7OYOtf.jpg" style="width:600px" />
+* e.g. $Ax = \begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}$ is a **combination of the columns**. $Ax = x_1 \begin{bmatrix} 1 \\ 3 \\ 5 \end{bmatrix} + x_2 \begin{bmatrix} 2 \\ 4 \\ 6 \end{bmatrix}$
 
 ### Theorem
 
@@ -75,3 +80,7 @@
 
 * arithmetic [ə'riθmətik, ,æriθ'metik] n. 算术，算法
 
+## Review Questions
+
+1. what is linear transformation? 
+2. how to verify if a vector function is linear transformation?

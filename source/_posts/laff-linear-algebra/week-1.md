@@ -79,7 +79,7 @@
     * $P(t) = a t^2 - b t + c \ge 0$
     * Set $t = \frac{b}{2a}$
     * $P(t) = a \frac{b}{2a}^2 - b \frac{b}{2a} + c \ge 0$ => $4ac \ge b^2$
-    * $4 \lVert y \rVert ^2 \lVert x \rVert ^2 \ge (2 ( x \cdot y)^2$ => $\lVert y \rVert \lVert x \rVert \ge | x \cdot y |$
+    * $4 \lVert y \rVert ^2 \lVert x \rVert ^2 \ge (2 ( x \cdot y))^2$ => $\lVert y \rVert \lVert x \rVert \ge | x \cdot y |$
     
 ### Vector Functions
 
@@ -112,10 +112,8 @@
 * Similarly, one can find functions, called **norms**, that measure the magnitude of vectors. One example is the (Euclidean) length of a vector, which we call the 2-norm: for $x \in \mathbb{R}^n$, 
     * $$\lVert x \rVert _2 = \sqrt{\sum_{i=0}^{n-1}x_i^2}$$
 * Other norms:
-    * 1-norm (also called taxi-cab norm): 
-        * $$\lVert x \rVert _1 = \sqrt{\sum_{i=0}^{n-1}|x_i|}$$
-    * For $1 \le p \le \infty$, the p-norm: 
-        * $$\lVert x \rVert _p = \sqrt[p]{\sum_{i=0}^{n-1}|x_i|^p}$$
+    * 1-norm (also called taxi-cab norm):  $$\lVert x \rVert _1 = \sqrt{\sum_{i=0}^{n-1}|x_i|}$$.
+    * For $1 \le p \le \infty$, the p-norm:  $$\lVert x \rVert _p = \sqrt[p]{\sum_{i=0}^{n-1}|x_i|^p}$$.
 
 ## Summary of the Properties for Vector Operations
 
@@ -134,8 +132,11 @@
 ### Other Properties
 
 * For $x,y \in R^n, (x+y)^T(x+y)=x^Tx+2x^Ty+y^Ty$.
-* For $x,y \in R^n, x^Ty=0$ if and only if x and y are orthogonal.
-* Let $x,y \in R^n$ be nonzero vectors and let the angle between them equal θ. Then $\cos(\theta) = \frac{x^Ty}{||x||_2||y||_2}$.
+* For $x,y \in R^n, x^Ty=0$ if and only if x and y are orthogonal(正交的).
+* Let $x,y \in R^n$ be nonzero vectors and let the angle between them equal θ. Then, $\cos(\theta) = \frac{x^Ty}{||x||_2||y||_2}$.
+    * hint:
+        * $c^2 = a^2 + b^2 = 2ab \cos \theta$
+        * $||y-x||_2^2 = (y-x)^T(y-x)$, $||x||_2^2 = x^Tx$
 * For $x \in R^n, x^Te_i=e_i^Tx=\chi_i$ where $\chi_i$ equals the `i`th component of x.
 
 
@@ -143,3 +144,21 @@
 
 * [https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality](https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality)
 
+## Review Questions
+
+* try to image a coordinate system when answer the questions below.
+
+1. What is vector?
+    1. how to denote a higher dimensions? how to denote each element in the vector?
+    2. how to calculate the length of a vector? what's the notation?
+    3. does it have a location?
+2. what is a unit basic vector and unit vector? what's the difference?
+3. how to tell two vectors are equal to each other?
+4. how to do addition/subtraction/scaling?
+5. how to do scaled vector addition(AXPY)?
+6. how to to Dot or Inner Prodction(DOT)?
+7. what is cauchy-schwarz inequality?
+8. what is vector function?
+9. natations for scalar/vector/matrix?
+10. what is norm?
+11. check `Other Properties` to make sure you understand how to derive them.
