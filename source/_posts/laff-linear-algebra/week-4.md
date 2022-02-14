@@ -67,7 +67,10 @@
 ## Matrix-matrix multiplication
 
 * $$A B = A \left( \begin{array}{c | c | c | c } b_0 &  b_1 &  \cdots &  b_{n-1} \end{array} \right) = \left( \begin{array}{c | c | c | c } A b_0 &  A b_1 &  \cdots &  A b_{n-1} \end{array} \right).$$
-* If $$C = \begin{bmatrix} \gamma _{0,0} &  \gamma _{0,1} &  \cdots &  \gamma _{0,n-1} \\ \gamma _{1,0} &  \gamma _{1,1} &  \cdots &  \gamma _{1,n-1} \\ \vdots &  \vdots &  \vdots &  \vdots \\ \gamma _{m-1,0} &  \gamma _{m-1,1} &  \cdots &  \gamma _{m-1,n-1} \\ \end{bmatrix},\quad A = \begin{bmatrix} \alpha _{0,0} &  \alpha _{0,1} &  \cdots &  \alpha _{0,k-1} \\ \alpha _{1,0} &  \alpha _{1,1} &  \cdots &  \alpha _{1,k-1} \\ \vdots &  \vdots &  \vdots &  \vdots \\ \alpha _{m-1,0} &  \alpha _{m-1,1} &  \cdots &  \alpha _{m-1,k-1} \\ \end{bmatrix}, \\ \text{and} \quad B = \begin{bmatrix}{c c c c } \beta _{0,0} &  \beta _{0,1} &  \cdots &  \beta _{0,n-1} \\ \beta _{1,0} &  \beta _{1,1} &  \cdots &  \beta _{1,n-1} \\ \vdots &  \vdots &  \vdots &  \vdots \\ \beta _{k-1,0} &  \beta _{k-1,1} &  \cdots &  \beta _{k-1,n-1} \\ \end{bmatrix}.$$
+* If 
+    * $$C = \begin{bmatrix} \gamma _{0,0} &  \gamma _{0,1} &  \cdots &  \gamma _{0,n-1} \\ \gamma _{1,0} &  \gamma _{1,1} &  \cdots &  \gamma _{1,n-1} \\ \vdots &  \vdots &  \vdots &  \vdots \\ \gamma _{m-1,0} &  \gamma _{m-1,1} &  \cdots &  \gamma _{m-1,n-1} \\ \end{bmatrix}, $$
+    * $$\quad A = \begin{bmatrix} \alpha _{0,0} &  \alpha _{0,1} &  \cdots &  \alpha _{0,k-1} \\ \alpha _{1,0} &  \alpha _{1,1} &  \cdots &  \alpha _{1,k-1} \\ \vdots &  \vdots &  \vdots &  \vdots \\ \alpha _{m-1,0} &  \alpha _{m-1,1} &  \cdots &  \alpha _{m-1,k-1} \\ \end{bmatrix}, $$
+    * $$\\ \text{and} \quad B = \begin{bmatrix} \beta _{0,0} &  \beta _{0,1} &  \cdots &  \beta _{0,n-1} \\ \beta _{1,0} &  \beta _{1,1} &  \cdots &  \beta _{1,n-1} \\ \vdots &  \vdots &  \vdots &  \vdots \\ \beta _{k-1,0} &  \beta _{k-1,1} &  \cdots &  \beta _{k-1,n-1} \\ \end{bmatrix}.$$
 * Then **C = AB** means that $\gamma _{i,j} = \sum _{p=0}^{k-1} \alpha _{i,p} \beta _{p,j}$
 
 * A table of matrix-matrix multiplications with matrices of special shape is given at the end of this unit.
