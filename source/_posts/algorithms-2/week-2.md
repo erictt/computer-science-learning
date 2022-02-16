@@ -1,4 +1,4 @@
-# Minimum Spanning Trees & Shortest Path
+# Week 2 - Minimum Spanning Trees & Shortest Path
 
 [TOC]
 

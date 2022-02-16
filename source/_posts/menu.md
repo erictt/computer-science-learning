@@ -27,6 +27,7 @@
 ## Algorithms: Part II
 
 * [Week 1 - Undirected Graph & Directed Graph](/algorithms-2/week-1/index.html)
+* [Week 2 - Minimum Spanning Trees & Shortest Path](/algorithms-2/week-2/index.html)
 * [Week 3 - Maximum Flow and Minimum Cut & Radix Sort](/algorithms-2/week-3/index.html)
 * [Week 4 - Tries & Substring Search](/algorithms-2/week-4/index.html)
 
