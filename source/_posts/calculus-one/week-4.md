@@ -36,20 +36,23 @@
         * $f'(0) = \displaystyle\lim_{h->0}\frac{|h|}{h}$ <- DNE(does not exist) 
             * Because $\displaystyle\lim_{h->0^{+}}\frac{|h|}{h} = 1 \ne -1 = \displaystyle\lim_{h->0^{-}}\frac{|h|}{h}$
 * Second: if `f` is not continuous at `a`, then `f` is not differentiable at `a`.
-* Third: the curve has a vertical tangent line when `x = a`; that is, `f` is continuous at `a` and $\displaystyle\lim_{x->a}|f'(x)|=\infty$
+* Third: the curve has a vertical tangent line when `x = a`; that is, `f` is continuous at `a` and $\displaystyle\lim_{x->a}|f(x)|=\infty$
+    * e.g. $f(x) = \frac{1}{x}$, let x -> 0. check week 2-3's note to find out what the function look like.
 
 ### Why Would I Care To Find The Derivative?
 
 * Why is sqrt(9999) so close to 99.995?
+* Let's assume(will prove later):
     * $\frac{d}{dx}x^{n}=nx^{n-1}$
-    * $\frac{d}{dx}x^{1/2}=\frac{1}{2}x^{-\frac{1}{2}}$
-    * $\frac{d}{dx}\sqrt{x}=\frac{1}{2\sqrt{x}}$
-    * we know that the tangent line of $f(x)=\sqrt{x}$ at 10000 is `1/200` which is `0.005`.
-    * so $0.005*(10000-9999) \approx 100 - \sqrt{9999}$
-    * then we got $\sqrt{9999} \approx 100 - 0.005 * 1 = 99.995$
-    * in other words, $\sqrt{9999} \approx 100 - 1 * (\text{derivative at}\ 10000) = 99.995$
-    * **Conclusion**:
-        * $f(x+h) \approx f(x)+h*f'(x)$
+* Then we can get
+    * $\frac{d}{dx}x^{1/2}=\frac{1}{2}x^{-\frac{1}{2}}$, same as: $\frac{d}{dx}\sqrt{x}=\frac{1}{2\sqrt{x}}$
+* we know $\sqrt{10000} = 100$, and $\sqrt{9999} = \sqrt{10000 - 1} \approx 100 - 1 \times (\text{derivative at 10000)}$
+* so what is the derivative at 10000? use the derivative function we got above.
+    * $f'(10000) = \frac{1}{2\sqrt{10000}} = \frac{1}{2 \times 100} = 0.005$
+* then we got $\sqrt{9999} \approx 100 - 1 * 0.005 = 99.995$
+* in other words, $\sqrt{9999} \approx 100 - 1 * (\text{derivative at}\ 10000) = 99.995$
+* **Conclusion**:
+    * $f(x+h) \approx f(x)+h*f'(x)$
 
 ### Rules
 
@@ -58,4 +61,10 @@
 * $\frac{d}{dx}(f(x)+g(x))=\frac{d}{dx}f(x)+\frac{d}{dx}g(x)$
 * More in next week
 
+## Review Questions
 
+* definition of derivatives
+* what does derivatives measure?
+* what is the notion for derivatives?
+* How Can A Function Fail To Be Differentiable?
+* Calculate $\sqrt{9999}$

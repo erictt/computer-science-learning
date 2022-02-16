@@ -195,3 +195,20 @@
        *  $0<2|x-10|<2\delta=\epsilon$, and so,
        *  $0<|2x-20|<\epsilon$
 
+## Review Questions
+
+* defintion of function and inverse of function. what are the notations?
+    * double check the definition of **inverse of function**.
+* what is linear/polynomial/power/rational function?
+    * what is the difference between polynomial and power function?
+    * what is the relation between polynomial and rational function?
+* what is algebraic/trigonometric/expoential/logarithmic function?
+* what are the limit and limit laws?
+    * sum/difference/constant mutiple/product/quotient law
+* what is sqeeze theorem?
+* how to check whether a function is countinuous at a point?
+* what is the **intermediate value theorem**?
+* wthat is a fixed point?
+* what is infinity?
+    * check the precise definition.
+* [optional]what is the difference between actual infinity and potential infinity?

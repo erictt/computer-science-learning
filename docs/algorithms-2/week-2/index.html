@@ -254,326 +254,300 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1 id="week-1-graphs"><a class="markdownIt-Anchor" href="#week-1-graphs"></a> Week 1 - Graphs</h1>
-<h2 id="undirected-graphs"><a class="markdownIt-Anchor" href="#undirected-graphs"></a> Undirected Graphs</h2>
-<h3 id="graph-terminology"><a class="markdownIt-Anchor" href="#graph-terminology"></a> Graph terminology</h3>
+  <h1 id="minimum-spanning-trees-shortest-path"><a class="markdownIt-Anchor" href="#minimum-spanning-trees-shortest-path"></a> Minimum Spanning Trees &amp; Shortest Path</h1>
+<p>[TOC]</p>
+<h2 id="minimum-spanning-trees"><a class="markdownIt-Anchor" href="#minimum-spanning-trees"></a> Minimum Spanning Trees</h2>
+<h3 id="definition"><a class="markdownIt-Anchor" href="#definition"></a> Definition</h3>
 <ul>
-<li>
-<p><strong>Path</strong>. Sequence of vertices connected by edges.</p>
-</li>
-<li>
-<p><strong>Cycle</strong>. Path whose first and last vertices are the same.</p>
-</li>
-<li>
-<p>Two vertices are <strong>connected</strong> if there is a path between them.</p>
-</li>
-<li>
-<img src="https://i.imgur.com/aZGpPYB.jpg" style="width:300px" />
-</li>
-<li>
-<p>Some graph-processing problems</p>
+<li>find the minimum weight to connect all vertices.</li>
+</ul>
+<h3 id="greedy-algorithm"><a class="markdownIt-Anchor" href="#greedy-algorithm"></a> Greedy Algorithm</h3>
 <ul>
-<li><strong>Path</strong>. Is there a path between s and t ?</li>
-<li><strong>Shortest path</strong>. What is the shortest path between s and t ?</li>
-<li><strong>Cycle</strong>. Is there a cycle in the graph?</li>
-<li><strong>Euler tour</strong>. Is there a cycle that uses each edge exactly once? Hamilton tour. Is there a cycle that uses each vertex exactly once.</li>
-<li><strong>Connectivity</strong>. Is there a way to connect all of the vertices?</li>
-<li><strong>MST</strong>. What is the best way to connect all of the vertices? Biconnectivity. Is there a vertex whose removal disconnects the graph?</li>
-<li><strong>Planarity</strong>. Can you draw the graph in the plane with no crossing edges Graph isomorphism. Do two adjacency lists represent the same graph?</li>
+<li>Simplifying assumptions
+<ul>
+<li>each edge’s weight is different with the others.</li>
+<li>graph is connected.</li>
 </ul>
 </li>
-<li>
-<p><strong>Challenge</strong>. Which of these problems are easy? difficult? intractable?</p>
-</li>
-</ul>
-<h3 id="graph-api"><a class="markdownIt-Anchor" href="#graph-api"></a> Graph API</h3>
+<li>So that the MST exist and is unique.</li>
+<li>Cut properly
 <ul>
-<li>
-<img src="https://i.imgur.com/yyQ6YXO.jpg" style="width:500px" />
-</li>
-<li>Typical graph-processing code</li>
-<li>
-<img src="https://i.imgur.com/7hSyI4F.jpg" style="width:500px" />
-</li>
-</ul>
-<h4 id="adjacency-list-graph-representation"><a class="markdownIt-Anchor" href="#adjacency-list-graph-representation"></a> Adjacency-list graph representation</h4>
+<li>Def: A <strong>cut</strong> in a graph is a partition of its vertices into two arbitraty sets.</li>
+<li>Def: A <strong>crossing edge</strong> connects a vertext in one set with a vertex in the other.</li>
+<li>Given any cut, the <strong>crossing edge of min weight</strong> is in the MST. (Proof: Page 606)
 <ul>
-<li>
-<img src="https://i.imgur.com/VNUOo3u.jpg" style="width:500px" />
-</li>
-<li>
-<img src="https://i.imgur.com/Wfa1Ph6.jpg" style="width:500px" />
-</li>
-</ul>
-<h3 id="depth-first-search"><a class="markdownIt-Anchor" href="#depth-first-search"></a> Depth-first Search</h3>
-<ul>
-<li><strong>Goal</strong>. Find all vertices connected to s (and a corresponding path).</li>
-<li><strong>Algorithm</strong>.
-<ul>
-<li>Use recursion (ball of string).</li>
-<li>Mark each visited vertex (and keep track of edge taken to visit it). Return (retrace steps) when no unvisited options.</li>
-</ul>
-</li>
-<li><strong>Data structures</strong>.
-<ul>
-<li><strong>boolean[]</strong> marked to mark visited vertices.</li>
-<li><strong>int[]</strong> edgeTo to keep tree of paths.</li>
-<li><strong>(edgeTo[w] == v)</strong> means that edge v-w taken to visit w for first time</li>
-</ul>
-</li>
-<li>
-<img src="https://i.imgur.com/Y2Qscrz.jpg" style="width:500px" />
-</li>
-</ul>
-<h3 id="breadth-first-search"><a class="markdownIt-Anchor" href="#breadth-first-search"></a> Breadth-first Search</h3>
-<ul>
-<li>
-<p><strong>Depth-first search</strong>. Put unvisited vertices on a <strong>stack</strong>.</p>
-</li>
-<li>
-<p><strong>Breadth-first search</strong>. Put unvisited vertices on a <strong>queue</strong>.</p>
-</li>
-<li>
-<p><strong>Shortest path</strong>. Find path from s to t that uses <strong>fewest number of edges</strong>.</p>
-</li>
-<li>
-<p><strong>Algorithm</strong>.</p>
-<ul>
-<li>Put s onto a FIFO queue, and mark s as visited.</li>
-<li>Repeat until the queue is empty:
-<ul>
-<li>remove the least recently added vertex v</li>
-<li>add each of v’s unvisited neighbors to the queue, and mark them as visited.</li>
+<li><img src="https://i.imgur.com/yTMDuEl.jpg" alt="" /></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<img src="https://i.imgur.com/o0vVonE.jpg" style="width:360px" />
-</li>
 </ul>
-<h3 id="connected-components"><a class="markdownIt-Anchor" href="#connected-components"></a> Connected Components</h3>
-<ul>
-<li><strong>Goal</strong>:
-<ul>
-<li>Vertices v and w are <strong>connected</strong> if there is a path between them.</li>
-<li>Preprocess graph to answer queries of the form is v connected to w? in <strong>constant</strong> time.</li>
-<li>
-<img src="https://i.imgur.com/90uTQFU.jpg" style="width:500px" />
-</li>
-</ul>
-</li>
-<li>The relation “is connected to” is an equivalence relation:
-<ul>
-<li><strong>Reflexive</strong>: v is connected to v.</li>
-<li><strong>Symmetric</strong>: if v is connected to w, then w is connected to v.</li>
-<li><strong>Transitive</strong>: if v connected to w and w connected to x, then v connected to x.</li>
-</ul>
-</li>
-<li>A connected component is a maximal set of connected vertices.
+<h3 id="edge-weighted-graph-api"><a class="markdownIt-Anchor" href="#edge-weighted-graph-api"></a> Edge-weighted graph API</h3>
 <ul>
 <li>
-<img src="https://i.imgur.com/pIKSkio.jpg" style="width:300px" />
-</li>
-</ul>
-</li>
-<li><strong>Algorithm</strong>:
+<p>Weighted edge API</p>
 <ul>
-<li>Initialize all vertices v as unmarked.</li>
-<li>For each unmarked vertex v, run DFS to identify all vertices discovered as part of the same component.</li>
+<li><img src="https://i.imgur.com/p6bYXS8.jpg" alt="" /></li>
+<li>Idiom for processing an edge e: int v = e.either(), w = e.other(v);</li>
 </ul>
 </li>
 <li>
-<img src="https://i.imgur.com/gVeloZT.jpg" style="width:550px" />
-</li>
-<li>
-<img src="https://i.imgur.com/bW0P9fW.jpg" style="width:550px" />
-</li>
-</ul>
-<h3 id="some-quizzes"><a class="markdownIt-Anchor" href="#some-quizzes"></a> Some Quizzes</h3>
+<p>Edge-weighted graph API</p>
 <ul>
-<li>
-<p>Some definitions:</p>
-<ul>
-<li>An edge having the same vertex as both its end vertices is called a <strong>self-loop</strong>.</li>
-<li>Two edges with the same end vertices are referred to as <strong>parallel edges</strong>.</li>
-<li>A graph that has neither self-loops nor parallel edges is called a <strong>simple graph</strong>.</li>
-<li>The <strong>eccentricity</strong> of a vertex <strong>v</strong> in a connected graph <strong>G</strong> is the maximum graph distance between v and any other vertex in the graph G.</li>
-<li>The maximum eccentricity is the graph <strong>diameter</strong>. The minimum graph eccentricity is called the graph <strong>radius</strong>.</li>
-<li>The <strong>center</strong> of a graph <strong>G</strong> is the set of vertices of graph eccentricity equal to the graph radius. (i.e., the set of central points).</li>
-<li><a target="_blank" rel="noopener" href="http://mathworld.wolfram.com/GraphEccentricity.html">From Wolfram Mathworld</a></li>
+<li><img src="https://i.imgur.com/xjHWxq0.jpg" alt="" /></li>
 </ul>
 </li>
 <li>
-<p><strong>Diameter of a tree.</strong> Given a graph that is a tree (connected and acyclic), find the longest path, i.e., a pair of vertices v and w that are as far apart as possible. Your algorithm should run in linear time.</p>
+<p>Minimum spanning tree API</p>
+<ul>
+<li><img src="https://i.imgur.com/6Oe0LT9.jpg" alt="" /></li>
+</ul>
+</li>
+</ul>
+<h3 id="kruskals-algorithm"><a class="markdownIt-Anchor" href="#kruskals-algorithm"></a> Kruskal’s algorithm</h3>
+<ul>
+<li>Summarize:
+<ul>
+<li>Consider edges in <strong>ascending order</strong> of weight. Add next edge to the MST tree <strong>unless</strong> doing so would <strong>create a cycle</strong>.</li>
+</ul>
+</li>
+<li>Why there is no crossing edge has lower weight? Because we sorted the weight at the beginning, any edges left have larger weight.</li>
+<li>Two challenge problems
+<ul>
+<li>How to organize a sorted edges with weight? use Priority Queue.</li>
+<li>How to avoid cycle? Create a separted union-find data struture, and maintain a set for each connected components in the MST.</li>
+</ul>
+</li>
+<li>Java implemenation
+<ul>
+<li><img src="https://i.imgur.com/WIJvQaZ.jpg" alt="" /></li>
+</ul>
+</li>
+<li>Running time
+<ul>
+<li><img src="https://i.imgur.com/OzHtFiA.jpg" alt="" /></li>
+</ul>
+</li>
+</ul>
+<h3 id="prims-algorithm"><a class="markdownIt-Anchor" href="#prims-algorithm"></a> Prim’s algorithm</h3>
+<ul>
+<li>Summarize:
+<ul>
+<li>Start with vertex 0 and greedily grow tree T. Add to T the min weight edge with exactly one endpoint in T. Repeat until <strong>V - 1</strong> edges.</li>
+<li>More explanation. For example, add 0 at first, then explore all of the edges that connected to 0. Pick up the minimum one, let’s say 7, and add the new vertex into tree and then compare all edges connected to both 0 and 7. Repeat this process until adding v-1 edges.</li>
+</ul>
+</li>
+</ul>
+<h4 id="lazy-implementation"><a class="markdownIt-Anchor" href="#lazy-implementation"></a> Lazy Implementation</h4>
 <ol>
-<li>Assume <strong>x</strong> and <strong>y</strong> are the vertices with the longest diameter.</li>
-<li>Randomly pick any vertex <strong>v</strong>, and its furthest vertex <strong>w</strong> should be either <strong>x</strong> or <strong>y</strong>. Because the distance between any two vertices is definitely less than or equal to <strong>x-y</strong>.
+<li>Start with an arbitrary endpoint. add it in the MST, and all edges connected to it into a min-PQ.</li>
+<li>Pop the minimum one edge, add it to MST, then add all associated edges to PQ.
 <ol>
-<li>Remember there are always paths from <strong>v</strong> to <strong>x</strong> and <strong>y</strong>, so <strong>[v-w] &gt; [v-x]</strong> and <strong>[v-w] &gt; [v-y]</strong> can’t be true in the same time. otherwise, <strong>y</strong> or <strong>x</strong> should be equal to <strong>w</strong>.</li>
+<li>If the two endpoints that the edge connected to already exists in the MST, just ignore it.</li>
 </ol>
 </li>
-<li>Then just use <strong>x</strong> or <strong>y</strong> to find <strong>y</strong> or <strong>x</strong> which correspond to its furthest vertex.</li>
+<li>Repeat until V-1 edges are added in MST.</li>
+</ol>
+<ul>
+<li>
+<p>Java Implemenatation</p>
+<ul>
+<li><img src="https://i.imgur.com/Ncr8etA.jpg" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>running time</p>
+<ul>
+<li><img src="https://i.imgur.com/q0KtqXl.jpg" alt="" /></li>
+</ul>
+</li>
+</ul>
+<h4 id="eager-implementation"><a class="markdownIt-Anchor" href="#eager-implementation"></a> Eager Implementation</h4>
+<ul>
+<li>
+<p>Different from lazy, eager turuns to maintain a PQ proactively to avoid useless edges been added, and replace the ones that are connected to the MST with better edges.</p>
+<ul>
+<li>For example, if 2,3,4 are added in the MST, and in the PQ, we have 6-4 edge with weight 0.52. When we add a vertex 5 in the MST, we realize that the weight of 5-6 is smaller that 4-6. Then we replace the edge in the PQ.
+<ul>
+<li>This will require that the PQ being indexed and support motification.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>More details:</p>
+<ol>
+<li>Maintain a PQ of <strong>vertices</strong> connected by an edge to the MST, where (priority of vertex v) = (weight of shortest edge connecting v to the MST).</li>
+<li>Delete min vertex v from the PQ and add its associated edge <strong>e = v–w</strong> to the MST.</li>
+<li>Update PQ by considering all edges <strong>e = v–x</strong> incident to v.</li>
 </ol>
 </li>
 <li>
-<p><strong>Center of a tree</strong>. Given a graph that is a tree (connected and acyclic), find a vertex such that its maximum distance from any other vertex is minimized.</p>
+<p>e.g.</p>
 <ul>
-<li>Find the diameter of the tree (the longest path between two vertices) and return a vertex in the middle.</li>
-</ul>
-</li>
-<li>
-<p><strong>Parallel edge detection</strong>. Devise a linear-time algorithm to count the parallel edges in a graph.</p>
+<li><img src="https://i.imgur.com/io4r4xS.jpg" alt="" />
 <ul>
-<li>Maintain a boolean array of the neighbors of a vertex, and reuse this array by only reinitializing the entries as needed.</li>
-<li>By the end, just use the amount of edges minus the amount used to reinitialize the graph.</li>
-</ul>
-</li>
-</ul>
-<h2 id="directed-graphs-digraphs"><a class="markdownIt-Anchor" href="#directed-graphs-digraphs"></a> Directed Graphs (Digraphs)</h2>
-<ul>
-<li>Set of vertices connected pairwise by directed edges.</li>
-<li>
-<img src="https://i.imgur.com/FzhwPnb.jpg" style="width:550px" />
-</li>
-</ul>
-<h3 id="digraph-api"><a class="markdownIt-Anchor" href="#digraph-api"></a> Digraph API</h3>
-<ul>
-<li>
-<img src="https://i.imgur.com/SXcNJOo.jpg" style="width:550px" />
-</li>
-<li>
-<p>toString()</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">In</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">In</span>(args[<span class="number">0</span>]);</span><br><span class="line"><span class="type">Digraph</span> <span class="variable">G</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Digraph</span>(in);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">v</span> <span class="operator">=</span> <span class="number">0</span>; v &lt; G.V(); v++) </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> w: G.adj(v))</span><br><span class="line">        StdOut.pringln(v + <span class="string">&quot;-&gt;&quot;</span> + w);</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>Adjacency-lists digraph representation</p>
-<ul>
-<li>
-<p>same as graph APIs. only difference is:</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addEdge</span><span class="params">(<span class="type">int</span> v, <span class="type">int</span> w)</span> &#123; </span><br><span class="line">    adj[v].add(w);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="digraph-search"><a class="markdownIt-Anchor" href="#digraph-search"></a> Digraph Search</h3>
-<ul>
-<li>same as Undirected Graph.</li>
-</ul>
-<h3 id="topological拓扑-sort"><a class="markdownIt-Anchor" href="#topological拓扑-sort"></a> Topological(拓扑) Sort</h3>
-<ul>
-<li>
-<p><strong>Goal</strong>. Given a set of <strong>tasks</strong> to be completed with <strong>precedence constraints,</strong> in which order should we schedule the tasks?</p>
-<ul>
-<li>Digraph model.
-<ul>
-<li>vertex = task;</li>
-<li>edge = precedence constraint.</li>
+<li>start with 0, added to MST. The vertices connected to 0 are 7, 2, 4, 6, corresponding the weights: 0.16, 0.26, 0.38, 0.58. In the PQ, it will be sorted as [7, 7-0, 0.16], [2, 2-0, 0.26], [4, 4-0, 0.38], [6, 6-0, 0.58].</li>
+<li>then pop 7, and add it the MST. Then check the vertices connected to 0 and 7. 5 and 1 are new, add to the PQ directly. 4 is connected with both 7 and 0. 4-7 is lower than 0-7, replace 4’s weight to 0.37, and the edge associated with 4 to 4-7. Then the queue became [1, 1-7, 0.19], [2, 2-0, 0.26], [5, 5-7, 0.28], [4, 4-7, 0.37], [6, 6-0, 0.58]</li>
+<li>then pop 1, add it to MST. 3 is new, add it to Q. Compare 1-5 and 5-7, no need to change. Then the queue became [2, 2-0, 0.26], [5, 5-7, 0.28], [3, 3-1, 0.29], [4, 4-7, 0.37], [6, 6-0, 0.58]</li>
+<li>then pop 2, add it to MST. 6 is new, add it to Q. <strong>1 already existed in Q, ignore.</strong> <strong>compare 3-1 and 3-2, 3-2 is smaller, update the Q.</strong> compare 6-0, 6-2, 6-3. 6-2 is smaller, update the queue the queue became [3, 3-1, 0.17], [5, 5-7, 0.28], [4, 4-7, 0.37], [6, 6-2, 0.40]</li>
+<li>then keep going until MST got V-1 vertices.</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<img src="https://i.imgur.com/jW9iffc.jpg" style="width:500px" />
-</li>
-<li>
-<p><strong>DAG</strong>. Directed <strong>acyclic</strong> graph.</p>
-</li>
-<li>
-<p><strong>Topological sort</strong>. Redraw DAG so all edges point upwards.</p>
+<p>The only challenging problem: How to maintain a PQ that support <strong>decreasing</strong>(no need for increasing) weight?</p>
 <ul>
-<li>Run depth-first search.</li>
-<li>Return vertices in reverse postorder.</li>
-<li>
-<img src="https://i.imgur.com/2wfG1RA.jpg" style="width:500px" />
-</li>
-</ul>
-</li>
-<li>
-<p>A digraph has a topological order <strong>iff no directed cycle</strong>.</p>
-</li>
-</ul>
-<h3 id="directed-cycle-detection"><a class="markdownIt-Anchor" href="#directed-cycle-detection"></a> Directed Cycle Detection</h3>
+<li>Start with same code as MinPQ.</li>
+<li>Maintain parallel arrays keys[], pq[], and qp[] so that:
 <ul>
-<li>Definition. A directed acyclic graph (DAG) is a digraph with no directed cycles.</li>
-<li>
-<img src="https://i.imgur.com/eVqYaAs.jpg"  style="width:500px"/>
-</li>
-<li>In the dfs function,
+<li>keys[i] is the priority of i, aka the weight of each vertices.</li>
+<li>pq[i] is the index of the key in heap position i (1-based indexing)</li>
+<li>qp[i] is the heap position of the key with index i (qp[pq[i]] = pq[qp[i]] = i)
 <ul>
-<li>it created a new array called <code>onStack</code> to trach whether current iteration has loops. If current vertex’s subvertices have an adjecent vertex that already <code>on stack</code>, that means there is a loop.</li>
-<li>it reset <code>onStack[v] = false</code>, because we start our loop in an arbitraty position, the current vertex might have other vertices connect to.</li>
+<li>This is for look up the index. For example, we want to <strong>decrease</strong> key[6]'s weight. we first look up where the key is in PQ with the array of <strong>qp</strong>, qp[6] = 2, then we know 6 is the 2nd. Then we can update the weight of pq[2] = whatever, and <strong>swim it up</strong>.</li>
 </ul>
 </li>
 </ul>
-<h3 id="strong-components"><a class="markdownIt-Anchor" href="#strong-components"></a> Strong Components</h3>
+</li>
+<li>Use swim(qp[i]) implement decreaseKey(i, key).</li>
+<li><img src="https://i.imgur.com/CythQOi.jpg" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>Java implemenation</p>
 <ul>
-<li><strong>Def</strong>. Vertices v and w are <strong>strongly connected</strong> if there is both a directed path from v to w and a directed path from w to v.</li>
-<li><strong>Def</strong>. A <strong>strong component</strong> is a maximal subset of strongly-connected vertices.
+<li><img src="https://i.imgur.com/5p8Mxmd.jpg" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>running time</p>
+<ul>
+<li>Depends on PQ implementation: V insert, V delete-min, E decrease-key.</li>
+<li><img src="https://i.imgur.com/L4a9nko.jpg" alt="" /></li>
+</ul>
+</li>
+</ul>
+<h2 id="shortest-path"><a class="markdownIt-Anchor" href="#shortest-path"></a> Shortest Path</h2>
+<h3 id="api"><a class="markdownIt-Anchor" href="#api"></a> API</h3>
 <ul>
 <li>
-<img src="https://i.imgur.com/zJ4XtaV.jpg" style="width:300px" />
+<p>Weighted directed edge API</p>
+<ul>
+<li><img src="https://i.imgur.com/VUq50eN.jpg" alt="" /></li>
+</ul>
 </li>
+<li>
+<p>Edge-weighted digraph API</p>
+<ul>
+<li><img src="https://i.imgur.com/yN3KfHq.jpg" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>Single-source shortest paths API</p>
+<ul>
+<li><img src="https://i.imgur.com/yUpPpW0.jpg" alt="" /></li>
 </ul>
 </li>
 </ul>
-<h4 id="connected-components-vs-strongly-connected-components"><a class="markdownIt-Anchor" href="#connected-components-vs-strongly-connected-components"></a> Connected components vs. strongly-connected components</h4>
+<h3 id="shortest-paths-optimality-conditions"><a class="markdownIt-Anchor" href="#shortest-paths-optimality-conditions"></a> Shortest-paths optimality conditions</h3>
 <ul>
 <li>
-<img src="https://i.imgur.com/763nvSM.jpg" style="width:600px" />
+<p><img src="https://i.imgur.com/bUirevT.jpg" alt="" /></p>
+</li>
+<li>
+<p><img src="https://i.imgur.com/tF06irL.jpg" alt="" /></p>
 </li>
 </ul>
-<h4 id="kosaraju-sharir-algorithm"><a class="markdownIt-Anchor" href="#kosaraju-sharir-algorithm"></a> Kosaraju-Sharir algorithm</h4>
+<h3 id="generic-shortest-paths-algorithm"><a class="markdownIt-Anchor" href="#generic-shortest-paths-algorithm"></a> Generic shortest-paths algorithm</h3>
+<ul>
+<li>Generic algorithm (to compute SPT from s) Initialize distTo[s] = 0 and distTo[v] = ∞ for all other vertices.</li>
+<li>Repeat until optimality conditions are satisﬁed:
+<ul>
+<li>Relax any edge.</li>
+</ul>
+</li>
+</ul>
+<h3 id="dijkstras-algorithm"><a class="markdownIt-Anchor" href="#dijkstras-algorithm"></a> Dijkstra’s Algorithm</h3>
+<ul>
+<li>Consider vertices in increasing order of distance from <strong>s</strong> (non-tree vertex with the lowest distTo[] value).</li>
+<li>Add vertex to tree and relax all edges pointing from that vertex.</li>
+<li>Pick the vertex that has minimum distance to the origin to repeat the process until the last vertex.</li>
+</ul>
+<h4 id="correctness-proof"><a class="markdownIt-Anchor" href="#correctness-proof"></a> Correctness proof</h4>
+<ul>
+<li>Each edge e = v→w is relaxed exactly once (when v is relaxed), leaving distTo[w] ≤ distTo[v] + e.weight().</li>
+<li>Inequality holds until algorithm terminates because:
+<ul>
+<li>distTo[w] cannot increase &lt;- distTo[] values are monotone decreasing</li>
+<li>distTo[v] will not change &lt;- we choose lowest distTo[] value at each step (and edge weights are nonnegative)</li>
+</ul>
+</li>
+<li>Thus, upon termination, shortest-paths optimality conditions hold.</li>
+</ul>
+<h4 id="java-implementation"><a class="markdownIt-Anchor" href="#java-implementation"></a> Java Implementation</h4>
+<ul>
+<li><img src="https://i.imgur.com/CsjFiXZ.jpg" alt="" /></li>
+<li><img src="https://i.imgur.com/wWmPoU3.jpg" alt="" /></li>
+</ul>
+<h3 id="acyclic-shortest-path-in-dagdirected-acyclic-graph"><a class="markdownIt-Anchor" href="#acyclic-shortest-path-in-dagdirected-acyclic-graph"></a> Acyclic Shortest Path in DAG(Directed acyclic graph)</h3>
+<ul>
+<li>Steps:
+<ul>
+<li>Consider vertices in topological order.</li>
+<li>Relax all edges pointing from that vertex.</li>
+</ul>
+</li>
+<li>Proposition:
+<ul>
+<li>Topological sort algorithm computes SPT(Shortest path tree) in any edgeweighted DAG in time proportional to E + V.</li>
+</ul>
+</li>
+<li>Java implementation
+<ul>
+<li><img src="https://i.imgur.com/njiBOtj.jpg" alt="" /></li>
+</ul>
+</li>
+</ul>
+<h3 id="bellman-ford-algorithm"><a class="markdownIt-Anchor" href="#bellman-ford-algorithm"></a> Bellman-Ford algorithm</h3>
+<ul>
+<li>Initialize distTo[s] = 0 and distTo[v] = ∞ for all other vertices.</li>
+<li>Repeat V times:
+<ul>
+<li>Relax each edge.</li>
+</ul>
+</li>
+<li><img src="https://i.imgur.com/NjAONrX.jpg" alt="" /></li>
+</ul>
+<h3 id="single-source-shortest-paths-implementation-cost-summary"><a class="markdownIt-Anchor" href="#single-source-shortest-paths-implementation-cost-summary"></a> Single source shortest-paths implementation: cost summary</h3>
 <ul>
 <li>
-<p><strong>Reverse graph</strong>. <strong>Strong components in G are same as in G^R</strong>.</p>
 <ul>
-<li>G^R denotes reversed G.</li>
-</ul>
-</li>
-<li>
-<p><strong>Kernel DAG.</strong> Contract each strong component into a single vertex.</p>
+<li>Negative cycles
 <ul>
-<li>Compute topological order in kernel DAG.</li>
-<li>Run DFS, considering vertices in reverse topological order.</li>
-<li>
-<img src="https://i.imgur.com/k1NMHbs.jpg" style="width:600px" />
+<li>Def. A negative cycle is a directed cycle whose sum of edge weights is negative.</li>
+</ul>
 </li>
 </ul>
 </li>
 <li>
-<p>Phases:</p>
-<ol>
-<li>Compute topological order in G^R.
+<p><img src="https://i.imgur.com/g6IcSth.jpg" alt="" /></p>
 <ul>
-<li>
-<img src="https://i.imgur.com/76PLRyJ.jpg" style="width:400px" />
-</li>
+<li>Remark 1. Directed cycles make the problem harder.</li>
+<li>Remark 2. Negative weights make the problem harder.</li>
+<li>Remark 3. Negative cycles makes the problem intractable.</li>
 </ul>
 </li>
-<li>run DFS on G, considering vertices in order given by first DFS
+</ul>
+<h3 id="finding-a-negative-cycle"><a class="markdownIt-Anchor" href="#finding-a-negative-cycle"></a> Finding a negative cycle</h3>
 <ul>
-<li>
-<img src="https://i.imgur.com/u8A4xG2.jpg" style="width:400px" />
-</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>
-<img src="https://i.imgur.com/nvslAWq.jpg" style="width:600px" />
-</li>
-<li>
-<p>Java Implement(Strong components in a digraph (with two DFSs))</p>
+<li>If there is a negative cycle, Bellman-Ford gets stuck in loop, updating distTo[] and edgeTo[] entries of vertices in the cycle.
 <ul>
-<li>
-<img src="https://i.imgur.com/DyfJ6mv.jpg" style="width:450px" />
-</li>
+<li>If any vertex v is updated in phase V, there exists a negative cycle (and can trace back edgeTo[v] entries to find it).</li>
 </ul>
 </li>
 </ul>
-<h2 id="digraph-processing-summary"><a class="markdownIt-Anchor" href="#digraph-processing-summary"></a> Digraph-processing summary</h2>
-<img src="https://i.imgur.com/IGKLsoE.jpg" style="width:600px" />
 
 </div>
 

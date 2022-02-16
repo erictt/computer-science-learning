@@ -140,6 +140,15 @@
 
 * A digraph has a topological order **iff no directed cycle**.
 
+### Directed Cycle Detection
+    
+* Definition. A directed acyclic graph (DAG) is a digraph with no directed cycles.
+* <img src="https://i.imgur.com/eVqYaAs.jpg"  style="width:500px"/>
+* In the dfs function,
+    * it created a new array called `onStack` to trach whether current iteration has loops. If current vertex's subvertices have an adjecent vertex that already `on stack`, that means there is a loop.
+    * it reset `onStack[v] = false`, because we start our loop in an arbitraty position, the current vertex might have other vertices connect to. 
+
+
 ### Strong Components
 
 * **Def**. Vertices v and w are **strongly connected** if there is both a directed path from v to w and a directed path from w to v.

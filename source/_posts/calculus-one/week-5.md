@@ -90,15 +90,15 @@
     * If `f` is differentiable at `c`, and `f'(c) != 0`, then `f(c)` is **not** an extreme value.
         * In reverse, if `f(c)` is a local extremum, then either `f'(c)` does not exist(like: `f(x) = |x|`) or `f'(c) = 0`.
 
+### How do I differentiate e^x?
 
-### e^x
-
+* why looking for `e`? we're looking for a function that it's derivative equal to itself: $f(x) = f'(x) = f''(x)...$. Assuming $f(a) = f'(a) = f''(a) = ... = 1$, how to find `a`?
 * To function $\displaystyle g(x) = \lim_{h \to 0}\frac{x^h-1}{h}$, we know:
-    * $\displaystyle \lim_{h \to 0}\frac{2^h-1}{h} \approx 0.693$
-    * $\displaystyle \lim_{h \to 0}\frac{3^h-1}{h} \approx 1.099$
-* Then there is an `x` such that $\displaystyle \lim_{h \to 0}\frac{x^h-1}{h} = 1$.
-* We call the `x` value: $e$, $\displaystyle \lim_{h \to 0}\frac{e^h-1}{h} = 1$
-* To calculate the derivative of $e^x$: 
+    * $\displaystyle f'(2) = \lim_{h \to 0}\frac{2^h-1}{h} \approx 0.693$
+    * $\displaystyle f'(3) = \lim_{h \to 0}\frac{3^h-1}{h} \approx 1.099$
+* We also know it's an continuous function, so there much be an `a` such that $\displaystyle f'(a) = \lim_{h \to 0}\frac{a^h-1}{h} = 1$
+* We call the value: $e$, $\displaystyle \lim_{h \to 0}\frac{e^h-1}{h} = 1$
+* Now switch the variable to `h` so we can calculate the derivative of function: $f(x) = e^x$: 
     * $$\begin{aligned}
         f'(x) &= \lim_{h \to 0}\frac{e^{x+h} - e^x}{h} \\
               &= \lim_{h \to 0}\frac{e^{x}e^{h} - e^x}{h} \\
@@ -106,5 +106,15 @@
               &= e^{x} * \lim_{h \to 0}\frac{(e^{h} - 1)}{h} 
         \end{aligned}$$
 
-* We already assume that $\displaystyle \lim_{h \to 0}\frac{e^h-1}{h} = 1$, so we got: $$f'(x) = e^{x} \cdot 1 = e^{x} = f(x)$$
+* Since we already assume that $\displaystyle \lim_{h \to 0}\frac{e^h-1}{h} = 1$, we got: $$f'(x) = e^{x} \cdot 1 = e^{x} = f(x)$$
 
+## Review Questions
+
+* what is the production rule of two derivative functions?
+* the quotient rule?
+* what is the derivatives of $f(x) = x^3 - x$ and the derivative of the derivative of `f(x)`?
+    * what can the second derivative tell about function `f(x)`?
+    * what is inflection point?
+* definition of extreme values, aka local/global minimum/maximum?
+    * what is Fermat’s Theorem?
+* how to prove the derivative of function$f(x) = e^x$ is itself?
