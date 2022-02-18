@@ -18,18 +18,18 @@
     * Def: A **cut** in a graph is a partition of its vertices into two arbitraty sets.
     * Def: A **crossing edge** connects a vertext in one set with a vertex in the other.
     * Given any cut, the **crossing edge of min weight** is in the MST. (Proof: Page 606)
-        * <img src="https://i.imgur.com/yTMDuEl.jpg" style="width:300px" />
+        * <img src="https://i.imgur.com/yTMDuEl.jpg" style="width:400px" />
 
 ### Edge-weighted graph API
 
 * Weighted edge API
-    * <img src="https://i.imgur.com/p6bYXS8.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/p6bYXS8.jpg" style="width:500px" />
     * Idiom for processing an edge e: int v = e.either(), w = e.other(v);
 
 * Edge-weighted graph API
-    * <img src="https://i.imgur.com/xjHWxq0.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/xjHWxq0.jpg" style="width:500px" />
 * Minimum spanning tree API
-    * <img src="https://i.imgur.com/6Oe0LT9.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/6Oe0LT9.jpg" style="width:500px" />
 
 ### Kruskal's algorithm
 
@@ -61,7 +61,7 @@
     * <img src="https://i.imgur.com/Ncr8etA.jpg" style="width:600px" />
 
 * running time
-    * <img src="https://i.imgur.com/q0KtqXl.jpg" style="width:300px" />
+    * <img src="https://i.imgur.com/q0KtqXl.jpg" style="width:400px" />
 
 #### Eager Implementation
 
@@ -75,6 +75,7 @@
 
 * e.g. 
     * <img src="https://i.imgur.com/io4r4xS.jpg" style="width:500px" />
+
         * start with 0, added to MST. The vertices connected to 0 are 7, 2, 4, 6, corresponding the weights: 0.16, 0.26, 0.38, 0.58. In the PQ, it will be sorted as [7, 7-0, 0.16], [2, 2-0, 0.26], [4, 4-0, 0.38], [6, 6-0, 0.58].
         * then pop 7, and add it the MST. Then check the vertices connected to 0 and 7. 5 and 1 are new, add to the PQ directly. 4 is connected with both 7 and 0. 4-7 is lower than 0-7, replace 4's weight to 0.37, and the edge associated with 4 to 4-7. Then the queue became [1, 1-7, 0.19], [2, 2-0, 0.26], [5, 5-7, 0.28], [4, 4-7, 0.37], [6, 6-0, 0.58]
         * then pop 1, add it to MST. 3 is new, add it to Q. Compare 1-5 and 5-7, no need to change. Then the queue became [2, 2-0, 0.26], [5, 5-7, 0.28], [3, 3-1, 0.29], [4, 4-7, 0.37], [6, 6-0, 0.58]
@@ -117,7 +118,7 @@
 
 * <img src="https://i.imgur.com/bUirevT.jpg" style="width:500px" />
 
-* <img src="https://i.imgur.com/tF06irL.jpg" style="width:300px" />
+* <img src="https://i.imgur.com/tF06irL.jpg" style="width:400px" />
 
 ### Generic shortest-paths algorithm
 
@@ -141,8 +142,8 @@
 
 #### Java Implementation
 
-* <img src="https://i.imgur.com/CsjFiXZ.jpg" style="width:400px" />
-* <img src="https://i.imgur.com/wWmPoU3.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/CsjFiXZ.jpg" style="width:600px" />
+* <img src="https://i.imgur.com/wWmPoU3.jpg" style="width:600px" />
 
 
 ### Acyclic Shortest Path in DAG(Directed acyclic graph)
@@ -153,21 +154,21 @@
 * Proposition:
     * Topological sort algorithm computes SPT(Shortest path tree) in any edgeweighted DAG in time proportional to E + V.
 * Java implementation
-    * <img src="https://i.imgur.com/njiBOtj.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/njiBOtj.jpg" style="width:500px" />
 
 ### Bellman-Ford algorithm
 
 * Initialize distTo[s] = 0 and distTo[v] = ∞ for all other vertices.
 * Repeat V times:
     - Relax each edge.
-* <img src="https://i.imgur.com/NjAONrX.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/NjAONrX.jpg" style="width:600px" />
 
 ### Single source shortest-paths implementation: cost summary
 
 * * Negative cycles
     * Def. A negative cycle is a directed cycle whose sum of edge weights is negative.
 
-* <img src="https://i.imgur.com/g6IcSth.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/g6IcSth.jpg" style="width:600px" />
 
     * Remark 1. Directed cycles make the problem harder. 
     * Remark 2. Negative weights make the problem harder. 
