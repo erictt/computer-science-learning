@@ -181,9 +181,17 @@ To find the maximum flow (and min-cut), the algorithm repeatedly finds **augment
 
         public FordFulkerson(FlowNetwork G, int s, int t) {
             value = 0.0; 
-            while (hasAugmentingPath(G, s, t)) {
-
+            
+            // method hasAugmentingPath generates the shortest path in edgeTo
+            while (hasAugmentingPath(G, s, t)) { 
                 double bottle = Double.POSITIVE_INFINITY;
+                // it's a little confused here since we're comparing both 
+                // the backward and forward edges all togather.
+                // Think about it this way:
+                //    Assume we find the the bottlenect capacity is 1, 
+                //    then we will decrease the capacity of this backward edge by 1 
+                //    and 1 to both its upstream and downstream. 
+                //    The total flow is increased by 1 as well.
                 for (int v = t; v != s; v = edgeTo[v].other(v)) // compute bottleneck capacity
                     bottle = Math.min(bottle, edgeTo[v].residualCapacityTo(v));
                 
@@ -194,12 +202,16 @@ To find the maximum flow (and min-cut), the algorithm repeatedly finds **augment
             }
         }
 
+        // BFS to find the shortest path in the residual network
+        // NOTE this algorithm saves the last edge on path to w. it's just a simple choice.
+        // the key is to keep finding new augmeneting paths, and mark the path in edgeTo.
         private boolean hasAugmentingPath(FlowNetwork G, int s, int t) {
             edgeTo = new FlowEdge[G.V()]; 
             marked = new boolean[G.V()];
 
             Queue<Integer> queue = new Queue<Integer>(); 
-            queue.enqueue(s); marked[s] = true; 
+            queue.enqueue(s); 
+            marked[s] = true; 
             while (!queue.isEmpty()) { 
                 int v = queue.dequeue();
                 for (FlowEdge e : G.adj(v)) { 
