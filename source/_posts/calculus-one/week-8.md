@@ -53,3 +53,6 @@
     * <img src="https://i.imgur.com/gGB7qbp.jpg" style="width:500px"/>
     * [Rate of shadow in the wall of a building](https://www.mathalino.com/reviewer/differential-calculus/17-18-rate-shadow-wall-building)
 
+## Review Questions
+
+* what is L’Hôpital’s Rule?

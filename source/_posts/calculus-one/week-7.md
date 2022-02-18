@@ -85,14 +85,14 @@
 ### The Derivatives of Inverse Trig Functions
 
 * $\frac{d}{dx}\arcsin{x} = ?$
-    * Let's say $f(x) = \arcsin{x}$
-        * We know $f(\sin{x}) = x$
+    * Assign $y = f(x) = \arcsin{x}$
+        * Then $\sin{y} = x$
         * So use the chain rules, derivative the both sides, we got: 
             * $$\begin{aligned}
-                f'(\sin{x}) \cdot \cos{x} &= 1 \\
-                f'(\sin{x}) &= \frac{1}{\cos{x}} \\
-                f'(\sin{x}) &= \frac{1}{\sqrt{1-\sin^2{x}}} \\
-                f'(x) &= \frac{1}{\sqrt{1-x^2}} \\
+                \cos{y} \cdot \frac{dy}{dx} &= 1 \\
+                \frac{dy}{dx} &= \frac{1}{\cos{y}}\\
+                \frac{dy}{dx} &= \frac{1}{\sqrt{1-\sin^2{y}}} \space \color{blue}{// (\sin^2{y} + \cos^2{y} = 1)}\\
+                \frac{d}{dx}(\sin^{-1}{x}) = \frac{dy}{dx} &= \frac{1}{\sqrt{1-x^2}} \space \color{blue}{// \sin{y} = x}\\
                 \end{aligned}$$
 * $\frac{d}{dx}\arccos{x} = ?$: 
     * In a right triangle, the other two angles are $\alpha\, \beta$, we know:
@@ -151,3 +151,16 @@
     * So, $\sin{(2 \cdot \frac{1}{32})} = 2\sin{(1/16)} \cdot \sqrt{1-\sin^2{(1/32)}}$
     * We can keep multiple 2 to x until `x = 1`, then we got ($\sin{1}$)
 
+## Review Questions
+
+* sin/csc, cos/sec, tan/cot
+* pi = __ degree?
+* $\sin{\frac{\pi}{4}} = ?$
+    * check the two triangle in **#Angles**. remember the length of each side.
+* draw graphs for $\tan{x}$ and $\csc{x}$ ?
+* $\frac{d}{dx}(\sin{x}) = ?$, $\frac{d}{dx}(\csc{x}) = ?$
+* $\frac{d}{dx}(\cos{x}) = ?$, $\frac{d}{dx}(\sec{x}) = ?$
+* $\frac{d}{dx}(\tan{x}) = ?$, $\frac{d}{dx}(\cot{x}) = ?$
+    * The major two are sin and cos, then you can drive the others from it.
+* what is the notation for **Inverse Trigonometric Functions**? how to calculate the derivatives?
+    * in week 6, there is a formula for inverse function.

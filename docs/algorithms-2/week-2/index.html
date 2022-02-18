@@ -90,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/algorithms-2/week-2/index.html">Week 2 - Minimum Spanning Trees &amp; Shortest Path</a></li>
 <li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; Radix Sort</a></li>
 <li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+<li><a href="/algorithms-2/week-5/index.html">Week 5 - Regular Expressions</a></li>
+<li><a href="/algorithms-2/week-6/index.html">Week 6 - Reductions</a></li>
 </ul>
 <h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
 <ul>
@@ -277,7 +279,9 @@ function sidebar_toggle() {
 <li>Def: A <strong>crossing edge</strong> connects a vertext in one set with a vertex in the other.</li>
 <li>Given any cut, the <strong>crossing edge of min weight</strong> is in the MST. (Proof: Page 606)
 <ul>
-<li><img src="https://i.imgur.com/yTMDuEl.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/yTMDuEl.jpg" style="width:300px" />
+</li>
 </ul>
 </li>
 </ul>
@@ -288,20 +292,26 @@ function sidebar_toggle() {
 <li>
 <p>Weighted edge API</p>
 <ul>
-<li><img src="https://i.imgur.com/p6bYXS8.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/p6bYXS8.jpg" style="width:400px" />
+</li>
 <li>Idiom for processing an edge e: int v = e.either(), w = e.other(v);</li>
 </ul>
 </li>
 <li>
 <p>Edge-weighted graph API</p>
 <ul>
-<li><img src="https://i.imgur.com/xjHWxq0.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/xjHWxq0.jpg" style="width:400px" />
+</li>
 </ul>
 </li>
 <li>
 <p>Minimum spanning tree API</p>
 <ul>
-<li><img src="https://i.imgur.com/6Oe0LT9.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/6Oe0LT9.jpg" style="width:400px" />
+</li>
 </ul>
 </li>
 </ul>
@@ -321,12 +331,16 @@ function sidebar_toggle() {
 </li>
 <li>Java implemenation
 <ul>
-<li><img src="https://i.imgur.com/WIJvQaZ.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/WIJvQaZ.jpg" style="width:600px" />
+</li>
 </ul>
 </li>
 <li>Running time
 <ul>
-<li><img src="https://i.imgur.com/OzHtFiA.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/OzHtFiA.jpg" style="width:300px" />
+</li>
 </ul>
 </li>
 </ul>
@@ -353,13 +367,17 @@ function sidebar_toggle() {
 <li>
 <p>Java Implemenatation</p>
 <ul>
-<li><img src="https://i.imgur.com/Ncr8etA.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/Ncr8etA.jpg" style="width:600px" />
+</li>
 </ul>
 </li>
 <li>
 <p>running time</p>
 <ul>
-<li><img src="https://i.imgur.com/q0KtqXl.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/q0KtqXl.jpg" style="width:300px" />
+</li>
 </ul>
 </li>
 </ul>
@@ -386,14 +404,13 @@ function sidebar_toggle() {
 <li>
 <p>e.g.</p>
 <ul>
-<li><img src="https://i.imgur.com/io4r4xS.jpg" alt="" />
-<ul>
-<li>start with 0, added to MST. The vertices connected to 0 are 7, 2, 4, 6, corresponding the weights: 0.16, 0.26, 0.38, 0.58. In the PQ, it will be sorted as [7, 7-0, 0.16], [2, 2-0, 0.26], [4, 4-0, 0.38], [6, 6-0, 0.58].</li>
-<li>then pop 7, and add it the MST. Then check the vertices connected to 0 and 7. 5 and 1 are new, add to the PQ directly. 4 is connected with both 7 and 0. 4-7 is lower than 0-7, replace 4’s weight to 0.37, and the edge associated with 4 to 4-7. Then the queue became [1, 1-7, 0.19], [2, 2-0, 0.26], [5, 5-7, 0.28], [4, 4-7, 0.37], [6, 6-0, 0.58]</li>
-<li>then pop 1, add it to MST. 3 is new, add it to Q. Compare 1-5 and 5-7, no need to change. Then the queue became [2, 2-0, 0.26], [5, 5-7, 0.28], [3, 3-1, 0.29], [4, 4-7, 0.37], [6, 6-0, 0.58]</li>
-<li>then pop 2, add it to MST. 6 is new, add it to Q. <strong>1 already existed in Q, ignore.</strong> <strong>compare 3-1 and 3-2, 3-2 is smaller, update the Q.</strong> compare 6-0, 6-2, 6-3. 6-2 is smaller, update the queue the queue became [3, 3-1, 0.17], [5, 5-7, 0.28], [4, 4-7, 0.37], [6, 6-2, 0.40]</li>
-<li>then keep going until MST got V-1 vertices.</li>
-</ul>
+<li>
+<img src="https://i.imgur.com/io4r4xS.jpg" style="width:500px" />
+  * start with 0, added to MST. The vertices connected to 0 are 7, 2, 4, 6, corresponding the weights: 0.16, 0.26, 0.38, 0.58. In the PQ, it will be sorted as [7, 7-0, 0.16], [2, 2-0, 0.26], [4, 4-0, 0.38], [6, 6-0, 0.58].
+  * then pop 7, and add it the MST. Then check the vertices connected to 0 and 7. 5 and 1 are new, add to the PQ directly. 4 is connected with both 7 and 0. 4-7 is lower than 0-7, replace 4's weight to 0.37, and the edge associated with 4 to 4-7. Then the queue became [1, 1-7, 0.19], [2, 2-0, 0.26], [5, 5-7, 0.28], [4, 4-7, 0.37], [6, 6-0, 0.58]
+  * then pop 1, add it to MST. 3 is new, add it to Q. Compare 1-5 and 5-7, no need to change. Then the queue became [2, 2-0, 0.26], [5, 5-7, 0.28], [3, 3-1, 0.29], [4, 4-7, 0.37], [6, 6-0, 0.58]
+  * then pop 2, add it to MST. 6 is new, add it to Q. **1 already existed in Q, ignore.** **compare 3-1 and 3-2, 3-2 is smaller, update the Q.** compare 6-0, 6-2, 6-3. 6-2 is smaller, update the queue the queue became [3, 3-1, 0.17], [5, 5-7, 0.28], [4, 4-7, 0.37], [6, 6-2, 0.40]
+  * then keep going until MST got V-1 vertices.
 </li>
 </ul>
 </li>
@@ -413,20 +430,26 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>Use swim(qp[i]) implement decreaseKey(i, key).</li>
-<li><img src="https://i.imgur.com/CythQOi.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/CythQOi.jpg" style="width:300px" />
+</li>
 </ul>
 </li>
 <li>
 <p>Java implemenation</p>
 <ul>
-<li><img src="https://i.imgur.com/5p8Mxmd.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/5p8Mxmd.jpg" style="width:600px" />
+</li>
 </ul>
 </li>
 <li>
 <p>running time</p>
 <ul>
 <li>Depends on PQ implementation: V insert, V delete-min, E decrease-key.</li>
-<li><img src="https://i.imgur.com/L4a9nko.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/L4a9nko.jpg" style="width:500px" />
+</li>
 </ul>
 </li>
 </ul>
@@ -436,29 +459,35 @@ function sidebar_toggle() {
 <li>
 <p>Weighted directed edge API</p>
 <ul>
-<li><img src="https://i.imgur.com/VUq50eN.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/VUq50eN.jpg" style="width:500px" />
+</li>
 </ul>
 </li>
 <li>
 <p>Edge-weighted digraph API</p>
 <ul>
-<li><img src="https://i.imgur.com/yN3KfHq.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/yN3KfHq.jpg" style="width:500px" />
+</li>
 </ul>
 </li>
 <li>
 <p>Single-source shortest paths API</p>
 <ul>
-<li><img src="https://i.imgur.com/yUpPpW0.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/yUpPpW0.jpg" style="width:500px" />
+</li>
 </ul>
 </li>
 </ul>
 <h3 id="shortest-paths-optimality-conditions"><a class="markdownIt-Anchor" href="#shortest-paths-optimality-conditions"></a> Shortest-paths optimality conditions</h3>
 <ul>
 <li>
-<p><img src="https://i.imgur.com/bUirevT.jpg" alt="" /></p>
+<img src="https://i.imgur.com/bUirevT.jpg" style="width:500px" />
 </li>
 <li>
-<p><img src="https://i.imgur.com/tF06irL.jpg" alt="" /></p>
+<img src="https://i.imgur.com/tF06irL.jpg" style="width:300px" />
 </li>
 </ul>
 <h3 id="generic-shortest-paths-algorithm"><a class="markdownIt-Anchor" href="#generic-shortest-paths-algorithm"></a> Generic shortest-paths algorithm</h3>
@@ -489,8 +518,12 @@ function sidebar_toggle() {
 </ul>
 <h4 id="java-implementation"><a class="markdownIt-Anchor" href="#java-implementation"></a> Java Implementation</h4>
 <ul>
-<li><img src="https://i.imgur.com/CsjFiXZ.jpg" alt="" /></li>
-<li><img src="https://i.imgur.com/wWmPoU3.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/CsjFiXZ.jpg" style="width:400px" />
+</li>
+<li>
+<img src="https://i.imgur.com/wWmPoU3.jpg" style="width:400px" />
+</li>
 </ul>
 <h3 id="acyclic-shortest-path-in-dagdirected-acyclic-graph"><a class="markdownIt-Anchor" href="#acyclic-shortest-path-in-dagdirected-acyclic-graph"></a> Acyclic Shortest Path in DAG(Directed acyclic graph)</h3>
 <ul>
@@ -507,7 +540,9 @@ function sidebar_toggle() {
 </li>
 <li>Java implementation
 <ul>
-<li><img src="https://i.imgur.com/njiBOtj.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/njiBOtj.jpg" style="width:400px" />
+</li>
 </ul>
 </li>
 </ul>
@@ -519,7 +554,9 @@ function sidebar_toggle() {
 <li>Relax each edge.</li>
 </ul>
 </li>
-<li><img src="https://i.imgur.com/NjAONrX.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/NjAONrX.jpg" style="width:400px" />
+</li>
 </ul>
 <h3 id="single-source-shortest-paths-implementation-cost-summary"><a class="markdownIt-Anchor" href="#single-source-shortest-paths-implementation-cost-summary"></a> Single source shortest-paths implementation: cost summary</h3>
 <ul>
@@ -533,7 +570,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>
-<p><img src="https://i.imgur.com/g6IcSth.jpg" alt="" /></p>
+<img src="https://i.imgur.com/g6IcSth.jpg" style="width:400px" />
 <ul>
 <li>Remark 1. Directed cycles make the problem harder.</li>
 <li>Remark 2. Negative weights make the problem harder.</li>

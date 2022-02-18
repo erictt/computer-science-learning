@@ -18,18 +18,18 @@
     * Def: A **cut** in a graph is a partition of its vertices into two arbitraty sets.
     * Def: A **crossing edge** connects a vertext in one set with a vertex in the other.
     * Given any cut, the **crossing edge of min weight** is in the MST. (Proof: Page 606)
-        * ![](https://i.imgur.com/yTMDuEl.jpg)
+        * <img src="https://i.imgur.com/yTMDuEl.jpg" style="width:300px" />
 
 ### Edge-weighted graph API
 
 * Weighted edge API
-    * ![](https://i.imgur.com/p6bYXS8.jpg)
+    * <img src="https://i.imgur.com/p6bYXS8.jpg" style="width:400px" />
     * Idiom for processing an edge e: int v = e.either(), w = e.other(v);
 
 * Edge-weighted graph API
-    * ![](https://i.imgur.com/xjHWxq0.jpg)
+    * <img src="https://i.imgur.com/xjHWxq0.jpg" style="width:400px" />
 * Minimum spanning tree API
-    * ![](https://i.imgur.com/6Oe0LT9.jpg)
+    * <img src="https://i.imgur.com/6Oe0LT9.jpg" style="width:400px" />
 
 ### Kruskal's algorithm
 
@@ -40,9 +40,9 @@
     * How to organize a sorted edges with weight? use Priority Queue.
     * How to avoid cycle? Create a separted union-find data struture, and maintain a set for each connected components in the MST.
 * Java implemenation
-    * ![](https://i.imgur.com/WIJvQaZ.jpg)
+    * <img src="https://i.imgur.com/WIJvQaZ.jpg" style="width:600px" />
 * Running time
-    * ![](https://i.imgur.com/OzHtFiA.jpg)
+    * <img src="https://i.imgur.com/OzHtFiA.jpg" style="width:300px" />
 
 ### Prim's algorithm
 
@@ -58,10 +58,10 @@
 3. Repeat until V-1 edges are added in MST.
 
 * Java Implemenatation
-    * ![](https://i.imgur.com/Ncr8etA.jpg)
+    * <img src="https://i.imgur.com/Ncr8etA.jpg" style="width:600px" />
 
 * running time
-    * ![](https://i.imgur.com/q0KtqXl.jpg)
+    * <img src="https://i.imgur.com/q0KtqXl.jpg" style="width:300px" />
 
 #### Eager Implementation
 
@@ -74,7 +74,7 @@
     3. Update PQ by considering all edges **e = v–x** incident to v.
 
 * e.g. 
-    * ![](https://i.imgur.com/io4r4xS.jpg)
+    * <img src="https://i.imgur.com/io4r4xS.jpg" style="width:500px" />
         * start with 0, added to MST. The vertices connected to 0 are 7, 2, 4, 6, corresponding the weights: 0.16, 0.26, 0.38, 0.58. In the PQ, it will be sorted as [7, 7-0, 0.16], [2, 2-0, 0.26], [4, 4-0, 0.38], [6, 6-0, 0.58].
         * then pop 7, and add it the MST. Then check the vertices connected to 0 and 7. 5 and 1 are new, add to the PQ directly. 4 is connected with both 7 and 0. 4-7 is lower than 0-7, replace 4's weight to 0.37, and the edge associated with 4 to 4-7. Then the queue became [1, 1-7, 0.19], [2, 2-0, 0.26], [5, 5-7, 0.28], [4, 4-7, 0.37], [6, 6-0, 0.58]
         * then pop 1, add it to MST. 3 is new, add it to Q. Compare 1-5 and 5-7, no need to change. Then the queue became [2, 2-0, 0.26], [5, 5-7, 0.28], [3, 3-1, 0.29], [4, 4-7, 0.37], [6, 6-0, 0.58]
@@ -89,15 +89,15 @@
         * qp[i] is the heap position of the key with index i (qp[pq[i]] = pq[qp[i]] = i)
             * This is for look up the index. For example, we want to **decrease** key[6]'s weight. we first look up where the key is in PQ with the array of **qp**, qp[6] = 2, then we know 6 is the 2nd. Then we can update the weight of pq[2] = whatever, and **swim it up**.
     * Use swim(qp[i]) implement decreaseKey(i, key).
-    * ![](https://i.imgur.com/CythQOi.jpg)
+    * <img src="https://i.imgur.com/CythQOi.jpg" style="width:300px" />
 
 
 * Java implemenation
-    * ![](https://i.imgur.com/5p8Mxmd.jpg)
+    * <img src="https://i.imgur.com/5p8Mxmd.jpg" style="width:600px" />
 
 * running time
     * Depends on PQ implementation: V insert, V delete-min, E decrease-key.
-    * ![](https://i.imgur.com/L4a9nko.jpg)
+    * <img src="https://i.imgur.com/L4a9nko.jpg" style="width:500px" />
 
 
 ## Shortest Path
@@ -105,19 +105,19 @@
 ### API
 
 * Weighted directed edge API
-    * ![](https://i.imgur.com/VUq50eN.jpg)
+    * <img src="https://i.imgur.com/VUq50eN.jpg" style="width:500px" />
 
 * Edge-weighted digraph API
-    * ![](https://i.imgur.com/yN3KfHq.jpg)
+    * <img src="https://i.imgur.com/yN3KfHq.jpg" style="width:500px" />
     
 * Single-source shortest paths API
-    * ![](https://i.imgur.com/yUpPpW0.jpg)
+    * <img src="https://i.imgur.com/yUpPpW0.jpg" style="width:500px" />
 
 ### Shortest-paths optimality conditions
 
-* ![](https://i.imgur.com/bUirevT.jpg)
+* <img src="https://i.imgur.com/bUirevT.jpg" style="width:500px" />
 
-* ![](https://i.imgur.com/tF06irL.jpg)
+* <img src="https://i.imgur.com/tF06irL.jpg" style="width:300px" />
 
 ### Generic shortest-paths algorithm
 
@@ -141,8 +141,8 @@
 
 #### Java Implementation
 
-* ![](https://i.imgur.com/CsjFiXZ.jpg)
-* ![](https://i.imgur.com/wWmPoU3.jpg)
+* <img src="https://i.imgur.com/CsjFiXZ.jpg" style="width:400px" />
+* <img src="https://i.imgur.com/wWmPoU3.jpg" style="width:400px" />
 
 
 ### Acyclic Shortest Path in DAG(Directed acyclic graph)
@@ -153,21 +153,21 @@
 * Proposition:
     * Topological sort algorithm computes SPT(Shortest path tree) in any edgeweighted DAG in time proportional to E + V.
 * Java implementation
-    * ![](https://i.imgur.com/njiBOtj.jpg)
+    * <img src="https://i.imgur.com/njiBOtj.jpg" style="width:400px" />
 
 ### Bellman-Ford algorithm
 
 * Initialize distTo[s] = 0 and distTo[v] = ∞ for all other vertices.
 * Repeat V times:
     - Relax each edge.
-* ![](https://i.imgur.com/NjAONrX.jpg)
+* <img src="https://i.imgur.com/NjAONrX.jpg" style="width:400px" />
 
 ### Single source shortest-paths implementation: cost summary
 
 * * Negative cycles
     * Def. A negative cycle is a directed cycle whose sum of edge weights is negative.
 
-* ![](https://i.imgur.com/g6IcSth.jpg)
+* <img src="https://i.imgur.com/g6IcSth.jpg" style="width:400px" />
 
     * Remark 1. Directed cycles make the problem harder. 
     * Remark 2. Negative weights make the problem harder. 

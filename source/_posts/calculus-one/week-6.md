@@ -19,7 +19,9 @@
         2x + 2y \cdot \frac{d}{dx}y &= 0 \\
         \frac{d}{dx}y &= -\frac{x}{y}
         \end{aligned}$$
-        * PS: `y` is a function of `x` and using the Chain Rule, we have $$\frac{d}{dx}(y^2) = \frac{d}{dy}(y^2) \cdot \frac{d}{dx}y = 2y\frac{d}{dx}y$$
+        * NOTE:
+            * $y=g(x) = \sqrt{25-x^2}$
+            * `y` is a function of `x` and using the Chain Rule, we have $$\frac{d}{dx}(y^2) = \frac{d}{dy}(y^2) \cdot \frac{d}{dx}y = 2y\frac{d}{dx}y$$
     * At the point `(3, 4)` we have `x = 3` and `y = 4`, so $$\frac{d}{dx}y = -\frac{3}{4}$$
 * Sample 2: $x^3+y^3=axy$ (**folium of Descartes**)
     * $x^3+y^3=6xy$, find $\frac{d}{dx}y$
@@ -45,26 +47,32 @@
 
 ### Derivatives of Logarithmic Functions
 
+* Note: 
+    * log without base, usually means that the base is **10**.
+    * Another base that is often used is e (Euler's Number) which is about 2.71828.
+        * Example: $\ln(7.389) = \log_{e}(7.389) ≈ 2$
+    * More details: https://www.mathsisfun.com/algebra/logarithms.html
+
 * Sample 1: 
     $$\begin{aligned}
         f(x) &= e^x,\ f'(x) = e^x \text{(proved in the end of week 5)} \\
-        f^{-1}(x) &= \log{x} \\
-        (f^{-1})'(x) &= \frac{1}{f'(f^{-1}(x))} = \frac{1}{f'(\log{x})} = \frac{1}{e^{\log{x}}} \\
+        f^{-1}(x) &= \ln{x} \\
+        (f^{-1})'(x) &= \frac{1}{f'(f^{-1}(x))} = \frac{1}{f'(\ln{x})} = \frac{1}{e^{\log{x}}} \\
         &= \frac{1}{x}
       \end{aligned}$$
 * Sample 2: 
     $$\begin{aligned}
         f(x) &= \log_{b}{x} \\
-        f'(x) &= \frac{d}{dx}\frac{\log{x}}{\log{b}} = \frac{1}{\log{b}} \cdot \frac{d}{dx}\log{x} = \frac{1}{\log{b}} \cdot \frac{1}{x} \\
-        &= \frac{1}{x \cdot \log{b}}
+        f'(x) &= \frac{d}{dx}\frac{\ln{x}}{\ln{b}} = \frac{1}{\ln{b}} \cdot \frac{d}{dx}\ln{x} = \frac{1}{\ln{b}} \cdot \frac{1}{x} \\
+        &= \frac{1}{x \cdot \ln{b}}
       \end{aligned}$$  
 * Sample 3: 
     $$\begin{aligned}
         f(x) &= b^x \\
-        &= (e^{\log{b}})^x = e^{\log{b} \cdot x} \\
-        f'(x) &= e^{\log{b} \cdot x} \cdot \frac{d}{dx}(\log{b} \cdot x)\ \text{(chain rules)} \\
-        &= (e^{\log{b}})^{\cdot x} \cdot \log{b} \\
-        &= b^x \cdot \log{b}
+        &= (e^{\ln{b}})^x = e^{\ln{b} \cdot x} \\
+        f'(x) &= e^{\ln{b} \cdot x} \cdot \frac{d}{dx}(\ln{b} \cdot x)\ \text{(chain rules)} \\
+        &= (e^{\ln{b}})^{\cdot x} \cdot \ln{b} \\
+        &= b^x \cdot \ln{b}
       \end{aligned}$$  
 
 #### Logarithmic Differentiation
@@ -73,10 +81,10 @@
 * Sample: Differentiate $f(x)=\frac{(1+x^2)^5 \cdot (1+x^3)^8}{(1+x^4)^7}$, 
     $$\begin{aligned}
         y &= \frac{(1+x^2)^5 \cdot (1+x^3)^8}{(1+x^4)^7} \\
-        \log{y} &= \log{\frac{(1+x^2)^5 \cdot (1+x^3)^8}{(1+x^4)^7}} \\
-        \frac{d}{dx}\log{y} &= \frac{d}{dx}\log{\frac{(1+x^2)^5 \cdot (1+x^3)^8}{(1+x^4)^7}} \\
-        \frac{d}{dx}\log{y} &= \frac{d}{dx}(5\log{(1+x^2)} + 8\log{(1+x^3)} - 7\log{(1+x^4)}) \\
-        \frac{1}{y} \cdot \frac{d}{dx}y &= 5\frac{d}{dx}\log{(1+x^2)} + 8\frac{d}{dx}\log{(1+x^3)} - 7\frac{d}{dx}\log{(1+x^4)} \\
+        \ln{y} &= \ln{\frac{(1+x^2)^5 \cdot (1+x^3)^8}{(1+x^4)^7}} \\
+        \frac{d}{dx}\ln{y} &= \frac{d}{dx}\ln{\frac{(1+x^2)^5 \cdot (1+x^3)^8}{(1+x^4)^7}} \\
+        \frac{d}{dx}\ln{y} &= \frac{d}{dx}(5\ln{(1+x^2)} + 8\ln{(1+x^3)} - 7\ln{(1+x^4)}) \\
+        \frac{1}{y} \cdot \frac{d}{dx}y &= 5\frac{d}{dx}\ln{(1+x^2)} + 8\frac{d}{dx}\ln{(1+x^3)} - 7\frac{d}{dx}\ln{(1+x^4)} \\
         \frac{1}{y} \cdot \frac{d}{dx}y &= 5\frac{2x}{1+x^2} + 8\frac{3x^2}{1+x^3} - 7\frac{4x^3}{1+x^4} \\
         \frac{d}{dx}y &= (5\frac{2x}{1+x^2} + 8\frac{3x^2}{1+x^3} - 7\frac{4x^3}{1+x^4}) \cdot \frac{(1+x^2)^5 \cdot (1+x^3)^5}{(1+x^4)^7}\\
       \end{aligned}$$
@@ -118,8 +126,8 @@
 * Use logarithms to prove: 
     * $$\begin{aligned}
         f(x) &> 0,\ g(x) > 0, \\
-        \log(f(x)g(x)) &= \log(f(x)) + \log(g(x)) \\
-        \frac{d}{dx} \log(f(x)g(x)) &= \frac{d}{dx} \log(f(x)) + \frac{d}{dx} \log(g(x)) \\
+        \ln(f(x)g(x)) &= \ln(f(x)) + \ln(g(x)) \\
+        \frac{d}{dx} \ln(f(x)g(x)) &= \frac{d}{dx} \ln(f(x)) + \frac{d}{dx} \ln(g(x)) \\
         \frac{1}{f(x)g(x)} \cdot \frac{d}{dx}f(x)g(x) &= \frac{1}{f(x)} \cdot \frac{d}{dx}f(x) + \frac{1}{g(x)} \cdot \frac{d}{dx}g(x) \\
         \frac{d}{dx}f(x)g(x) &= g(x) \cdot \frac{d}{dx}f(x) + f(x) \cdot \frac{d}{dx}g(x)
       \end{aligned}$$
@@ -149,4 +157,8 @@
         \end{aligned}$$
     This prove the **Chain Rule**.
 
+## Review Questions
 
+* what is chain rule?
+* what is the derivatives of inverse function? the formula.
+* what is the power rule that suits for product rule as well?
