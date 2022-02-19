@@ -203,8 +203,8 @@ To find the maximum flow (and min-cut), the algorithm repeatedly finds **augment
         }
 
         // BFS to find the shortest path in the residual network
-        // NOTE this algorithm saves the last edge on path to w. it's just a simple choice.
-        // the key is to keep finding new augmeneting paths, and mark the path in edgeTo.
+        // BE AWARE this algorithm saves the last edge on path to w,
+        // because it's BFS, we can only trace the last path to the target.
         private boolean hasAugmentingPath(FlowNetwork G, int s, int t) {
             edgeTo = new FlowEdge[G.V()]; 
             marked = new boolean[G.V()];
