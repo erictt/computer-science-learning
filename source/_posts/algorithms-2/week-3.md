@@ -66,7 +66,7 @@
     * By augmenting path theorem, no augmenting paths with respect to f(the maxflow). 
     * Compute S = set of vertices connected to s by an undirected path with no full forward or empty backward edges.
         * **TODO**: Why?
-    * <img src="https://i.imgur.com/mcJplpu.jpg" style="width:400px" />
+    * <img src="https://i.imgur.com/mcJplpu.jpg" style="width:500px" />
     
 ### Ford-Fulkerson algorithm 
 
@@ -244,7 +244,9 @@ To find the maximum flow (and min-cut), the algorithm repeatedly finds **augment
 
 ### Strings in Java 
 
-* Sequence of characters (immutable)
+* **String** Data Type: Sequence of characters (immutable)
+    * <img src="https://i.imgur.com/cTnDfsd.jpg" style="width:400px" />
+* **StringBuilder** data type. Sequence of characters (mutable/thread safe/slower).
 
 * **String vs. StringBuilder**
 
@@ -268,6 +270,10 @@ To find the maximum flow (and min-cut), the algorithm repeatedly finds **augment
             return rev.toString(); 
         }
         ```
+    
+    * <img src="https://i.imgur.com/6COioGI.jpg" style="width:400px" />
+
+
         
 #### Alphabets
 
@@ -288,15 +294,20 @@ To find the maximum flow (and min-cut), the algorithm repeatedly finds **augment
     // R = 256
     int[] count = new int[R+1];
 
-    // 1. Count frequencies of each letter using key as index.
+    // 1. Count frequencies of each letter using (key+1) as index.
+    // e.g. a is 0 and the index is 1.
     for (int i = 0; i < N; i++) 
         count[a[i]+1]++;
 
     // 2. Compute frequency cumulates which specify destinations.
+    // after the accumulation, we will be able to tell things like:
+    //     6 keys < d, 8 keys < e so d’s go in a[6] and a[7]
     for (int r = 0; r < R; r++) 
         count[r+1] += count[r];
 
     // 3. Access cumulates using key as index to move items.
+    // e.g. a[0] = d, count[d] = 8, so aux[8] = d, then accumulate d's index, so next d can go to 9
+    // after the loop, all of the indices will be accumulated to their upper bound, which is why you see f and - are both 12.
     for (int i = 0; i < N; i++) 
         aux[count[a[i]]++] = a[i];
 
@@ -306,6 +317,7 @@ To find the maximum flow (and min-cut), the algorithm repeatedly finds **augment
     ```
 
 * <img src="https://i.imgur.com/88fitXA.jpg" style="width:600px" />
+    
     * **Notice**: use a for 0, b for 1, c for 2, d for 3, e for 4, f for 5 for better explanation
 
 * **Proposition**. Key-indexed counting uses ~ 11 N + 4 R array accesses to sort N items whose **keys are integers between 0 and R - 1**.
@@ -319,7 +331,7 @@ To find the maximum flow (and min-cut), the algorithm repeatedly finds **augment
 * <img src="https://i.imgur.com/8qaZdGr.jpg" style="width:600px" />
 * <img src="https://i.imgur.com/60ABADp.jpg" style="width:600px" />
 
-### radix sort 
+### MSD radix sort 
 
 * Most-signiﬁcant-digit-ﬁrst string sort
     * Partition array into R pieces according to first character (use key-indexed counting).
@@ -331,29 +343,45 @@ To find the maximum flow (and min-cut), the algorithm repeatedly finds **augment
     * <img src="https://i.imgur.com/29vzTCy.jpg" style="width:600px" />
 * potential for disastrous performance
     1. much too slow for small subarrays
-    2. Huge number of small subarrays
+        1. Each recursion needs a new `count[]` array, if using ASCII(256 counts): 100x slower than copy pass for `N=2`.
+    2. Huge number of small subarrays because of recursion.
     
     * Solution: Cutoff to insertion sort for small subarrays.
-        * Insertion sort, but start at d th character.
-        * Implement less() so that it compares starting at d^th character.
+        * Insertion sort, but start at $d^{th}$ th character.
+        * Implement less() so that it compares starting at $d^{th}$ character.
         * <img src="https://i.imgur.com/2iHxCJM.jpg" style="width:600px" />
     
 ### 3-way radix quicksort 
+
+* Do 3-way partitioning on the $d^{th}$ character.
 
 * <img src="https://i.imgur.com/HiwhpWZ.jpg" style="width:600px" />
 * <img src="https://i.imgur.com/WnJymHE.jpg" style="width:600px" />
 * faster than the other two algorithms, but not stable.
 
-### suffix arrays
+### Summary of the performance of sorting algorithms
+
+<img src="https://i.imgur.com/KW8RotR.jpg" style="width:600px" />
+
+
+### Suffix Arrays
+
+* Keyword-in-context search
+    * Given a text of N characters, preprocess it to enable fast substring search (find all occurrences of query string context).
 
 #### Suffix sort
 
 * <img src="https://i.imgur.com/cVsQdT1.jpg" style="width:600px" />
-* Can be used for finding longest repeated substring
+* Longest repeated substring
+    * Given a string of N characters, find the longest repeated substring.
+    * <img src="https://i.imgur.com/JWmHV3d.jpg" style="width:600px" />
+    * <img src="https://i.imgur.com/WUrfBA9.jpg" style="width:600px" />
+
+
 * **worst-case input**: longest repeated substring very long.
     * LRS needs at least 1 + 2 + 3 + ... + D character compares, where D = length of longest match.
 
-#### Manber-Myers 马上到！ algorithm
+#### Manber-Myers algorithm
 
 * Sufﬁx sorting in linearithmic time
     * linear: N, linearithmic: a * N

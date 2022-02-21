@@ -260,6 +260,7 @@ function sidebar_toggle() {
   <h1 id="week-4-tries-substring-search"><a class="markdownIt-Anchor" href="#week-4-tries-substring-search"></a> Week 4 - Tries &amp; Substring Search</h1>
 <h2 id="tries"><a class="markdownIt-Anchor" href="#tries"></a> Tries</h2>
 <ul>
+<li>[from re<strong>trie</strong>val, but pronounced “try”]</li>
 <li>Store characters in nodes (not keys).</li>
 <li>Each node has <strong>R</strong> children, one for each possible character.
 <ul>
@@ -270,12 +271,40 @@ function sidebar_toggle() {
 <img src="https://i.imgur.com/jSIIGuR.jpg" style="width:600px" />
 </li>
 </ul>
-<h3 id="ternary-search-tries"><a class="markdownIt-Anchor" href="#ternary-search-tries"></a> Ternary search tries</h3>
+<h3 id="java-implementation"><a class="markdownIt-Anchor" href="#java-implementation"></a> Java implementation</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TrieST</span>&lt;Value&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">R</span> <span class="operator">=</span> <span class="number">256</span>; <span class="comment">// extended ASCII</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">Node</span> <span class="variable">root</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Node</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Node</span> &#123; </span><br><span class="line">        <span class="keyword">private</span> Object value; <span class="comment">// use Object instead of Value since no generic array creation in Java</span></span><br><span class="line">        <span class="keyword">private</span> Node[] next = <span class="keyword">new</span> <span class="title class_">Node</span>[R]; <span class="comment">// each node has an array of links and a value</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">put</span><span class="params">(String key, Value val)</span> &#123; root = put(root, key, val, <span class="number">0</span>); &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Node <span class="title function_">put</span><span class="params">(Node x, String key, Value val, <span class="type">int</span> d)</span> &#123; </span><br><span class="line">        <span class="keyword">if</span> (x == <span class="literal">null</span>) x = <span class="keyword">new</span> <span class="title class_">Node</span>(); </span><br><span class="line">        <span class="keyword">if</span> (d == key.length()) &#123; x.val = val; <span class="keyword">return</span> x; &#125; </span><br><span class="line">        <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> key.charAt(d); </span><br><span class="line">        x.next[c] = put(x.next[c], key, val, d+<span class="number">1</span>); </span><br><span class="line">        <span class="keyword">return</span> x; </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">contains</span><span class="params">(String key)</span> &#123; <span class="keyword">return</span> get(key) != <span class="literal">null</span>; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> Value <span class="title function_">get</span><span class="params">(String key)</span> &#123;</span><br><span class="line">        <span class="type">Node</span> <span class="variable">x</span> <span class="operator">=</span> get(root, key, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span> (Value) x.val;  <span class="comment">// cast needed</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Node <span class="title function_">get</span><span class="params">(Node x, String key, <span class="type">int</span> d)</span> &#123; </span><br><span class="line">        <span class="keyword">if</span> (x == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>; </span><br><span class="line">        <span class="keyword">if</span> (d == key.length()) <span class="keyword">return</span> x; </span><br><span class="line">        <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> key.charAt(d); </span><br><span class="line">        <span class="keyword">return</span> get(x.next[c], key, d+<span class="number">1</span>); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>Store characters and values in nodes (not keys).</li>
-<li>Each node has <strong>3</strong> children: smaller (left), equal (middle), larger (right).</li>
 <li>
-<img src="https://i.imgur.com/oXo6XIl.jpg" style="width:550px" />
+<p>Performance: Fast search hit and even Trie representation faster search miss, but wastes space.</p>
+</li>
+<li>
+<p>Deletion in an R-way trie</p>
+<ul>
+<li>Find the node corresponding to key and set value to null.</li>
+<li>If node has null value and all null links, remove that node (and recur).</li>
+<li>
+<img src="https://i.imgur.com/Dla0UOL.jpg" style="width:500px" />
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ternary-search-triestst"><a class="markdownIt-Anchor" href="#ternary-search-triestst"></a> Ternary search tries(TST)</h3>
+<ul>
+<li>
+<p>To solve the problem that R-way tries took too much space.</p>
+</li>
+<li>
+<p>Store characters and values in nodes (not keys).</p>
+</li>
+<li>
+<p>Each node has <strong>3</strong> children: smaller (left), equal (middle), larger (right).</p>
+</li>
+<li>
+<img src="https://i.imgur.com/oXo6XIl.jpg" style="width:600px" />
+</li>
+<li>
+<p>Java implementation</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TST</span>&lt;Value&gt; &#123; <span class="keyword">private</span> Node root;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">class</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> Value val;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">char</span> c;</span><br><span class="line">        <span class="keyword">private</span> Node left, mid, right; </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">put</span><span class="params">(String key, Value val)</span> &#123; root = put(root, key, val, <span class="number">0</span>); &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Node <span class="title function_">put</span><span class="params">(Node x, String key, Value val, <span class="type">int</span> d)</span> &#123;</span><br><span class="line">        <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> key.charAt(d); </span><br><span class="line">        <span class="keyword">if</span> (x == <span class="literal">null</span>) &#123; x = <span class="keyword">new</span> <span class="title class_">Node</span>(); x.c = c; &#125; </span><br><span class="line">        <span class="keyword">if</span> (c &lt; x.c) x.left = put(x.left, key, val, d); </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (c &gt; x.c) x.right = put(x.right, key, val, d); </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (d &lt; key.length() - <span class="number">1</span>) x.mid = put(x.mid, key, val, d+<span class="number">1</span>); </span><br><span class="line">        <span class="keyword">else</span> x.val = val;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">contains</span><span class="params">(String key)</span> &#123; <span class="keyword">return</span> get(key) != <span class="literal">null</span>; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> Value <span class="title function_">get</span><span class="params">(String key)</span> &#123;</span><br><span class="line">        <span class="type">Node</span> <span class="variable">x</span> <span class="operator">=</span> get(root, key, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span> x.val; </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Node <span class="title function_">get</span><span class="params">(Node x, String key, <span class="type">int</span> d)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>; </span><br><span class="line">        <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> key.charAt(d); </span><br><span class="line">        <span class="keyword">if</span> (c &lt; x.c) <span class="keyword">return</span> get(x.left, key, d); </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (c &gt; x.c) <span class="keyword">return</span> get(x.right, key, d); </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (d &lt; key.length() - <span class="number">1</span>) <span class="keyword">return</span> get(x.mid, key, d+<span class="number">1</span>); </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="tst-with-r2-branching-at-root"><a class="markdownIt-Anchor" href="#tst-with-r2-branching-at-root"></a> TST with R^2 branching at root</h4>
@@ -287,48 +316,91 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>
-<img src="https://i.imgur.com/pXgm3LU.jpg" style="width:550px" />
+<img src="https://i.imgur.com/pXgm3LU.jpg" style="width:600px" />
+</li>
+</ul>
+<h4 id="string-symbol-table-implementation-cost-summary"><a class="markdownIt-Anchor" href="#string-symbol-table-implementation-cost-summary"></a> String symbol table implementation cost summary</h4>
+<img src="https://i.imgur.com/cBcTtvv.jpg" style="width:500px" />
+<ul>
+<li>TST vs. hashing
+<ul>
+<li>Hashing.
+<ul>
+<li>Need to examine entire key.</li>
+<li>Search hits and misses cost about the same.</li>
+<li>Performance relies on hash function.</li>
+<li>Does not support ordered symbol table operations.</li>
+</ul>
+</li>
+<li>TSTs.
+<ul>
+<li>Works only for strings (or digital keys).</li>
+<li>Only examines just enough key characters.</li>
+<li>Search miss may involve only a few characters.</li>
+<li>Supports ordered symbol table operations (plus others!).</li>
+</ul>
+</li>
+<li>Bottom line. TSTs are:
+<ul>
+<li>Faster than hashing (especially for search misses).</li>
+<li>More flexible than red-black BSTs.</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 <h3 id="character-based-operations"><a class="markdownIt-Anchor" href="#character-based-operations"></a> Character-based Operations</h3>
 <ul>
 <li>
-<p>Prefix match.</p>
+<p>Prefix match. Find all keys in a symbol table starting with a given prefix.</p>
 <ul>
-<li>Find all keys in a symbol table starting with a given prefix.</li>
 <li>
 <img src="https://i.imgur.com/P4cMOAB.jpg" style="width:600px" />
 </li>
 </ul>
 </li>
 <li>
-<p>Longest prefix.</p>
+<p>Longest prefix. Find longest key in symbol table that is a prefix of query string.</p>
 <ul>
-<li>Find longest key in symbol table that is a prefix of query string.</li>
 <li>
 <img src="https://i.imgur.com/L2406ZN.jpg" style="width:600px" />
 </li>
 </ul>
 </li>
 <li>
-<p>Wildcard match.</p>
-<ul>
-<li>// TODO</li>
-</ul>
+<p>Wildcard match. Keys that match .he: she and the.</p>
 </li>
 </ul>
 <h2 id="substring-search"><a class="markdownIt-Anchor" href="#substring-search"></a> Substring Search</h2>
+<ul>
+<li>Goal. Find pattern of length M in a text of length N.
+<ul>
+<li>typically N &gt;&gt; M</li>
+</ul>
+</li>
+</ul>
 <h3 id="brute-force-substring-search"><a class="markdownIt-Anchor" href="#brute-force-substring-search"></a> Brute-force substring search</h3>
 <ul>
-<li>Check for pattern starting at each text position.</li>
+<li>
+<p>Check for pattern starting at each text position.</p>
+</li>
 <li>
 <img src="https://i.imgur.com/1gp7R29.jpg" style="width:400px" />
+<ul>
+<li>worst case: ~M N char compares.</li>
+</ul>
 </li>
-<li>Brute-force algorithm needs <strong>backup</strong> for every mismatch.
+<li>
+<p>Brute-force algorithm needs <strong>backup</strong> for every mismatch.</p>
 <ul>
 <li>
 <img src="https://i.imgur.com/SbLNDHL.jpg" style="width:400px" />
 </li>
+</ul>
+</li>
+<li>
+<p>alternate implementaion for backup.</p>
+<ul>
 <li>
 <img src="https://i.imgur.com/BiiApQ3.jpg" style="width:500px" />
 </li>
@@ -360,22 +432,32 @@ function sidebar_toggle() {
 </li>
 <li>
 <img src="https://i.imgur.com/ZnczNtP.jpg" style="width:600px" />
-  * Every mismatch, is to re-simulate the the pattern without first character, and end with the new mismatch character. So we can simulate the process, and copy the result to the new column.
+<ul>
+<li>Every mismatch, is to re-simulate the the pattern without first character, and end with the new mismatch character. So we can simulate the process, and copy the result to the new column.</li>
+</ul>
 </li>
 <li>
 <p>Java implementation</p>
 <ul>
 <li>
 <img src="https://i.imgur.com/82lptvD.jpg" style="width:500px" />
-  * copy mismatch: 
-      * <img src="https://i.imgur.com/KtVYneb.jpg" style="width:200px" />
+<ul>
+<li>copy mismatch:
+<ul>
+<li>
+<img src="https://i.imgur.com/KtVYneb.jpg" style="width:200px" />
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </li>
 </ul>
 <h3 id="boyer-moore"><a class="markdownIt-Anchor" href="#boyer-moore"></a> Boyer-Moore</h3>
 <ul>
-<li><strong>Intuition</strong>.
+<li>
+<p><strong>Intuition</strong>.</p>
 <ul>
 <li>Scan characters in pattern from right to left.</li>
 <li>Can skip as many as M text chars when finding one not in the pattern.</li>
@@ -384,7 +466,8 @@ function sidebar_toggle() {
 </li>
 </ul>
 </li>
-<li>How much to skip?
+<li>
+<p>How much to skip?</p>
 <ul>
 <li>if the pattern doesn’t have repeat letter, we can only check the rightmost letter, and perform full check when we hit the rightmost match.</li>
 <li>But if the pattern has repeat letter, like the example: NEEDLE. We will need to move the pointer carefully:
@@ -404,11 +487,18 @@ function sidebar_toggle() {
 </li>
 </ul>
 </li>
-<li>Java implementation
+<li>
+<p>Java implementation</p>
 <ul>
 <li>
 <img src="https://i.imgur.com/5wbMyZN.jpg" style="width:500px" />
 </li>
+</ul>
+</li>
+<li>
+<p>KMP substring search analysis</p>
+<ul>
+<li>KMP substring search accesses no more than <strong>M + N</strong> chars to search for a pattern of length M in a text of length N.</li>
 </ul>
 </li>
 </ul>
@@ -424,42 +514,39 @@ function sidebar_toggle() {
 </ul>
 <h4 id="modular-hash-function"><a class="markdownIt-Anchor" href="#modular-hash-function"></a> Modular hash function</h4>
 <ul>
-<li>Using the notation <code>t_i</code> for <code>txt.charAt(i)</code>, we wish to compute
+<li>
+<p>Using the notation <code>t_i</code> for <code>txt.charAt(i)</code>, we wish to compute</p>
 <ul>
 <li>
 <img src="https://i.imgur.com/SoaS8eU.jpg" style="width:320px" />
 </li>
 </ul>
 </li>
-<li><strong>Horner’s method</strong>. Linear-time method to evaluate degree-M polynomial.
+<li>
+<p><strong>Horner’s method</strong>. Linear-time method to evaluate degree-M polynomial.</p>
 <ul>
 <li>
 <img src="https://i.imgur.com/xGWs0e2.jpg" style="width:600px" />
 </li>
 </ul>
 </li>
-<li><strong>Efficiently computing the hash function</strong>
+<li>
+<p><strong>Efficiently computing the hash function</strong></p>
 <ul>
 <li>Can update hash function in constant time!</li>
 <li>
 <img src="https://i.imgur.com/dSHqctb.jpg" style="width:450px" />
 </li>
-</ul>
+<li>
+<img src="https://i.imgur.com/ft4sFke.jpg" style="width:450px" />
 </li>
 </ul>
-<h4 id="how-to-handle-hash-collision"><a class="markdownIt-Anchor" href="#how-to-handle-hash-collision"></a> How to handle hash collision?</h4>
-<ol>
-<li><strong>Monte Carlo version</strong>. Return match if hash match.
-<ul>
-<li>It is possible return the wrong answer.</li>
-</ul>
 </li>
-<li><strong>Las Vegas version</strong>. Check for substring match if hash match; continue search if false collision.
-<ul>
-<li>Confidence about the answer, but also cost more time to verify.</li>
-</ul>
+<li>
+<p>Java implementation</p>
 </li>
-</ol>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RabinKarp</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> patHash; <span class="comment">// pattern hash value</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> M; <span class="comment">// pattern length</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> Q; <span class="comment">// modulus</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> R; <span class="comment">// radix</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> RM; <span class="comment">// R^(M-1) % Q</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">RabinKarp</span><span class="params">(String pat)</span> &#123; </span><br><span class="line">        M = pat.length(); </span><br><span class="line">        R = <span class="number">256</span>; </span><br><span class="line">        Q = longRandomPrime(); <span class="comment">// a large prime (but avoid overflow)</span></span><br><span class="line"></span><br><span class="line">        RM = <span class="number">1</span>; </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= M-<span class="number">1</span>; i++) <span class="comment">// precompute R M – 1 (mod Q)</span></span><br><span class="line">            RM = (R * RM) % Q; </span><br><span class="line">        patHash = hash(pat, M);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Compute hash for M-digit key</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> <span class="title function_">hash</span><span class="params">(String key, <span class="type">int</span> M)</span> &#123; </span><br><span class="line">        <span class="type">long</span> <span class="variable">h</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; M; j++)</span><br><span class="line">        h = (R * h + key.charAt(j)) % Q;</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// check for hash collision using rolling hash function</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">search</span><span class="params">(String txt)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> txt.length(); </span><br><span class="line">        <span class="type">int</span> <span class="variable">txtHash</span> <span class="operator">=</span> hash(txt, M); </span><br><span class="line">        <span class="keyword">if</span> (patHash == txtHash) <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> M; i &lt; N; i++) &#123;</span><br><span class="line">            txtHash = (txtHash + Q - RM*txt.charAt(i-M) % Q) % Q;</span><br><span class="line">            txtHash = (txtHash*R + txt.charAt(i)) % Q;</span><br><span class="line">            <span class="comment">//  handle hash collision</span></span><br><span class="line">            <span class="comment">// 1. **Monte Carlo version**. Return match if hash match. Runs in linear time.</span></span><br><span class="line">            <span class="comment">//    * It is possible return the wrong answer.</span></span><br><span class="line">            <span class="comment">// 2. **Las Vegas version**. Check for substring match if hash match; continue search if false collision.</span></span><br><span class="line">            <span class="comment">//    * Confidence about the answer, but worst case is **MN**.</span></span><br><span class="line">            <span class="keyword">if</span> (patHash == txtHash) <span class="keyword">return</span> i - M + <span class="number">1</span>; </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> N;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h3>
 <ul>
 <li>Cost of searching for an M-character pattern in an N-character text.</li>

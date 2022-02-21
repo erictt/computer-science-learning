@@ -410,7 +410,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>
-<img src="https://i.imgur.com/mcJplpu.jpg" style="width:400px" />
+<img src="https://i.imgur.com/mcJplpu.jpg" style="width:500px" />
 </li>
 </ul>
 </li>
@@ -501,7 +501,15 @@ function sidebar_toggle() {
 <h3 id="strings-in-java"><a class="markdownIt-Anchor" href="#strings-in-java"></a> Strings in Java</h3>
 <ul>
 <li>
-<p>Sequence of characters (immutable)</p>
+<p><strong>String</strong> Data Type: Sequence of characters (immutable)</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/cTnDfsd.jpg" style="width:400px" />
+</li>
+</ul>
+</li>
+<li>
+<p><strong>StringBuilder</strong> data type. Sequence of characters (mutable/thread safe/slower).</p>
 </li>
 <li>
 <p><strong>String vs. StringBuilder</strong></p>
@@ -513,6 +521,9 @@ function sidebar_toggle() {
 <li>
 <p>Linear time</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">reverse</span><span class="params">(String s)</span> &#123; </span><br><span class="line">    <span class="type">StringBuilder</span> <span class="variable">rev</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(); </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> s.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) </span><br><span class="line">        rev.append(s.charAt(i)); </span><br><span class="line">    <span class="keyword">return</span> rev.toString(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<img src="https://i.imgur.com/6COioGI.jpg" style="width:400px" />
 </li>
 </ul>
 </li>
@@ -535,11 +546,13 @@ function sidebar_toggle() {
 </li>
 <li>
 <p><strong>Implementation</strong>.</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> a.length; </span><br><span class="line"><span class="comment">// EXTENDED_ASCII 256 8 extended ASCII characters</span></span><br><span class="line"><span class="comment">// R = 256</span></span><br><span class="line"><span class="type">int</span>[] count = <span class="keyword">new</span> <span class="title class_">int</span>[R+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. Count frequencies of each letter using key as index.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++) </span><br><span class="line">    count[a[i]+<span class="number">1</span>]++;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. Compute frequency cumulates which specify destinations.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="number">0</span>; r &lt; R; r++) </span><br><span class="line">    count[r+<span class="number">1</span>] += count[r];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. Access cumulates using key as index to move items.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++) </span><br><span class="line">    aux[count[a[i]]++] = a[i];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. Copy back into original array.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++) </span><br><span class="line">    a[i] = aux[i];</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> a.length; </span><br><span class="line"><span class="comment">// EXTENDED_ASCII 256 8 extended ASCII characters</span></span><br><span class="line"><span class="comment">// R = 256</span></span><br><span class="line"><span class="type">int</span>[] count = <span class="keyword">new</span> <span class="title class_">int</span>[R+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. Count frequencies of each letter using (key+1) as index.</span></span><br><span class="line"><span class="comment">// e.g. a is 0 and the index is 1.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++) </span><br><span class="line">    count[a[i]+<span class="number">1</span>]++;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. Compute frequency cumulates which specify destinations.</span></span><br><span class="line"><span class="comment">// after the accumulation, we will be able to tell things like:</span></span><br><span class="line"><span class="comment">//     6 keys &lt; d, 8 keys &lt; e so d’s go in a[6] and a[7]</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="number">0</span>; r &lt; R; r++) </span><br><span class="line">    count[r+<span class="number">1</span>] += count[r];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. Access cumulates using key as index to move items.</span></span><br><span class="line"><span class="comment">// e.g. a[0] = d, count[d] = 8, so aux[8] = d, then accumulate d&#x27;s index, so next d can go to 9</span></span><br><span class="line"><span class="comment">// after the loop, all of the indices will be accumulated to their upper bound, which is why you see f and - are both 12.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++) </span><br><span class="line">    aux[count[a[i]]++] = a[i];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. Copy back into original array.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++) </span><br><span class="line">    a[i] = aux[i];</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <img src="https://i.imgur.com/88fitXA.jpg" style="width:600px" />
-  * **Notice**: use a for 0, b for 1, c for 2, d for 3, e for 4, f for 5 for better explanation
+<ul>
+<li><strong>Notice</strong>: use a for 0, b for 1, c for 2, d for 3, e for 4, f for 5 for better explanation</li>
+</ul>
 </li>
 <li>
 <p><strong>Proposition</strong>. Key-indexed counting uses ~ 11 N + 4 R array accesses to sort N items whose <strong>keys are integers between 0 and R - 1</strong>.</p>
@@ -561,7 +574,7 @@ function sidebar_toggle() {
 <img src="https://i.imgur.com/60ABADp.jpg" style="width:600px" />
 </li>
 </ul>
-<h3 id="radix-sort"><a class="markdownIt-Anchor" href="#radix-sort"></a> radix sort</h3>
+<h3 id="msd-radix-sort"><a class="markdownIt-Anchor" href="#msd-radix-sort"></a> MSD radix sort</h3>
 <ul>
 <li>
 <p>Most-signiﬁcant-digit-ﬁrst string sort</p>
@@ -592,14 +605,18 @@ function sidebar_toggle() {
 <li>
 <p>potential for disastrous performance</p>
 <ol>
-<li>much too slow for small subarrays</li>
-<li>Huge number of small subarrays</li>
+<li>much too slow for small subarrays
+<ol>
+<li>Each recursion needs a new <code>count[]</code> array, if using ASCII(256 counts): 100x slower than copy pass for <code>N=2</code>.</li>
+</ol>
+</li>
+<li>Huge number of small subarrays because of recursion.</li>
 </ol>
 <ul>
 <li>Solution: Cutoff to insertion sort for small subarrays.
 <ul>
-<li>Insertion sort, but start at d th character.</li>
-<li>Implement less() so that it compares starting at d^th character.</li>
+<li>Insertion sort, but start at <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>d</mi><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">d^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">h</span></span></span></span></span></span></span></span></span></span></span></span> th character.</li>
+<li>Implement less() so that it compares starting at <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>d</mi><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">d^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">h</span></span></span></span></span></span></span></span></span></span></span></span> character.</li>
 <li>
 <img src="https://i.imgur.com/2iHxCJM.jpg" style="width:600px" />
 </li>
@@ -611,27 +628,53 @@ function sidebar_toggle() {
 <h3 id="3-way-radix-quicksort"><a class="markdownIt-Anchor" href="#3-way-radix-quicksort"></a> 3-way radix quicksort</h3>
 <ul>
 <li>
+<p>Do 3-way partitioning on the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>d</mi><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">d^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">h</span></span></span></span></span></span></span></span></span></span></span></span> character.</p>
+</li>
+<li>
 <img src="https://i.imgur.com/HiwhpWZ.jpg" style="width:600px" />
 </li>
 <li>
 <img src="https://i.imgur.com/WnJymHE.jpg" style="width:600px" />
 </li>
-<li>faster than the other two algorithms, but not stable.</li>
+<li>
+<p>faster than the other two algorithms, but not stable.</p>
+</li>
 </ul>
-<h3 id="suffix-arrays"><a class="markdownIt-Anchor" href="#suffix-arrays"></a> suffix arrays</h3>
+<h3 id="summary-of-the-performance-of-sorting-algorithms"><a class="markdownIt-Anchor" href="#summary-of-the-performance-of-sorting-algorithms"></a> Summary of the performance of sorting algorithms</h3>
+<img src="https://i.imgur.com/KW8RotR.jpg" style="width:600px" />
+<h3 id="suffix-arrays"><a class="markdownIt-Anchor" href="#suffix-arrays"></a> Suffix Arrays</h3>
+<ul>
+<li>Keyword-in-context search
+<ul>
+<li>Given a text of N characters, preprocess it to enable fast substring search (find all occurrences of query string context).</li>
+</ul>
+</li>
+</ul>
 <h4 id="suffix-sort"><a class="markdownIt-Anchor" href="#suffix-sort"></a> Suffix sort</h4>
 <ul>
 <li>
 <img src="https://i.imgur.com/cVsQdT1.jpg" style="width:600px" />
 </li>
-<li>Can be used for finding longest repeated substring</li>
-<li><strong>worst-case input</strong>: longest repeated substring very long.
+<li>
+<p>Longest repeated substring</p>
+<ul>
+<li>Given a string of N characters, find the longest repeated substring.</li>
+<li>
+<img src="https://i.imgur.com/JWmHV3d.jpg" style="width:600px" />
+</li>
+<li>
+<img src="https://i.imgur.com/WUrfBA9.jpg" style="width:600px" />
+</li>
+</ul>
+</li>
+<li>
+<p><strong>worst-case input</strong>: longest repeated substring very long.</p>
 <ul>
 <li>LRS needs at least 1 + 2 + 3 + … + D character compares, where D = length of longest match.</li>
 </ul>
 </li>
 </ul>
-<h4 id="manber-myers-马上到-algorithm"><a class="markdownIt-Anchor" href="#manber-myers-马上到-algorithm"></a> Manber-Myers 马上到！ algorithm</h4>
+<h4 id="manber-myers-algorithm"><a class="markdownIt-Anchor" href="#manber-myers-algorithm"></a> Manber-Myers algorithm</h4>
 <ul>
 <li>Sufﬁx sorting in linearithmic time
 <ul>
