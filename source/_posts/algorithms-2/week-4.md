@@ -184,20 +184,22 @@ Use DFA to match the pattern in string in linear time.
 * <img src="https://i.imgur.com/ZnczNtP.jpg" style="width:600px" />
     
     * State **X** is used for simulating when state **j** goes mismatch. Why?
-        * For example, when j=5, we have matched pattern: ABABA. If the next char is not `C`, we have a mismatch. Then we need to match `BABA_` (without the start A) in the existing previous pattern.
+        * For example, when j=5, we have matched pattern: `ABABA`. If the next char is not `C`, we have a mismatch. Then we need to match `BABA` (without the start A) in the existing previous pattern.
             * Why omit the first `A`? Think about how we do brute-force. after a mismatch, we restart the match with i+1. the same idea here.
-        * The straightforward way is to run a loop to rematch BABA then deciding where the new mismatch char should go. But a genious way is to mark a state `X` in the previous path so every time we only need to check how the last char(j) goes in `X` state when mismatching.
-            * Take 5 as an example. we can simply tell where a mismatch goes by simulate `3` because BABA ends with matching 3 elements. We only need to check where state will go for a mismatch and copy over the mismatch to state 5.
+        * The straightforward way is to run a loop to rematch BABA then deciding where the new mismatch char should go. But a genious way is to mark a state `X` in the previous path so every time we only need to check how the last char(j) goes in the `X` state for mismatching.
+            * Take 5 as an example. we can simply tell where a mismatch goes by simulating `3` because `BABA` ends with matching 3 elements(As showed in the graph). We only need to check where the state will go for a mismatch and copy over the mismatch to state 5.
         * The next question is, how to find the state `X` without loop the whole [1,j-1] in the pattern?
-            * Think about how to get X for state 5? We simulate `BABA` then check the mismatch of that state column. What about X for state 4? we need to simulate `BAB`, right?
-            * You can see to simulate `BABA`, we can simply check the column of `BAB` and check where `A` goes. Same as `BAB`, to check the state for `BA` and check where the `B` goes.
-            * So let's loop from the beginning. j = 0. there is nothing need to be done, the only match is A, and the others are 0
-            * When j = 1, there is no elements in [1, j-1] so the mismatch checking is the same as state 0
-            * When j = 2, we need to know what a match of [1, 1] looks like. [1, 1] = [B] which = dfa[B][0] = 0, so the mismatch checking for state 2 is still 0.
-            * When j = 3, we need to know what a match of [1, 2] looks like. [1, 2] = [BA] which = dfa[A][0] = 1 meaning after matching `BA` we reached state 1.
-            * When j = 4, we need to know what a match of [1, 3] looks like. [1, 3] = [BAB] which = dfa[B][1] since we know [BA] is in state 1, so we just need to find out where a `B` match on state 1 which is 2.
-            * Whey j = 5, we need to know what a match of [1, 4] looks like. [1, 4] = [BABA] which = dfa[A][2] since we know [BAB] is in state 2. dfa[A][2] = 3
-            * You can see X = the state that [1, j-2] reached and then find where the j-1 goes on that state. And after current loop of seting up the mismatch, we will be able to tell where the next X will be for the next state mismatch checking.
+            * Think about how to get X for state 5? We simulate `BABA` then check the mismatch of that state column. So what about X for state 4? we need to simulate `BAB`, right?
+            * You can see to simulate `BABA`, we need to check the state for `BAB` and check where `A` goes on that state. Same as `BAB`, we need to find the state for `BA` at first, then check where the `B` goes. 
+            * So if we reverse the process, we can see that, state `B` can be used for checking `BA`, state `BA` can be used for checking `BAB`, state `BAB` can be used for checking `BABA`. We don't actually need to loop every time for searching **X** but record the state of the previous match, and check the new element in the state which will be our state **X** for the next state's mismatch.
+        * Let's loop from the beginning. 
+            * when j = 0, nothing need to be done, the only match is A, and the others are 0. So we initialize X = 0.
+            * When j = 1, we copy over the mismatches from state 0(X=0) to state 1. And mark X = dfa[B][0] = 0 meaning we finished the matching of [B], the next state can use the result as X.
+            * When j = 2, we copy over the state 0 to state 2 as well. Notice that the mismatch is base on state 2, not 0. So for state 2, we only copy B, C, etc.., then set X = dfa[A][0] = 1 because after matching [BA] the state reached 1
+            * When j = 3, we need to know what a match of [1, 2] looks like. [1, 2] = [BA] which already been set up in the last loop which X = 1. So we only need to copy over state 1 to 3, and then find the new X. X = state of [BAB] = dfa[B][1] = 2
+            * When j = 4, same as last loop. Copy over, and set up X = state of [BABA] = dfa[A][2] = 3
+            * Whey j = 5, copy over, and set up X = state of [BABAC] = dfa[C][3] = 0
+            * You can see X = the j element in the state of [1, j-1]. And after current loop of seting up the mismatch, we set up the X for the next state mismatch checking.
     * copy mismatch:   
         * <img src="https://i.imgur.com/KtVYneb.jpg" style="width:400px" />
 * Java implementation
