@@ -515,7 +515,7 @@ function sidebar_toggle() {
 </li>
 <li>How much to skip?
 <ul>
-<li>Case 1. Mismatch character not in pattern.
+<li><strong>Case 1.</strong> Mismatch character not in pattern.
 <ul>
 <li>mismatch character ‘T’ not in pattern: increment i one character beyond ‘T’ which measn i = j+1, j = length of the pattern.</li>
 <li>
@@ -523,7 +523,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 </li>
-<li>Case 2a. Mismatch character in pattern.
+<li><strong>Case 2a.</strong> Mismatch character in pattern.
 <ul>
 <li>mismatch character ‘N’ in pattern: align text ‘N’ with <strong>rightmost</strong> pattern ‘N’.</li>
 <li>
@@ -544,7 +544,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 </li>
-<li>Case 2b. Mismatch character in pattern.
+<li><strong>Case 2b.</strong> Mismatch character in pattern.
 <ul>
 <li>
 <img src="https://i.imgur.com/GfnPQTz.jpg" style="width:500px" />
@@ -560,10 +560,9 @@ function sidebar_toggle() {
 <li>
 <img src="https://i.imgur.com/oaDW74R.jpg" style="width:600px" />
 </li>
-<li>And <code>skip = Math.max(1, j - right[txt.charAt(i+j)]);</code></li>
 <li>You can see <code>E</code> occured three times, but we choose the rightmost one’s index as the one for calculation.
 <ul>
-<li>i.e. every time an <code>E</code> mismatch occurrs, backup Max(1, 5-5) = 1 positions.</li>
+<li>i.e. every time an <code>E</code> mismatch occurrs, backup <code>Max(1, 5-5) = 1</code> positions.</li>
 </ul>
 </li>
 </ul>

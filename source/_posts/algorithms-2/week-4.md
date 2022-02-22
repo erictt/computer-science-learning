@@ -262,10 +262,10 @@ Use DFA to match the pattern in string in linear time.
     * Can skip as many as M text chars when finding one not in the pattern.
     * <img src="https://i.imgur.com/VjXkKod.jpg" style="width:600px" />
 * How much to skip?
-    * Case 1. Mismatch character not in pattern.
+    * **Case 1.** Mismatch character not in pattern.
         * mismatch character 'T' not in pattern: increment i one character beyond 'T' which measn i = j+1, j = length of the pattern.
         * <img src="https://i.imgur.com/1VFgLt8.jpg" style="width:500px" />
-    * Case 2a. Mismatch character in pattern.
+    * **Case 2a.** Mismatch character in pattern.
         * mismatch character 'N' in pattern: align text 'N' with **rightmost** pattern 'N'. 
         * <img src="https://i.imgur.com/2VSMgxN.jpg" style="width:500px" />
         * In the example above, i = i + 3. The comparing loop start from the right where j = 5. When mismatch, j = 3 and the mismatched element `N`'s index = 0. So i = i + (3 - 0).
@@ -275,7 +275,7 @@ Use DFA to match the pattern in string in linear time.
             * If there are some repeated elements in the pattern, we will choose the rightmost one to avoid missing matches.
                 * The refined equation becomes: `i = i + j - (index of the rightmost matched element in the pattern)`.
             * There is another special case which will be demonstrated below:
-    * Case 2b. Mismatch character in pattern.
+    * **Case 2b.** Mismatch character in pattern.
         * <img src="https://i.imgur.com/GfnPQTz.jpg" style="width:500px" />
         * You can see, if we align 'E' to the rightmost pattern 'E', the pattern will skip '-2' since j = 3 and the index of E = 5.
         * So instead of skiping a nagative number, we increment i by 1.
@@ -283,9 +283,8 @@ Use DFA to match the pattern in string in linear time.
     * To make the computation easier, we create a `right[]` to record the `(index of the rightmost matched element in the pattern)`:
         * Precompute index of rightmost occurrence of character c in pattern (-1 if character not in pattern, meaning we skip j-(-1) = j+1).
         * <img src="https://i.imgur.com/oaDW74R.jpg" style="width:600px" />
-        * And `skip = Math.max(1, j - right[txt.charAt(i+j)]);`
         * You can see `E` occured three times, but we choose the rightmost one's index as the one for calculation.
-            * i.e. every time an `E` mismatch occurrs, backup Max(1, 5-5) = 1 positions.
+            * i.e. every time an `E` mismatch occurrs, backup `Max(1, 5-5) = 1` positions.
 * Java implementation
     * <img src="https://i.imgur.com/5wbMyZN.jpg" style="width:500px" />
 * Worst-case. Can be as bad as ~ M N.
