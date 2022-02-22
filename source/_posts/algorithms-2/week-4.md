@@ -160,15 +160,22 @@ public class TrieST<Value> {
 
 ### Knuth-Morris-Pratt (KMP)
 
+Use DFA to match the pattern in string in linear time.
+
 #### Deterministic ﬁnite state automaton (DFA)
 
 * DFA is abstract string-searching machine.
-    * Finite number of states (including start and halt). 
-    * Exactly one transition for each char in alphabet. 
-    * Accept if sequence of transitions leads to halt state.
-* <img src="https://i.imgur.com/iQbPA0S.jpg" style="width:550px" />
-* State = number of characters in pattern that have been matched.
-* <img src="https://i.imgur.com/6vrBVW6.jpg" style="width:550px" />
+    * <img src="https://i.imgur.com/iQbPA0S.jpg" style="width:550px" />
+
+    * **State** = number of characters in pattern that have been matched.
+        * e.g. 3 means 3 chars have been matcheed, aka `A B A`.
+    * EXACTLY one state **transition** for each char to another in alphabet from left to right. 
+    * When mismatch, the state will go back to the state that has the maximum matches so far.
+        * e.g. state 5. if follow by B, the state will go to 4, because `ABABAB` still has the `ABAB` matches which is state 4.
+
+    * Java code for search the pattern:
+        * <img src="https://i.imgur.com/6vrBVW6.jpg" style="width:550px" />
+        * In the loop, we only augment i, and keep updating j until either i = N or j = M.
 
 #### How to build DFA from pattern?
 
@@ -176,14 +183,76 @@ public class TrieST<Value> {
 
 * <img src="https://i.imgur.com/ZnczNtP.jpg" style="width:600px" />
     
-    * Every mismatch, is to re-simulate the the pattern without first character, and end with the new mismatch character. So we can simulate the process, and copy the result to the new column.
+    * State **X** is used for simulating when state **j** goes mismatch. Why?
+        * For example, when j=5, we have matched pattern: ABABA. If the next char is not `C`, we have a mismatch. Then we need to match `BABA_` (without the start A) in the existing previous pattern.
+            * Why omit the first `A`? Think about how we do brute-force. after a mismatch, we restart the match with i+1. the same idea here.
+        * The straightforward way is to run a loop to rematch BABA then deciding where the new mismatch char should go. But a genious way is to mark a state `X` in the previous path so every time we only need to check how the last char(j) goes in `X` state when mismatching.
+            * Take 5 as an example. we can simply tell where a mismatch goes by simulate `3` because BABA ends with matching 3 elements. We only need to check where state will go for a mismatch and copy over the mismatch to state 5.
+        * The next question is, how to find the state `X` without loop the whole [1,j-1] in the pattern?
+            * Think about how to get X for state 5? We simulate `BABA` then check the mismatch of that state column. What about X for state 4? we need to simulate `BAB`, right?
+            * You can see to simulate `BABA`, we can simply check the column of `BAB` and check where `A` goes. Same as `BAB`, to check the state for `BA` and check where the `B` goes.
+            * So let's loop from the beginning. j = 0. there is nothing need to be done, the only match is A, and the others are 0
+            * When j = 1, there is no elements in [1, j-1] so the mismatch checking is the same as state 0
+            * When j = 2, we need to know what a match of [1, 1] looks like. [1, 1] = [B] which = dfa[B][0] = 0, so the mismatch checking for state 2 is still 0.
+            * When j = 3, we need to know what a match of [1, 2] looks like. [1, 2] = [BA] which = dfa[A][0] = 1 meaning after matching `BA` we reached state 1.
+            * When j = 4, we need to know what a match of [1, 3] looks like. [1, 3] = [BAB] which = dfa[B][1] since we know [BA] is in state 1, so we just need to find out where a `B` match on state 1 which is 2.
+            * Whey j = 5, we need to know what a match of [1, 4] looks like. [1, 4] = [BABA] which = dfa[A][2] since we know [BAB] is in state 2. dfa[A][2] = 3
+            * You can see X = the state that [1, j-2] reached and then find where the j-1 goes on that state. And after current loop of seting up the mismatch, we will be able to tell where the next X will be for the next state mismatch checking.
+    * copy mismatch:   
+        * <img src="https://i.imgur.com/KtVYneb.jpg" style="width:400px" />
 * Java implementation
-    * <img src="https://i.imgur.com/82lptvD.jpg" style="width:500px" />
+    
+    ```java
+    public class KMP {
+
+        private String pat; 
+        private int[][] dfa;
         
-        * copy mismatch: 
-            * <img src="https://i.imgur.com/KtVYneb.jpg" style="width:200px" />
+        public KMP(String pat) {
+            // Build DFA from pattern.
+            this.pat = pat;
+            int M = pat.length();
+            int R = 256; // ASCII, the graph only shows A, B and C, but it's actually 256 characters
+            dfa = new int[R][M]; // initialized with zeros as default
+            dfa[pat.charAt(0)][0] = 1; // only update the match case to 1
+            
+            // then we start j at 1 since j = 0 already been initialized above
+            for (int X = 0, j = 1; j < M; j++) {
+                // Compute dfa[][j].
+                // Copy over all cases including mismatch cases.
+                // when j = 1, the state X is dfa[1][0] = 0. so if there is a mismatch, it will return to state 0 which is A->1, B->0*, C->0.
+                // notice we set up B to 0 in the loop, 
+                // it's only for convenience, and will overwrite it later on.
+                for (int c = 0; c < R; c++)
+                    dfa[c][j] = dfa[c][X]; 
+                dfa[pat.charAt(j)][j] = j+1; // Overwrite the match case.
+                // j = 1, pat.charAt(j) = B, X = 0, dfa[pat.charAt(j)][X] = 0;
+                // j = 2, pat.charAt(j) = A, X = 0, dfa[pat.charAt(j)][X] = 1;
+                // j = 3, pat.charAt(j) = B, X = 1, dfa[pat.charAt(j)][X] = 2;
+                // j = 4, pat.charAt(j) = A, X = 2, dfa[pat.charAt(j)][X] = 3;
+                // j = 5, pat.charAt(j) = C, X = 3, dfa[pat.charAt(j)][X] = 0;
+                // j = 6, pat.charAt(j) = _, X = 0, dfa[pat.charAt(j)][X] = _;
+                // The goal is to mark the match state of `[1, j]` in the current loop, 
+                // so we can fill out the mismatch for j+1 in the next loop,
+                // because the mismatch of j+1 = the matching result of the state for [1-j].
+                X = dfa[pat.charAt(j)][X]; // Update restart(X) state.
+            }
+        }
+        
+        public int search(String txt) { 
+            // Simulate operation of DFA on txt.
+            int i, j, N = txt.length(), M = pat.length();
+            for (i = 0, j = 0; i < N && j < M; i++)
+                j = dfa[txt.charAt(i)][j];
+            if (j == M) return i - M; // found (hit end of pattern)
+            else return N; // not found (hit end of text)
+        }
+    }
+    ```
+        
 
-
+* KMP substring search analysis
+    * KMP substring search accesses no more than **M + N** chars to search for a pattern of length M in a text of length N.
 
 ### Boyer-Moore
 
@@ -201,8 +270,6 @@ public class TrieST<Value> {
 * Java implementation
     * <img src="https://i.imgur.com/5wbMyZN.jpg" style="width:500px" />
 
-* KMP substring search analysis
-    * KMP substring search accesses no more than **M + N** chars to search for a pattern of length M in a text of length N.
 
 ### Rabin-Karp
 

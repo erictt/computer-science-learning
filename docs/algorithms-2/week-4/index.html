@@ -408,21 +408,39 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h3 id="knuth-morris-pratt-kmp"><a class="markdownIt-Anchor" href="#knuth-morris-pratt-kmp"></a> Knuth-Morris-Pratt (KMP)</h3>
+<p>Use DFA to match the pattern in string in linear time.</p>
 <h4 id="deterministic-finite-state-automaton-dfa"><a class="markdownIt-Anchor" href="#deterministic-finite-state-automaton-dfa"></a> Deterministic ﬁnite state automaton (DFA)</h4>
 <ul>
 <li>DFA is abstract string-searching machine.
 <ul>
-<li>Finite number of states (including start and halt).</li>
-<li>Exactly one transition for each char in alphabet.</li>
-<li>Accept if sequence of transitions leads to halt state.</li>
-</ul>
-</li>
 <li>
 <img src="https://i.imgur.com/iQbPA0S.jpg" style="width:550px" />
 </li>
-<li>State = number of characters in pattern that have been matched.</li>
+<li>
+<p><strong>State</strong> = number of characters in pattern that have been matched.</p>
+<ul>
+<li>e.g. 3 means 3 chars have been matcheed, aka <code>A B A</code>.</li>
+</ul>
+</li>
+<li>
+<p>EXACTLY one state <strong>transition</strong> for each char to another in alphabet from left to right.</p>
+</li>
+<li>
+<p>When mismatch, the state will go back to the state that has the maximum matches so far.</p>
+<ul>
+<li>e.g. state 5. if follow by B, the state will go to 4, because <code>ABABAB</code> still has the <code>ABAB</code> matches which is state 4.</li>
+</ul>
+</li>
+<li>
+<p>Java code for search the pattern:</p>
+<ul>
 <li>
 <img src="https://i.imgur.com/6vrBVW6.jpg" style="width:550px" />
+</li>
+<li>In the loop, we only augment i, and keep updating j until either i = N or j = M.</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 <h4 id="how-to-build-dfa-from-pattern"><a class="markdownIt-Anchor" href="#how-to-build-dfa-from-pattern"></a> How to build DFA from pattern?</h4>
@@ -433,31 +451,56 @@ function sidebar_toggle() {
 <li>
 <img src="https://i.imgur.com/ZnczNtP.jpg" style="width:600px" />
 <ul>
-<li>Every mismatch, is to re-simulate the the pattern without first character, and end with the new mismatch character. So we can simulate the process, and copy the result to the new column.</li>
+<li>State <strong>X</strong> is used for simulating when state <strong>j</strong> goes mismatch. Why?
+<ul>
+<li>For example, when j=5, we have matched pattern: ABABA. If the next char is not <code>C</code>, we have a mismatch. Then we need to match <code>BABA_</code> (without the start A) in the existing previous pattern.
+<ul>
+<li>Why omit the first <code>A</code>? Think about how we do brute-force. after a mismatch, we restart the match with i+1. the same idea here.</li>
+</ul>
+</li>
+<li>The straightforward way is to run a loop to rematch BABA then deciding where the new mismatch char should go. But a genious way is to mark a state <code>X</code> in the previous path so every time we only need to check how the last char(j) goes in <code>X</code> state when mismatching.
+<ul>
+<li>Take 5 as an example. we can simply tell where a mismatch goes by simulate <code>3</code> because BABA ends with matching 3 elements. We only need to check where state will go for a mismatch and copy over the mismatch to state 5.</li>
+</ul>
+</li>
+<li>The next question is, how to find the state <code>X</code> without loop the whole [1,j-1] in the pattern?
+<ul>
+<li>Think about how to get X for state 5? We simulate <code>BABA</code> then check the mismatch of that state column. What about X for state 4? we need to simulate <code>BAB</code>, right?</li>
+<li>You can see to simulate <code>BABA</code>, we can simply check the column of <code>BAB</code> and check where <code>A</code> goes. Same as <code>BAB</code>, to check the state for <code>BA</code> and check where the <code>B</code> goes.</li>
+<li>So let’s loop from the beginning. j = 0. there is nothing need to be done, the only match is A, and the others are 0</li>
+<li>When j = 1, there is no elements in [1, j-1] so the mismatch checking is the same as state 0</li>
+<li>When j = 2, we need to know what a match of [1, 1] looks like. [1, 1] = [B] which = dfa[B][0] = 0, so the mismatch checking for state 2 is still 0.</li>
+<li>When j = 3, we need to know what a match of [1, 2] looks like. [1, 2] = [BA] which = dfa[A][0] = 1 meaning after matching <code>BA</code> we reached state 1.</li>
+<li>When j = 4, we need to know what a match of [1, 3] looks like. [1, 3] = [BAB] which = dfa[B][1] since we know [BA] is in state 1, so we just need to find out where a <code>B</code> match on state 1 which is 2.</li>
+<li>Whey j = 5, we need to know what a match of [1, 4] looks like. [1, 4] = [BABA] which = dfa[A][2] since we know [BAB] is in state 2. dfa[A][2] = 3</li>
+<li>You can see X = the state that [1, j-2] reached and then find where the j-1 goes on that state. And after current loop of seting up the mismatch, we will be able to tell where the next X will be for the next state mismatch checking.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>copy mismatch:
+<ul>
+<li>
+<img src="https://i.imgur.com/KtVYneb.jpg" style="width:400px" />
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
 <p>Java implementation</p>
-<ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">KMP</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String pat; </span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>[][] dfa;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">KMP</span><span class="params">(String pat)</span> &#123;</span><br><span class="line">        <span class="comment">// Build DFA from pattern.</span></span><br><span class="line">        <span class="built_in">this</span>.pat = pat;</span><br><span class="line">        <span class="type">int</span> <span class="variable">M</span> <span class="operator">=</span> pat.length();</span><br><span class="line">        <span class="type">int</span> <span class="variable">R</span> <span class="operator">=</span> <span class="number">256</span>; <span class="comment">// ASCII, the graph only shows A, B and C, but it&#x27;s actually 256 characters</span></span><br><span class="line">        dfa = <span class="keyword">new</span> <span class="title class_">int</span>[R][M]; <span class="comment">// initialized with zeros as default</span></span><br><span class="line">        dfa[pat.charAt(<span class="number">0</span>)][<span class="number">0</span>] = <span class="number">1</span>; <span class="comment">// only update the match case to 1</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// then we start j at 1 since j = 0 already been initialized above</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">X</span> <span class="operator">=</span> <span class="number">0</span>, j = <span class="number">1</span>; j &lt; M; j++) &#123;</span><br><span class="line">            <span class="comment">// Compute dfa[][j].</span></span><br><span class="line">            <span class="comment">// Copy over all cases including mismatch cases.</span></span><br><span class="line">            <span class="comment">// when j = 1, the state X is dfa[1][0] = 0. so if there is a mismatch, it will return to state 0 which is A-&gt;1, B-&gt;0*, C-&gt;0.</span></span><br><span class="line">            <span class="comment">// notice we set up B to 0 in the loop, </span></span><br><span class="line">            <span class="comment">// it&#x27;s only for convenience, and will overwrite it later on.</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">0</span>; c &lt; R; c++)</span><br><span class="line">                dfa[c][j] = dfa[c][X]; </span><br><span class="line">            dfa[pat.charAt(j)][j] = j+<span class="number">1</span>; <span class="comment">// Overwrite the match case.</span></span><br><span class="line">            <span class="comment">// j = 1, pat.charAt(j) = B, X = 0, dfa[pat.charAt(j)][X] = 0;</span></span><br><span class="line">            <span class="comment">// j = 2, pat.charAt(j) = A, X = 0, dfa[pat.charAt(j)][X] = 1;</span></span><br><span class="line">            <span class="comment">// j = 3, pat.charAt(j) = B, X = 1, dfa[pat.charAt(j)][X] = 2;</span></span><br><span class="line">            <span class="comment">// j = 4, pat.charAt(j) = A, X = 2, dfa[pat.charAt(j)][X] = 3;</span></span><br><span class="line">            <span class="comment">// j = 5, pat.charAt(j) = C, X = 3, dfa[pat.charAt(j)][X] = 0;</span></span><br><span class="line">            <span class="comment">// j = 6, pat.charAt(j) = _, X = 0, dfa[pat.charAt(j)][X] = _;</span></span><br><span class="line">            <span class="comment">// The goal is to mark the match state of `[1, j]` in the current loop, </span></span><br><span class="line">            <span class="comment">// so we can fill out the mismatch for j+1 in the next loop,</span></span><br><span class="line">            <span class="comment">// because the mismatch of j+1 = the matching result of the state for [1-j].</span></span><br><span class="line">            X = dfa[pat.charAt(j)][X]; <span class="comment">// Update restart(X) state.</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">search</span><span class="params">(String txt)</span> &#123; </span><br><span class="line">        <span class="comment">// Simulate operation of DFA on txt.</span></span><br><span class="line">        <span class="type">int</span> i, j, N = txt.length(), M = pat.length();</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; N &amp;&amp; j &lt; M; i++)</span><br><span class="line">            j = dfa[txt.charAt(i)][j];</span><br><span class="line">        <span class="keyword">if</span> (j == M) <span class="keyword">return</span> i - M; <span class="comment">// found (hit end of pattern)</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> N; <span class="comment">// not found (hit end of text)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li>
-<img src="https://i.imgur.com/82lptvD.jpg" style="width:500px" />
+<p>KMP substring search analysis</p>
 <ul>
-<li>copy mismatch:
-<ul>
-<li>
-<img src="https://i.imgur.com/KtVYneb.jpg" style="width:200px" />
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>KMP substring search accesses no more than <strong>M + N</strong> chars to search for a pattern of length M in a text of length N.</li>
 </ul>
 </li>
 </ul>
 <h3 id="boyer-moore"><a class="markdownIt-Anchor" href="#boyer-moore"></a> Boyer-Moore</h3>
 <ul>
-<li>
-<p><strong>Intuition</strong>.</p>
+<li><strong>Intuition</strong>.
 <ul>
 <li>Scan characters in pattern from right to left.</li>
 <li>Can skip as many as M text chars when finding one not in the pattern.</li>
@@ -466,8 +509,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 </li>
-<li>
-<p>How much to skip?</p>
+<li>How much to skip?
 <ul>
 <li>if the pattern doesn’t have repeat letter, we can only check the rightmost letter, and perform full check when we hit the rightmost match.</li>
 <li>But if the pattern has repeat letter, like the example: NEEDLE. We will need to move the pointer carefully:
@@ -487,18 +529,11 @@ function sidebar_toggle() {
 </li>
 </ul>
 </li>
-<li>
-<p>Java implementation</p>
+<li>Java implementation
 <ul>
 <li>
 <img src="https://i.imgur.com/5wbMyZN.jpg" style="width:500px" />
 </li>
-</ul>
-</li>
-<li>
-<p>KMP substring search analysis</p>
-<ul>
-<li>KMP substring search accesses no more than <strong>M + N</strong> chars to search for a pattern of length M in a text of length N.</li>
 </ul>
 </li>
 </ul>
