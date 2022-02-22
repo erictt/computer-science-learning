@@ -477,15 +477,14 @@ function sidebar_toggle() {
 <li>When j = 2, we copy over the state 0 to state 2 as well. Notice that the mismatch is base on state 2, not 0. So for state 2, we only copy B, C, etc…, then set X = dfa[A][0] = 1 because after matching [BA] the state reached 1</li>
 <li>When j = 3, we need to know what a match of [1, 2] looks like. [1, 2] = [BA] which already been set up in the last loop which X = 1. So we only need to copy over state 1 to 3, and then find the new X. X = state of [BAB] = dfa[B][1] = 2</li>
 <li>When j = 4, same as last loop. Copy over, and set up X = state of [BABA] = dfa[A][2] = 3</li>
-<li>Whey j = 5, copy over, and set up X = state of [BABAC] = dfa[C][3] = 0</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>copy mismatch:
+<li>Whey j = 5, copy over, and set up X = state of [BABAC] = dfa[C][3] = 0
 <ul>
 <li>
 <img src="https://i.imgur.com/KtVYneb.jpg" style="width:400px" />
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -529,7 +528,7 @@ function sidebar_toggle() {
 <li>
 <img src="https://i.imgur.com/2VSMgxN.jpg" style="width:500px" />
 </li>
-<li>In the example above, i = i + 3. The comparing loop start from the right where j = 5. When mismatch, j = 3 and the mismatched element <code>N</code>’s index = 0. So i = i + (3 - 0).</li>
+<li>In the example above, <code>i = i + 3</code>. The comparing loop start from the right where <code>j = 5</code>. When mismatch, <code>j = 3</code> and the mismatched element <code>N</code>’s index = 0. So <code>i = i + (3 - 0)</code>.</li>
 <li>So how to get 3?
 <ul>
 <li>First of all, we match text from right to left, as <code>j</code> is the index in the loop from <code>pattern.length-1</code> to <code>0</code>.</li>
@@ -556,7 +555,7 @@ function sidebar_toggle() {
 </li>
 <li>To make the computation easier, we create a <code>right[]</code> to record the <code>(index of the rightmost matched element in the pattern)</code>:
 <ul>
-<li>Precompute index of rightmost occurrence of character c in pattern (-1 if character not in pattern, meaning we skip j-(-1) = j+1).</li>
+<li>Precompute index of rightmost occurrence of character <code>c</code> in pattern (<code>-1</code> if character not in pattern, meaning we skip <code>j-(-1) = j+1</code>).</li>
 <li>
 <img src="https://i.imgur.com/oaDW74R.jpg" style="width:600px" />
 </li>
