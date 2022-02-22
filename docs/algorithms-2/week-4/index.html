@@ -529,14 +529,14 @@ function sidebar_toggle() {
 <li>
 <img src="https://i.imgur.com/2VSMgxN.jpg" style="width:500px" />
 </li>
-<li>In the example above, i = i + 3. The comparing loop start from the right where j = 5. When mismatch, j = 3. So i = i + 3.</li>
+<li>In the example above, i = i + 3. The comparing loop start from the right where j = 5. When mismatch, j = 3 and the mismatched element <code>N</code>’s index = 0. So i = i + (3 - 0).</li>
 <li>So how to get 3?
 <ul>
-<li>First of all, we match text from right to left, as j is the index in the loop from pattern.length-1 to 0.</li>
-<li>When the rightmost element didn’t match text[i], but text[i] is in the pattern, we will augment i by <code>j - (index of the matched element in the pattern)</code>.</li>
-<li>If there are some repeated elements in the pattern, we will choose the rightmost one to avoid missing matching.
+<li>First of all, we match text from right to left, as <code>j</code> is the index in the loop from <code>pattern.length-1</code> to <code>0</code>.</li>
+<li>When the rightmost element didn’t match <code>text[i]</code>, but <code>text[i]</code> is still in the pattern, we will augment i by <code>j - (index of the matched element in the pattern)</code>.</li>
+<li>If there are some repeated elements in the pattern, we will choose the rightmost one to avoid missing matches.
 <ul>
-<li>So <code>i = i + j - (index of the rightmost matched element in the pattern)</code>.</li>
+<li>The refined equation becomes: <code>i = i + j - (index of the rightmost matched element in the pattern)</code>.</li>
 </ul>
 </li>
 <li>There is another special case which will be demonstrated below:</li>
@@ -549,14 +549,14 @@ function sidebar_toggle() {
 <li>
 <img src="https://i.imgur.com/GfnPQTz.jpg" style="width:500px" />
 </li>
-<li>if we align ‘E’ to the rightmost pattern ‘E’, the pattern will skip ‘-2’ since j = 3 and the index of E = 5.</li>
+<li>You can see, if we align ‘E’ to the rightmost pattern ‘E’, the pattern will skip ‘-2’ since j = 3 and the index of E = 5.</li>
 <li>So instead of skiping a nagative number, we increment i by 1.</li>
-<li>Then the update becomes <code>i = i + Max(1, j - (index of the rightmost matched element in the pattern))</code>;</li>
+<li>Then the i-update becomes <code>i = i + Max(1, j - (index of the rightmost matched element in the pattern))</code>;</li>
 </ul>
 </li>
 <li>To make the computation easier, we create a <code>right[]</code> to record the <code>(index of the rightmost matched element in the pattern)</code>:
 <ul>
-<li>Precompute index of rightmost occurrence of character c in pattern (-1 if character not in pattern).</li>
+<li>Precompute index of rightmost occurrence of character c in pattern (-1 if character not in pattern, meaning we skip j-(-1) = j+1).</li>
 <li>
 <img src="https://i.imgur.com/oaDW74R.jpg" style="width:600px" />
 </li>
