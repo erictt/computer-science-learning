@@ -199,7 +199,6 @@ Use DFA to match the pattern in string in linear time.
             * When j = 3, we need to know what a match of [1, 2] looks like. [1, 2] = [BA] which already been set up in the last loop which X = 1. So we only need to copy over state 1 to 3, and then find the new X. X = state of [BAB] = dfa[B][1] = 2
             * When j = 4, same as last loop. Copy over, and set up X = state of [BABA] = dfa[A][2] = 3
             * Whey j = 5, copy over, and set up X = state of [BABAC] = dfa[C][3] = 0
-            * You can see X = the j element in the state of [1, j-1]. And after current loop of seting up the mismatch, we set up the X for the next state mismatch checking.
     * copy mismatch:   
         * <img src="https://i.imgur.com/KtVYneb.jpg" style="width:400px" />
 * Java implementation
@@ -263,14 +262,34 @@ Use DFA to match the pattern in string in linear time.
     * Can skip as many as M text chars when finding one not in the pattern.
     * <img src="https://i.imgur.com/VjXkKod.jpg" style="width:600px" />
 * How much to skip?
-    * if the pattern doesn't have repeat letter, we can only check the rightmost letter, and perform full check when we hit the rightmost match.
-    * But if the pattern has repeat letter, like the example: NEEDLE. We will need to move the pointer carefully:
-        * <img src="https://i.imgur.com/GfnPQTz.jpg" style="width:400px" />
-        * The ultimate solution:
-            * <img src="https://i.imgur.com/oaDW74R.jpg" style="width:600px" />
-            * every time we occurred an `E` mismatch, backup 5 positions.
+    * Case 1. Mismatch character not in pattern.
+        * mismatch character 'T' not in pattern: increment i one character beyond 'T' which measn i = j+1, j = length of the pattern.
+        * <img src="https://i.imgur.com/1VFgLt8.jpg" style="width:500px" />
+    * Case 2a. Mismatch character in pattern.
+        * mismatch character 'N' in pattern: align text 'N' with **rightmost** pattern 'N'. 
+        * <img src="https://i.imgur.com/2VSMgxN.jpg" style="width:500px" />
+        * In the example above, i = i + 3. The comparing loop start from the right where j = 5. When mismatch, j = 3. So i = i + 3.
+        * So how to get 3?
+            * First of all, we match text from right to left, as j is the index in the loop from pattern.length-1 to 0.
+            * When the rightmost element didn't match text[i], but text[i] is in the pattern, we will augment i by `j - (index of the matched element in the pattern)`.
+            * If there are some repeated elements in the pattern, we will choose the rightmost one to avoid missing matching.
+                * So `i = i + j - (index of the rightmost matched element in the pattern)`.
+            * There is another special case which will be demonstrated below:
+    * Case 2b. Mismatch character in pattern.
+        * <img src="https://i.imgur.com/GfnPQTz.jpg" style="width:500px" />
+        * if we align 'E' to the rightmost pattern 'E', the pattern will skip '-2' since j = 3 and the index of E = 5.
+        * So instead of skiping a nagative number, we increment i by 1.
+        * Then the update becomes `i = i + Max(1, j - (index of the rightmost matched element in the pattern))`;
+    * To make the computation easier, we create a `right[]` to record the `(index of the rightmost matched element in the pattern)`:
+        * Precompute index of rightmost occurrence of character c in pattern (-1 if character not in pattern).
+        * <img src="https://i.imgur.com/oaDW74R.jpg" style="width:600px" />
+        * And `skip = Math.max(1, j - right[txt.charAt(i+j)]);`
+        * You can see `E` occured three times, but we choose the rightmost one's index as the one for calculation.
+            * i.e. every time an `E` mismatch occurrs, backup Max(1, 5-5) = 1 positions.
 * Java implementation
     * <img src="https://i.imgur.com/5wbMyZN.jpg" style="width:500px" />
+* Worst-case. Can be as bad as ~ M N.
+    * <img src="https://i.imgur.com/yM0saDs.jpg" style="width:400px" />
 
 
 ### Rabin-Karp
