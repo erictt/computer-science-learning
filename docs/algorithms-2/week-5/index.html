@@ -273,7 +273,7 @@ function sidebar_toggle() {
 </ol>
 </li>
 <li>
-<p>refer to <a href="week-4/index.html#knuth-morris-pratt-kmp">week 4#knuth-morris-pratt-kmp</a> for the DFA implementation</p>
+<p>refer to <a href="/algorithms-2/week-4/index.html#knuth-morris-pratt-kmp">week 4#knuth-morris-pratt-kmp</a> for the DFA implementation</p>
 <ul>
 <li>Bad news with DFA is, it may have exponential # of states.</li>
 </ul>
@@ -337,7 +337,125 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h2 id="data-compression"><a class="markdownIt-Anchor" href="#data-compression"></a> Data Compression</h2>
-
+<ul>
+<li>
+<p>This course only talked about <strong>lossless compression</strong>.</p>
+</li>
+<li>
+<p>A data compression algorithm includes:</p>
+<ul>
+<li><strong>Message</strong>. Binary data <strong>B</strong> we want to compress.</li>
+<li><strong>Compress</strong>. Generates a “compressed” representation <strong>C (B)</strong>.</li>
+<li><strong>Expand</strong>. Reconstructs original bitstream <strong>B</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Compression ratio</strong>. Bits in <strong>C (B)</strong> / bits in <strong>B</strong>.</p>
+</li>
+<li>
+<p>A simple example is Run-length encoding.</p>
+<ul>
+<li>Simple type of redundancy in a bitstream:
+<ul>
+<li>0000000000 0000011111 1100000001 1111111111 &lt;- 40 bits</li>
+</ul>
+</li>
+<li>Transfer to below by representing alternating runs of 0s and 1s:
+<ul>
+<li>1111 0111 0111 1011 &lt;- 16 bits
+<ul>
+<li>15 0s, then 7 1s, then 7 0s, then 11 1s.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="huffman-compression"><a class="markdownIt-Anchor" href="#huffman-compression"></a> Huffman compression</h3>
+<ul>
+<li>
+<p>Term: Variable-length preﬁx-free codes.</p>
+<ul>
+<li>Use a binary trie to represent. Chars in leaves, and codeword is path from root to leaf:
+<ul>
+<li>
+<img src="https://i.imgur.com/3u2zUTk.jpg" style="width:400px"/>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Compression.</p>
+<ul>
+<li>Method 1: start at leaf; follow path up to the root; print bits in reverse.</li>
+<li>Method 2: create ST of key-value pairs. Codeword table Trie representation</li>
+</ul>
+</li>
+<li>
+<p>Expansion.</p>
+<ul>
+<li>Start at root.</li>
+<li>Go left if bit is 0;</li>
+<li>go right if 1.</li>
+<li>If leaf node, print char and return to root.</li>
+</ul>
+</li>
+<li>
+<p>Java implementation</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://algs4.cs.princeton.edu/55compression/Huffman.java.html">https://algs4.cs.princeton.edu/55compression/Huffman.java.html</a></li>
+</ul>
+</li>
+<li>
+<p>Constructing a Huffman encoding trie</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/cgswtxX.jpg" style="width:600px"/>
+</li>
+<li>
+<img src="https://i.imgur.com/m2wozN1.jpg" style="width:600px"/>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="lzw-compression"><a class="markdownIt-Anchor" href="#lzw-compression"></a> LZW compression</h3>
+<ul>
+<li>
+<p>Compression</p>
+<ul>
+<li>Create ST associating W-bit codewords with string keys.</li>
+<li>Initialize ST with codewords for single-char keys.</li>
+<li>Find longest string s in ST that is a prefix of unscanned part of input.</li>
+<li>Write the W-bit codeword associated with s.</li>
+<li>Add s + c to ST, where c is next char in the input.</li>
+<li>
+<img src="https://i.imgur.com/W5g6DC1.jpg" style="width:600px"/>
+</li>
+</ul>
+</li>
+<li>
+<p>Expansion</p>
+<ul>
+<li>Create ST associating string values with W-bit keys.</li>
+<li>Initialize ST to contain single-char values.</li>
+<li>Read a W-bit key.</li>
+<li>Find associated string value in ST and write it out.</li>
+<li>Update ST.</li>
+<li>
+<img src="https://i.imgur.com/FDK3EUu.jpg" style="width:600px"/>
+</li>
+</ul>
+</li>
+<li>
+<p>Java implementation</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://algs4.cs.princeton.edu/55compression/LZW.java.html">https://algs4.cs.princeton.edu/55compression/LZW.java.html</a></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LZW</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">R</span> <span class="operator">=</span> <span class="number">256</span>;        <span class="comment">// number of input chars</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">L</span> <span class="operator">=</span> <span class="number">4096</span>;       <span class="comment">// number of codewords = 2^W</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">W</span> <span class="operator">=</span> <span class="number">12</span>;         <span class="comment">// codeword width</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Do not instantiate.</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">LZW</span><span class="params">()</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Reads a sequence of 8-bit bytes from standard input; compresses</span></span><br><span class="line"><span class="comment">     * them using LZW compression with 12-bit codewords; and writes the results</span></span><br><span class="line"><span class="comment">     * to standard output.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">compress</span><span class="params">()</span> &#123; </span><br><span class="line">        <span class="type">String</span> <span class="variable">input</span> <span class="operator">=</span> BinaryStdIn.readString();</span><br><span class="line">        TST&lt;Integer&gt; st = <span class="keyword">new</span> <span class="title class_">TST</span>&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// since TST is not balanced, it would be better to insert in a different order</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; R; i++)</span><br><span class="line">            st.put(<span class="string">&quot;&quot;</span> + (<span class="type">char</span>) i, i);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">code</span> <span class="operator">=</span> R+<span class="number">1</span>;  <span class="comment">// R is codeword for EOF</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (input.length() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> st.longestPrefixOf(input);  <span class="comment">// Find max prefix match s.</span></span><br><span class="line">            BinaryStdOut.write(st.get(s), W);      <span class="comment">// Print s&#x27;s encoding.</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">t</span> <span class="operator">=</span> s.length();</span><br><span class="line">            <span class="keyword">if</span> (t &lt; input.length() &amp;&amp; code &lt; L)    <span class="comment">// Add s to symbol table.</span></span><br><span class="line">                st.put(input.substring(<span class="number">0</span>, t + <span class="number">1</span>), code++);</span><br><span class="line">            input = input.substring(t);            <span class="comment">// Scan past s in input.</span></span><br><span class="line">        &#125;</span><br><span class="line">        BinaryStdOut.write(R, W);</span><br><span class="line">        BinaryStdOut.close();</span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Reads a sequence of bit encoded using LZW compression with</span></span><br><span class="line"><span class="comment">     * 12-bit codewords from standard input; expands them; and writes</span></span><br><span class="line"><span class="comment">     * the results to standard output.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">expand</span><span class="params">()</span> &#123;</span><br><span class="line">        String[] st = <span class="keyword">new</span> <span class="title class_">String</span>[L];</span><br><span class="line">        <span class="type">int</span> i; <span class="comment">// next available codeword value</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// initialize symbol table with all 1-character strings</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; R; i++)</span><br><span class="line">            st[i] = <span class="string">&quot;&quot;</span> + (<span class="type">char</span>) i;</span><br><span class="line">        st[i++] = <span class="string">&quot;&quot;</span>;                        <span class="comment">// (unused) lookahead for EOF</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">codeword</span> <span class="operator">=</span> BinaryStdIn.readInt(W);</span><br><span class="line">        <span class="keyword">if</span> (codeword == R) <span class="keyword">return</span>;           <span class="comment">// expanded message is empty string</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">val</span> <span class="operator">=</span> st[codeword];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            BinaryStdOut.write(val);</span><br><span class="line">            codeword = BinaryStdIn.readInt(W);</span><br><span class="line">            <span class="keyword">if</span> (codeword == R) <span class="keyword">break</span>;</span><br><span class="line">            <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> st[codeword];</span><br><span class="line">            <span class="keyword">if</span> (i == codeword) s = val + val.charAt(<span class="number">0</span>);   <span class="comment">// special case hack</span></span><br><span class="line">            <span class="keyword">if</span> (i &lt; L) st[i++] = val + s.charAt(<span class="number">0</span>);</span><br><span class="line">            val = s;</span><br><span class="line">        &#125;</span><br><span class="line">        BinaryStdOut.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Sample client that calls &#123;<span class="doctag">@code</span> compress()&#125; if the command-line</span></span><br><span class="line"><span class="comment">     * argument is &quot;-&quot; an &#123;<span class="doctag">@code</span> expand()&#125; if it is &quot;+&quot;.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args the command-line arguments</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>      (args[<span class="number">0</span>].equals(<span class="string">&quot;-&quot;</span>)) compress();</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (args[<span class="number">0</span>].equals(<span class="string">&quot;+&quot;</span>)) expand();</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal command line argument&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 
