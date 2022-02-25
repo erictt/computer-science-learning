@@ -23,7 +23,8 @@
 
 
 * $\theta = \frac{a}{r}$, $a = r\theta$
-    * <img src="https://i.imgur.com/UFjRaTL.jpg" style="width:100px" /> <img src="https://i.imgur.com/cFFi6aO.jpg" style="width:100px" />
+    * <img src="https://i.imgur.com/UFjRaTL.jpg" style="width:100px" /> 
+    * <img src="https://i.imgur.com/cFFi6aO.jpg" style="width:100px" />
 * <img src="https://i.imgur.com/40uSSY6.jpg" style="width:500px" />
 
     * <img src="https://i.imgur.com/qkM9GEM.jpg" style="width:250px" />

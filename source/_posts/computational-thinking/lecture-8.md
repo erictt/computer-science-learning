@@ -55,7 +55,7 @@
     pylab.legend()
     ```
     
-    <img src='https://i.imgur.com/xEj6BKF.jpg' style="width:400px"/>
+    <img src="https://i.imgur.com/xEj6BKF.jpg" style="width:400px"/>
     
     * Conclusion:
         * It doesn’t matter what the shape of the distribution of values happens to be

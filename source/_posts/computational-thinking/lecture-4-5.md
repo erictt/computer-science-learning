@@ -25,5 +25,5 @@ pylab.legend()
 pylab.title('Cubic vs. Exponential')
 ``` 
 
-* <img src='https://i.imgur.com/0PnJ0gJ.jpg' style="width:600px"/>
+* <img src="https://i.imgur.com/0PnJ0gJ.jpg" style="width:600px"/>
 
