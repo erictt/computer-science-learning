@@ -1,4 +1,4 @@
-# Week 3 - Maximum Flow and Minimum Cut & Radix Sorts
+# Week 3 - Maximum Flow and Minimum Cut & String Sorts
 
 ## Maximum Flow and Minimum Cut
 

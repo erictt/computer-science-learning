@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <ul>
 <li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
 <li><a href="/algorithms-2/week-2/index.html">Week 2 - Minimum Spanning Trees &amp; Shortest Path</a></li>
-<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; Radix Sort</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; String Sort</a></li>
 <li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
 <li><a href="/algorithms-2/week-5/index.html">Week 5 - Regular Expressions</a></li>
 <li><a href="/algorithms-2/week-6/index.html">Week 6 - Reductions</a></li>
@@ -257,7 +257,31 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1 id=""><a class="markdownIt-Anchor" href="#"></a> </h1>
+  <h1 id="reductions-linear-programming-intractability"><a class="markdownIt-Anchor" href="#reductions-linear-programming-intractability"></a> Reductions &amp; Linear Programming &amp; Intractability</h1>
+<h2 id="reductions"><a class="markdownIt-Anchor" href="#reductions"></a> Reductions</h2>
+<ul>
+<li><strong>Def</strong>. Problem X <strong>reduces to</strong> problem Y if you can use an algorithm that solves Y to help solve X.
+<ul>
+<li><img src="/images/16466650438708.jpg" alt="" /></li>
+<li>ex1. find the median of N items: sort N items and return the on in the middle.
+<ul>
+<li>The cost os soloving finding the median is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mi>log</mi><mo>⁡</mo><mi>N</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">N\log{N} + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>. <em>1 is the cost of reductions.</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="design-algorithms"><a class="markdownIt-Anchor" href="#design-algorithms"></a> Design Algorithms</h3>
+<ul>
+<li>Mentality.
+<ul>
+<li>Since I know how to solve Y, can I use that algorithm to solve X ?</li>
+<li>Programmer’s version: I have code for Y. Can I use it for X?</li>
+</ul>
+</li>
+</ul>
+<h2 id="linear-programming"><a class="markdownIt-Anchor" href="#linear-programming"></a> Linear Programming</h2>
+<h2 id="intractability"><a class="markdownIt-Anchor" href="#intractability"></a> Intractability</h2>
 
 </div>
 

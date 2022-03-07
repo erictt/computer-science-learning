@@ -8,19 +8,19 @@
 
 ### Current Curriculums
 
-* Princeton University: Algorithms Part II [[Course](https://www.coursera.org/learn/algorithms-part1/home/welcome)]
-* Multivariable Calculus [[Course](https://ocw.mit.edu/courses/mathematics/18-02sc-multivariable-calculus-fall-2010/)]
-* MITx: 6.041x Introduction to Probability - The Science of Uncertainty [[Course](https://courses.edx.org/courses/course-v1:MITx+6.041x_4+1T2017/course/)]
+* Introduction to Operating Systems [[Course](https://pages.cs.wisc.edu/~remzi/Classes/537/Spring2018/)]
+* Computer Networks[[Course](https://gaia.cs.umass.edu/kurose_ross/lectures.php)]
 
 ### Next Steps
 
-* Stanford University: Statistical Learning [[Course](https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/info)]
-* Deeplearning.ai [[Course](https://www.coursera.org/specializations/deep-learning)]
+* Multivariable Calculus [[Course](https://ocw.mit.edu/courses/mathematics/18-02sc-multivariable-calculus-fall-2010/)]
+* MITx: 6.041x Introduction to Probability - The Science of Uncertainty [[Course](https://courses.edx.org/courses/course-v1:MITx+6.041x_4+1T2017/course/)]
 
 ### Done
 
 | Course | Score |
 | --- | --- |
+| [Princeton University: Algorithms Part II](https://www.coursera.org/learn/algorithms-part1/home/welcome) | 99.8% |
 | [Princeton University: Algorithms Part I](https://www.coursera.org/learn/algorithms-part1/home/welcome) | 93.6% |
 | [UTAustinX: UT.5.04x LAFF: Linear Algebra - Foundations to Frontiers](https://courses.edx.org/courses/course-v1:UTAustinX+UT.5.05x+2T2017/course/) | 100% |
 | [The Ohio State University: Calculus Two - Sequences and Series](https://www.coursera.org/learn/advanced-calculus) | 100% |
