@@ -9,7 +9,7 @@
 ### Current Curriculums
 
 * Introduction to Operating Systems [[Course](https://pages.cs.wisc.edu/~remzi/Classes/537/Spring2018/)]
-* Computer Networks[[Course](https://gaia.cs.umass.edu/kurose_ross/lectures.php)]
+* Computer Networking [[Course](https://gaia.cs.umass.edu/kurose_ross/lectures.php)]
 
 ### Next Steps
 
