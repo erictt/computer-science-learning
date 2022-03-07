@@ -1,6 +1,6 @@
 # Computer Science & Machine Learning
 
-* [NOTES](/toc)
+* [NOTES](/menu)
 
 ## Progress
 
