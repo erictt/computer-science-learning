@@ -1,8 +1,6 @@
 # Computer Science & Machine Learning
 
-* A place for CS and ML notes.
-
-* [TOC](/menu)
+* [NOTES](/toc)
 
 ## Progress
 
