@@ -326,7 +326,6 @@ function sidebar_toggle() {
 </li>
 <li>
 <img src="https://i.imgur.com/Xo4Y0pw.jpg" style="width:500px" />
-  * **Key point.** Augmenting path in **original** network is equivalent to **directed path** in **residual** network.
 </li>
 </ul>
 </li>
@@ -353,6 +352,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 </li>
+<li><strong>Key point.</strong> Augmenting path in <strong>original</strong> network is equivalent to <strong>directed path</strong> in <strong>residual</strong> network.</li>
 </ul>
 </li>
 </ul>
@@ -397,21 +397,22 @@ function sidebar_toggle() {
 <ul>
 <li>and since <strong>max-flow</strong> already matched the bottleneck, there will be no new augmenting path can increase the flow to break the bottleneck.</li>
 <li>e.g. <img src="https://i.imgur.com/xijaZ5V.jpg" style="width:400px" /></li>
-<li>TODO: My question is, is it possible that the max flow didn’t reach the capacity of all cuts?</li>
+<li>NOTE: Question: is it possible that the max flow didn’t reach the capacity of all cuts?
+<ul>
+<li>I think it’s possible but it’s still the min cut.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>To compute mincut (S, T) from maxflow f</strong> :</p>
 <ul>
 <li>By augmenting path theorem, no augmenting paths with respect to f(the maxflow).</li>
-<li>Compute S = set of vertices connected to s by an undirected path with no full forward or empty backward edges.
-<ul>
-<li><strong>TODO</strong>: Why?</li>
-</ul>
-</li>
+<li>Compute S = set of vertices connected to s by an undirected path with no full forward or empty backward edges.</li>
 <li>
 <img src="https://i.imgur.com/mcJplpu.jpg" style="width:500px" />
 </li>
+<li><strong>TODO</strong>: Why? What if there are more than two edges from <code>s</code> have no full forward edges? what if none forward edges?</li>
 </ul>
 </li>
 </ul>
@@ -497,7 +498,7 @@ function sidebar_toggle() {
 </li>
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LdOnanfc5TM">https://www.youtube.com/watch?v=LdOnanfc5TM</a></li>
 </ul>
-<h2 id="radix-sorts"><a class="markdownIt-Anchor" href="#radix-sorts"></a> Radix Sorts</h2>
+<h2 id="string-sorts"><a class="markdownIt-Anchor" href="#string-sorts"></a> String Sorts</h2>
 <h3 id="strings-in-java"><a class="markdownIt-Anchor" href="#strings-in-java"></a> Strings in Java</h3>
 <ul>
 <li>

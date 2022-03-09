@@ -504,7 +504,12 @@ function sidebar_toggle() {
 <h3 id="dijkstras-algorithm"><a class="markdownIt-Anchor" href="#dijkstras-algorithm"></a> Dijkstra’s Algorithm</h3>
 <ul>
 <li>Consider vertices in increasing order of distance from <strong>s</strong> (non-tree vertex with the lowest distTo[] value).</li>
-<li>Add vertex to tree and relax all edges pointing from that vertex.</li>
+<li><strong>Add vertex to tree</strong> and <strong>relax all edges pointing from that vertex</strong>.
+<ul>
+<li>This will make sure all vertices have the shortest path from <strong>s</strong>.</li>
+<li>The algorithm runs as a BFS.</li>
+</ul>
+</li>
 <li>Pick the vertex that has minimum distance to the origin to repeat the process until the last vertex.</li>
 </ul>
 <h4 id="correctness-proof"><a class="markdownIt-Anchor" href="#correctness-proof"></a> Correctness proof</h4>
@@ -563,20 +568,15 @@ function sidebar_toggle() {
 <h3 id="single-source-shortest-paths-implementation-cost-summary"><a class="markdownIt-Anchor" href="#single-source-shortest-paths-implementation-cost-summary"></a> Single source shortest-paths implementation: cost summary</h3>
 <ul>
 <li>
-<ul>
-<li>Negative cycles
-<ul>
-<li>Def. A negative cycle is a directed cycle whose sum of edge weights is negative.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
 <img src="https://i.imgur.com/g6IcSth.jpg" style="width:600px" />
 <ul>
 <li>Remark 1. Directed cycles make the problem harder.</li>
 <li>Remark 2. Negative weights make the problem harder.</li>
-<li>Remark 3. Negative cycles makes the problem intractable.</li>
+<li>Remark 3. Negative cycles makes the problem intractable.
+<ul>
+<li>Def. A <strong>negative cycle</strong> is a directed cycle whose sum of edge weights is negative.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -279,6 +279,29 @@ function sidebar_toggle() {
 <li>Programmer’s version: I have code for Y. Can I use it for X?</li>
 </ul>
 </li>
+<li>Examples:
+<ul>
+<li>Convex hull
+<ul>
+<li>Given N points in the plane, identify the extreme points of the convex hull (in counterclockwise order).</li>
+<li><img src="/images/16466815610733.jpg" alt="" /></li>
+<li>Solution
+<ul>
+<li>Graham scan.
+<ul>
+<li>Choose point p with smallest (or largest) y-coordinate.</li>
+<li>Sort points by polar angle with p to get simple polygon.</li>
+<li>Consider points in order, and discard those that would create a clockwise turn.</li>
+<li><img src="/images/16466816202046.jpg" alt="" /></li>
+<li>Cost: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mi>log</mi><mo>⁡</mo><mi>N</mi><mo>+</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">N \log{N} + N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> &lt;-- N is the cost of reduction</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h2 id="linear-programming"><a class="markdownIt-Anchor" href="#linear-programming"></a> Linear Programming</h2>
 <h2 id="intractability"><a class="markdownIt-Anchor" href="#intractability"></a> Intractability</h2>

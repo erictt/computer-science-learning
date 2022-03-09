@@ -30,7 +30,6 @@
         * A parallel graph as the original graph which keeps two capacities: the forward capacity(=original capacity - flow); the backward capacity(=flow).
             * The backward capacity is used for "undo" flow went through the edge. 
         * <img src="https://i.imgur.com/Xo4Y0pw.jpg" style="width:500px" />
-            * **Key point.** Augmenting path in **original** network is equivalent to **directed path** in **residual** network.
     
     * Augmenting paths
         * path in residual graph, either:
@@ -40,6 +39,7 @@
                 * <img src="https://i.imgur.com/G6J5soQ.jpg" style="width:500px" />
                 * The decrease on the backward edge is like re-distribute the flow to other place since the new flow we're trying to create add the same amount.
                 * In the case above, 5 was deducted and added to the top edge, and pass long to t.
+        * **Key point.** Augmenting path in **original** network is equivalent to **directed path** in **residual** network.
 
 #### Relation between Maximum Flow and Minimum Cut
 
@@ -60,14 +60,15 @@
 * In my understanding, the capacity of the **min-cut** (S, T) is the **bottleneck** of the graph, which means it's the **maximum flow** can be passed from S to T. Since the flow is equivalent, it must applies to s and t as well.
     * and since **max-flow** already matched the bottleneck, there will be no new augmenting path can increase the flow to break the bottleneck.
     * e.g. <img src="https://i.imgur.com/xijaZ5V.jpg" style="width:400px" />
-    * TODO: My question is, is it possible that the max flow didn't reach the capacity of all cuts?
+    * NOTE: Question: is it possible that the max flow didn't reach the capacity of all cuts?
+        * I think it's possible but it's still the min cut.
 
 * **To compute mincut (S, T) from maxflow f** :
     * By augmenting path theorem, no augmenting paths with respect to f(the maxflow). 
     * Compute S = set of vertices connected to s by an undirected path with no full forward or empty backward edges.
-        * **TODO**: Why?
     * <img src="https://i.imgur.com/mcJplpu.jpg" style="width:500px" />
-    
+    * **TODO**: Why? What if there are more than two edges from `s` have no full forward edges? what if none forward edges?
+
 ### Ford-Fulkerson algorithm 
 
 To find the maximum flow (and min-cut), the algorithm repeatedly finds **augmenting paths** through the **residual graph** and **augments the flow** until no more augmenting paths can be found.
@@ -240,7 +241,7 @@ To find the maximum flow (and min-cut), the algorithm repeatedly finds **augment
     * Note: slides 16 and 17 have a mistake. The flow on edges(s-4 and 4-7) should both be 14.
 * https://www.youtube.com/watch?v=LdOnanfc5TM
 
-## Radix Sorts
+## String Sorts
 
 ### Strings in Java 
 

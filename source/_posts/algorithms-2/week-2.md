@@ -129,7 +129,9 @@
 ### Dijkstra's Algorithm
 
 * Consider vertices in increasing order of distance from **s** (non-tree vertex with the lowest distTo[] value).
-* Add vertex to tree and relax all edges pointing from that vertex.
+* **Add vertex to tree** and **relax all edges pointing from that vertex**.
+    * This will make sure all vertices have the shortest path from **s**.
+    * The algorithm runs as a BFS.
 * Pick the vertex that has minimum distance to the origin to repeat the process until the last vertex.
 
 #### Correctness proof
@@ -165,14 +167,12 @@
 
 ### Single source shortest-paths implementation: cost summary
 
-* * Negative cycles
-    * Def. A negative cycle is a directed cycle whose sum of edge weights is negative.
-
 * <img src="https://i.imgur.com/g6IcSth.jpg" style="width:600px" />
 
     * Remark 1. Directed cycles make the problem harder. 
     * Remark 2. Negative weights make the problem harder. 
     * Remark 3. Negative cycles makes the problem intractable. 
+        * Def. A **negative cycle** is a directed cycle whose sum of edge weights is negative.
 
 ### Finding a negative cycle
 
