@@ -467,7 +467,7 @@ function sidebar_toggle() {
 <ul>
 <li>Think about how to get X for state 5? We simulate <code>BABA</code> then check the mismatch of that state column. So what about X for state 4? we need to simulate <code>BAB</code>, right?</li>
 <li>You can see to simulate <code>BABA</code>, we need to check the state for <code>BAB</code> and check where <code>A</code> goes on that state. Same as <code>BAB</code>, we need to find the state for <code>BA</code> at first, then check where the <code>B</code> goes.</li>
-<li>So if we reverse the process, state <code>B</code> can be used for checking mismatch for <code>AB</code>, state <code>BA</code> can be used for checking <code>ABA</code>, state <code>BAB</code> can be used for checking <code>ABAB</code>. We don’t actually need to loop every element for searching <strong>X</strong> but record the state of the previous match, and check the new element in the state which will be our state <strong>X</strong> for the next state’s mismatch.</li>
+<li>So if we reverse the process, state <code>B</code> can be used for checking mismatch for <code>BA</code>, state <code>BA</code> can be used for checking <code>BAB</code>, state <code>BAB</code> can be used for checking <code>BABA</code>. We don’t actually need to loop every element for searching <strong>X</strong> but record the state of the previous match, and check the new element in the state which will be our state <strong>X</strong> for the next state’s mismatch.</li>
 </ul>
 </li>
 <li>Let’s loop from the beginning.
