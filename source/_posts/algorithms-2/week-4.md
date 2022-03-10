@@ -191,7 +191,7 @@ Use DFA to match the pattern in string in linear time.
         * The next question is, how to find the state `X` without loop the whole [1,j-1] in the pattern?
             * Think about how to get X for state 5? We simulate `BABA` then check the mismatch of that state column. So what about X for state 4? we need to simulate `BAB`, right?
             * You can see to simulate `BABA`, we need to check the state for `BAB` and check where `A` goes on that state. Same as `BAB`, we need to find the state for `BA` at first, then check where the `B` goes. 
-            * So if we reverse the process, we can see that, state `B` can be used for checking `BA`, state `BA` can be used for checking `BAB`, state `BAB` can be used for checking `BABA`. We don't actually need to loop every time for searching **X** but record the state of the previous match, and check the new element in the state which will be our state **X** for the next state's mismatch.
+            * So if we reverse the process, state `B` can be used for checking mismatch for `AB`, state `BA` can be used for checking `ABA`, state `BAB` can be used for checking `ABAB`. We don't actually need to loop every element for searching **X** but record the state of the previous match, and check the new element in the state which will be our state **X** for the next state's mismatch.
         * Let's loop from the beginning. 
             * when j = 0, nothing need to be done, the only match is A, and the others are 0. So we initialize X = 0.
             * When j = 1, we copy over the mismatches from state 0(X=0) to state 1. And mark X = dfa[B][0] = 0 meaning we finished the matching of [B], the next state can use the result as X.
@@ -249,9 +249,8 @@ Use DFA to match the pattern in string in linear time.
         }
     }
     ```
-        
 
-* KMP substring search analysis
+* Cost analysis
     * KMP substring search accesses no more than **M + N** chars to search for a pattern of length M in a text of length N.
 
 ### Boyer-Moore

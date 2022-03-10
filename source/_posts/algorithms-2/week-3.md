@@ -205,7 +205,7 @@ To find the maximum flow (and min-cut), the algorithm repeatedly finds **augment
 
         // BFS to find the shortest path in the residual network
         // BE AWARE this algorithm saves the last edge on path to w,
-        // because it's BFS, we can only trace the last path to the target.
+        // because it's BFS, we store the last valid path to the target in edgeTo.
         private boolean hasAugmentingPath(FlowNetwork G, int s, int t) {
             edgeTo = new FlowEdge[G.V()]; 
             marked = new boolean[G.V()];
@@ -235,7 +235,7 @@ To find the maximum flow (and min-cut), the algorithm repeatedly finds **augment
     }
     ```
     
-### Additional Resouces
+### Additional Resources
 
 * https://www.cs.princeton.edu/courses/archive/spr04/cos226/lectures/maxflow.4up.pdf
     * Note: slides 16 and 17 have a mistake. The flow on edges(s-4 and 4-7) should both be 14.
