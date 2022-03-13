@@ -195,7 +195,7 @@ Use DFA to match the pattern in string in linear time.
             * We don't actually need to loop every element for searching state **X** but record the state of the previous match, and check the new element in the state which will be our state **X** for the next state's mismatch. e.g.
                 * [B][0] = 0, then the mismatch of `AB_` check the state `0`.
                 * [A][0] = 1, then the mismatch of `ABA_` check the state `1`.
-            * Why don't calculate state for `A_`? because [i,j-1] is empty which means X = 0.
+            * Why not calculate state for `A_`? because [i,j-1] is empty which means X = 0.
         * Let's loop from the beginning. 
             * when j = 0, nothing need to be done, the only match is A, and the others are 0. So we initialize X = 0.
             * When j = 1, we copy over the mismatches from state 0(X=0) to state 1. And mark X = dfa[B][0] = 0 meaning we finished the matching of [B], the next state can use the result as X.
@@ -270,18 +270,18 @@ Use DFA to match the pattern in string in linear time.
     * **Case 2a.** Mismatch character in pattern.
         * mismatch character 'N' in pattern: align text 'N' with **rightmost** pattern 'N'. 
         * <img src="https://i.imgur.com/2VSMgxN.jpg" style="width:500px" />
-        * In the example above, `i = i + 3`. The comparing loop start from the right where `j = 5`. When mismatch, `j = 3` and the mismatched element `N`'s index = 0. So `i = i + (3 - 0)`.
+        * In the example above, `i += 3`. The comparing loop start from the right where `j = 5`. When mismatch, `j = 3` and the mismatched element `N`'s index = 0. So `i += (3 - 0)`.
         * So how to get 3?
             * First of all, we match text from right to left, as `j` is the index in the loop from `pattern.length-1` to `0`.
             * When the rightmost element didn't match `text[i]`, but `text[i]` is still in the pattern, we will augment i by `j - (index of the matched element in the pattern)`.
             * If there are some repeated elements in the pattern, we will choose the rightmost one to avoid missing matches.
-                * The refined equation becomes: `i = i + j - (index of the rightmost matched element in the pattern)`.
+                * The refined equation becomes: `i += j - (index of the rightmost matched element in the pattern)`.
             * There is another special case which will be demonstrated below:
     * **Case 2b.** Mismatch character in pattern.
         * <img src="https://i.imgur.com/GfnPQTz.jpg" style="width:500px" />
-        * You can see, if we align 'E' to the rightmost pattern 'E', the pattern will skip '-2' since j = 3 and the index of E = 5.
+        * You can see, if we align 'E' to the rightmost pattern 'E', the pattern will skip '-2' since j = 3 and the index of the rightmost E = 5.
         * So instead of skiping a nagative number, we increment i by 1.
-        * Then the i-update becomes `i = i + Max(1, j - (index of the rightmost matched element in the pattern))`;
+        * Then the i-update becomes `i += Max(1, j - (index of the rightmost matched element in the pattern))`;
     * To make the computation easier, we create a `right[]` to record the `(index of the rightmost matched element in the pattern)`:
         * Precompute index of rightmost occurrence of character `c` in pattern (`-1` if character not in pattern, meaning we skip `j-(-1) = j+1`).
         * <img src="https://i.imgur.com/oaDW74R.jpg" style="width:600px" />

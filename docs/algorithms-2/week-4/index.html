@@ -474,7 +474,7 @@ function sidebar_toggle() {
 <li>[A][0] = 1, then the mismatch of <code>ABA_</code> check the state <code>1</code>.</li>
 </ul>
 </li>
-<li>Why don’t calculate state for <code>A_</code>? because [i,j-1] is empty which means X = 0.</li>
+<li>Why not calculate state for <code>A_</code>? because [i,j-1] is empty which means X = 0.</li>
 </ul>
 </li>
 <li>Let’s loop from the beginning.
@@ -535,14 +535,14 @@ function sidebar_toggle() {
 <li>
 <img src="https://i.imgur.com/2VSMgxN.jpg" style="width:500px" />
 </li>
-<li>In the example above, <code>i = i + 3</code>. The comparing loop start from the right where <code>j = 5</code>. When mismatch, <code>j = 3</code> and the mismatched element <code>N</code>’s index = 0. So <code>i = i + (3 - 0)</code>.</li>
+<li>In the example above, <code>i += 3</code>. The comparing loop start from the right where <code>j = 5</code>. When mismatch, <code>j = 3</code> and the mismatched element <code>N</code>’s index = 0. So <code>i += (3 - 0)</code>.</li>
 <li>So how to get 3?
 <ul>
 <li>First of all, we match text from right to left, as <code>j</code> is the index in the loop from <code>pattern.length-1</code> to <code>0</code>.</li>
 <li>When the rightmost element didn’t match <code>text[i]</code>, but <code>text[i]</code> is still in the pattern, we will augment i by <code>j - (index of the matched element in the pattern)</code>.</li>
 <li>If there are some repeated elements in the pattern, we will choose the rightmost one to avoid missing matches.
 <ul>
-<li>The refined equation becomes: <code>i = i + j - (index of the rightmost matched element in the pattern)</code>.</li>
+<li>The refined equation becomes: <code>i += j - (index of the rightmost matched element in the pattern)</code>.</li>
 </ul>
 </li>
 <li>There is another special case which will be demonstrated below:</li>
@@ -555,9 +555,9 @@ function sidebar_toggle() {
 <li>
 <img src="https://i.imgur.com/GfnPQTz.jpg" style="width:500px" />
 </li>
-<li>You can see, if we align ‘E’ to the rightmost pattern ‘E’, the pattern will skip ‘-2’ since j = 3 and the index of E = 5.</li>
+<li>You can see, if we align ‘E’ to the rightmost pattern ‘E’, the pattern will skip ‘-2’ since j = 3 and the index of the rightmost E = 5.</li>
 <li>So instead of skiping a nagative number, we increment i by 1.</li>
-<li>Then the i-update becomes <code>i = i + Max(1, j - (index of the rightmost matched element in the pattern))</code>;</li>
+<li>Then the i-update becomes <code>i += Max(1, j - (index of the rightmost matched element in the pattern))</code>;</li>
 </ul>
 </li>
 <li>To make the computation easier, we create a <code>right[]</code> to record the <code>(index of the rightmost matched element in the pattern)</code>:

@@ -262,7 +262,9 @@ function sidebar_toggle() {
 <ul>
 <li><strong>Def</strong>. Problem X <strong>reduces to</strong> problem Y if you can use an algorithm that solves Y to help solve X.
 <ul>
-<li><img src="/images/16466650438708.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/2jwhrxt.jpg" style="width:400px" />
+</li>
 <li>ex1. find the median of N items: sort N items and return the on in the middle.
 <ul>
 <li>The cost os soloving finding the median is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mi>log</mi><mo>⁡</mo><mi>N</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">N\log{N} + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>. <em>1 is the cost of reductions.</em></li>
@@ -284,7 +286,9 @@ function sidebar_toggle() {
 <li>Convex hull
 <ul>
 <li>Given N points in the plane, identify the extreme points of the convex hull (in counterclockwise order).</li>
-<li><img src="/images/16466815610733.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/JTFiz4E.jpg" style="width:300px" />
+</li>
 <li>Solution
 <ul>
 <li>Graham scan.
@@ -292,7 +296,9 @@ function sidebar_toggle() {
 <li>Choose point p with smallest (or largest) y-coordinate.</li>
 <li>Sort points by polar angle with p to get simple polygon.</li>
 <li>Consider points in order, and discard those that would create a clockwise turn.</li>
-<li><img src="/images/16466816202046.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/mrD3N6g.jpg" style="width:600px" />
+</li>
 <li>Cost: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mi>log</mi><mo>⁡</mo><mi>N</mi><mo>+</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">N \log{N} + N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> &lt;-- N is the cost of reduction</li>
 </ul>
 </li>
@@ -303,8 +309,89 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
+<h3 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h3>
+<ul>
+<li>
+<p>Reductions are important in theory to:</p>
+<ul>
+<li>Design algorithms.</li>
+<li>Establish lower bounds.</li>
+<li>Classify problems according to their computational requirements.</li>
+</ul>
+</li>
+<li>
+<p>Reductions are important in practice to:</p>
+<ul>
+<li>Design algorithms.</li>
+<li>Design reusable software modules.
+<ul>
+<li>stacks, queues, priority queues, symbol tables, sets, graphs</li>
+<li>sorting, regular expressions, Delaunay triangulation</li>
+<li>MST, shortest path, maxflow, linear programming</li>
+</ul>
+</li>
+<li>Determine difficulty of your problem and choose the right tool.</li>
+</ul>
+</li>
+</ul>
 <h2 id="linear-programming"><a class="markdownIt-Anchor" href="#linear-programming"></a> Linear Programming</h2>
+<p>// SKIP</p>
 <h2 id="intractability"><a class="markdownIt-Anchor" href="#intractability"></a> Intractability</h2>
+<ul>
+<li>Def.
+<ul>
+<li>A problem is <strong>intractable</strong> if it can’t be solved in polynomial time.</li>
+<li><strong>Search problem</strong>.
+<ul>
+<li>Given an instance I of a problem, <strong>find</strong> a solution S.</li>
+<li>Must be able to efficiently check that S is a solution.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Problems
+<ul>
+<li>
+<img src="https://i.imgur.com/n2sshFz.jpg" style="width:600px" />
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="p-vs-np"><a class="markdownIt-Anchor" href="#p-vs-np"></a> P vs NP</h3>
+<ul>
+<li>Def.
+<ul>
+<li><strong>NP</strong> is the class of all search problems.</li>
+<li><strong>P</strong> is the class of search problems solvable in poly-time.</li>
+<li><strong>Nondeterministic</strong> machine can guess the desired solution.
+<ul>
+<li>In week 5, we built a NFA for regular expression.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Does P = NP ?
+<ul>
+<li>
+<img src="https://i.imgur.com/mSgsnLt.jpg" style="width:400px" />
+</li>
+<li>If P = NP… Poly-time algorithms for SAT, ILP, TSP, FACTOR, …</li>
+<li>If P ≠ NP… Would learn something fundamental about our universe.</li>
+</ul>
+</li>
+<li>NP-completeness
+<ul>
+<li>Def. An NP problem is <strong>NP-complete</strong> if every problem in NP poly-time reduce to it.</li>
+<li>Implications of Cook-Levin Theorem
+<ul>
+<li>
+<img src="https://i.imgur.com/Pzpvnkk.jpg" style="width:600px" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 
