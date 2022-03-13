@@ -10,8 +10,8 @@ skip=0
 for i in $images; do
   exist=$(echo $downloaded | grep $i)
   if [[ "$exist" == "" ]]; then
-    echo "$count: wget $prefix$i -O ./images/$i"
-    # wget $prefix$i -O ./images/$i
+    # echo "$count: wget $prefix$i -O ./images/$i"
+    wget $prefix$i -O ./images/$i
     count=$((count+1))
   else
     # echo "skip: $i"
