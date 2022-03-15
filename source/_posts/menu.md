@@ -24,6 +24,14 @@
 * [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
 -->
 
+## Computer Networking
+
+* [Chapter 1 - Introduction](/computer-networking/chapter-1/index.html)
+
+## Introduction to Operating System
+
+* [Lecture 2 - Virtualizing the CPU](/introduction-to-operating-systems/lecture-2/index.html)
+
 ## Algorithms: Part II
 
 * [Week 1 - Undirected Graph & Directed Graph](/algorithms-2/week-1/index.html)
