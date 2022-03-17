@@ -86,7 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
 -->
 <h2 id="computer-networking"><a class="markdownIt-Anchor" href="#computer-networking"></a> Computer Networking</h2>
 <ul>
-<li><a href="/computer-networking/chapter-1/index.html">Chapter 1 - Introduction</a></li>
+<li><a href="/computer-networking/1-virtualization-1/index.html">Virtualization 1 - CPU</a></li>
+<li><a href="/computer-networking/1-virtualization-2/index.html">Virtualization 1 - Memory</a></li>
 </ul>
 <h2 id="introduction-to-operating-system"><a class="markdownIt-Anchor" href="#introduction-to-operating-system"></a> Introduction to Operating System</h2>
 <ul>
@@ -512,31 +513,34 @@ function sidebar_toggle() {
 <li>
 <p>Layers:</p>
 <ul>
-<li><strong>application</strong>: supporting network applications
+<li><strong>application</strong>: <strong>application-layer message</strong>, supporting applications like:
 <ul>
 <li>HTTP, IMAP, SMTP, DNS</li>
 </ul>
 </li>
-<li><strong>transport</strong>: process-process data transfer
+<li><strong>transport</strong>: process data transfer
 <ul>
 <li>TCP, UDP</li>
+<li>the <strong>segment</strong> this layers added is used for error-detection and also make sure the message is unchanged</li>
 </ul>
 </li>
-<li><strong>network</strong>: routing of datagrams from source to destination
+<li><strong>network</strong>: routing of <strong>datagrams</strong> from source to destination
 <ul>
 <li>IP, routing protocols</li>
+<li>This layer adds end system addresses in the datagram.</li>
 </ul>
 </li>
-<li><strong>link</strong>: data transfer between neighboring  network elements
+<li><strong>link</strong>: data transfer between neighboring network elements
 <ul>
 <li>Ethernet, 802.11 (WiFi), PPP</li>
+<li>This layer has two types of fields: header and payload, the payload is typically a packet from the layer above.</li>
 </ul>
 </li>
 <li><strong>physical</strong>: bits “on the wire”</li>
 </ul>
 </li>
 <li>
-<img src="https://i.imgur.com/RJcUaWy.jpg" style="width:400px" />
+<img src="/images/16474663146683.jpg" style="width:600px" />
 </li>
 <li>
 <p>From the source, each layer <strong>encapsulates</strong> the message and add its own header to create transport-layer <strong>segment/datagram/frame</strong>. Then the message will be decapsulated and re-encapsulated at the switch/router for deciding where the message should go. At last the message will be decapsulated at the destination.</p>

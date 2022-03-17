@@ -112,15 +112,19 @@
 ## What are the Protocol Layers and Their Service Models?
 
 * Layers:
-    * **application**: supporting network applications
+    * **application**: **application-layer message**, supporting applications like:
         * HTTP, IMAP, SMTP, DNS
-    * **transport**: process-process data transfer
+    * **transport**: process data transfer
         * TCP, UDP
-    * **network**: routing of datagrams from source to destination
+        * the **segment** this layers added is used for error-detection and also make sure the message is unchanged
+    * **network**: routing of **datagrams** from source to destination
         * IP, routing protocols
-    * **link**: data transfer between neighboring  network elements
+        * This layer adds end system addresses in the datagram.
+    * **link**: data transfer between neighboring network elements
         * Ethernet, 802.11 (WiFi), PPP
+        * This layer has two types of fields: header and payload, the payload is typically a packet from the layer above.
     * **physical**: bits “on the wire”
 
-* <img src="https://i.imgur.com/RJcUaWy.jpg" style="width:400px" />
+* <img src="/images/16474663146683.jpg" style="width:600px" />
+
 * From the source, each layer **encapsulates** the message and add its own header to create transport-layer **segment/datagram/frame**. Then the message will be decapsulated and re-encapsulated at the switch/router for deciding where the message should go. At last the message will be decapsulated at the destination.

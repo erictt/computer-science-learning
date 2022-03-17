@@ -26,7 +26,8 @@
 
 ## Computer Networking
 
-* [Chapter 1 - Introduction](/computer-networking/chapter-1/index.html)
+* [Virtualization 1 - CPU](/computer-networking/1-virtualization-1/index.html)
+* [Virtualization 1 - Memory](/computer-networking/1-virtualization-2/index.html)
 
 ## Introduction to Operating System
 
