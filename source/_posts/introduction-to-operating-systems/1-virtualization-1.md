@@ -134,7 +134,8 @@
         * **sched_latency**: The scheduler period is a period of time during which all runnable tasks should be allowed to run at least once. a typical value is 48ms, so if there are 4 processes, the per-process time slice is 12ms.
         * **min_granularity**: the minimum time slice of a process. usually 6ms. so if there are more than 8 processes, each will have at least 6ms time slice.
         * **weighting(niceness)**: enable control over process priority. CFS maps the **nice** value of each process to a weight, as shown here:
-            
+            * $\text{time_slice}_k = \frac{\text{weight}_k}{\sum_{0}^{n-1}\text{weight}_i} \cdot  \text{sched_latency}$
+
             ```
             static const int prio_to_weight[40] = { 
                 / * -20 * / 88761, 71755, 56483, 46273, 36291, 
@@ -148,7 +149,6 @@
             };
             ```
             
-            * $$\text{time_slice}_k = \frac{\text{weight}_k}{\sum_{0}^{n-1}\text{weight}_i} \cdot  \text{sched_latency}$$
-    * To improve the efficiency, the scheduler uses Red-Black Trees with the vruntime values of each process to run the min-vrumtime process.
+            * To improve the efficiency, the scheduler uses [Red-Black Trees](https://cs.ericyy.me/algorithms-1/week-5/index.html#red-black-bsts) with the vruntime values of each process to run the min-vrumtime process.
     * What about I/O and sleeping process?
         * if the process gone for sleeping for a long time, when it wakes up, it might monopolize the CPU for a long time. To avoid this, CFS sets the vruntime of that job to the minimum value that found in the tree.
