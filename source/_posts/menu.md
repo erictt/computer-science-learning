@@ -26,12 +26,12 @@
 
 ## Computer Networking
 
-* [Virtualization 1 - CPU](/computer-networking/1-virtualization-1/index.html)
-* [Virtualization 1 - Memory](/computer-networking/1-virtualization-2/index.html)
+* [Chapter 1 - Introduction](/computer-networking/chapter-1/index.html)
 
 ## Introduction to Operating System
 
-* [Lecture 2 - Virtualizing the CPU](/introduction-to-operating-systems/lecture-2/index.html)
+* [Virtualization 1 - CPU](/introduction-to-operating-systems/1-virtualization-1/index.html)
+* [Virtualization 2 - Memory](/introduction-to-operating-systems/1-virtualization-2/index.html)
 
 ## Algorithms: Part II
 
