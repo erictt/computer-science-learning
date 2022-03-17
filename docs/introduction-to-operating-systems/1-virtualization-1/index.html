@@ -347,9 +347,12 @@ function sidebar_toggle() {
 </li>
 </ul>
 </li>
-<li>Problem 3: Use process states. e.g. when a process initiated an I/O request to a disk, it becomes <strong>blocked</strong> and thus some other process can use the processor. Here are the other states:</li>
+<li>Problem 3: Use process states. e.g. when a process initiated an I/O request to a disk, it becomes <strong>blocked</strong> and thus some other process can use the processor. Here are the other states:
+<ul>
 <li>
-<img src="https://i.imgur.com/tgM8fmf.jpg" style="width:400px" />
+<img src="https://i.imgur.com/tgM8fmf.jpg" style="width:300px" />
+</li>
+</ul>
 </li>
 <li>Running: a process is running</li>
 <li>Ready: a process is ready, but OS has chosen not to run it at the moment</li>
@@ -525,11 +528,9 @@ function sidebar_toggle() {
 </li>
 <li>
 <p><strong>weighting(niceness)</strong>: enable control over process priority. CFS maps the <strong>nice</strong> value of each process to a weight, as shown here:</p>
-<ul>
-<li>\text{time_slice}_k = \frac{\text{weight}_k}{\sum_{0}^{n-1}\text{weight}_i} \cdot  \text{sched_latency}</li>
-</ul>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">static const int prio_to_weight[40] = &#123; </span><br><span class="line">    / * -20 * / 88761, 71755, 56483, 46273, 36291, </span><br><span class="line">    / * -15 * / 29154, 23254, 18705, 14949, 11916, </span><br><span class="line">    / * -10 * / 9548, 7620, 6100, 4904, 3906, </span><br><span class="line">    / * -5 * / 3121, 2501, 1991, 1586, 1277, </span><br><span class="line">    / * 0 * / 1024, 820, 655, 526, 423, </span><br><span class="line">    / * 5 * / 335, 272, 215, 172, 137, </span><br><span class="line">    / * 10 * / 110, 87, 70, 56, 45, </span><br><span class="line">    / * 15 * / 36, 29, 23, 18, 15,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ul>
+<li>\text{time_slice}_k = \frac{\text{weight}_k}{\sum_{0}^{n-1}\text{weight}_i} \cdot  \text{sched_latency}</li>
 <li>To improve the efficiency, the scheduler uses <a target="_blank" rel="noopener" href="https://cs.ericyy.me/algorithms-1/week-5/index.html#red-black-bsts">Red-Black Trees</a> with the vruntime values of each process to run the min-vrumtime process.</li>
 </ul>
 </li>
