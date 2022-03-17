@@ -65,7 +65,7 @@
 * Algorithm #3: STCF(Shortest Time-to-Complietion First
     * In this case, even A and C come later after 10s, the CPU will switch to them immediately after they jump in. So, $T = \frac{(120-0)+(20-10)+(30-10)}{3} = 50s$.
 
-* A New Metric for later algorithm comparison: **Response Time** $T_{\text{response}} = T_{\text{firstrun}} − T_{\text{arrival}}$ 
+* A New Metric for later algorithm comparison: **Response Time** $T_{\text{response}} = T_{\text{firstrun}} - T_{\text{arrival}}$ 
 
 * Algorithm #4: Round Robin
     * each job gets to run for a **time slice** alternatively.
@@ -148,7 +148,7 @@
             };
             ```
             
-            * $\text{time_slice}_k = \frac{\text{weight}_k}{\sum_{0}^{n-1}\text{weight}_i} \cdot  \text{sched_latency}$ 
+            * $\text{time}\_\text{slice}_k = \frac{\text{weight}_k}{\sum_{0}^{n-1}\text{weight}_i} \cdot  \text{sched}\_\text{latency}$ 
             * To improve the efficiency, the scheduler uses [Red-Black Trees](https://cs.ericyy.me/algorithms-1/week-5/index.html#red-black-bsts) with the vruntime values of each process to run the min-vrumtime process.
     * What about I/O and sleeping process?
         * if the process gone for sleeping for a long time, when it wakes up, it might monopolize the CPU for a long time. To avoid this, CFS sets the vruntime of that job to the minimum value that found in the tree.
