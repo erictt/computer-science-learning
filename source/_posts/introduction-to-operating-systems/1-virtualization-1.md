@@ -125,7 +125,7 @@
     * Each job in the system has a **stride**, which is inverse in proportion to the number of tickets it has. The scheduler then uses the stride and **pass** to determine which process should run next.
     * The basic idea is simple: at any given time, pick the process to run that has the **lowest pass value** so far; when you run a process, increment its **pass counter** by its stride.
     * For example, A, B and C have 100, 50 and 250 tickets. Devided 10,000 by each's stride value, we gets: A: 100, B: 200, C: 40. Then decide which to run as:
-        * <img src="https://i.imgur.com/8tYgG78" style="width:400px" />
+        * <img src="https://i.imgur.com/8tYgG78.jpg" style="width:400px" />
         * A B and C all start at 0, so pick A at first. when reaching 100, run B and C in a sequence. Then C has the minimum pass value, the scheduler runs C until it reach 120, then switch to A.
 
 * The Completely Fair Scheduler (CFS) of Linux
