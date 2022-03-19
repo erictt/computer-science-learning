@@ -31,26 +31,26 @@
 
 ### Linear Search
 
-```
-for each element in array
-    if element you're looking for
-        return true
-return false
-```
+    ```
+    for each element in array
+        if element you're looking for
+            return true
+    return false
+    ```
 
 ### Binary Search
 
-```
-look at middle of array
-if element you're looking for
-    return true
-else if element is to left
-    search left half of array
-else if element is to right
-    search right half of array
-else
-    return false
-```   
+    ```
+    look at middle of array
+    if element you're looking for
+        return true
+    else if element is to left
+        search left half of array
+    else if element is to right
+        search right half of array
+    else
+        return false
+    ```
 
 ## Sorting
 
@@ -58,54 +58,55 @@ else
 
 * find the smallest element, and move it to the front of the list and shift the other ones down, until hit the end.
 
-```
-for i from 0 to n-1
-    find smallest element between i'th and n-1'th
-    swap smallest with i'th element
-```    
+    ```
+    for i from 0 to n-1
+        find smallest element between i'th and n-1'th
+        swap smallest with i'th element
+    ```    
    
 ## Bubble Sort
 
 * from left to right and compare each pair of numbers. If they are out of order, then swap them. 
 
-```
-repeat until no swaps
-    for i from 0 to n-2
-        if i'th and i+1'th elements out of order
-            swap them
-```  
+    ```
+    repeat until no swaps
+        for i from 0 to n-2
+            if i'th and i+1'th elements out of order
+                swap them
+    ```  
 
 ## Insertion Sort
 
 * Each time, we look at the next element and place it into our sorted portion of the list, even if we have to shift elements.
 
-```
-for i from 1 to n-1
-    call 0'th through i-1'th elements the "sorted side"
-    remove i'th element
-    insert it into the sorted side in order
-```    
+    ```
+    for i from 1 to n-1
+        call 0'th through i-1'th elements the "sorted side"
+        remove i'th element
+        insert it into the sorted side in order
+    ```   
+ 
 ## Merge Sort
 
 * First divide the list into the smallest unit (1 element), then compare each element with the adjacent list to sort and merge the two adjacent lists. Finally all the elements are sorted and merged.
 
-```
-on input of n elements
-    if n < 2
-        return
-    else
-        sort left half of elements
-        sort right half of elements
-        merge sorted halves
-```
+    ```
+    on input of n elements
+        if n < 2
+            return
+        else
+            sort left half of elements
+            sort right half of elements
+            merge sorted halves
+    ```
 
 * An example:
 
-    ![week-3-2](https://i.imgur.com/GViydxe.gif)
+    * <img src="https://i.imgur.com/GViydxe.gif" style="width:200px" />
 
 * Calculate the complexity: $\Theta(n\log{n})$:
     
-    ![week-3-1](https://i.imgur.com/e59kMdy.png)
+    * <img src="https://i.imgur.com/e59kMdy.png" style="width:400px" />
     
     * `c` is the single step takes. In this case, c = 1, cause we only need to put an element into memory. 
     * Then use formula: `T(n) = T(n/2) + T(n/2) + n`. 
@@ -125,21 +126,22 @@ on input of n elements
 
 ## Quick Sort
 
-```
-pick an element called a pivot from array
-partition the array with pivot
-   if element i > pivot
-       move to right
-in the end swap the pivot to middle()
-recursively apply steps before to the left and the right sub-array without pivot
-```   
+    ```
+    pick an element called a pivot from array
+    partition the array with pivot
+       if element i > pivot
+           move to right
+    in the end swap the pivot to middle()
+    recursively apply steps before to the left and the right sub-array without pivot
+    ```   
 
-![Sorting_quicksort_anim.gif](https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif)
+* <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" style="width:200px" />
 
 * [Implement with C](https://gist.github.com/erictt/daede65d8178a93a25a5e52ed07d69aa) 
 * [Implement with Python 3](https://gist.github.com/erictt/0438c9db11b3b25f0e24c212d8f3c3b9)
 
 ## Refers
+
 * [CS50/week 3](http://docs.cs50.net/2016/fall/notes/3/week3.html)
 * [Sorting_algorithm - Wikipedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
 * [Merge_sort - Wikipedia](https://en.wikipedia.org/wiki/Merge_sort)

@@ -267,6 +267,39 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1 id="virtualizing-the-memory"><a class="markdownIt-Anchor" href="#virtualizing-the-memory"></a> Virtualizing The Memory</h1>
+<h2 id="memory-types"><a class="markdownIt-Anchor" href="#memory-types"></a> Memory Types</h2>
+<ul>
+<li>Stack
+<ul>
+<li>is allocated and deallocated by the compiler <strong>implicitly</strong>, also called automatic memory. it’s used to keep track of where the program is
+<ul>
+<li>e.g. <code>void func() &#123; int x; &#125;</code> // declares an integer on the desk, will be deallocated when function returns.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Heap
+<ul>
+<li>all allocations and deallocations are explicitly handled by programmers.
+<ul>
+<li>
+<p>e.g.</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void func() &#123;</span><br><span class="line">    int *x = (int *) malloc(sizeof(int));</span><br><span class="line">    ...</span><br><span class="line">    free(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>int *x: the complier make room for the pointer</li>
+<li>malloc(): requests spcae for an integer on the <strong>heap</strong>, return either the address of the integer or NULL if fails.
+<ul>
+<li>notice if you print out the size of x: <code>printf(&quot;%d\n&quot;, sizeof(x));</code>, it’s gonna be the size of pointer, not the integer.</li>
+</ul>
+</li>
+<li>free(): free the heap memory.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 
