@@ -31,26 +31,26 @@
 
 ### Linear Search
 
-    ```
-    for each element in array
-        if element you're looking for
-            return true
-    return false
-    ```
+```
+for each element in array
+    if element you're looking for
+        return true
+return false
+```
 
 ### Binary Search
 
-    ```
-    look at middle of array
-    if element you're looking for
-        return true
-    else if element is to left
-        search left half of array
-    else if element is to right
-        search right half of array
-    else
-        return false
-    ```
+```
+look at middle of array
+if element you're looking for
+    return true
+else if element is to left
+    search left half of array
+else if element is to right
+    search right half of array
+else
+    return false
+```
 
 ## Sorting
 
@@ -58,47 +58,47 @@
 
 * find the smallest element, and move it to the front of the list and shift the other ones down, until hit the end.
 
-    ```
-    for i from 0 to n-1
-        find smallest element between i'th and n-1'th
-        swap smallest with i'th element
-    ```    
-   
+```
+for i from 0 to n-1
+    find smallest element between i'th and n-1'th
+    swap smallest with i'th element
+```
+
 ## Bubble Sort
 
 * from left to right and compare each pair of numbers. If they are out of order, then swap them. 
 
-    ```
-    repeat until no swaps
-        for i from 0 to n-2
-            if i'th and i+1'th elements out of order
-                swap them
-    ```  
+```
+repeat until no swaps
+    for i from 0 to n-2
+        if i'th and i+1'th elements out of order
+            swap them
+```
 
 ## Insertion Sort
 
 * Each time, we look at the next element and place it into our sorted portion of the list, even if we have to shift elements.
 
-    ```
-    for i from 1 to n-1
-        call 0'th through i-1'th elements the "sorted side"
-        remove i'th element
-        insert it into the sorted side in order
-    ```   
+```
+for i from 1 to n-1
+    call 0'th through i-1'th elements the "sorted side"
+    remove i'th element
+    insert it into the sorted side in order
+```
  
 ## Merge Sort
 
 * First divide the list into the smallest unit (1 element), then compare each element with the adjacent list to sort and merge the two adjacent lists. Finally all the elements are sorted and merged.
 
-    ```
-    on input of n elements
-        if n < 2
-            return
-        else
-            sort left half of elements
-            sort right half of elements
-            merge sorted halves
-    ```
+```
+on input of n elements
+    if n < 2
+        return
+    else
+        sort left half of elements
+        sort right half of elements
+        merge sorted halves
+```
 
 * An example:
 
@@ -118,7 +118,7 @@
                 &= 2^{\log_2{n}} * T(\frac{n}{2^{\log_2{n}}}) + \log_2{n} * n \\
                 &= 2^{\log_2{n}} * 1 + n\log_2{n} \\
                 &= n + n\log_2{n} \\
-            \end{aligned}$$.
+            \end{aligned}$$
         * So the complexity will be : $O(n\log{n}+n) = O(n\log{n})$.
 
 * [Implement with C](https://gist.github.com/erictt/2c4387dba45586b967ae2efe7bb94bc7)
@@ -126,14 +126,14 @@
 
 ## Quick Sort
 
-    ```
-    pick an element called a pivot from array
-    partition the array with pivot
-       if element i > pivot
-           move to right
-    in the end swap the pivot to middle()
-    recursively apply steps before to the left and the right sub-array without pivot
-    ```   
+```
+pick an element called a pivot from array
+partition the array with pivot
+   if element i > pivot
+       move to right
+in the end swap the pivot to middle()
+recursively apply steps before to the left and the right sub-array without pivot
+```
 
 * <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" style="width:200px" />
 
