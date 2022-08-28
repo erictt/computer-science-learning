@@ -26,7 +26,6 @@
 
 ## CS6250 Computer Networks
 
-* [Week 0 - Overview](/cs6250/week-0-course-orverview/index.html)
 * [Week 1 - Internet Architecture](/cs6250/week-1-internet-architecture/index.html)
 
 <!--
@@ -35,7 +34,6 @@
 
 ## CS6200 Graduate Introduction to Operating Systems
 
-* [P0 - Overview](/cs6200/p0-overview/index.html)
 * [P1L2 - Introduction](/cs6200/p1l2-introduction/index.html)
 
 <!--
