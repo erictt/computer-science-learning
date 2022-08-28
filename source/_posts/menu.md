@@ -36,7 +36,7 @@
 ## CS6200 Graduate Introduction to Operating Systems
 
 * [P0 - Overview](/cs6200/p0-overview/index.html)
-* [P1L2 - Introduction](/cs6200/p1l2-Introduction/index.html)
+* [P1L2 - Introduction](/cs6200/p1l2-introduction/index.html)
 
 <!--
 * [Virtualization 1 - CPU](/introduction-to-operating-systems/1-virtualization-1/index.html)
