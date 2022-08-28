@@ -4,7 +4,7 @@
 
 ## The OSI Model(7 layers) vs The Traditional Model(5 layers)
 
-* ![](/images/16616192098783.jpg)
+* <img src="https://i.imgur.com/BE8yWY4.jpg" style="width:500px" />
 * In the traditional model, the application, presentation, and session layers are combined into a single layer, and this combined layer is called the application layer. **The interface between the application layer and the transport layer are the sockets.** It is up to the application developer to design the functionality of the overall application.
 
 ### the OSI design
@@ -23,7 +23,7 @@
 
 ## Encapsulation and De-encapsulation
 
-* ![](/images/16616205278614.jpg)
+* ![](https://i.imgur.com/uLuBH5F.jpg)
 * From the source, each layer encapsulates the message and add its own header to create transport-layer segment/datagram/frame. Then the message will be decapsulated and re-encapsulated at the switch/router for deciding where the message should go. At last the message will be decapsulated at the destination.
 
 ## The end-to-end (e2e) principle
@@ -39,14 +39,20 @@
         * monitor the network traffic, either allow traffic to go through or drop traffic flagged as malicious.
     2. Network Address Translation (NAT) Boxes
         * Is the intermediate that take care of the communication between the hosts on the private network and the hosts on the public Internet. e.g. our home router.
-            * ![](/images/16616228397008.jpg)
-        * ![](/images/16616228486990.png)
+            * <img src="https://i.imgur.com/zC7ltM3.jpg" style="width:500px" />
+        * <img src="https://i.imgur.com/29DCQlU.png" style="width:500px" />
             * **The translation table** provides a mapping between the public-facing IP address/ports and the IP addresses/ports that belong to hosts inside the private network.
         * Why NAT boxes violate e2e pinciple?
             * The hosts behind NAT are not globally addressable or routable. Not possible for hosts on the public Internet to initiate connections to these devices.
             * Workaround: 
                 * STUN: enables hosts to discover NATs and the public IP address and port number that  the NAT has allocated for the applications for.
                 * UDP hole punching: bidirectional UDP connections between hosts behind NATs.
+
+## The Hourglass Shape of Internet Architecture
+
+* In brief, IP has been a crucial layer for the whole internet architecture, which resembled the hourglass shape of the layered Internet:
+    * <img src="https://i.imgur.com/DvtgDuY.jpg" style="width:300px" />
+* A model called the Evolutionary Architecture model helped to understand the evolution in a quantitative manner. The main idea is, if we introduce another protocol to replace IP, and it's powerful enough to compete IP, eventually it will become the new critical path. This change won't widen the waist of the hourglass. A network architect should try to design the functionality of each layer consisting several protocols that offer largely **non-overlapping but general** services, so that they **do not compete** with each other.
 
 ## Interconnecting Hosts and Networks
 
@@ -60,9 +66,22 @@ The ways connectiing:
 * Layer 2(data link layer): Bridges and Layer2-Switches. not directly connected, based on MAC addresses. The limitaion is the finite bandwidth of the outputs.
 * Layer 3(network layer): Routers and Layer3-Switches.
 
-## Bridges & Switches
+## Bridges
 
 * A **bridge** is a **device** with multiple inputs/outputs which transfers frames from one to another (or multiple) outputs, used to connect two or more local area networks. 
     * A **learning bridge** learns, populates and maintains, a forwarding table. It only forward the frame that needs to be forward.
 
 * how does the bridge learn? When the bridge receives any frame this is a “learning opportunity” to know which hosts are reachable through which ports. Because the bridge can view the port over which a frame arrives and the source host.
+
+### The looping problem in bridges
+
+* how does the looping problem exist? two possible reasons: 
+    1) each bridge doesn't know the entire configuration of the network, it's possible the fragment will be froward back to itself; 
+    2) more likely, the loops are built in purpose of reducndancy in case of failure.
+* how to solve it? **The spanning tree algorithm**. The algorithem is used to build a network topology that has no loops and reaches all LANs in the local network. In practice, it is by removing ports from the topology that the extended LAN is reduced to an acyclic tree.
+    * The figure below shows the final state of the spanning tree. In this example, B1 is the root bridge, since it has the smallest ID. Notice that both B3 and B5 are connected to LAN A, but B5 is the designated bridge since it is closer to the root. Similarly, both B5 and B7 are connected to LAN B, but in this case B5 is the designated bridge since it has the smaller ID; both are an equal distance from B1.
+        * <img src="https://i.imgur.com/5UDqRVT.jpg" style="width:500px" />
+        * For more details: https://www.sciencedirect.com/topics/computer-science/spanning-tree-algorithm
+
+        
+
