@@ -84,15 +84,23 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
 * [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
 -->
-<h2 id="computer-networking"><a class="markdownIt-Anchor" href="#computer-networking"></a> Computer Networking</h2>
+<h2 id="cs6250-computer-networks"><a class="markdownIt-Anchor" href="#cs6250-computer-networks"></a> CS6250 Computer Networks</h2>
 <ul>
-<li><a href="/computer-networking/chapter-1/index.html">Chapter 1 - Introduction</a></li>
+<li><a href="/cs6250/week-0-course-orverview/index.html">Week 0 - Overview</a></li>
+<li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
 </ul>
-<h2 id="introduction-to-operating-system"><a class="markdownIt-Anchor" href="#introduction-to-operating-system"></a> Introduction to Operating System</h2>
+<!--
+* [Chapter 1 - Introduction](/computer-networking/chapter-1/index.html)
+-->
+<h2 id="cs6200-graduate-introduction-to-operating-systems"><a class="markdownIt-Anchor" href="#cs6200-graduate-introduction-to-operating-systems"></a> CS6200 Graduate Introduction to Operating Systems</h2>
 <ul>
-<li><a href="/introduction-to-operating-systems/1-virtualization-1/index.html">Virtualization 1 - CPU</a></li>
-<li><a href="/introduction-to-operating-systems/1-virtualization-2/index.html">Virtualization 2 - Memory</a></li>
+<li><a href="/cs6200/p0-overview/index.html">P0 - Overview</a></li>
+<li><a href="/cs6200/p1l2-Introduction/index.html">P1L2 - Introduction</a></li>
 </ul>
+<!--
+* [Virtualization 1 - CPU](/introduction-to-operating-systems/1-virtualization-1/index.html)
+* [Virtualization 2 - Memory](/introduction-to-operating-systems/1-virtualization-2/index.html)
+-->
 <h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
 <ul>
 <li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
@@ -459,8 +467,8 @@ function sidebar_toggle() {
 <li>Finds augmenting path with fewest number of arcs.</li>
 <li>Facts:
 <ul>
-<li>At most <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">EV</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span> total augmenting paths.</li>
-<li>O(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>E</mi><mn>2</mn></msup><mi>V</mi></mrow><annotation encoding="application/x-tex">E^2V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>) running time.</li>
+<li>At most <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">EV</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> total augmenting paths.</li>
+<li>O(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>E</mi><mn>2</mn></msup><mi>V</mi></mrow><annotation encoding="application/x-tex">E^2V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span>) running time.</li>
 </ul>
 </li>
 </ul>
@@ -472,7 +480,7 @@ function sidebar_toggle() {
 <li>Solve using Dijkstra-style (PFS) algorithm.</li>
 <li>Fact.
 <ul>
-<li>O(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mi>log</mi><mo>⁡</mo><mi>U</mi></mrow><annotation encoding="application/x-tex">E\log{U}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">U</span></span></span></span></span>) augmentations if capacities are between 1 and U.</li>
+<li>O(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>log</mi><mo>⁡</mo><mi>U</mi></mrow><annotation encoding="application/x-tex">E\log{U}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span></span>) augmentations if capacities are between 1 and U.</li>
 </ul>
 </li>
 </ul>
@@ -625,8 +633,8 @@ function sidebar_toggle() {
 <ul>
 <li>Solution: Cutoff to insertion sort for small subarrays.
 <ul>
-<li>Insertion sort, but start at <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>d</mi><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">d^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">h</span></span></span></span></span></span></span></span></span></span></span></span> th character.</li>
-<li>Implement less() so that it compares starting at <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>d</mi><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">d^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">h</span></span></span></span></span></span></span></span></span></span></span></span> character.</li>
+<li>Insertion sort, but start at <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>d</mi><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">d^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span></span> th character.</li>
+<li>Implement less() so that it compares starting at <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>d</mi><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">d^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span></span> character.</li>
 <li>
 <img src="https://i.imgur.com/2iHxCJM.jpg" style="width:600px" />
 </li>
@@ -638,7 +646,7 @@ function sidebar_toggle() {
 <h3 id="3-way-radix-quicksort"><a class="markdownIt-Anchor" href="#3-way-radix-quicksort"></a> 3-way radix quicksort</h3>
 <ul>
 <li>
-<p>Do 3-way partitioning on the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>d</mi><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">d^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">h</span></span></span></span></span></span></span></span></span></span></span></span> character.</p>
+<p>Do 3-way partitioning on the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>d</mi><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">d^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span></span> character.</p>
 </li>
 <li>
 <img src="https://i.imgur.com/HiwhpWZ.jpg" style="width:600px" />

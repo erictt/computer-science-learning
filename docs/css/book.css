@@ -237,8 +237,8 @@ img {
 }
 .off-canvas-content .book-content .book-post img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
 }
 .off-canvas-content .book-content .book-post iframe {
   width: 100%;

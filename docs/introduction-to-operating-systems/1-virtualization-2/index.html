@@ -84,15 +84,23 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
 * [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
 -->
-<h2 id="computer-networking"><a class="markdownIt-Anchor" href="#computer-networking"></a> Computer Networking</h2>
+<h2 id="cs6250-computer-networks"><a class="markdownIt-Anchor" href="#cs6250-computer-networks"></a> CS6250 Computer Networks</h2>
 <ul>
-<li><a href="/computer-networking/chapter-1/index.html">Chapter 1 - Introduction</a></li>
+<li><a href="/cs6250/week-0-course-orverview/index.html">Week 0 - Overview</a></li>
+<li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
 </ul>
-<h2 id="introduction-to-operating-system"><a class="markdownIt-Anchor" href="#introduction-to-operating-system"></a> Introduction to Operating System</h2>
+<!--
+* [Chapter 1 - Introduction](/computer-networking/chapter-1/index.html)
+-->
+<h2 id="cs6200-graduate-introduction-to-operating-systems"><a class="markdownIt-Anchor" href="#cs6200-graduate-introduction-to-operating-systems"></a> CS6200 Graduate Introduction to Operating Systems</h2>
 <ul>
-<li><a href="/introduction-to-operating-systems/1-virtualization-1/index.html">Virtualization 1 - CPU</a></li>
-<li><a href="/introduction-to-operating-systems/1-virtualization-2/index.html">Virtualization 2 - Memory</a></li>
+<li><a href="/cs6200/p0-overview/index.html">P0 - Overview</a></li>
+<li><a href="/cs6200/p1l2-Introduction/index.html">P1L2 - Introduction</a></li>
 </ul>
+<!--
+* [Virtualization 1 - CPU](/introduction-to-operating-systems/1-virtualization-1/index.html)
+* [Virtualization 2 - Memory](/introduction-to-operating-systems/1-virtualization-2/index.html)
+-->
 <h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
 <ul>
 <li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
@@ -267,7 +275,13 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1 id="virtualizing-the-memory"><a class="markdownIt-Anchor" href="#virtualizing-the-memory"></a> Virtualizing The Memory</h1>
-<h2 id="memory-types"><a class="markdownIt-Anchor" href="#memory-types"></a> Memory Types</h2>
+<h2 id="address-space"><a class="markdownIt-Anchor" href="#address-space"></a> Address Space</h2>
+<ul>
+<li>
+<p>The abstraction of physical memory, used for storing variables, code, stack, heap, etc. In C, when printing a pointer, the output is a virtual address. The OS has some instructions to map the virtual address to physical address in memory. The key of understanding memory is to understand how the address was mapped or <strong>translated</strong>.</p>
+</li>
+<li>
+<p>Some explanations about memory types:</p>
 <ul>
 <li>Stack
 <ul>
@@ -286,17 +300,38 @@ function sidebar_toggle() {
 <p>e.g.</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void func() &#123;</span><br><span class="line">    int *x = (int *) malloc(sizeof(int));</span><br><span class="line">    ...</span><br><span class="line">    free(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>int *x: the complier make room for the pointer</li>
-<li>malloc(): requests spcae for an integer on the <strong>heap</strong>, return either the address of the integer or NULL if fails.
+<li>*<em>int <em>x</em></em>: the complier make room for the pointer</li>
+<li><strong>malloc()</strong>: requests spcae for an integer on the <strong>heap</strong>, return either the address of the integer or NULL if fails.
 <ul>
 <li>notice if you print out the size of x: <code>printf(&quot;%d\n&quot;, sizeof(x));</code>, it’s gonna be the size of pointer, not the integer.</li>
 </ul>
 </li>
-<li>free(): free the heap memory.</li>
+<li><strong>free()</strong>: free the heap memory.</li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="address-translation"><a class="markdownIt-Anchor" href="#address-translation"></a> Address Translation</h2>
+<ul>
+<li>
+<p>Short for <strong>hardware-based address translation</strong>, changing the virtual address provided by the instruction to a physical address. The OS was involved to <strong>set up the hardware so that the correct translations</strong> take place.</p>
+</li>
+<li>
+<p>The first approach of the translation management is called <strong>Dynamic Reloation</strong>. It requires two hardware registers within each CPU: <code>base</code> register, <code>bounds</code> register. Then the translation by the processer is: <code>physical address = virtual address + base</code></p>
+<ul>
+<li>the bounds register ensures that such addresses are within the conﬁnes of the address space.</li>
+<li>the base and bounds registers are <strong>hardware structures</strong> kept on the chip (one pair per CPU) which is called <strong>memory management unit(MMU)</strong>.</li>
+</ul>
+</li>
+<li>
+<p>The second appoach is called <strong>Segmentation</strong>. Dynamic Relocation has two issues: 1. waste memory; 2. not flexible. Segmentation was born to solve these issues.</p>
+<ul>
+<li>A segment is a contiguous portion of the address space of a particular length. Code, stack and heap all have different logically-different segments.</li>
 </ul>
 </li>
 </ul>

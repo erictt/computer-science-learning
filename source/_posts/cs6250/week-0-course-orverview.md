@@ -20,4 +20,4 @@ There is no curve in CS6250. Letter grades are calculated as follows:
 
 ## Schedule
 
-![](/images/16612175773149.jpg)
+![](https://i.imgur.com/xcl83hl.jpg)
