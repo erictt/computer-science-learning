@@ -376,7 +376,7 @@ function sidebar_toggle() {
 <h2 id="bridges"><a class="markdownIt-Anchor" href="#bridges"></a> Bridges</h2>
 <ul>
 <li>
-<p>A <strong>bridge</strong> is a <strong>device</strong> with multiple inputs/outputs which transfers frames from one to another (or multiple) outputs, used to connect two or more local area networks.</p>
+<p>A <strong>bridge</strong> is a <strong>device</strong> with multiple inputs/outputs which transfers frames from one to another (or multiple) outputs, used to connect two or more local area networks(at the data link layer).</p>
 <ul>
 <li>A <strong>learning bridge</strong> learns, populates and maintains, a forwarding table. It only forward the frame that needs to be forward.</li>
 </ul>
@@ -403,6 +403,32 @@ function sidebar_toggle() {
 <li>For more details: <a target="_blank" rel="noopener" href="https://www.sciencedirect.com/topics/computer-science/spanning-tree-algorithm">https://www.sciencedirect.com/topics/computer-science/spanning-tree-algorithm</a></li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<h3 id="comparing-to-other-network-connecting-devices"><a class="markdownIt-Anchor" href="#comparing-to-other-network-connecting-devices"></a> Comparing to other network connecting devices</h3>
+<ul>
+<li>
+<p><strong>Hub</strong>: Layer 1, not intelligent, forwards incoming messages to other devices without checking.</p>
+</li>
+<li>
+<p><strong>Repeater</strong>: Layer 1, connects two segments of a network cable. Sometimes it can regenerates signals bit-by-bit when the signal is week.</p>
+</li>
+<li>
+<p><strong>Bridge</strong>: Layer 2, mainly used to segment a network to allow a large network size. Also has filtering capability.</p>
+</li>
+<li>
+<p><strong>Switch</strong>: Layer 2, acts as a multiport bridge in the network. It provides the bridging functionality with greater efficiency. It does not forward packets that have errors and forward good packets selectively to the correct port only.</p>
+</li>
+<li>
+<p><strong>Router</strong> Layer 3, normally connect LANs and WANs together and have a dynamically updating routing table based on which they make decisions on routing the data packets.</p>
+</li>
+<li>
+<p>refers:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://afteracademy.com/blog/what-are-routers-hubs-switches-bridges">https://afteracademy.com/blog/what-are-routers-hubs-switches-bridges</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/network-devices-hub-repeater-bridge-switch-router-gateways-and-brouter">https://www.tutorialspoint.com/network-devices-hub-repeater-bridge-switch-router-gateways-and-brouter</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/network-devices-hub-repeater-bridge-switch-router-gateways/">https://www.geeksforgeeks.org/network-devices-hub-repeater-bridge-switch-router-gateways/</a></li>
 </ul>
 </li>
 </ul>

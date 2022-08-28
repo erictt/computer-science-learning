@@ -68,7 +68,7 @@ The ways connectiing:
 
 ## Bridges
 
-* A **bridge** is a **device** with multiple inputs/outputs which transfers frames from one to another (or multiple) outputs, used to connect two or more local area networks. 
+* A **bridge** is a **device** with multiple inputs/outputs which transfers frames from one to another (or multiple) outputs, used to connect two or more local area networks(at the data link layer).
     * A **learning bridge** learns, populates and maintains, a forwarding table. It only forward the frame that needs to be forward.
 
 * how does the bridge learn? When the bridge receives any frame this is a “learning opportunity” to know which hosts are reachable through which ports. Because the bridge can view the port over which a frame arrives and the source host.
@@ -83,5 +83,18 @@ The ways connectiing:
         * <img src="https://i.imgur.com/5UDqRVT.jpg" style="width:500px" />
         * For more details: https://www.sciencedirect.com/topics/computer-science/spanning-tree-algorithm
 
-        
+### Comparing to other network connecting devices
+
+* **Hub**: Layer 1, not intelligent, forwards incoming messages to other devices without checking.
+* **Repeater**: Layer 1, connects two segments of a network cable. Sometimes it can regenerates signals bit-by-bit when the signal is week.
+* **Bridge**: Layer 2, mainly used to segment a network to allow a large network size. Also has filtering capability.
+* **Switch**: Layer 2, acts as a multiport bridge in the network. It provides the bridging functionality with greater efficiency. It does not forward packets that have errors and forward good packets selectively to the correct port only.
+* **Router** Layer 3, normally connect LANs and WANs together and have a dynamically updating routing table based on which they make decisions on routing the data packets.
+
+* refers:
+    * https://afteracademy.com/blog/what-are-routers-hubs-switches-bridges
+    * https://www.tutorialspoint.com/network-devices-hub-repeater-bridge-switch-router-gateways-and-brouter
+    * https://www.geeksforgeeks.org/network-devices-hub-repeater-bridge-switch-router-gateways/
+
+
 
