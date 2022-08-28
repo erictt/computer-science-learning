@@ -1,5 +1,7 @@
 # Virtualizing the CPU
 
+[TOC]
+
 * What are the goals for virtualization?
     * Efficiency
     * Security

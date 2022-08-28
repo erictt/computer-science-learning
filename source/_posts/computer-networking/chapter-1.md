@@ -125,6 +125,5 @@
         * This layer has two types of fields: header and payload, the payload is typically a packet from the layer above.
     * **physical**: bits “on the wire”
 
-* <img src="/images/16474663146683.jpg" style="width:600px" />
 
 * From the source, each layer **encapsulates** the message and add its own header to create transport-layer **segment/datagram/frame**. Then the message will be decapsulated and re-encapsulated at the switch/router for deciding where the message should go. At last the message will be decapsulated at the destination.

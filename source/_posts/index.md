@@ -6,8 +6,13 @@
 
 ### Current Curriculums
 
+* CS 6200 Graduate Introduction to Operating Systems [[Course](https://omscs.gatech.edu/cs-6200-introduction-operating-systems)]
+* CS 6250 Computer Networks [[Course](https://omscs.gatech.edu/cs-6250-computer-networks)]
+
+<!--
 * Introduction to Operating Systems [[Course](https://pages.cs.wisc.edu/~remzi/Classes/537/Fall2021/)]
 * Computer Networking [[Course](https://gaia.cs.umass.edu/kurose_ross/lectures.php)]
+-->
 
 ### Next Steps
 

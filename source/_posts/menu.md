@@ -24,14 +24,24 @@
 * [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
 -->
 
-## Computer Networking
+## CS6250 Computer Networks
 
+* [Week 0 - Overview](/cs6250/week-0-course-orverview/index.html)
+* [Week 1 - Internet Architecture](/cs6250/week-1-internet-architecture/index.html)
+
+<!--
 * [Chapter 1 - Introduction](/computer-networking/chapter-1/index.html)
+-->
 
-## Introduction to Operating System
+## CS6200 Graduate Introduction to Operating Systems
 
+* [P0 - Overview](/cs6200/p0-overview/index.html)
+* [P1L2 - Introduction](/cs6200/p1l2-Introduction/index.html)
+
+<!--
 * [Virtualization 1 - CPU](/introduction-to-operating-systems/1-virtualization-1/index.html)
 * [Virtualization 2 - Memory](/introduction-to-operating-systems/1-virtualization-2/index.html)
+-->
 
 ## Algorithms: Part II
 
