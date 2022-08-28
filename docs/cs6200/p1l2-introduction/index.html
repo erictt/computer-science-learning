@@ -281,40 +281,82 @@ function sidebar_toggle() {
 <li>e.g. <strong>file eidtor</strong> does not directly access hardware, but <strong>file system</strong> does</li>
 </ul>
 </li>
-<li>hide hardware complexity</li>
-<li>manages hardware on behalf of one of more applications according to some predefined policies</li>
-<li>in addition, it ensures that applications are isolated and protected from one another</li>
+<li>manages hardware on behalf of the applications according to some predefined policies</li>
+<li>it ensures that applications are isolated and enforces fairness among them.</li>
 </ul>
-<h3 id="os-elements"><a class="markdownIt-Anchor" href="#os-elements"></a> OS Elements</h3>
+<h2 id="os-elements"><a class="markdownIt-Anchor" href="#os-elements"></a> OS Elements</h2>
+<ul>
+<li>
 <p>Abstractions</p>
 <ul>
-<li>process, thread, file, socket, memory page</li>
+<li>a layer above the hardware resources that allow application interactive with hardware indirectly. Such as process, thread, file, socket, memory page</li>
+<li>Different from <strong>Arbitration</strong>, which is a method used for decide what/which hardware to use.</li>
 </ul>
+</li>
+<li>
 <p>Mechanisms</p>
 <ul>
-<li>create, schedule, open, write, allocate</li>
+<li>the implementation of the abstractions. For examples, threads are scheduled by the OS with some algorithms so application can run simultaneously. Other mechanisms like:  create, schedule, open, write, allocate</li>
 </ul>
+</li>
+<li>
 <p>Policies</p>
 <ul>
-<li>least-recently used(LRU), earliest deadline first(EDF)</li>
+<li>the rules that all of the mechansms follow. for example, memory follow algorithems like least-recently used(LRU) to remove unused data from memory and only keey the recently used data.</li>
 </ul>
-<p>Lesson review</p>
-<p>I learned:</p>
-<ol>
-<li>what elements that an OS offers.</li>
-</ol>
-<p>1.1. <strong>Abstraction</strong>: abstract a layer upon all of the hardwares.</p>
-<p>1.2. <strong>Arbitration</strong>: Decide what hardware to use</p>
-<p>1.3. <strong>Mechanism</strong>: methods to manage the resources, such as open/write/allocate</p>
-<p>1.4. <strong>Policies</strong>: Algorithms to manage resources, such as LRU, EDF</p>
-<ol start="2">
-<li>
-<p>How application use <strong>System Calls</strong> to manipulate the hardware. The concept of user/kernel mode. Applications run in user mode(unprivileged), and switch to Kernel model(privileged) via trap to call the System Call methods and then return to user mode.</p>
 </li>
-<li>
-<p>Differnet design of OS, and some examples such as Linix and Mac.</p>
+</ul>
+<h2 id="design-principles"><a class="markdownIt-Anchor" href="#design-principles"></a> Design Principles</h2>
+<h3 id="separation-of-mechanism-and-policy"><a class="markdownIt-Anchor" href="#separation-of-mechanism-and-policy"></a> Separation of mechanism and policy</h3>
+<ul>
+<li>Implement flexible mechanisms to support many policies. Such as memory management, CPU scheduling. By providing a common interface for policies, it’s easier to switch different policies without concerning the implemention.</li>
+</ul>
+<h3 id="optimize-for-the-common-case"><a class="markdownIt-Anchor" href="#optimize-for-the-common-case"></a> Optimize for the common case</h3>
+<ul>
+<li>The design should be optimized for the way it’s most likely to be used. For example, the “interrupt as threads” design is beneficial to overall system performance because despite the fact that there is a cost incurred for interrupts, there are savings on every mutex lock/unlock operation. Because the latter occur much more frequently than the former (common case), it’s an overall performance gain.</li>
+</ul>
+<h2 id="userkernel-protection-boundary"><a class="markdownIt-Anchor" href="#userkernel-protection-boundary"></a> User/Kernel Protection Boundary</h2>
+<ul>
+<li>Kernel-mode: where OS resides, it’s privileged, has direct access to the hardware</li>
+<li>User-mode: where application resides</li>
+<li>user-kernel mode crossing: this behavior is known as <strong>trap</strong>, a special <strong>system call</strong>, which is the way that user-mode process can interact with the system in a privileged way.
+<ul>
+<li>Whey a process want to gain privileged access, such as read files, the user-mode process will be set off a <strong>trap</strong>, and ask OS to review what caused the <strong>trap</strong>. The OS will either grant the user-mode process to the kernel-mode, or terminate the process.</li>
+</ul>
 </li>
-</ol>
+<li>There are other system calls, e.g. <code>open(file)</code> - open a ﬁle, <code>send(socket)</code>, and <code>mmap(memory)</code> - request more memory.</li>
+</ul>
+<h3 id="system-call-flowchart"><a class="markdownIt-Anchor" href="#system-call-flowchart"></a> System Call Flowchart</h3>
+<ul>
+<li>
+<img src="https://i.imgur.com/pn2aa0s.jpg" style="width:500px" />
+</li>
+<li>whey a process calls system call, the OS will flip the privilege bit so the process can execute system in the kernel mode, and return to user mode afterwards.</li>
+</ul>
+<h2 id="different-os"><a class="markdownIt-Anchor" href="#different-os"></a> Different OS</h2>
+<ul>
+<li>Monolithc OS
+<ul>
+<li>Everything is included in the OS. This includes memory managers, device drivers, ﬁle management, processes/threads, scheduling, ﬁle systems for random and sequential access, etc.</li>
+<li>Bebefits: compile time optimizations.</li>
+<li>Disadvantages: large memory requirements; har to maintain/debugging/upgrading.</li>
+</ul>
+</li>
+<li>Modular OS
+<ul>
+<li>Most modern OS, including Windows, macOS, Linux. This design contains basic services and APIs at OS level; everything else can be added as a module.</li>
+<li>Bebefits: easier to maintain/upgrade.</li>
+<li>Disadvantages: a performance impact due to the bigger call stack and more general-purpose code required.</li>
+</ul>
+</li>
+<li>Microkernel OS
+<ul>
+<li>used in embeded systems. e.g. kernels like MINIX 3, Mach, QNX. It only includes the most basic primitives at the OS level, everything else, including file systems, device drivers, etc. are at user level.</li>
+<li>Bebefits: small, better performanace for kernel code.</li>
+<li>Disadvantages: usually written for very specialized harware; complex software development; can be costly.</li>
+</ul>
+</li>
+</ul>
 
 </div>
 

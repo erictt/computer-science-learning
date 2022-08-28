@@ -38,7 +38,7 @@
     1. firewalls and traffic filters. 
         * monitor the network traffic, either allow traffic to go through or drop traffic flagged as malicious.
     2. Network Address Translation (NAT) Boxes
-        * Is the intermediate that take care of the communication between the hosts on the private network and the hosts on the public Internet. e.g. our home router.
+        * Is the mediator that take care of the communication between the hosts on the private network and the hosts on the public Internet. e.g. our home router.
             * <img src="https://i.imgur.com/zC7ltM3.jpg" style="width:500px" />
         * <img src="https://i.imgur.com/29DCQlU.png" style="width:500px" />
             * **The translation table** provides a mapping between the public-facing IP address/ports and the IP addresses/ports that belong to hosts inside the private network.
