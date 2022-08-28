@@ -9,4 +9,4 @@
 
 ## Schedule
 
-![](/images/16616389296436.jpg)
+![](https://i.imgur.com/lm2NQF5.jpg)
