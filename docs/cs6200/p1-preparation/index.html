@@ -272,170 +272,23 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1 id="internet-architecture"><a class="markdownIt-Anchor" href="#internet-architecture"></a> Internet Architecture</h1>
-<p>[TOC]</p>
-<h2 id="the-osi-model7-layers-vs-the-traditional-model5-layers"><a class="markdownIt-Anchor" href="#the-osi-model7-layers-vs-the-traditional-model5-layers"></a> The OSI Model(7 layers) vs The Traditional Model(5 layers)</h2>
+  <h1 id="p1-preparation"><a class="markdownIt-Anchor" href="#p1-preparation"></a> P1 Preparation</h1>
+<h2 id="c"><a class="markdownIt-Anchor" href="#c"></a> C</h2>
+<h3 id="string"><a class="markdownIt-Anchor" href="#string"></a> String</h3>
 <ul>
-<li>
-<img src="https://i.imgur.com/BE8yWY4.jpg" style="width:500px" />
-</li>
-<li>In the traditional model, the application, presentation, and session layers are combined into a single layer, and this combined layer is called the application layer. <strong>The interface between the application layer and the transport layer are the sockets.</strong> It is up to the application developer to design the functionality of the overall application.</li>
+<li>Different ways to declare a String</li>
 </ul>
-<h3 id="the-osi-design"><a class="markdownIt-Anchor" href="#the-osi-design"></a> the OSI design</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> first_name[<span class="number">15</span>] = <span class="string">&quot;ANTHONY&quot;</span>;</span><br><span class="line"><span class="type">char</span> first_name[<span class="number">15</span>] = &#123;<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="string">&#x27;T&#x27;</span>,<span class="string">&#x27;H&#x27;</span>,<span class="string">&#x27;O&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>,<span class="string">&#x27;\0&#x27;</span>&#125;; <span class="comment">// NULL character &#x27;\0&#x27; is required at end in this declaration</span></span><br><span class="line"><span class="type">char</span> string1 [<span class="number">6</span>] = <span class="string">&quot;hello&quot;</span>;<span class="comment">/* string size = &#x27;h&#x27;+&#x27;e&#x27;+&#x27;l&#x27;+&#x27;l&#x27;+&#x27;o&#x27;+&quot;NULL&quot; = 6 */</span></span><br><span class="line"><span class="type">char</span> string2 [ ] = <span class="string">&quot;world&quot;</span>;  <span class="comment">/* string size = &#x27;w&#x27;+&#x27;o&#x27;+&#x27;r&#x27;+&#x27;l&#x27;+&#x27;d&#x27;+&quot;NULL&quot; = 6 */</span></span><br><span class="line"><span class="type">char</span> string3[<span class="number">6</span>] = &#123;<span class="string">&#x27;h&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125; ; <span class="comment">/*Declaration as set of characters ,Size 6*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="malloc-calloc-realloc-free"><a class="markdownIt-Anchor" href="#malloc-calloc-realloc-free"></a> malloc / calloc / realloc / free</h3>
 <ul>
-<li><strong>application layer</strong>: multiple protocols. e.g. http, smtp, ftp, etc.</li>
-<li><strong>presentation layer</strong>: intermdediate role of formatting info. e.g. format video stream, translate integers from big endian to little endian format.</li>
-<li><strong>session layer</strong>: manage different transport streams belong to the same session between end-user application process. e.g. tie together audio and video stream.</li>
-<li><strong>transport layer</strong>: two protocols: TCP and UDP.
-<ul>
-<li>TCP: guaranteed delivery of the application-layer messages, flow control, congestion-control, etc.</li>
-<li>UDP: connetionless best-effort to the applicaiton.</li>
+<li>malloc():  used to allocate a block of memory dynamically. It reserves memory space of specified size and returns the null pointer pointing to the memory location.</li>
+<li>calloc(): used to allocate multiple blocks of memory having the same size.</li>
+<li>realloc(): for adding more memory size to already allocated memory blocks.</li>
+<li>free(): release or deallocate the memory blocks which are previously allocated by calloc(), malloc() or realloc() functions.</li>
 </ul>
-</li>
-<li><strong>network layer</strong>: moving <strong>datagrams</strong> from one Internet host to another. Two protocols: IP and routing.
-<ul>
-<li>IP: define the fields in datagram and the method soruce/dest hosts interact with intermediate routers.</li>
-<li>Routing protocols: define the routes that datagrams flow from source to dest</li>
-</ul>
-</li>
-<li><strong>data link layer</strong>: move the <strong>frames</strong>(packets of information) from one node to the next. protocol examples: Ethernet, PPP, WIFI.</li>
-<li><strong>physical layer</strong>: actual hardware. transfer bits within a frame between two nodes. e.g.  twisted-pair copper wire, coaxial cable, and single-mode fiber optics.</li>
-</ul>
-<h2 id="encapsulation-and-de-encapsulation"><a class="markdownIt-Anchor" href="#encapsulation-and-de-encapsulation"></a> Encapsulation and De-encapsulation</h2>
-<ul>
-<li><img src="https://i.imgur.com/uLuBH5F.jpg" alt="" /></li>
-<li>From the source, each layer encapsulates the message and add its own header to create transport-layer segment/datagram/frame. Then the message will be decapsulated and re-encapsulated at the switch/router for deciding where the message should go. At last the message will be decapsulated at the destination.</li>
-</ul>
-<h2 id="the-end-to-end-e2e-principle"><a class="markdownIt-Anchor" href="#the-end-to-end-e2e-principle"></a> The end-to-end (e2e) principle</h2>
-<ul>
-<li>definition: specific application-level functions usually cannot, and preferably should not be built into the lower levels of the system at the core of the network.</li>
-<li>the network core should be <strong>simple and minimal</strong>, while the <strong>end systems</strong> should carry the intelligence.
-<ul>
-<li>The error correction on data link layer doesn’t violate, because the entire error correction function can be implemented at the same layer.</li>
-</ul>
-</li>
-</ul>
-<h3 id="violations-of-the-end-to-end-principle"><a class="markdownIt-Anchor" href="#violations-of-the-end-to-end-principle"></a> Violations of the End-to-End Principle</h3>
-<ul>
-<li>Cases where this principle needs to be violated.
-<ol>
-<li>firewalls and traffic filters.
-<ul>
-<li>monitor the network traffic, either allow traffic to go through or drop traffic flagged as malicious.</li>
-</ul>
-</li>
-<li>Network Address Translation (NAT) Boxes
-<ul>
-<li>Is the mediator that take care of the communication between the hosts on the private network and the hosts on the public Internet. e.g. our home router.
-<ul>
-<li>
-<img src="https://i.imgur.com/zC7ltM3.jpg" style="width:500px" />
-</li>
-</ul>
-</li>
-<li>
-<img src="https://i.imgur.com/29DCQlU.png" style="width:500px" />
-  * **The translation table** provides a mapping between the public-facing IP address/ports and the IP addresses/ports that belong to hosts inside the private network.
-</li>
-<li>Why NAT boxes violate e2e pinciple?
-<ul>
-<li>The hosts behind NAT are not globally addressable or routable. Not possible for hosts on the public Internet to initiate connections to these devices.</li>
-<li>Workaround:
-<ul>
-<li>STUN: enables hosts to discover NATs and the public IP address and port number that  the NAT has allocated for the applications for.</li>
-<li>UDP hole punching: bidirectional UDP connections between hosts behind NATs.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h2 id="the-hourglass-shape-of-internet-architecture"><a class="markdownIt-Anchor" href="#the-hourglass-shape-of-internet-architecture"></a> The Hourglass Shape of Internet Architecture</h2>
-<ul>
-<li>In brief, IP has been a crucial layer for the whole internet architecture, which resembled the hourglass shape of the layered Internet:
-<ul>
-<li>
-<img src="https://i.imgur.com/DvtgDuY.jpg" style="width:300px" />
-</li>
-</ul>
-</li>
-<li>A model called the Evolutionary Architecture model helped to understand the evolution in a quantitative manner. The main idea is, if we introduce another protocol to replace IP, and it’s powerful enough to compete IP, eventually it will become the new critical path. This change won’t widen the waist of the hourglass. A network architect should try to design the functionality of each layer consisting several protocols that offer largely <strong>non-overlapping but general</strong> services, so that they <strong>do not compete</strong> with each other.</li>
-</ul>
-<h2 id="interconnecting-hosts-and-networks"><a class="markdownIt-Anchor" href="#interconnecting-hosts-and-networks"></a> Interconnecting Hosts and Networks</h2>
-<p>Internet is a network of networks:</p>
-<img src="https://i.imgur.com/IXBYnsb.jpg" style="width:500px" />
-<p>The ways connectiing:</p>
-<ul>
-<li>Layer 1(physical layer): Repeaters and Hubs. Forward digital signals to connect different Ethernet segments.</li>
-<li>Layer 2(data link layer): Bridges and Layer2-Switches. not directly connected, based on MAC addresses. The limitaion is the finite bandwidth of the outputs.</li>
-<li>Layer 3(network layer): Routers and Layer3-Switches.</li>
-</ul>
-<h2 id="bridges"><a class="markdownIt-Anchor" href="#bridges"></a> Bridges</h2>
-<ul>
-<li>
-<p>A <strong>bridge</strong> is a <strong>device</strong> with multiple inputs/outputs which transfers frames from one to another (or multiple) outputs, used to connect two or more local area networks(at the data link layer).</p>
-<ul>
-<li>A <strong>learning bridge</strong> learns, populates and maintains, a forwarding table. It only forward the frame that needs to be forward.</li>
-</ul>
-</li>
-<li>
-<p>how does the bridge learn? When the bridge receives any frame this is a “learning opportunity” to know which hosts are reachable through which ports. Because the bridge can view the port over which a frame arrives and the source host.</p>
-</li>
-</ul>
-<h3 id="the-looping-problem-in-bridges"><a class="markdownIt-Anchor" href="#the-looping-problem-in-bridges"></a> The looping problem in bridges</h3>
-<ul>
-<li>how does the looping problem exist? two possible reasons:
-<ol>
-<li>each bridge doesn’t know the entire configuration of the network, it’s possible the fragment will be froward back to itself;</li>
-<li>more likely, the loops are built in purpose of reducndancy in case of failure.</li>
-</ol>
-</li>
-<li>how to solve it? <strong>The spanning tree algorithm</strong>. The algorithem is used to build a network topology that has no loops and reaches all LANs in the local network. In practice, it is by removing ports from the topology that the extended LAN is reduced to an acyclic tree.
-<ul>
-<li>The figure below shows the final state of the spanning tree. In this example, B1 is the root bridge, since it has the smallest ID. Notice that both B3 and B5 are connected to LAN A, but B5 is the designated bridge since it is closer to the root. Similarly, both B5 and B7 are connected to LAN B, but in this case B5 is the designated bridge since it has the smaller ID; both are an equal distance from B1.
-<ul>
-<li>
-<img src="https://i.imgur.com/5UDqRVT.jpg" style="width:500px" />
-</li>
-<li>For more details: <a target="_blank" rel="noopener" href="https://www.sciencedirect.com/topics/computer-science/spanning-tree-algorithm">https://www.sciencedirect.com/topics/computer-science/spanning-tree-algorithm</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="comparing-to-other-network-connecting-devices"><a class="markdownIt-Anchor" href="#comparing-to-other-network-connecting-devices"></a> Comparing to other network connecting devices</h3>
-<ul>
-<li>
-<p><strong>Repeaters and Hubs</strong>: They operate on the physical layer <strong>(L1)</strong>, as they <strong>receive and forward digital signals</strong> to connect different Ethernet segments. They provide connectivity between hosts that are directly connected <strong>(in the same network)</strong>. The advantage is that they are simple and inexpensive devices, and they can be arranged in a hierarchy. Unfortunately, hosts that are connected through these devices belong to the same <strong>collision domain</strong>, meaning that they compete for access to the same link.</p>
-<ul>
-<li><strong>Repeater</strong>: sometimes can regenerates signals bit-by-bit when the signal is week.</li>
-</ul>
-</li>
-<li>
-<p><strong>Bridges and Layer2-Switches</strong>: These devices can enable <strong>communication between hosts that are not directly connected</strong>. They operate on the data link layer <strong>(L2)</strong> <strong>based on MAC addresses</strong>. They receive packets and they forward them to reach the appropriate destination. A limitation is the finite bandwidth of the outputs. If the arrival rate of the traffic is higher than the capacity of the outputs then <strong>packets are temporarily stored in buffers</strong>. But if the buffer space gets full, then this can lead to <strong>packet drops</strong>.</p>
-<ul>
-<li><strong>Bridge</strong>: mainly used to segment a network to allow a large network size. Also has filtering capability.</li>
-<li><strong>Layer2-Switch</strong>: acts as a multiport bridge in the network. It provides the bridging functionality with greater efficiency. It does not forward packets that have errors and forward good packets selectively to the correct port only.</li>
-</ul>
-</li>
-<li>
-<p><strong>Routers and Layer3-Switches</strong>: These are devices that operate on Layer 3. We will talk more about these devices and the routing protocols in the upcoming lectures.</p>
-<ul>
-<li><strong>Router</strong> normally connect LANs and WANs together and have a dynamically updating routing table based on which they make decisions on routing the data packets.</li>
-</ul>
-</li>
-<li>
-<p>refers:</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://afteracademy.com/blog/what-are-routers-hubs-switches-bridges">https://afteracademy.com/blog/what-are-routers-hubs-switches-bridges</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/network-devices-hub-repeater-bridge-switch-router-gateways-and-brouter">https://www.tutorialspoint.com/network-devices-hub-repeater-bridge-switch-router-gateways-and-brouter</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/network-devices-hub-repeater-bridge-switch-router-gateways/">https://www.geeksforgeeks.org/network-devices-hub-repeater-bridge-switch-router-gateways/</a></li>
-</ul>
-</li>
-</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> i, *ptr, sum = <span class="number">0</span>;</span><br><span class="line">  ptr = <span class="built_in">malloc</span>(<span class="number">100</span>);</span><br><span class="line">  <span class="keyword">if</span> (ptr == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Error! memory not allocated.&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ptr = <span class="built_in">realloc</span>(ptr, <span class="number">500</span>);</span><br><span class="line">  <span class="keyword">if</span> (ptr != <span class="literal">NULL</span>)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Memory created successfully\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">free</span>(ptr);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> i, *ptr, sum = <span class="number">0</span>;</span><br><span class="line">  ptr = <span class="built_in">calloc</span>(<span class="number">10</span>, <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">  <span class="keyword">if</span> (ptr == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Error! memory not allocated.&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Building and calculating the sequence sum of the first 10 terms n &quot;</span>);</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i) &#123;</span><br><span class="line">    *(ptr + i) = i;</span><br><span class="line">    sum += *(ptr + i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Sum = %d&quot;</span>, sum);</span><br><span class="line">  <span class="built_in">free</span>(ptr);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="pointer"><a class="markdownIt-Anchor" href="#pointer"></a> Pointer</h3>
 
 </div>
 

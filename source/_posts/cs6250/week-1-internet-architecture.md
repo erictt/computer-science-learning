@@ -85,11 +85,14 @@ The ways connectiing:
 
 ### Comparing to other network connecting devices
 
-* **Hub**: Layer 1, not intelligent, forwards incoming messages to other devices without checking.
-* **Repeater**: Layer 1, connects two segments of a network cable. Sometimes it can regenerates signals bit-by-bit when the signal is week.
-* **Bridge**: Layer 2, mainly used to segment a network to allow a large network size. Also has filtering capability.
-* **Switch**: Layer 2, acts as a multiport bridge in the network. It provides the bridging functionality with greater efficiency. It does not forward packets that have errors and forward good packets selectively to the correct port only.
-* **Router** Layer 3, normally connect LANs and WANs together and have a dynamically updating routing table based on which they make decisions on routing the data packets.
+* **Repeaters and Hubs**: They operate on the physical layer **(L1)**, as they **receive and forward digital signals** to connect different Ethernet segments. They provide connectivity between hosts that are directly connected **(in the same network)**. The advantage is that they are simple and inexpensive devices, and they can be arranged in a hierarchy. Unfortunately, hosts that are connected through these devices belong to the same **collision domain**, meaning that they compete for access to the same link. 
+    * **Repeater**: sometimes can regenerates signals bit-by-bit when the signal is week.
+
+* **Bridges and Layer2-Switches**: These devices can enable **communication between hosts that are not directly connected**. They operate on the data link layer **(L2)** **based on MAC addresses**. They receive packets and they forward them to reach the appropriate destination. A limitation is the finite bandwidth of the outputs. If the arrival rate of the traffic is higher than the capacity of the outputs then **packets are temporarily stored in buffers**. But if the buffer space gets full, then this can lead to **packet drops**. 
+    * **Bridge**: mainly used to segment a network to allow a large network size. Also has filtering capability.
+    * **Layer2-Switch**: acts as a multiport bridge in the network. It provides the bridging functionality with greater efficiency. It does not forward packets that have errors and forward good packets selectively to the correct port only.
+* **Routers and Layer3-Switches**: These are devices that operate on Layer 3. We will talk more about these devices and the routing protocols in the upcoming lectures.
+    * **Router** normally connect LANs and WANs together and have a dynamically updating routing table based on which they make decisions on routing the data packets.
 
 * refers:
     * https://afteracademy.com/blog/what-are-routers-hubs-switches-bridges
