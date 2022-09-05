@@ -87,7 +87,7 @@ int main() {
 }
 ```
 
-### Structs
+### Struct
 
 ```c
 
@@ -122,11 +122,9 @@ int main() {
 }
 ```
 
-### malloc / calloc / realloc / free
+### malloc / free
 
 * malloc():  used to allocate a block of memory dynamically. It reserves memory space of specified size and returns the null pointer pointing to the memory location.
-* calloc(): used to allocate multiple blocks of memory having the same size. 
-* realloc(): for adding more memory size to already allocated memory blocks.
 * free(): release or deallocate the memory blocks which are previously allocated by calloc(), malloc() or realloc() functions.
 
 ```c
@@ -173,3 +171,6 @@ int main() {
     free(me);
 }
 ```
+
+* calloc(): used to allocate multiple blocks of memory having the same size. 
+* realloc(): for adding more memory size to already allocated memory blocks.
