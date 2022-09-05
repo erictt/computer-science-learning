@@ -34,6 +34,7 @@
 
 ## CS6200 Graduate Introduction to Operating Systems
 
+* [P1 - Preparation](/cs6200/p1-preparatoin/index.html)
 * [P1L2 - Introduction](/cs6200/p1l2-introduction/index.html)
 
 <!--
