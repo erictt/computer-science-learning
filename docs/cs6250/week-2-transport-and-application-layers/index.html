@@ -275,7 +275,6 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1 id="week-2-transport-and-application-layers"><a class="markdownIt-Anchor" href="#week-2-transport-and-application-layers"></a> Week 2 - Transport and Application Layers</h1>
-<p>[TOC]</p>
 <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
 <ul>
 <li>Transport layer provides a logical end-to-end transport between two endpoints:
@@ -287,7 +286,7 @@ function sidebar_toggle() {
 </li>
 <li>Relationship between transport and network layer
 <ul>
-<li>Transport layer encapsulate the message from application layer with an additional header, which is called segment, and send to the the receiving host via routes/bridges/switches/etc.</li>
+<li>Transport layer encapsulate the message from application layer with an additional header, which is called <strong>segment</strong>, and send to the the receiving host via routes/bridges/switches/etc.</li>
 </ul>
 </li>
 <li>Transport layer allows application assuming a standard set of functionalities like packets delivery guarantee, data integrity, etc.</li>
@@ -317,11 +316,11 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h4 id="connectionless-and-connection-oriented-service"><a class="markdownIt-Anchor" href="#connectionless-and-connection-oriented-service"></a> Connectionless and Connection-Oriented Service</h4>
+<h2 id="connectionless-and-connection-oriented-service"><a class="markdownIt-Anchor" href="#connectionless-and-connection-oriented-service"></a> Connectionless and Connection-Oriented Service</h2>
+<h3 id="connectionless-serviceudp"><a class="markdownIt-Anchor" href="#connectionless-serviceudp"></a> Connectionless Service(UDP)</h3>
 <ul>
-<li>Connectionless Service(UDP)
-<ul>
-<li>The identifier of a UDP socket is a <strong>two-tuple</strong> that consists of <strong>a destination IP address and a destination port number</strong>. Consider two hosts, A and B, which are running two processes at UDP ports a and b, respectively. Suppose that Host A sends data to Host B. The transport layer in Host A creates a transport-layer segment by the application data, the source port, and the destination port; and forwards the segment to the network layer. In turn, the network layer encapsulates the segment into a network-layer datagram and sends it to Host B with best-effort delivery. Then Host B identifies the correct socket by looking at the field of destination port, then use the info to demultiplex</li>
+<li>The identifier of a UDP socket is a <strong>two-tuple</strong> that consists of <strong>a destination IP address and a destination port number</strong>.</li>
+<li>Consider two hosts, A and B, which are running two processes at UDP ports a and b, respectively. Suppose that Host A sends data to Host B. The transport layer in Host A creates a transport-layer segment by the application data, the source port, and the destination port; and forwards the segment to the network layer. In turn, the network layer encapsulates the segment into a network-layer datagram and sends it to Host B with best-effort delivery. Then Host B identifies the correct socket by looking at the field of destination port, then use the info to demultiplex.</li>
 <li>
 <img src="https://i.imgur.com/48WMNml.jpg" style="width:500px" />
 </li>
@@ -333,12 +332,14 @@ function sidebar_toggle() {
 <li>no congestion control or similar mechanisms. no connection management overhead. which make it faster than TCP.</li>
 </ul>
 </li>
-<li>Checksum(an error checking mechanism):
-<ul>
-<li>it’s a basic error checking since there is no guarantee for link-by-link reliability. The UDP sender adds the bits of the source port, the destination port, and the packet length. It performs a 1’s complement on the sum (all 0s are turned to 1 and all 1s are turned to 0s), which is the value of the checksum. The receiver adds all the four 16-bit words (including the checksum). The result should be all 1’s unless an error has occurred.</li>
 </ul>
+<h4 id="checksuman-error-checking-mechanism"><a class="markdownIt-Anchor" href="#checksuman-error-checking-mechanism"></a> Checksum(an error checking mechanism):</h4>
+<ul>
+<li>
+<p>it’s a basic error checking since there is no guarantee for link-by-link reliability. The UDP sender adds the bits of the source port, the destination port, and the packet length. It performs a 1’s complement on the sum (all 0s are turned to 1 and all 1s are turned to 0s), which is the value of the checksum. The receiver adds all the four 16-bit words (including the checksum). The result should be all 1’s unless an error has occurred.</p>
 </li>
-<li>Steps of checksum(<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AtVWnyDDaDI">https://www.youtube.com/watch?v=AtVWnyDDaDI</a>):
+<li>
+<p>Steps of checksum(<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AtVWnyDDaDI">https://www.youtube.com/watch?v=AtVWnyDDaDI</a>):</p>
 <ol>
 <li>Break the original message into <code>k</code> number of blocks with <code>n</code> bits in each block</li>
 <li>Sum all the <code>k</code> data blocks</li>
@@ -346,24 +347,36 @@ function sidebar_toggle() {
 <li>Do 1’s complement to the sum(reverse the sum).</li>
 </ol>
 </li>
-<li>Performance of checksum
+<li>
+<p>Performance of checksum</p>
 <ul>
 <li>The checksum detects all errors involving an odd number of bits.</li>
 <li>In detects mosts erros involving an even number of bits.</li>
 <li>If one or more bits of a segment are damaged and the correspoding bit or bits of oppsote value is a second segment are also damaged, the sums of those columns will not change and the receiver will not detect the error.</li>
 </ul>
 </li>
-<li>UDP checksum calculation <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1480580/udp-checksum-calculation">https://stackoverflow.com/questions/1480580/udp-checksum-calculation</a></li>
-<li>How is a 1s complement checksum useful for error detection? <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/5607978/how-is-a-1s-complement-checksum-useful-for-error-detection">https://stackoverflow.com/questions/5607978/how-is-a-1s-complement-checksum-useful-for-error-detection</a></li>
-</ul>
+<li>
+<p>UDP checksum calculation <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1480580/udp-checksum-calculation">https://stackoverflow.com/questions/1480580/udp-checksum-calculation</a></p>
 </li>
-<li>Connection-Oriented Service(TCP)
+<li>
+<p>How is a 1s complement checksum useful for error detection? <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/5607978/how-is-a-1s-complement-checksum-useful-for-error-detection">https://stackoverflow.com/questions/5607978/how-is-a-1s-complement-checksum-useful-for-error-detection</a></p>
+</li>
+</ul>
+<h3 id="connection-oriented-servicetcp"><a class="markdownIt-Anchor" href="#connection-oriented-servicetcp"></a> Connection-Oriented Service(TCP)</h3>
 <ul>
 <li>
 <img src="https://i.imgur.com/1h1pQVl.png" style="width:500px" />
 </li>
 <li>
-<p>The identifier for a TCP socket is a four-tuple that consists of the source IP, source port, destination IP, and destination port. Let’s consider the example of a TCP client-server as shown in the figure above. The TCP server has a listening socket that waits for connection requests coming from TCP clients. A TCP client creates a socket and sends a connection request, which is a TCP segment that has a source port number chosen by the client, a destination port number 12000, and a special connection-establishment bit set in the TCP header. Finally, the TCP server receives the connection request, and the server creates a socket that is identified by the four-tuple source IP, source port, destination IP, and destination port. The server uses this socket identifier to demultiplex incoming data and forward them to this socket. Now, the TCP connection is established and the client and server can send and receive data between one another.</p>
+<p>The identifier for a TCP socket is a four-tuple that consists of the <strong>source IP, source port, destination IP, and destination port</strong>.</p>
+</li>
+<li>
+<p>Let’s consider the example of a TCP client-server as shown in the figure above.</p>
+<ul>
+<li>The TCP server has a listening socket that waits for connection requests coming from TCP clients. A TCP client creates a socket and sends a connection request, which is a TCP segment that has a source port number chosen by the client, a destination port number 12000, and a special connection-establishment bit set in the TCP header.</li>
+<li>Finally, the TCP server receives the connection request, and the server creates a socket that is identified by the four-tuple source IP, source port, destination IP, and destination port.</li>
+<li>The server uses this socket identifier to demultiplex incoming data and forward them to this socket. Now, the TCP connection is established and the client and server can send and receive data between one another.</li>
+</ul>
 </li>
 <li>
 <p>an example connection establishment.</p>
@@ -380,8 +393,10 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>
-<p>How a single port used for creating multiple conenctions with client? // TODO</p>
-</li>
+<p>How a single port used for creating multiple conenctions with client?</p>
+<ul>
+<li>Because TCP is identified by a 4-tuple(source IP, source port, dest IP, dest port). When binding socket with TCP, it uses the 4-tuple. So a server creates different sockets for multiple sockets that binded with the same IP/port.</li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/11129212/tcp-can-two-different-sockets-share-a-port#:~:text=Thanks%20%3AD&amp;text=%40premktiw%3A%20Yes%2C%20multiple%20client,local%2Bremote%20pairs%20are%20unique">https://stackoverflow.com/questions/11129212/tcp-can-two-different-sockets-share-a-port#:~:text=Thanks %3AD&amp;text=%40premktiw%3A Yes%2C multiple client,local%2Bremote pairs are unique</a>.</li>
 </ul>
 </li>
 </ul>
@@ -437,7 +452,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h3 id="selective-acking"><a class="markdownIt-Anchor" href="#selective-acking"></a> selective ACKing</h3>
+<h3 id="selective-acking"><a class="markdownIt-Anchor" href="#selective-acking"></a> Selective ACKing</h3>
 <ul>
 <li>The sender <strong>retransmits only those packets that it suspects were received in error</strong>. Then, the receiver would acknowledge a correctly received packet even if it is not in order. The out-of-order packets are buffered until any missing packets have been received, at which point the batch of the packets can be delivered to the application layer.</li>
 <li>Note that, even in this case, TCP would need to use a <strong>timeout</strong> as there is a possibility of ACKs getting lost in the network.</li>
@@ -449,7 +464,7 @@ function sidebar_toggle() {
 <h2 id="transmission-control"><a class="markdownIt-Anchor" href="#transmission-control"></a> Transmission Control</h2>
 <h3 id="flow-control"><a class="markdownIt-Anchor" href="#flow-control"></a> Flow control</h3>
 <ul>
-<li>The gola is to control the Transmission Rate to Protect the Receiver buffer
+<li>The goal is to control the Transmission Rate to Protect the Receiver buffer.
 <ul>
 <li>Consider hosts A and B. The sender A maintain a variable <strong>receive window(rwnd) = RcvBuffer - [LastByteRcvd - LastByteRead]</strong>
 <ul>
@@ -466,36 +481,50 @@ function sidebar_toggle() {
 <li><strong>LastByteSent – LastByteAcked  &lt;= rwnd</strong></li>
 </ul>
 </li>
-<li>Caveat: if receiver inform sender that rwnd is 0, and the sender stop sending message, then sender will never know new buffer space is available. TCP resolves this by sending segments of size 1 byte even after <code>rwnd = 0</code>.</li>
+<li><strong>Caveat</strong>: if receiver inform sender that rwnd is 0, and the sender stop sending message, then sender will never know new buffer space is available. TCP resolves this by sending segments of size 1 byte even after <strong>rwnd = 0</strong>.</li>
 </ul>
 </li>
 </ul>
 <h3 id="congestion-control"><a class="markdownIt-Anchor" href="#congestion-control"></a> Congestion control</h3>
 <ul>
-<li>Controlling the transmission rate to protect the network from congestion</li>
-<li>Congestion control means to avoid the tramsmission rate of a set of senders greater than the capacity of receiver.</li>
-<li>Desired properties:
+<li>
+<p>The goal is to control the transmission rate to protect the network from congestion.</p>
+</li>
+<li>
+<p>Congestion control means to avoid the tramsmission rate of a set of senders greater than the capacity of receiver.</p>
+</li>
+<li>
+<p>Desired properties:</p>
 <ul>
-<li>efficiency: go high throughput.</li>
-<li>fairness. either every flow has equal bandwidth or other policies.</li>
-<li>low delay. packets get stored in the buffer and wait for a long queue get delivered need to be avoid.</li>
-<li>fast convergence. The idea here is that a flow should converge to its fair allocation fast. Fast convergence is crucial since a typical network’s workload is composed of many short flows and few long flows. If the convergence to fair share is not fast enough, the network will still be unfair for these short flows. // TODO</li>
+<li><strong>efficiency</strong>. go high throughput.</li>
+<li><strong>fairness</strong>. either every flow has equal bandwidth or other policies.</li>
+<li><strong>low delay</strong>. packets get stored in the buffer and wait for a long queue get delivered need to be avoid.</li>
+<li><strong>fast convergence</strong>. The idea here is that a flow should converge to its fair allocation fast. Fast convergence is crucial since a typical network’s workload is composed of many short flows and few long flows. If the convergence to fair share is not fast enough, the network will still be unfair for these short flows.</li>
 </ul>
 </li>
-<li>Two approaches:
+<li>
+<p>Two approaches:</p>
 <ul>
 <li><strong>network-assisted congestion control</strong>. Rely on network layer, use ICMP souce quench to notify the source that the network is congested. but even ICMP packets can be lost under severe congestion.</li>
-<li><strong>implement end-to-end congestion control</strong>(TCP use) the hosts infer congestion from the network behavior and adapt the transmission rate. Congestion control is a primitive provided in the transport layer, whereas routers operate at the network layer. Therefore, the feature resides in the end nodes with no support from the network. Note that this is no longer true as certain routers in the modern networks can provide explicit feedback to the end-host by using protocols such as <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Explicit_Congestion_Notification">ECN</a> and <a target="_blank" rel="noopener" href="https://web.stanford.edu/~balaji/presentations/au-prabhakar-qcn-description.pdf">QCN</a>.</li>
-</ul>
-</li>
-<li>How a host infers congestion? Signs of congestion:
+<li><strong>implement end-to-end congestion control</strong>(TCP use) the hosts infer congestion from the network behavior and adapt the transmission rate. Congestion control is a primitive provided in the transport layer, whereas routers operate at the network layer. Therefore, the feature resides in the end nodes with no support from the network.
 <ul>
-<li>first is packet delay. As the network becomes congested, the queues in the router buffers build-up, leading to increased packet delays. Thus, an increase in the round trip time, which can be estimated based on ACKs, can indicate congestion in the network. However, it turns out that packet delays in a network tend to be variable, making delay-based congestion inference quite tricky.</li>
-<li>another is packet loss. As the network gets congested, routers start dropping packets. Note that packets can also be lost due to other reasons such as routing errors, hardware failure, time-to-live (TTL) expiry, error in the links, or flow control problems, although it is rare.</li>
-<li>The earliest implementation of TCP used packet loss as a signal for congestion. This is mainly because TCP already detected and handled packet losses to provide reliability.</li>
+<li>Note that this is no longer true as certain routers in the modern networks can provide explicit feedback to the end-host by using protocols such as <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Explicit_Congestion_Notification">ECN</a> and <a target="_blank" rel="noopener" href="https://web.stanford.edu/~balaji/presentations/au-prabhakar-qcn-description.pdf">QCN</a>.</li>
 </ul>
 </li>
-<li><strong>How Does a TCP Sender Limit the Sending Rate?</strong>
+</ul>
+</li>
+<li>
+<p>How a host infers congestion? via signs of congestion:</p>
+<ul>
+<li><strong>packet delay</strong>. As the network becomes congested, the queues in the router buffers build-up, leading to increased packet delays. Thus, an increase in the round trip time, which can be estimated based on ACKs, can indicate congestion in the network. However, it turns out that packet delays in a network tend to be variable, making delay-based congestion inference quite tricky.</li>
+<li><strong>packet loss</strong>. As the network gets congested, routers start dropping packets. Note that packets can also be lost due to other reasons such as routing errors, hardware failure, time-to-live (TTL) expiry, error in the links, or flow control problems, although it is rare.</li>
+</ul>
+</li>
+<li>
+<p>The earliest implementation of TCP used packet loss as a signal for congestion. This is mainly because TCP already detected and handled packet losses to provide reliability.</p>
+</li>
+<li>
+<p><strong>How Does a TCP Sender Limit the Sending Rate?</strong></p>
 <ul>
 <li>TCP congestion control was introduced so that each source can do the following:
 <ul>
@@ -504,10 +533,13 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>Each source uses ACKs as a packing mechanism. If the receiving host received a packet sent earlier, it would release more packets into the network.</li>
-<li>TCP uses a congestion window similar to the receive window used for flow control. It represents the maximum number of unacknowledged data that a sending host can have in transit (sent but not yet acknowledged).</li>
-<li>TCP uses a probe-and-adapt approach in adapting the congestion window. Under normal conditions, TCP increases the congestion window trying to achieve the available throughput. Once it detects congestion, the congestion window is decreased.</li>
-<li>In the end, the number of unacknowledged data that a sender can have is the minimum of the congestion window and the receive window.</li>
+<li>TCP uses a <strong>congestion window(cwnd)</strong> similar to the <strong>receive window(rwnd)</strong> used for flow control. It represents the <strong>maximum number of unacknowledged data</strong> that a sending host can have in transit (sent but not yet acknowledged).</li>
+<li>TCP uses a <strong>probe-and-adapt approach</strong> in adapting the congestion window. Under normal conditions, TCP increases the congestion window trying to achieve the available throughput. Once it detects congestion, the congestion window is decreased.</li>
+<li>In the end, the number of unacknowledged data that a sender can have is the minimum of the congestion window and the receive window.
+<ul>
 <li><strong>LastByteSent – LastByteAcked &lt;= min{cwnd, rwnd}</strong></li>
+</ul>
+</li>
 <li>In a nutshell, a TCP sender cannot send faster than the slowest component, which is either the network or the receiving host.</li>
 </ul>
 </li>
@@ -519,7 +551,7 @@ function sidebar_toggle() {
 <h3 id="additive-increase-ai"><a class="markdownIt-Anchor" href="#additive-increase-ai"></a> Additive Increase (AI)</h3>
 <ul>
 <li>The connection starts with a constant initial window, typically 2, and increases it additively. The idea behind additive increase is to increase the window by one packet every RTT (Round Trip Time). So, in the additive increase part of the AIMD, every time the sending host successfully sends a CongestionWindow (<strong>cwnd</strong>) number of packets it adds 1 to <strong>cwnd</strong>.</li>
-<li>Also, in practice, this increase in AIMD happens incrementally. TCP does not wait for ACKs of all the packets from the previous RTT. Instead, it increases the congestion window size as soon as each ACK arrives. In bytes, this increment is a portion of the MSS (Maximum Segment Size).</li>
+<li>Also, in practice, this increase in AIMD happens incrementally. TCP does not wait for ACKs of all the packets from the previous RTT. Instead, it increases the congestion window size as soon as each ACK arrives. In bytes, this increment is a portion of the <strong>MSS (Maximum Segment Size)</strong>.</li>
 <li><code>Increment = MSS × (MSS / CongestionWindow)</code></li>
 <li><code>CongestionWindow += Increment</code></li>
 <li>
@@ -536,10 +568,9 @@ function sidebar_toggle() {
 </ul>
 <h3 id="aiad-mimd-miad"><a class="markdownIt-Anchor" href="#aiad-mimd-miad"></a> AIAD - MIMD - MIAD</h3>
 <ul>
-<li>Would all thse polices conver? If so, what’s the diff from AIMD? // TODO
+<li>Would all thse polices conver? If so, what’s the diff from AIMD?
 <ul>
-<li>In AIAD and MIMD, the plotted throughput line will oscillate over the full bandwidth utilization line but will not converge as was shown for AIMD. On the other hand, MIAD will converge.</li>
-<li>None of the alternative policies are as stable. The decrease policy in AIAD and MIAD is not as aggressive as AIMD, so those will not effectively address congestion control. In contrast, the increase policy in MIAD and MIMD is too aggressive.</li>
+<li><a target="_blank" rel="noopener" href="https://inst.eecs.berkeley.edu/~ee122/fa08/notes/19-TCPAdvancedx6.pdf">https://inst.eecs.berkeley.edu/~ee122/fa08/notes/19-TCPAdvancedx6.pdf</a></li>
 </ul>
 </li>
 </ul>
@@ -557,7 +588,7 @@ function sidebar_toggle() {
 </li>
 <li>Lastly, “<strong>probing</strong>” refers to the fact that <strong>a TCP sender increases its transmission rate to probe for the rate</strong> at which congestion onset begins, backs off from that rate, and then begins probing again to see if the congestion onset rate has changed.</li>
 </ul>
-<h4 id="slow-start-in-tcp"><a class="markdownIt-Anchor" href="#slow-start-in-tcp"></a> Slow start in TCP</h4>
+<h3 id="slow-start-in-tcp"><a class="markdownIt-Anchor" href="#slow-start-in-tcp"></a> Slow start in TCP</h3>
 <ul>
 <li>
 <p>When we have a new connection that starts from a cold start, the sending host can take much longer to increase the congestion window by using AIMD. So for a new connection, we need a mechanism that can rapidly increase the congestion window from a cold start.</p>
@@ -581,7 +612,7 @@ function sidebar_toggle() {
 <p>In this case, the source will have a fair idea about the congestion window from the last time it had a packet loss. It will now use this information as the “target” value to avoid packet loss in the future. This target value is stored in a temporary variable, <strong>CongestionThreshold</strong>. Now, the source performs slow start by doubling the number of packets after each RTT until the value of <strong>cwnd</strong> reaches the congestion threshold (a knee point). After this point, it increases the window by 1 (additive increase) each RTT until it experiences packet loss (cliff point). After which, it multiplicatively decreases the window.</p>
 </li>
 <li>
-<img src="https://i.imgur.com/tpHmIkv.jpg" style="width:500px" />
+<img src="https://i.imgur.com/tpHmIkv.jpg" style="width:800px" />
 </li>
 </ul>
 <h3 id="tcp-fairness"><a class="markdownIt-Anchor" href="#tcp-fairness"></a> TCP Fairness</h3>
