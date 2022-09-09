@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+
+    <div class="book-menu">
+  <!--
+## Introduction to Probability
+
+* [Unit 1: Probability models and axioms](/introduction-to-probability/unit-1/index.html)
+* [Unit 2: Conditioning and independence](/introduction-to-probability/unit-2/index.html)
+* [Unit 3: Counting](/introduction-to-probability/unit-3/index.html)
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<!--
+## Multivariable Calculus
+
+* [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
+* [Unit 2: Derivatives of multivariable functions](/multivariable-calculus/unit-2/index.html)
+
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="cs6250-computer-networks"><a class="markdownIt-Anchor" href="#cs6250-computer-networks"></a> CS6250 Computer Networks</h2>
+<ul>
+<li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
+<li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
+</ul>
+<!--
+* [Chapter 1 - Introduction](/computer-networking/chapter-1/index.html)
+-->
+<h2 id="cs6200-graduate-introduction-to-operating-systems"><a class="markdownIt-Anchor" href="#cs6200-graduate-introduction-to-operating-systems"></a> CS6200 Graduate Introduction to Operating Systems</h2>
+<ul>
+<li><a href="/cs6200/p1-preparation/index.html">P1 - Preparation</a></li>
+<li><a href="/cs6200/p1l2-introduction/index.html">P1L2 - Introduction</a></li>
+</ul>
+<!--
+* [Virtualization 1 - CPU](/introduction-to-operating-systems/1-virtualization-1/index.html)
+* [Virtualization 2 - Memory](/introduction-to-operating-systems/1-virtualization-2/index.html)
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-2/index.html">Week 2 - Minimum Spanning Trees &amp; Shortest Path</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; String Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+<li><a href="/algorithms-2/week-5/index.html">Week 5 - Regular Expressions</a></li>
+<li><a href="/algorithms-2/week-6/index.html">Week 6 - Reductions</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+<h2 id="others"><a class="markdownIt-Anchor" href="#others"></a> Others</h2>
+<ul>
+<li><a href="/symbols/index.html">Symbols of Mathematics</a></li>
+<li><a href="/glossary/index.html">Glossary</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="week-2-transport-and-application-layers"><a class="markdownIt-Anchor" href="#week-2-transport-and-application-layers"></a> Week 2 - Transport and Application Layers</h1>
+<p>[TOC]</p>
+<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<ul>
+<li>Transport layer provides a logical end-to-end transport between two endpoints:
+<ul>
+<li>
+<img src="https://i.imgur.com/Iacof30.jpg" style="width:500px" />
+</li>
+</ul>
+</li>
+<li>Relationship between transport and network layer
+<ul>
+<li>Transport layer encapsulate the message from application layer with an additional header, which is called segment, and send to the the receiving host via routes/bridges/switches/etc.</li>
+</ul>
+</li>
+<li>Transport layer allows application assuming a standard set of functionalities like packets delivery guarantee, data integrity, etc.</li>
+</ul>
+<h2 id="multiplexing"><a class="markdownIt-Anchor" href="#multiplexing"></a> Multiplexing</h2>
+<ul>
+<li><strong>Multiplexing</strong> is an ability for a host to run multiple application to use the network simultaneously. The transport layer use additional identifiers known as ports. Each application binds itself to a uniquie port number by opening sockets and listening for data from remote connection.</li>
+</ul>
+<h3 id="connection-oriented-and-connectionless-multiplexing-and-demultiplexing"><a class="markdownIt-Anchor" href="#connection-oriented-and-connectionless-multiplexing-and-demultiplexing"></a> Connection Oriented and Connectionless Multiplexing and Demultiplexing</h3>
+<ul>
+<li>
+<img src="https://i.imgur.com/mVT8Gmq.jpg" style="width:500px" />
+</li>
+<li>
+<p>Consider the scenario shown in the figure above, which includes three hosts running an application. A receiving host that receives an incoming transport layer segment will forward it to the appropriate socket. The receiving host identifies the appropriate socket by examining a set of fields in the segment.</p>
+</li>
+<li>
+<p>The job of delivering the data included in the transport-layer segment to the appropriate socket, as defined in the segment fields, is called <strong>demultiplexing</strong>.</p>
+<ul>
+<li>Going up to application layer.</li>
+</ul>
+</li>
+<li>
+<p>Similarly, the sending host will need to gather data from different sockets and encapsulate each data chunk with header information (that will later be used in demultiplexing) to create segments, and then forward the segments to the network layer. We refer to this job as <strong>multiplexing</strong>.</p>
+<ul>
+<li>Going downstream with extra header(Encapsulate the mssage)</li>
+</ul>
+</li>
+</ul>
+<h4 id="connectionless-and-connection-oriented-service"><a class="markdownIt-Anchor" href="#connectionless-and-connection-oriented-service"></a> Connectionless and Connection-Oriented Service</h4>
+<ul>
+<li>Connectionless Service(UDP)
+<ul>
+<li>The identifier of a UDP socket is a <strong>two-tuple</strong> that consists of <strong>a destination IP address and a destination port number</strong>. Consider two hosts, A and B, which are running two processes at UDP ports a and b, respectively. Suppose that Host A sends data to Host B. The transport layer in Host A creates a transport-layer segment by the application data, the source port, and the destination port; and forwards the segment to the network layer. In turn, the network layer encapsulates the segment into a network-layer datagram and sends it to Host B with best-effort delivery. Then Host B identifies the correct socket by looking at the field of destination port, then use the info to demultiplex</li>
+<li>
+<img src="https://i.imgur.com/48WMNml.jpg" style="width:500px" />
+</li>
+<li>
+<img src="https://i.imgur.com/WQ9esiM.jpg" style="width:500px" />
+</li>
+<li>Advantage of UDP:
+<ul>
+<li>no congestion control or similar mechanisms. no connection management overhead. which make it faster than TCP.</li>
+</ul>
+</li>
+<li>Checksum(an error checking mechanism):
+<ul>
+<li>it’s a basic error checking since there is no guarantee for link-by-link reliability. The UDP sender adds the bits of the source port, the destination port, and the packet length. It performs a 1’s complement on the sum (all 0s are turned to 1 and all 1s are turned to 0s), which is the value of the checksum. The receiver adds all the four 16-bit words (including the checksum). The result should be all 1’s unless an error has occurred.</li>
+</ul>
+</li>
+<li>Steps of checksum(<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AtVWnyDDaDI">https://www.youtube.com/watch?v=AtVWnyDDaDI</a>):
+<ol>
+<li>Break the original message into <code>k</code> number of blocks with <code>n</code> bits in each block</li>
+<li>Sum all the <code>k</code> data blocks</li>
+<li>Add the carry to the sum, if any.</li>
+<li>Do 1’s complement to the sum(reverse the sum).</li>
+</ol>
+</li>
+<li>Performance of checksum
+<ul>
+<li>The checksum detects all errors involving an odd number of bits.</li>
+<li>In detects mosts erros involving an even number of bits.</li>
+<li>If one or more bits of a segment are damaged and the correspoding bit or bits of oppsote value is a second segment are also damaged, the sums of those columns will not change and the receiver will not detect the error.</li>
+</ul>
+</li>
+<li>UDP checksum calculation <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1480580/udp-checksum-calculation">https://stackoverflow.com/questions/1480580/udp-checksum-calculation</a></li>
+<li>How is a 1s complement checksum useful for error detection? <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/5607978/how-is-a-1s-complement-checksum-useful-for-error-detection">https://stackoverflow.com/questions/5607978/how-is-a-1s-complement-checksum-useful-for-error-detection</a></li>
+</ul>
+</li>
+<li>Connection-Oriented Service(TCP)
+<ul>
+<li>
+<img src="https://i.imgur.com/1h1pQVl.png" style="width:500px" />
+</li>
+<li>
+<p>The identifier for a TCP socket is a four-tuple that consists of the source IP, source port, destination IP, and destination port. Let’s consider the example of a TCP client-server as shown in the figure above. The TCP server has a listening socket that waits for connection requests coming from TCP clients. A TCP client creates a socket and sends a connection request, which is a TCP segment that has a source port number chosen by the client, a destination port number 12000, and a special connection-establishment bit set in the TCP header. Finally, the TCP server receives the connection request, and the server creates a socket that is identified by the four-tuple source IP, source port, destination IP, and destination port. The server uses this socket identifier to demultiplex incoming data and forward them to this socket. Now, the TCP connection is established and the client and server can send and receive data between one another.</p>
+</li>
+<li>
+<p>an example connection establishment.</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/nIodUGD.png" style="width:500px" />
+</li>
+</ul>
+</li>
+<li>
+<p>Why don’t UDP/TCP use process IDs rather than defin port numbers?</p>
+<ul>
+<li>Process IDs are specific to OS, therefore use process IDs make the protocol dependent to OS. Also a process should can set up multiple channels.</li>
+</ul>
+</li>
+<li>
+<p>How a single port used for creating multiple conenctions with client? // TODO</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-tcp-three-way-handshake"><a class="markdownIt-Anchor" href="#the-tcp-three-way-handshake"></a> The TCP Three-Way Handshake</h2>
+<ul>
+<li>
+<p>Step 1: The TCP client sends a special segment (containing no data) with the SYN bit set to 1. The client also generates an initial sequence number (<strong>client_isn</strong>) and includes it in this special TCP SYN segment.</p>
+</li>
+<li>
+<p>Step 2: The server, upon receiving this packet, allocates the required resources for the connection and sends back the special “connection-granted” segment which we call SYNACK segment. This packet has the SYN bit set to 1, the acknowledgement field of the TCP segment header set to <strong>client_isn+1</strong>, and a randomly chosen initial sequence number (<strong>server_isn</strong>) for the server.</p>
+</li>
+<li>
+<p>Step 3: When the client receives the SYNACK segment, it also allocates buffer and resources for the connection and sends an acknowledgment with SYN bit set to 0.</p>
+</li>
+<li>
+<img src="https://i.imgur.com/rqDwUPE.png" style="width:500px" />
+</li>
+</ul>
+<h3 id="connection-teardown"><a class="markdownIt-Anchor" href="#connection-teardown"></a> Connection Teardown</h3>
+<ul>
+<li>Step 1: When the client wants to end the connection, it sends a segment with FIN bit set to 1 to the server.</li>
+<li>Step 2: The server acknowledges that it has received the connection closing request and is now working on closing the connection.</li>
+<li>Step 3: The server then sends a segment with FIN bit set to 1, indicating that connection is closed.</li>
+<li>Step 4: The client sends an ACK for it to the server. It also waits for sometime to resend this acknowledgment in case the first ACK segment is lost.</li>
+<li>
+<img src="https://i.imgur.com/3kzN0XX.png" style="width:500px" />
+</li>
+</ul>
+<h2 id="reliable-transmission"><a class="markdownIt-Anchor" href="#reliable-transmission"></a> Reliable Transmission</h2>
+<ul>
+<li>
+<p>TCP guarantees in-order delivery of the application-layer data without any loss or corruption. How to achieve? Below are various methods that can be implemented.</p>
+</li>
+<li>
+<p>ARQ(Automatic Repeat Request)</p>
+<ul>
+<li>If the sender does not receive an acknowledgment within a given period of time, the sender can assume the packet is lost and resend it.</li>
+</ul>
+</li>
+<li>
+<p>Stop and Wait ARP</p>
+<ul>
+<li>The sender to send a packet and wait for its acknowledgment from the receiver, then resend if timeout.</li>
+<li>Typically the timeout value is a function of the estimated <strong>round trip time (RTT)</strong> of the connection.</li>
+<li>one of the ways for improvement of this method is send at most N unacknowledged packets, which referred as window size.</li>
+<li>another one is called <strong>Go-back-N</strong>. The receiver can simply discard any out-of-order received packets.
+<ul>
+<li>
+<img src="https://i.imgur.com/6KlIECw.png" style="width:500px" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="selective-acking"><a class="markdownIt-Anchor" href="#selective-acking"></a> selective ACKing</h3>
+<ul>
+<li>The sender <strong>retransmits only those packets that it suspects were received in error</strong>. Then, the receiver would acknowledge a correctly received packet even if it is not in order. The out-of-order packets are buffered until any missing packets have been received, at which point the batch of the packets can be delivered to the application layer.</li>
+<li>Note that, even in this case, TCP would need to use a <strong>timeout</strong> as there is a possibility of ACKs getting lost in the network.</li>
+<li>In addition to using a timeout to detect loss of packets, TCP also uses <strong>duplicate acknowledgments as a means to detect packet loss</strong>. A duplicate ACK is an additional acknowledgment of a segment for which the sender has already received acknowledgment earlier. When the sender receives 3 duplicate ACKs for a packet, it considers the packet to be lost and will retransmit it instead of waiting for the timeout. This is known as fast retransmit. For example, in the figure below, once the sender receives 3 duplicate ACKs, it will retransmit packet 7 without waiting for a timeout.</li>
+<li>
+<img src="https://i.imgur.com/2dSE05y.png" style="width:500px" />
+</li>
+</ul>
+<h2 id="transmission-control"><a class="markdownIt-Anchor" href="#transmission-control"></a> Transmission Control</h2>
+<h3 id="flow-control"><a class="markdownIt-Anchor" href="#flow-control"></a> Flow control</h3>
+<ul>
+<li>The gola is to control the Transmission Rate to Protect the Receiver buffer
+<ul>
+<li>Consider hosts A and B. The sender A maintain a variable <strong>receive window(rwnd) = RcvBuffer - [LastByteRcvd - LastByteRead]</strong>
+<ul>
+<li><strong>LastByteRead</strong>: the number of the last bytes in the data stream read from the buffer by the application process in B</li>
+<li><strong>LastByteRcvd</strong>: the number of the last bytes in the data stream that has arrived from the network and has been placed in the receive buffer at B</li>
+</ul>
+</li>
+<li>
+<img src="https://i.imgur.com/kHW8UYr.png" style="width:500px" />
+</li>
+<li>The receiver advertises the value <strong>rwnd</strong> in every segment/ACK it sends back to the sender. The sender also keeps track of two variables, <strong>LastByteSent</strong> and <strong>LastByteAcked</strong>.</li>
+<li>To not overflow the receiver’s buffer, the sender must ensure that the maximum number of unacknowledged bytes it sends is no more than the <strong>rwnd</strong>. Thus we need
+<ul>
+<li><strong>LastByteSent – LastByteAcked  &lt;= rwnd</strong></li>
+</ul>
+</li>
+<li>Caveat: if receiver inform sender that rwnd is 0, and the sender stop sending message, then sender will never know new buffer space is available. TCP resolves this by sending segments of size 1 byte even after <code>rwnd = 0</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="congestion-control"><a class="markdownIt-Anchor" href="#congestion-control"></a> Congestion control</h3>
+<ul>
+<li>Controlling the transmission rate to protect the network from congestion</li>
+<li>Congestion control means to avoid the tramsmission rate of a set of senders greater than the capacity of receiver.</li>
+<li>Desired properties:
+<ul>
+<li>efficiency: go high throughput.</li>
+<li>fairness. either every flow has equal bandwidth or other policies.</li>
+<li>low delay. packets get stored in the buffer and wait for a long queue get delivered need to be avoid.</li>
+<li>fast convergence. The idea here is that a flow should converge to its fair allocation fast. Fast convergence is crucial since a typical network’s workload is composed of many short flows and few long flows. If the convergence to fair share is not fast enough, the network will still be unfair for these short flows. // TODO</li>
+</ul>
+</li>
+<li>Two approaches:
+<ul>
+<li><strong>network-assisted congestion control</strong>. Rely on network layer, use ICMP souce quench to notify the source that the network is congested. but even ICMP packets can be lost under severe congestion.</li>
+<li><strong>implement end-to-end congestion control</strong>(TCP use) the hosts infer congestion from the network behavior and adapt the transmission rate. Congestion control is a primitive provided in the transport layer, whereas routers operate at the network layer. Therefore, the feature resides in the end nodes with no support from the network. Note that this is no longer true as certain routers in the modern networks can provide explicit feedback to the end-host by using protocols such as <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Explicit_Congestion_Notification">ECN</a> and <a target="_blank" rel="noopener" href="https://web.stanford.edu/~balaji/presentations/au-prabhakar-qcn-description.pdf">QCN</a>.</li>
+</ul>
+</li>
+<li>How a host infers congestion? Signs of congestion:
+<ul>
+<li>first is packet delay. As the network becomes congested, the queues in the router buffers build-up, leading to increased packet delays. Thus, an increase in the round trip time, which can be estimated based on ACKs, can indicate congestion in the network. However, it turns out that packet delays in a network tend to be variable, making delay-based congestion inference quite tricky.</li>
+<li>another is packet loss. As the network gets congested, routers start dropping packets. Note that packets can also be lost due to other reasons such as routing errors, hardware failure, time-to-live (TTL) expiry, error in the links, or flow control problems, although it is rare.</li>
+<li>The earliest implementation of TCP used packet loss as a signal for congestion. This is mainly because TCP already detected and handled packet losses to provide reliability.</li>
+</ul>
+</li>
+<li><strong>How Does a TCP Sender Limit the Sending Rate?</strong>
+<ul>
+<li>TCP congestion control was introduced so that each source can do the following:
+<ul>
+<li>First, determine the network’s available capacity.</li>
+<li>Then, choose how many packets to send without adding to the network’s congestion level.</li>
+</ul>
+</li>
+<li>Each source uses ACKs as a packing mechanism. If the receiving host received a packet sent earlier, it would release more packets into the network.</li>
+<li>TCP uses a congestion window similar to the receive window used for flow control. It represents the maximum number of unacknowledged data that a sending host can have in transit (sent but not yet acknowledged).</li>
+<li>TCP uses a probe-and-adapt approach in adapting the congestion window. Under normal conditions, TCP increases the congestion window trying to achieve the available throughput. Once it detects congestion, the congestion window is decreased.</li>
+<li>In the end, the number of unacknowledged data that a sender can have is the minimum of the congestion window and the receive window.</li>
+<li><strong>LastByteSent – LastByteAcked &lt;= min{cwnd, rwnd}</strong></li>
+<li>In a nutshell, a TCP sender cannot send faster than the slowest component, which is either the network or the receiving host.</li>
+</ul>
+</li>
+</ul>
+<h2 id="congestion-control-at-tcp-aimd"><a class="markdownIt-Anchor" href="#congestion-control-at-tcp-aimd"></a> Congestion Control at TCP - AIMD</h2>
+<ul>
+<li>TCP decreases the window when the level of congestion goes up, and it increases the window when the level of congestion goes down. We refer to this combined mechanism as <strong>additive increase/multiplicative decrease (AIMD)</strong>.</li>
+</ul>
+<h3 id="additive-increase-ai"><a class="markdownIt-Anchor" href="#additive-increase-ai"></a> Additive Increase (AI)</h3>
+<ul>
+<li>The connection starts with a constant initial window, typically 2, and increases it additively. The idea behind additive increase is to increase the window by one packet every RTT (Round Trip Time). So, in the additive increase part of the AIMD, every time the sending host successfully sends a CongestionWindow (<strong>cwnd</strong>) number of packets it adds 1 to <strong>cwnd</strong>.</li>
+<li>Also, in practice, this increase in AIMD happens incrementally. TCP does not wait for ACKs of all the packets from the previous RTT. Instead, it increases the congestion window size as soon as each ACK arrives. In bytes, this increment is a portion of the MSS (Maximum Segment Size).</li>
+<li><code>Increment = MSS × (MSS / CongestionWindow)</code></li>
+<li><code>CongestionWindow += Increment</code></li>
+<li>
+<img src="https://i.imgur.com/IytxuUe.png" style="width:500px" />
+</li>
+</ul>
+<h3 id="multiplicative-decrease-md"><a class="markdownIt-Anchor" href="#multiplicative-decrease-md"></a> Multiplicative Decrease (MD)</h3>
+<ul>
+<li>Once TCP detects congestion, it reduces the rate at which the sender transmits. So, when the TCP sender detects that a loss event has occurred, then it sets <strong>cwnd</strong> to half of its previous value. This decrease of the <strong>cwnd</strong> for each timeout corresponds to the <strong>“multiplicative decrease”</strong> part of AIMD. For example, suppose the <strong>cwnd</strong> is currently set to 16 packets. If a loss is detected, then cwnd is set to 8. Further losses would result in the <strong>cwnd</strong> to be reduced to 4, and then to 2, and then to 1. The value of <strong>cwnd</strong> cannot be reduced further than a value of 1 packet.</li>
+<li>TCP continually increases and decreases the congestion window throughout the lifetime of the connection. If we plot <strong>cwnd</strong> with respect to time, we observe that it follows a sawtooth pattern as shown in the figure:</li>
+<li>
+<img src="https://i.imgur.com/I4g6waG.png" style="width:500px" />
+</li>
+</ul>
+<h3 id="aiad-mimd-miad"><a class="markdownIt-Anchor" href="#aiad-mimd-miad"></a> AIAD - MIMD - MIAD</h3>
+<ul>
+<li>Would all thse polices conver? If so, what’s the diff from AIMD? // TODO
+<ul>
+<li>In AIAD and MIMD, the plotted throughput line will oscillate over the full bandwidth utilization line but will not converge as was shown for AIMD. On the other hand, MIAD will converge.</li>
+<li>None of the alternative policies are as stable. The decrease policy in AIAD and MIAD is not as aggressive as AIMD, so those will not effectively address congestion control. In contrast, the increase policy in MIAD and MIMD is too aggressive.</li>
+</ul>
+</li>
+</ul>
+<h3 id="tcp-reno"><a class="markdownIt-Anchor" href="#tcp-reno"></a> TCP Reno</h3>
+<ul>
+<li>There are different implementations of TCP that use variations to control congestion and maximize bandwidth usage.</li>
+<li>For example, <strong>TCP Reno</strong> uses two types of loss events as a signal of congestion.
+<ul>
+<li>The first is <strong>triple duplicate ACKs</strong> and is considered to be mild congestion. In this case, the congestion window is reduced to half of the original congestion window.</li>
+<li>The second is <strong>timeout</strong>, i.e. when no ACK is received within a specified amount of time. It is considered a more severe form of congestion, and the congestion window is reset to the initial window size.</li>
+<li>
+<img src="https://i.imgur.com/WD3dhRx.png" style="width:500px" />
+</li>
+</ul>
+</li>
+<li>Lastly, “<strong>probing</strong>” refers to the fact that <strong>a TCP sender increases its transmission rate to probe for the rate</strong> at which congestion onset begins, backs off from that rate, and then begins probing again to see if the congestion onset rate has changed.</li>
+</ul>
+<h4 id="slow-start-in-tcp"><a class="markdownIt-Anchor" href="#slow-start-in-tcp"></a> Slow start in TCP</h4>
+<ul>
+<li>
+<p>When we have a new connection that starts from a cold start, the sending host can take much longer to increase the congestion window by using AIMD. So for a new connection, we need a mechanism that can rapidly increase the congestion window from a cold start.</p>
+</li>
+<li>
+<p>To handle this, TCP Reno has a <strong>slow start phase</strong> where the congestion window is increased exponentially instead of linearly, as in the case of AIMD. Once the congestion window becomes more than a threshold, often called the <strong>slow start threshold</strong>, it starts using AIMD.</p>
+</li>
+<li>
+<img src="https://i.imgur.com/9jxB0II.png" style="width:500px" />
+</li>
+<li>
+<img src="https://i.imgur.com/Skm8mvO.png" style="width:500px" />
+</li>
+<li>
+<p>Slow start is called “slow” start despite using an exponential increase because, in the beginning, it sends only one packet and starts doubling it after each RTT. Thus, it is slower than starting with a large window.</p>
+</li>
+<li>
+<p>Finally, we note that there is one more scenario where slow start kicks in: <strong>when a connection dies while waiting for a timeout to occur</strong>. This happens when the source has sent enough data as allowed by the flow control mechanism of TCP but times out while waiting for the ACK. Thus, the source will eventually receive a cumulative ACK to reopen the connection. Then, instead of sending the available window size worth of packets at once, it will use the slow start mechanism.</p>
+</li>
+<li>
+<p>In this case, the source will have a fair idea about the congestion window from the last time it had a packet loss. It will now use this information as the “target” value to avoid packet loss in the future. This target value is stored in a temporary variable, <strong>CongestionThreshold</strong>. Now, the source performs slow start by doubling the number of packets after each RTT until the value of <strong>cwnd</strong> reaches the congestion threshold (a knee point). After this point, it increases the window by 1 (additive increase) each RTT until it experiences packet loss (cliff point). After which, it multiplicatively decreases the window.</p>
+</li>
+<li>
+<img src="https://i.imgur.com/tpHmIkv.jpg" style="width:500px" />
+</li>
+</ul>
+<h3 id="tcp-fairness"><a class="markdownIt-Anchor" href="#tcp-fairness"></a> TCP Fairness</h3>
+<ul>
+<li>The goal is to get the throughput achieved for each link to fall somewhere near the intersection of the <strong>equal bandwidth share line</strong> and the <strong>full bandwidth utilization line</strong>, as shown in the graph below:
+<ul>
+<li>
+<img src="https://i.imgur.com/ADBvj7v.png" style="width:500px" />
+</li>
+</ul>
+</li>
+<li>At point A in the above graph, the total utilized bandwidth is less than capacity R, so no loss can occur at this point. Therefore, both the connection will increase their window size. Thus, the utilized bandwidth’s sum will grow, and the graph will move towards B.</li>
+<li>At point B, as the total transmission rate is more than capacity R, both connections may start having packet loss. As a result, they will decrease their window size to half and move towards point C.</li>
+<li>At point C, the total throughput is again less than R, so both connections will increase their window size to move towards point D and will experience packet loss at D, and so on.</li>
+<li>Thus, using AIMD leads to fairness in bandwidth sharing.</li>
+</ul>
+<h4 id="cases-that-tcp-is-not-fair"><a class="markdownIt-Anchor" href="#cases-that-tcp-is-not-fair"></a> cases that TCP is not fair</h4>
+<ul>
+<li>, connections with smaller RTT values would increase their congestion window faster than those with longer RTT values.</li>
+<li>a single application uses multiple parallel TCP connections.</li>
+</ul>
+<h2 id="tcp-cubic"><a class="markdownIt-Anchor" href="#tcp-cubic"></a> TCP CUBIC</h2>
+<ul>
+<li>
+<p>To make TCP more efficient under high bandwidth delay product networks, <strong>TCP CUBIC</strong> is one of the improvements that implemented in Linux kernel.</p>
+</li>
+<li>
+<p>Let us see what happens when TCP experiences a triple duplicate ACK, say at window=Wmax. This could be because of congestion in the network. To maintain TCP-fairness, it uses a multiplicative decrease and reduces the window to half. Let us call this Wmin.</p>
+</li>
+<li>
+<p>Now, we know that the optimal window size would be in between Wmin and Wmax  and closer to Wmax. So, instead of increasing the window size by 1, it is okay to increase the window size aggressively in the beginning. Once the W approaches closer to Wmax, it is wise to increase it slowly because that is where we detected a packet loss last time. Assuming no loss is detected this time around Wmax, we keep on increasing the window a little bit. If there is no loss still, it could be that the previous loss was due to a transient congestion or non-congestion related event. Therefore, it is okay to increase the window size with higher values now.</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/ISc6Z8N.png" style="width:500px" />
+</li>
+</ul>
+</li>
+<li>
+<p>This window growth idea is approximated in TCP CUBIC using a cubic function. Here is the exact function it uses for the window growth:</p>
+<ul>
+<li>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>W</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>C</mi><mo stretchy="false">(</mo><mi>t</mi><mo>−</mo><mi>K</mi><msup><mo stretchy="false">)</mo><mn>3</mn></msup><mo>+</mo><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W(t) = C(t-K)^3 + W_{max}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Here, Wmax is the window when the packet loss was detected. Here C is a scaling constant, and K is the time period that the above function takes to increase W to Wmax when there is no further loss event and is calculated by using the following equation:</p>
+<ul>
+<li>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>K</mi><mo>=</mo><mroot><mfrac><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mi>B</mi></mrow><mi>C</mi></mfrac><mn>3</mn></mroot></mrow><annotation encoding="application/x-tex">K = \sqrt[3]{\frac{W_{max}B}{C}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.44em;vertical-align:-0.769em;"></span><span class="mord sqrt"><span class="root"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8635em;"><span style="top:-3.0412em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size6 size1 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.671em;"><span class="svg-align" style="top:-4.4em;"><span class="pstrut" style="height:4.4em;"></span><span class="mord" style="padding-left:1em;"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-3.631em;"><span class="pstrut" style="height:4.4em;"></span><span class="hide-tail" style="min-width:1.02em;height:2.48em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='2.48em' viewBox='0 0 400000 2592' preserveAspectRatio='xMinYMin slice'><path d='M424,2478
+c-1.3,-0.7,-38.5,-172,-111.5,-514c-73,-342,-109.8,-513.3,-110.5,-514
+c0,-2,-10.7,14.3,-32,49c-4.7,7.3,-9.8,15.7,-15.5,25c-5.7,9.3,-9.8,16,-12.5,20
+s-5,7,-5,7c-4,-3.3,-8.3,-7.7,-13,-13s-13,-13,-13,-13s76,-122,76,-122s77,-121,77,-121
+s209,968,209,968c0,-2,84.7,-361.7,254,-1079c169.3,-717.3,254.7,-1077.7,256,-1081
+l0 -0c4,-6.7,10,-10,18,-10 H400000
+v40H1014.6
+s-87.3,378.7,-272.6,1166c-185.3,787.3,-279.3,1182.3,-282,1185
+c-2,6,-10,9,-24,9
+c-8,0,-12,-0.7,-12,-2z M1001 80
+h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.769em;"><span></span></span></span></span></span></span></span></span></span></p>
+</li>
+</ul>
+</li>
+<li>
+<p>It is important to note that time here is the time elapsed since the last loss event instead of the usual ACK-based timer used in TCP Reno. This also makes TCP CUBIC RTT-fair.</p>
+<ul>
+<li>The window growth depends <strong>only on the time between two consecutive congestion events</strong>. One congestion event is the time when TCP undergoes fast recovery. This feature allows CUBIC flows competing in the same bottleneck to have approximately the same window size independent of their RTTs, achiveing good RTT-fairness.</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-tcp-protocol-tcp-throughput"><a class="markdownIt-Anchor" href="#the-tcp-protocol-tcp-throughput"></a> The TCP Protocol: TCP Throughput</h3>
+<ul>
+<li>With AIMD, the congestion window increases by 1 packet every RTT. When loss is detected, the <code>cwnd</code> is cut in half.</li>
+<li>We have a simple model that predicts the throughput for a TCP connection.</li>
+<li>Assume p = the probability loss, and network delivers 1 out of every p consecutive packets, followed by a single packet loss.
+<ul>
+<li>
+<img src="https://i.imgur.com/u29aqEh.png" style="width:500px" />
+</li>
+</ul>
+</li>
+<li>Because the congestion window(<code>cwnd</code>) size increase a constant rate of 1 packet for every RTT, the height of the sawtooth is W/2, the width of the base is W/2, which corresponds to W/2 round trips, or RTT * W/2.</li>
+<li>The number of packets sent in one cycle is the area under the sawtooth. Therefore, the total number of packets sent is:
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mfrac><mi>W</mi><mn>2</mn></mfrac><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false">(</mo><mfrac><mi>W</mi><mn>2</mn></mfrac><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>=</mo><mfrac><mn>3</mn><mn>8</mn></mfrac><msup><mi>W</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(\frac{W}{2})^2 + \frac{1}{2}(\frac{W}{2})^2 = \frac{3}{8}W^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2173em;vertical-align:-0.345em;"></span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">W</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.2173em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">W</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">8</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+</li>
+<li>As stated in our assumptions about our lossy network, it delivers 1/p packets followed by a loss. So we have:
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mi>p</mi></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>8</mn></mfrac><msup><mi>W</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\frac{1}{p} = \frac{3}{8}W^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3262em;vertical-align:-0.4811em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">8</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></li>
+<li>and sloving for W gives the max value <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><msqrt><mfrac><mn>8</mn><mrow><mn>3</mn><mi>p</mi></mrow></mfrac></msqrt><mo>=</mo><mn>2</mn><mo>⋅</mo><msqrt><mfrac><mn>2</mn><mrow><mn>3</mn><mi>p</mi></mrow></mfrac></msqrt></mrow><annotation encoding="application/x-tex">W = \sqrt{\frac{8}{3p}} = 2 \cdot \sqrt{\frac{2}{3p}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.84em;vertical-align:-0.673em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.167em;"><span class="svg-align" style="top:-3.8em;"><span class="pstrut" style="height:3.8em;"></span><span class="mord" style="padding-left:1em;"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mathnormal mtight">p</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">8</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-3.127em;"><span class="pstrut" style="height:3.8em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.88em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.88em' viewBox='0 0 400000 1944' preserveAspectRatio='xMinYMin slice'><path d='M983 90
+l0 -0
+c4,-6.7,10,-10,18,-10 H400000v40
+H1013.1s-83.4,268,-264.1,840c-180.7,572,-277,876.3,-289,913c-4.7,4.7,-12.7,7,-24,7
+s-12,0,-12,0c-1.3,-3.3,-3.7,-11.7,-7,-25c-35.3,-125.3,-106.7,-373.3,-214,-744
+c-10,12,-21,25,-33,39s-32,39,-32,39c-6,-5.3,-15,-14,-27,-26s25,-30,25,-30
+c26.7,-32.7,52,-63,76,-91s52,-60,52,-60s208,722,208,722
+c56,-175.3,126.3,-397.3,211,-666c84.7,-268.7,153.8,-488.2,207.5,-658.5
+c53.7,-170.3,84.5,-266.8,92.5,-289.5z
+M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.673em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.84em;vertical-align:-0.673em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.167em;"><span class="svg-align" style="top:-3.8em;"><span class="pstrut" style="height:3.8em;"></span><span class="mord" style="padding-left:1em;"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mathnormal mtight">p</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-3.127em;"><span class="pstrut" style="height:3.8em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.88em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.88em' viewBox='0 0 400000 1944' preserveAspectRatio='xMinYMin slice'><path d='M983 90
+l0 -0
+c4,-6.7,10,-10,18,-10 H400000v40
+H1013.1s-83.4,268,-264.1,840c-180.7,572,-277,876.3,-289,913c-4.7,4.7,-12.7,7,-24,7
+s-12,0,-12,0c-1.3,-3.3,-3.7,-11.7,-7,-25c-35.3,-125.3,-106.7,-373.3,-214,-744
+c-10,12,-21,25,-33,39s-32,39,-32,39c-6,-5.3,-15,-14,-27,-26s25,-30,25,-30
+c26.7,-32.7,52,-63,76,-91s52,-60,52,-60s208,722,208,722
+c56,-175.3,126.3,-397.3,211,-666c84.7,-268.7,153.8,-488.2,207.5,-658.5
+c53.7,-170.3,84.5,-266.8,92.5,-289.5z
+M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.673em;"><span></span></span></span></span></span></span></span></span></li>
+</ul>
+</li>
+<li>The rate that data that is transmitted, i.e., throughput/bandwidth, BW, is computed as:
+<ul>
+<li>BW = data per cycle / time per cycle</li>
+</ul>
+</li>
+<li>We got:
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>W</mi><mo>=</mo><mfrac><mtext>data per cycle</mtext><mtext>time per cycle</mtext></mfrac><mo>=</mo><mfrac><mrow><mi>M</mi><mi>S</mi><mi>S</mi><mo>⋅</mo><mfrac><mn>3</mn><mn>8</mn></mfrac><msup><mi>W</mi><mn>2</mn></msup></mrow><mrow><mi>R</mi><mi>T</mi><mi>T</mi><mo>⋅</mo><mfrac><mi>W</mi><mn>2</mn></mfrac></mrow></mfrac><mo>=</mo><mfrac><mfrac><mrow><mi>M</mi><mi>S</mi><mi>S</mi></mrow><mi>p</mi></mfrac><mrow><mi>R</mi><mi>T</mi><mi>T</mi><msqrt><mfrac><mn>2</mn><mrow><mn>3</mn><mi>p</mi></mrow></mfrac></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">BW = \frac{\text{data per cycle}}{\text{time per cycle}} = \frac{MSS \cdot \frac{3}{8} W^2}{RTT \cdot \frac{W}{2}} = \frac{\frac{MSS}{p}}{RTT \sqrt{\frac{2}{3p}}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.4133em;vertical-align:-0.4811em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9322em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">time per cycle</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4461em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">data per cycle</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.836em;vertical-align:-0.6613em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1747em;"><span style="top:-2.5795em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">RTT</span><span class="mbin mtight">⋅</span><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8721em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">W</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.5508em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">MSS</span><span class="mbin mtight">⋅</span><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8443em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">8</span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.6613em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2881em;vertical-align:-1.0296em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2585em;"><span style="top:-2.4127em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">RTT</span><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1105em;"><span class="svg-align" style="top:-3.7143em;"><span class="pstrut" style="height:3.7143em;"></span><span class="mord mtight" style="padding-left:1.4286em;"><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8443em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mathnormal mtight">p</span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4829em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span><span style="top:-3.0825em;"><span class="pstrut" style="height:3.7143em;"></span><span class="hide-tail mtight" style="min-width:1.02em;height:1.8286em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.8286em' viewBox='0 0 400000 1296' preserveAspectRatio='xMinYMin slice'><path d='M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.6318em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.648em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8721em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">MSS</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4829em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.0296em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+</ul>
+</li>
+<li>We can connect all of our constants into <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mfrac><mn>3</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">C = \frac{3}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>, and compute the bandwidth:
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>W</mi><mo>=</mo><mfrac><mrow><mi>M</mi><mi>S</mi><mi>S</mi></mrow><mrow><mi>R</mi><mi>T</mi><mi>T</mi></mrow></mfrac><mo>⋅</mo><mfrac><mi>C</mi><msqrt><mi>p</mi></msqrt></mfrac></mrow><annotation encoding="application/x-tex">BW = \frac{MSS}{RTT} \cdot \frac{C}{\sqrt{p}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2173em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">RTT</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">MSS</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.4493em;vertical-align:-0.5769em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7087em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight" style="padding-left:0.833em;"><span class="mord mathnormal mtight">p</span></span></span><span style="top:-2.6687em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3313em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5769em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+</ul>
+</li>
+<li>In practice, because of additional parameters, such as small receiver windows, extra bandwidth availability, and TCP timeouts, our constant term C is usually less than 1. This means that bandwidth is bounded:
+<ul>
+<li>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>W</mi><mo>&lt;</mo><mfrac><mrow><mi>M</mi><mi>S</mi><mi>S</mi></mrow><mrow><mi>R</mi><mi>T</mi><mi>T</mi></mrow></mfrac><mo>⋅</mo><mfrac><mn>1</mn><msqrt><mi>p</mi></msqrt></mfrac></mrow><annotation encoding="application/x-tex">BW &lt; \frac{MSS}{RTT} \cdot \frac{1}{\sqrt{p}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2173em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">RTT</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">MSS</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.422em;vertical-align:-0.5769em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7087em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight" style="padding-left:0.833em;"><span class="mord mathnormal mtight">p</span></span></span><span style="top:-2.6687em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3313em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5769em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="tcp-in-datacenter"><a class="markdownIt-Anchor" href="#tcp-in-datacenter"></a> TCP in Datacenter</h2>
+<ul>
+<li>data center (DC) networks are other networks where new TCP congestion control algorithms have been proposed and implemented. There are mainly two differences that have led to this:
+<ol>
+<li>The flow characteristics of DC networks are different from the public Internet. For example, there are many short flows that are sensitive to delay. Thus, the congestion control mechanisms are optimized for delay and throughput, not just the latter alone.</li>
+<li>A private entity often owns DC networks. This makes changing the transport layer easier since the new algorithms do not need to coexist with the older ones.</li>
+</ol>
+</li>
+<li>DCTCP and TIMELY are two popular examples of TCP designed for DC environments. DCTCP is based on a hybrid approach of using both implicit feedback, e.g., packet loss, and explicit feedback from the network using ECN for congestion control. TIMELY uses the gradient of RTT to adjust its window.</li>
+</ul>
+<h2 id="terms"><a class="markdownIt-Anchor" href="#terms"></a> Terms</h2>
+<ul>
+<li><strong>Round-trip time (RTT)</strong> is the duration in milliseconds (ms) it takes for a network request to go from a starting point to a destination and back again to the starting point.
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cloudflare.com/learning/cdn/glossary/round-trip-time-rtt/">https://www.cloudflare.com/learning/cdn/glossary/round-trip-time-rtt/</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+  
+  <div class="divider"></div>
+</div>
+
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

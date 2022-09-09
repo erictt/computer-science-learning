@@ -27,6 +27,7 @@
 ## CS6250 Computer Networks
 
 * [Week 1 - Internet Architecture](/cs6250/week-1-internet-architecture/index.html)
+* [Week 2 - Transport and Application Layers](/cs6250/week-2-transport-and-application-layers/index.html)
 
 <!--
 * [Chapter 1 - Introduction](/computer-networking/chapter-1/index.html)

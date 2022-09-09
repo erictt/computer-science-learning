@@ -1,5 +1,7 @@
 # Introduction
 
+[toc]
+
 ## What is the Internet?
 
 * A network of networks
