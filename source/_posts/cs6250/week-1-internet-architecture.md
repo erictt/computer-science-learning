@@ -1,4 +1,4 @@
-# Internet Architecture
+# Lesson 1: Internet Architecture
 
 ## The OSI Model(7 layers) vs The Traditional Model(5 layers)
 

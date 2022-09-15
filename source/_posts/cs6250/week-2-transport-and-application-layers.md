@@ -1,5 +1,5 @@
 
-# Week 2 - Transport and Application Layers
+# Lesson 2 : Transport and Application Layers
 
 ## Introduction
 

@@ -28,15 +28,17 @@
 
 * [Week 1 - Internet Architecture](/cs6250/week-1-internet-architecture/index.html)
 * [Week 2 - Transport and Application Layers](/cs6250/week-2-transport-and-application-layers/index.html)
-
+* [Week 3 - Intradomain Routing](/cs6250/week-3-intradomain-routing/index.html)
+* 
 <!--
 * [Chapter 1 - Introduction](/computer-networking/chapter-1/index.html)
 -->
 
 ## CS6200 Graduate Introduction to Operating Systems
 
-* [P1 - Preparation](/cs6200/p1-preparation/index.html)
+* [P0 - Preparation](/cs6200/p1-preparation/index.html)
 * [P1L2 - Introduction](/cs6200/p1l2-introduction/index.html)
+* [P2L1 - Processes and Process Management](/cs6200/p2l1-processes-and-process-management/index.html)
 
 <!--
 * [Virtualization 1 - CPU](/introduction-to-operating-systems/1-virtualization-1/index.html)
