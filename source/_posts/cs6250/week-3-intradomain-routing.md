@@ -8,7 +8,7 @@ This lecture, we learn about the protocols that enable data to travel over a "go
 * Two approaches to structuring network control plane:
     * **per-router control (traditional) <-- this lesson focus on**
         * Individual routing algorithm components in each and every router interact in the control plane
-        * <img src="https://i.imgur.com/FjdfGIk.jpg)" style="width: 500px" />
+        * <img src="https://i.imgur.com/FjdfGIk.jpg" style="width: 500px" />
     * logically centralized control (software defined networking)
         * Remote controller computes, installs forwarding tables in routers
         * <img src="https://i.imgur.com/1nAAdMr.jpg" style="width: 500px" />
