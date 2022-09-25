@@ -29,7 +29,6 @@
 * [Week 1 - Internet Architecture](/cs6250/week-1-internet-architecture/index.html)
 * [Week 2 - Transport and Application Layers](/cs6250/week-2-transport-and-application-layers/index.html)
 * [Week 3 - Intradomain Routing](/cs6250/week-3-intradomain-routing/index.html)
-* [Week 3 - Intradomain Routing](/cs6250/week-3-intradomain-routing/index.html)
 * [Week 4 - AS Relationships and Interdomain Routing](/cs6250/week-4-as-relationships-and-interdomain-routing/index.html)
 
 ## CS6200 Graduate Introduction to Operating Systems

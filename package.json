@@ -19,6 +19,7 @@
     "hexo-renderer-dartsass": "^0.1.2",
     "hexo-renderer-stylus": "^2.0.1",
     "hexo-renderer-markdown-it-plus": "git@github.com:erictt/hexo-renderer-markdown-it-plus.git",
-    "hexo-server": "^1.0.0"
+    "hexo-server": "^1.0.0",
+    "hexo-insert-toc": "*"
   }
 }

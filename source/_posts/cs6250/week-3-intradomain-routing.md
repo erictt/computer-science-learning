@@ -1,5 +1,8 @@
 #  Lesson 3: Intradomain Routing
 
+<!-- toc -->
+----
+
 This lecture, we learn about the protocols that enable data to travel over a "good" path from the source to the destination within a single administrative domain.
 
 * Network-layer functions:

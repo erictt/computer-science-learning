@@ -1,5 +1,8 @@
 # Week 4 - AS Relationships and Interdomain Routing
 
+<!-- toc -->
+----
+
 Summary:
 
 * Protocol: BGP 
@@ -18,14 +21,14 @@ Summary:
     * access ISPs (or Tier-3),
     * regional ISPs (or Tier-2),
     * large global scale ISPs (or Tier-1), e.g. AT&T, NTT, Level-3
-* IXP: the physical infrastructure, where multiple networks (e.g., ISPs and CDNs) can interconnect and exchange traffic locally.
-* CDNs: control of how the content is delivered to the end-users
+* **IXP**: the physical infrastructure, where multiple networks (e.g., ISPs and CDNs) can interconnect and exchange traffic locally.
+* **CDNs**: control of how the content is delivered to the end-users
 * More interconnection options in the Internet ecosystem: Points of Presence (PoPs), multi-homing, and peering. 
-    * PoPs are one (or more) routers in a provider's network, which a customer network can use to connect to that provider.
-* Autonomous Systems(AS): a group of routers (including the links among them) that operate under the same administrative authority. An ISP, for example, may operate as a single AS, or it may operate through multiple ASes. Each AS implements its own set of policies, makes its own traffic engineering decisions and interconnection strategies, and determines how the traffic leaves and enters its network.
+    * **PoPs** are one (or more) routers in a provider's network, which a customer network can use to connect to that provider.
+* **Autonomous Systems(AS)**: a group of routers (including the links among them) that operate under the same administrative authority. An ISP, for example, may operate as a single AS, or it may operate through multiple ASes. Each AS implements its own set of policies, makes its own traffic engineering decisions and interconnection strategies, and determines how the traffic leaves and enters its network.
 * Protocols for routing traffic between and within ASes:
-    * The border routers of the ASes use the Border Gateway Protocol (BGP) to exchange routing information with one another.
-    * In contrast, the Internal Gateway Protocols (IGPs) operate within an AS, and they are focused on "optimizing a path metric" within that network. Example IGPs include Open Shortest Paths First (OSPF), Intermediate System - Intermediate System (IS-IS), Routing Information Protocol (RIP), and E-IGRP. 
+    * The border routers of the ASes use the **Border Gateway Protocol (BGP)** to exchange routing information with one another.
+    * In contrast, the **Internal Gateway Protocols (IGPs)** operate within an AS, and they are focused on "optimizing a path metric" within that network. Example IGPs include Open Shortest Paths First (OSPF), Intermediate System - Intermediate System (IS-IS), Routing Information Protocol (RIP), and E-IGRP. 
 
 ### AS Business Relationships
  

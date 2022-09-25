@@ -89,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
 <li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
 <li><a href="/cs6250/week-3-intradomain-routing/index.html">Week 3 - Intradomain Routing</a></li>
-<li><a href="/cs6250/week-3-intradomain-routing/index.html">Week 3 - Intradomain Routing</a></li>
 <li><a href="/cs6250/week-4-as-relationships-and-interdomain-routing/index.html">Week 4 - AS Relationships and Interdomain Routing</a></li>
 </ul>
 <h2 id="cs6200-graduate-introduction-to-operating-systems"><a class="markdownIt-Anchor" href="#cs6200-graduate-introduction-to-operating-systems"></a> CS6200 Graduate Introduction to Operating Systems</h2>
@@ -276,6 +275,38 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1 id="week-4-as-relationships-and-interdomain-routing"><a class="markdownIt-Anchor" href="#week-4-as-relationships-and-interdomain-routing"></a> Week 4 - AS Relationships and Interdomain Routing</h1>
+<!-- toc -->
+<ul>
+<li><a href="#Autonomous-Systems-and-Internet-Interconnection">Autonomous Systems and Internet Interconnection</a>
+<ul>
+<li><a href="#AS-Business-Relationships">AS Business Relationships</a></li>
+</ul>
+</li>
+<li><a href="#BGP">BGP</a>
+<ul>
+<li><a href="#BGP-Routing-Policies-Importing-and-Exporting-Routes">BGP Routing Policies: Importing and Exporting Routes</a></li>
+<li><a href="#BGP-and-Design-Goals">BGP and Design Goals</a></li>
+<li><a href="#BGP-Protocol-Basics">BGP Protocol Basics</a></li>
+<li><a href="#iBGP-and-eBGP">iBGP and eBGP</a></li>
+<li><a href="#BGP-Decision-Process-Selecting-Routes-at-a-Router">BGP Decision Process: Selecting Routes at a Router</a>
+<ul>
+<li><a href="#The-Router's-Decision-Process">The Router’s Decision Process</a></li>
+</ul>
+</li>
+<li><a href="#Challenges-with-BGP">Challenges with BGP</a>
+<ul>
+<li><a href="#Scalability-and-Misconfigurations">Scalability and Misconfigurations</a></li>
+</ul>
+</li>
+<li><a href="#Peering-at-Internet-Exchange-Points(IXPs)">Peering at Internet Exchange Points(IXPs)</a></li>
+<li><a href="#Peering-at-IXPs-How-Does-a-Route-Server-Work%3F">Peering at IXPs: How Does a Route Server Work?</a></li>
+<li><a href="#Remote-Peering-%255BOptional%255D">Remote Peering [Optional]</a></li>
+<li><a href="#BGP-Configuration-Verification-%255BOptional%255D">BGP Configuration Verification [Optional]</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<hr />
 <p>Summary:</p>
 <ul>
 <li>Protocol: BGP</li>
@@ -304,25 +335,25 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>
-<p>IXP: the physical infrastructure, where multiple networks (e.g., ISPs and CDNs) can interconnect and exchange traffic locally.</p>
+<p><strong>IXP</strong>: the physical infrastructure, where multiple networks (e.g., ISPs and CDNs) can interconnect and exchange traffic locally.</p>
 </li>
 <li>
-<p>CDNs: control of how the content is delivered to the end-users</p>
+<p><strong>CDNs</strong>: control of how the content is delivered to the end-users</p>
 </li>
 <li>
 <p>More interconnection options in the Internet ecosystem: Points of Presence (PoPs), multi-homing, and peering.</p>
 <ul>
-<li>PoPs are one (or more) routers in a provider’s network, which a customer network can use to connect to that provider.</li>
+<li><strong>PoPs</strong> are one (or more) routers in a provider’s network, which a customer network can use to connect to that provider.</li>
 </ul>
 </li>
 <li>
-<p>Autonomous Systems(AS): a group of routers (including the links among them) that operate under the same administrative authority. An ISP, for example, may operate as a single AS, or it may operate through multiple ASes. Each AS implements its own set of policies, makes its own traffic engineering decisions and interconnection strategies, and determines how the traffic leaves and enters its network.</p>
+<p><strong>Autonomous Systems(AS)</strong>: a group of routers (including the links among them) that operate under the same administrative authority. An ISP, for example, may operate as a single AS, or it may operate through multiple ASes. Each AS implements its own set of policies, makes its own traffic engineering decisions and interconnection strategies, and determines how the traffic leaves and enters its network.</p>
 </li>
 <li>
 <p>Protocols for routing traffic between and within ASes:</p>
 <ul>
-<li>The border routers of the ASes use the Border Gateway Protocol (BGP) to exchange routing information with one another.</li>
-<li>In contrast, the Internal Gateway Protocols (IGPs) operate within an AS, and they are focused on “optimizing a path metric” within that network. Example IGPs include Open Shortest Paths First (OSPF), Intermediate System - Intermediate System (IS-IS), Routing Information Protocol (RIP), and E-IGRP.</li>
+<li>The border routers of the ASes use the <strong>Border Gateway Protocol (BGP)</strong> to exchange routing information with one another.</li>
+<li>In contrast, the <strong>Internal Gateway Protocols (IGPs)</strong> operate within an AS, and they are focused on “optimizing a path metric” within that network. Example IGPs include Open Shortest Paths First (OSPF), Intermediate System - Intermediate System (IS-IS), Routing Information Protocol (RIP), and E-IGRP.</li>
 </ul>
 </li>
 </ul>

@@ -128,4 +128,5 @@ markdown_it_plus:
       enable: true
       options:
         strict: false
-
+hexo-insert-toc:
+  maxdepth: 4
