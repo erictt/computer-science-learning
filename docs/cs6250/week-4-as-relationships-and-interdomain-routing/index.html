@@ -367,7 +367,7 @@ function sidebar_toggle() {
 <ul>
 <li>In the case of Tier-1 ISPs, the two peers need to be of similar size and handle proportional amounts of traffic. Otherwise, the larger ISP would lack the incentive to enter a peering relationship with a smaller size ISP.</li>
 <li>When two small ISPs peer, they both save the money they would otherwise pay to their providers by directly forwarding traffic between themselves instead of through their providers.</li>
-<li>Quiz: In a peering relationship, the traffic exchanged between the two peers must be highly asymmetric so that there is enough incentive for both parties to peer with each other.</li>
+<li>In a peering relationship, the traffic exchanged between the two peers must be highly asymmetric so that there is enough incentive for both parties to peer with each other(Quiz).</li>
 </ul>
 </li>
 </ul>
@@ -382,18 +382,20 @@ function sidebar_toggle() {
 <h2 id="bgp"><a class="markdownIt-Anchor" href="#bgp"></a> BGP</h2>
 <h3 id="bgp-routing-policies-importing-and-exporting-routes"><a class="markdownIt-Anchor" href="#bgp-routing-policies-importing-and-exporting-routes"></a> BGP Routing Policies: Importing and Exporting Routes</h3>
 <ul>
-<li>Exporting Routes
+<li>
+<p>Exporting Routes</p>
 <ul>
 <li>Different types of routes that an AS (let’s call it X) decides whether to export.
 <ul>
-<li>Routes learned from customers: These are the routes X receives as advertisements from its customers. Since provider X is getting paid to provide reachability to a customer AS, it makes sense that X wants to advertise these customer routes to as many other neighboring ASes as possible.</li>
-<li>Routes learned from providers: These are the routes X receives as advertisements from its providers. Advertising these routes does not make sense since X does not have the financial incentive to carry traffic for its provider’s routes.</li>
-<li>Routes learned from peers: These are routes that X receives as advertisements from its peers. As we saw earlier, it does not make sense for X to advertise to provider A the routes it receives from provider B.</li>
+<li><strong>Routes learned from customers</strong>: These are the routes X receives as advertisements from its customers. Since provider X is getting paid to provide reachability to a customer AS, it makes sense that X wants to advertise these customer routes to as many other neighboring ASes as possible.</li>
+<li><strong>Routes learned from peers</strong>: These are routes that X receives as advertisements from its peers. As we saw earlier, it does not make sense for X to advertise to provider A the routes it receives from provider B due to competition.</li>
+<li><strong>Routes learned from providers</strong>: These are the routes X receives as advertisements from its providers. Advertising these routes does not make sense since X does not have the financial incentive to carry traffic for its provider’s routes.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Importing Routes
+<li>
+<p>Importing Routes</p>
 <ul>
 <li>When an AS receives multiple route advertisements towards the same destination from multiple ASes, it needs to rank the routes before selecting which one to import. In order of preference, the imported routes are <strong>the customer routes, then the peer routes, and finally the provider routes</strong>(Quiz). The reasoning behind this ranking is that an AS…
 <ul>
@@ -470,13 +472,13 @@ function sidebar_toggle() {
 <img src="https://i.imgur.com/OVJqXFC.png" style="width: 600px" />
 </li>
 <li>
-<p>[Quiz] Finally, we note that iBGP is not another IGP-like protocol (e.g., RIP or OSPF). IGP-like protocols are used to establish paths between the internal routers of an AS based on specific costs within the AS. In contrast, iBGP is only used to disseminate external routes within the AS.</p>
+<p>Finally, we note that iBGP is not another IGP-like protocol (e.g., RIP or OSPF). IGP-like protocols are used to establish paths between the internal routers of an AS based on specific costs within the AS. In contrast, iBGP is only used to disseminate external routes within the AS.(Quiz)</p>
 <ul>
 <li>IGP-like protocols are used to establish paths between the internal routes of an AS based on specific osts within AS. iBGP is used for disseminaing <strong>external</strong> routes within the AS</li>
 </ul>
 </li>
 <li>
-<p>[Quiz] Diff between iBGP and eBGP: both for disseminating <strong>external</strong> routes. eBGP session is  established between two <strong>border routes</strong> that belong to different ASes. An iBGP session is established between routers that belong to the same AS.</p>
+<p>Diff between iBGP and eBGP: both for disseminating <strong>external</strong> routes. eBGP session is  established between two <strong>border routes</strong> that belong to different ASes. An iBGP session is established between routers that belong to the same AS. (Quiz)</p>
 </li>
 </ul>
 <h3 id="bgp-decision-process-selecting-routes-at-a-router"><a class="markdownIt-Anchor" href="#bgp-decision-process-selecting-routes-at-a-router"></a> BGP Decision Process: Selecting Routes at a Router</h3>
@@ -559,7 +561,7 @@ c. or by the protocol (e.g., if a route is learned through eBGP or iBGP).</p>
 <ul>
 <li>What are IXPs?
 <ul>
-<li>IXPs are physical infrastructures that provide the means for ASes to interconnect and directly exchange traffic with one another. The ASes that interconnect at an IXP are called participant ASes. The physical infrastructure of an IXP is usually a network of switches located either in the same physical location or distributed over a region or even at a global scale. Typically, the infrastructure has a fully redundant switching fabric that provides fault tolerance. The equipment is usually located in facilities such as data centers, which provide reliability, sufficient power, and physical security.</li>
+<li><u>IXPs are physical infrastructures that provide the means for ASes to interconnect and directly exchange traffic with one another.</u> The ASes that interconnect at an IXP are called participant ASes. The physical infrastructure of an IXP is usually a network of switches located either in the same physical location or distributed over a region or even at a global scale. Typically, the infrastructure has a fully redundant switching fabric that provides fault tolerance. The equipment is usually located in facilities such as data centers, which provide reliability, sufficient power, and physical security.</li>
 <li>For example, in the figure below we see an IXP infrastructure (2012), called DE-CIX that is located in Frankfurt, Germany. The figure shows the core of the infrastructure (noted as 3 and 6) and additional sites (1-4 and 7) that are located at different colocation facilities in the area.</li>
 <li>
 <img src="https://i.imgur.com/qARL3wh.png" style="width: 600px" />
@@ -576,7 +578,7 @@ c. or by the protocol (e.g., if a route is learned through eBGP or iBGP).</p>
 </li>
 <li>What are the steps for an AS to peer at an IXP?
 <ul>
-<li>Each participating network must have a public Autonomous System Number (ASN). Each participant brings a router to the IXP facility (or one of its locations if the IXP has an infrastructure distributed across multiple data centers) and connects one of its ports to the IXP switch. The router of each participant must be able to run BGP since the exchange of routes across the IXP is via BGP only. In addition, each participant must agree to the IXP’s General Terms and Conditions (GTC).</li>
+<li>Each participating network must have a <strong>public Autonomous System Number (ASN)</strong>. Each participant brings a router to the IXP facility (or one of its locations if the IXP has an infrastructure distributed across multiple data centers) and connects one of its ports to the IXP switch. The router of each participant must be able to run BGP since the exchange of routes across the IXP is via BGP only. In addition, each participant must agree to the IXP’s General Terms and Conditions (GTC).</li>
 <li>Two networks may publicly peer at IXP by using the IXP infrastructure to establish a connection for exchanging traffic according to their own requirements and business relationships. But, first, each network incurs a one-time cost to establish a circuit from the premises to the IXP. Then, there is a monthly charge for using a chosen IXP port, where higher port speeds are more expensive. The entity that owns and operates the IXP might also charge an annual membership fee. In particular, exchanging traffic over an established public peering link at an IXP is in principle “settlement-free” (i.e., involves no form of payment between the two parties) as IXPs typically do not charge for exchanged traffic volume. Moreover, IXPs usually do not interfere with the bilateral relationships between the IXP’s participants unless they violate the GTC. For example, the two parties of an existing IXP peering link are free to use that link in ways that involve paid peering. Other networks may even offer transit across an IXP’s switching fabric. Depending on the IXP, the time it takes to establish a public peering link can range from a few days to a couple of weeks.</li>
 </ul>
 </li>
@@ -602,7 +604,7 @@ c. or by the protocol (e.g., if a route is learned through eBGP or iBGP).</p>
 </ul>
 <h3 id="peering-at-ixps-how-does-a-route-server-work"><a class="markdownIt-Anchor" href="#peering-at-ixps-how-does-a-route-server-work"></a> Peering at IXPs: How Does a Route Server Work?</h3>
 <ul>
-<li>two ASes exchange traffic through the switching fabric utilize a two-way BGP session, called a <strong>bilateral BGP session</strong>. which does not scale with many participants. To mitigate this, some IXPs operate a route server, which helps to make peering more manageable. In summary, a <strong>Route Server (RS)</strong> does the following:
+<li>Two ASes exchange traffic through the switching fabric utilize a two-way BGP session, called a <strong>bilateral BGP session</strong>. which does not scale with many participants. To mitigate this, some IXPs operate a route server, which helps to make peering more manageable. In summary, a <strong>Route Server (RS)</strong> does the following:
 <ul>
 <li>It collects and shares routing information from its peers or participants of the IXP that connect to the RS.</li>
 <li>It executes its own BGP decision process and re-advertises the resulting information (e.g., best route selection) to all RS’s peer routers.</li>
