@@ -12,7 +12,7 @@ Summary:
     * Internet Service Providers (ISPs), 
     * Internet Exchange Points (IXPs), 
     * Content Delivery Networks (CDNs). 
-    * <img src="https://https://i.imgur.com/R8W0lp6.png" style="width: 500px" />
+    * <img src="https://i.imgur.com/R8W0lp6.png" style="width: 500px" />
 
 * ISP has three tiers: 
     * access ISPs (or Tier-3),
@@ -35,7 +35,7 @@ Summary:
         * In the case of Tier-1 ISPs, the two peers need to be of similar size and handle proportional amounts of traffic. Otherwise, the larger ISP would lack the incentive to enter a peering relationship with a smaller size ISP. 
         * When two small ISPs peer, they both save the money they would otherwise pay to their providers by directly forwarding traffic between themselves instead of through their providers.
         * Quiz: In a peering relationship, the traffic exchanged between the two peers must be highly asymmetric so that there is enough incentive for both parties to peer with each other.
-* <img src="https://https://i.imgur.com/FJ31KZS.jpg" style="width: 500px" />
+* <img src="https://i.imgur.com/FJ31KZS.jpg" style="width: 500px" />
 
 * How do providers charge customers? A fixed price or the bandwidth used.
     
@@ -69,7 +69,7 @@ Summary:
 
 * In the following diagram, we can see three different ASes along with iBGP (e.g., between 3c and 3a) and eBGP (e.g., between 3a and 1c ) sessions between their border routers.
 
-* <img src="https://https://i.imgur.com/H8TylTW.png" style="width: 500px" />
+* <img src="https://i.imgur.com/H8TylTW.png" style="width: 500px" />
 
 
 * **BGP messages**: After BGP peers establish a session,  they can exchange BGP messages to provide reachability information and enforce routing policies. We have two types of BGP messages: 
@@ -93,11 +93,11 @@ Summary:
 
 * The eBGP speaking routers learn routes to external prefixes and disseminate them to all routers within the AS. This dissemination is happening with iBGP sessions. For example, as the figure below shows, the border routers of AS1, AS2, and AS3 establish eBGP sessions to learn external routes. Inside AS2, these routes are disseminated using iBGP sessions.
 
-* <img src="https://https://i.imgur.com/K6Wh3Qc.png" style="width: 500px" />
+* <img src="https://i.imgur.com/K6Wh3Qc.png" style="width: 500px" />
 
 * The dissemination of routes within the AS is done by establishing a full mesh of iBGP sessions between the internal routers. Each eBGP speaking router has an iBGP session with every other BGP router in the AS to send updates about the routes it learns (over eBGP).
 
-* <img src="https://https://i.imgur.com/OVJqXFC.png" style="width: 500px" />
+* <img src="https://i.imgur.com/OVJqXFC.png" style="width: 500px" />
 
 * [Quiz] Finally, we note that iBGP is not another IGP-like protocol (e.g., RIP or OSPF). IGP-like protocols are used to establish paths between the internal routers of an AS based on specific costs within the AS. In contrast, iBGP is only used to disseminate external routes within the AS.
     * IGP-like protocols are used to establish paths between the internal routes of an AS based on specific osts within AS. iBGP is used for disseminaing **external** routes within the AS
@@ -106,7 +106,7 @@ Summary:
 ### BGP Decision Process: Selecting Routes at a Router
 
 * Let's zoom into what is happening as the routers exchange BGP messages to select routes.
-* <img src="https://https://i.imgur.com/6maGQw8.png" style="width: 500px" />
+* <img src="https://i.imgur.com/6maGQw8.png" style="width: 500px" />
 * A router receives incoming BGP messages and processes them. When a router receives advertisements
     1. It first <u>applies the import policies to exclude routes from further consideration</u>. 
     2. Then the router <u>implements the decision process to select the best routes</u> that reflect the policy in place. 
@@ -118,12 +118,12 @@ Summary:
 *  Suppose that a router receives multiple route advertisements to the same destination. How does the router choose which route to import? 
     *  In a nutshell, the decision process is how the router compares routes. It goes through the list of attributes in the route advertisements. In the simplest scenario, the router uses the attribute of the path length to select the route with the fewest number of hops. Rarely occurs in practice, though.
     *  A router compares a pair of routes by going through the list of attributes, as shown in the figure below:
-        *  <img src="https://https://i.imgur.com/VvFYozj.png" style="width: 500px" />
+        *  <img src="https://i.imgur.com/VvFYozj.png" style="width: 500px" />
 *  Let's focus on two attributes, **LocalPref** and **MED (Multi-Exit Discriminator)**.
     * The **LocalPref** attribute is used to prefer routes learned through a specific AS over other ASes. For example, suppose AS B learns of a route to the same destination x via A and C. If B prefers to route its traffic through A, due to peering or business, it can assign a higher LocalPref value to routes it learns from A. And therefore, by using LocalPref, AS B can control where the traffic exits the AS. In other words, **it will influence which routers will be selected as exit points for the traffic that leaves the AS** **(outbound traffic)**. 
-        * <img src="https://https://i.imgur.com/jsmj3oP.png" style="width: 500px" />
+        * <img src="https://i.imgur.com/jsmj3oP.png" style="width: 500px" />
     * An AS ranks the routes it learns by preferring first the routes learned from its customers, then the routes learned from its peers, and finally, the routes learned from its providers. An operator can assign a non-overlapping range of values to the LocalPref attribute according to the type of relationship. So assigning different LocalPref ranges will influence which routes are imported. The following image shows a scheme that can be used to reflect the business relationships:
-        * <img src="https://https://i.imgur.com/if7w7W2.png" style="width: 500px" />
+        * <img src="https://i.imgur.com/if7w7W2.png" style="width: 500px" />
     * The **MED (Multi-Exit Discriminator)** value is used by ASes connected by multiple links to designate which links are preferred for **inbound traffic**. For example, the network operator of AS B will assign different MED values to its routes advertised to AS A through R1 and different MED values to its routes advertised through R2. As a result of different MED values for the same routes, AS A will be influenced to choose R1 to forward traffic to AS B, if R1 has a lower MED value, and if all other attributes are equal.  
 
     * We have seen in the previous topics that an AS does not have an economic incentive to export routes that it learns from providers or peers to other providers or peers. An AS can reflect this by tagging routes with a MED value to "staple" the type of business relationship. Also, an AS filters routes with specific MED values before exporting them to other ASes. Finally, we note that influencing the route exports will also affect how the traffic enters an AS (the routers that are entry points for the traffic that enters the AS).
@@ -148,7 +148,7 @@ Summary:
 * What are IXPs?
     * IXPs are physical infrastructures that provide the means for ASes to interconnect and directly exchange traffic with one another. The ASes that interconnect at an IXP are called participant ASes. The physical infrastructure of an IXP is usually a network of switches located either in the same physical location or distributed over a region or even at a global scale. Typically, the infrastructure has a fully redundant switching fabric that provides fault tolerance. The equipment is usually located in facilities such as data centers, which provide reliability, sufficient power, and physical security. 
     * For example, in the figure below we see an IXP infrastructure (2012), called DE-CIX that is located in Frankfurt, Germany. The figure shows the core of the infrastructure (noted as 3 and 6) and additional sites (1-4 and 7) that are located at different colocation facilities in the area.
-    * <img src="https://https://i.imgur.com/qARL3wh.png" style="width: 500px" />
+    * <img src="https://i.imgur.com/qARL3wh.png" style="width: 500px" />
 * Why have IXPs become increasingly popular, and  why are they important to study?
     1. **IXPs are interconnection hubs handling large traffic volumes.**
     2. **An important role in mitigating DDoS attacks**: As IXPs have become increasingly popular interconnection hubs, they can observe the traffic to/from an increasing number of participant ASes. In this role, IXPs can play the role of a “shield” to mitigate DDoS attacks and stop the DDoS traffic before it hits a participant AS. As a result, there are many DDoS events that IXPs have mitigated. 
@@ -177,7 +177,7 @@ Summary:
     * It collects and shares routing information from its peers or participants of the IXP that connect to the RS.
     * It executes its own BGP decision process and re-advertises the resulting information (e.g., best route selection) to all RS's peer routers.
 * The figure below shows a **multi-lateral BGP peering session**, an RS that facilitates and manages how multiple ASes can "talk" on the control plane simultaneously. 
-* <img src="https://https://i.imgur.com/9qiOFQL.png" style="width: 500px" />
+* <img src="https://i.imgur.com/9qiOFQL.png" style="width: 500px" />
 * How does a route server (RS) maintain multi-lateral peering sessions?
     * Let's look at a modern route server architecture in the figure below to understand how it works. A typical routing daemon maintains a Routing Information Base (RIB), which contains all BGP paths that it receives from its peers - the Master RIB. In addition, the route server also maintains AS-specific RIBs to keep track of the individual BGP sessions they maintain with each participant AS. 
     * Route servers maintain two types of route filters. **Import filters** are applied to ensure that each member AS only advertises routes that it should advertise(Quiz). And **export filters** are typically triggered by the IXP members themselves to restrict the set of other IXP member ASes that receive their routes. Let's look at an example where AS X and AS Z exchange routes through a multi-lateral peering session that the route server holds. The steps are as follows:
@@ -185,7 +185,7 @@ Summary:
         2. The route server uses the peer-specific import filter to check whether AS X is allowed to advertise p1. If it passes the filter, the prefix p1 is added to the Master RIB. 
         3. The route server applies the peer-specific export filter to check if AS X allows AS Z to receive p1, and if true, it adds that route to the AS Z-specific RIB.
         4. Lastly, the route server advertises p1 to AS Z with AS X as the next hop.
-    * <img src="https://https://i.imgur.com/sr3spll.png" style="width: 500px" />
+    * <img src="https://i.imgur.com/sr3spll.png" style="width: 500px" />
 
 ### Remote Peering [Optional] 
 
@@ -193,7 +193,7 @@ Summary:
     * Remote peering (RP) is peering at the peering point without the necessary physical presence. The remote peering provider is an entity that sells access to IXPs through their own infrastructure. RP removes the barrier to connecting to IXPs around the world, which in itself can be a more cost-effective solution for localized or regional network operators. 
 
 * How to detect remote peering? 
-    * <img src="https://https://i.imgur.com/mSk7Qkl.png" style="width: 500px" />
+    * <img src="https://i.imgur.com/mSk7Qkl.png" style="width: 500px" />
 * The primary method of identifying remote peering is to measure the round-trip time (RTT) between a vantage point (VP) inside the IXP and the IXP peering interface of a member. However, this method fails to account for the changing landscape of IXPs today and even misinfers latencies of remote members as local and local members as being remote. Instead, a combination of methods can achieve detection of remote peering in a more tractable way, some of which include:
     * **Information about the port capacity**: One way to find reseller customers is via port capacities. The capacity of the peering port for each IXP member can be obtained through the IXP website or PeeringDB. IXPs offer ASes connectivity to ports with capacity typically between 1 and 100 Gbit/s. But resellers usually offer connectivity through their virtual ports with smaller capacities and lower prices. 
     * **Gathering colocation information**: An AS needs to be physically present (i.e., actually deploy routing equipment) in at least one colocation facility where the IXP has deployed switching equipment. It should be easy to locate the colocation facilities where both AS and IXPs are colocated, though this information is imperfect in practice.  

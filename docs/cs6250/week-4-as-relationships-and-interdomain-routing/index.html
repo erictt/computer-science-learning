@@ -291,7 +291,7 @@ function sidebar_toggle() {
 <li>Internet Exchange Points (IXPs),</li>
 <li>Content Delivery Networks (CDNs).</li>
 <li>
-<img src="https://https://i.imgur.com/R8W0lp6.png" style="width: 500px" />
+<img src="https://i.imgur.com/R8W0lp6.png" style="width: 500px" />
 </li>
 </ul>
 </li>
@@ -342,7 +342,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>
-<img src="https://https://i.imgur.com/FJ31KZS.jpg" style="width: 500px" />
+<img src="https://i.imgur.com/FJ31KZS.jpg" style="width: 500px" />
 </li>
 <li>
 <p>How do providers charge customers? A fixed price or the bandwidth used.</p>
@@ -393,7 +393,7 @@ function sidebar_toggle() {
 <p>In the following diagram, we can see three different ASes along with iBGP (e.g., between 3c and 3a) and eBGP (e.g., between 3a and 1c ) sessions between their border routers.</p>
 </li>
 <li>
-<img src="https://https://i.imgur.com/H8TylTW.png" style="width: 500px" />
+<img src="https://i.imgur.com/H8TylTW.png" style="width: 500px" />
 </li>
 <li>
 <p><strong>BGP messages</strong>: After BGP peers establish a session,  they can exchange BGP messages to provide reachability information and enforce routing policies. We have two types of BGP messages:</p>
@@ -430,13 +430,13 @@ function sidebar_toggle() {
 <p>The eBGP speaking routers learn routes to external prefixes and disseminate them to all routers within the AS. This dissemination is happening with iBGP sessions. For example, as the figure below shows, the border routers of AS1, AS2, and AS3 establish eBGP sessions to learn external routes. Inside AS2, these routes are disseminated using iBGP sessions.</p>
 </li>
 <li>
-<img src="https://https://i.imgur.com/K6Wh3Qc.png" style="width: 500px" />
+<img src="https://i.imgur.com/K6Wh3Qc.png" style="width: 500px" />
 </li>
 <li>
 <p>The dissemination of routes within the AS is done by establishing a full mesh of iBGP sessions between the internal routers. Each eBGP speaking router has an iBGP session with every other BGP router in the AS to send updates about the routes it learns (over eBGP).</p>
 </li>
 <li>
-<img src="https://https://i.imgur.com/OVJqXFC.png" style="width: 500px" />
+<img src="https://i.imgur.com/OVJqXFC.png" style="width: 500px" />
 </li>
 <li>
 <p>[Quiz] Finally, we note that iBGP is not another IGP-like protocol (e.g., RIP or OSPF). IGP-like protocols are used to establish paths between the internal routers of an AS based on specific costs within the AS. In contrast, iBGP is only used to disseminate external routes within the AS.</p>
@@ -452,7 +452,7 @@ function sidebar_toggle() {
 <ul>
 <li>Let’s zoom into what is happening as the routers exchange BGP messages to select routes.</li>
 <li>
-<img src="https://https://i.imgur.com/6maGQw8.png" style="width: 500px" />
+<img src="https://i.imgur.com/6maGQw8.png" style="width: 500px" />
 </li>
 <li>A router receives incoming BGP messages and processes them. When a router receives advertisements
 <ol>
@@ -472,7 +472,7 @@ function sidebar_toggle() {
 <li>A router compares a pair of routes by going through the list of attributes, as shown in the figure below:
 <ul>
 <li>
-<img src="https://https://i.imgur.com/VvFYozj.png" style="width: 500px" />
+<img src="https://i.imgur.com/VvFYozj.png" style="width: 500px" />
 </li>
 </ul>
 </li>
@@ -485,7 +485,7 @@ function sidebar_toggle() {
 <p>The <strong>LocalPref</strong> attribute is used to prefer routes learned through a specific AS over other ASes. For example, suppose AS B learns of a route to the same destination x via A and C. If B prefers to route its traffic through A, due to peering or business, it can assign a higher LocalPref value to routes it learns from A. And therefore, by using LocalPref, AS B can control where the traffic exits the AS. In other words, <strong>it will influence which routers will be selected as exit points for the traffic that leaves the AS</strong> <strong>(outbound traffic)</strong>.</p>
 <ul>
 <li>
-<img src="https://https://i.imgur.com/jsmj3oP.png" style="width: 500px" />
+<img src="https://i.imgur.com/jsmj3oP.png" style="width: 500px" />
 </li>
 </ul>
 </li>
@@ -493,7 +493,7 @@ function sidebar_toggle() {
 <p>An AS ranks the routes it learns by preferring first the routes learned from its customers, then the routes learned from its peers, and finally, the routes learned from its providers. An operator can assign a non-overlapping range of values to the LocalPref attribute according to the type of relationship. So assigning different LocalPref ranges will influence which routes are imported. The following image shows a scheme that can be used to reflect the business relationships:</p>
 <ul>
 <li>
-<img src="https://https://i.imgur.com/if7w7W2.png" style="width: 500px" />
+<img src="https://i.imgur.com/if7w7W2.png" style="width: 500px" />
 </li>
 </ul>
 </li>
@@ -531,7 +531,7 @@ c. or by the protocol (e.g., if a route is learned through eBGP or iBGP).</p>
 <li>IXPs are physical infrastructures that provide the means for ASes to interconnect and directly exchange traffic with one another. The ASes that interconnect at an IXP are called participant ASes. The physical infrastructure of an IXP is usually a network of switches located either in the same physical location or distributed over a region or even at a global scale. Typically, the infrastructure has a fully redundant switching fabric that provides fault tolerance. The equipment is usually located in facilities such as data centers, which provide reliability, sufficient power, and physical security.</li>
 <li>For example, in the figure below we see an IXP infrastructure (2012), called DE-CIX that is located in Frankfurt, Germany. The figure shows the core of the infrastructure (noted as 3 and 6) and additional sites (1-4 and 7) that are located at different colocation facilities in the area.</li>
 <li>
-<img src="https://https://i.imgur.com/qARL3wh.png" style="width: 500px" />
+<img src="https://i.imgur.com/qARL3wh.png" style="width: 500px" />
 </li>
 </ul>
 </li>
@@ -579,7 +579,7 @@ c. or by the protocol (e.g., if a route is learned through eBGP or iBGP).</p>
 </li>
 <li>The figure below shows a <strong>multi-lateral BGP peering session</strong>, an RS that facilitates and manages how multiple ASes can “talk” on the control plane simultaneously.</li>
 <li>
-<img src="https://https://i.imgur.com/9qiOFQL.png" style="width: 500px" />
+<img src="https://i.imgur.com/9qiOFQL.png" style="width: 500px" />
 </li>
 <li>How does a route server (RS) maintain multi-lateral peering sessions?
 <ul>
@@ -593,7 +593,7 @@ c. or by the protocol (e.g., if a route is learned through eBGP or iBGP).</p>
 </ol>
 </li>
 <li>
-<img src="https://https://i.imgur.com/sr3spll.png" style="width: 500px" />
+<img src="https://i.imgur.com/sr3spll.png" style="width: 500px" />
 </li>
 </ul>
 </li>
@@ -610,7 +610,7 @@ c. or by the protocol (e.g., if a route is learned through eBGP or iBGP).</p>
 <p>How to detect remote peering?</p>
 <ul>
 <li>
-<img src="https://https://i.imgur.com/mSk7Qkl.png" style="width: 500px" />
+<img src="https://i.imgur.com/mSk7Qkl.png" style="width: 500px" />
 </li>
 </ul>
 </li>
