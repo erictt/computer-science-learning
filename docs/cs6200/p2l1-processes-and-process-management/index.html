@@ -275,10 +275,371 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1 id="p2l1-processes-and-process-management"><a class="markdownIt-Anchor" href="#p2l1-processes-and-process-management"></a> P2L1: Processes and Process Management</h1>
-<h2 id="what-is-a-process"><a class="markdownIt-Anchor" href="#what-is-a-process"></a> what is a Process</h2>
-<p>address space<br />
-mapping<br />
-and where store</p>
+<!-- toc -->
+<ul>
+<li><a href="#What-is-a-Process">What is a Process</a>
+<ul>
+<li><a href="#Address-Space">Address Space</a></li>
+<li><a href="#Process-Execution-State">Process Execution State</a></li>
+<li><a href="#Pcroess-Control-Block">Pcroess Control Block</a></li>
+<li><a href="#Life-Cycle">Life Cycle</a></li>
+<li><a href="#CPU-Scheduler">CPU Scheduler</a></li>
+<li><a href="#Ix2FO">I/O</a></li>
+<li><a href="#Process-Interaction">Process Interaction</a></li>
+</ul>
+</li>
+<li><a href="#Scheduler----choose-what-to-run">Scheduler – choose what to run</a>
+<ul>
+<li><a href="#Scheduling---Multi-level-Feedback-Queue-(MLFQ)">Scheduling - Multi-level Feedback Queue (MLFQ)</a></li>
+<li><a href="#Scheduling---Proportional-Share">Scheduling - Proportional Share</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<hr />
+<h2 id="what-is-a-process"><a class="markdownIt-Anchor" href="#what-is-a-process"></a> What is a Process</h2>
+<ul>
+<li>
+<p>First of all, OS manages hardware on behalf of applications. <strong>Process</strong> is a state of a program that is loaded in memory and executing. Comparing to <strong>application</strong>, as a <strong>static entity</strong>, which is a program that stored on disk, process is an <strong>active entity</strong>.</p>
+</li>
+<li>
+<p>A process in memory:</p>
+<ul>
+<li><img src="/images/16642293302147.jpg" alt="" /></li>
+<li>type of state:
+<ul>
+<li>text and data:
+<ul>
+<li>static state when process first loads</li>
+</ul>
+</li>
+<li>heap
+<ul>
+<li>dynamically created during execution</li>
+</ul>
+</li>
+<li>stack
+<ul>
+<li>grows and shrinks when executing functions with LIFO stategy</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="address-space"><a class="markdownIt-Anchor" href="#address-space"></a> Address Space</h3>
+<ul>
+<li>Process uses virtual addresses for locating the process in memory. The OS maps the <strong>virtual addresses</strong> to <strong>physical addresses</strong>(DRAM) location in phlysical memory by using <strong>page tables</strong>.</li>
+<li>Once the memory is out of space, the OS dynamically decides which addresses should be located in physical memory or <strong>swapped</strong> to disk.</li>
+</ul>
+<h3 id="process-execution-state"><a class="markdownIt-Anchor" href="#process-execution-state"></a> Process Execution State</h3>
+<ul>
+<li>
+<p>As any given time, CPU needs to know the instruction sequence the programing is. The CPU uses <strong>program counter</strong>(PC) to register the state.</p>
+</li>
+<li>
+<p>Another state defined what a process is doing is <strong>stack</strong>. And the top of the stack is defined <em>stack pointer</em>* which reperents the last executing code of the program due to LIFO.</p>
+</li>
+<li>
+<p>To maintain all of the info of every process, the OS maintain a <strong>process control block(PCB)</strong></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.learncomputerscienceonline.com/what-are-cpu-registers/">what are registers?</a></p>
+</li>
+</ul>
+<h3 id="pcroess-control-block"><a class="markdownIt-Anchor" href="#pcroess-control-block"></a> Pcroess Control Block</h3>
+<ul>
+<li>A process control block is a data structure that OS maintained for every process. It contains:
+<ul>
+<li>process state</li>
+<li>process number</li>
+<li>process counter &lt;-- change frequently</li>
+<li>CPU registers</li>
+<li>memory limits</li>
+<li>CPU scheduling info</li>
+</ul>
+</li>
+<li>PCB is crated when process is created, certain fields updates when process state changes.</li>
+<li>How PCB is Used
+<ul>
+<li>The CPU only runs a process for a period of time, and then switch to another one, and back and forth. For every switch, the OS needs to store the PCB in memory when executing another process and resume the state once the CPU runs it again.</li>
+<li>The Switch action is called <strong>context switch</strong>.</li>
+</ul>
+</li>
+<li>Context switch is expensive, it requires store and reload cache from memory and continue the process. So the OS needs to be wise on this.</li>
+<li>There are direct costs: the number of CPU cycles requried to load and store a new PCB to/from memory; indirect costs: if the data is cached in L1/2/3 cache, it’s called <strong>Hot Cahe</strong>, very fast to retrieve. But from time to time, the process might be swapped out from cache, and to load it again, the cache is <strong>cold</strong> and require more cycles to fetch from memory.</li>
+</ul>
+<h3 id="life-cycle"><a class="markdownIt-Anchor" href="#life-cycle"></a> Life Cycle</h3>
+<ul>
+<li>Process States
+<ul>
+<li><img src="/images/16642305355577.jpg" alt="" /></li>
+<li>new: allocates/initializes the PCB for this process.</li>
+</ul>
+</li>
+<li>Process Creation - two mechanisms
+<ul>
+<li>fork
+<ul>
+<li>OS creates a new PCB for the child, and then will copy the exact same values from the parent PCB into the child PCB. Both processes will continue executing with the exact same state at the instruction immediately following the fork.</li>
+</ul>
+</li>
+<li>exec
+<ul>
+<li>OS loads a new program. The child’s PCB will now point to values that describe this new program. The program counter of the child will now point to the first instruction of the new program.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The parent of all processes in UNIX-based OS is <code>init</code>.</li>
+</ul>
+<h3 id="cpu-scheduler"><a class="markdownIt-Anchor" href="#cpu-scheduler"></a> CPU Scheduler</h3>
+<ul>
+<li>Lots of processes in the ready queue, the <strong>scheduler</strong> needs to decide <strong>which one</strong> will be dispatched to run and <strong>how long</strong>.</li>
+<li>The OS needs to:
+<ul>
+<li>preempt: interrupt and save current context</li>
+<li>schedule: run scheduler to choose next process</li>
+<li>dispatch: dispatch process/switch into its context</li>
+</ul>
+</li>
+<li>How long should a process run for?
+<ul>
+<li>The goal is, not to do context switch too frequently but also fair.</li>
+<li>There are lots of algorithem implemented to make the decision.</li>
+</ul>
+</li>
+</ul>
+<h3 id="io"><a class="markdownIt-Anchor" href="#io"></a> I/O</h3>
+<ul>
+<li>When a process makes an I/O request, the operating system will deliver that request, and move the process to the I/O queue for that particular I/O device. The process will remain in the queue until the request is responded to, after which the process will move back to a ready state (or might immediately be scheduled on the CPU).</li>
+<li><img src="/images/16642312311637.jpg" alt="" /></li>
+</ul>
+<h3 id="process-interaction"><a class="markdownIt-Anchor" href="#process-interaction"></a> Process Interaction</h3>
+<ul>
+<li>For example, web server need to accesss database to read data and return the client.</li>
+<li>This is called Inter-Process Communication(IPC):
+<ul>
+<li>Transfer data/info between address spaces</li>
+<li>Maintain protection and isolation</li>
+<li>Provide flexibility and performance</li>
+</ul>
+</li>
+<li>Two implementations:
+<ul>
+<li>
+<p>Message-passing IPC:</p>
+<ul>
+<li>The OS provides communication channle, like share buffers.</li>
+<li>The process write(send)/read(recv) message to/from <strong>channels</strong></li>
+<li>Positive: OS manages the work</li>
+<li>Downside: Overheads. Every information has be copied to channel and to another process</li>
+<li><img src="/images/16642317901584.jpg" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>Shared Memory IPC</p>
+<ul>
+<li>OS establishes a share channel and maps it into each process address space</li>
+<li>Process directly read/write from the momroy</li>
+<li>Positive: OS is out of hte way</li>
+<li>Downside: developers need to implement the code</li>
+<li><img src="/images/16642317593025.jpg" alt="" /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Does Shared Memory performa better than message passing communication?
+<ul>
+<li>It depends. Although, it doesn’t require data copy, the actual memory mapping is expensive.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>Note from book: Operating Systems Three Easy Pieces by Remzi H Arpaci-Dusseau, Andrea C Arpaci-Dusseau</p>
+<h2 id="scheduler-choose-what-to-run"><a class="markdownIt-Anchor" href="#scheduler-choose-what-to-run"></a> Scheduler – choose what to run</h2>
+<ul>
+<li>
+<p><strong>Scheduling Metrics</strong></p>
+<ol>
+<li>turnaround time – <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mtext>turnaround</mtext></msub><mo>=</mo><msub><mi>T</mi><mtext>complete</mtext></msub><mo>−</mo><msub><mi>T</mi><mtext>arrives</mtext></msub></mrow><annotation encoding="application/x-tex">T_{\text{turnaround}} = T_{\text{complete}} - T_{\text{arrives}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">turnaround</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">complete</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">arrives</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+</ol>
+</li>
+<li>
+<p>Some assumptions about the “workload”(the set of processes that OS needs to run) to simplify the problem:</p>
+<ol>
+<li>all jobs(processes) arrive at once</li>
+<li>just use CPU (no I/O)</li>
+<li>running time of each job is known</li>
+</ol>
+</li>
+<li>
+<p>Algorithm #1: FIFO</p>
+<ul>
+<li>Base on the assumption, if we have three jobs: A, B, C, and each takes 10s, then the average turnaround time = <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>10</mn><mo>+</mo><mn>20</mn><mo>+</mo><mn>30</mn></mrow><mn>3</mn></mfrac><mo>=</mo><mn>20</mn><mi>s</mi></mrow><annotation encoding="application/x-tex">\frac{10+20+30}{3} = 20s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span><span class="mbin mtight">+</span><span class="mord mtight">20</span><span class="mbin mtight">+</span><span class="mord mtight">30</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">20</span><span class="mord mathnormal">s</span></span></span></span></li>
+<li>if B needs 100s, then the average turnaround time = <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>10</mn><mo>+</mo><mn>110</mn><mo>+</mo><mn>120</mn></mrow><mn>3</mn></mfrac><mo>=</mo><mn>110</mn><mi>s</mi></mrow><annotation encoding="application/x-tex">\frac{10+110+120}{3} = 110s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span><span class="mbin mtight">+</span><span class="mord mtight">110</span><span class="mbin mtight">+</span><span class="mord mtight">120</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">110</span><span class="mord mathnormal">s</span></span></span></span>.</li>
+<li>The problem here is called <strong>convoy effect</strong>, a short job was queued behind a heavyweight job.</li>
+</ul>
+</li>
+<li>
+<p>Algorithm #2: SJF(Short Job First)</p>
+<ul>
+<li>This solves the convoy effect problem because A and B get to run at first, the turnaround time = <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>10</mn><mo>+</mo><mn>20</mn><mo>+</mo><mn>120</mn></mrow><mn>3</mn></mfrac><mo>=</mo><mn>50</mn><mi>s</mi></mrow><annotation encoding="application/x-tex">\frac{10+20+120}{3} = 50s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span><span class="mbin mtight">+</span><span class="mord mtight">20</span><span class="mbin mtight">+</span><span class="mord mtight">120</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">50</span><span class="mord mathnormal">s</span></span></span></span>.</li>
+<li>What if we relex the assumption #1, and job A and C come after 10s?
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mfrac><mrow><mn>100</mn><mo>+</mo><mo stretchy="false">(</mo><mn>110</mn><mo>−</mo><mn>10</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>120</mn><mo>−</mo><mn>10</mn><mo stretchy="false">)</mo></mrow><mn>3</mn></mfrac><mo>=</mo><mn>103.33</mn><mi>s</mi></mrow><annotation encoding="application/x-tex">T = \frac{100+(110-10)+(120-10)}{3} = 103.33s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.355em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">100</span><span class="mbin mtight">+</span><span class="mopen mtight">(</span><span class="mord mtight">110</span><span class="mbin mtight">−</span><span class="mord mtight">10</span><span class="mclose mtight">)</span><span class="mbin mtight">+</span><span class="mopen mtight">(</span><span class="mord mtight">120</span><span class="mbin mtight">−</span><span class="mord mtight">10</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">103.33</span><span class="mord mathnormal">s</span></span></span></span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Algorithm #3: STCF(Shortest Time-to-Complietion First</p>
+<ul>
+<li>In this case, even A and C come later after 10s, the CPU will switch to them immediately after they jump in. So, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mfrac><mrow><mo stretchy="false">(</mo><mn>120</mn><mo>−</mo><mn>0</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>20</mn><mo>−</mo><mn>10</mn><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>30</mn><mo>−</mo><mn>10</mn><mo stretchy="false">)</mo></mrow><mn>3</mn></mfrac><mo>=</mo><mn>50</mn><mi>s</mi></mrow><annotation encoding="application/x-tex">T = \frac{(120-0)+(20-10)+(30-10)}{3} = 50s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.355em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">120</span><span class="mbin mtight">−</span><span class="mord mtight">0</span><span class="mclose mtight">)</span><span class="mbin mtight">+</span><span class="mopen mtight">(</span><span class="mord mtight">20</span><span class="mbin mtight">−</span><span class="mord mtight">10</span><span class="mclose mtight">)</span><span class="mbin mtight">+</span><span class="mopen mtight">(</span><span class="mord mtight">30</span><span class="mbin mtight">−</span><span class="mord mtight">10</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">50</span><span class="mord mathnormal">s</span></span></span></span>.</li>
+</ul>
+</li>
+<li>
+<p>A New Metric for later algorithm comparison: <strong>Response Time</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mtext>response</mtext></msub><mo>=</mo><msub><mi>T</mi><mtext>firstrun</mtext></msub><mo>−</mo><msub><mi>T</mi><mtext>arrival</mtext></msub></mrow><annotation encoding="application/x-tex">T_{\text{response}} = T_{\text{firstrun}} - T_{\text{arrival}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">response</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">firstrun</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">arrival</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+</li>
+<li>
+<p>Algorithm #4: Round Robin</p>
+<ul>
+<li>each job gets to run for a <strong>time slice</strong> alternatively.</li>
+<li>Then:
+<ul>
+<li>the average of turnaround time of RR is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>28</mn><mo>+</mo><mn>30</mn><mo>+</mo><mn>110</mn></mrow><mn>3</mn></mfrac><mo>=</mo><mn>56</mn><mi>s</mi></mrow><annotation encoding="application/x-tex">\frac{28+30+110}{3}=56s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">28</span><span class="mbin mtight">+</span><span class="mord mtight">30</span><span class="mbin mtight">+</span><span class="mord mtight">110</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">56</span><span class="mord mathnormal">s</span></span></span></span></li>
+<li>And the average of response time of RR is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>0</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>2</mn></mrow><mn>3</mn></mfrac><mo>=</mo><mn>1</mn><mi>s</mi></mrow><annotation encoding="application/x-tex">\frac{0+1+2}{3} = 1s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mord mathnormal">s</span></span></span></span> but SJC is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>0</mn><mo>+</mo><mn>100</mn><mo>+</mo><mn>110</mn></mrow><mn>3</mn></mfrac><mo>=</mo><mn>70</mn><mi>s</mi></mrow><annotation encoding="application/x-tex">\frac{0+100+110}{3}=70s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mbin mtight">+</span><span class="mord mtight">100</span><span class="mbin mtight">+</span><span class="mord mtight">110</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">70</span><span class="mord mathnormal">s</span></span></span></span> and STCF is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>0</mn><mo>+</mo><mn>10</mn><mo>+</mo><mn>20</mn></mrow><mn>3</mn></mfrac><mo>=</mo><mn>10</mn><mi>s</mi></mrow><annotation encoding="application/x-tex">\frac{0+10+20}{3}=10s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mbin mtight">+</span><span class="mord mtight">10</span><span class="mbin mtight">+</span><span class="mord mtight">20</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10</span><span class="mord mathnormal">s</span></span></span></span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Summarize:</p>
+<ul>
+<li>two types of schedulers:
+<ul>
+<li>SJF, STCF: good turnaround time, bad response time.</li>
+<li>RR: good response time, bad turnaround time.</li>
+</ul>
+</li>
+<li>And still haven’t relexed assumptions: 2, 3</li>
+</ul>
+</li>
+</ul>
+<h3 id="scheduling-multi-level-feedback-queue-mlfq"><a class="markdownIt-Anchor" href="#scheduling-multi-level-feedback-queue-mlfq"></a> Scheduling - Multi-level Feedback Queue (MLFQ)</h3>
+<ul>
+<li>No assumptions, aka: 1) don’t know job length; 2) do I/O as well; 3) workload can be interactive or long-running as background jobs.
+<ul>
+<li>interactive jobs are short-running and may frequently relinquish the CPU</li>
+</ul>
+</li>
+<li>Used in Windows and Unix(not Linux)</li>
+<li>Definition of MLFQ:
+<ul>
+<li>Create a number of distinct queues, each assigned a different priority level.</li>
+<li>At any given time, a job can only be on one queue.</li>
+<li>Use priority to decide which job should run at a given time: a job with higher priority is chosen to run.
+<ul>
+<li>If more than one on the same priority, use round-robin to run them alternatively.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Rules:
+<ul>
+<li>Rule 1: If Priority(A) &gt; Priority(B), A runs (B doesn’t).</li>
+<li>Rule 2: If Priority(A) = Priority(B), A &amp; B run in RR.</li>
+<li>Rule 3: When a job enters the system, it is placed at the highest priority (the topmost queue).</li>
+<li>Rule 4: Once a job uses up its time allotment at a given level (regardless of how many times it has given up the CPU), its priority is reduced (i.e., it moves down one queue).
+<ul>
+<li>e.g. the time slice in Queue 8 is 10ms, and job A only spent 3ms and starts to wait for an I/O. In this case, the job stays in Queue 8 until the I/O gets back and A consumes the entire 10ms before moving it to next level.</li>
+</ul>
+</li>
+<li>Rule 5: After some time period S, move all the jobs in the system to the topmost queue.
+<ul>
+<li>This is to avoid the problem of <strong>starvation</strong>: too many interactive jobs consumed all CPU times and the long-running jobs never recieve any CPU time.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="scheduling-proportional-share"><a class="markdownIt-Anchor" href="#scheduling-proportional-share"></a> Scheduling - Proportional Share</h3>
+<ul>
+<li>
+<p>Propotional share means: a scheduler trys to guarantee that each job obtain a certain percentage of CPU time. There are three approaches: <strong>lottery scheduling</strong>, <strong>stride scheduling</strong>, and <strong>the Completely Fair Scheduler (CFS)</strong> of Linux.</p>
+</li>
+<li>
+<p>Lottery scheduling</p>
+<ul>
+<li>
+<p>Each process are assigned certain amount of <strong>tickets</strong>, and the scheduler randomly picks a number, and the process holding the number gets scheduled.</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// counter: used to track if we’ve found the winner yet int counter = 0;</span><br><span class="line">// winner: use some call to a random number generator to // get a value, between 0 and the total # of tickets int winner = getrandom(0, totaltickets);</span><br><span class="line">// current: use this to walk through the list of jobs node_t * current = head; while (current) &#123;</span><br><span class="line">counter = counter + current-&gt;tickets;</span><br><span class="line">if (counter &gt; winner)</span><br><span class="line">    break; // found the winner</span><br><span class="line">current = current-&gt;next; &#125; // ’current’ is the winner: schedule it...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<img src="https://i.imgur.com/GHp42Lz.jpg" style="width:500px" />
+</li>
+</ul>
+</li>
+<li>
+<p>Question 1: how many tickets should we assign to each process?</p>
+<ul>
+<li>The shares are base on users. For example, we have two Users A and B, A has jobs: A1, A2, B has one job: B1. And the total tickets are 100, then A1 and A2 gets 25 each, and B1 gets 50.</li>
+</ul>
+</li>
+<li>
+<p>Question 2: How to calculate the fairness?</p>
+<ul>
+<li>use <strong>unfaireness metric U</strong>. Assuming two jobs both needs 10s to finish and A finished in 10, and B finished in 20. Then <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mfrac><mn>10</mn><mn>20</mn></mfrac><mo>=</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">U=\frac{10}{20} = 0.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">20</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span></span></span></span>. Our goal is to achieve <code>U=1</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Stride scheduling - a deterministic fair-share scheduler</p>
+<ul>
+<li>Each job in the system has a <strong>stride</strong>, which is inverse in proportion to the number of tickets it has. The scheduler then uses the stride and <strong>pass</strong> to determine which process should run next.</li>
+<li>The basic idea is simple: at any given time, pick the process to run that has the <strong>lowest pass value</strong> so far; when you run a process, increment its <strong>pass counter</strong> by its stride.</li>
+<li>For example, A, B and C have 100, 50 and 250 tickets. Devided 10,000 by each’s stride value, we gets: A: 100, B: 200, C: 40. Then decide which to run as:
+<ul>
+<li>
+<img src="https://i.imgur.com/8tYgG78.jpg" style="width:400px" />
+</li>
+<li>A B and C all start at 0, so pick A at first. when reaching 100, run B and C in a sequence. Then C has the minimum pass value, the scheduler runs C until it reach 120, then switch to A.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>The Completely Fair Scheduler (CFS) of Linux</p>
+<ul>
+<li>Fairly divide a CPU evenly among all competing processes. It does so through a simple counting-based technique known as <strong>virtual runtime</strong> (<strong>vruntime</strong>): the amount of time the process has spent on the processor.</li>
+<li>Several main configs that the scheduler used:
+<ul>
+<li>
+<p><strong>sched_latency</strong>: The scheduler period is a period of time during which all runnable tasks should be allowed to run at least once. a typical value is 48ms, so if there are 4 processes, the per-process time slice is 12ms.</p>
+</li>
+<li>
+<p><strong>min_granularity</strong>: the minimum time slice of a process. usually 6ms. so if there are more than 8 processes, each will have at least 6ms time slice.</p>
+</li>
+<li>
+<p><strong>weighting(niceness)</strong>: enable control over process priority. CFS maps the <strong>nice</strong> value of each process to a weight, as shown here:</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">static const int prio_to_weight[40] = &#123; </span><br><span class="line">    / * -20 * / 88761, 71755, 56483, 46273, 36291, </span><br><span class="line">    / * -15 * / 29154, 23254, 18705, 14949, 11916, </span><br><span class="line">    / * -10 * / 9548, 7620, 6100, 4904, 3906, </span><br><span class="line">    / * -5 * / 3121, 2501, 1991, 1586, 1277, </span><br><span class="line">    / * 0 * / 1024, 820, 655, 526, 423, </span><br><span class="line">    / * 5 * / 335, 272, 215, 172, 137, </span><br><span class="line">    / * 10 * / 110, 87, 70, 56, 45, </span><br><span class="line">    / * 15 * / 36, 29, 23, 18, 15,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>time</mtext><mi mathvariant="normal">_</mi><msub><mtext>slice</mtext><mi>k</mi></msub><mo>=</mo><mfrac><msub><mtext>weight</mtext><mi>k</mi></msub><mrow><msubsup><mo>∑</mo><mn>0</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msubsup><msub><mtext>weight</mtext><mi>i</mi></msub></mrow></mfrac><mo>⋅</mo><mtext>sched</mtext><mi mathvariant="normal">_</mi><mtext>latency</mtext></mrow><annotation encoding="application/x-tex">\text{time}\_\text{slice}_k = \frac{\text{weight}_k}{\sum_{0}^{n-1}\text{weight}_i} \cdot  \text{sched}\_\text{latency}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0044em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">time</span></span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord"><span class="mord text"><span class="mord">slice</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.6174em;vertical-align:-0.6352em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9822em;"><span style="top:-2.5898em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mop op-symbol small-op mtight" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8575em;"><span style="top:-2.1786em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span><span style="top:-2.8971em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3214em;"><span></span></span></span></span></span></span><span class="mspace mtight" style="margin-right:0.1952em;"></span><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">weight</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2052em;"><span style="top:-2.2341em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2659em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4961em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">weight</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2302em;"><span style="top:-2.2341em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2659em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.6352em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0044em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">sched</span></span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord text"><span class="mord">latency</span></span></span></span></span></li>
+<li>To improve the efficiency, the scheduler uses <a target="_blank" rel="noopener" href="https://cs.ericyy.me/algorithms-1/week-5/index.html#red-black-bsts">Red-Black Trees</a> with the <strong>vruntime</strong> values of each process and run the <strong>min-vrumtime</strong> process at each time and push it back to the tree after the time slice.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>What about I/O and sleeping process?
+<ul>
+<li>if the process gone for sleeping for a long time, when it wakes up, it might monopolize the CPU for a long time. To avoid this, CFS sets the vruntime of that job to the minimum value that found in the tree.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 
