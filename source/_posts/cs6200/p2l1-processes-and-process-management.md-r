@@ -10,7 +10,7 @@
 
 * A process in memory:
 
-    * <img src="https://i.imgur.com/4Le9TjY.jpg" style="width: 600px" />
+    * ![](https://i.imgur.com/4Le9TjY.jpg)
     * type of state:
         * text and data:
             * static state when process first loads
@@ -51,7 +51,7 @@
 ### Life Cycle
 
 * Process States
-    * <img src="https://i.imgur.com/0pQ5F7Z.jpg" style="width: 600px" />
+    * ![](https://i.imgur.com/0pQ5F7Z.jpg)
     * new: allocates/initializes the PCB for this process. 
 * Process Creation - two mechanisms
     * fork
@@ -74,7 +74,7 @@
 ### I/O
 
 * When a process makes an I/O request, the operating system will deliver that request, and move the process to the I/O queue for that particular I/O device. The process will remain in the queue until the request is responded to, after which the process will move back to a ready state (or might immediately be scheduled on the CPU).
-* <img src="https://i.imgur.com/GsD803O.jpg" style="width: 600px" />
+* ![](https://i.imgur.com/GsD803O.jpg)
 
 ### Process Interaction
 
@@ -89,14 +89,14 @@
         * The process write(send)/read(recv) message to/from **channels**
         * Positive: OS manages the work
         * Downside: Overheads. Every information has be copied to channel and to another process
-        * <img src="https://i.imgur.com/WPrAVtZ.jpg" style="width: 600px" />
+        * ![](https://i.imgur.com/WPrAVtZ.jpg)
 
     * Shared Memory IPC
         * OS establishes a share channel and maps it into each process address space
         * Process directly read/write from the momroy
         * Positive: OS is out of hte way
         * Downside: developers need to implement the code
-        * <img src="https://i.imgur.com/lgu76Xu.jpg" style="width: 600px" />
+        * ![](https://i.imgur.com/lgu76Xu.jpg)
 * Does Shared Memory performa better than message passing communication?
     * It depends. Although, it doesn't require data copy, the actual memory mapping is expensive.
 
