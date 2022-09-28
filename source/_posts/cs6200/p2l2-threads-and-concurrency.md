@@ -143,10 +143,35 @@
 
 ### Spurious Wake-ups
 
-* This is a problem that 
-wake up is not necessary, the threads need to wait again
+* ![](https://i.imgur.com/TYMYMGj.jpg)
 
-Deadlocks
+* This is a problem doesn't necessary affect correctness but may impact performance.
+* The root cause is that boardcast() and signal() been called inside the lock, and when the reader was signaled, the writer might still holds the lock. Then the reader will switch from the read_phase wait lock to the counter_mutex lock and doesn't do anything useful, but wasted several context switch from the CPU.
+* Let's see some examples:
+    * ![](https://i.imgur.com/euhZ4v2.jpg)
+
+    * Put the broadcast and signal outside of the lock block will solve the spurious wake-up issue for the writer, but we can't put the `signal(writer_phase)` outside the lock because we can't continue to access the protected resource: `if(counter_resource == 0)` out of the lock.
+
+### Deadlocks
+
+* Def: when two or more competing threads are waiting on each other to complete, but none of them ever do.
+* E.g. the lock m_A and m_B created a **cycle**
+    * T1 -> lock(m_A) -> lock(m_B) -> foo1(A, B)
+    * T2 -> lock(m_B) -> lock(m_A) -> foo2(A, B)
+    * 
+* How to avoid:
+    * fine-grained locking. Always unlock A before locking B
+    * Use mega lock to lock all resources. It's useful for some cases, but it's too restrictive, and limited parallelism.
+    * **maintain lock order,** every thread needs to acquire m_A at first, then m_B.
+        * This is the most common solution.
+* In summary, A cycle in the wait graph is **necessary** and **sufficient** for a deadlock to occur.
+    * edges from thread waiting on a resource to thread owning a resource
+* What can we do?
+    * deadlock prevention
+        * Each time a thread is about to acquire a mutex, we can check to see if that operation will cause a deadlock. This can be expensive.
+    * Deadlock detection & recovery rollback
+        * We can accomplish this through analysis of the wait graph and trying to determine whether any cycles have occurred. This is still an expensive operation as it requires us to have a rollback strategy in the event that we need to recover.
+    * Ostrich algorithm. Simply do nothing, and reboot the system if the system goes wrong.
 
 ## Kernel Vs. User-Level Threads
 

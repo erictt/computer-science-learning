@@ -285,6 +285,7 @@ function sidebar_toggle() {
 <li><a href="#Avoiding-Common-Pitfalls">Avoiding Common Pitfalls</a>
 <ul>
 <li><a href="#Spurious-Wake-ups">Spurious Wake-ups</a></li>
+<li><a href="#Deadlocks">Deadlocks</a></li>
 </ul>
 </li>
 <li><a href="#Kernel-Vs.-User-Level-Threads">Kernel Vs. User-Level Threads</a></li>
@@ -495,10 +496,69 @@ function sidebar_toggle() {
 </ul>
 <h3 id="spurious-wake-ups"><a class="markdownIt-Anchor" href="#spurious-wake-ups"></a> Spurious Wake-ups</h3>
 <ul>
-<li>This is a problem that<br />
-wake up is not necessary, the threads need to wait again</li>
+<li>
+<p><img src="https://i.imgur.com/TYMYMGj.jpg" alt="" /></p>
+</li>
+<li>
+<p>This is a problem doesn’t necessary affect correctness but may impact performance.</p>
+</li>
+<li>
+<p>The root cause is that boardcast() and signal() been called inside the lock, and when the reader was signaled, the writer might still holds the lock. Then the reader will switch from the read_phase wait lock to the counter_mutex lock and doesn’t do anything useful, but wasted several context switch from the CPU.</p>
+</li>
+<li>
+<p>Let’s see some examples:</p>
+<ul>
+<li>
+<p><img src="https://i.imgur.com/euhZ4v2.jpg" alt="" /></p>
+</li>
+<li>
+<p>Put the broadcast and signal outside of the lock block will solve the spurious wake-up issue for the writer, but we can’t put the <code>signal(writer_phase)</code> outside the lock because we can’t continue to access the protected resource: <code>if(counter_resource == 0)</code> out of the lock.</p>
+</li>
 </ul>
-<p>Deadlocks</p>
+</li>
+</ul>
+<h3 id="deadlocks"><a class="markdownIt-Anchor" href="#deadlocks"></a> Deadlocks</h3>
+<ul>
+<li>Def: when two or more competing threads are waiting on each other to complete, but none of them ever do.</li>
+<li>E.g. the lock m_A and m_B created a <strong>cycle</strong>
+<ul>
+<li>T1 -&gt; lock(m_A) -&gt; lock(m_B) -&gt; foo1(A, B)</li>
+<li>T2 -&gt; lock(m_B) -&gt; lock(m_A) -&gt; foo2(A, B)</li>
+<li></li>
+</ul>
+</li>
+<li>How to avoid:
+<ul>
+<li>fine-grained locking. Always unlock A before locking B</li>
+<li>Use mega lock to lock all resources. It’s useful for some cases, but it’s too restrictive, and limited parallelism.</li>
+<li><strong>maintain lock order,</strong> every thread needs to acquire m_A at first, then m_B.
+<ul>
+<li>This is the most common solution.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In summary, A cycle in the wait graph is <strong>necessary</strong> and <strong>sufficient</strong> for a deadlock to occur.
+<ul>
+<li>edges from thread waiting on a resource to thread owning a resource</li>
+</ul>
+</li>
+<li>What can we do?
+<ul>
+<li>deadlock prevention
+<ul>
+<li>Each time a thread is about to acquire a mutex, we can check to see if that operation will cause a deadlock. This can be expensive.</li>
+</ul>
+</li>
+<li>Deadlock detection &amp; recovery rollback
+<ul>
+<li>We can accomplish this through analysis of the wait graph and trying to determine whether any cycles have occurred. This is still an expensive operation as it requires us to have a rollback strategy in the event that we need to recover.</li>
+</ul>
+</li>
+<li>Ostrich algorithm. Simply do nothing, and reboot the system if the system goes wrong.</li>
+</ul>
+</li>
+</ul>
 <h2 id="kernel-vs-user-level-threads"><a class="markdownIt-Anchor" href="#kernel-vs-user-level-threads"></a> Kernel Vs. User-Level Threads</h2>
 <ul>
 <li>Multithreading Models
