@@ -21,7 +21,7 @@
 
 * Are threads useful on single CPU?
     * Yes, when (t_idle) > 2 * (t_ctx_switch). e.g. disk I/O or network I/O.
-        * <img src="https://i.imgur.com/fZQIY5e.jpg" style="width: 600px" />
+        * <img src="https://i.imgur.com/fZQIY5e.jpg" style="width: 300px" />
 * Multithreading the OS kernel, support multiple execution contexts, which is particularly useful when we do have multiple CPUs so OS can run threads behalf of the apps and run os-level daemons/drivers on different threads.
 
 ## Basic Thread Mechanisms
