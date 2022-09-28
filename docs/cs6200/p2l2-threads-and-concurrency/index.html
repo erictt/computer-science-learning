@@ -98,8 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6200/p2l1-processes-and-process-management/index.html">P2L1 - Processes and Process Management</a></li>
 </ul>
 <!--
-* [Virtualization 1 - CPU](/introduction-to-operating-systems/1-virtualization-1/index.html)
-* [Virtualization 2 - Memory](/introduction-to-operating-systems/1-virtualization-2/index.html)
+* [P2L2 - Threads and Concurrency](/cs6200/p2l2-p2l2-threads-and-concurrency/index.html)
 -->
 <h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
 <ul>
@@ -275,37 +274,258 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1 id="p2l2-threads-and-concurrency"><a class="markdownIt-Anchor" href="#p2l2-threads-and-concurrency"></a> P2L2: Threads and Concurrency</h1>
-<p>// it RELEASE mutex!!<br />
-Wait(mutex,cond) {<br />
-release mutex and go on wait queue<br />
-…<br />
-remove from queue, re-acquire mutex<br />
-exit the wait operation<br />
-}</p>
-<p>That’s the reason in lock, it use <strong>while</strong>, not <strong>if</strong><br />
-Lock(m) {<br />
-while (my_list.not_full()) // this while will be run by multiple consumer threads, <strong>if</strong> can’t guarantee access to m once the condition is signaled. The list can change before the consumer gets access again.<br />
-Wait(m, list_full);<br />
-my_list.print_and_remove_all();<br />
-}</p>
-<p>common mistakes</p>
+<!-- toc -->
+<ul>
+<li><a href="#Process-vs.-Thread">Process vs. Thread</a></li>
+<li><a href="#Benefits-of-Multithreading">Benefits of Multithreading</a></li>
+<li><a href="#Basic-Thread-Mechanisms">Basic Thread Mechanisms</a></li>
+<li><a href="#Mutual-Exclusion(mutex)">Mutual Exclusion(mutex)</a></li>
+<li><a href="#Condition-Variable">Condition Variable</a></li>
+<li><a href="#Readersx2FWriter-Problem">Readers/Writer Problem</a></li>
+<li><a href="#Avoiding-Common-Pitfalls">Avoiding Common Pitfalls</a>
+<ul>
+<li><a href="#Spurious-Wake-ups">Spurious Wake-ups</a></li>
+</ul>
+</li>
+<li><a href="#Kernel-Vs.-User-Level-Threads">Kernel Vs. User-Level Threads</a></li>
+<li><a href="#Multithreading-Patterns">Multithreading Patterns</a></li>
+</ul>
+<!-- tocstop -->
+<hr />
+<h2 id="process-vs-thread"><a class="markdownIt-Anchor" href="#process-vs-thread"></a> Process vs. Thread</h2>
+<ul>
+<li>A process owns a virtual memory space and OS initialize a PCB to manage the state.</li>
+<li>A thread is also called</li>
+<li>PCB: single thread process vs multithreaded process
+<ul>
+<li><img src="/images/16642403768260.jpg" alt="" /></li>
+<li>Tthe PCB for multithreaded process is different. In a multi-threaded process, threads share the same code/data/filter, but also have its own registers and stack.</li>
+</ul>
+</li>
+</ul>
+<h2 id="benefits-of-multithreading"><a class="markdownIt-Anchor" href="#benefits-of-multithreading"></a> Benefits of Multithreading</h2>
+<ul>
+<li>
+<p>Parallelization: Speed up the program’s execution by spreading the work from one thread/one processor to multiple threads that can execute in parallel on multiple processors.</p>
+</li>
+<li>
+<p>Specialization: Give hight priority to tasks that handle more important tasks; Potentially, the thread keep its entire state in the processor cache(hot cache, cache lookups are fast), and the thread can run its task without interruption.</p>
+</li>
+<li>
+<p>Why not just write a multiprocess application?</p>
+<ul>
+<li>Process doesn’t share address space and execution context, all of the data have to be allocated memory. Threads share address space and the execution code which makes it more memory-efficient.</li>
+<li>Inter process communication (IPC) - is more costly than inter thread communication, which consists primarily of reading/writing shared variables.</li>
+</ul>
+</li>
+<li>
+<p>Are threads useful on single CPU?</p>
+<ul>
+<li>Yes, when (t_idle) &gt; 2 * (t_ctx_switch). e.g. disk I/O or network I/O.
+<ul>
+<li><img src="/images/16643240276439.jpg" alt="" /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Multithreading the OS kernel, support multiple execution contexts, which is particularly useful when we do have multiple CPUs so OS can run threads behalf of the apps and run os-level daemons/drivers on different threads.</p>
+</li>
+</ul>
+<h2 id="basic-thread-mechanisms"><a class="markdownIt-Anchor" href="#basic-thread-mechanisms"></a> Basic Thread Mechanisms</h2>
+<ul>
+<li>
+<p>Threads can access the same physical memory address, which introduced a data race problem. If threads all access the same address, and make changes, the data will be inconsistent. To avoid the problem, there is a mechanism called mutual exclusion(mutex), which can be used for making the memory access exclusive. And it also offer waiting condition to let threads work with each other.</p>
+</li>
+<li>
+<p>Thread data structure:</p>
+<ul>
+<li>A thread have thread id, program counter, stack pointer, registers, attributes, etc.</li>
+</ul>
+</li>
+<li>
+<p>Create a thread: <code>fork(proc, args)</code>(not UNIX fork)</p>
+<ul>
+<li>When fork is called, a new thread is created/forked from the parent thread.</li>
+</ul>
+</li>
+<li>
+<p>Join the thread back to parent thread: <code>join(thread)</code> which need to be called on the parent thread</p>
+<ul>
+<li>when <code>join</code> is called, the parent will be blocked until child thread is finished. So watch out if there is a <code>while(true)</code> for loop in child thread:D</li>
+<li>After join returns, the resource associated with child thread will be deallocated.</li>
+</ul>
+</li>
+<li>
+<p>Example</p>
+<ul>
+<li><img src="/images/16643255661268.jpg" alt="" /></li>
+<li>thread 1 might run before or after the function call <code>safe_insert(6)</code>, so there is no guarantee which <code>safe_insert</code> will be executed first.</li>
+</ul>
+</li>
+</ul>
 <h2 id="mutual-exclusionmutex"><a class="markdownIt-Anchor" href="#mutual-exclusionmutex"></a> Mutual Exclusion(mutex)</h2>
-<h3 id="spriout"><a class="markdownIt-Anchor" href="#spriout"></a> Spriout</h3>
-<h3 id="deadlock"><a class="markdownIt-Anchor" href="#deadlock"></a> Deadlock</h3>
-<h2 id="kernel-vs-user-level-threads"><a class="markdownIt-Anchor" href="#kernel-vs-user-level-threads"></a> Kernel VS User-level Threads</h2>
-<p>one-to-one model<br />
-many-to-one model<br />
-many-to-many model</p>
-<h3 id="multithreading-patterns"><a class="markdownIt-Anchor" href="#multithreading-patterns"></a> Multithreading Patterns</h3>
+<ul>
+<li>
+<p>To avoid multi threads access the same address at the same time, operating systems support a construct called a <strong>mutex</strong>. <strong>A mutex is like a lock that should be used whenever you access data/state that is shared among threads.</strong> When a thread locks a mutex, it has exclusive access to the shared resource. Other threads attempting to lock the same mutex will fail.</p>
+</li>
+<li>
+<p>How it works:</p>
+<ul>
+<li><img src="/images/16643260382048.jpg" alt="" /></li>
+<li>When T1/T2/T3 attempt to acquire the lock, only one will have the chance to get it.</li>
+</ul>
+</li>
+<li>
+<p>There are two different APIs:</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. lock block</span></span><br><span class="line">lock(m) &#123;</span><br><span class="line">    <span class="comment">// critical section</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. separate function</span></span><br><span class="line">lock(m)</span><br><span class="line"><span class="comment">// critical section</span></span><br><span class="line">unlock(m)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="condition-variable"><a class="markdownIt-Anchor" href="#condition-variable"></a> Condition Variable</h2>
+<ul>
+<li>
+<p>Let’s take a look at a producer and consumer example. This is the pseudocode. It has three pieces:</p>
+<ul>
+<li>main: create 10 producer threads, and 1 consumer thread</li>
+<li>producers: lock the mutex, and insert one id (note, it’s <code>my_list-&gt;insert</code></li>
+<li>consumer: lock the mutex, clean up the list if it’s full, otherwise it wait and try again.</li>
+<li><img src="/images/16643265308844.jpg" alt="" /></li>
+<li>The problem is that the consumer shouldn’t keep running check whether the list is full but gets notified once it’s full. This is when <code>Condition</code> is useful.</li>
+</ul>
+</li>
+<li>
+<p><img src="/images/16643276891817.jpg" alt="" /></p>
+</li>
+<li>
+<p>In the image above, the <code>Wait</code> is a condition function that being called for waiting for the condition <code>list_full</code> and <code>Signal</code> is used for notifying another thread that the condition <code>list_full</code> is met.</p>
+</li>
+<li>
+<p>Condition Variable API</p>
+<ol>
+<li>Wait(mutex, cond)
+<ol>
+<li>mutex is automatically released &amp; re-acquried on wait</li>
+</ol>
+</li>
+<li>Signal(cond)
+<ol>
+<li>notify only one thread waiting on condition</li>
+</ol>
+</li>
+<li>Broadcast(cond)
+<ol>
+<li>notify all waiting threds</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>What happened in the wait function?</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Wait(mutex,cond) &#123;</span><br><span class="line">    // atomically release mutex </span><br><span class="line">    // and go on wait queue</span><br><span class="line">    </span><br><span class="line">    // wait ...</span><br><span class="line">    </span><br><span class="line">    // remove from the wait queue</span><br><span class="line">    // re-acquire mutex</span><br><span class="line">    // exit the wait operation</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Notice that the mutex is <strong>RELEASED</strong> once the thread goes to the wait stage.</li>
+</ul>
+</li>
+<li>
+<p>The Quiz: Instead of <code>while</code>, why did we not simply use ‘if’?</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Lock(m) &#123;</span><br><span class="line">    while (my_list.not_full()) </span><br><span class="line">        Wait(m, list_full);</span><br><span class="line">    my_list.print_and_remove_all();</span><br><span class="line">&#125; // unlock</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>while</code> can support multiple consumer threads;
+<ul>
+<li>if it’s <code>if</code>. When multiple threads get into the wait condition, and they all get notified the condition. They will acquire the lock one by one and execute <code>my_list.print_and_remove_all();</code> regardless it’s full or not. The list can change before any consumers access it. <code>while</code> can guarantee that <code>my_list.print_and_remove_all();</code> only being called when it’s full.</li>
+</ul>
+</li>
+<li><code>if</code> cannot guarantee access to m once the condition is signaled;</li>
+</ul>
+</li>
+</ul>
+<h2 id="readerswriter-problem"><a class="markdownIt-Anchor" href="#readerswriter-problem"></a> Readers/Writer Problem</h2>
+<ul>
+<li><strong>Read/write problem</strong>: some subset of threads that want to read from shared state, and one thread that wants to write to shared state.</li>
+<li>To solve the problem,
+<ul>
+<li>one way is to use two counters: one for read_counter, the other for writer_counter, so
+<ul>
+<li>when read_counter == 0 and writer_counter == 0, read is ok, writer is ok.</li>
+<li>when read_counter &gt; 0 read is ok</li>
+<li>when writer_counter == 1, neither read nor write.</li>
+</ul>
+</li>
+<li>the other way is to use one counter: <code>resource_counter</code> to indicate resource usage situation: 0: free, -1: 1 writer, &gt;0: multiple readers</li>
+<li><img src="/images/16643300159714.jpg" alt="" /></li>
+</ul>
+</li>
+<li>Here are some pseudocodes for the second approach:
+<ul>
+<li><img src="/images/16643309225383.jpg" alt="" /></li>
+<li>The <code>writer_phase</code> is used in <code>reader_thread</code> for signaling the writer thread.</li>
+<li>The <code>reader_phase</code> is used in <code>writer_thread</code> for signaling the writer thread.</li>
+<li>The <code>resource_counter</code> is a <strong>proxy variable</strong> that reflects the state that the current resource is in. Instead of controlling updates to the shared state, we can instead control access to this proxy variable. As long as any update to the shared state is first reflected in an update to the proxy variable, we can ensure that our state is accessed via the policies we wish to enforce.</li>
+<li>Notice the order of <code>Broadcast(read_phase); Signal(write_phase);</code>, it prefer readers than writer.</li>
+</ul>
+</li>
+<li>Critical Section Structure of the code:
+<ul>
+<li><img src="/images/16643309746929.jpg" alt="" /></li>
+<li>Both of the writer and readers follow the structure:
+<ul>
+<li><img src="/images/16643310156604.jpg" alt="" /></li>
+</ul>
+</li>
+<li>This implementation allows dealing complex situation that mutex doesn’t support, like one writer/multiple writer.</li>
+</ul>
+</li>
+</ul>
+<h2 id="avoiding-common-pitfalls"><a class="markdownIt-Anchor" href="#avoiding-common-pitfalls"></a> Avoiding Common Pitfalls</h2>
+<ul>
+<li>keep track of mutex/cond. variables used with a shared resource.
+<ul>
+<li>e.g. add comments on the mutex</li>
+</ul>
+</li>
+<li>check that you’re always using lock/unlock</li>
+<li>using a single mutex to access a single resource!</li>
+<li>check that you’re signaling correct condition</li>
+<li>check that you are not using signal when broadcast is needed
+<ul>
+<li>only 1 thread will proceed… remaining threads will continue to wait.</li>
+</ul>
+</li>
+<li>ask do you need priority guarantee.</li>
+</ul>
+<h3 id="spurious-wake-ups"><a class="markdownIt-Anchor" href="#spurious-wake-ups"></a> Spurious Wake-ups</h3>
+<ul>
+<li>This is a problem that<br />
+wake up is not necessary, the threads need to wait again</li>
+</ul>
+<p>Deadlocks</p>
+<h2 id="kernel-vs-user-level-threads"><a class="markdownIt-Anchor" href="#kernel-vs-user-level-threads"></a> Kernel Vs. User-Level Threads</h2>
+<ul>
+<li>Multithreading Models
+<ul>
+<li>One-to-One Model</li>
+<li>Many-to-One Model</li>
+<li>Many-to-Many Model</li>
+</ul>
+</li>
+<li>Scope of Multithreading</li>
+</ul>
+<h2 id="multithreading-patterns"><a class="markdownIt-Anchor" href="#multithreading-patterns"></a> Multithreading Patterns</h2>
 <ul>
 <li>
 <p>Boss/Workers Pattern</p>
 <ul>
 <li>boss: assign work to workers</li>
-<li>workers: performs entire task</li>
+<li>workers: perform entire task</li>
 </ul>
 <p>Throughput of the system limited by boss thread =&gt; must keep boss efficient<br />
 Throughput = 1 / t</p>
+</li>
+<li>
+<p>Pipeline Pattern</p>
+</li>
+<li>
+<p>Layered Pattern</p>
 </li>
 </ul>
 

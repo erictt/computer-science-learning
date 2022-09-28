@@ -1,19 +1,4 @@
-# Virtualizing the CPU
 
-[TOC]
-
-* What are the goals for virtualization?
-    * Efficiency
-    * Security
-        * processes should be isolated from each other
-
-## The Abstraction: The Process
-
-* What changes when a program runs?
-    * registers (program counter, general purpose) // [what are registers?](https://www.learncomputerscienceonline.com/what-are-cpu-registers/)
-    * I/O (disk, network)
-    * memory(address space)
-        * techincally, it's virtual memory.
 
 ## How to virtualize CPUs?
 

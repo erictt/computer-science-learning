@@ -98,8 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6200/p2l1-processes-and-process-management/index.html">P2L1 - Processes and Process Management</a></li>
 </ul>
 <!--
-* [Virtualization 1 - CPU](/introduction-to-operating-systems/1-virtualization-1/index.html)
-* [Virtualization 2 - Memory](/introduction-to-operating-systems/1-virtualization-2/index.html)
+* [P2L2 - Threads and Concurrency](/cs6200/p2l2-p2l2-threads-and-concurrency/index.html)
 -->
 <h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
 <ul>
@@ -274,35 +273,7 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1 id="virtualizing-the-cpu"><a class="markdownIt-Anchor" href="#virtualizing-the-cpu"></a> Virtualizing the CPU</h1>
-<p>[TOC]</p>
-<ul>
-<li>What are the goals for virtualization?
-<ul>
-<li>Efficiency</li>
-<li>Security
-<ul>
-<li>processes should be isolated from each other</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="the-abstraction-the-process"><a class="markdownIt-Anchor" href="#the-abstraction-the-process"></a> The Abstraction: The Process</h2>
-<ul>
-<li>What changes when a program runs?
-<ul>
-<li>registers (program counter, general purpose) // <a target="_blank" rel="noopener" href="https://www.learncomputerscienceonline.com/what-are-cpu-registers/">what are registers?</a></li>
-<li>I/O (disk, network)</li>
-<li>memory(address space)
-<ul>
-<li>techincally, it’s virtual memory.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="how-to-virtualize-cpus"><a class="markdownIt-Anchor" href="#how-to-virtualize-cpus"></a> How to virtualize CPUs?</h2>
+  <h2 id="how-to-virtualize-cpus"><a class="markdownIt-Anchor" href="#how-to-virtualize-cpus"></a> How to virtualize CPUs?</h2>
 <ul>
 <li>
 <p>The goal is to run N processes “at once” even we have M CPUs(N &gt; M)</p>

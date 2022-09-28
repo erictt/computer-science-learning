@@ -36,10 +36,8 @@
 * [P0 - Preparation](/cs6200/p1-preparation/index.html)
 * [P1L2 - Introduction](/cs6200/p1l2-introduction/index.html)
 * [P2L1 - Processes and Process Management](/cs6200/p2l1-processes-and-process-management/index.html)
-
 <!--
-* [Virtualization 1 - CPU](/introduction-to-operating-systems/1-virtualization-1/index.html)
-* [Virtualization 2 - Memory](/introduction-to-operating-systems/1-virtualization-2/index.html)
+* [P2L2 - Threads and Concurrency](/cs6200/p2l2-p2l2-threads-and-concurrency/index.html)
 -->
 
 ## Algorithms: Part II

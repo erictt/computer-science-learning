@@ -10,7 +10,7 @@
 
 * A process in memory:
 
-    * <img src="https://i.imgur.com/4Le9TjY.jpg" style="width: 600px" />
+    * <img src="https://i.imgur.com/4Le9TjY.jpg" style="width: 200px" />
     * type of state:
         * text and data:
             * static state when process first loads
@@ -23,6 +23,28 @@
     
 * Process uses virtual addresses for locating the process in memory. The OS maps the **virtual addresses** to **physical addresses**(DRAM) location in phlysical memory by using **page tables**.
 * Once the memory is out of space, the OS dynamically decides which addresses should be located in physical memory or **swapped** to disk.
+
+* Some explanations about memory types:
+    * Stack
+        * is allocated and deallocated by the compiler **implicitly**, also called automatic memory. it's used to keep track of where the program is
+            * e.g. `void func() { int x; }` // declares an integer on the desk, will be deallocated when function returns.
+    * Heap
+        * all allocations and deallocations are explicitly handled by programmers.
+            * e.g. 
+            
+                ```
+                void func() {
+                    int *x = (int *) malloc(sizeof(int));
+                    ...
+                    free(x);
+                }
+                ```
+            
+                * **int *x**: the complier make room for the pointer
+                * **malloc()**: requests spcae for an integer on the **heap**, return either the address of the integer or NULL if fails.
+                    * notice if you print out the size of x: `printf("%d\n", sizeof(x));`, it's gonna be the size of pointer, not the integer.
+                * **free()**: free the heap memory.
+
 
 ### Process Execution State
 
@@ -51,7 +73,7 @@
 ### Life Cycle
 
 * Process States
-    * <img src="https://i.imgur.com/0pQ5F7Z.jpg" style="width: 600px" />
+    * <img src="https://i.imgur.com/0pQ5F7Z.jpg" style="width: 500px" />
     * new: allocates/initializes the PCB for this process. 
 * Process Creation - two mechanisms
     * fork
@@ -74,7 +96,7 @@
 ### I/O
 
 * When a process makes an I/O request, the operating system will deliver that request, and move the process to the I/O queue for that particular I/O device. The process will remain in the queue until the request is responded to, after which the process will move back to a ready state (or might immediately be scheduled on the CPU).
-* <img src="https://i.imgur.com/GsD803O.jpg" style="width: 600px" />
+* <img src="https://i.imgur.com/GsD803O.jpg" style="width: 500px" />
 
 ### Process Interaction
 
@@ -89,14 +111,14 @@
         * The process write(send)/read(recv) message to/from **channels**
         * Positive: OS manages the work
         * Downside: Overheads. Every information has be copied to channel and to another process
-        * <img src="https://i.imgur.com/WPrAVtZ.jpg" style="width: 600px" />
+        * <img src="https://i.imgur.com/WPrAVtZ.jpg" style="width: 300px" />
 
     * Shared Memory IPC
         * OS establishes a share channel and maps it into each process address space
         * Process directly read/write from the momroy
         * Positive: OS is out of hte way
         * Downside: developers need to implement the code
-        * <img src="https://i.imgur.com/lgu76Xu.jpg" style="width: 600px" />
+        * <img src="https://i.imgur.com/lgu76Xu.jpg" style="width: 300px" />
 * Does Shared Memory performa better than message passing communication?
     * It depends. Although, it doesn't require data copy, the actual memory mapping is expensive.
 
