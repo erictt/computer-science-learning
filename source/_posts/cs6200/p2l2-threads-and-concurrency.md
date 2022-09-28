@@ -8,8 +8,8 @@
 * A process owns a virtual memory space and OS initialize a PCB to manage the state.
 * A thread is also called 
 * PCB: single thread process vs multithreaded process
-    * ![](/images/16642403768260.jpg)
-    * Tthe PCB for multithreaded process is different. In a multi-threaded process, threads share the same code/data/filter, but also have its own registers and stack.
+    * ![](https://i.imgur.com/2uV8di5.jpg)
+    * The PCB for multithreaded process is different. In a multi-threaded process, threads share the same code/data/filter, but also have its own registers and stack.
 
 ## Benefits of Multithreading
 
@@ -21,7 +21,7 @@
 
 * Are threads useful on single CPU?
     * Yes, when (t_idle) > 2 * (t_ctx_switch). e.g. disk I/O or network I/O.
-        * ![](/images/16643240276439.jpg)
+        * ![](https://i.imgur.com/fZQIY5e.jpg)
 * Multithreading the OS kernel, support multiple execution contexts, which is particularly useful when we do have multiple CPUs so OS can run threads behalf of the apps and run os-level daemons/drivers on different threads.
 
 ## Basic Thread Mechanisms
@@ -36,14 +36,14 @@
     * when `join` is called, the parent will be blocked until child thread is finished. So watch out if there is a `while(true)` for loop in child thread:D
     * After join returns, the resource associated with child thread will be deallocated.
 * Example
-    * ![](/images/16643255661268.jpg)
+    * ![](https://i.imgur.com/fFq4Hx8.jpg)
     * thread 1 might run before or after the function call `safe_insert(6)`, so there is no guarantee which `safe_insert` will be executed first.
 
 ## Mutual Exclusion(mutex)
 
 * To avoid multi threads access the same address at the same time, operating systems support a construct called a **mutex**. **A mutex is like a lock that should be used whenever you access data/state that is shared among threads.** When a thread locks a mutex, it has exclusive access to the shared resource. Other threads attempting to lock the same mutex will fail. 
 * How it works:
-    * ![](/images/16643260382048.jpg)
+    * ![](https://i.imgur.com/dPMqY03.jpg)
     * When T1/T2/T3 attempt to acquire the lock, only one will have the chance to get it.
 * There are two different APIs:
     
@@ -65,9 +65,9 @@
     * main: create 10 producer threads, and 1 consumer thread
     * producers: lock the mutex, and insert one id (note, it's `my_list->insert`
     * consumer: lock the mutex, clean up the list if it's full, otherwise it wait and try again.
-    * ![](/images/16643265308844.jpg)
+    * ![](https://i.imgur.com/MwtnqbF.jpg)
     * The problem is that the consumer shouldn't keep running check whether the list is full but gets notified once it's full. This is when `Condition` is useful.
-* ![](/images/16643276891817.jpg)
+* ![](https://i.imgur.com/s70WRi3.jpg)
 * In the image above, the `Wait` is a condition function that being called for waiting for the condition `list_full` and `Signal` is used for notifying another thread that the condition `list_full` is met.
 
 * Condition Variable API
@@ -117,17 +117,17 @@
         * when read_counter > 0 read is ok
         * when writer_counter == 1, neither read nor write.
     * the other way is to use one counter: `resource_counter` to indicate resource usage situation: 0: free, -1: 1 writer, >0: multiple readers
-    * ![](/images/16643300159714.jpg)
+    * ![](https://i.imgur.com/MOquvBQ.jpg)
 * Here are some pseudocodes for the second approach:
-    * ![](/images/16643309225383.jpg)
+    * ![](https://i.imgur.com/iI4hMCg.jpg)
     * The `writer_phase` is used in `reader_thread` for signaling the writer thread.
     * The `reader_phase` is used in `writer_thread` for signaling the writer thread.
     * The `resource_counter` is a **proxy variable** that reflects the state that the current resource is in. Instead of controlling updates to the shared state, we can instead control access to this proxy variable. As long as any update to the shared state is first reflected in an update to the proxy variable, we can ensure that our state is accessed via the policies we wish to enforce.
     * Notice the order of `Broadcast(read_phase); Signal(write_phase);`, it prefer readers than writer.
 * Critical Section Structure of the code:
-    * ![](/images/16643309746929.jpg)
+    * ![](https://i.imgur.com/41K52U2.jpg)
     * Both of the writer and readers follow the structure:
-        * ![](/images/16643310156604.jpg)
+        * ![](https://i.imgur.com/0z9HTAV.jpg)
     * This implementation allows dealing complex situation that mutex doesn't support, like one writer/multiple writer.
 
 ## Avoiding Common Pitfalls

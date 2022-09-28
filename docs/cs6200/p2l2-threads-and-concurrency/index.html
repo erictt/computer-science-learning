@@ -298,8 +298,8 @@ function sidebar_toggle() {
 <li>A thread is also called</li>
 <li>PCB: single thread process vs multithreaded process
 <ul>
-<li><img src="/images/16642403768260.jpg" alt="" /></li>
-<li>Tthe PCB for multithreaded process is different. In a multi-threaded process, threads share the same code/data/filter, but also have its own registers and stack.</li>
+<li><img src="https://i.imgur.com/2uV8di5.jpg" alt="" /></li>
+<li>The PCB for multithreaded process is different. In a multi-threaded process, threads share the same code/data/filter, but also have its own registers and stack.</li>
 </ul>
 </li>
 </ul>
@@ -323,7 +323,7 @@ function sidebar_toggle() {
 <ul>
 <li>Yes, when (t_idle) &gt; 2 * (t_ctx_switch). e.g. disk I/O or network I/O.
 <ul>
-<li><img src="/images/16643240276439.jpg" alt="" /></li>
+<li><img src="https://i.imgur.com/fZQIY5e.jpg" alt="" /></li>
 </ul>
 </li>
 </ul>
@@ -359,7 +359,7 @@ function sidebar_toggle() {
 <li>
 <p>Example</p>
 <ul>
-<li><img src="/images/16643255661268.jpg" alt="" /></li>
+<li><img src="https://i.imgur.com/fFq4Hx8.jpg" alt="" /></li>
 <li>thread 1 might run before or after the function call <code>safe_insert(6)</code>, so there is no guarantee which <code>safe_insert</code> will be executed first.</li>
 </ul>
 </li>
@@ -372,7 +372,7 @@ function sidebar_toggle() {
 <li>
 <p>How it works:</p>
 <ul>
-<li><img src="/images/16643260382048.jpg" alt="" /></li>
+<li><img src="https://i.imgur.com/dPMqY03.jpg" alt="" /></li>
 <li>When T1/T2/T3 attempt to acquire the lock, only one will have the chance to get it.</li>
 </ul>
 </li>
@@ -389,12 +389,12 @@ function sidebar_toggle() {
 <li>main: create 10 producer threads, and 1 consumer thread</li>
 <li>producers: lock the mutex, and insert one id (note, it’s <code>my_list-&gt;insert</code></li>
 <li>consumer: lock the mutex, clean up the list if it’s full, otherwise it wait and try again.</li>
-<li><img src="/images/16643265308844.jpg" alt="" /></li>
+<li><img src="https://i.imgur.com/MwtnqbF.jpg" alt="" /></li>
 <li>The problem is that the consumer shouldn’t keep running check whether the list is full but gets notified once it’s full. This is when <code>Condition</code> is useful.</li>
 </ul>
 </li>
 <li>
-<p><img src="/images/16643276891817.jpg" alt="" /></p>
+<p><img src="https://i.imgur.com/s70WRi3.jpg" alt="" /></p>
 </li>
 <li>
 <p>In the image above, the <code>Wait</code> is a condition function that being called for waiting for the condition <code>list_full</code> and <code>Signal</code> is used for notifying another thread that the condition <code>list_full</code> is met.</p>
@@ -452,12 +452,12 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>the other way is to use one counter: <code>resource_counter</code> to indicate resource usage situation: 0: free, -1: 1 writer, &gt;0: multiple readers</li>
-<li><img src="/images/16643300159714.jpg" alt="" /></li>
+<li><img src="https://i.imgur.com/MOquvBQ.jpg" alt="" /></li>
 </ul>
 </li>
 <li>Here are some pseudocodes for the second approach:
 <ul>
-<li><img src="/images/16643309225383.jpg" alt="" /></li>
+<li><img src="https://i.imgur.com/iI4hMCg.jpg" alt="" /></li>
 <li>The <code>writer_phase</code> is used in <code>reader_thread</code> for signaling the writer thread.</li>
 <li>The <code>reader_phase</code> is used in <code>writer_thread</code> for signaling the writer thread.</li>
 <li>The <code>resource_counter</code> is a <strong>proxy variable</strong> that reflects the state that the current resource is in. Instead of controlling updates to the shared state, we can instead control access to this proxy variable. As long as any update to the shared state is first reflected in an update to the proxy variable, we can ensure that our state is accessed via the policies we wish to enforce.</li>
@@ -466,10 +466,10 @@ function sidebar_toggle() {
 </li>
 <li>Critical Section Structure of the code:
 <ul>
-<li><img src="/images/16643309746929.jpg" alt="" /></li>
+<li><img src="https://i.imgur.com/41K52U2.jpg" alt="" /></li>
 <li>Both of the writer and readers follow the structure:
 <ul>
-<li><img src="/images/16643310156604.jpg" alt="" /></li>
+<li><img src="https://i.imgur.com/0z9HTAV.jpg" alt="" /></li>
 </ul>
 </li>
 <li>This implementation allows dealing complex situation that mutex doesn’t support, like one writer/multiple writer.</li>
