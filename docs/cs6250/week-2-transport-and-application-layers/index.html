@@ -274,6 +274,64 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1 id="lesson-2-transport-and-application-layers"><a class="markdownIt-Anchor" href="#lesson-2-transport-and-application-layers"></a> Lesson 2 : Transport and Application Layers</h1>
+<!-- toc -->
+<ul>
+<li><a href="#Introduction">Introduction</a></li>
+<li><a href="#Multiplexing">Multiplexing</a>
+<ul>
+<li><a href="#Connection-Oriented-and-Connectionless-Multiplexing-and-Demultiplexing">Connection Oriented and Connectionless Multiplexing and Demultiplexing</a></li>
+</ul>
+</li>
+<li><a href="#Connectionless-and-Connection-Oriented-Service">Connectionless and Connection-Oriented Service</a>
+<ul>
+<li><a href="#Connectionless-Service(UDP)">Connectionless Service(UDP)</a>
+<ul>
+<li><a href="#Checksum(an-error-checking-mechanism)">Checksum(an error checking mechanism):</a></li>
+</ul>
+</li>
+<li><a href="#Connection-Oriented-Service(TCP)">Connection-Oriented Service(TCP)</a></li>
+</ul>
+</li>
+<li><a href="#The-TCP-Three-Way-Handshake">The TCP Three-Way Handshake</a>
+<ul>
+<li><a href="#Connection-Teardown">Connection Teardown</a></li>
+</ul>
+</li>
+<li><a href="#Reliable-Transmission">Reliable Transmission</a>
+<ul>
+<li><a href="#Selective-ACKing">Selective ACKing</a></li>
+</ul>
+</li>
+<li><a href="#Transmission-Control">Transmission Control</a>
+<ul>
+<li><a href="#Flow-control">Flow control</a></li>
+<li><a href="#Congestion-control">Congestion control</a></li>
+</ul>
+</li>
+<li><a href="#Congestion-Control-at-TCP---AIMD">Congestion Control at TCP - AIMD</a>
+<ul>
+<li><a href="#Additive-Increase-(AI)">Additive Increase (AI)</a></li>
+<li><a href="#Multiplicative-Decrease-(MD)">Multiplicative Decrease (MD)</a></li>
+<li><a href="#AIAD---MIMD---MIAD">AIAD - MIMD - MIAD</a></li>
+<li><a href="#TCP-Reno">TCP Reno</a></li>
+<li><a href="#Slow-start-in-TCP">Slow start in TCP</a></li>
+<li><a href="#TCP-Fairness">TCP Fairness</a>
+<ul>
+<li><a href="#cases-that-TCP-is-not-fair">cases that TCP is not fair</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#TCP-CUBIC">TCP CUBIC</a>
+<ul>
+<li><a href="#The-TCP-Protocol-TCP-Throughput">The TCP Protocol: TCP Throughput</a></li>
+</ul>
+</li>
+<li><a href="#TCP-in-Datacenter">TCP in Datacenter</a></li>
+<li><a href="#Terms">Terms</a></li>
+</ul>
+<!-- tocstop -->
+<hr />
 <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
 <ul>
 <li>Transport layer provides a logical end-to-end transport between two endpoints:

@@ -1,6 +1,9 @@
 
 # Lesson 2 : Transport and Application Layers
 
+<!-- toc -->
+----
+
 ## Introduction
 
 * Transport layer provides a logical end-to-end transport between two endpoints:

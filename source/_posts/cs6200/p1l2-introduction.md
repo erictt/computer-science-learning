@@ -1,5 +1,8 @@
 # Introduction
 
+<!-- toc -->
+----
+
 ## What is an OS?
 
 An operation system is a layer of systems software that:

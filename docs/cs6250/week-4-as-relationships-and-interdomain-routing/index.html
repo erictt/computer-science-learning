@@ -297,12 +297,16 @@ function sidebar_toggle() {
 <li><a href="#Scalability-and-Misconfigurations">Scalability and Misconfigurations</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#IXPs">IXPs</a>
+<ul>
 <li><a href="#Peering-at-Internet-Exchange-Points(IXPs)">Peering at Internet Exchange Points(IXPs)</a></li>
 <li><a href="#Peering-at-IXPs-How-Does-a-Route-Server-Work%3F">Peering at IXPs: How Does a Route Server Work?</a></li>
 <li><a href="#Remote-Peering-%255BOptional%255D">Remote Peering [Optional]</a></li>
-<li><a href="#BGP-Configuration-Verification-%255BOptional%255D">BGP Configuration Verification [Optional]</a></li>
 </ul>
 </li>
+<li><a href="#BGP-Configuration-Verification-%255BOptional%255D">BGP Configuration Verification [Optional]</a></li>
 </ul>
 <!-- tocstop -->
 <hr />
@@ -556,6 +560,7 @@ c. or by the protocol (e.g., if a route is learned through eBGP or iBGP).</p>
 <li>An AS can <strong>limit the routing table size using filtering</strong>. For example, long, specific prefixes can be filtered to encourage route aggregation. In addition, routers can limit the number of prefixes advertised from a single source on a per-session basis. Some small ASes also have the option to configure default routes into their forwarding tables. ASes can likewise protect other ASes by using route aggregation and exporting less specific prefixes where possible.</li>
 <li>Also, an AS can <strong>limit the number of routing changes</strong>, explicitly limiting the propagation of unstable routes by using a mechanism known as <strong>flap damping</strong>. To apply this technique, an AS will track the number of updates to a specific prefix over a certain amount of time. <u>If the tracked value reaches a configurable value, the AS can suppress that route until a later time.</u> Because this can affect reachability, an AS can be strategic about how it uses this technique for certain prefixes. For example, more specific prefixes could be more aggressively suppressed (lower thresholds), while routes to known destinations that require high availability could be allowed higher thresholds.</li>
 </ul>
+<h2 id="ixps"><a class="markdownIt-Anchor" href="#ixps"></a> IXPs</h2>
 <h3 id="peering-at-internet-exchange-pointsixps"><a class="markdownIt-Anchor" href="#peering-at-internet-exchange-pointsixps"></a> Peering at Internet Exchange Points(IXPs)</h3>
 <ul>
 <li>What are IXPs?
@@ -656,7 +661,7 @@ c. or by the protocol (e.g., if a route is learned through eBGP or iBGP).</p>
 </ul>
 </li>
 </ul>
-<h3 id="bgp-configuration-verification-optional"><a class="markdownIt-Anchor" href="#bgp-configuration-verification-optional"></a> BGP Configuration Verification [Optional]</h3>
+<h2 id="bgp-configuration-verification-optional"><a class="markdownIt-Anchor" href="#bgp-configuration-verification-optional"></a> BGP Configuration Verification [Optional]</h2>
 <ul>
 <li>Control of BGP configuration is complex and easily misconfigured. Two main aspects of persistent routing define BGP correctness. They are <strong>path visibility</strong> and <strong>route validity</strong>.
 <ul>

@@ -147,6 +147,8 @@ Summary:
 * An AS can **limit the routing table size using filtering**. For example, long, specific prefixes can be filtered to encourage route aggregation. In addition, routers can limit the number of prefixes advertised from a single source on a per-session basis. Some small ASes also have the option to configure default routes into their forwarding tables. ASes can likewise protect other ASes by using route aggregation and exporting less specific prefixes where possible. 
 * Also, an AS can **limit the number of routing changes**, explicitly limiting the propagation of unstable routes by using a mechanism known as **flap damping**. To apply this technique, an AS will track the number of updates to a specific prefix over a certain amount of time. <u>If the tracked value reaches a configurable value, the AS can suppress that route until a later time.</u> Because this can affect reachability, an AS can be strategic about how it uses this technique for certain prefixes. For example, more specific prefixes could be more aggressively suppressed (lower thresholds), while routes to known destinations that require high availability could be allowed higher thresholds. 
 
+## IXPs
+
 ### Peering at Internet Exchange Points(IXPs)
 
 * What are IXPs?
@@ -204,7 +206,7 @@ Summary:
     * **Multi-IXP router inference**: An AS can operate a multi-IXP router, which is a router connected to multiple IXPs to reduce operational costs. Suppose a router is connected to multiple IXPs, and say, we infer the AS as local or remote to one of these IXPs from a previous step. In that case, we can extend the inference to the rest of the involved IXPs based on whether they share colocation facilities or not.
     * **Private connectivity with multiple existing AS participants**: If an AS has private peers over the same router that connects it to an IXP, and the private peers are physically colocated to the same IXP facilities, it can be inferred that the AS is also local to the IXP. 
 
-### BGP Configuration Verification [Optional]
+## BGP Configuration Verification [Optional]
 
 * Control of BGP configuration is complex and easily misconfigured. Two main aspects of persistent routing define BGP correctness. They are **path visibility** and **route validity**.
     * **Path visibility** means that route destinations are correctly propagated through the available links in the network.
