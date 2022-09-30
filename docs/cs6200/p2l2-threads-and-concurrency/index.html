@@ -288,8 +288,19 @@ function sidebar_toggle() {
 <li><a href="#Deadlocks">Deadlocks</a></li>
 </ul>
 </li>
-<li><a href="#Kernel-Vs.-User-Level-Threads">Kernel Vs. User-Level Threads</a></li>
-<li><a href="#Multithreading-Patterns">Multithreading Patterns</a></li>
+<li><a href="#Kernel-Level-Threads-Vs.-User-Level-Threads">Kernel-Level Threads Vs. User-Level Threads</a>
+<ul>
+<li><a href="#Multithreading-Models">Multithreading Models</a></li>
+<li><a href="#Scope-of-Multithreading">Scope of Multithreading</a></li>
+</ul>
+</li>
+<li><a href="#Multithreading-Patterns">Multithreading Patterns</a>
+<ul>
+<li><a href="#Bossx2FWorkers-Pattern">Boss/Workers Pattern</a></li>
+<li><a href="#Pipeline-Pattern">Pipeline Pattern</a></li>
+<li><a href="#Layered-Pattern">Layered Pattern</a></li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
 <hr />
@@ -577,34 +588,129 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h2 id="kernel-vs-user-level-threads"><a class="markdownIt-Anchor" href="#kernel-vs-user-level-threads"></a> Kernel Vs. User-Level Threads</h2>
+<h2 id="kernel-level-threads-vs-user-level-threads"><a class="markdownIt-Anchor" href="#kernel-level-threads-vs-user-level-threads"></a> Kernel-Level Threads Vs. User-Level Threads</h2>
 <ul>
-<li>Multithreading Models
+<li><strong>Kernel level threads</strong> imply that the operating system itself is <strong>multithreaded</strong>. Kernel level threads are visible to the kernel and are managed by kernel level components like the <strong>kernel level scheduler</strong>. The operating system scheduler will determine how these threads will be mapped onto the underlying physical CPU(s) and which ones will execute at any given point.</li>
+<li>Some kernel level threads may exist to support user level applications, while other kernel level threads may exist just to run <strong>operating system level services</strong>, like daemons for instance.</li>
+<li>At the user level, the processes themselves are multithreaded and these are the user level threads. <strong>For a user level thread to actually execute, it must first be associated with a kernel level thread, and then the OS level scheduler must schedule that kernel level thread on the CPU.</strong></li>
+</ul>
+<h3 id="multithreading-models"><a class="markdownIt-Anchor" href="#multithreading-models"></a> Multithreading Models</h3>
 <ul>
-<li>One-to-One Model</li>
-<li>Many-to-One Model</li>
-<li>Many-to-Many Model</li>
+<li>One-to-One Model
+<ul>
+<li>each user level thread associated with one kernel thread.</li>
+<li>Advantages:
+<ul>
+<li>OS understands the needs of the threads, like I/O blocking</li>
 </ul>
 </li>
-<li>Scope of Multithreading</li>
+<li>Disadvantages:
+<ul>
+<li>Expensive, must go to kernel and do the system call.</li>
+<li>Rely/Limited on the mechanisms and policies supported by the kernel.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Many-to-One Model
+<ul>
+<li>All user level threads for a process associated with one kernel thread.</li>
+<li>Advantages:
+<ul>
+<li>Everything is done at the user level, which frees us from being reliant on the OS limits and policies.</li>
+</ul>
+</li>
+<li>Disadvantage:
+<ul>
+<li>OS loses its insight into application needs. If the <strong>user-level library</strong> scheduled a blocking operation like I/O, the kernel level thread will see the thread is blocked and end up blocking the entire process.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Many-to-Many Model
+<ul>
+<li>some user threads to have a many-to-one relationship, the other have one-to-one.</li>
+<li>Advantage:
+<ul>
+<li>The kernel is aware that the process is multithreaded since it has assigned multiple kernel level threads to the process.</li>
+<li>Some threads can be scheduled to any kernel-level threads, which is called <strong>unbound</strong> thread. If a user-level thread is mapping to a kernel level thread permanently, it’s called <strong>bound</strong> thread.</li>
+</ul>
+</li>
+<li>Disadvantage:
+<ul>
+<li>requires extra coordination between user-level and kernel-level management.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="scope-of-multithreading"><a class="markdownIt-Anchor" href="#scope-of-multithreading"></a> Scope of Multithreading</h3>
+<ul>
+<li>The questions is whether the threads inside a process is visible to kernel or not.
+<ul>
+<li>If not, it’s called <strong>process scope</strong>, and the <strong>user level library</strong> manage the threads for the given process it linked to, the OS/Kernel can’t see them, and will  probably allocate the CPU relative to the total amount of user threads evenly.</li>
+<li>If yes, it’s called <strong>system scope</strong>, and the <strong>OS-level thread managers</strong>(e.g. CPU scheduler) will be aware of the amount of threads in the process and allocates the threads by the total amount of threads.</li>
+</ul>
+</li>
+<li>e.g. A has 6 threads, B has 3 threads.
+<ul>
+<li>if they are in the process scope, 50% of the kernel threads will be allocated to A, 50% to B.</li>
+<li>if they are in the system scope, the total 9 threads will be evenly allocated into all kernel threads.</li>
+</ul>
+</li>
 </ul>
 <h2 id="multithreading-patterns"><a class="markdownIt-Anchor" href="#multithreading-patterns"></a> Multithreading Patterns</h2>
+<h3 id="bossworkers-pattern"><a class="markdownIt-Anchor" href="#bossworkers-pattern"></a> Boss/Workers Pattern</h3>
 <ul>
-<li>
-<p>Boss/Workers Pattern</p>
+<li>boss: assign work to workers | workers: perform entire task</li>
+<li>throughput of the system limited by boss thread =&gt; must keep boss efficient
 <ul>
-<li>boss: assign work to workers</li>
-<li>workers: perform entire task</li>
+<li>throughput = 1 / boss_time_pre_task</li>
 </ul>
-<p>Throughput of the system limited by boss thread =&gt; must keep boss efficient<br />
-Throughput = 1 / t</p>
 </li>
-<li>
-<p>Pipeline Pattern</p>
+<li>Different ways boss assign works
+<ol>
+<li>directly signaling specific workers
+<ul>
+<li>Boss needs to do some extra work to track every worker’s status.</li>
+<li>Workers don’t need to synchronize with the others</li>
+</ul>
 </li>
-<li>
-<p>Layered Pattern</p>
+<li>establish a queue between the boss and the workers
+<ul>
+<li>boss is a producer, and the workers are consumers</li>
+<li>boss doesn’t need to know the process detail in the worker</li>
+<li>worker takes job from the queue from the top and process it</li>
+<li>synchronization is required, need to maintain a concurrent queue so only one worker can retrieve from it.</li>
+</ul>
 </li>
+</ol>
+</li>
+<li>For the second approach, the queue filling up is dependent primarily on <strong>the number of workers</strong>. So how many?
+<ol>
+<li>create on demand. inefficient, the cost of creating thread is significant.</li>
+<li>more common ways: create a fix-sized pool of workers. Can be increased when high demands.</li>
+</ol>
+</li>
+<li>One downside of second approach:
+<ul>
+<li><strong>locality</strong>. Boss doesn’t keep the status of any workers, not aware of whether the task is simple or not.</li>
+<li>One solution to this is, <strong>worker variants</strong>. Use a subset of workers to work on the same specific works. Since the jobs are the same, the state is likely be present in hot cache, aka better performance.</li>
+</ul>
+</li>
+</ul>
+<h3 id="pipeline-pattern"><a class="markdownIt-Anchor" href="#pipeline-pattern"></a> Pipeline Pattern</h3>
+<ul>
+<li>The overall task is divided into subtasks and each of the subtasks are assigned a different thread. each of the subtasks might have different amount of threads.</li>
+<li>The throughput of the pipeline will be dependent on the weakest link in the pipeline; that is, the task that takes the longest amount of time to complete.</li>
+<li>The best way to pass work between these stages is a shared buffer base communication between stages. That means the thread for stage one will put its completed work on a buffer that the thread from stage two will read from and so on.</li>
+<li>A key benefit of this approach is specialization and locality, which can lead to more efficiency, as state required for subsequent similar jobs is likely to be present in CPU caches.</li>
+<li>A downside of this approach is that it is difficult to keep the pipeline balanced over time. When the input rate changes, or the resources at a given stage are exhausted, rebalancing may be required.</li>
+</ul>
+<h3 id="layered-pattern"><a class="markdownIt-Anchor" href="#layered-pattern"></a> Layered Pattern</h3>
+<ul>
+<li>Similar to pipeline pattern. instead of putting each task into a thread, this approach groups similar tasks into a “layer” and the threads assigned to the layer can work on the group of subtasks.</li>
+<li>A benefit of this approach is that we can have specialization while being less fine-grained than the pipeline pattern. However it’s not suit for all applications.</li>
 </ul>
 
 </div>

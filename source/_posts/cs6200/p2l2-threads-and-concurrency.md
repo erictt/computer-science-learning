@@ -173,22 +173,76 @@
         * We can accomplish this through analysis of the wait graph and trying to determine whether any cycles have occurred. This is still an expensive operation as it requires us to have a rollback strategy in the event that we need to recover.
     * Ostrich algorithm. Simply do nothing, and reboot the system if the system goes wrong.
 
-## Kernel Vs. User-Level Threads
+## Kernel-Level Threads Vs. User-Level Threads
 
-* Multithreading Models
-    * One-to-One Model
-    * Many-to-One Model
-    * Many-to-Many Model
-* Scope of Multithreading
+* **Kernel level threads** imply that the operating system itself is **multithreaded**. Kernel level threads are visible to the kernel and are managed by kernel level components like the **kernel level scheduler**. The operating system scheduler will determine how these threads will be mapped onto the underlying physical CPU(s) and which ones will execute at any given point.
+* Some kernel level threads may exist to support user level applications, while other kernel level threads may exist just to run **operating system level services**, like daemons for instance.
+* At the user level, the processes themselves are multithreaded and these are the user level threads. **For a user level thread to actually execute, it must first be associated with a kernel level thread, and then the OS level scheduler must schedule that kernel level thread on the CPU.**
+
+### Multithreading Models
+
+* One-to-One Model
+    * each user level thread associated with one kernel thread.
+    * Advantages:
+        * OS understands the needs of the threads, like I/O blocking
+    * Disadvantages:
+        * Expensive, must go to kernel and do the system call.
+        * Rely/Limited on the mechanisms and policies supported by the kernel.
+* Many-to-One Model
+    * All user level threads for a process associated with one kernel thread.
+    * Advantages:
+        * Everything is done at the user level, which frees us from being reliant on the OS limits and policies.
+    * Disadvantage:
+        * OS loses its insight into application needs. If the **user-level library** scheduled a blocking operation like I/O, the kernel level thread will see the thread is blocked and end up blocking the entire process.
+* Many-to-Many Model
+    * some user threads to have a many-to-one relationship, the other have one-to-one.
+    * Advantage:
+        * The kernel is aware that the process is multithreaded since it has assigned multiple kernel level threads to the process. 
+        * Some threads can be scheduled to any kernel-level threads, which is called **unbound** thread. If a user-level thread is mapping to a kernel level thread permanently, it's called **bound** thread.
+    * Disadvantage:
+        * requires extra coordination between user-level and kernel-level management.
+
+### Scope of Multithreading
+
+* The questions is whether the threads inside a process is visible to kernel or not. 
+    * If not, it's called **process scope**, and the **user level library** manage the threads for the given process it linked to, the OS/Kernel can't see them, and will  probably allocate the CPU relative to the total amount of user threads evenly. 
+    * If yes, it's called **system scope**, and the **OS-level thread managers**(e.g. CPU scheduler) will be aware of the amount of threads in the process and allocates the threads by the total amount of threads.
+* e.g. A has 6 threads, B has 3 threads. 
+    * if they are in the process scope, 50% of the kernel threads will be allocated to A, 50% to B.
+    * if they are in the system scope, the total 9 threads will be evenly allocated into all kernel threads.
 
 ## Multithreading Patterns
 
-* Boss/Workers Pattern
-    * boss: assign work to workers
-    * workers: perform entire task
+### Boss/Workers Pattern
 
-    Throughput of the system limited by boss thread => must keep boss efficient
-    Throughput = 1 / t 
+* boss: assign work to workers | workers: perform entire task
+* throughput of the system limited by boss thread => must keep boss efficient
+    * throughput = 1 / boss_time_pre_task 
+* Different ways boss assign works
+    1. directly signaling specific workers
+        * Boss needs to do some extra work to track every worker's status.
+        * Workers don't need to synchronize with the others
+    2. establish a queue between the boss and the workers
+        * boss is a producer, and the workers are consumers
+        * boss doesn't need to know the process detail in the worker
+        * worker takes job from the queue from the top and process it
+        * synchronization is required, need to maintain a concurrent queue so only one worker can retrieve from it.
+* For the second approach, the queue filling up is dependent primarily on **the number of workers**. So how many? 
+    1. create on demand. inefficient, the cost of creating thread is significant.
+    2. more common ways: create a fix-sized pool of workers. Can be increased when high demands.
+* One downside of second approach:
+    * **locality**. Boss doesn't keep the status of any workers, not aware of whether the task is simple or not.
+    * One solution to this is, **worker variants**. Use a subset of workers to work on the same specific works. Since the jobs are the same, the state is likely be present in hot cache, aka better performance.
+    
+### Pipeline Pattern
 
-* Pipeline Pattern
-* Layered Pattern
+* The overall task is divided into subtasks and each of the subtasks are assigned a different thread. each of the subtasks might have different amount of threads.
+* The throughput of the pipeline will be dependent on the weakest link in the pipeline; that is, the task that takes the longest amount of time to complete.
+* The best way to pass work between these stages is a shared buffer base communication between stages. That means the thread for stage one will put its completed work on a buffer that the thread from stage two will read from and so on.
+* A key benefit of this approach is specialization and locality, which can lead to more efficiency, as state required for subsequent similar jobs is likely to be present in CPU caches.
+* A downside of this approach is that it is difficult to keep the pipeline balanced over time. When the input rate changes, or the resources at a given stage are exhausted, rebalancing may be required.
+
+### Layered Pattern
+
+* Similar to pipeline pattern. instead of putting each task into a thread, this approach groups similar tasks into a "layer" and the threads assigned to the layer can work on the group of subtasks.
+* A benefit of this approach is that we can have specialization while being less fine-grained than the pipeline pattern. However it's not suit for all applications.
