@@ -1,4 +1,4 @@
-# P2L2: PThread - Case Study
+# P2L3: PThread - Case Study
 
 <!-- toc -->
 ----
