@@ -246,3 +246,20 @@
 
 * Similar to pipeline pattern. instead of putting each task into a thread, this approach groups similar tasks into a "layer" and the threads assigned to the layer can work on the group of subtasks.
 * A benefit of this approach is that we can have specialization while being less fine-grained than the pipeline pattern. However it's not suit for all applications.
+
+### Quiz
+
+* For a 6-step toy order application, and 6 threads. We have two solutions:
+    1. a boss-workers solution
+        1. a worker process a toy order in 120ms
+    2. a pipeline solution, 
+        1. each of the 6 steps take 20ms
+* How long will it take for these solutions to complete 10 and 11 orders?
+    * boss-worker (10): 240ms
+    * boss-worker (11): 360ms
+        * Note that, one of threads is boss, 5 are workers
+    * pipeline (10): 300ms
+        * how to calculate?
+            * Once the first job is popped, that's 120ms. Then every 20ms, there is another one finished. So:
+                * 120 + 9 * 20 = 300ms
+    * pipeline (11): 320ms

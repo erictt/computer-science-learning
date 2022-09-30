@@ -36,8 +36,10 @@
 * [P0 - Preparation](/cs6200/p1-preparation/index.html)
 * [P1L2 - Introduction](/cs6200/p1l2-introduction/index.html)
 * [P2L1 - Processes and Process Management](/cs6200/p2l1-processes-and-process-management/index.html)
+* [P2L2 - Threads and Concurrency](/cs6200/p2l2-threads-and-concurrency/index.html)
+* [P2L3 - PThread](/cs6200/p2l3-pthread/index.html)
+
 <!--
-* [P2L2 - Threads and Concurrency](/cs6200/p2l2-p2l2-threads-and-concurrency/index.html)
 -->
 
 ## Algorithms: Part II

@@ -96,9 +96,10 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6200/p1-preparation/index.html">P0 - Preparation</a></li>
 <li><a href="/cs6200/p1l2-introduction/index.html">P1L2 - Introduction</a></li>
 <li><a href="/cs6200/p2l1-processes-and-process-management/index.html">P2L1 - Processes and Process Management</a></li>
+<li><a href="/cs6200/p2l2-threads-and-concurrency/index.html">P2L2 - Threads and Concurrency</a></li>
+<li><a href="/cs6200/p2l3-pthread/index.html">P2L3 - PThread</a></li>
 </ul>
 <!--
-* [P2L2 - Threads and Concurrency](/cs6200/p2l2-p2l2-threads-and-concurrency/index.html)
 -->
 <h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
 <ul>
@@ -299,6 +300,7 @@ function sidebar_toggle() {
 <li><a href="#Bossx2FWorkers-Pattern">Boss/Workers Pattern</a></li>
 <li><a href="#Pipeline-Pattern">Pipeline Pattern</a></li>
 <li><a href="#Layered-Pattern">Layered Pattern</a></li>
+<li><a href="#Quiz">Quiz</a></li>
 </ul>
 </li>
 </ul>
@@ -711,6 +713,47 @@ function sidebar_toggle() {
 <ul>
 <li>Similar to pipeline pattern. instead of putting each task into a thread, this approach groups similar tasks into a “layer” and the threads assigned to the layer can work on the group of subtasks.</li>
 <li>A benefit of this approach is that we can have specialization while being less fine-grained than the pipeline pattern. However it’s not suit for all applications.</li>
+</ul>
+<h3 id="quiz"><a class="markdownIt-Anchor" href="#quiz"></a> Quiz</h3>
+<ul>
+<li>For a 6-step toy order application, and 6 threads. We have two solutions:
+<ol>
+<li>a boss-workers solution
+<ol>
+<li>a worker process a toy order in 120ms</li>
+</ol>
+</li>
+<li>a pipeline solution,
+<ol>
+<li>each of the 6 steps take 20ms</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>How long will it take for these solutions to complete 10 and 11 orders?
+<ul>
+<li>boss-worker (10): 240ms</li>
+<li>boss-worker (11): 360ms
+<ul>
+<li>Note that, one of threads is boss, 5 are workers</li>
+</ul>
+</li>
+<li>pipeline (10): 300ms
+<ul>
+<li>how to calculate?
+<ul>
+<li>Once the first job is popped, that’s 120ms. Then every 20ms, there is another one finished. So:
+<ul>
+<li>120 + 9 * 20 = 300ms</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>pipeline (11): 320ms</li>
+</ul>
+</li>
 </ul>
 
 </div>
