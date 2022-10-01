@@ -5,6 +5,7 @@
 
 ## Kernel Vs. User Level Threads
 
+* ![](media/16646342125616.jpg)
 
 
 Thread Related Data Structures: Single CPU

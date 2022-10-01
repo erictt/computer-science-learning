@@ -30,6 +30,10 @@
 * [Week 2 - Transport and Application Layers](/cs6250/week-2-transport-and-application-layers/index.html)
 * [Week 3 - Intradomain Routing](/cs6250/week-3-intradomain-routing/index.html)
 * [Week 4 - AS Relationships and Interdomain Routing](/cs6250/week-4-as-relationships-and-interdomain-routing/index.html)
+* [Week 5 - Router Design and Algorithms Part 1](/cs6250/week-5-router-design-and-algorithems-part-1/index.html)
+<!--
+* [Week 6 - Router Design and Algorithms Part 2](/cs6250/week-6-router-design-and-algorithems-part-2/index.html)
+-->
 
 ## CS6200 Graduate Introduction to Operating Systems
 
@@ -38,8 +42,10 @@
 * [P2L1 - Processes and Process Management](/cs6200/p2l1-processes-and-process-management/index.html)
 * [P2L2 - Threads and Concurrency](/cs6200/p2l2-threads-and-concurrency/index.html)
 * [P2L3 - PThread](/cs6200/p2l3-pthread/index.html)
+* [P2L4 - Thread Design Considerations](/cs6200/p2l4-thread-design-consideration/index.html)
 
 <!--
+* [P2L5 - Thread Performance Considerations](/cs6200/p2l5-thread-performance-consideration/index.html)
 -->
 
 ## Algorithms: Part II

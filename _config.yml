@@ -128,5 +128,11 @@ markdown_it_plus:
       enable: true
       options:
         strict: false
-hexo-insert-toc:
+toc:
   maxdepth: 4
+  class: post-toc
+  slugify: transliteration
+  # decodeEntities: false
+  # anchor:
+  #   position: after
+  #   symbol: '#'
