@@ -21,6 +21,6 @@
     "hexo-renderer-markdown-it-plus": "git@github.com:erictt/hexo-renderer-markdown-it-plus.git",
     "hexo-renderer-stylus": "^2.0.1",
     "hexo-server": "^1.0.0",
-    "hexo-toc": "^1.1.0"
+    "hexo-toc-dllcn": "^1.1.2"
   }
 }

@@ -128,10 +128,9 @@ markdown_it_plus:
       enable: true
       options:
         strict: false
-toc:
+mdtoc:
   maxdepth: 4
   # class: post-toc
-  # slugify: transliteration
   # decodeEntities: false
   # anchor:
   #   position: after
