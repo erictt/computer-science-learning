@@ -281,7 +281,6 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1><span id="lesson-2-transport-and-application-layers"> Lesson 2 : Transport and Application Layers</span></h1>
-<div class="post-toc">
 <!-- toc -->
 <ul>
 <li><a href="#introduction">Introduction</a></li>
@@ -292,12 +291,12 @@ function sidebar_toggle() {
 </li>
 <li><a href="#connectionless-and-connection-oriented-service">Connectionless and Connection-Oriented Service</a>
 <ul>
-<li><a href="#connectionless-service-udp">Connectionless Service(UDP)</a>
+<li><a href="#connectionless-serviceudp">Connectionless Service(UDP)</a>
 <ul>
-<li><a href="#checksum-an-error-checking-mechanism">Checksum(an error checking mechanism):</a></li>
+<li><a href="#checksuman-error-checking-mechanism">Checksum(an error checking mechanism):</a></li>
 </ul>
 </li>
-<li><a href="#connection-oriented-service-tcp">Connection-Oriented Service(TCP)</a></li>
+<li><a href="#connection-oriented-servicetcp">Connection-Oriented Service(TCP)</a></li>
 </ul>
 </li>
 <li><a href="#the-tcp-three-way-handshake">The TCP Three-Way Handshake</a>
@@ -382,7 +381,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h2><span id="connectionless-and-connection-oriented-service"> Connectionless and Connection-Oriented Service</span></h2>
-<h3><span id="connectionless-service-udp"> Connectionless Service(UDP)</span></h3>
+<h3><span id="connectionless-serviceudp"> Connectionless Service(UDP)</span></h3>
 <ul>
 <li>The identifier of a UDP socket is a <strong>two-tuple</strong> that consists of <strong>a destination IP address and a destination port number</strong>.</li>
 <li>Consider two hosts, A and B, which are running two processes at UDP ports a and b, respectively. Suppose that Host A sends data to Host B. The transport layer in Host A creates a transport-layer segment by the application data, the source port, and the destination port; and forwards the segment to the network layer. In turn, the network layer encapsulates the segment into a network-layer datagram and sends it to Host B with best-effort delivery. Then Host B identifies the correct socket by looking at the field of destination port, then use the info to demultiplex.</li>
@@ -398,7 +397,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h4><span id="checksum-an-error-checking-mechanism"> Checksum(an error checking mechanism):</span></h4>
+<h4><span id="checksuman-error-checking-mechanism"> Checksum(an error checking mechanism):</span></h4>
 <ul>
 <li>
 <p>it’s a basic error checking since there is no guarantee for link-by-link reliability. The UDP sender adds the bits of the source port, the destination port, and the packet length. It performs a 1’s complement on the sum (all 0s are turned to 1 and all 1s are turned to 0s), which is the value of the checksum. The receiver adds all the four 16-bit words (including the checksum). The result should be all 1’s unless an error has occurred.</p>
@@ -427,7 +426,7 @@ function sidebar_toggle() {
 <p>How is a 1s complement checksum useful for error detection? <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/5607978/how-is-a-1s-complement-checksum-useful-for-error-detection">https://stackoverflow.com/questions/5607978/how-is-a-1s-complement-checksum-useful-for-error-detection</a></p>
 </li>
 </ul>
-<h3><span id="connection-oriented-service-tcp"> Connection-Oriented Service(TCP)</span></h3>
+<h3><span id="connection-oriented-servicetcp"> Connection-Oriented Service(TCP)</span></h3>
 <ul>
 <li>
 <img src="https://i.imgur.com/1h1pQVl.png" style="width:500px">

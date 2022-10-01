@@ -281,15 +281,14 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1><span id="p2l2-threads-and-concurrency"> P2L2: Threads and Concurrency</span></h1>
-<div class="post-toc">
 <!-- toc -->
 <ul>
 <li><a href="#process-vs-thread">Process vs. Thread</a></li>
 <li><a href="#benefits-of-multithreading">Benefits of Multithreading</a></li>
 <li><a href="#basic-thread-mechanisms">Basic Thread Mechanisms</a></li>
-<li><a href="#mutual-exclusion-mutex">Mutual Exclusion(mutex)</a></li>
+<li><a href="#mutual-exclusionmutex">Mutual Exclusion(mutex)</a></li>
 <li><a href="#condition-variable">Condition Variable</a></li>
-<li><a href="#readers-writer-problem">Readers/Writer Problem</a></li>
+<li><a href="#readerswriter-problem">Readers/Writer Problem</a></li>
 <li><a href="#avoiding-common-pitfalls">Avoiding Common Pitfalls</a>
 <ul>
 <li><a href="#spurious-wake-ups">Spurious Wake-ups</a></li>
@@ -304,7 +303,7 @@ function sidebar_toggle() {
 </li>
 <li><a href="#multithreading-patterns">Multithreading Patterns</a>
 <ul>
-<li><a href="#boss-workers-pattern">Boss/Workers Pattern</a></li>
+<li><a href="#bossworkers-pattern">Boss/Workers Pattern</a></li>
 <li><a href="#pipeline-pattern">Pipeline Pattern</a></li>
 <li><a href="#layered-pattern">Layered Pattern</a></li>
 <li><a href="#quiz">Quiz</a></li>
@@ -391,7 +390,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h2><span id="mutual-exclusion-mutex"> Mutual Exclusion(mutex)</span></h2>
+<h2><span id="mutual-exclusionmutex"> Mutual Exclusion(mutex)</span></h2>
 <ul>
 <li>
 <p>To avoid multi threads access the same address at the same time, operating systems support a construct called a <strong>mutex</strong>. <strong>A mutex is like a lock that should be used whenever you access data/state that is shared among threads.</strong> When a thread locks a mutex, it has exclusive access to the shared resource. Other threads attempting to lock the same mutex will fail.</p>
@@ -470,7 +469,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h2><span id="readers-writer-problem"> Readers/Writer Problem</span></h2>
+<h2><span id="readerswriter-problem"> Readers/Writer Problem</span></h2>
 <ul>
 <li><strong>Read/write problem</strong>: some subset of threads that want to read from shared state, and one thread that wants to write to shared state.</li>
 <li>To solve the problem,
@@ -669,7 +668,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h2><span id="multithreading-patterns"> Multithreading Patterns</span></h2>
-<h3><span id="boss-workers-pattern"> Boss/Workers Pattern</span></h3>
+<h3><span id="bossworkers-pattern"> Boss/Workers Pattern</span></h3>
 <ul>
 <li>boss: assign work to workers | workers: perform entire task</li>
 <li>throughput of the system limited by boss thread =&gt; must keep boss efficient

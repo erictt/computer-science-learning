@@ -281,44 +281,234 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1><span id="p2l4-thread-design-considerations"> P2L4: Thread Design Considerations</span></h1>
-<div class="post-toc">
 <!-- toc -->
 <ul>
 <li><a href="#kernel-vs-user-level-threads">Kernel Vs. User Level Threads</a></li>
+<li><a href="#thread-related-data-structures">Thread Related Data Structures</a>
+<ul>
+<li><a href="#single-cpu">Single CPU</a></li>
+<li><a href="#at-scale">At Scale</a></li>
+<li><a href="#hard-and-light-process-state">Hard and Light Process State</a></li>
+<li><a href="#rationale-for-data-structures">Rationale For Data Structures</a></li>
+</ul>
+</li>
+<li><a href="#data-structures-in-solaris-20os">Data Structures in Solaris 2.0(OS)</a>
+<ul>
+<li><a href="#user-level-structures">User Level Structures</a></li>
+<li><a href="#kernel-level-structures">Kernel Level Structures</a></li>
+</ul>
+</li>
+<li><a href="#thread-management-interaction">Thread Management Interaction</a>
+<ul>
+<li><a href="#visibility-in-bewteen">Visibility in Bewteen</a></li>
+</ul>
+</li>
+<li><a href="#interrupts-and-signals">Interrupts and Signals</a>
+<ul>
+<li><a href="#interrupts">Interrupts</a></li>
+<li><a href="#signals">Signals</a></li>
+<li><a href="#signalinterrupt-similarities">Signal/Interrupt Similarities</a></li>
+<li><a href="#interrupt-handling">Interrupt Handling</a></li>
+<li><a href="#signal-handling">Signal Handling</a></li>
+<li><a href="#why-disable-interrupts-or-signals">Why Disable Interrupts or Signals?</a></li>
+<li><a href="#more-on-signal-masks">More on Signal Masks</a></li>
+<li><a href="#interrupts-on-multicore-systems">Interrupts on Multicore Systems</a></li>
+<li><a href="#types-of-signals">Types of Signals</a></li>
+<li><a href="#interrupts-as-threads">Interrupts as Threads</a></li>
+<li><a href="#interrupts-top-vs-bottom-half">Interrupts: Top Vs. Bottom Half</a></li>
+<li><a href="#performance-of-threads-as-interrupts">Performance of Threads as Interrupts</a></li>
+<li><a href="#threads-and-signal-handling">Threads and Signal Handling</a></li>
+<li><a href="#tasks-in-linux">Tasks in Linux</a></li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
 <hr>
 <h2><span id="kernel-vs-user-level-threads"> Kernel Vs. User Level Threads</span></h2>
 <ul>
+<li><a href="/cs6200/p2l2-threads-and-concurrency/index.html#kernel-level-threads-vs-user-level-threads">A review of the concept</a>
+<ul>
 <li><img src="media/16646342125616.jpg" alt></li>
 </ul>
-<p>Thread Related Data Structures: Single CPU<br>
-Thread Data Structures: At Scale<br>
-Hard and Light Process State<br>
-Rationale For Data Structures<br>
-User Level Structures in Solaris 2.0<br>
-SunOS paper<br>
-Lightweight Threads paper<br>
-Kernel Level Structures in Solaris 2.0<br>
-Basic Thread Management Interaction<br>
-Thread Management Visibility and Design<br>
-Issue On Multiple CPUs<br>
-Synchronization Related Issues<br>
-Interrupts and Signals Intro<br>
-Interrupts<br>
-Signals<br>
-Signal/Interrupt Similarities<br>
-Interrupt Handling<br>
-Signal Handling<br>
-Why Disable Interrupts or Signals?<br>
-More on Signal Masks<br>
-Interrupts on Multicore Systems<br>
-Types of Signals<br>
-Interrupts as Threads<br>
-Interrupts: Top Vs. Bottom Half<br>
-Performance of Threads as Interrupts<br>
-Threads and Signal Handling<br>
-Tasks in Linux</p>
+</li>
+</ul>
+<h2><span id="thread-related-data-structures"> Thread Related Data Structures</span></h2>
+<h3><span id="single-cpu"> Single CPU</span></h3>
+<ul>
+<li>A process is described by its process control block, which contains:
+<ul>
+<li>virtual address mapping</li>
+<li>stack</li>
+<li>registers</li>
+</ul>
+</li>
+<li>If the process links in a <strong>user-level threading</strong>(ULT) library, the library will maintain a user-level thread data structure, which contains:
+<ul>
+<li>user-level thread id</li>
+<li>user-level registers</li>
+<li>thread stack</li>
+</ul>
+</li>
+<li>If we want the multiple kernel-level threads associated with the threads in the process, the PCB needs to be duplicated for each kernel-level thread. To avoid the duplication, we can split the PCB into smaller data structures:
+<ul>
+<li>The PCB only keep the virtual address mapping,</li>
+<li>The <strong>kernel-level thread</strong>(KLT) keeps the stack and register</li>
+<li><img src="media/16646458881018.jpg" alt></li>
+</ul>
+</li>
+</ul>
+<h3><span id="at-scale"> At Scale</span></h3>
+<ul>
+<li>In a multiple processes situation, there will be multiple ULT, PCB and KLT. To cope with this, the system need to maintain the relationships: ULT &lt;-&gt; PCB, PCB &lt;-&gt; KLT. And the system has multiple CPU, we also need to maintain the relationship: CPU &lt;-&gt; KLT.</li>
+<li><img src="media/16646480566517.jpg" alt></li>
+<li>For each process, we need to track the kernel level threads that execute on behalf the process, and the for each kernel level thread, we need to track of the processes on whose behalf we execute.</li>
+<li>When kernel itself is multithreaded, we can have multiple kernel-level threads supporting a single user-level process. When kernel needs to schedule/context switch among kernel-level threads that belong to diff processes, it can quickly determine the KLT point to diff PCB.</li>
+</ul>
+<h3><span id="hard-and-light-process-state"> Hard and Light Process State</span></h3>
+<ul>
+<li>When the operating system context switches between two kernel level threads that belong to the process, there is information relevant to both threads in the process control block, and also information that is only relevant to each thread.</li>
+<li>Information relevant to all threads includes the virtual address mapping, while information relevant to each thread specifically can include things like signals or system call arguments. When context switching among the two kernel level threads, we want to preserve some portion of the PCB and swap out the rest.</li>
+<li>We can split up the information in the PCB into <strong>hard process state</strong> which is <u>relevant for all user level threads</u> in a given process and l<strong>ight process state</strong> that is <u>only relevant for a subset of user level threads</u> associated with a particular kernel level thread.</li>
+<li><img src="media/16646487555398.jpg" alt></li>
+</ul>
+<h3><span id="rationale-for-data-structures"> Rationale For Data Structures</span></h3>
+<ul>
+<li>Single control block:
+<ul>
+<li>large continuous data structure</li>
+<li>private for each entity (even though some information can be shared)</li>
+<li>saved and restored in entirety on each context switch</li>
+<li>updates may be challenging</li>
+</ul>
+</li>
+<li>Multiple data structures:
+<ul>
+<li>smaller data structures</li>
+<li>easier to share</li>
+<li>save and restore only what needs to change on context switch</li>
+<li>user-level library only needs to update a portion of the state for customized behavior</li>
+</ul>
+</li>
+</ul>
+<h2><span id="data-structures-in-solaris-20os"> Data Structures in Solaris 2.0(OS)</span></h2>
+<ul>
+<li>The OS is intended for multiple CPU and multi-threads. Each kernel-level thread has a lightweight process data structure associated with it, called <strong>lightweight process(LWP)</strong>, which represents the virtual CPUs onto which the user-level threads are scheduled. And the kernel-level scheduler is responsible for scheduling the kernel-level threads onto physical CPU.</li>
+</ul>
+<h3><span id="user-level-structures"> User Level Structures</span></h3>
+<ul>
+<li>From paper: <a target="_blank" rel="noopener" href="https://s3.amazonaws.com/content.udacity-data.com/courses/ud923/references/ud923-stein-shah-paper.pdf">“Implementing Lightweight Threads”</a> by Stein and Shah
+<ul>
+<li>not POSIX threads, but similar</li>
+</ul>
+</li>
+<li>When a thread is created, the library returns a thread id(tid). This id is <strong>not a direct pointer to</strong> the thread data structure but is rather an index into an array of thread pointers. the reason for that is, if there is a problem with the thread, the value at the index can change to -1 instead of the pointer just pointing to some corrupt memory.</li>
+<li>The thread data structure:
+<ul>
+<li><img src="media/16646504360386.jpg" alt></li>
+</ul>
+</li>
+<li>To avoid one thread overrun its boundary and overwrite the data for the next thread, we create a red zone for separating the threads. <strong>Red zone</strong> is a portion of the address space that is not allocated. If a thread tries to write to a red zone, the operating system causes a fault.</li>
+</ul>
+<h3><span id="kernel-level-structures"> Kernel Level Structures</span></h3>
+<ul>
+<li>
+<p><img src="media/16646512877709.jpg" alt></p>
+</li>
+<li>
+<p>Data structures in details</p>
+<ul>
+<li>Process:
+<ul>
+<li>list of kernel level threads</li>
+<li>virtual address space</li>
+<li>user credentials</li>
+<li>signal handlers</li>
+</ul>
+</li>
+<li><strong>light-weight process (LWP)</strong>:
+<ul>
+<li>user level registers</li>
+<li>system call arguments</li>
+<li>resource usage info</li>
+<li>signal masks</li>
+</ul>
+</li>
+<li>Kernel-level thread(KLT):
+<ul>
+<li>kernel-level registers</li>
+<li>stack pointer</li>
+<li>scheduling info</li>
+<li>pointers to associated LWPs, and CPU structures</li>
+</ul>
+</li>
+<li>CPU:
+<ul>
+<li>current thread</li>
+<li>list of kernel level threads</li>
+<li>dispatching &amp; interrupt handling information</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>LWP contains data that is relevant for some subset of the user threads in a given process, which is similar to the data contained in the ULT, but the LWP is visible to the kernel. When the kernel needs to make scheduling decisions, they can look at the LWP to help make decisions.</p>
+</li>
+<li>
+<p>The KLT has information about an execution context that is always needed. There are operating system services (for example, scheduler) that need to access information about a thread even when the thread is not active. As a result, <strong>the information in the kernel level thread is not swappable</strong>. The LWP data does not have to be present when a process is not running, so its data can be swapped out.</p>
+</li>
+</ul>
+<h2><span id="thread-management-interaction"> Thread Management Interaction</span></h2>
+<ul>
+<li>Why kernel-level threads and user-level threads need to interact with each other?
+<ul>
+<li>Consider a process with four user threads, and a kernel with two threads. At a given time, the process require the level of concurrency to two. It always happens that two of its threads are blocking on, say, IO and the other two threads are executing.</li>
+<li>Consider the scenario where the two user level threads that are scheduled on the kernel level threads happen to be the two that block. The kernel level threads block as well. This means that the whole process is blocked, even though there are user level threads that can make progress. The user threads have no way to know that the kernel threads are about to block, and has no way to decide before this event occurs.</li>
+<li>It would be helpful if the kernel can <strong>signal</strong> the user-level library before blocking, and the user-level library could potentially request more kernel-level threads, or allocate one kernel thread to  other threads that can be executed immediately.</li>
+</ul>
+</li>
+</ul>
+<h3><span id="visibility-in-bewteen"> Visibility in Bewteen</span></h3>
+<ul>
+<li>
+<p>The kernel sees:</p>
+<ul>
+<li>Kernel-level threads</li>
+<li>CPUs</li>
+<li>Kernel-level scheduler</li>
+</ul>
+</li>
+<li>
+<p>The user-level library sees:</p>
+<ul>
+<li>User-level threads</li>
+<li>Available kernel-level threads</li>
+</ul>
+</li>
+<li>
+<p>A case of invisibility:</p>
+<ul>
+<li>In a many-to-many case, if a user level thread acquires a lock while running on top of a kernel level thread and that kernel level thread gets preempted, the user level library scheduler will cycle through the remaining user level threads and try to schedule them. If they need the lock, none will be able to execute and time will be wasted until the thread holding the lock is scheduled again.</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<p>Issue On Multiple CPUs</p>
+<p>Synchronization Related Issues</p>
+<h2><span id="interrupts-and-signals"> Interrupts and Signals</span></h2>
+<h3><span id="interrupts"> Interrupts</span></h3>
+<h3><span id="signals"> Signals</span></h3>
+<h3><span id="signalinterrupt-similarities"> Signal/Interrupt Similarities</span></h3>
+<h3><span id="interrupt-handling"> Interrupt Handling</span></h3>
+<h3><span id="signal-handling"> Signal Handling</span></h3>
+<h3><span id="why-disable-interrupts-or-signals"> Why Disable Interrupts or Signals?</span></h3>
+<h3><span id="more-on-signal-masks"> More on Signal Masks</span></h3>
+<h3><span id="interrupts-on-multicore-systems"> Interrupts on Multicore Systems</span></h3>
+<h3><span id="types-of-signals"> Types of Signals</span></h3>
+<h3><span id="interrupts-as-threads"> Interrupts as Threads</span></h3>
+<h3><span id="interrupts-top-vs-bottom-half"> Interrupts: Top Vs. Bottom Half</span></h3>
+<h3><span id="performance-of-threads-as-interrupts"> Performance of Threads as Interrupts</span></h3>
+<h3><span id="threads-and-signal-handling"> Threads and Signal Handling</span></h3>
+<h3><span id="tasks-in-linux"> Tasks in Linux</span></h3>
 
 </div>
 

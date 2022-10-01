@@ -130,8 +130,8 @@ markdown_it_plus:
         strict: false
 toc:
   maxdepth: 4
-  class: post-toc
-  slugify: transliteration
+  # class: post-toc
+  # slugify: transliteration
   # decodeEntities: false
   # anchor:
   #   position: after

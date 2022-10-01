@@ -281,7 +281,6 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1><span id="week-4-as-relationships-and-interdomain-routing"> Week 4 - AS Relationships and Interdomain Routing</span></h1>
-<div class="post-toc">
 <!-- toc -->
 <ul>
 <li><a href="#autonomous-systems-and-internet-interconnection">Autonomous Systems and Internet Interconnection</a>
@@ -297,7 +296,7 @@ function sidebar_toggle() {
 <li><a href="#ibgp-and-ebgp">iBGP and eBGP</a></li>
 <li><a href="#bgp-decision-process-selecting-routes-at-a-router">BGP Decision Process: Selecting Routes at a Router</a>
 <ul>
-<li><a href="#the-router-s-decision-process">The Router’s Decision Process</a></li>
+<li><a href="#the-routers-decision-process">The Router’s Decision Process</a></li>
 </ul>
 </li>
 <li><a href="#challenges-with-bgp">Challenges with BGP</a>
@@ -309,7 +308,7 @@ function sidebar_toggle() {
 </li>
 <li><a href="#ixps">IXPs</a>
 <ul>
-<li><a href="#peering-at-internet-exchange-points-ixps">Peering at Internet Exchange Points(IXPs)</a></li>
+<li><a href="#peering-at-internet-exchange-pointsixps">Peering at Internet Exchange Points(IXPs)</a></li>
 <li><a href="#peering-at-ixps-how-does-a-route-server-work">Peering at IXPs: How Does a Route Server Work?</a></li>
 <li><a href="#remote-peering-optional">Remote Peering [Optional]</a></li>
 </ul>
@@ -507,7 +506,7 @@ function sidebar_toggle() {
 </ol>
 </li>
 </ul>
-<h4><span id="the-router-s-decision-process"> The Router’s Decision Process</span></h4>
+<h4><span id="the-routers-decision-process"> The Router’s Decision Process</span></h4>
 <ul>
 <li>
 <p>Suppose that a router receives multiple route advertisements to the same destination. How does the router choose which route to import?</p>
@@ -569,7 +568,7 @@ c. or by the protocol (e.g., if a route is learned through eBGP or iBGP).</p>
 <li>Also, an AS can <strong>limit the number of routing changes</strong>, explicitly limiting the propagation of unstable routes by using a mechanism known as <strong>flap damping</strong>. To apply this technique, an AS will track the number of updates to a specific prefix over a certain amount of time. <u>If the tracked value reaches a configurable value, the AS can suppress that route until a later time.</u> Because this can affect reachability, an AS can be strategic about how it uses this technique for certain prefixes. For example, more specific prefixes could be more aggressively suppressed (lower thresholds), while routes to known destinations that require high availability could be allowed higher thresholds.</li>
 </ul>
 <h2><span id="ixps"> IXPs</span></h2>
-<h3><span id="peering-at-internet-exchange-points-ixps"> Peering at Internet Exchange Points(IXPs)</span></h3>
+<h3><span id="peering-at-internet-exchange-pointsixps"> Peering at Internet Exchange Points(IXPs)</span></h3>
 <ul>
 <li>What are IXPs?
 <ul>

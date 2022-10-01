@@ -281,7 +281,6 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1><span id="lesson-3-intradomain-routing"> Lesson 3: Intradomain Routing</span></h1>
-<div class="post-toc">
 <!-- toc -->
 <ul>
 <li><a href="#routing-protocols">Routing Protocols</a>
@@ -297,7 +296,7 @@ function sidebar_toggle() {
 </li>
 <li><a href="#internet-approach-to-scalable-routing">Internet approach to scalable routing</a>
 <ul>
-<li><a href="#routing-information-protocol-rip">Routing Information Protocol(RIP)</a></li>
+<li><a href="#routing-information-protocolrip">Routing Information Protocol(RIP)</a></li>
 <li><a href="#open-shortest-path-first-ospf">Open Shortest Path First (OSPF)</a>
 <ul>
 <li><a href="#processing-ospf-messages-in-the-router">Processing OSPF Messages in the Router</a></li>
@@ -306,7 +305,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li><a href="#hot-potato-routing">Hot Potato Routing</a></li>
-<li><a href="#an-example-traffic-engineering-framework-optional">An Example Traffic Engineering Framework[Optional]</a></li>
+<li><a href="#an-example-traffic-engineering-frameworkoptional">An Example Traffic Engineering Framework[Optional]</a></li>
 </ul>
 <!-- tocstop -->
 <hr>
@@ -542,7 +541,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h3><span id="routing-information-protocol-rip"> Routing Information Protocol(RIP)</span></h3>
+<h3><span id="routing-information-protocolrip"> Routing Information Protocol(RIP)</span></h3>
 <ul>
 <li>
 <p>The first version of RIP, released as a part of the BSD version of Unix, uses hop count as a metric (i.e. assumes link cost as 1). The metric for choosing a path could be shortest distance, lowest cost, or a load-balanced path. In RIP, routing updates are exchanged between neighbors periodically, using a RIP response message, as opposed to distance vectors in the DV Protocols. These messages, called <strong>RIP advertisements</strong>, contain information about sender’s distances to destination subnets.</p>
@@ -643,7 +642,7 @@ function sidebar_toggle() {
 <li>The routers within the network use the intradomain routing protocols to find the best path to route the traffic within the network. In case when the final destination of the traffic is outside the network, then the traffic will travel towards the networks exit (egress points) before leaving the network. In some cases there are multiple egress points that the routers can choose from. These egress points (routers) can be equally good in the sense that they offer similarly good external paths to the final destination.</li>
 <li>In this case, hot potato routing is a technique/practice of choosing a path within the network, by choosing the closest egress point based on intradomain path cost (Interior Gateway Protocol/IGP cost).</li>
 </ul>
-<h2><span id="an-example-traffic-engineering-framework-optional"> An Example Traffic Engineering Framework[Optional]</span></h2>
+<h2><span id="an-example-traffic-engineering-frameworkoptional"> An Example Traffic Engineering Framework[Optional]</span></h2>
 <ul>
 <li>
 <p>It involves three main components: <strong>measure</strong>, <strong>model</strong> and <strong>control</strong> as shown in the below figure:</p>

@@ -281,7 +281,6 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1><span id="introduction"> Introduction</span></h1>
-<div class="post-toc">
 <!-- toc -->
 <ul>
 <li><a href="#what-is-an-os">What is an OS?</a></li>
@@ -292,7 +291,7 @@ function sidebar_toggle() {
 <li><a href="#optimize-for-the-common-case">Optimize for the common case</a></li>
 </ul>
 </li>
-<li><a href="#user-kernel-protection-boundary">User/Kernel Protection Boundary</a>
+<li><a href="#userkernel-protection-boundary">User/Kernel Protection Boundary</a>
 <ul>
 <li><a href="#system-call-flowchart">System Call Flowchart</a></li>
 </ul>
@@ -343,7 +342,7 @@ function sidebar_toggle() {
 <ul>
 <li>The design should be optimized for the way it’s most likely to be used. For example, the “interrupt as threads” design is beneficial to overall system performance because despite the fact that there is a cost incurred for interrupts, there are savings on every mutex lock/unlock operation. Because the latter occur much more frequently than the former (common case), it’s an overall performance gain.</li>
 </ul>
-<h2><span id="user-kernel-protection-boundary"> User/Kernel Protection Boundary</span></h2>
+<h2><span id="userkernel-protection-boundary"> User/Kernel Protection Boundary</span></h2>
 <ul>
 <li>Kernel-mode: where OS resides, it’s privileged, has direct access to the hardware</li>
 <li>User-mode: where application resides</li>
