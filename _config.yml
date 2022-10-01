@@ -129,9 +129,9 @@ markdown_it_plus:
       options:
         strict: false
 mdtoc:
-  maxdepth: 4
-  # class: post-toc
+  maxdepth: 3
+  # class: toc
   # decodeEntities: false
   # anchor:
-  #   position: after
   #   symbol: '#'
+  #   style: header-anchor
