@@ -301,26 +301,22 @@ function sidebar_toggle() {
 <li><a href="#thread-management-interaction">Thread Management Interaction</a>
 <ul>
 <li><a href="#visibility-in-bewteen">Visibility in Bewteen</a></li>
+<li><a href="#issue-on-multiple-cpus">Issue On Multiple CPUs</a></li>
+<li><a href="#synchronization-related-issues">Synchronization Related Issues</a></li>
 </ul>
 </li>
 <li><a href="#interrupts-and-signals">Interrupts and Signals</a>
 <ul>
-<li><a href="#interrupts">Interrupts</a></li>
-<li><a href="#signals">Signals</a></li>
-<li><a href="#signalinterrupt-similarities">Signal/Interrupt Similarities</a></li>
 <li><a href="#interrupt-handling">Interrupt Handling</a></li>
 <li><a href="#signal-handling">Signal Handling</a></li>
 <li><a href="#why-disable-interrupts-or-signals">Why Disable Interrupts or Signals?</a></li>
-<li><a href="#more-on-signal-masks">More on Signal Masks</a></li>
-<li><a href="#interrupts-on-multicore-systems">Interrupts on Multicore Systems</a></li>
-<li><a href="#types-of-signals">Types of Signals</a></li>
 <li><a href="#interrupts-as-threads">Interrupts as Threads</a></li>
 <li><a href="#interrupts-top-vs-bottom-half">Interrupts: Top Vs. Bottom Half</a></li>
 <li><a href="#performance-of-threads-as-interrupts">Performance of Threads as Interrupts</a></li>
 <li><a href="#threads-and-signal-handling">Threads and Signal Handling</a></li>
-<li><a href="#tasks-in-linux">Tasks in Linux</a></li>
 </ul>
 </li>
+<li><a href="#tasks-in-linux">Tasks in Linux</a></li>
 </ul>
 <!-- tocstop -->
 <hr />
@@ -328,7 +324,9 @@ function sidebar_toggle() {
 <ul>
 <li><a href="/cs6200/p2l2-threads-and-concurrency/index.html#kernel-level-threads-vs-user-level-threads">A review of the concept</a>
 <ul>
-<li><img src="media/16646342125616.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/n6mauOA.jpg" style="width: 600px" />
+</li>
 </ul>
 </li>
 </ul>
@@ -353,14 +351,18 @@ function sidebar_toggle() {
 <ul>
 <li>The PCB only keep the virtual address mapping,</li>
 <li>The <strong>kernel-level thread</strong>(KLT) keeps the stack and register</li>
-<li><img src="media/16646458881018.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/tAsXGwj.jpg" style="width: 600px" />
+</li>
 </ul>
 </li>
 </ul>
 <h3 id="at-scale"><a class="markdownIt-Anchor" href="#at-scale"></a> At Scale</h3>
 <ul>
 <li>In a multiple processes situation, there will be multiple ULT, PCB and KLT. To cope with this, the system need to maintain the relationships: ULT &lt;-&gt; PCB, PCB &lt;-&gt; KLT. And the system has multiple CPU, we also need to maintain the relationship: CPU &lt;-&gt; KLT.</li>
-<li><img src="media/16646480566517.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/rl1hSer.jpg" style="width: 600px" />
+</li>
 <li>For each process, we need to track the kernel level threads that execute on behalf the process, and the for each kernel level thread, we need to track of the processes on whose behalf we execute.</li>
 <li>When kernel itself is multithreaded, we can have multiple kernel-level threads supporting a single user-level process. When kernel needs to schedule/context switch among kernel-level threads that belong to diff processes, it can quickly determine the KLT point to diff PCB.</li>
 </ul>
@@ -369,7 +371,9 @@ function sidebar_toggle() {
 <li>When the operating system context switches between two kernel level threads that belong to the process, there is information relevant to both threads in the process control block, and also information that is only relevant to each thread.</li>
 <li>Information relevant to all threads includes the virtual address mapping, while information relevant to each thread specifically can include things like signals or system call arguments. When context switching among the two kernel level threads, we want to preserve some portion of the PCB and swap out the rest.</li>
 <li>We can split up the information in the PCB into <strong>hard process state</strong> which is <u>relevant for all user level threads</u> in a given process and l<strong>ight process state</strong> that is <u>only relevant for a subset of user level threads</u> associated with a particular kernel level thread.</li>
-<li><img src="media/16646487555398.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/Xp5tefH.jpg" style="width: 600px" />
+</li>
 </ul>
 <h3 id="rationale-for-data-structures"><a class="markdownIt-Anchor" href="#rationale-for-data-structures"></a> Rationale For Data Structures</h3>
 <ul>
@@ -404,7 +408,9 @@ function sidebar_toggle() {
 <li>When a thread is created, the library returns a thread id(tid). This id is <strong>not a direct pointer to</strong> the thread data structure but is rather an index into an array of thread pointers. the reason for that is, if there is a problem with the thread, the value at the index can change to -1 instead of the pointer just pointing to some corrupt memory.</li>
 <li>The thread data structure:
 <ul>
-<li><img src="media/16646504360386.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/GTGvRgH.jpg" style="width: 600px" />
+</li>
 </ul>
 </li>
 <li>To avoid one thread overrun its boundary and overwrite the data for the next thread, we create a red zone for separating the threads. <strong>Red zone</strong> is a portion of the address space that is not allocated. If a thread tries to write to a red zone, the operating system causes a fault.</li>
@@ -412,7 +418,7 @@ function sidebar_toggle() {
 <h3 id="kernel-level-structures"><a class="markdownIt-Anchor" href="#kernel-level-structures"></a> Kernel Level Structures</h3>
 <ul>
 <li>
-<p><img src="media/16646512877709.jpg" alt="" /></p>
+<img src="https://i.imgur.com/9UGSnpT.jpg" style="width: 600px" />
 </li>
 <li>
 <p>Data structures in details</p>
@@ -488,27 +494,300 @@ function sidebar_toggle() {
 <p>A case of invisibility:</p>
 <ul>
 <li>In a many-to-many case, if a user level thread acquires a lock while running on top of a kernel level thread and that kernel level thread gets preempted, the user level library scheduler will cycle through the remaining user level threads and try to schedule them. If they need the lock, none will be able to execute and time will be wasted until the thread holding the lock is scheduled again.</li>
-<li></li>
+<li>The <strong>user level library</strong> makes schedule changes kernel not aware of such as changing the ULT/KLT mapping; The kernel is also unaware of the data structure the user-level threads use such as mutex variable, wait queues.</li>
+<li>The one-to-one model helps address some of these issues because the kernel-level threads are aware of the state the of the user-level threads.</li>
+</ul>
+</li>
+<li>
+<p>How/When does the user-level library run?</p>
+<ul>
+<li>The process jumps to the user level library scheduler when:
+<ul>
+<li>ULTs explicitly yield</li>
+<li>Timer set by the by UL library expires</li>
+<li>ULTs call library functions like lock/unlock</li>
+<li>Blocked threads become runnable</li>
+</ul>
+</li>
+<li>UL library scheduler
+<ul>
+<li>runs on ULT operations</li>
+<li>runs on signal from timer or kernel</li>
 </ul>
 </li>
 </ul>
-<p>Issue On Multiple CPUs</p>
-<p>Synchronization Related Issues</p>
+</li>
+</ul>
+<h3 id="issue-on-multiple-cpus"><a class="markdownIt-Anchor" href="#issue-on-multiple-cpus"></a> Issue On Multiple CPUs</h3>
+<ul>
+<li>In a multi CPU system, the kernel level threads that support a process may be running concurrently on multiple CPUs. We may have a situation where the user level library that is operating in the context of one thread on one CPU needs to somehow impact what is running on another CPU.</li>
+<li>For example, there are three threads in one process : T1, T2, T3, and the thread priority is T3 &gt; T2 &gt; T1. The process is running on a two CPU, two threads OS.
+<ul>
+<li>Currently, T2 is holding the mutex and is executing on one CPU. T3 wants the mutex and is currently blocking. T1 is running on the other CPU. At some point, T2 releases the mutex, and T3 becomes runnable. Since T3 has higher priority than T1, we want to preempt T1.</li>
+<li>We can’t directly modify the registers of CPU, so we need to <strong>send a signal from the context of one thread on one CPU to the context of the other thread on the other CPU</strong>, to tell the other CPU to execute the library code locally, so that the proper scheduling decisions can be made.</li>
+</ul>
+</li>
+</ul>
+<h3 id="synchronization-related-issues"><a class="markdownIt-Anchor" href="#synchronization-related-issues"></a> Synchronization Related Issues</h3>
+<ul>
+<li>In a multi-CPU situation, T2 needs acquire a mutex that is locked by T1. Usually, we put T2 into the mutex queue, and wait for execution. But if T1 takes a short time to release the mutex, schedule T2 to one CPU and waste several CPU cycles might be a better idea.</li>
+<li>Mutexes which sometimes block and sometimes spin are called <strong>adaptive mutex</strong>. These only make sense on multiprocessor systems, since we only want to spin if the owner of the mutex is currently executing in parallel to us.</li>
+</ul>
+<h4 id="destroy-threads"><a class="markdownIt-Anchor" href="#destroy-threads"></a> Destroy threads</h4>
+<ul>
+<li>Instead of destroying threads right away once it’s not used, we
+<ul>
+<li>put it on a “death row”</li>
+<li>periodically destroyed by reaper thread</li>
+<li>otherwise thread structures/stacks are reused.</li>
+</ul>
+</li>
+</ul>
 <h2 id="interrupts-and-signals"><a class="markdownIt-Anchor" href="#interrupts-and-signals"></a> Interrupts and Signals</h2>
-<h3 id="interrupts"><a class="markdownIt-Anchor" href="#interrupts"></a> Interrupts</h3>
-<h3 id="signals"><a class="markdownIt-Anchor" href="#signals"></a> Signals</h3>
-<h3 id="signalinterrupt-similarities"><a class="markdownIt-Anchor" href="#signalinterrupt-similarities"></a> Signal/Interrupt Similarities</h3>
+<ul>
+<li><strong>Interrupts</strong> are events that are generated <strong>externally</strong> by components other than the CPU to which the interrupt is delivered. Interrupts are notifications that <strong>some external event has occurred</strong>.
+<ul>
+<li>Components may deliver interrupts: I/O devices, Timers, Other CPUs</li>
+<li>Interrupts varies on different physical platforms</li>
+<li>Interrupts appear asynchronously.</li>
+</ul>
+</li>
+<li><strong>Signals</strong> are events that are triggered by the CPU and the software running on it.
+<ul>
+<li>which signals can occur depend on the OS</li>
+<li>Signals can appear both <strong>synchronously</strong> and <strong>asynchronously</strong>.</li>
+<li>Signals can occur in direct response to an action taken by a CPU, or they can manifest similar to interrupts.</li>
+</ul>
+</li>
+<li>Signal/Interrupt Similarities
+<ul>
+<li>Both have a unique identifier, values depend on the hardware or OS.</li>
+<li>Both can be <strong>masked</strong>. An interrupt can be masked on a <strong>per-CPU basis</strong> and a signal can be masked on a <strong>per-process basis</strong>.
+<ul>
+<li><strong>A mask is used to disable or delay the notification</strong> of an incoming interrupt or signal.</li>
+</ul>
+</li>
+<li>If the mask indicates that the corresponding interrupt or signal is enabled, the incoming notification will trigger the corresponding <strong>handler</strong>.</li>
+<li><strong>Interrupt handlers</strong> are specified for the entire system, by the operating systemOS. <strong>Signal handlers</strong> are set on a per-process basis, by the process itself.</li>
+</ul>
+</li>
+</ul>
 <h3 id="interrupt-handling"><a class="markdownIt-Anchor" href="#interrupt-handling"></a> Interrupt Handling</h3>
+<ul>
+<li>The interrupt interrupts the execution of the thread that was executing on top of the CPU. The CPU looks up the interrupt number in a table and executes the handler routine that the interrupt maps. The interrupt number maps to the starting address of the handling routine, and the program counter can be set to point to that address to start handling the interrupt.</li>
+<li>Which interrupts can occur depends on the hardware of the platform and how the interrupts are handled depends on the operating system running on the platform.</li>
+<li>
+<img src="https://i.imgur.com/GCKytqS.jpg" style="width: 600px" />
+</li>
+</ul>
 <h3 id="signal-handling"><a class="markdownIt-Anchor" href="#signal-handling"></a> Signal Handling</h3>
+<ul>
+<li>Signals are different from interrupts in that signals originate from the CPU. For example, if a process tries to access memory that not allocated, a SIGSEGV signal will be generated.</li>
+<li>For each process, the OS maintains a mapping where the keys correspond to the signal number. Here is a list of signals from POSIX: <a target="_blank" rel="noopener" href="https://pubs.opengroup.org/onlinepubs/9699919799/">signal.h</a></li>
+<li>The default signal responses from the OS includes: Terminate, Ignore, Terminate and Core Dump, Stop or Continue (from stopped)</li>
+<li>For most signals, processes can install its custom handling routine, usually through a system call like <strong>signal()</strong> or <strong>sigaction()</strong> although there are <strong>some signals which cannot be caught</strong>.</li>
+<li>synchronous signals include:
+<ul>
+<li>SIGSEGV</li>
+<li>SIGFPE (divide by zero)</li>
+<li>SIGKILL (from one process to another)</li>
+</ul>
+</li>
+<li>asynchronous signals include:
+<ul>
+<li>SIGKILL (as the receiver)</li>
+<li>SIGALARM (timeout from timer expiration)</li>
+</ul>
+</li>
+</ul>
 <h3 id="why-disable-interrupts-or-signals"><a class="markdownIt-Anchor" href="#why-disable-interrupts-or-signals"></a> Why Disable Interrupts or Signals?</h3>
-<h3 id="more-on-signal-masks"><a class="markdownIt-Anchor" href="#more-on-signal-masks"></a> More on Signal Masks</h3>
-<h3 id="interrupts-on-multicore-systems"><a class="markdownIt-Anchor" href="#interrupts-on-multicore-systems"></a> Interrupts on Multicore Systems</h3>
-<h3 id="types-of-signals"><a class="markdownIt-Anchor" href="#types-of-signals"></a> Types of Signals</h3>
+<ul>
+<li>
+<p>Interrupts and signals are handled in the context of the thread being interrupted/signaled. This means that they are handled on the thread’s stack, which can cause certain issues.</p>
+</li>
+<li>
+<p>When a thread handles a signal, the program counter of the thread will point to the first address of the handler. The stack pointer will remain the same, meaning that whatever the thread was doing before being interrupted will still be on the stack.</p>
+</li>
+<li>
+<p>If the handling code needs to access some shared state that can be used by other threads in the system, we will have to use mutexes. If the thread which is being interrupted had already locked the mutex before being interrupted, we are in a <strong>deadlock</strong>. The thread can’t unlock its mutex until the handler returns, but the handler can’t return until it locks the mutex.</p>
+</li>
+<li>
+<p>A simple solution is keep handler code simple, like not acquire mutex, but it’s too restrictive.</p>
+</li>
+<li>
+<p>A better solution is to use <strong>interrupt/signal masks</strong> which allow us dynamically enable/disable whether the handling code can interrupt the executing mutex.</p>
+<ul>
+<li>The mask is a sequence of bits where each bits represents a specific interrupt or signal with value 0/1.</li>
+<li>When event occur, the handler will check the mask to decide whether pending or proceed.</li>
+<li>Another thing should be point out. Once the interrupt/signal is pending, others interrupts/signals might also become pending. Typically the handling routine will only be executed once, so if we want to ensure a signal handling routine is executed more than once, it is not sufficient to just generate the signal more than once.</li>
+</ul>
+</li>
+<li>
+<p>More on Signal Masks</p>
+<ul>
+<li>Interrupt masks are per CPU. If the mask disables interrupt, the hardware interrupt routing mechanism will not deliver interrupt to CPU</li>
+<li>Signal masks are per execution context (ULT on top of KLT). If a mask disables a signal, the kernel will see this and will not interrupt the corresponding execution context.</li>
+</ul>
+</li>
+<li>
+<p>Interrupts on Multicore Systems</p>
+<ul>
+<li>On a multi CPU system, the interrupt routing logic will direct the interrupt to any CPU that at that moment in time has that interrupt enabled. One strategy is to enable interrupts on just one CPU, which will allow avoiding any of the overheads or perturbations related to interrupt handling on any of the other cores. The net effect will be improved performance.</li>
+</ul>
+</li>
+<li>
+<p>Two Types of Signals</p>
+<ol>
+<li><strong>One-shot signals</strong> refer to signals that will only interrupt once. This means that from the perspective of the user level thread, n signals will look exactly like one signal. One-shot signals must also be explicitly re-enabled every time.</li>
+<li><strong>Real-Time Signals</strong> refer to signals that will interrupt as many times are they are raised. If n signals occur, the handler will be called n times.</li>
+</ol>
+</li>
+</ul>
 <h3 id="interrupts-as-threads"><a class="markdownIt-Anchor" href="#interrupts-as-threads"></a> Interrupts as Threads</h3>
+<ul>
+<li>To avoid the deadlock situation we covered before regards to handler code trying to lock a mutex that the thread had already locked, one way from the Sun thread paper is, to allow interrupts to become full-fledged threads, and execute independently.
+<ul>
+<li>
+<img src="https://i.imgur.com/ZMnIWlm.jpg" style="width: 600px" />
+</li>
+<li>In this case, when the handler is blocked, it still has its own context/stack, and can remain blocked. And the main thread can continue to work, and eventually unlock the mutex so the handler will be free to execute.</li>
+<li>However dynamic thread creation is expensive! The decision described in Solaris system is
+<ul>
+<li>if handler doesn’t lock -&gt; execute on interrupted thread’s stack</li>
+<li>if handler can block -&gt; turn into real thread</li>
+</ul>
+</li>
+<li>One way to optimize it is
+<ul>
+<li>percreate &amp; preintialize thread structures for interrupt routines.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h3 id="interrupts-top-vs-bottom-half"><a class="markdownIt-Anchor" href="#interrupts-top-vs-bottom-half"></a> Interrupts: Top Vs. Bottom Half</h3>
+<ul>
+<li>When an interrupt is handled in a different thread, we no longer have to disable handling in the thread that may be interrupted. Since the deadlock situation can no longer occur, we don’t need to add any special logic to our main thread.</li>
+<li>However the interrupt/signal work can divided to two parts:
+<ul>
+<li><strong>top half</strong>: handling in the context of the main thread. this half needs to be fast, non-blocking, and min-amount of processing</li>
+<li><strong>bottom half</strong>: allows arbitrary complexity</li>
+<li>
+<img src="https://i.imgur.com/TSsadeE.jpg" style="width: 600px" />
+</li>
+</ul>
+</li>
+</ul>
 <h3 id="performance-of-threads-as-interrupts"><a class="markdownIt-Anchor" href="#performance-of-threads-as-interrupts"></a> Performance of Threads as Interrupts</h3>
+<ul>
+<li>The overhead of performing the necessary checks and potentially creating a new thread in the case of an interrupt adds about 40 SPARC instructions to each interrupt handling operation.</li>
+<li>As a result, it is no longer necessary to disable a signal before locking a mutex and re-enable the signal after releasing the mutex, which saves about 12 instructions per mutex.</li>
+<li>Since mutex lock/unlocks occur much more frequently than interrupts, the net instruction count is decreased when using the interrupt as threads strategy.</li>
+</ul>
 <h3 id="threads-and-signal-handling"><a class="markdownIt-Anchor" href="#threads-and-signal-handling"></a> Threads and Signal Handling</h3>
-<h3 id="tasks-in-linux"><a class="markdownIt-Anchor" href="#tasks-in-linux"></a> Tasks in Linux</h3>
+<ul>
+<li>
+<p>The enable/disable happens at the user-level threads, and the signal triggered at at the kernel-level. It results an inconsistency between the ULT and KLT.</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/pgzPGpL.jpg" style="width: 600px" />
+</li>
+</ul>
+</li>
+<li>
+<p>Let’s look at four cases:</p>
+</li>
+</ul>
+<ol>
+<li>ULT mask = 1 and KLT mask = 1
+<ul>
+<li>This won’t be a problem since they are the same</li>
+</ul>
+</li>
+<li>ULT mask = 0 &amp; KLT mask = 1 &amp; another ULT mask = 1
+<ul>
+<li>
+<img src="https://i.imgur.com/efTtBcf.jpg" style="width: 600px" />
+</li>
+<li>The threading library has a <strong>signal handler’s table</strong> that indicates the signal and corresponding handler function. The <strong>library handling routine</strong> can see the masks of the user level threads.
+<ul>
+<li>e.g. the table: <code>SIGNAL-N: handler-N-start-addr</code></li>
+</ul>
+</li>
+<li>In this case, when a signal occurs at the kernel level, the KLT calls the threading <strong>library provided handler</strong>. The library handling routine knows that one thread can’t handle the signal, but the other can. It invoke the library scheduler and make ULT that has mask enabled running on KLT so that signal can be handled.</li>
+</ul>
+</li>
+<li>ULT mask = 0 &amp; KLT mask = 1 &amp; another ULT mask = 1 &amp; KLT mask = 1
+<ul>
+<li>
+<img src="https://i.imgur.com/5b85iL7.jpg" style="width: 600px" />
+</li>
+<li>In the case where a signal is generated by a kernel level thread that is executing on behalf of a user level thread which does not have the bit enabled, the threading library will know that it cannot pass the signal to this particular user thread.</li>
+<li>What it can do, is send a <strong>directed signal</strong> down to the kernel level thread associated with the user level thread that has the bit enabled. This will cause that kernel level thread to raise the same signal, which will be handled again by the user level library and dispatched to the user level thread that has the bit enabled.</li>
+</ul>
+</li>
+<li>All ULT masks = 0 &amp; all KLT masks = 1, the kernel think the ULKs can handle all signal, but none of them can.
+<ul>
+<li>
+<img src="https://i.imgur.com/ksK2AMG.jpg" style="width: 600px" />
+</li>
+<li>When the signal occurs, the kernel interrupts the execution of whichever thread is currently executing atop it. The library handling routine kicks in and sees that no threads that it manages can handle this particular signal.</li>
+<li>Then, the thread library will make a system call requesting to disable the signal mask on the particular kernel level thread. We can’t change other ULTs that associated with KLTs that running on the other CPUs.</li>
+<li>Then the threading library will reissue the signal for entire process again. The OS will find the other threads in the process and all of the masks associated with the KLTs will be disabled via system call.</li>
+<li>When any of the ULT re-enable the mask, the threading lib will make a system call, and tell the kernel level thread to enable the particular signal mask.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Optimize for the common cases:
+<ul>
+<li>Signals occur much less frequently than does the need to update the signal mask.</li>
+<li>Updates of the signal mask are cheap. They occur at the user level and avoid system calls.</li>
+<li>Signal handling becomes more expensive - as system calls may be needed to correct discrepancies - but they occur less frequently so the added cost is acceptable.</li>
+</ul>
+</li>
+</ul>
+<h2 id="tasks-in-linux"><a class="markdownIt-Anchor" href="#tasks-in-linux"></a> Tasks in Linux</h2>
+<ul>
+<li>
+<p>The main abstraction that Linux uses to represent an execution context is called a <strong>task</strong>. A task is essentially the <strong>execution context of a kernel level thread</strong>. A single-threaded process will have one task, and a multithreaded process will have many tasks.</p>
+</li>
+<li>
+<p>Key elements in task structure(<a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/v5.17/source/include/linux/sched.h#L728">complete</a>):</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">task_struct</span> &#123;</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="comment">// if it&#x27;a single-thread process, the task id = process id, </span></span><br><span class="line">    <span class="comment">// if multi-thread, each task has it&#x27;s own identifier which will be held in the pid(process ID)</span></span><br><span class="line">    <span class="comment">// and the pid is also the first task id</span></span><br><span class="line">    <span class="type">pid_t</span> pid; </span><br><span class="line">    <span class="type">pit_t</span> tgid; <span class="comment">// task group id // TODO i&#x27;m confused. is this the same as pid?</span></span><br><span class="line">    <span class="type">int</span> prio;</span><br><span class="line">    <span class="keyword">volatile</span> <span class="type">long</span> state;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">mm_struct</span> *<span class="title">mm</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">files_struct</span> *<span class="title">files</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span> <span class="title">tasks</span>;</span> <span class="comment">// head of the list of tasks</span></span><br><span class="line">    <span class="type">int</span> on_cpu;</span><br><span class="line">    <span class="type">cpumask_t</span> cpus_allowed;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Task creation: clone</p>
+<ul>
+<li>to create a new task, the ops in linux is called <code>clone</code>. here is the function:
+<ul>
+<li><code>clone(function, stack_ptr, sharing_flags, args)</code></li>
+<li>very similar to pthread, and also take an argument: <code>sharing_flags</code></li>
+</ul>
+</li>
+<li>The sharing flag:
+<ul>
+<li>
+<img src="https://i.imgur.com/3nLBkdk.jpg" style="width: 600px" />
+</li>
+<li>If it’s not set, the child will not share anything with the parent.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Linux thread model</p>
+<ul>
+<li>Native POSIX Thread Library(NPTL): 1-1 Model aka, a kernel level task for each user level thread.
+<ul>
+<li>It replaced the earlier implementation of <strong>LinuxThreds</strong>(M:M Model), has similar issues as  Solaris OS.</li>
+</ul>
+</li>
+<li>In NPTL, the kernel sees every user level thread. This is acceptable because kernel trapping has become much cheaper, so user/kernel crossings are much more affordable.</li>
+<li>Also, modern platforms have more memory - removing the constraints to keep the number of kernel threads as small as possible.</li>
+</ul>
+</li>
+</ul>
 
 </div>
 
