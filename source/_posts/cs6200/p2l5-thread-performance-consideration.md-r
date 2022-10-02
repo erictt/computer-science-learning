@@ -7,7 +7,7 @@
 
 * Depends on the matrix we used to evaluate.
 * review the [quiz](/cs6200/p2l2-threads-and-concurrency/index.html#quiz)
-* <img src="https://i.imgur.com/g0QGBWU.jpg" style="width: 600px" />
+* ![](https://i.imgur.com/g0QGBWU.jpg)
 
 ## Are Threads Useful?
 
@@ -42,7 +42,7 @@
 ## Multi Process Vs. Multi Threaded
 
 * Take a web server as an example:
-    * <img src="https://i.imgur.com/D4jTsAL.jpg" style="width: 200px" />
+    * ![](https://i.imgur.com/D4jTsAL.jpg)
     1. client/browser send request
     2. web server accept request
     3. server processing steps
@@ -60,7 +60,7 @@
 
 ## Event-Driven Model
 
-* <img src="https://i.imgur.com/RhtrFlu.jpg" style="width: 400px" />
+* ![](https://i.imgur.com/RhtrFlu.jpg)
 * Event-driven model is composed with two parts:
     * event dispatcher
         * work as a state machine of external events => call handler(jump to the code)
@@ -96,7 +96,7 @@
 
 * What if asynchronous I/O calls are not available? 
     * Run **helper** functions on other threads/processes.
-    * <img src="https://i.imgur.com/e5fUTcZ.jpg" style="width: 400px" />
+    * ![](https://i.imgur.com/e5fUTcZ.jpg)
     * When the handler needs to initiate an I/O operation that can block, the handler passes the call to the operation to a **helper**, and returns to the event dispatcher. The helper will be the one that handles the blocking I/O operation and interact with the dispatcher as necessary.
     * Two models are used in this situation:
         * Asymmetric Multi-Process Event-Driven Model or AMPED. 
@@ -120,7 +120,7 @@
 
 ## Apache Web Server
 
-* <img src="https://i.imgur.com/LkdkVSo.jpg" style="width: 400px" />
+* ![](https://i.imgur.com/LkdkVSo.jpg)
 
 * The core component provides core services like accepting requests, issuing responses, and managing concurrency. The various modules are mounted in a pipeline and extend the functionality of the basic server behavior.
 * The flow of control is similar to event-driven model, but it's a combination of multiprocess and multithreaded model, which implements a multithreaded boss/workers configuration with a dynamic thread pool. 
@@ -162,7 +162,7 @@
         * bandwidth = N * file size(bytes) / total time
         * file size: 0 - 200 KB -> vary work per request
     * Result:
-        * <img src="https://i.imgur.com/vIuuN6v.jpg" style="width: 300px" />
+        * ![](https://i.imgur.com/vIuuN6v.jpg)
         * All of the implementations had similar results, with bandwidth increasing sharply with file size initially before plateauing.
         * SPED has the best performance. 
         * Flash has slightly lower performance, because it performs the extra check for memory presence. 
@@ -171,7 +171,7 @@
         * Apache has the lowest performance because it has no optimizations.
 
 * CS Trace & Owlnet Trace 
-    * <img src="https://i.imgur.com/1i0i5RF.jpg" style="width: 300px" />
+    * ![](https://i.imgur.com/1i0i5RF.jpg)
     * Owlnet Trace
         * Flash and SPED are the best, followed by MT/MP and then Apache.
         * The reason for this trend is because the owl trace is very small, so most of the requests can be serviced from the cache. However, not everything can be serviced from cache, so sometimes blocking I/O is required. In this case, SPED will block, but Flash will not because it has helpers. This helps explain why Flash's performance is slightly higher than the SPED implementation.
@@ -179,7 +179,7 @@
         * The CS trace is a much larger trace, which means that most requests are not serviced from the cache.Since the SPED implementation does not support asynchronous I/O the performance drops significantly. The multithreaded implementation does better than the multiprocess implementation because it has a smaller memory footprint (more memory available to cache files) and is able to synchronize more quickly/cheaply.
         * Flash performs the best. It has the smallest memory footprint, which means it has the most memory available for caching files. As a result, fewer requests will require blocking I/O requests, which further speeds everything up. In addition, since everything occurs in the same address space, there is no need for explicit synchronization.
 * Impact of Optimizations in Flash
-    * <img src="https://i.imgur.com/nAUmcEe.jpg" style="width: 300px" />
+    * ![](https://i.imgur.com/nAUmcEe.jpg)
     * Fully optimized flash having the highest connection rate at a given file size.
 
 * Summary of Performance Results

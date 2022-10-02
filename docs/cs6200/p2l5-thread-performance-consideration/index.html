@@ -284,35 +284,447 @@ function sidebar_toggle() {
 <!-- toc -->
 <ul>
 <li><a href="#which-threading-model-is-better">Which Threading Model Is Better?</a></li>
+<li><a href="#are-threads-useful">Are Threads Useful?</a>
+<ul>
+<li><a href="#performance-metrics">Performance Metrics</a></li>
+</ul>
+</li>
+<li><a href="#multi-process-vs-multi-threaded">Multi Process Vs. Multi Threaded</a></li>
+<li><a href="#event-driven-model">Event-Driven Model</a>
+<ul>
+<li><a href="#helper-threads-and-processes">Helper Threads And Processes</a></li>
+</ul>
+</li>
+<li><a href="#flash-event-driven-web-server">Flash: Event-Driven Web Server</a></li>
+<li><a href="#apache-web-server">Apache Web Server</a></li>
+<li><a href="#experimental-methodology">Experimental Methodology</a></li>
+<li><a href="#experimental-results">Experimental Results</a></li>
+<li><a href="#advice-on-designing-experiments">Advice on Designing Experiments</a></li>
+<li><a href="#advice-on-running-experiments">Advice on Running Experiments</a></li>
+<li><a href="#papers">Papers</a></li>
 </ul>
 <!-- tocstop -->
 <hr />
 <h2 id="which-threading-model-is-better"><a class="markdownIt-Anchor" href="#which-threading-model-is-better"></a> Which Threading Model Is Better?</h2>
-<p>Are Threads Useful?<br />
-Performance Metrics<br />
-Really … Are Threads Useful?<br />
-Multi Process Vs. Multi Threaded<br />
-Multi Process Web Server<br />
-Multi Threaded Web Server<br />
-Event-Driven Model<br />
-Concurrency In The Event-Driven Model<br />
-Event-Driven Model: Why?<br />
-Event-Driven Model: How?<br />
-Helper Threads And Processes<br />
-Flash Web Server<br />
-Apache Web Server<br />
-Experimental Methodology<br />
-What systems are you comparing?<br />
-What workloads will be used?<br />
-How will you measure performance?<br />
-Experimental Results<br />
-Best Case Numbers<br />
-Owlnet Trace<br />
-CS Trace<br />
-Impact of Optimizations<br />
-Summary of Performance Results<br />
-Advice on Designing Experiments<br />
-Advice on Running Experiments</p>
+<ul>
+<li>Depends on the matrix we used to evaluate.</li>
+<li>review the <a href="/cs6200/p2l2-threads-and-concurrency/index.html#quiz">quiz</a></li>
+<li>
+<img src="https://i.imgur.com/g0QGBWU.jpg" style="width: 600px" />
+</li>
+</ul>
+<h2 id="are-threads-useful"><a class="markdownIt-Anchor" href="#are-threads-useful"></a> Are Threads Useful?</h2>
+<ul>
+<li>Threads are useful because:
+<ol>
+<li>parallelization: speed up the execution.</li>
+<li>specialization: hot cache</li>
+<li>efficiency. lower memory requirements and are cheaper to synchronize
+<ol>
+<li>Threads are useful even on a single CPU because they allow us to hide latency of I/O operations.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>How to measure things are useful?
+<ul>
+<li>a matrix multiply application: raw execution time</li>
+<li>web service application: throughput(requests/s) or response time</li>
+<li>hardware chip: overall utilization increase</li>
+<li>for any these matrix, we might care: average value or max/min value, or a certain percentage.</li>
+<li>To evaluate or determine whether things are useful, it is important to determine the properties that we care. We can such properties <strong>matrices</strong>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="performance-metrics"><a class="markdownIt-Anchor" href="#performance-metrics"></a> Performance Metrics</h3>
+<ul>
+<li>
+<p>There are lots of useful matrices. we have discussed:</p>
+<ul>
+<li>execution time, throughput, request time, CPU utilization</li>
+</ul>
+</li>
+<li>
+<p>Some others:</p>
+<ul>
+<li>wait time: how long a job waited to start executing.</li>
+<li>platform efficiency: how well resources are utilized.</li>
+<li>performance per dollar/watt</li>
+<li><strong>percentage of SLA violation</strong>:</li>
+</ul>
+</li>
+<li>
+<p>In summary we want measurable quantities that obtained from</p>
+<ul>
+<li>experiments with real software deployment, real machines, real workload.</li>
+<li>these experimental settings are <strong>testbed</strong>.</li>
+</ul>
+</li>
+<li>
+<p>So are threads useful?</p>
+<ul>
+<li>It depends.</li>
+</ul>
+</li>
+</ul>
+<h2 id="multi-process-vs-multi-threaded"><a class="markdownIt-Anchor" href="#multi-process-vs-multi-threaded"></a> Multi Process Vs. Multi Threaded</h2>
+<ul>
+<li>
+<p>Take a web server as an example:</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/D4jTsAL.jpg" style="width: 200px" />
+</li>
+</ul>
+<ol>
+<li>client/browser send request</li>
+<li>web server accept request</li>
+<li>server processing steps</li>
+<li>respond by sending file</li>
+</ol>
+</li>
+<li>
+<p>Note that some work are CPU complexity like parse request/computer header, and some other are IO operations like accept connection, read/find file.</p>
+</li>
+<li>
+<p>Multi Process Web Server: spawn multiple processes and run it in each process.</p>
+<ul>
+<li>it require higher memory footprint, which can hurt the performance.</li>
+<li>pay higher cost to context switch since processes don’t share states due to IPC constains</li>
+<li>it’s difficult to have multiple process listening on a specific port.</li>
+</ul>
+</li>
+<li>
+<p>Multi Threaded Web Server: single process, with multiple threads, achieving concurrency within a single address space.</p>
+<ul>
+<li>we can adapt the boss-worker mode, or have a pipeline setup.</li>
+<li>the benefits of this approach are that we have a shared address space, shared state, and a cheap user level context switch. Memory requirements are lighter, since we have a lot of shared information across all threads in the process.</li>
+<li>The downside of this approach is that it is not a simple implementation. Multithreaded programs require explicit application level synchronization code, which can add to the overall complexity of the application. In addition, a multithreaded approach depends on underlying operating system level support for threads, although this is less of an issue now than it was in the past.</li>
+</ul>
+</li>
+</ul>
+<h2 id="event-driven-model"><a class="markdownIt-Anchor" href="#event-driven-model"></a> Event-Driven Model</h2>
+<ul>
+<li>
+<img src="https://i.imgur.com/RhtrFlu.jpg" style="width: 400px" />
+</li>
+<li>
+<p>Event-driven model is composed with two parts:</p>
+<ul>
+<li>event dispatcher
+<ul>
+<li>work as a state machine of external events =&gt; call handler(jump to the code)</li>
+<li>accept any of these types of notifications and based on the notification type invoke the right handler.</li>
+</ul>
+</li>
+<li>event handlers, such accept connection, read request, etc.
+<ul>
+<li>If the handler needs to block (i.e. making an I/O request), the handler will initiate the blocking operation and immediately pass control back to the dispatch loop.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>It works in a <strong>single address space</strong>, a <strong>single process</strong> and a <strong>single thread of control</strong>.</p>
+</li>
+<li>
+<p>How to achieve <strong>concurrency</strong> with only <strong>one</strong> thread?</p>
+<ul>
+<li>In the event driven model, the processing of multiple requests are <strong>interleaved within a single execution context</strong>.</li>
+<li>Consider we have a request, and it went through all events, and at some point block on send data back to the client. In the meantime, two requests come in. The fist one is blocking on disk I/O, and second one is waiting on receiving data from client. At this point, all requests are waiting. Later on, each of them will be processed.</li>
+<li>Even we only have one thread, we still handling the requests simultaneously.</li>
+</ul>
+</li>
+<li>
+<p>Why does this work?</p>
+<ul>
+<li>On 1 CPU, threads hide latency.
+<ul>
+<li>it make sense to do context switch if (t_idle &gt; 2 * t_ctx_switch)</li>
+<li>but if (t_idle == 0) context switch just waste cycles.</li>
+</ul>
+</li>
+<li>In the event driven model, a request will be processed exactly until a wait is necessary, at which point the execution context will switch to servicing another request.</li>
+<li>In a multiple CPUs situation, we can still benefit from the model. Each CPU could host a single event-driven process, and multiple requests could be worked on concurrently within that process.</li>
+<li>Gotcha: It is important to have mechanisms that will steer the right set of events to the right CPU.</li>
+</ul>
+</li>
+<li>
+<p>How does this work?</p>
+<ul>
+<li>First of all, both sockets and files are represented by <strong>file descriptors</strong>. An event in the context of the web server is an input on any of the file descriptors associated with it.</li>
+<li>So how to know which file descriptors have input?
+<ul>
+<li>system call <code>select()</code>: scan a range of file descriptors, and return the first one that have input. Another alternative is the <code>poll()</code> system call.</li>
+<li>both system calls have to scan through a potentially large list of file descriptors, and it’s likely only few have input, which wastes lots of time.</li>
+<li>A more recent system call is <code>epoll()</code>, which eliminates some of the problems that select and poll have.</li>
+</ul>
+</li>
+<li>The benefits of the event driven model mainly come from the design as a single address space with a single flow of control. As a result, the overheads are lower. There is a smaller memory footprint, and no need for context switching or synchronization.</li>
+</ul>
+</li>
+</ul>
+<h3 id="helper-threads-and-processes"><a class="markdownIt-Anchor" href="#helper-threads-and-processes"></a> Helper Threads And Processes</h3>
+<ul>
+<li>
+<p>In the many-to-one ULT:KLT model, a ULT might blocks the entire process because the KLT is not aware of the threads in ULT. The event-driven model has the same issue.</p>
+</li>
+<li>
+<p>One way to solve this is to use <strong>asynchronous I/O operations</strong>. The asynchronous system call allows the the process/thread continue execution and check the result later by obtaining the relevant info from the stack and either return the result somewhere, or call the caller with callback function.</p>
+</li>
+<li>
+<p>Asynchronous needs a multithreaded kernel, so the caller and asynchronous call can leave on different threads, and not block each other.</p>
+</li>
+<li>
+<p>What if asynchronous I/O calls are not available?</p>
+<ul>
+<li>Run <strong>helper</strong> functions on other threads/processes.</li>
+<li>
+<img src="https://i.imgur.com/e5fUTcZ.jpg" style="width: 400px" />
+</li>
+<li>When the handler needs to initiate an I/O operation that can block, the handler passes the call to the operation to a <strong>helper</strong>, and returns to the event dispatcher. The helper will be the one that handles the blocking I/O operation and interact with the dispatcher as necessary.</li>
+<li>Two models are used in this situation:
+<ul>
+<li>Asymmetric Multi-Process Event-Driven Model or AMPED.</li>
+<li>The multithreaded equivalent acronym is AMTED.</li>
+</ul>
+</li>
+<li>The benefits from these models:
+<ul>
+<li>resolves portability limitation of basic event-driven model</li>
+<li>smaller footprint that regular worker thread</li>
+</ul>
+</li>
+<li>Downside are:
+<ul>
+<li>applicability to certain classes of applications</li>
+<li>there are some complexities surrounding events routing on multi-CPU systems.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="flash-event-driven-web-server"><a class="markdownIt-Anchor" href="#flash-event-driven-web-server"></a> Flash: Event-Driven Web Server</h2>
+<ul>
+<li>Flash is an event-driven webserver(<strong>AMPED</strong>) with <strong>asymmetric helper processes</strong>
+<ul>
+<li>helpers used for disk reads (mostly)</li>
+<li>pipes used for communication from helpers to dispatcher</li>
+<li>helper reads file in memory(via mmap)</li>
+<li>dispatcher checks (via <strong>mincore</strong>) if pages are in memory to decide to call “local” handler or helper</li>
+</ul>
+</li>
+<li>Additional optimizations from Flash is application-level caching (data and computation)
+<ul>
+<li>For instance, every request has an associated pathname, and we need to look up the file given the pathname. That lookup will compute some result, which we can cache so we do not have to perform the same computation again.</li>
+</ul>
+</li>
+</ul>
+<h2 id="apache-web-server"><a class="markdownIt-Anchor" href="#apache-web-server"></a> Apache Web Server</h2>
+<ul>
+<li>
+<img src="https://i.imgur.com/LkdkVSo.jpg" style="width: 400px" />
+</li>
+<li>
+<p>The core component provides core services like accepting requests, issuing responses, and managing concurrency. The various modules are mounted in a pipeline and extend the functionality of the basic server behavior.</p>
+</li>
+<li>
+<p>The flow of control is similar to event-driven model, but it’s a combination of multiprocess and multithreaded model, which implements a multithreaded boss/workers configuration with a dynamic thread pool.</p>
+</li>
+<li>
+<p>The number of processes can also be dynamically adjusted.</p>
+</li>
+</ul>
+<h2 id="experimental-methodology"><a class="markdownIt-Anchor" href="#experimental-methodology"></a> Experimental Methodology</h2>
+<ul>
+<li>Setting up performance comparissons
+<ul>
+<li>Define comparison points: What systems are you comparing?</li>
+<li>Define inputs: What workload will be used?</li>
+<li>Define matrices: How will you measure performance?</li>
+</ul>
+</li>
+<li>Flash: What systems are you comparing?
+<ul>
+<li>a multiprocess, single threaded implementation</li>
+<li>a multithreaded implementation using the boss/workers pattern</li>
+<li>a single process event-driven (SPED) implementation</li>
+<li>Zeus (SPED implementation with two processes)</li>
+<li>Apache (multiprocess at the time)</li>
+</ul>
+</li>
+<li>Flash: What workload will be used?
+<ul>
+<li>Goal:
+<ul>
+<li>realistic request workload -&gt; distribution of web pages accesses over time</li>
+<li>controlled, reproducible workload -&gt; trace-based (from real web servers)</li>
+</ul>
+</li>
+<li>Workload used:
+<ul>
+<li>CS Web Server trace(Rice Univ.)</li>
+<li>Owlnet trace(Rice Univ.)</li>
+<li>Synthetic workload</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Flash: How will you measure performance?
+<ul>
+<li>Matrices:
+<ul>
+<li>Bandwidth (bytes/second) -&gt; total number of bytes transferred / total amount of time took to transfer the bytes</li>
+<li>Connection Rate (requests/second) -&gt; total client connections / total amount of time passed</li>
+</ul>
+</li>
+<li>Both of these metrics were evaluated as a function of file size(x-axis), because:
+<ul>
+<li>with larger file size, the connection cost can be amortized =&gt; higher bandwidth</li>
+<li>however, with larger file size, causes more work per connection, aka lower connection rate.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="experimental-results"><a class="markdownIt-Anchor" href="#experimental-results"></a> Experimental Results</h2>
+<ul>
+<li>
+<p>Best Case Numbers</p>
+<ul>
+<li>Synthetic load: N requests for the same file(after first request, the file will be cached, the following requests will be faster)</li>
+<li>Bandwidth measurement:
+<ul>
+<li>bandwidth = N * file size(bytes) / total time</li>
+<li>file size: 0 - 200 KB -&gt; vary work per request</li>
+</ul>
+</li>
+<li>Result:
+<ul>
+<li>
+<img src="https://i.imgur.com/vIuuN6v.jpg" style="width: 300px" />
+</li>
+<li>All of the implementations had similar results, with bandwidth increasing sharply with file size initially before plateauing.</li>
+<li>SPED has the best performance.</li>
+<li>Flash has slightly lower performance, because it performs the extra check for memory presence.</li>
+<li>Zeus has an anomaly, where it drops in performance after a threshold of around 125Kb.</li>
+<li>The performance of the multithreaded/multiprocess implementations are lower because of the extra synchronization requirements and the cost of context switching.</li>
+<li>Apache has the lowest performance because it has no optimizations.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>CS Trace &amp; Owlnet Trace</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/1i0i5RF.jpg" style="width: 300px" />
+</li>
+<li>Owlnet Trace
+<ul>
+<li>Flash and SPED are the best, followed by MT/MP and then Apache.</li>
+<li>The reason for this trend is because the owl trace is very small, so most of the requests can be serviced from the cache. However, not everything can be serviced from cache, so sometimes blocking I/O is required. In this case, SPED will block, but Flash will not because it has helpers. This helps explain why Flash’s performance is slightly higher than the SPED implementation.</li>
+</ul>
+</li>
+<li>CS Trace
+<ul>
+<li>The CS trace is a much larger trace, which means that most requests are not serviced from the cache.Since the SPED implementation does not support asynchronous I/O the performance drops significantly. The multithreaded implementation does better than the multiprocess implementation because it has a smaller memory footprint (more memory available to cache files) and is able to synchronize more quickly/cheaply.</li>
+<li>Flash performs the best. It has the smallest memory footprint, which means it has the most memory available for caching files. As a result, fewer requests will require blocking I/O requests, which further speeds everything up. In addition, since everything occurs in the same address space, there is no need for explicit synchronization.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Impact of Optimizations in Flash</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/nAUmcEe.jpg" style="width: 300px" />
+</li>
+<li>Fully optimized flash having the highest connection rate at a given file size.</li>
+</ul>
+</li>
+<li>
+<p>Summary of Performance Results</p>
+<ul>
+<li>When data is in cache:
+<ul>
+<li>SPED &gt;&gt; AMPED Flash: because unnecessary test for memory presence</li>
+<li>SPED and AMPED Flash &gt;&gt; MT/MP: sync and context switching overhead</li>
+</ul>
+</li>
+<li>With disk-bound workload
+<ul>
+<li>AMPED Flash &gt;&gt; SPED: because blocks become no async I/O</li>
+<li>AMPED Flash &gt;&gt; MT/MP: because more memory efficient and less context switching</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="advice-on-designing-experiments"><a class="markdownIt-Anchor" href="#advice-on-designing-experiments"></a> Advice on Designing Experiments</h2>
+<ul>
+<li>Understand the purpose of relevant experiments.
+<ul>
+<li>Take web server experiment as an example. The clients care about response time, the operators when runs the server care about throughput. So there are several possible goals:
+<ul>
+<li>+response time, +throughput =&gt; great!</li>
+<li>+response time =&gt; acceptable</li>
+<li>+response time, -throughput =&gt; maybe useful</li>
+<li>maintain response time when request rate increase</li>
+</ul>
+</li>
+<li>The goals are to gain some insight into both the metrics and the configuration our experiments.</li>
+</ul>
+</li>
+<li>Picking the right metrics
+<ul>
+<li>use “standard” metrics with broader audience</li>
+<li>the matrices needs to answer why/what/who questions
+<ul>
+<li>client performance -&gt; response time, timedout requests, etc.</li>
+<li>operator costs -&gt; throughput, costs</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Picking the right configuration space
+<ul>
+<li>Think what you can choose:
+<ul>
+<li>System resources:
+<ul>
+<li>hardware(CPU, memory) &amp; software(# of threads, queue size, etc)</li>
+</ul>
+</li>
+<li>Workload
+<ul>
+<li>webserver: request rate, # of concurrent requests, file size, access pattern</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Now pick
+<ul>
+<li>choose a subset of configuration parameters</li>
+<li>pick range for each variable factor</li>
+<li>pick relevant workload</li>
+<li>include best/worst case scenarios</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="advice-on-running-experiments"><a class="markdownIt-Anchor" href="#advice-on-running-experiments"></a> Advice on Running Experiments</h2>
+<ul>
+<li>Run test cases N times</li>
+<li>Compute metrics</li>
+<li>Represent results</li>
+<li><strong>Draw a conclusion!</strong></li>
+</ul>
+<h2 id="papers"><a class="markdownIt-Anchor" href="#papers"></a> Papers</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://s3.amazonaws.com/content.udacity-data.com/courses/ud923/references/ud923-pai-paper.pdf">“Flash: An Efficient and Portable Web Server”</a> by Pai</li>
+</ul>
 
 </div>
 
