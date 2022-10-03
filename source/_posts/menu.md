@@ -163,3 +163,4 @@
 * [Symbols of Mathematics](/symbols/index.html)
 * [Glossary](/glossary/index.html)
 
+## [About Me](https://ericyy.me/about/)

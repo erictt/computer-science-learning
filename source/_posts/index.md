@@ -1,6 +1,6 @@
 # Computer Science & Machine Learning
 
-* [NOTES](/menu)
+[All of the notes](/menu)
 
 ## Progress
 
@@ -16,8 +16,15 @@
 
 ### Next Steps
 
-* Multivariable Calculus [[Course](https://ocw.mit.edu/courses/mathematics/18-02sc-multivariable-calculus-fall-2010/)]
-* MITx: 6.041x Introduction to Probability - The Science of Uncertainty [[Course](https://courses.edx.org/courses/course-v1:MITx+6.041x_4+1T2017/course/)]
+* CS 6210 Advanced Operating Systems
+* CS 8803 O12: Systems Issues in Cloud Computing
+* CS 6515 Introduction to Graduate Algorithms
+* CS 7210 Distributed Computing
+
+* CSE 6220 High-Performance Computing
+* CS 7642 Reinforcement Learning and Decision Making
+* CS 7643 Deep Learning
+* CS 7646 Machine Learning for Trading
 
 ### Done
 

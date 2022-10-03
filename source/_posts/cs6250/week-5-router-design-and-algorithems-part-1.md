@@ -165,8 +165,8 @@
 
 ## Quiz
 
-* ![](media/16647635075945.jpg)
+* <img src="https://i.imgur.com/EncB0xD.jpg" style="width: 500px" />
 * Questions:
     1. why n1 is none?
     2. why n6/n7/n11/n17 is none?
-*  
+* Notice this is NOT a question asking a prefix lookup but constructing the variable-length multibit trie. So we must do the controlled prefix expansion to find which prefix (mapped to a letter for simplicity) goes in each node in the trie. The nodes with no prefix occur when there is no associated prefix in the expanded prefix database. For example, n7 is none because 0101 is not in the expanded prefix database. 
