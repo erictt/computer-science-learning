@@ -43,9 +43,9 @@
 * [P2L2 - Threads and Concurrency](/cs6200/p2l2-threads-and-concurrency/index.html)
 * [P2L3 - PThread](/cs6200/p2l3-pthread/index.html)
 * [P2L4 - Thread Design Considerations](/cs6200/p2l4-thread-design-consideration/index.html)
-
-<!--
 * [P2L5 - Thread Performance Considerations](/cs6200/p2l5-thread-performance-consideration/index.html)
+<!--
+
 -->
 
 ## Algorithms: Part II
