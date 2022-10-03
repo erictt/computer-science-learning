@@ -300,6 +300,7 @@ function sidebar_toggle() {
 <li><a href="#multibit-tries-variable-stride">Multibit Tries: Variable Stride</a></li>
 </ul>
 </li>
+<li><a href="#quiz">Quiz</a></li>
 </ul>
 <!-- tocstop -->
 <hr />
@@ -325,7 +326,11 @@ function sidebar_toggle() {
 <ol>
 <li>If we look at the figure from left to right, the first function is to physically terminate the incoming links to the router.</li>
 <li>Second, the data link processing unit decapsulates the packets.</li>
-<li>Finally, and most importantly, the input ports perform the lookup function. At this point, the input ports consult the forwarding table to ensure that each packet is forwarded to the appropriate output port through the switch fabric.</li>
+<li>Finally, and most importantly, the input ports perform the lookup function. At this point, the input ports consult the forwarding table to ensure that each packet is forwarded to the appropriate output port through the switch fabric.
+<ul>
+<li>NOTE: Regardless of the routing protocol, <strong>packet forwarding is based on the destination address alone</strong>, no need for the source address.<strong>[Quiz]</strong></li>
+</ul>
+</li>
 </ol>
 </li>
 </ul>
@@ -557,7 +562,7 @@ function sidebar_toggle() {
 <li>Why do we need multibit tries?
 <ul>
 <li>While a <strong>unibit trie</strong> is very efficient and offers advantages such as fast lookup and easier updates, its most significant problem is the number of memory accesses required to perform a lookup. For 32 bit addresses, we can see that looking up the address in a unibit trie might require 32 memory accesses, in the worst case. Assuming a 60 nsec latency, the worst-case search time is 1.92 microseconds. This could be very inefficient in high-speed links.</li>
-<li>Instead, we can implement lookups using a stride. The stride is the number of bits that we check at each step.</li>
+<li>Instead, we can implement lookups using a stride. <strong>The stride is the number of bits that we check at each step</strong>[Quiz].</li>
 <li>So an alternative to unibit tries are the <strong>multibit tries</strong>. A multibit trie is a trie where each node has 2^k children, where k is the stride. Next, we will see that we can have two flavors of multibit tries: <strong>fixed-length stride</strong> tries and <strong>variable-length stride</strong> tries.</li>
 </ul>
 </li>
@@ -610,6 +615,17 @@ function sidebar_toggle() {
 <li>An optimum variable stride is selected by using dynamic programming</li>
 </ol>
 </li>
+</ul>
+<h2 id="quiz"><a class="markdownIt-Anchor" href="#quiz"></a> Quiz</h2>
+<ul>
+<li><img src="media/16647635075945.jpg" alt="" /></li>
+<li>Questions:
+<ol>
+<li>why n1 is none?</li>
+<li>why n6/n7/n11/n17 is none?</li>
+</ol>
+</li>
+<li></li>
 </ul>
 
 </div>

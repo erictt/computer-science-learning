@@ -16,6 +16,7 @@
         1. If we look at the figure from left to right, the first function is to physically terminate the incoming links to the router. 
         2. Second, the data link processing unit decapsulates the packets. 
         3. Finally, and most importantly, the input ports perform the lookup function. At this point, the input ports consult the forwarding table to ensure that each packet is forwarded to the appropriate output port through the switch fabric.
+            * NOTE: Regardless of the routing protocol, **packet forwarding is based on the destination address alone**, no need for the source address.**[Quiz]**
 * Switching fabric:
     * Simply put, the switching fabric moves the packets from input to output ports, and it makes the connections between the input and the output ports. There are three types of switching fabrics: memory, bus, and crossbar. 
 * Output ports:
@@ -125,7 +126,7 @@
 
 * Why do we need multibit tries?
     * While a **unibit trie** is very efficient and offers advantages such as fast lookup and easier updates, its most significant problem is the number of memory accesses required to perform a lookup. For 32 bit addresses, we can see that looking up the address in a unibit trie might require 32 memory accesses, in the worst case. Assuming a 60 nsec latency, the worst-case search time is 1.92 microseconds. This could be very inefficient in high-speed links. 
-    * Instead, we can implement lookups using a stride. The stride is the number of bits that we check at each step.  
+    * Instead, we can implement lookups using a stride. **The stride is the number of bits that we check at each step**[Quiz].  
     * So an alternative to unibit tries are the **multibit tries**. A multibit trie is a trie where each node has 2^k children, where k is the stride. Next, we will see that we can have two flavors of multibit tries: **fixed-length stride** tries and **variable-length stride** tries.
 
 ### Prefix Expansion
@@ -161,3 +162,11 @@
     1. Every node can have a different number of bits to be explored.
     2. The optimizations to the stride length for each node are all done to **save trie memory and the least memory accesses**.
     3. An optimum variable stride is selected by using dynamic programming
+
+## Quiz
+
+* ![](media/16647635075945.jpg)
+* Questions:
+    1. why n1 is none?
+    2. why n6/n7/n11/n17 is none?
+*  
