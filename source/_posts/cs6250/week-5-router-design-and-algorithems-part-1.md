@@ -130,7 +130,7 @@
 
 ### Prefix Expansion
 
-* Consider a prefix such as 101* (length 3) and a stride length of 2 bits. If we search in 2-bit lengths, we will miss out on prefixes like 101*. To combat this, we use a strategy called controlled prefix expansion, where we expand a given prefix to more prefixes. We ensure that the expanded prefix is a multiple of the chosen stride length. At the same time, we remove all lengths that are not multiples of the chosen stride length. We end up with a new database of prefixes, which may be larger (in terms of the actual number of prefixes) but with fewer lengths. So, the expansion gives us more speed with an increased cost of the database size.
+* Consider a prefix such as 101* (length 3) and a stride length of 2 bits. If we search in 2-bit lengths, we will miss out on prefixes like 101*. To combat this, we use a strategy called **controlled prefix expansion**, where we expand a given prefix to more prefixes. We ensure that the expanded prefix is a multiple of the chosen stride length. At the same time, we remove all lengths that are not multiples of the chosen stride length. We end up with a new database of prefixes, **which may be larger (in terms of the actual number of prefixes) but with fewer lengths.** So, the expansion gives us more speed with an increased cost of the database size.
 * In the figure below, we have expanded our original database of prefixes while considering a stride length of three. Initially, we had five different prefix lengths (1, 3, 4, 5, and 6), but now we have more prefixes but only two lengths (3 and 6).  
 * For example, we substitute (expand) P3 = 11001* with 110010* and 110011*. 
 * When we expand our prefixes, there may be a collision, i.e., when an expanded prefix collides with an existing prefix. In that case, that expanded prefix gets dropped. For example, in the figure, we see that the fourth expansion of P6=1000* collides with P7 and thus gets removed.
@@ -144,7 +144,7 @@
     1. Every element in a trie represents two pieces of information: a pointer and a prefix value.
     2. The prefix search moves ahead with the preset length in n-bits (3 in this case) 
     3. When the path is traced by a pointer, we remember the last matched prefix (if any).
-    4. Our search ends when an empty pointer is met. At that time, we return the last matched prefix as our final prefix match.
+    4. **Our search ends when an empty pointer is met**. At that time, we **return the last matched prefix as our final prefix match**.
 * <img src="https://i.imgur.com/VDG8AAy.jpg" style="width: 600px" />
 * Example: We consider an address A, which starts with 001. The search for A starts with the 001 entry at the root node of the trie. Since there is no outgoing pointer, the search terminates here and returns P5. Whereas if we search for 100000, the search will terminate with P7.
 
@@ -155,9 +155,9 @@
     * We encode the stride of the trie node using a pointer to the node. The root node stays as is (in the previous scheme).  
     * We note that the rightmost node still needs to examine 3 bits because of P7. 
     * But at the leftmost node needs only to examine 2 bits because P3 has 5 bits in total. So we can rewrite the leftmost node as in the figure below. 
-    * So now we have four fewer entries than our fixed stride scheme. So by varying the strides, we could make our prefix database smaller and optimize for memory.
+    * So now we have four fewer entries than our fixed stride scheme. So by varying the strides, we could **make our prefix database smaller and optimize for memory**.
     * <img src="https://i.imgur.com/V0hcd12.jpg" style="width: 600px" />
 * Some **key points** about variable stride:
     1. Every node can have a different number of bits to be explored.
-    2. The optimizations to the stride length for each node are all done to save trie memory and the least memory accesses.
+    2. The optimizations to the stride length for each node are all done to **save trie memory and the least memory accesses**.
     3. An optimum variable stride is selected by using dynamic programming

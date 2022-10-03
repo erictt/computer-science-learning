@@ -564,7 +564,7 @@ function sidebar_toggle() {
 </ul>
 <h3 id="prefix-expansion"><a class="markdownIt-Anchor" href="#prefix-expansion"></a> Prefix Expansion</h3>
 <ul>
-<li>Consider a prefix such as 101* (length 3) and a stride length of 2 bits. If we search in 2-bit lengths, we will miss out on prefixes like 101*. To combat this, we use a strategy called controlled prefix expansion, where we expand a given prefix to more prefixes. We ensure that the expanded prefix is a multiple of the chosen stride length. At the same time, we remove all lengths that are not multiples of the chosen stride length. We end up with a new database of prefixes, which may be larger (in terms of the actual number of prefixes) but with fewer lengths. So, the expansion gives us more speed with an increased cost of the database size.</li>
+<li>Consider a prefix such as 101* (length 3) and a stride length of 2 bits. If we search in 2-bit lengths, we will miss out on prefixes like 101*. To combat this, we use a strategy called <strong>controlled prefix expansion</strong>, where we expand a given prefix to more prefixes. We ensure that the expanded prefix is a multiple of the chosen stride length. At the same time, we remove all lengths that are not multiples of the chosen stride length. We end up with a new database of prefixes, <strong>which may be larger (in terms of the actual number of prefixes) but with fewer lengths.</strong> So, the expansion gives us more speed with an increased cost of the database size.</li>
 <li>In the figure below, we have expanded our original database of prefixes while considering a stride length of three. Initially, we had five different prefix lengths (1, 3, 4, 5, and 6), but now we have more prefixes but only two lengths (3 and 6).</li>
 <li>For example, we substitute (expand) P3 = 11001* with 110010* and 110011*.</li>
 <li>When we expand our prefixes, there may be a collision, i.e., when an expanded prefix collides with an existing prefix. In that case, that expanded prefix gets dropped. For example, in the figure, we see that the fourth expansion of P6=1000* collides with P7 and thus gets removed.</li>
@@ -581,7 +581,7 @@ function sidebar_toggle() {
 <li>Every element in a trie represents two pieces of information: a pointer and a prefix value.</li>
 <li>The prefix search moves ahead with the preset length in n-bits (3 in this case)</li>
 <li>When the path is traced by a pointer, we remember the last matched prefix (if any).</li>
-<li>Our search ends when an empty pointer is met. At that time, we return the last matched prefix as our final prefix match.</li>
+<li><strong>Our search ends when an empty pointer is met</strong>. At that time, we <strong>return the last matched prefix as our final prefix match</strong>.</li>
 </ol>
 </li>
 <li>
@@ -597,7 +597,7 @@ function sidebar_toggle() {
 <li>We encode the stride of the trie node using a pointer to the node. The root node stays as is (in the previous scheme).</li>
 <li>We note that the rightmost node still needs to examine 3 bits because of P7.</li>
 <li>But at the leftmost node needs only to examine 2 bits because P3 has 5 bits in total. So we can rewrite the leftmost node as in the figure below.</li>
-<li>So now we have four fewer entries than our fixed stride scheme. So by varying the strides, we could make our prefix database smaller and optimize for memory.</li>
+<li>So now we have four fewer entries than our fixed stride scheme. So by varying the strides, we could <strong>make our prefix database smaller and optimize for memory</strong>.</li>
 <li>
 <img src="https://i.imgur.com/V0hcd12.jpg" style="width: 600px" />
 </li>
@@ -606,7 +606,7 @@ function sidebar_toggle() {
 <li>Some <strong>key points</strong> about variable stride:
 <ol>
 <li>Every node can have a different number of bits to be explored.</li>
-<li>The optimizations to the stride length for each node are all done to save trie memory and the least memory accesses.</li>
+<li>The optimizations to the stride length for each node are all done to <strong>save trie memory and the least memory accesses</strong>.</li>
 <li>An optimum variable stride is selected by using dynamic programming</li>
 </ol>
 </li>
