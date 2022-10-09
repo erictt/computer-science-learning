@@ -91,9 +91,10 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6250/week-3-intradomain-routing/index.html">Week 3 - Intradomain Routing</a></li>
 <li><a href="/cs6250/week-4-as-relationships-and-interdomain-routing/index.html">Week 4 - AS Relationships and Interdomain Routing</a></li>
 <li><a href="/cs6250/week-5-router-design-and-algorithems-part-1/index.html">Week 5 - Router Design and Algorithms Part 1</a></li>
+<li><a href="/cs6250/week-6-router-design-and-algorithems-part-2/index.html">Week 6 - Router Design and Algorithms Part 2</a></li>
 </ul>
 <!--
-* [Week 6 - Router Design and Algorithms Part 2](/cs6250/week-6-router-design-and-algorithems-part-2/index.html)
+
 -->
 <h2 id="cs6200-graduate-introduction-to-operating-systems"><a class="markdownIt-Anchor" href="#cs6200-graduate-introduction-to-operating-systems"></a> CS6200 Graduate Introduction to Operating Systems</h2>
 <ul>
@@ -104,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6200/p2l3-pthread/index.html">P2L3 - PThread</a></li>
 <li><a href="/cs6200/p2l4-thread-design-consideration/index.html">P2L4 - Thread Design Considerations</a></li>
 <li><a href="/cs6200/p2l5-thread-performance-consideration/index.html">P2L5 - Thread Performance Considerations</a></li>
+<li><a href="/cs6200/p3l1-scheduling/index.html">P3L1 - Scheduling</a></li>
 </ul>
 <!--
 
@@ -307,7 +309,7 @@ function sidebar_toggle() {
 <ul>
 <li><strong>directly</strong> has privileges access to the underlying hardware;
 <ul>
-<li>e.g. <strong>file eidtor</strong> does not directly access hardware, but <strong>file system</strong> does</li>
+<li>e.g. <strong>file editor</strong> does not directly access hardware, but <strong>file system</strong> does</li>
 </ul>
 </li>
 <li>manages hardware on behalf of the applications according to some predefined policies</li>
@@ -325,20 +327,20 @@ function sidebar_toggle() {
 <li>
 <p>Mechanisms</p>
 <ul>
-<li>the implementation of the abstractions. For examples, threads are scheduled by the OS with some algorithms so application can run simultaneously. Other mechanisms like:  create, schedule, open, write, allocate</li>
+<li>the implementation of the abstractions. For examples, <strong>threads</strong> are scheduled by the OS with some algorithms so application can run simultaneously. Other mechanisms like:  create, schedule, open, write, allocate.</li>
 </ul>
 </li>
 <li>
 <p>Policies</p>
 <ul>
-<li>the rules that all of the mechansms follow. for example, memory follow algorithems like least-recently used(LRU) to remove unused data from memory and only keey the recently used data.</li>
+<li>the rules that all of the mechanisms follow. for example, memory follow algorithms like least-recently used(LRU) to remove unused data from memory and only keep the recently used data.</li>
 </ul>
 </li>
 </ul>
 <h2 id="design-principles"><a class="markdownIt-Anchor" href="#design-principles"></a> Design Principles</h2>
 <h3 id="separation-of-mechanism-and-policy"><a class="markdownIt-Anchor" href="#separation-of-mechanism-and-policy"></a> Separation of mechanism and policy</h3>
 <ul>
-<li>Implement flexible mechanisms to support many policies. Such as memory management, CPU scheduling. By providing a common interface for policies, it’s easier to switch different policies without concerning the implemention.</li>
+<li>Implement flexible mechanisms to support many policies. Such as memory management, CPU scheduling. By providing a common interface for policies, it’s easier to switch different policies without concerning the implementation.</li>
 </ul>
 <h3 id="optimize-for-the-common-case"><a class="markdownIt-Anchor" href="#optimize-for-the-common-case"></a> Optimize for the common case</h3>
 <ul>
@@ -364,25 +366,25 @@ function sidebar_toggle() {
 </ul>
 <h2 id="different-os"><a class="markdownIt-Anchor" href="#different-os"></a> Different OS</h2>
 <ul>
-<li>Monolithc OS
+<li>Monolithic OS
 <ul>
 <li>Everything is included in the OS. This includes memory managers, device drivers, ﬁle management, processes/threads, scheduling, ﬁle systems for random and sequential access, etc.</li>
-<li>Bebefits: compile time optimizations.</li>
-<li>Disadvantages: large memory requirements; har to maintain/debugging/upgrading.</li>
+<li>Benefits: compile time optimizations.</li>
+<li>Disadvantages: large memory requirements; hard to maintain/debugging/upgrading.</li>
 </ul>
 </li>
 <li>Modular OS
 <ul>
 <li>Most modern OS, including Windows, macOS, Linux. This design contains basic services and APIs at OS level; everything else can be added as a module.</li>
-<li>Bebefits: easier to maintain/upgrade.</li>
+<li>Benefits: easier to maintain/upgrade.</li>
 <li>Disadvantages: a performance impact due to the bigger call stack and more general-purpose code required.</li>
 </ul>
 </li>
 <li>Microkernel OS
 <ul>
-<li>used in embeded systems. e.g. kernels like MINIX 3, Mach, QNX. It only includes the most basic primitives at the OS level, everything else, including file systems, device drivers, etc. are at user level.</li>
-<li>Bebefits: small, better performanace for kernel code.</li>
-<li>Disadvantages: usually written for very specialized harware; complex software development; can be costly.</li>
+<li>used in embedded systems. e.g. kernels like MINIX 3, Mach, QNX. It only includes the most basic primitives at the OS level, everything else, including file systems, device drivers, etc. are at user level.</li>
+<li>Benefits: small, better performance for kernel code.</li>
+<li>Disadvantages: usually written for very specialized hardware; complex software development; can be costly.</li>
 </ul>
 </li>
 </ul>
