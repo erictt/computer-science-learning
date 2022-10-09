@@ -400,7 +400,7 @@ function sidebar_toggle() {
 </ul>
 <h2 id="data-structures-in-solaris-20os"><a class="markdownIt-Anchor" href="#data-structures-in-solaris-20os"></a> Data Structures in Solaris 2.0(OS)</h2>
 <ul>
-<li>The OS is intended for multiple CPU and multi-threads. Each kernel-level thread has a lightweight process data structure associated with it, called <strong>lightweight process(LWP)</strong>, which represents the virtual CPUs onto which the user-level threads are scheduled. And the kernel-level scheduler is responsible for scheduling the kernel-level threads onto physical CPU.</li>
+<li>The Solaris OS is intended for multiple CPU and multi-threads. Each kernel-level thread has a lightweight process data structure associated with it, called <strong>lightweight process(LWP)</strong>, which represents the virtual CPUs onto which the user-level threads are scheduled. And the kernel-level scheduler is responsible for scheduling the kernel-level threads onto physical CPU.</li>
 </ul>
 <h3 id="user-level-structures"><a class="markdownIt-Anchor" href="#user-level-structures"></a> User Level Structures</h3>
 <ul>
@@ -471,7 +471,7 @@ function sidebar_toggle() {
 <ul>
 <li>Why kernel-level threads and user-level threads need to interact with each other?
 <ul>
-<li>Consider a process with four user threads, and a kernel with two threads. At a given time, the process require the level of concurrency to two. It always happens that two of its threads are blocking on, say, IO and the other two threads are executing.</li>
+<li>Consider a process with four user threads, and a kernel with two threads. At a given time, the process require the level of concurrency to two. It always happens that two of its threads are blocking on, i.e. I/O, and the other two threads are executing.</li>
 <li>Consider the scenario where the two user level threads that are scheduled on the kernel level threads happen to be the two that block. The kernel level threads block as well. This means that the whole process is blocked, even though there are user level threads that can make progress. The user threads have no way to know that the kernel threads are about to block, and has no way to decide before this event occurs.</li>
 <li>It would be helpful if the kernel can <strong>signal</strong> the user-level library before blocking, and the user-level library could potentially request more kernel-level threads, or allocate one kernel thread to  other threads that can be executed immediately.</li>
 </ul>
@@ -497,8 +497,11 @@ function sidebar_toggle() {
 <li>
 <p>A case of invisibility:</p>
 <ul>
-<li>In a many-to-many case, if a user level thread acquires a lock while running on top of a kernel level thread and that kernel level thread gets preempted, the user level library scheduler will cycle through the remaining user level threads and try to schedule them. If they need the lock, none will be able to execute and time will be wasted until the thread holding the lock is scheduled again.</li>
+<li>In a many-to-many case, if a user level thread acquires a lock while running on top of a kernel level thread and that kernel level thread gets preempted, the user level library scheduler will cycle through the remaining user level threads and try to schedule them. If they need the lock, none will be able to execute and time will be wasted until the thread holding the lock is scheduled again.
+<ul>
 <li>The <strong>user level library</strong> makes schedule changes kernel not aware of such as changing the ULT/KLT mapping; The kernel is also unaware of the data structure the user-level threads use such as mutex variable, wait queues.</li>
+</ul>
+</li>
 <li>The one-to-one model helps address some of these issues because the kernel-level threads are aware of the state the of the user-level threads.</li>
 </ul>
 </li>
@@ -572,7 +575,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>If the mask indicates that the corresponding interrupt or signal is enabled, the incoming notification will trigger the corresponding <strong>handler</strong>.</li>
-<li><strong>Interrupt handlers</strong> are specified for the entire system, by the operating systemOS. <strong>Signal handlers</strong> are set on a per-process basis, by the process itself.</li>
+<li><strong>Interrupt handlers</strong> are specified for the entire system by the OS. <strong>Signal handlers</strong> are set on a per-process basis, by the process itself.</li>
 </ul>
 </li>
 </ul>
@@ -606,41 +609,29 @@ function sidebar_toggle() {
 </ul>
 <h3 id="why-disable-interrupts-or-signals"><a class="markdownIt-Anchor" href="#why-disable-interrupts-or-signals"></a> Why Disable Interrupts or Signals?</h3>
 <ul>
-<li>
-<p>Interrupts and signals are handled in the context of the thread being interrupted/signaled. This means that they are handled on the thread’s stack, which can cause certain issues.</p>
-</li>
-<li>
-<p>When a thread handles a signal, the program counter of the thread will point to the first address of the handler. The stack pointer will remain the same, meaning that whatever the thread was doing before being interrupted will still be on the stack.</p>
-</li>
-<li>
-<p>If the handling code needs to access some shared state that can be used by other threads in the system, we will have to use mutexes. If the thread which is being interrupted had already locked the mutex before being interrupted, we are in a <strong>deadlock</strong>. The thread can’t unlock its mutex until the handler returns, but the handler can’t return until it locks the mutex.</p>
-</li>
-<li>
-<p>A simple solution is keep handler code simple, like not acquire mutex, but it’s too restrictive.</p>
-</li>
-<li>
-<p>A better solution is to use <strong>interrupt/signal masks</strong> which allow us dynamically enable/disable whether the handling code can interrupt the executing mutex.</p>
+<li>Interrupts and signals are handled in the context of the thread being interrupted/signaled. This means that they are handled on the thread’s stack, which can cause certain issues.</li>
+<li>When a thread handles a signal, the program counter of the thread will point to the first address of the handler. The stack pointer will remain the same, meaning that whatever the thread was doing before being interrupted will still be on the stack.</li>
+<li>If the handling code needs to access some shared state that can be used by other threads in the system, we will have to use mutexes. If the thread which is being interrupted had already locked the mutex before being interrupted, we are in a <strong>deadlock</strong>. The thread can’t unlock its mutex until the handler returns, but the handler can’t return until it locks the mutex.</li>
+<li>A simple solution is keep handler code simple, like not acquire mutex, but it’s too restrictive.</li>
+<li>A better solution is to use <strong>interrupt/signal masks</strong> which allow us dynamically enable/disable whether the handling code can interrupt the executing mutex.
 <ul>
 <li>The mask is a sequence of bits where each bits represents a specific interrupt or signal with value 0/1.</li>
 <li>When event occur, the handler will check the mask to decide whether pending or proceed.</li>
-<li>Another thing should be point out. Once the interrupt/signal is pending, others interrupts/signals might also become pending. Typically the handling routine will only be executed once, so if we want to ensure a signal handling routine is executed more than once, it is not sufficient to just generate the signal more than once.</li>
+<li>Another thing should be point out. Once the interrupt/signal is pending, others interrupts/signals might also become pending. Typically the handling routine will only be executed once, so if we want to ensure a signal handling routine is executed more than once, it is not sufficient to generate the signal more than once.</li>
 </ul>
 </li>
-<li>
-<p>More on Signal Masks</p>
+<li>What if masks disable interrupt/signal?
 <ul>
 <li>Interrupt masks are per CPU. If the mask disables interrupt, the hardware interrupt routing mechanism will not deliver interrupt to CPU</li>
 <li>Signal masks are per execution context (ULT on top of KLT). If a mask disables a signal, the kernel will see this and will not interrupt the corresponding execution context.</li>
 </ul>
 </li>
-<li>
-<p>Interrupts on Multicore Systems</p>
+<li>Interrupts on Multicore Systems
 <ul>
 <li>On a multi CPU system, the interrupt routing logic will direct the interrupt to any CPU that at that moment in time has that interrupt enabled. One strategy is to enable interrupts on just one CPU, which will allow avoiding any of the overheads or perturbations related to interrupt handling on any of the other cores. The net effect will be improved performance.</li>
 </ul>
 </li>
-<li>
-<p>Two Types of Signals</p>
+<li>Two Types of Signals
 <ol>
 <li><strong>One-shot signals</strong> refer to signals that will only interrupt once. This means that from the perspective of the user level thread, n signals will look exactly like one signal. One-shot signals must also be explicitly re-enabled every time.</li>
 <li><strong>Real-Time Signals</strong> refer to signals that will interrupt as many times are they are raised. If n signals occur, the handler will be called n times.</li>

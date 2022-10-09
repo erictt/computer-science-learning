@@ -53,7 +53,7 @@
 
 ## Data Structures in Solaris 2.0(OS)
 
-* The OS is intended for multiple CPU and multi-threads. Each kernel-level thread has a lightweight process data structure associated with it, called **lightweight process(LWP)**, which represents the virtual CPUs onto which the user-level threads are scheduled. And the kernel-level scheduler is responsible for scheduling the kernel-level threads onto physical CPU.
+* The Solaris OS is intended for multiple CPU and multi-threads. Each kernel-level thread has a lightweight process data structure associated with it, called **lightweight process(LWP)**, which represents the virtual CPUs onto which the user-level threads are scheduled. And the kernel-level scheduler is responsible for scheduling the kernel-level threads onto physical CPU.
 
 ### User Level Structures
 
@@ -94,7 +94,7 @@
 ## Thread Management Interaction
 
 * Why kernel-level threads and user-level threads need to interact with each other?
-    * Consider a process with four user threads, and a kernel with two threads. At a given time, the process require the level of concurrency to two. It always happens that two of its threads are blocking on, say, IO and the other two threads are executing.
+    * Consider a process with four user threads, and a kernel with two threads. At a given time, the process require the level of concurrency to two. It always happens that two of its threads are blocking on, i.e. I/O, and the other two threads are executing.
     * Consider the scenario where the two user level threads that are scheduled on the kernel level threads happen to be the two that block. The kernel level threads block as well. This means that the whole process is blocked, even though there are user level threads that can make progress. The user threads have no way to know that the kernel threads are about to block, and has no way to decide before this event occurs.
     * It would be helpful if the kernel can **signal** the user-level library before blocking, and the user-level library could potentially request more kernel-level threads, or allocate one kernel thread to  other threads that can be executed immediately.
 
@@ -110,7 +110,7 @@
 
 * A case of invisibility:
     * In a many-to-many case, if a user level thread acquires a lock while running on top of a kernel level thread and that kernel level thread gets preempted, the user level library scheduler will cycle through the remaining user level threads and try to schedule them. If they need the lock, none will be able to execute and time will be wasted until the thread holding the lock is scheduled again.
-    * The **user level library** makes schedule changes kernel not aware of such as changing the ULT/KLT mapping; The kernel is also unaware of the data structure the user-level threads use such as mutex variable, wait queues.
+        * The **user level library** makes schedule changes kernel not aware of such as changing the ULT/KLT mapping; The kernel is also unaware of the data structure the user-level threads use such as mutex variable, wait queues.
     * The one-to-one model helps address some of these issues because the kernel-level threads are aware of the state the of the user-level threads.
 * How/When does the user-level library run?
     * The process jumps to the user level library scheduler when:
@@ -156,7 +156,7 @@
     * Both can be **masked**. An interrupt can be masked on a **per-CPU basis** and a signal can be masked on a **per-process basis**. 
         * **A mask is used to disable or delay the notification** of an incoming interrupt or signal.
     * If the mask indicates that the corresponding interrupt or signal is enabled, the incoming notification will trigger the corresponding **handler**.
-    * **Interrupt handlers** are specified for the entire system, by the operating systemOS. **Signal handlers** are set on a per-process basis, by the process itself.
+    * **Interrupt handlers** are specified for the entire system by the OS. **Signal handlers** are set on a per-process basis, by the process itself.
 
 ### Interrupt Handling
 
@@ -187,14 +187,12 @@
 * A better solution is to use **interrupt/signal masks** which allow us dynamically enable/disable whether the handling code can interrupt the executing mutex.
     * The mask is a sequence of bits where each bits represents a specific interrupt or signal with value 0/1.
     * When event occur, the handler will check the mask to decide whether pending or proceed.
-    * Another thing should be point out. Once the interrupt/signal is pending, others interrupts/signals might also become pending. Typically the handling routine will only be executed once, so if we want to ensure a signal handling routine is executed more than once, it is not sufficient to just generate the signal more than once.
-
-* More on Signal Masks
+    * Another thing should be point out. Once the interrupt/signal is pending, others interrupts/signals might also become pending. Typically the handling routine will only be executed once, so if we want to ensure a signal handling routine is executed more than once, it is not sufficient to generate the signal more than once.
+* What if masks disable interrupt/signal?
     * Interrupt masks are per CPU. If the mask disables interrupt, the hardware interrupt routing mechanism will not deliver interrupt to CPU
     * Signal masks are per execution context (ULT on top of KLT). If a mask disables a signal, the kernel will see this and will not interrupt the corresponding execution context.
 * Interrupts on Multicore Systems
     * On a multi CPU system, the interrupt routing logic will direct the interrupt to any CPU that at that moment in time has that interrupt enabled. One strategy is to enable interrupts on just one CPU, which will allow avoiding any of the overheads or perturbations related to interrupt handling on any of the other cores. The net effect will be improved performance.
-
 * Two Types of Signals
     1. **One-shot signals** refer to signals that will only interrupt once. This means that from the perspective of the user level thread, n signals will look exactly like one signal. One-shot signals must also be explicitly re-enabled every time.
     2. **Real-Time Signals** refer to signals that will interrupt as many times are they are raised. If n signals occur, the handler will be called n times.

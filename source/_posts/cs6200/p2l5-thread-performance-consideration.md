@@ -121,7 +121,6 @@
 ## Apache Web Server
 
 * <img src="https://i.imgur.com/LkdkVSo.jpg" style="width: 400px" />
-
 * The core component provides core services like accepting requests, issuing responses, and managing concurrency. The various modules are mounted in a pipeline and extend the functionality of the basic server behavior.
 * The flow of control is similar to event-driven model, but it's a combination of multiprocess and multithreaded model, which implements a multithreaded boss/workers configuration with a dynamic thread pool. 
 * The number of processes can also be dynamically adjusted.
