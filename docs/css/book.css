@@ -22,7 +22,7 @@ a:visited {
 }
 
 a:hover {
-  color: #6d6d6d;
+  color: rgb(109, 109, 109);
   text-decoration: none;
 }
 
@@ -457,10 +457,10 @@ img {
   margin-left: 8px;
 }
 .off-canvas-content .book-post-info .book-post-meta .link a {
-  color: #3b4351;
+  color: rgb(59, 67, 81);
 }
 .off-canvas-content .book-post-info .book-post-meta .link a:hover {
-  color: gray;
+  color: rgb(128, 128, 128);
 }
 .off-canvas-content .book-post-info .book-post-meta.hide {
   opacity: 0;
@@ -526,7 +526,7 @@ img {
   padding-left: 4rem;
 }
 .book-navbar i {
-  color: #2f2f2f;
+  color: rgb(47, 47, 47);
 }
 @media all and (min-width: 1280px) {
   .book-navbar {
@@ -581,7 +581,7 @@ img {
   align-items: center;
   font-size: 0.8rem;
   font-weight: bold;
-  color: #2f2f2f;
+  color: rgb(47, 47, 47);
   text-decoration: none;
 }
 .book-sidebar .book-brand a img {
@@ -592,7 +592,7 @@ img {
   margin-left: 0.5rem;
 }
 .book-sidebar .book-brand a:hover {
-  color: #2f2f2f;
+  color: rgb(47, 47, 47);
   text-decoration: none;
 }
 .book-sidebar .book-menu {
@@ -630,7 +630,7 @@ img {
 }
 .book-sidebar .book-menu .accordion {
   padding: 0.625rem 0.6rem 0.625rem 1.25rem;
-  border-top: 1px solid #e7e7e7;
+  border-top: 1px solid rgb(231, 231, 231);
 }
 .book-sidebar .book-menu .accordion label {
   display: flex;
@@ -657,11 +657,11 @@ img {
   margin-top: 0.625rem;
 }
 .book-sidebar .book-menu a {
-  color: #2f2f2f;
+  color: rgb(47, 47, 47);
   font-weight: 400;
 }
 .book-sidebar .book-menu a:hover {
-  color: gray;
+  color: rgb(128, 128, 128);
 }
 .book-sidebar .book-menu .current-tab {
   color: #004ed0;
