@@ -291,7 +291,7 @@ function sidebar_toggle() {
 <ul>
 <li><a href="#address-space">Address Space</a></li>
 <li><a href="#process-execution-state">Process Execution State</a></li>
-<li><a href="#pcroess-control-block">Pcroess Control Block</a></li>
+<li><a href="#process-control-block">Process Control Block</a></li>
 <li><a href="#life-cycle">Life Cycle</a></li>
 <li><a href="#cpu-scheduler">CPU Scheduler</a></li>
 <li><a href="#io">I/O</a></li>
@@ -326,7 +326,7 @@ function sidebar_toggle() {
 </li>
 <li>stack
 <ul>
-<li>grows and shrinks when executing functions with LIFO stategy</li>
+<li>grows and shrinks when executing functions with LIFO strategy</li>
 </ul>
 </li>
 </ul>
@@ -337,7 +337,7 @@ function sidebar_toggle() {
 <h3 id="address-space"><a class="markdownIt-Anchor" href="#address-space"></a> Address Space</h3>
 <ul>
 <li>
-<p>Process uses virtual addresses for locating the process in memory. The OS maps the <strong>virtual addresses</strong> to <strong>physical addresses</strong>(DRAM) location in phlysical memory by using <strong>page tables</strong>.</p>
+<p>Process uses virtual addresses for locating the process in memory. The OS maps the <strong>virtual addresses</strong> to <strong>physical addresses</strong>(DRAM) location in physical memory by using <strong>page tables</strong>.</p>
 </li>
 <li>
 <p>Once the memory is out of space, the OS dynamically decides which addresses should be located in physical memory or <strong>swapped</strong> to disk.</p>
@@ -363,9 +363,18 @@ function sidebar_toggle() {
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void func() &#123;</span><br><span class="line">    int *x = (int *) malloc(sizeof(int));</span><br><span class="line">    ...</span><br><span class="line">    free(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>*<em>int <em>x</em></em>: the complier make room for the pointer</li>
-<li><strong>malloc()</strong>: requests spcae for an integer on the <strong>heap</strong>, return either the address of the integer or NULL if fails.
+<li><strong>malloc()</strong>: requests space for an integer on the <strong>heap</strong>, return either the address of the integer or NULL if fails.
 <ul>
-<li>notice if you print out the size of x: <code>printf(&quot;%d\n&quot;, sizeof(x));</code>, it’s gonna be the size of pointer, not the integer.</li>
+<li>Be aware:
+<ul>
+<li>This function create two pieces of data:
+<ul>
+<li>The dynamic memory is allocated on the <strong>heap</strong>, and the pointer itself is allocated on the <strong>stack</strong>. So you need to <code>free</code> the memory manually!</li>
+</ul>
+</li>
+<li>If you print out the size of x: <code>printf(&quot;%d\n&quot;, sizeof(x));</code>, it’s gonna be the size of pointer, not the integer.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>free()</strong>: free the heap memory.</li>
@@ -380,27 +389,18 @@ function sidebar_toggle() {
 </ul>
 <h3 id="process-execution-state"><a class="markdownIt-Anchor" href="#process-execution-state"></a> Process Execution State</h3>
 <ul>
-<li>
-<p>As any given time, CPU needs to know the instruction sequence the programing is. The CPU uses <strong>program counter</strong>(PC) to register the state.</p>
-</li>
-<li>
-<p>Another state defined what a process is doing is <strong>stack</strong>. And the top of the stack is defined <em>stack pointer</em>* which reperents the last executing code of the program due to LIFO.</p>
-</li>
-<li>
-<p>To maintain all of the info of every process, the OS maintain a <strong>process control block(PCB)</strong></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://www.learncomputerscienceonline.com/what-are-cpu-registers/">what are registers?</a></p>
-</li>
+<li>As any given time, CPU needs to know the instruction sequence the programing is. The CPU uses <strong>program counter</strong>(PC) to register the state.</li>
+<li>Another state defined what a process is doing is <strong>stack</strong>. And the top of the stack is defined <strong>stack pointer</strong> which represents the last executing code of the program due to LIFO.</li>
+<li>To maintain all of the info of every process, the OS maintain a <strong>process control block(PCB)</strong></li>
 </ul>
-<h3 id="pcroess-control-block"><a class="markdownIt-Anchor" href="#pcroess-control-block"></a> Pcroess Control Block</h3>
+<h3 id="process-control-block"><a class="markdownIt-Anchor" href="#process-control-block"></a> Process Control Block</h3>
 <ul>
 <li>A process control block is a data structure that OS maintained for every process. It contains:
 <ul>
 <li>process state</li>
 <li>process number</li>
 <li>process counter &lt;-- change frequently</li>
-<li>CPU registers</li>
+<li>other CPU <a target="_blank" rel="noopener" href="https://www.learncomputerscienceonline.com/what-are-cpu-registers/">registers</a>)</li>
 <li>memory limits</li>
 <li>CPU scheduling info</li>
 </ul>
@@ -412,8 +412,13 @@ function sidebar_toggle() {
 <li>The Switch action is called <strong>context switch</strong>.</li>
 </ul>
 </li>
-<li>Context switch is expensive, it requires store and reload cache from memory and continue the process. So the OS needs to be wise on this.</li>
-<li>There are direct costs: the number of CPU cycles requried to load and store a new PCB to/from memory; indirect costs: if the data is cached in L1/2/3 cache, it’s called <strong>Hot Cahe</strong>, very fast to retrieve. But from time to time, the process might be swapped out from cache, and to load it again, the cache is <strong>cold</strong> and require more cycles to fetch from memory.</li>
+<li>Context switch is expensive, it requires store and reload cache to/from memory and continue the process. So the OS needs to be wise on this.</li>
+<li>There are
+<ul>
+<li><strong>direct costs</strong>: the number of CPU cycles required to load and store a new PCB to/from memory;</li>
+<li><strong>indirect costs</strong>: if the data is cached in L1/2/3 cache, it’s called <strong>Hot Cache</strong>, very fast to retrieve. But from time to time, the process might be swapped out from cache, and to load it again, the cache is <strong>cold</strong> and require more cycles to fetch from memory.</li>
+</ul>
+</li>
 </ul>
 <h3 id="life-cycle"><a class="markdownIt-Anchor" href="#life-cycle"></a> Life Cycle</h3>
 <ul>
@@ -427,12 +432,12 @@ function sidebar_toggle() {
 </li>
 <li>Process Creation - two mechanisms
 <ul>
-<li>fork
+<li><strong>fork</strong>
 <ul>
 <li>OS creates a new PCB for the child, and then will copy the exact same values from the parent PCB into the child PCB. Both processes will continue executing with the exact same state at the instruction immediately following the fork.</li>
 </ul>
 </li>
-<li>exec
+<li><strong>exec</strong>
 <ul>
 <li>OS loads a new program. The child’s PCB will now point to values that describe this new program. The program counter of the child will now point to the first instruction of the new program.</li>
 </ul>
@@ -454,7 +459,7 @@ function sidebar_toggle() {
 <li>How long should a process run for?
 <ul>
 <li>The goal is, not to do context switch too frequently but also fair.</li>
-<li>There are lots of algorithem implemented to make the decision.</li>
+<li>There are lots of algorithm implemented to make the decision.</li>
 </ul>
 </li>
 </ul>
@@ -467,8 +472,8 @@ function sidebar_toggle() {
 </ul>
 <h3 id="process-interaction"><a class="markdownIt-Anchor" href="#process-interaction"></a> Process Interaction</h3>
 <ul>
-<li>For example, web server need to accesss database to read data and return the client.</li>
-<li>This is called Inter-Process Communication(IPC):
+<li>For example, web server need to access database to read data and return the client.</li>
+<li>This is called <strong>Inter-Process Communication(IPC)</strong>:
 <ul>
 <li>Transfer data/info between address spaces</li>
 <li>Maintain protection and isolation</li>
@@ -480,7 +485,7 @@ function sidebar_toggle() {
 <li>
 <p>Message-passing IPC:</p>
 <ul>
-<li>The OS provides communication channle, like share buffers.</li>
+<li>The OS provides communication channel, like share buffers.</li>
 <li>The process write(send)/read(recv) message to/from <strong>channels</strong></li>
 <li>Positive: OS manages the work</li>
 <li>Downside: Overheads. Every information has be copied to channel and to another process</li>
@@ -493,8 +498,8 @@ function sidebar_toggle() {
 <p>Shared Memory IPC</p>
 <ul>
 <li>OS establishes a share channel and maps it into each process address space</li>
-<li>Process directly read/write from the momroy</li>
-<li>Positive: OS is out of hte way</li>
+<li>Process directly read/write from the momory</li>
+<li>Positive: OS is out of the way</li>
 <li>Downside: developers need to implement the code</li>
 <li>
 <img src="https://i.imgur.com/lgu76Xu.jpg" style="width: 300px" />

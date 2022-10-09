@@ -318,9 +318,9 @@ function sidebar_toggle() {
 <hr />
 <h2 id="process-vs-thread"><a class="markdownIt-Anchor" href="#process-vs-thread"></a> Process vs. Thread</h2>
 <ul>
-<li>A process owns a virtual memory space and OS initialize a PCB to manage the state.</li>
-<li>A thread is also called</li>
-<li>PCB: single thread process vs multithreaded process
+<li>A process owns a <strong>virtual memory space</strong> and OS initialize a <strong>PCB</strong> to manage the state.</li>
+<li>Threads represent a multiple, independent execution contexts. They are part of the same virtual address space, (also means the physical address spaces). However they will potentially execute different instructions, and access different portions of that address space.</li>
+<li>PCB in single-thread process vs multithreaded process
 <ul>
 <li>
 <img src="https://i.imgur.com/2uV8di5.jpg" style="width: 600px" />
@@ -335,7 +335,7 @@ function sidebar_toggle() {
 <p>Parallelization: Speed up the program’s execution by spreading the work from one thread/one processor to multiple threads that can execute in parallel on multiple processors.</p>
 </li>
 <li>
-<p>Specialization: Give hight priority to tasks that handle more important tasks; Potentially, the thread keep its entire state in the processor cache(hot cache, cache lookups are fast), and the thread can run its task without interruption.</p>
+<p>Specialization: Give high priority to tasks that handle more important tasks; Potentially, the thread keep its entire state in the processor cache(hot cache, cache lookups are fast), and the thread can run its task without interruption.</p>
 </li>
 <li>
 <p>Why not just write a multiprocess application?</p>
@@ -363,7 +363,7 @@ function sidebar_toggle() {
 <h2 id="basic-thread-mechanisms"><a class="markdownIt-Anchor" href="#basic-thread-mechanisms"></a> Basic Thread Mechanisms</h2>
 <ul>
 <li>
-<p>Threads can access the same physical memory address, which introduced a data race problem. If threads all access the same address, and make changes, the data will be inconsistent. To avoid the problem, there is a mechanism called mutual exclusion(mutex), which can be used for making the memory access exclusive. And it also offer waiting condition to let threads work with each other.</p>
+<p>Threads can access the same physical memory address, which introduced a <strong>data race problem</strong>. If threads all access the same address, and make changes, the data will be inconsistent. To avoid the problem, there is a mechanism called <strong>mutual exclusion(mutex)</strong>, which can be used for making the memory access exclusive. And it also offer waiting condition to let threads work with each other.</p>
 </li>
 <li>
 <p>Thread data structure:</p>
@@ -372,7 +372,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>
-<p>Create a thread: <code>fork(proc, args)</code>(not UNIX fork)</p>
+<p>Create a thread: <code>fork(proc, args)</code>(not UNIX fork, which is used for creating processes)</p>
 <ul>
 <li>When fork is called, a new thread is created/forked from the parent thread.</li>
 </ul>
@@ -380,7 +380,7 @@ function sidebar_toggle() {
 <li>
 <p>Join the thread back to parent thread: <code>join(thread)</code> which need to be called on the parent thread</p>
 <ul>
-<li>when <code>join</code> is called, the parent will be blocked until child thread is finished. So watch out if there is a <code>while(true)</code> for loop in child thread:D</li>
+<li>when <code>join</code> is called, <strong>the parent will be blocked until child thread is finished</strong>. So watch out if there is a <code>while(true)</code> for loop in child thread:D</li>
 <li>After join returns, the resource associated with child thread will be deallocated.</li>
 </ul>
 </li>
@@ -419,7 +419,7 @@ function sidebar_toggle() {
 <p>Let’s take a look at a producer and consumer example. This is the pseudocode. It has three pieces:</p>
 <ul>
 <li>main: create 10 producer threads, and 1 consumer thread</li>
-<li>producers: lock the mutex, and insert one id (note, it’s <code>my_list-&gt;insert</code></li>
+<li>producers: lock the mutex, and insert one id (<code>my_list-&gt;insert</code>)</li>
 <li>consumer: lock the mutex, clean up the list if it’s full, otherwise it wait and try again.</li>
 <li>
 <img src="https://i.imgur.com/MwtnqbF.jpg" style="width: 600px" />
@@ -438,7 +438,7 @@ function sidebar_toggle() {
 <ol>
 <li>Wait(mutex, cond)
 <ol>
-<li>mutex is automatically released &amp; re-acquried on wait</li>
+<li>mutex is automatically released &amp; reacquired on wait</li>
 </ol>
 </li>
 <li>Signal(cond)
@@ -448,7 +448,7 @@ function sidebar_toggle() {
 </li>
 <li>Broadcast(cond)
 <ol>
-<li>notify all waiting threds</li>
+<li>notify all waiting threads</li>
 </ol>
 </li>
 </ol>
@@ -491,7 +491,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 </li>
-<li>Here are some pseudocodes for the second approach:
+<li>Here are some pseudocode for the second approach:
 <ul>
 <li>
 <img src="https://i.imgur.com/iI4hMCg.jpg" style="width: 600px" />
@@ -544,7 +544,7 @@ function sidebar_toggle() {
 <p>This is a problem doesn’t necessary affect correctness but may impact performance.</p>
 </li>
 <li>
-<p>The root cause is that boardcast() and signal() been called inside the lock, and when the reader was signaled, the writer might still holds the lock. Then the reader will switch from the read_phase wait lock to the counter_mutex lock and doesn’t do anything useful, but wasted several context switch from the CPU.</p>
+<p>The root cause is that broadcast() and signal() been called inside the lock, and when the reader was signaled, the writer might still holds the lock. Then the reader will switch from the read_phase wait lock to the counter_mutex lock and doesn’t do anything useful, but wasted several context switch from the CPU.</p>
 </li>
 <li>
 <p>Let’s see some examples:</p>
@@ -588,7 +588,7 @@ function sidebar_toggle() {
 <ul>
 <li>deadlock prevention
 <ul>
-<li>Each time a thread is about to acquire a mutex, we can check to see if that operation will cause a deadlock. This can be expensive.</li>
+<li>Each time a thread is about to acquire a mutex, we can check if that operation will cause a deadlock. This can be expensive.</li>
 </ul>
 </li>
 <li>Deadlock detection &amp; recovery rollback
@@ -658,7 +658,7 @@ function sidebar_toggle() {
 </ul>
 <h3 id="scope-of-multithreading"><a class="markdownIt-Anchor" href="#scope-of-multithreading"></a> Scope of Multithreading</h3>
 <ul>
-<li>The questions is whether the threads inside a process is visible to kernel or not.
+<li>The question is whether the threads inside a process is visible to kernel or not.
 <ul>
 <li>If not, it’s called <strong>process scope</strong>, and the <strong>user level library</strong> manage the threads for the given process it linked to, the OS/Kernel can’t see them, and will  probably allocate the CPU relative to the total amount of user threads evenly.</li>
 <li>If yes, it’s called <strong>system scope</strong>, and the <strong>OS-level thread managers</strong>(e.g. CPU scheduler) will be aware of the amount of threads in the process and allocates the threads by the total amount of threads.</li>
@@ -674,7 +674,7 @@ function sidebar_toggle() {
 <h2 id="multithreading-patterns"><a class="markdownIt-Anchor" href="#multithreading-patterns"></a> Multithreading Patterns</h2>
 <h3 id="bossworkers-pattern"><a class="markdownIt-Anchor" href="#bossworkers-pattern"></a> Boss/Workers Pattern</h3>
 <ul>
-<li>boss: assign work to workers | workers: perform entire task</li>
+<li>boss: assign work to workers; workers: perform entire task</li>
 <li>throughput of the system limited by boss thread =&gt; must keep boss efficient
 <ul>
 <li>throughput = 1 / boss_time_pre_task</li>
@@ -715,7 +715,7 @@ function sidebar_toggle() {
 <ul>
 <li>The overall task is divided into subtasks and each of the subtasks are assigned a different thread. each of the subtasks might have different amount of threads.</li>
 <li>The throughput of the pipeline will be dependent on the weakest link in the pipeline; that is, the task that takes the longest amount of time to complete.</li>
-<li>The best way to pass work between these stages is a shared buffer base communication between stages. That means the thread for stage one will put its completed work on a buffer that the thread from stage two will read from and so on.</li>
+<li>The best way to pass work between these stages is a shared buffer-based communication between stages. That means the thread for stage one will put its completed work on a buffer that the thread from stage two will read from and so on.</li>
 <li>A key benefit of this approach is specialization and locality, which can lead to more efficiency, as state required for subsequent similar jobs is likely to be present in CPU caches.</li>
 <li>A downside of this approach is that it is difficult to keep the pipeline balanced over time. When the input rate changes, or the resources at a given stage are exhausted, rebalancing may be required.</li>
 </ul>

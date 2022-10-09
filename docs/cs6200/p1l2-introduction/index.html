@@ -350,19 +350,19 @@ function sidebar_toggle() {
 <ul>
 <li>Kernel-mode: where OS resides, it’s privileged, has direct access to the hardware</li>
 <li>User-mode: where application resides</li>
-<li>user-kernel mode crossing: this behavior is known as <strong>trap</strong>, a special <strong>system call</strong>, which is the way that user-mode process can interact with the system in a privileged way.
+<li>user-kernel mode crossing: this behavior is known as <strong>trap</strong> or <strong>kernel trap</strong>, a special <strong>system call</strong>, which is the way that user-mode process can interact with the system in a privileged way.
 <ul>
-<li>Whey a process want to gain privileged access, such as read files, the user-mode process will be set off a <strong>trap</strong>, and ask OS to review what caused the <strong>trap</strong>. The OS will either grant the user-mode process to the kernel-mode, or terminate the process.</li>
+<li>Whey a process in the user-mode wants to gain privileged access, such as read files, the user-mode process will be set off a <strong>trap</strong>, and ask OS to review what caused the <strong>trap</strong>. The OS will either grant the user-mode process to the kernel-mode, or terminate the process.</li>
 </ul>
 </li>
-<li>There are other system calls, e.g. <code>open(file)</code> - open a ﬁle, <code>send(socket)</code>, and <code>mmap(memory)</code> - request more memory.</li>
+<li>A system call is the mean that user can interact with the system in a privileged way. There are lots of system calls, e.g. <code>open(file)</code> - open a ﬁle; <code>send(socket)</code>, send data via socket;<code>mmap(memory)</code> - request more memory.</li>
 </ul>
 <h3 id="system-call-flowchart"><a class="markdownIt-Anchor" href="#system-call-flowchart"></a> System Call Flowchart</h3>
 <ul>
 <li>
 <img src="https://i.imgur.com/pn2aa0s.jpg" style="width:500px" />
 </li>
-<li>whey a process calls system call, the OS will flip the privilege bit so the process can execute system in the kernel mode, and return to user mode afterwards.</li>
+<li>when a process calls system call, the OS will flip the privilege bit so the process can execute system in the kernel mode, and return to user mode afterwards.</li>
 </ul>
 <h2 id="different-os"><a class="markdownIt-Anchor" href="#different-os"></a> Different OS</h2>
 <ul>

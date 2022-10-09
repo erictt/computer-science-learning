@@ -304,7 +304,7 @@ function sidebar_toggle() {
 </li>
 <li><a href="#thread-management-interaction">Thread Management Interaction</a>
 <ul>
-<li><a href="#visibility-in-bewteen">Visibility in Bewteen</a></li>
+<li><a href="#visibility-in-between">Visibility in Between</a></li>
 <li><a href="#issue-on-multiple-cpus">Issue On Multiple CPUs</a></li>
 <li><a href="#synchronization-related-issues">Synchronization Related Issues</a></li>
 </ul>
@@ -363,7 +363,7 @@ function sidebar_toggle() {
 </ul>
 <h3 id="at-scale"><a class="markdownIt-Anchor" href="#at-scale"></a> At Scale</h3>
 <ul>
-<li>In a multiple processes situation, there will be multiple ULT, PCB and KLT. To cope with this, the system need to maintain the relationships: ULT &lt;-&gt; PCB, PCB &lt;-&gt; KLT. And the system has multiple CPU, we also need to maintain the relationship: CPU &lt;-&gt; KLT.</li>
+<li>In a multiple processes situation, there will be multiple ULT, PCB and KLT. To cope with this, the system need to maintain the relationships: ULT &lt;-&gt; PCB, PCB &lt;-&gt; KLT. And if the system has multiple CPU, we also need to maintain the relationship: CPU &lt;-&gt; KLT.</li>
 <li>
 <img src="https://i.imgur.com/rl1hSer.jpg" style="width: 600px" />
 </li>
@@ -374,7 +374,7 @@ function sidebar_toggle() {
 <ul>
 <li>When the operating system context switches between two kernel level threads that belong to the process, there is information relevant to both threads in the process control block, and also information that is only relevant to each thread.</li>
 <li>Information relevant to all threads includes the virtual address mapping, while information relevant to each thread specifically can include things like signals or system call arguments. When context switching among the two kernel level threads, we want to preserve some portion of the PCB and swap out the rest.</li>
-<li>We can split up the information in the PCB into <strong>hard process state</strong> which is <u>relevant for all user level threads</u> in a given process and l<strong>ight process state</strong> that is <u>only relevant for a subset of user level threads</u> associated with a particular kernel level thread.</li>
+<li>We can split up the information in the PCB into <strong>hard process state</strong> which is <u>relevant for all user level threads</u> in a given process and <strong>light process state</strong> that is <u>only relevant for a subset of user level threads</u> associated with a particular kernel level thread.</li>
 <li>
 <img src="https://i.imgur.com/Xp5tefH.jpg" style="width: 600px" />
 </li>
@@ -477,7 +477,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h3 id="visibility-in-bewteen"><a class="markdownIt-Anchor" href="#visibility-in-bewteen"></a> Visibility in Bewteen</h3>
+<h3 id="visibility-in-between"><a class="markdownIt-Anchor" href="#visibility-in-between"></a> Visibility in Between</h3>
 <ul>
 <li>
 <p>The kernel sees:</p>
@@ -663,7 +663,7 @@ function sidebar_toggle() {
 </li>
 <li>One way to optimize it is
 <ul>
-<li>percreate &amp; preintialize thread structures for interrupt routines.</li>
+<li>pre-create &amp; pre-initialize thread structures for interrupt routines.</li>
 </ul>
 </li>
 </ul>

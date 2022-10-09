@@ -37,14 +37,14 @@ An operation system is a layer of systems software that:
 
 * Kernel-mode: where OS resides, it's privileged, has direct access to the hardware
 * User-mode: where application resides
-* user-kernel mode crossing: this behavior is known as **trap**, a special **system call**, which is the way that user-mode process can interact with the system in a privileged way.
-    * Whey a process want to gain privileged access, such as read files, the user-mode process will be set off a **trap**, and ask OS to review what caused the **trap**. The OS will either grant the user-mode process to the kernel-mode, or terminate the process.
-* There are other system calls, e.g. `open(file)` - open a ﬁle, `send(socket)`, and `mmap(memory)` - request more memory.
+* user-kernel mode crossing: this behavior is known as **trap** or **kernel trap**, a special **system call**, which is the way that user-mode process can interact with the system in a privileged way.
+    * Whey a process in the user-mode wants to gain privileged access, such as read files, the user-mode process will be set off a **trap**, and ask OS to review what caused the **trap**. The OS will either grant the user-mode process to the kernel-mode, or terminate the process.
+* A system call is the mean that user can interact with the system in a privileged way. There are lots of system calls, e.g. `open(file)` - open a ﬁle; `send(socket)`, send data via socket;`mmap(memory)` - request more memory.
 
 ### System Call Flowchart
 
 * <img src="https://i.imgur.com/pn2aa0s.jpg" style="width:500px" />
-* whey a process calls system call, the OS will flip the privilege bit so the process can execute system in the kernel mode, and return to user mode afterwards.
+* when a process calls system call, the OS will flip the privilege bit so the process can execute system in the kernel mode, and return to user mode afterwards.
 
 ## Different OS
 

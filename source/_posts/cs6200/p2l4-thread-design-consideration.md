@@ -26,7 +26,7 @@
 
 ### At Scale
 
-* In a multiple processes situation, there will be multiple ULT, PCB and KLT. To cope with this, the system need to maintain the relationships: ULT <-> PCB, PCB <-> KLT. And the system has multiple CPU, we also need to maintain the relationship: CPU <-> KLT.
+* In a multiple processes situation, there will be multiple ULT, PCB and KLT. To cope with this, the system need to maintain the relationships: ULT <-> PCB, PCB <-> KLT. And if the system has multiple CPU, we also need to maintain the relationship: CPU <-> KLT.
 * <img src="https://i.imgur.com/rl1hSer.jpg" style="width: 600px" />
 * For each process, we need to track the kernel level threads that execute on behalf the process, and the for each kernel level thread, we need to track of the processes on whose behalf we execute.
 * When kernel itself is multithreaded, we can have multiple kernel-level threads supporting a single user-level process. When kernel needs to schedule/context switch among kernel-level threads that belong to diff processes, it can quickly determine the KLT point to diff PCB. 
@@ -35,7 +35,7 @@
 
 * When the operating system context switches between two kernel level threads that belong to the process, there is information relevant to both threads in the process control block, and also information that is only relevant to each thread.
 * Information relevant to all threads includes the virtual address mapping, while information relevant to each thread specifically can include things like signals or system call arguments. When context switching among the two kernel level threads, we want to preserve some portion of the PCB and swap out the rest.
-* We can split up the information in the PCB into **hard process state** which is <u>relevant for all user level threads</u> in a given process and l**ight process state** that is <u>only relevant for a subset of user level threads</u> associated with a particular kernel level thread.
+* We can split up the information in the PCB into **hard process state** which is <u>relevant for all user level threads</u> in a given process and **light process state** that is <u>only relevant for a subset of user level threads</u> associated with a particular kernel level thread.
 * <img src="https://i.imgur.com/Xp5tefH.jpg" style="width: 600px" />
 
 ### Rationale For Data Structures
@@ -98,7 +98,7 @@
     * Consider the scenario where the two user level threads that are scheduled on the kernel level threads happen to be the two that block. The kernel level threads block as well. This means that the whole process is blocked, even though there are user level threads that can make progress. The user threads have no way to know that the kernel threads are about to block, and has no way to decide before this event occurs.
     * It would be helpful if the kernel can **signal** the user-level library before blocking, and the user-level library could potentially request more kernel-level threads, or allocate one kernel thread to  other threads that can be executed immediately.
 
-### Visibility in Bewteen
+### Visibility in Between
 
 * The kernel sees:
     * Kernel-level threads
@@ -208,7 +208,7 @@
         * if handler doesn't lock -> execute on interrupted thread's stack
         * if handler can block -> turn into real thread
     * One way to optimize it is
-        * percreate & preintialize thread structures for interrupt routines.
+        * pre-create & pre-initialize thread structures for interrupt routines.
 
 ### Interrupts: Top Vs. Bottom Half
 

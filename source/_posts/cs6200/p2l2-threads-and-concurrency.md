@@ -5,16 +5,16 @@
 
 ## Process vs. Thread
 
-* A process owns a virtual memory space and OS initialize a PCB to manage the state.
-* A thread is also called 
-* PCB: single thread process vs multithreaded process
+* A process owns a **virtual memory space** and OS initialize a **PCB** to manage the state.
+* Threads represent a multiple, independent execution contexts. They are part of the same virtual address space, (also means the physical address spaces). However they will potentially execute different instructions, and access different portions of that address space.
+* PCB in single-thread process vs multithreaded process
     * <img src="https://i.imgur.com/2uV8di5.jpg" style="width: 600px" />
     * The PCB for multithreaded process is different. In a multi-threaded process, threads share the same code/data/filter, but also have its own registers and stack.
 
 ## Benefits of Multithreading
 
 * Parallelization: Speed up the program's execution by spreading the work from one thread/one processor to multiple threads that can execute in parallel on multiple processors.
-* Specialization: Give hight priority to tasks that handle more important tasks; Potentially, the thread keep its entire state in the processor cache(hot cache, cache lookups are fast), and the thread can run its task without interruption.
+* Specialization: Give high priority to tasks that handle more important tasks; Potentially, the thread keep its entire state in the processor cache(hot cache, cache lookups are fast), and the thread can run its task without interruption.
 * Why not just write a multiprocess application?
     * Process doesn't share address space and execution context, all of the data have to be allocated memory. Threads share address space and the execution code which makes it more memory-efficient.
     * Inter process communication (IPC) - is more costly than inter thread communication, which consists primarily of reading/writing shared variables.
@@ -26,14 +26,14 @@
 
 ## Basic Thread Mechanisms
 
-* Threads can access the same physical memory address, which introduced a data race problem. If threads all access the same address, and make changes, the data will be inconsistent. To avoid the problem, there is a mechanism called mutual exclusion(mutex), which can be used for making the memory access exclusive. And it also offer waiting condition to let threads work with each other.
+* Threads can access the same physical memory address, which introduced a **data race problem**. If threads all access the same address, and make changes, the data will be inconsistent. To avoid the problem, there is a mechanism called **mutual exclusion(mutex)**, which can be used for making the memory access exclusive. And it also offer waiting condition to let threads work with each other.
 
 * Thread data structure: 
     * A thread have thread id, program counter, stack pointer, registers, attributes, etc.
-* Create a thread: `fork(proc, args)`(not UNIX fork)
+* Create a thread: `fork(proc, args)`(not UNIX fork, which is used for creating processes)
     * When fork is called, a new thread is created/forked from the parent thread.
 * Join the thread back to parent thread: `join(thread)` which need to be called on the parent thread
-    * when `join` is called, the parent will be blocked until child thread is finished. So watch out if there is a `while(true)` for loop in child thread:D
+    * when `join` is called, **the parent will be blocked until child thread is finished**. So watch out if there is a `while(true)` for loop in child thread:D
     * After join returns, the resource associated with child thread will be deallocated.
 * Example
     * <img src="https://i.imgur.com/fFq4Hx8.jpg" style="width: 600px" />
@@ -63,7 +63,7 @@
 
 * Let's take a look at a producer and consumer example. This is the pseudocode. It has three pieces:
     * main: create 10 producer threads, and 1 consumer thread
-    * producers: lock the mutex, and insert one id (note, it's `my_list->insert`
+    * producers: lock the mutex, and insert one id (`my_list->insert`)
     * consumer: lock the mutex, clean up the list if it's full, otherwise it wait and try again.
     * <img src="https://i.imgur.com/MwtnqbF.jpg" style="width: 600px" />
     * The problem is that the consumer shouldn't keep running check whether the list is full but gets notified once it's full. This is when `Condition` is useful.
@@ -72,11 +72,11 @@
 
 * Condition Variable API
     1. Wait(mutex, cond)
-        1. mutex is automatically released & re-acquried on wait
+        1. mutex is automatically released & reacquired on wait
     2. Signal(cond)
         1. notify only one thread waiting on condition
     3. Broadcast(cond)
-        1. notify all waiting threds
+        1. notify all waiting threads
 * What happened in the wait function?
 
     ```
@@ -118,7 +118,7 @@
         * when writer_counter == 1, neither read nor write.
     * the other way is to use one counter: `resource_counter` to indicate resource usage situation: 0: free, -1: 1 writer, >0: multiple readers
     * <img src="https://i.imgur.com/MOquvBQ.jpg" style="width: 600px" />
-* Here are some pseudocodes for the second approach:
+* Here are some pseudocode for the second approach:
     * <img src="https://i.imgur.com/iI4hMCg.jpg" style="width: 600px" />
     * The `writer_phase` is used in `reader_thread` for signaling the writer thread.
     * The `reader_phase` is used in `writer_thread` for signaling the writer thread.
@@ -146,7 +146,7 @@
 * <img src="https://i.imgur.com/TYMYMGj.jpg" style="width: 600px" />
 
 * This is a problem doesn't necessary affect correctness but may impact performance.
-* The root cause is that boardcast() and signal() been called inside the lock, and when the reader was signaled, the writer might still holds the lock. Then the reader will switch from the read_phase wait lock to the counter_mutex lock and doesn't do anything useful, but wasted several context switch from the CPU.
+* The root cause is that broadcast() and signal() been called inside the lock, and when the reader was signaled, the writer might still holds the lock. Then the reader will switch from the read_phase wait lock to the counter_mutex lock and doesn't do anything useful, but wasted several context switch from the CPU.
 * Let's see some examples:
     * <img src="https://i.imgur.com/euhZ4v2.jpg" style="width: 600px" />
 
@@ -168,7 +168,7 @@
     * edges from thread waiting on a resource to thread owning a resource
 * What can we do?
     * deadlock prevention
-        * Each time a thread is about to acquire a mutex, we can check to see if that operation will cause a deadlock. This can be expensive.
+        * Each time a thread is about to acquire a mutex, we can check if that operation will cause a deadlock. This can be expensive.
     * Deadlock detection & recovery rollback
         * We can accomplish this through analysis of the wait graph and trying to determine whether any cycles have occurred. This is still an expensive operation as it requires us to have a rollback strategy in the event that we need to recover.
     * Ostrich algorithm. Simply do nothing, and reboot the system if the system goes wrong.
@@ -204,7 +204,7 @@
 
 ### Scope of Multithreading
 
-* The questions is whether the threads inside a process is visible to kernel or not. 
+* The question is whether the threads inside a process is visible to kernel or not. 
     * If not, it's called **process scope**, and the **user level library** manage the threads for the given process it linked to, the OS/Kernel can't see them, and will  probably allocate the CPU relative to the total amount of user threads evenly. 
     * If yes, it's called **system scope**, and the **OS-level thread managers**(e.g. CPU scheduler) will be aware of the amount of threads in the process and allocates the threads by the total amount of threads.
 * e.g. A has 6 threads, B has 3 threads. 
@@ -215,7 +215,7 @@
 
 ### Boss/Workers Pattern
 
-* boss: assign work to workers | workers: perform entire task
+* boss: assign work to workers; workers: perform entire task
 * throughput of the system limited by boss thread => must keep boss efficient
     * throughput = 1 / boss_time_pre_task 
 * Different ways boss assign works
@@ -238,7 +238,7 @@
 
 * The overall task is divided into subtasks and each of the subtasks are assigned a different thread. each of the subtasks might have different amount of threads.
 * The throughput of the pipeline will be dependent on the weakest link in the pipeline; that is, the task that takes the longest amount of time to complete.
-* The best way to pass work between these stages is a shared buffer base communication between stages. That means the thread for stage one will put its completed work on a buffer that the thread from stage two will read from and so on.
+* The best way to pass work between these stages is a shared buffer-based communication between stages. That means the thread for stage one will put its completed work on a buffer that the thread from stage two will read from and so on.
 * A key benefit of this approach is specialization and locality, which can lead to more efficiency, as state required for subsequent similar jobs is likely to be present in CPU caches.
 * A downside of this approach is that it is difficult to keep the pipeline balanced over time. When the input rate changes, or the resources at a given stage are exhausted, rebalancing may be required.
 

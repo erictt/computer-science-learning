@@ -51,7 +51,7 @@
 
 * Multi Process Web Server: spawn multiple processes and run it in each process.
     * it require higher memory footprint, which can hurt the performance.
-    * pay higher cost to context switch since processes don't share states due to IPC constains
+    * pay higher cost to context switch since processes don't share states due to IPC constrains
     * it's difficult to have multiple process listening on a specific port.
 * Multi Threaded Web Server: single process, with multiple threads, achieving concurrency within a single address space.
     * we can adapt the boss-worker mode, or have a pipeline setup.
@@ -128,7 +128,7 @@
 
 ## Experimental Methodology
 
-* Setting up performance comparissons
+* Setting up performance comparisons
     * Define comparison points: What systems are you comparing?
     * Define inputs: What workload will be used?
     * Define matrices: How will you measure performance?

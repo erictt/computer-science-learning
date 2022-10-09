@@ -63,10 +63,9 @@
 
 ## Scheduling and Head of Line Blocking
     
-### Scheduling
+### The Scheduling Problem
 
-* The **Scheduling** problem
-    * Let’s assume that we have an N-by-N crossbar switch with N input lines, N output lines, and N^2 crosspoints. Each crosspoint needs to be controlled (on/off), and we need to make sure that each input link is connected with at most one output link. Also, we want to maximize the number of input/output links pairs that communicate in parallel for better performance.   
+* Let’s assume that we have an N-by-N crossbar switch with N input lines, N output lines, and N^2 crosspoints. Each crosspoint needs to be controlled (on/off), and we need to make sure that each input link is connected with at most one output link. Also, we want to maximize the number of input/output links pairs that communicate in parallel for better performance.   
 * A simple scheduling algorithm is the “**take-the-ticket** algorithm”. 
     * Each output line maintains a distributed queue for all input lines that want to send packets to it. When an input line intends to send a packet to a specific output line, it requests a ticket. Then, the input line waits for the ticket to be served. At that point, the input line connects to the output line, the crosspoint is turned on, and the input line sends the packet. 
 * For example, let’s consider the figure below that shows three input lines that want to connect to four output lines. Next to each input line, we see the queue of the output lines it wants to connect with. For example, input lines A and B want to connect with output lines 1, 2, and 3.
@@ -74,7 +73,6 @@
     * The following figure shows how the entire process progresses. 
     * <img src="https://i.imgur.com/dWidWk5.png" style="width: 500px" />
 * As we see, while A sends its packet in the first iteration, the entire queue for B and C is waiting. We refer to this problem as **head-of-line (HOL)** blocking because the entire queue is blocked by the progress of the head of the queue. 
-
 
 ### Avoiding Head of Line Blocking
 
@@ -87,7 +85,7 @@
     * The drawback with this approach is that is it is complex to implement.
 * **Avoiding head-of-line blocking by using parallel iterative matching**:
     * The main idea is that we can still allow queueing for the input lines, but in a way that avoids the head-of-line blocking. With this approach, we schedule both the head of the queue and more packets so that the queue makes progress in case the head is blocked. 
-    * How can we do that? Let's suppose that we have a single queue at an input line. We break down the single queue into virtual queues, with one virtual queue per output link. 
+    * How can we do that? Let's suppose that we have a single queue at an input line. We **break down the single queue into virtual queues**, with one virtual queue per output link. 
     * Let's consider the following graph that shows A, B, C input links and 1, 2, 3, 4 output links. 
     * The algorithm runs in three rounds. 
         * In the first round, the scheme works by having all inputs send requests in parallel to all outputs they want to connect with. This is the request phase of the algorithm. 
@@ -134,14 +132,14 @@
 
 * **Packet-level Fair Queuing**
     * This strategy emulates the bit-by-bit fair queueing by sending the packet with the smallest finishing round number. At any round, the packet chosen to be sent out is garnered from the previous round of the algorithm. The packet which had been starved the most while sending out the previous packet from any queue is chosen. Let’s consider the following example:  
-        * <img src="https://i.imgur.com/W8aDeI1.png" style="width: 400px" />
+        * <img src="https://i.imgur.com/W8aDeI1.png" style="width: 500px" />
     * The figure above shows the state of the packets along with their finishing numbers (F) in their respective queues, waiting to be scheduled.
-    * <img src="https://i.imgur.com/XvFFK31.png" style="width: 400px" />
+    * <img src="https://i.imgur.com/XvFFK31.png" style="width: 500px" />
     * The packet with the smallest finishing number (F=1002) is transmitted. This represents the packet that was the most starved during the previous round of scheduling.
-        * <img src="https://i.imgur.com/wuiOuY2.png" style="width: 400px" />
+        * <img src="https://i.imgur.com/wuiOuY2.png" style="width: 500px" />
 
     * Similarly, in the next round (above figure), the packet with F=1007 is transmitted, and in the subsequent round (below figure), the packet with F=1009 is transmitted.
-        * <img src="https://i.imgur.com/BZ0hWar.png" style="width: 400px" />
+        * <img src="https://i.imgur.com/BZ0hWar.png" style="width: 500px" />
 
     * Although this method provides fairness, it also introduces new complexities. We will need to keep track of the finishing time at which the head packet of each queue would depart and choose the earliest one. This requires a priority queue implementation, which has a time complexity that is logarithmic in the number of flows! Additionally, if a new queue becomes active, all timestamps may have to change – an operation with time complexity linear in the number of flows. Thus, the time complexity of this method makes it hard to implement at gigabit speeds. 
 
