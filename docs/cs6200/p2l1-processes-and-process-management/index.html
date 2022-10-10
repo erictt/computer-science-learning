@@ -439,11 +439,12 @@ function sidebar_toggle() {
 </li>
 <li><strong>exec</strong>
 <ul>
-<li>OS loads a new program. The child’s PCB will now point to values that describe this new program. The program counter of the child will now point to the first instruction of the new program.</li>
+<li>OS loads a new program. The child’s PCB <strong>(created via fork)</strong> will now point to values that describe this new program. The program counter of the child will now point to the first instruction of the new program.</li>
 </ul>
 </li>
 </ul>
 </li>
+<li><u>For “creating” a new program, you have to call fork to get a new process, and then call exec to load that program’s information into the child’s PCB.</u></li>
 <li>The parent of all processes in UNIX-based OS is <code>init</code>.</li>
 </ul>
 <h3 id="cpu-scheduler"><a class="markdownIt-Anchor" href="#cpu-scheduler"></a> CPU Scheduler</h3>

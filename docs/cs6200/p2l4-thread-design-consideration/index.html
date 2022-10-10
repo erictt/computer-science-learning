@@ -313,8 +313,8 @@ function sidebar_toggle() {
 <ul>
 <li><a href="#interrupt-handling">Interrupt Handling</a></li>
 <li><a href="#signal-handling">Signal Handling</a></li>
-<li><a href="#why-disable-interrupts-or-signals">Why Disable Interrupts or Signals?</a></li>
-<li><a href="#interrupts-as-threads">Interrupts as Threads</a></li>
+<li><a href="#why-disable-interrupts-or-signals-avoid-deadlock">Why Disable Interrupts or Signals? Avoid Deadlock</a></li>
+<li><a href="#interrupts-as-a-separated-threads">Interrupts as a Separated Threads</a></li>
 <li><a href="#interrupts-top-vs-bottom-half">Interrupts: Top Vs. Bottom Half</a></li>
 <li><a href="#performance-of-threads-as-interrupts">Performance of Threads as Interrupts</a></li>
 <li><a href="#threads-and-signal-handling">Threads and Signal Handling</a></li>
@@ -552,14 +552,18 @@ function sidebar_toggle() {
 </ul>
 <h2 id="interrupts-and-signals"><a class="markdownIt-Anchor" href="#interrupts-and-signals"></a> Interrupts and Signals</h2>
 <ul>
-<li><strong>Interrupts</strong> are events that are generated <strong>externally</strong> by components other than the CPU to which the interrupt is delivered. Interrupts are notifications that <strong>some external event has occurred</strong>.
+<li><strong>Interrupts</strong> are events that are generated <strong>externally</strong> by components(hardware) other than the CPU to which the interrupt is delivered. Interrupts are notifications that <strong>some external event has occurred</strong>.
 <ul>
-<li>Components may deliver interrupts: I/O devices, Timers, Other CPUs</li>
+<li>Components may deliver interrupts: I/O devices, Timers, Other CPUs
+<ul>
+<li>For example, when a user-level application tries to perform a illegal task using the hardware, the kernel is notified via an interrupt.</li>
+</ul>
+</li>
 <li>Interrupts varies on different physical platforms</li>
 <li>Interrupts appear asynchronously.</li>
 </ul>
 </li>
-<li><strong>Signals</strong> are events that are triggered by the CPU and the software running on it.
+<li><strong>Signals</strong> are events that are triggered by the CPU and the software running on it. e.g. <code>SIGKILL</code>
 <ul>
 <li>which signals can occur depend on the OS</li>
 <li>Signals can appear both <strong>synchronously</strong> and <strong>asynchronously</strong>.</li>
@@ -576,6 +580,12 @@ function sidebar_toggle() {
 </li>
 <li>If the mask indicates that the corresponding interrupt or signal is enabled, the incoming notification will trigger the corresponding <strong>handler</strong>.</li>
 <li><strong>Interrupt handlers</strong> are specified for the entire system by the OS. <strong>Signal handlers</strong> are set on a per-process basis, by the process itself.</li>
+</ul>
+</li>
+<li>Differences
+<ul>
+<li>For interrupts, the kernel has an <strong>interrupt table</strong> which jumps to a particular subroutine depending on the interrupt type.</li>
+<li>For signals, the process likewise has a <strong>signal handler</strong> which selectively enables certain signals using a thread-speciﬁc <strong>signal mask</strong>. The kernel calls the handler if the mask allows (i.e. has the bit set) the signal.</li>
 </ul>
 </li>
 </ul>
@@ -607,7 +617,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h3 id="why-disable-interrupts-or-signals"><a class="markdownIt-Anchor" href="#why-disable-interrupts-or-signals"></a> Why Disable Interrupts or Signals?</h3>
+<h3 id="why-disable-interrupts-or-signals-avoid-deadlock"><a class="markdownIt-Anchor" href="#why-disable-interrupts-or-signals-avoid-deadlock"></a> Why Disable Interrupts or Signals? Avoid Deadlock</h3>
 <ul>
 <li>Interrupts and signals are handled in the context of the thread being interrupted/signaled. This means that they are handled on the thread’s stack, which can cause certain issues.</li>
 <li>When a thread handles a signal, the program counter of the thread will point to the first address of the handler. The stack pointer will remain the same, meaning that whatever the thread was doing before being interrupted will still be on the stack.</li>
@@ -616,11 +626,14 @@ function sidebar_toggle() {
 <li>A better solution is to use <strong>interrupt/signal masks</strong> which allow us dynamically enable/disable whether the handling code can interrupt the executing mutex.
 <ul>
 <li>The mask is a sequence of bits where each bits represents a specific interrupt or signal with value 0/1.</li>
-<li>When event occur, the handler will check the mask to decide whether pending or proceed.</li>
-<li>Another thing should be point out. Once the interrupt/signal is pending, others interrupts/signals might also become pending. Typically the handling routine will only be executed once, so if we want to ensure a signal handling routine is executed more than once, it is not sufficient to generate the signal more than once.</li>
+<li>When event occur, the handler will check the mask to decide whether pending or proceed.
+<ul>
+<li>Once the interrupt/signal is pending, others interrupts/signals might also become pending. Typically the handling routine will only be executed once, so if we want to ensure a signal handling routine is executed more than once, it is not sufficient to generate the signal more than once.</li>
 </ul>
 </li>
-<li>What if masks disable interrupt/signal?
+</ul>
+</li>
+<li><strong>When masks disable interrupt/signal</strong>
 <ul>
 <li>Interrupt masks are per CPU. If the mask disables interrupt, the hardware interrupt routing mechanism will not deliver interrupt to CPU</li>
 <li>Signal masks are per execution context (ULT on top of KLT). If a mask disables a signal, the kernel will see this and will not interrupt the corresponding execution context.</li>
@@ -638,7 +651,7 @@ function sidebar_toggle() {
 </ol>
 </li>
 </ul>
-<h3 id="interrupts-as-threads"><a class="markdownIt-Anchor" href="#interrupts-as-threads"></a> Interrupts as Threads</h3>
+<h3 id="interrupts-as-a-separated-threads"><a class="markdownIt-Anchor" href="#interrupts-as-a-separated-threads"></a> Interrupts as a Separated Threads</h3>
 <ul>
 <li>To avoid the deadlock situation we covered before regards to handler code trying to lock a mutex that the thread had already locked, one way from the Sun thread paper is, to allow interrupts to become full-fledged threads, and execute independently.
 <ul>
@@ -690,6 +703,9 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>
+<p><strong>Degree concurrency</strong> is used by the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m × n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> model in Solaris to control the amount of multiplexing from ULTs to LWPs (and thus KLTs).</p>
+</li>
+<li>
 <p>Let’s look at four cases:</p>
 </li>
 </ul>
@@ -704,12 +720,12 @@ function sidebar_toggle() {
 <li>
 <img src="https://i.imgur.com/efTtBcf.jpg" style="width: 400px" />
 </li>
-<li>The threading library has a <strong>signal handler’s table</strong> that indicates the signal and corresponding handler function. The <strong>library handling routine</strong> can see the masks of the user level threads.
+<li>The** threading library** has a <strong>signal handler’s table</strong> that indicates the signal and corresponding handler function. The <strong>library handling routine</strong> can see the masks of the user level threads.
 <ul>
 <li>e.g. the table: <code>SIGNAL-N: handler-N-start-addr</code></li>
 </ul>
 </li>
-<li>In this case, when a signal occurs at the kernel level, the KLT calls the threading <strong>library provided handler</strong>. The library handling routine knows that one thread can’t handle the signal, but the other can. It invoke the library scheduler and make ULT that has mask enabled running on KLT so that signal can be handled.</li>
+<li>In this case, when a signal occurs at the kernel level, the KLT calls the <strong>threading library provided handler</strong>. The library handling routine knows that one thread can’t handle the signal, but the other can. It invoke the library scheduler and make ULT that has mask enabled running on KLT so that signal can be handled.</li>
 </ul>
 </li>
 <li>ULT mask = 0 &amp; KLT mask = 1 &amp; another ULT mask = 1 &amp; KLT mask = 1
@@ -734,7 +750,7 @@ function sidebar_toggle() {
 </li>
 </ol>
 <ul>
-<li>Optimize for the common cases:
+<li>The algorithm above is optimized for the common cases, because:
 <ul>
 <li>Signals occur much less frequently than does the need to update the signal mask.</li>
 <li>Updates of the signal mask are cheap. They occur at the user level and avoid system calls.</li>
@@ -773,13 +789,22 @@ function sidebar_toggle() {
 <li>
 <p>Linux thread model</p>
 <ul>
-<li>Native POSIX Thread Library(NPTL): 1-1 Model aka, a kernel level task for each user level thread.
+<li><strong>Native POSIX Thread Library(NPTL)</strong>: <strong>1-1 Model</strong> aka, a kernel level task for each user level thread.
 <ul>
 <li>It replaced the earlier implementation of <strong>LinuxThreds</strong>(M:M Model), has similar issues as  Solaris OS.</li>
 </ul>
 </li>
-<li>In NPTL, the kernel sees every user level thread. This is acceptable because kernel trapping has become much cheaper, so user/kernel crossings are much more affordable.</li>
+<li>In NPTL, <strong>the kernel sees every user level thread.</strong> This is acceptable because kernel trapping has become much cheaper, so user/kernel crossings are much more affordable.</li>
 <li>Also, modern platforms have more memory - removing the constraints to keep the number of kernel threads as small as possible.</li>
+</ul>
+</li>
+<li>
+<p>The benefits got from 1:1 model:</p>
+<ul>
+<li><strong>Scheduling.</strong> With 1:1 threads, there is <u>no longer any need for user-level scheduling</u> because the kernel sees all threads and their priorities can be refined to allow scheduler to optimize things appropriately.</li>
+<li><strong>Synchronization.</strong> With 1:1 threads, there is <u>no more management of signal masks</u>. The kernel thread will deliver signals to its user thread if the mask is enabled.</li>
+<li><strong>Signaling.</strong> With 1:1 threads, <u>User threads can be woken up immediately once a mutex is freed, rather than needing to traverse through a user-level threading library that relies on global synchronization primitives</u>. Furthermore, blocking operations(like waiting on a lock) are trivial to recognize, and deadlocks can be avoided because the kernel sees all primitives.</li>
+<li><strong>light-weight processes aren’t necessary</strong> because all of the data for a thread is stored within the thread itself; any shared data across threads is stored in their PCB.</li>
 </ul>
 </li>
 </ul>

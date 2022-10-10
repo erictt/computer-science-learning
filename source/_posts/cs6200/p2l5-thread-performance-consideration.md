@@ -50,13 +50,22 @@
 * Note that some work are CPU complexity like parse request/computer header, and some other are IO operations like accept connection, read/find file. 
 
 * Multi Process Web Server: spawn multiple processes and run it in each process.
-    * it require higher memory footprint, which can hurt the performance.
-    * pay higher cost to context switch since processes don't share states due to IPC constrains
-    * it's difficult to have multiple process listening on a specific port.
-* Multi Threaded Web Server: single process, with multiple threads, achieving concurrency within a single address space.
+    * Benefits:
+        * Simple.
+        * Each request is handled in a new process with its own address space: there is no need for any (explicit) synchronization code.
+    * Downside:
+        * it require higher memory footprint, which can hurt the performance.
+        * pay higher cost to context switch since processes don't share states due to IPC constrains
+        * it's difficult to have multiple process listening on a specific port.
+* Multi-threaded Web Server: single process, with multiple threads, achieving concurrency within a single address space.
     * we can adapt the boss-worker mode, or have a pipeline setup.
-    * the benefits of this approach are that we have a shared address space, shared state, and a cheap user level context switch. Memory requirements are lighter, since we have a lot of shared information across all threads in the process.
-    * The downside of this approach is that it is not a simple implementation. Multithreaded programs require explicit application level synchronization code, which can add to the overall complexity of the application. In addition, a multithreaded approach depends on underlying operating system level support for threads, although this is less of an issue now than it was in the past.
+    * benefits:
+        * have a shared address space, shared state,
+        * a cheap user level context switch. 
+        * Memory requirements are lighter, since we have a lot of shared information across all threads in the process.
+    * Downside:
+        * not a simple implementation. Multithreaded programs require explicit application level synchronization code, which can add to the overall complexity of the application. 
+        * a multithreaded approach depends on underlying operating system level support for threads, although this is less of an issue now than it was in the past.
 
 ## Event-Driven Model
 

@@ -143,11 +143,12 @@
 
 ## Interrupts and Signals 
  
-* **Interrupts** are events that are generated **externally** by components other than the CPU to which the interrupt is delivered. Interrupts are notifications that **some external event has occurred**.
+* **Interrupts** are events that are generated **externally** by components(hardware) other than the CPU to which the interrupt is delivered. Interrupts are notifications that **some external event has occurred**.
     * Components may deliver interrupts: I/O devices, Timers, Other CPUs
+        * For example, when a user-level application tries to perform a illegal task using the hardware, the kernel is notified via an interrupt. 
     * Interrupts varies on different physical platforms 
     * Interrupts appear asynchronously.
-* **Signals** are events that are triggered by the CPU and the software running on it.
+* **Signals** are events that are triggered by the CPU and the software running on it. e.g. `SIGKILL`
     * which signals can occur depend on the OS
     * Signals can appear both **synchronously** and **asynchronously**. 
     * Signals can occur in direct response to an action taken by a CPU, or they can manifest similar to interrupts.
@@ -157,6 +158,9 @@
         * **A mask is used to disable or delay the notification** of an incoming interrupt or signal.
     * If the mask indicates that the corresponding interrupt or signal is enabled, the incoming notification will trigger the corresponding **handler**.
     * **Interrupt handlers** are specified for the entire system by the OS. **Signal handlers** are set on a per-process basis, by the process itself.
+* Differences
+    * For interrupts, the kernel has an **interrupt table** which jumps to a particular subroutine depending on the interrupt type. 
+    * For signals, the process likewise has a **signal handler** which selectively enables certain signals using a thread-speciﬁc **signal mask**. The kernel calls the handler if the mask allows (i.e. has the bit set) the signal.
 
 ### Interrupt Handling
 
@@ -178,7 +182,7 @@
     * SIGKILL (as the receiver)
     * SIGALARM (timeout from timer expiration)
 
-### Why Disable Interrupts or Signals?
+### Why Disable Interrupts or Signals? Avoid Deadlock
 
 * Interrupts and signals are handled in the context of the thread being interrupted/signaled. This means that they are handled on the thread's stack, which can cause certain issues.
 * When a thread handles a signal, the program counter of the thread will point to the first address of the handler. The stack pointer will remain the same, meaning that whatever the thread was doing before being interrupted will still be on the stack.
@@ -187,8 +191,8 @@
 * A better solution is to use **interrupt/signal masks** which allow us dynamically enable/disable whether the handling code can interrupt the executing mutex.
     * The mask is a sequence of bits where each bits represents a specific interrupt or signal with value 0/1.
     * When event occur, the handler will check the mask to decide whether pending or proceed.
-    * Another thing should be point out. Once the interrupt/signal is pending, others interrupts/signals might also become pending. Typically the handling routine will only be executed once, so if we want to ensure a signal handling routine is executed more than once, it is not sufficient to generate the signal more than once.
-* What if masks disable interrupt/signal?
+        * Once the interrupt/signal is pending, others interrupts/signals might also become pending. Typically the handling routine will only be executed once, so if we want to ensure a signal handling routine is executed more than once, it is not sufficient to generate the signal more than once.
+* **When masks disable interrupt/signal**
     * Interrupt masks are per CPU. If the mask disables interrupt, the hardware interrupt routing mechanism will not deliver interrupt to CPU
     * Signal masks are per execution context (ULT on top of KLT). If a mask disables a signal, the kernel will see this and will not interrupt the corresponding execution context.
 * Interrupts on Multicore Systems
@@ -197,7 +201,7 @@
     1. **One-shot signals** refer to signals that will only interrupt once. This means that from the perspective of the user level thread, n signals will look exactly like one signal. One-shot signals must also be explicitly re-enabled every time.
     2. **Real-Time Signals** refer to signals that will interrupt as many times are they are raised. If n signals occur, the handler will be called n times.
 
-### Interrupts as Threads
+### Interrupts as a Separated Threads
 
 * To avoid the deadlock situation we covered before regards to handler code trying to lock a mutex that the thread had already locked, one way from the Sun thread paper is, to allow interrupts to become full-fledged threads, and execute independently.
     * <img src="https://i.imgur.com/ZMnIWlm.jpg" style="width: 600px" />
@@ -226,6 +230,7 @@
 
 * The enable/disable happens at the user-level threads, and the signal triggered at at the kernel-level. It results an inconsistency between the ULT and KLT. 
     * <img src="https://i.imgur.com/pgzPGpL.jpg" style="width: 600px" />
+* **Degree concurrency** is used by the $m × n$ model in Solaris to control the amount of multiplexing from ULTs to LWPs (and thus KLTs).
 
 * Let's look at four cases:
 
@@ -233,9 +238,9 @@
     * This won't be a problem since they are the same
 2. ULT mask = 0 & KLT mask = 1 & another ULT mask = 1
     * <img src="https://i.imgur.com/efTtBcf.jpg" style="width: 400px" />
-    * The threading library has a **signal handler's table** that indicates the signal and corresponding handler function. The **library handling routine** can see the masks of the user level threads.
+    * The** threading library** has a **signal handler's table** that indicates the signal and corresponding handler function. The **library handling routine** can see the masks of the user level threads.
         * e.g. the table: `SIGNAL-N: handler-N-start-addr`
-    * In this case, when a signal occurs at the kernel level, the KLT calls the threading **library provided handler**. The library handling routine knows that one thread can't handle the signal, but the other can. It invoke the library scheduler and make ULT that has mask enabled running on KLT so that signal can be handled. 
+    * In this case, when a signal occurs at the kernel level, the KLT calls the **threading library provided handler**. The library handling routine knows that one thread can't handle the signal, but the other can. It invoke the library scheduler and make ULT that has mask enabled running on KLT so that signal can be handled. 
 3. ULT mask = 0 & KLT mask = 1 & another ULT mask = 1 & KLT mask = 1
     * <img src="https://i.imgur.com/5b85iL7.jpg" style="width: 400px" />
     * In the case where a signal is generated by a kernel level thread that is executing on behalf of a user level thread which does not have the bit enabled, the threading library will know that it cannot pass the signal to this particular user thread.
@@ -247,7 +252,7 @@
     * Then the threading library will reissue the signal for entire process again. The OS will find the other threads in the process and all of the masks associated with the KLTs will be disabled via system call.
     * When any of the ULT re-enable the mask, the threading lib will make a system call, and tell the kernel level thread to enable the particular signal mask.
 
-* Optimize for the common cases:
+* The algorithm above is optimized for the common cases, because:
     * Signals occur much less frequently than does the need to update the signal mask. 
     * Updates of the signal mask are cheap. They occur at the user level and avoid system calls. 
     * Signal handling becomes more expensive - as system calls may be needed to correct discrepancies - but they occur less frequently so the added cost is acceptable.
@@ -284,7 +289,12 @@
         * <img src="https://i.imgur.com/3nLBkdk.jpg" style="width: 600px" />
         * If it's not set, the child will not share anything with the parent.
 * Linux thread model
-    * Native POSIX Thread Library(NPTL): 1-1 Model aka, a kernel level task for each user level thread. 
+    * **Native POSIX Thread Library(NPTL)**: **1-1 Model** aka, a kernel level task for each user level thread. 
         * It replaced the earlier implementation of **LinuxThreds**(M:M Model), has similar issues as  Solaris OS.
-    * In NPTL, the kernel sees every user level thread. This is acceptable because kernel trapping has become much cheaper, so user/kernel crossings are much more affordable. 
+    * In NPTL, **the kernel sees every user level thread.** This is acceptable because kernel trapping has become much cheaper, so user/kernel crossings are much more affordable. 
     * Also, modern platforms have more memory - removing the constraints to keep the number of kernel threads as small as possible.
+* The benefits got from 1:1 model:
+    * **Scheduling.** With 1:1 threads, there is <u>no longer any need for user-level scheduling</u> because the kernel sees all threads and their priorities can be refined to allow scheduler to optimize things appropriately.
+    * **Synchronization.** With 1:1 threads, there is <u>no more management of signal masks</u>. The kernel thread will deliver signals to its user thread if the mask is enabled.
+    * **Signaling.** With 1:1 threads, <u>User threads can be woken up immediately once a mutex is freed, rather than needing to traverse through a user-level threading library that relies on global synchronization primitives</u>. Furthermore, blocking operations(like waiting on a lock) are trivial to recognize, and deadlocks can be avoided because the kernel sees all primitives.
+    * **light-weight processes aren’t necessary** because all of the data for a thread is stored within the thread itself; any shared data across threads is stored in their PCB.

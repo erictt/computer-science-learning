@@ -81,7 +81,8 @@
     * **fork**
         * OS creates a new PCB for the child, and then will copy the exact same values from the parent PCB into the child PCB. Both processes will continue executing with the exact same state at the instruction immediately following the fork.
     * **exec**
-        * OS loads a new program. The child's PCB will now point to values that describe this new program. The program counter of the child will now point to the first instruction of the new program.
+        * OS loads a new program. The child's PCB **(created via fork)** will now point to values that describe this new program. The program counter of the child will now point to the first instruction of the new program.
+* <u>For "creating" a new program, you have to call fork to get a new process, and then call exec to load that program's information into the child's PCB.</u>
 * The parent of all processes in UNIX-based OS is `init`.
 
 ### CPU Scheduler
