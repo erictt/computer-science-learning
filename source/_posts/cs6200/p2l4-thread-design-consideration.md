@@ -93,6 +93,8 @@
 
 ## Thread Management Interaction
 
+* The Solaris **user thread library** life cycle.
+    * <img src="https://i.imgur.com/idV7KLN.png" style="width: 500px" />
 * Why kernel-level threads and user-level threads need to interact with each other?
     * Consider a process with four user threads, and a kernel with two threads. At a given time, the process require the level of concurrency to two. It always happens that two of its threads are blocking on, i.e. I/O, and the other two threads are executing.
     * Consider the scenario where the two user level threads that are scheduled on the kernel level threads happen to be the two that block. The kernel level threads block as well. This means that the whole process is blocked, even though there are user level threads that can make progress. The user threads have no way to know that the kernel threads are about to block, and has no way to decide before this event occurs.

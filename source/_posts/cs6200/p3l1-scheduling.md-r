@@ -48,20 +48,20 @@
 * SJF + Preempt
     * T2 arrives at 0s, T1 and T3 arrives at 2s, so T2 should be preempted
 
-    * <img src="https://i.imgur.com/J1Qwqim.jpg" style="width: 400px" />
+    * ![](https://i.imgur.com/J1Qwqim.jpg)
 
     * In this case, we assumed we know the execution time. But it's not realistic. What we can do is, generate heuristics base on the similar jobs in the past.
         * It can base on a single task, or base on the average execution time for n past tasks **(windowed average)**.
 * Priority
     * This means we run the tasks base on their **priority levels**, and run the highest priority task next(preemption)
-    * <img src="https://i.imgur.com/22Dl6io.jpg" style="width: 400px" />
+    * ![](https://i.imgur.com/22Dl6io.jpg)
 
     * This algorithm might causes **starvation**, in which a low priority task never gets executed due to high priority tasks keep jumping in.
         * The solution is **priority aging**, so priority = f(actual priority, time spent in runqueue) so if a job's priority will increase as it stays in the runqueue for long enough.
 
 #### Priority Inversion
 
-* <img src="https://i.imgur.com/b9JScO5.jpg" style="width: 600px" />
+* ![](https://i.imgur.com/b9JScO5.jpg)
 
 
 ### Round Robin Scheduling
@@ -82,7 +82,7 @@
 * using timeslices allows for the tasks to be interleaved. And it's also the only way to achieve timesharing of the CPU for the CPU bound tasks.
     * I/O tasks are not critical though.
 * e.g.
-    * <img src="https://i.imgur.com/8cscM2e.jpg" style="width: 600px" />
+    * ![](https://i.imgur.com/8cscM2e.jpg)
 
     * For metrics, 
         * the throughput stays the same, 
@@ -96,11 +96,11 @@
 
 #### CPU Bound Timeslice Length
 
-* <img src="https://i.imgur.com/eOrJGaQ.jpg" style="width: 600px" />
+* ![](https://i.imgur.com/eOrJGaQ.jpg)
 
 #### I/O Bound Timeslice Length
 
-* <img src="https://i.imgur.com/NZx7FCP.jpg" style="width: 600px" />
+* ![](https://i.imgur.com/NZx7FCP.jpg)
 
 ### Summarizing Timeslice Length
 
@@ -119,7 +119,7 @@
     1. use the same runqueue, and check the type of tasks
     2. use two different data structures.
 * Common way for the example, is to build a multi-queue data structure. Each queue associated with different timeslice values:
-    * <img src="https://i.imgur.com/u4Kh5jg.jpg" style="width: 500px" />
+    * ![](https://i.imgur.com/u4Kh5jg.jpg)
     * The I/O intensive tasks are assigned to the queue with shorter timeslices, The CPU intensive tasks are assigned to the queue that has infinite timeslice but lowest priority.
     * The benefits with this design are:
         * timeslicing benefits for I/O bound tasks,
@@ -131,14 +131,14 @@
 ### Linux O(1) Scheduler
 
 * The Linux O(1) scheduler add/select tasks in constant time. It's a preemptive, priority-based scheduler, with 140 priority levels. level:0-99 are real-time tasks, level: 100-139 are timesharing tasks. The default value for a user process is 120, and can be adjusted with the **nice value**: (-20 - 19).
-    * <img src="https://i.imgur.com/hngR40I.jpg" style="width: 400px" />
+    * ![](https://i.imgur.com/hngR40I.jpg)
 
 * The O(1) scheduler use the same ideas as the MLFQ scheduler. It sets up **different timeslice values to different priorities**(smallest for low priority, highest for high priority), and **use feedback to adjust the tasks** in the future.
     * The feedback for the task is depends on how long the task spend on sleep(waiting/idling). 
         * longer sleep -> interactive -> priority -5 (boost),
         * smaller sleep -> compute-intensive -> priority+5(lowered)
 * The scheduler is implemented with two arrays: **active** and **expired**.
-    * <img src="https://i.imgur.com/mo2lVrN.jpg" style="width: 400px" />
+    * ![](https://i.imgur.com/mo2lVrN.jpg)
     * The active list is the primary one that the scheduler uses to select the next task to run. Once the task runs, it will be put on expired array. And the two arrays will be swapped when the active array is empty.
 * The problem of O(1) scheduler is, the task could wait unpredictable amount of time to be scheduled. Because the task will not get a chance to run again until all other tasks in the active queue have been executed.
     * Meaning it doesn't work well with the applications that have **realtime/interactive needs**, like gaming, video streaming, etc.
@@ -148,7 +148,7 @@
 
 * As a replacement for the O(1) scheduler, the CFS scheduler was introduced to solve the problem O(1) scheduler has.
 * CFS uses a [read-black tree](/algorithms-1/week-5/index.html#red-black-bsts) as the runqueue data structure.
-    * <img src="https://i.imgur.com/m2zvO5A.jpg" style="width: 400px" />
+    * ![](https://i.imgur.com/m2zvO5A.jpg)
         * Red-black tree is self-balancing trees
 * Tasks are ordered in the tree **based on the amount of time that they spent running on the CPU**, a quantity known as **vruntime** (virtual runtime). CFS tracks this virtual runtime in a nanosecond granularity.
 * This runqueue has the property that for a given node, all nodes to the left have lower vruntimes and therefore need to be scheduled sooner, while all nodes to the right, have larger vruntimes and therefore can wait longer.
@@ -194,14 +194,14 @@
     3. hardware switching instantaneous
     4. SMT with 2 hardware threads
 * Now compare different scenarios:
-    1. <img src="https://i.imgur.com/hfj0Wg3.jpg" style="width: 400px" />
+    1. ![](https://i.imgur.com/hfj0Wg3.jpg)
         * threads "interfere" each other,
         * "contend" for CPU pipeline resources
         * performance for each task degrades by 2x
         * memory is idle
-    2. <img src="https://i.imgur.com/KSjqhq8.jpg" style="width: 400px" />
+    2. ![](https://i.imgur.com/KSjqhq8.jpg)
         * CPU idle, waste CPU cycles
-    3. <img src="https://i.imgur.com/Ir847Rb.jpg" style="width: 400px" />
+    3. ![](https://i.imgur.com/Ir847Rb.jpg)
         * mix of CPU and memory-intensive threads
             * avoid/limit contention of processor pipeline
             * all components (CPU and memory) well utilized  
@@ -232,14 +232,14 @@
     * 1 will be most CPU-intensive, 16: most memory-intensive
     *  4 threads of each kind
 * Use IPC as the metric. The overall workload, max IPC = 4
-* <img src="https://i.imgur.com/HZJlgUR.png" style="width: 600px" />
+* ![](https://i.imgur.com/HZJlgUR.png)
 * CPI Experiment Results
-    * <img src="https://i.imgur.com/WBkCwSw.jpg" style="width: 400px" />
+    * ![](https://i.imgur.com/WBkCwSw.jpg)
     * With mixed CPI => processor pipeline well utilized => high IPC
     * With same CPI => contention on some cores; wasted cycles on other cores
     * So mixed CPI is good.
 * Another question is, is this simulation realistic? The answer is no. Fedorova profiled a number of applications from several respected benchmark suites and computed the CPI values, and got:
-    * <img src="https://i.imgur.com/HqCft2O.jpg" style="width: 600px" />
+    * ![](https://i.imgur.com/HqCft2O.jpg)
     * You can see most of the values are cluttered together around 2.5-4.5. Since CPI isn't very different across applications, it may not  be the most instructive metric to inform scheduling decisions.
 * Post Mortem / The key takeways
     * resource contention in SMTs for processor pipeline
