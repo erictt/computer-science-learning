@@ -16,7 +16,7 @@
 
 * **Multiplexing** is an ability for a host to run multiple application to use the network simultaneously. The transport layer use additional identifiers known as ports. Each application binds itself to a uniquie port number by opening sockets and listening for data from remote connection.
 
-### Connection Oriented and Connectionless Multiplexing and Demultiplexing
+### Multiplexing vs Demultiplexing
 
 * <img src="https://i.imgur.com/mVT8Gmq.jpg" style="width:500px" />
 
@@ -48,8 +48,8 @@
     4. Do 1's complement to the sum(reverse the sum).
 * Performance of checksum
     * The checksum detects all errors involving an odd number of bits.
-    * In detects mosts erros involving an even number of bits.
-    * If one or more bits of a segment are damaged and the correspoding bit or bits of oppsote value is a second segment are also damaged, the sums of those columns will not change and the receiver will not detect the error.
+    * In detects mosts errors involving an even number of bits.
+    * If one or more bits of a segment are damaged and the corresponding bit or bits of opposite value is a second segment are also damaged, the sums of those columns will not change and the receiver will not detect the error.
 * UDP checksum calculation https://stackoverflow.com/questions/1480580/udp-checksum-calculation
 * How is a 1s complement checksum useful for error detection? https://stackoverflow.com/questions/5607978/how-is-a-1s-complement-checksum-useful-for-error-detection
 
@@ -64,10 +64,10 @@
 
 * an example connection establishment.
     * <img src="https://i.imgur.com/nIodUGD.png" style="width:500px" />
-* Why don't UDP/TCP use process IDs rather than defin port numbers?
+* Why don't UDP/TCP use process IDs rather than definw port numbers?
     * Process IDs are specific to OS, therefore use process IDs make the protocol dependent to OS. Also a process should can set up multiple channels.
-* How a single port used for creating multiple conenctions with client?
-    * Because TCP is identified by a 4-tuple(source IP, source port, dest IP, dest port). When binding socket with TCP, it uses the 4-tuple. So a server creates different sockets for multiple sockets that binded with the same IP/port.
+* How a single port used for creating multiple connections with client?
+    * Because TCP is identified by a 4-tuple(source IP, source port, dest IP, dest port). When binding socket with TCP, it uses the 4-tuple. So a server creates different sockets for multiple sockets that bind with the same IP/port.
     * https://stackoverflow.com/questions/11129212/tcp-can-two-different-sockets-share-a-port#:~:text=Thanks%20%3AD&text=%40premktiw%3A%20Yes%2C%20multiple%20client,local%2Bremote%20pairs%20are%20unique.
 
 ## The TCP Three-Way Handshake
@@ -92,7 +92,7 @@
 
 * ARQ(Automatic Repeat Request)
     *  If the sender does not receive an acknowledgment within a given period of time, the sender can assume the packet is lost and resend it. 
-* Stop and Wait ARP
+* Stop and Wait ARQ
     * The sender to send a packet and wait for its acknowledgment from the receiver, then resend if timeout.
     * Typically the timeout value is a function of the estimated **round trip time (RTT)** of the connection. 
     * one of the ways for improvement of this method is send at most N unacknowledged packets, which referred as window size.
@@ -120,21 +120,21 @@
         * **LastByteSent – LastByteAcked  <= rwnd**
     * **Caveat**: if receiver inform sender that rwnd is 0, and the sender stop sending message, then sender will never know new buffer space is available. TCP resolves this by sending segments of size 1 byte even after **rwnd = 0**.
 
-### Congestion control
+### Congestion Control
 
 * The goal is to control the transmission rate to protect the network from congestion.
-* Congestion control means to avoid the tramsmission rate of a set of senders greater than the capacity of receiver.
+* Congestion control means to avoid the transmission rate of a set of senders greater than the capacity of receiver.
 * Desired properties:
     * **efficiency**. go high throughput.
     * **fairness**. either every flow has equal bandwidth or other policies.
     * **low delay**. packets get stored in the buffer and wait for a long queue get delivered need to be avoid.
     * **fast convergence**. The idea here is that a flow should converge to its fair allocation fast. Fast convergence is crucial since a typical network’s workload is composed of many short flows and few long flows. If the convergence to fair share is not fast enough, the network will still be unfair for these short flows.
 * Two approaches:
-    * **network-assisted congestion control**. Rely on network layer, use ICMP souce quench to notify the source that the network is congested. but even ICMP packets can be lost under severe congestion.
-    * **implement end-to-end congestion control**(TCP use) the hosts infer congestion from the network behavior and adapt the transmission rate. Congestion control is a primitive provided in the transport layer, whereas routers operate at the network layer. Therefore, the feature resides in the end nodes with no support from the network. 
+    * **network-assisted congestion control**. Rely on network layer, use ICMP source quench to notify the source that the network is congested. but even ICMP packets can be lost under severe congestion.
+    * **end-to-end congestion control**(TCP use) the hosts infer congestion from the network behavior and adapt the transmission rate. Congestion control is a primitive provided in the transport layer, whereas routers operate at the network layer. Therefore, the feature resides in the end nodes with no support from the network. 
         * Note that this is no longer true as certain routers in the modern networks can provide explicit feedback to the end-host by using protocols such as [ECN](https://en.wikipedia.org/wiki/Explicit_Congestion_Notification) and [QCN](https://web.stanford.edu/~balaji/presentations/au-prabhakar-qcn-description.pdf).  
 * How a host infers congestion? via signs of congestion:
-    * **packet delay**. As the network becomes congested, the queues in the router buffers build-up, leading to increased packet delays. Thus, an increase in the round trip time, which can be estimated based on ACKs, can indicate congestion in the network. However, it turns out that packet delays in a network tend to be variable, making delay-based congestion inference quite tricky. 
+    * **packet delay**. As the network becomes congested, the queues in the router buffers build-up, leading to increased packet delays. Thus, an increase in the round trip time(RTT), which can be estimated based on ACKs, can indicate congestion in the network. However, it turns out that packet delays in a network tend to be variable, making delay-based congestion inference quite tricky. 
     * **packet loss**. As the network gets congested, routers start dropping packets. Note that packets can also be lost due to other reasons such as routing errors, hardware failure, time-to-live (TTL) expiry, error in the links, or flow control problems, although it is rare. 
 * The earliest implementation of TCP used packet loss as a signal for congestion. This is mainly because TCP already detected and handled packet losses to provide reliability.
 
@@ -169,7 +169,7 @@
 
 ### AIAD - MIMD - MIAD
 
-* Would all thse polices conver? If so, what's the diff from AIMD?
+* Would all those polices cover? If so, what's the diff from AIMD?
     * https://inst.eecs.berkeley.edu/~ee122/fa08/notes/19-TCPAdvancedx6.pdf
 
 ### TCP Reno
@@ -204,26 +204,25 @@
 * At point C, the total throughput is again less than R, so both connections will increase their window size to move towards point D and will experience packet loss at D, and so on.
 * Thus, using AIMD leads to fairness in bandwidth sharing.
 
-#### cases that TCP is not fair
+#### Cases that TCP is not fair
 
-* , connections with smaller RTT values would increase their congestion window faster than those with longer RTT values.
+* connections with smaller RTT values would increase their congestion window faster than those with longer RTT values.
 * a single application uses multiple parallel TCP connections.
 
 ## TCP CUBIC
 
 * To make TCP more efficient under high bandwidth delay product networks, **TCP CUBIC** is one of the improvements that implemented in Linux kernel.
-* Let us see what happens when TCP experiences a triple duplicate ACK, say at window=Wmax. This could be because of congestion in the network. To maintain TCP-fairness, it uses a multiplicative decrease and reduces the window to half. Let us call this Wmin. 
-* Now, we know that the optimal window size would be in between Wmin and Wmax  and closer to Wmax. So, instead of increasing the window size by 1, it is okay to increase the window size aggressively in the beginning. Once the W approaches closer to Wmax, it is wise to increase it slowly because that is where we detected a packet loss last time. Assuming no loss is detected this time around Wmax, we keep on increasing the window a little bit. If there is no loss still, it could be that the previous loss was due to a transient congestion or non-congestion related event. Therefore, it is okay to increase the window size with higher values now. 
+* Let us see what happens when TCP experiences a triple duplicate ACK, say at window=$W_{max}$. This could be because of congestion in the network. To maintain TCP-fairness, it uses a multiplicative decrease and reduces the window to half. Let us call this $W_{min}$. 
+* Now, we know that the optimal window size would be in between $W_{min}$ and $W_{max}$  and closer to $W_{max}$. So, instead of increasing the window size by 1, it is okay to increase the window size aggressively in the beginning. Once the W approaches closer to $W_{max}$, it is wise to increase it slowly because that is where we detected a packet loss last time. Assuming no loss is detected this time around $W_{max}$, we keep on increasing the window a little bit. If there is no loss still, it could be that the previous loss was due to a transient congestion or non-congestion related event. Therefore, it is okay to increase the window size with higher values now. 
     * <img src="https://i.imgur.com/ISc6Z8N.png" style="width:500px" />
 
 * This window growth idea is approximated in TCP CUBIC using a cubic function. Here is the exact function it uses for the window growth:
     * $$W(t) = C(t-K)^3 + W_{max}$$
 
-* Here, Wmax is the window when the packet loss was detected. Here C is a scaling constant, and K is the time period that the above function takes to increase W to Wmax when there is no further loss event and is calculated by using the following equation:
+* Here, $W_{max}$ is the window when the packet loss was detected. Here C is a scaling constant, and K is the time period that the above function takes to increase W to $W_{max}$ when there is no further loss event and is calculated by using the following equation:
     * $$K = \sqrt[3]{\frac{W_{max}B}{C}}$$
 
 * It is important to note that time here is the time elapsed since the last loss event instead of the usual ACK-based timer used in TCP Reno. This also makes TCP CUBIC RTT-fair. 
-    * The window growth depends **only on the time between two consecutive congestion events**. One congestion event is the time when TCP undergoes fast recovery. This feature allows CUBIC flows competing in the same bottleneck to have approximately the same window size independent of their RTTs, achiveing good RTT-fairness.
 
 ### The TCP Protocol: TCP Throughput    
 

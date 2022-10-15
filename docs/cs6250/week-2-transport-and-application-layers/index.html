@@ -290,7 +290,7 @@ function sidebar_toggle() {
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#multiplexing">Multiplexing</a>
 <ul>
-<li><a href="#connection-oriented-and-connectionless-multiplexing-and-demultiplexing">Connection Oriented and Connectionless Multiplexing and Demultiplexing</a></li>
+<li><a href="#multiplexing-vs-demultiplexing">Multiplexing vs Demultiplexing</a></li>
 </ul>
 </li>
 <li><a href="#connectionless-and-connection-oriented-service">Connectionless and Connection-Oriented Service</a>
@@ -312,7 +312,7 @@ function sidebar_toggle() {
 <li><a href="#transmission-control">Transmission Control</a>
 <ul>
 <li><a href="#flow-control">Flow control</a></li>
-<li><a href="#congestion-control">Congestion control</a></li>
+<li><a href="#congestion-control">Congestion Control</a></li>
 </ul>
 </li>
 <li><a href="#congestion-control-at-tcp-aimd">Congestion Control at TCP - AIMD</a>
@@ -355,7 +355,7 @@ function sidebar_toggle() {
 <ul>
 <li><strong>Multiplexing</strong> is an ability for a host to run multiple application to use the network simultaneously. The transport layer use additional identifiers known as ports. Each application binds itself to a uniquie port number by opening sockets and listening for data from remote connection.</li>
 </ul>
-<h3 id="connection-oriented-and-connectionless-multiplexing-and-demultiplexing"><a class="markdownIt-Anchor" href="#connection-oriented-and-connectionless-multiplexing-and-demultiplexing"></a> Connection Oriented and Connectionless Multiplexing and Demultiplexing</h3>
+<h3 id="multiplexing-vs-demultiplexing"><a class="markdownIt-Anchor" href="#multiplexing-vs-demultiplexing"></a> Multiplexing vs Demultiplexing</h3>
 <ul>
 <li>
 <img src="https://i.imgur.com/mVT8Gmq.jpg" style="width:500px" />
@@ -411,8 +411,8 @@ function sidebar_toggle() {
 <p>Performance of checksum</p>
 <ul>
 <li>The checksum detects all errors involving an odd number of bits.</li>
-<li>In detects mosts erros involving an even number of bits.</li>
-<li>If one or more bits of a segment are damaged and the correspoding bit or bits of oppsote value is a second segment are also damaged, the sums of those columns will not change and the receiver will not detect the error.</li>
+<li>In detects mosts errors involving an even number of bits.</li>
+<li>If one or more bits of a segment are damaged and the corresponding bit or bits of opposite value is a second segment are also damaged, the sums of those columns will not change and the receiver will not detect the error.</li>
 </ul>
 </li>
 <li>
@@ -447,15 +447,15 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>
-<p>Why don’t UDP/TCP use process IDs rather than defin port numbers?</p>
+<p>Why don’t UDP/TCP use process IDs rather than definw port numbers?</p>
 <ul>
 <li>Process IDs are specific to OS, therefore use process IDs make the protocol dependent to OS. Also a process should can set up multiple channels.</li>
 </ul>
 </li>
 <li>
-<p>How a single port used for creating multiple conenctions with client?</p>
+<p>How a single port used for creating multiple connections with client?</p>
 <ul>
-<li>Because TCP is identified by a 4-tuple(source IP, source port, dest IP, dest port). When binding socket with TCP, it uses the 4-tuple. So a server creates different sockets for multiple sockets that binded with the same IP/port.</li>
+<li>Because TCP is identified by a 4-tuple(source IP, source port, dest IP, dest port). When binding socket with TCP, it uses the 4-tuple. So a server creates different sockets for multiple sockets that bind with the same IP/port.</li>
 <li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/11129212/tcp-can-two-different-sockets-share-a-port#:~:text=Thanks%20%3AD&amp;text=%40premktiw%3A%20Yes%2C%20multiple%20client,local%2Bremote%20pairs%20are%20unique">https://stackoverflow.com/questions/11129212/tcp-can-two-different-sockets-share-a-port#:~:text=Thanks %3AD&amp;text=%40premktiw%3A Yes%2C multiple client,local%2Bremote pairs are unique</a>.</li>
 </ul>
 </li>
@@ -497,7 +497,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>
-<p>Stop and Wait ARP</p>
+<p>Stop and Wait ARQ</p>
 <ul>
 <li>The sender to send a packet and wait for its acknowledgment from the receiver, then resend if timeout.</li>
 <li>Typically the timeout value is a function of the estimated <strong>round trip time (RTT)</strong> of the connection.</li>
@@ -545,13 +545,13 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h3 id="congestion-control"><a class="markdownIt-Anchor" href="#congestion-control"></a> Congestion control</h3>
+<h3 id="congestion-control"><a class="markdownIt-Anchor" href="#congestion-control"></a> Congestion Control</h3>
 <ul>
 <li>
 <p>The goal is to control the transmission rate to protect the network from congestion.</p>
 </li>
 <li>
-<p>Congestion control means to avoid the tramsmission rate of a set of senders greater than the capacity of receiver.</p>
+<p>Congestion control means to avoid the transmission rate of a set of senders greater than the capacity of receiver.</p>
 </li>
 <li>
 <p>Desired properties:</p>
@@ -565,8 +565,8 @@ function sidebar_toggle() {
 <li>
 <p>Two approaches:</p>
 <ul>
-<li><strong>network-assisted congestion control</strong>. Rely on network layer, use ICMP souce quench to notify the source that the network is congested. but even ICMP packets can be lost under severe congestion.</li>
-<li><strong>implement end-to-end congestion control</strong>(TCP use) the hosts infer congestion from the network behavior and adapt the transmission rate. Congestion control is a primitive provided in the transport layer, whereas routers operate at the network layer. Therefore, the feature resides in the end nodes with no support from the network.
+<li><strong>network-assisted congestion control</strong>. Rely on network layer, use ICMP source quench to notify the source that the network is congested. but even ICMP packets can be lost under severe congestion.</li>
+<li><strong>end-to-end congestion control</strong>(TCP use) the hosts infer congestion from the network behavior and adapt the transmission rate. Congestion control is a primitive provided in the transport layer, whereas routers operate at the network layer. Therefore, the feature resides in the end nodes with no support from the network.
 <ul>
 <li>Note that this is no longer true as certain routers in the modern networks can provide explicit feedback to the end-host by using protocols such as <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Explicit_Congestion_Notification">ECN</a> and <a target="_blank" rel="noopener" href="https://web.stanford.edu/~balaji/presentations/au-prabhakar-qcn-description.pdf">QCN</a>.</li>
 </ul>
@@ -576,7 +576,7 @@ function sidebar_toggle() {
 <li>
 <p>How a host infers congestion? via signs of congestion:</p>
 <ul>
-<li><strong>packet delay</strong>. As the network becomes congested, the queues in the router buffers build-up, leading to increased packet delays. Thus, an increase in the round trip time, which can be estimated based on ACKs, can indicate congestion in the network. However, it turns out that packet delays in a network tend to be variable, making delay-based congestion inference quite tricky.</li>
+<li><strong>packet delay</strong>. As the network becomes congested, the queues in the router buffers build-up, leading to increased packet delays. Thus, an increase in the round trip time(RTT), which can be estimated based on ACKs, can indicate congestion in the network. However, it turns out that packet delays in a network tend to be variable, making delay-based congestion inference quite tricky.</li>
 <li><strong>packet loss</strong>. As the network gets congested, routers start dropping packets. Note that packets can also be lost due to other reasons such as routing errors, hardware failure, time-to-live (TTL) expiry, error in the links, or flow control problems, although it is rare.</li>
 </ul>
 </li>
@@ -628,7 +628,7 @@ function sidebar_toggle() {
 </ul>
 <h3 id="aiad-mimd-miad"><a class="markdownIt-Anchor" href="#aiad-mimd-miad"></a> AIAD - MIMD - MIAD</h3>
 <ul>
-<li>Would all thse polices conver? If so, what’s the diff from AIMD?
+<li>Would all those polices cover? If so, what’s the diff from AIMD?
 <ul>
 <li><a target="_blank" rel="noopener" href="https://inst.eecs.berkeley.edu/~ee122/fa08/notes/19-TCPAdvancedx6.pdf">https://inst.eecs.berkeley.edu/~ee122/fa08/notes/19-TCPAdvancedx6.pdf</a></li>
 </ul>
@@ -689,9 +689,9 @@ function sidebar_toggle() {
 <li>At point C, the total throughput is again less than R, so both connections will increase their window size to move towards point D and will experience packet loss at D, and so on.</li>
 <li>Thus, using AIMD leads to fairness in bandwidth sharing.</li>
 </ul>
-<h4 id="cases-that-tcp-is-not-fair"><a class="markdownIt-Anchor" href="#cases-that-tcp-is-not-fair"></a> cases that TCP is not fair</h4>
+<h4 id="cases-that-tcp-is-not-fair"><a class="markdownIt-Anchor" href="#cases-that-tcp-is-not-fair"></a> Cases that TCP is not fair</h4>
 <ul>
-<li>, connections with smaller RTT values would increase their congestion window faster than those with longer RTT values.</li>
+<li>connections with smaller RTT values would increase their congestion window faster than those with longer RTT values.</li>
 <li>a single application uses multiple parallel TCP connections.</li>
 </ul>
 <h2 id="tcp-cubic"><a class="markdownIt-Anchor" href="#tcp-cubic"></a> TCP CUBIC</h2>
@@ -700,10 +700,10 @@ function sidebar_toggle() {
 <p>To make TCP more efficient under high bandwidth delay product networks, <strong>TCP CUBIC</strong> is one of the improvements that implemented in Linux kernel.</p>
 </li>
 <li>
-<p>Let us see what happens when TCP experiences a triple duplicate ACK, say at window=Wmax. This could be because of congestion in the network. To maintain TCP-fairness, it uses a multiplicative decrease and reduces the window to half. Let us call this Wmin.</p>
+<p>Let us see what happens when TCP experiences a triple duplicate ACK, say at window=<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. This could be because of congestion in the network. To maintain TCP-fairness, it uses a multiplicative decrease and reduces the window to half. Let us call this <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W_{min}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</p>
 </li>
 <li>
-<p>Now, we know that the optimal window size would be in between Wmin and Wmax  and closer to Wmax. So, instead of increasing the window size by 1, it is okay to increase the window size aggressively in the beginning. Once the W approaches closer to Wmax, it is wise to increase it slowly because that is where we detected a packet loss last time. Assuming no loss is detected this time around Wmax, we keep on increasing the window a little bit. If there is no loss still, it could be that the previous loss was due to a transient congestion or non-congestion related event. Therefore, it is okay to increase the window size with higher values now.</p>
+<p>Now, we know that the optimal window size would be in between <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W_{min}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>  and closer to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. So, instead of increasing the window size by 1, it is okay to increase the window size aggressively in the beginning. Once the W approaches closer to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, it is wise to increase it slowly because that is where we detected a packet loss last time. Assuming no loss is detected this time around <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, we keep on increasing the window a little bit. If there is no loss still, it could be that the previous loss was due to a transient congestion or non-congestion related event. Therefore, it is okay to increase the window size with higher values now.</p>
 <ul>
 <li>
 <img src="https://i.imgur.com/ISc6Z8N.png" style="width:500px" />
@@ -720,7 +720,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>
-<p>Here, Wmax is the window when the packet loss was detected. Here C is a scaling constant, and K is the time period that the above function takes to increase W to Wmax when there is no further loss event and is calculated by using the following equation:</p>
+<p>Here, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the window when the packet loss was detected. Here C is a scaling constant, and K is the time period that the above function takes to increase W to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> when there is no further loss event and is calculated by using the following equation:</p>
 <ul>
 <li>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>K</mi><mo>=</mo><mroot><mfrac><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mi>B</mi></mrow><mi>C</mi></mfrac><mn>3</mn></mroot></mrow><annotation encoding="application/x-tex">K = \sqrt[3]{\frac{W_{max}B}{C}}
@@ -740,9 +740,6 @@ h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span
 </li>
 <li>
 <p>It is important to note that time here is the time elapsed since the last loss event instead of the usual ACK-based timer used in TCP Reno. This also makes TCP CUBIC RTT-fair.</p>
-<ul>
-<li>The window growth depends <strong>only on the time between two consecutive congestion events</strong>. One congestion event is the time when TCP undergoes fast recovery. This feature allows CUBIC flows competing in the same bottleneck to have approximately the same window size independent of their RTTs, achiveing good RTT-fairness.</li>
-</ul>
 </li>
 </ul>
 <h3 id="the-tcp-protocol-tcp-throughput"><a class="markdownIt-Anchor" href="#the-tcp-protocol-tcp-throughput"></a> The TCP Protocol: TCP Throughput</h3>

@@ -5,7 +5,7 @@
 
 ## The OSI Model(7 layers) vs The Traditional Model(5 layers)
 
-* <img src="https://i.imgur.com/BE8yWY4.jpg" style="width:500px" />
+* <img src="https://i.imgur.com/BE8yWY4.jpg" style="width:600px" />
 * In the traditional model, the application, presentation, and session layers are combined into a single layer, and this combined layer is called the application layer. **The interface between the application layer and the transport layer are the sockets.** It is up to the application developer to design the functionality of the overall application.
 
 ### the OSI design
@@ -24,7 +24,7 @@
 
 ## Encapsulation and De-encapsulation
 
-* ![](https://i.imgur.com/uLuBH5F.jpg)
+* <img src="https://i.imgur.com/uLuBH5F.jpg" style="width:600px" />
 * From the source, each layer encapsulates the message and add its own header to create transport-layer segment/datagram/frame. Then the message will be decapsulated and re-encapsulated at the switch/router for deciding where the message should go. At last the message will be decapsulated at the destination.
 
 ## The end-to-end (e2e) principle
@@ -38,12 +38,11 @@
 * Cases where this principle needs to be violated. 
     1. firewalls and traffic filters. 
         * monitor the network traffic, either allow traffic to go through or drop traffic flagged as malicious.
-    2. Network Address Translation (NAT) Boxes
-        * Is the mediator that take care of the communication between the hosts on the private network and the hosts on the public Internet. e.g. our home router.
-            * <img src="https://i.imgur.com/zC7ltM3.jpg" style="width:500px" />
-        * <img src="https://i.imgur.com/29DCQlU.png" style="width:500px" />
-            * **The translation table** provides a mapping between the public-facing IP address/ports and the IP addresses/ports that belong to hosts inside the private network.
-        * Why NAT boxes violate e2e pinciple?
+    2. Network Address Translation (NAT) Boxes is the mediator that take care of the communication between the hosts on the private network and the hosts on the public Internet. e.g. our home router.
+        * <img src="https://i.imgur.com/zC7ltM3.jpg" style="width:500px" />
+        * **The translation table** provides a mapping between the public-facing IP address/ports and the IP addresses/ports that belong to hosts inside the private network.
+            * <img src="https://i.imgur.com/29DCQlU.png" style="width:500px" />
+        * Why NAT boxes violate e2e principle?
             * The hosts behind NAT are not globally addressable or routable. Not possible for hosts on the public Internet to initiate connections to these devices.
             * Workaround: 
                 * STUN: enables hosts to discover NATs and the public IP address and port number that  the NAT has allocated for the applications for.
@@ -61,10 +60,10 @@ Internet is a network of networks:
 
 <img src="https://i.imgur.com/IXBYnsb.jpg" style="width:500px" />
 
-The ways connectiing:
+The ways they connect:
 
 * Layer 1(physical layer): Repeaters and Hubs. Forward digital signals to connect different Ethernet segments.
-* Layer 2(data link layer): Bridges and Layer2-Switches. not directly connected, based on MAC addresses. The limitaion is the finite bandwidth of the outputs.
+* Layer 2(data link layer): Bridges and Layer2-Switches. not directly connected, based on MAC addresses. The limitation is the finite bandwidth of the outputs.
 * Layer 3(network layer): Routers and Layer3-Switches.
 
 ## Bridges
@@ -78,8 +77,8 @@ The ways connectiing:
 
 * how does the looping problem exist? two possible reasons: 
     1) each bridge doesn't know the entire configuration of the network, it's possible the fragment will be froward back to itself; 
-    2) more likely, the loops are built in purpose of reducndancy in case of failure.
-* how to solve it? **The spanning tree algorithm**. The algorithem is used to build a network topology that has no loops and reaches all LANs in the local network. In practice, it is by removing ports from the topology that the extended LAN is reduced to an acyclic tree.
+    2) more likely, the loops are built in purpose of redundancy in case of failure.
+* how to solve it? **The spanning tree algorithm**. The algorithm is used to build a network topology that has no loops and reaches all LANs in the local network. In practice, it is by removing ports from the topology that the extended LAN is reduced to an acyclic tree.
     * The figure below shows the final state of the spanning tree. In this example, B1 is the root bridge, since it has the smallest ID. Notice that both B3 and B5 are connected to LAN A, but B5 is the designated bridge since it is closer to the root. Similarly, both B5 and B7 are connected to LAN B, but in this case B5 is the designated bridge since it has the smaller ID; both are an equal distance from B1.
         * <img src="https://i.imgur.com/5UDqRVT.jpg" style="width:500px" />
         * For more details: https://www.sciencedirect.com/topics/computer-science/spanning-tree-algorithm

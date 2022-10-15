@@ -34,7 +34,7 @@ This lecture, we learn about the protocols that enable data to travel over a "go
     * **v** every other node.
     * **D(v)** cost of the current least cost path from u to v.
     * **p(v)** the previous node along the current least cost path from u to v.
-    * **c(u, v)** ($c_{u, v}$) the cost from u to directly attached neighbor v
+    * **c(u, v)** (or $c_{u, v}$) the cost from u to directly attached neighbor v
     * **N'** subset of nodes along the current least-cost path from u-v.
 
 ### The Link-state Algorithm
@@ -123,6 +123,8 @@ Aggregate routers into regions known as “**autonomous systems**” (AS) (a.k.a
         * IS-IS protocol (ISO standard, not RFC standard) essentially same as OSPF
 
 ### Routing Information Protocol(RIP)
+
+* **The RIP is based on the Distance Vector protocol.**
 
 * The first version of RIP, released as a part of the BSD version of Unix, uses hop count as a metric (i.e. assumes link cost as 1). The metric for choosing a path could be shortest distance, lowest cost, or a load-balanced path. In RIP, routing updates are exchanged between neighbors periodically, using a RIP response message, as opposed to distance vectors in the DV Protocols. These messages, called **RIP advertisements**, contain information about sender’s distances to destination subnets.
 * Let’s look at a simple RIP example to illustrate how it works. The figure below shows a portion of the network. Here, A, B, C and D denote the routers and w, x, y and z denote the subnet masks.
