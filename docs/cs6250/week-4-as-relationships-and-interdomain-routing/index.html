@@ -287,29 +287,37 @@ function sidebar_toggle() {
   <h1 id="week-4-as-relationships-and-interdomain-routing"><a class="markdownIt-Anchor" href="#week-4-as-relationships-and-interdomain-routing"></a> Week 4 - AS Relationships and Interdomain Routing</h1>
 <!-- toc -->
 <ul>
-<li><a href="#autonomous-systems-and-internet-interconnection">Autonomous Systems and Internet Interconnection</a>
+<li><a href="#Autonomous-Systems-and-Internet-Interconnection">Autonomous Systems and Internet Interconnection</a>
 <ul>
-<li><a href="#as-business-relationships">AS Business Relationships</a></li>
+<li><a href="#AS-Business-Relationships">AS Business Relationships</a></li>
 </ul>
 </li>
-<li><a href="#bgp">BGP</a>
+<li><a href="#BGP">BGP</a>
 <ul>
-<li><a href="#bgp-routing-policies-importing-and-exporting-routes">BGP Routing Policies: Importing and Exporting Routes</a></li>
-<li><a href="#bgp-and-design-goals">BGP and Design Goals</a></li>
-<li><a href="#bgp-protocol-basics">BGP Protocol Basics</a></li>
-<li><a href="#ibgp-and-ebgp">iBGP and eBGP</a></li>
-<li><a href="#bgp-decision-process-selecting-routes-at-a-router">BGP Decision Process: Selecting Routes at a Router</a></li>
-<li><a href="#challenges-with-bgp">Challenges with BGP</a></li>
+<li><a href="#BGP-Routing-Policies-Importing-and-Exporting-Routes">BGP Routing Policies: Importing and Exporting Routes</a></li>
+<li><a href="#BGP-and-Design-Goals">BGP and Design Goals</a></li>
+<li><a href="#BGP-Protocol-Basics">BGP Protocol Basics</a></li>
+<li><a href="#iBGP-and-eBGP">iBGP and eBGP</a></li>
+<li><a href="#BGP-Decision-Process-Selecting-Routes-at-a-Router">BGP Decision Process: Selecting Routes at a Router</a>
+<ul>
+<li><a href="#The-Router's-Decision-Process">The Router’s Decision Process</a></li>
 </ul>
 </li>
-<li><a href="#ixps">IXPs</a>
+<li><a href="#Challenges-with-BGP">Challenges with BGP</a>
 <ul>
-<li><a href="#peering-at-internet-exchange-pointsixps">Peering at Internet Exchange Points(IXPs)</a></li>
-<li><a href="#peering-at-ixps-how-does-a-route-server-work">Peering at IXPs: How Does a Route Server Work?</a></li>
-<li><a href="#remote-peering-optional">Remote Peering [Optional]</a></li>
+<li><a href="#Scalability-and-Misconfigurations">Scalability and Misconfigurations</a></li>
 </ul>
 </li>
-<li><a href="#bgp-configuration-verification-optional">BGP Configuration Verification [Optional]</a></li>
+</ul>
+</li>
+<li><a href="#IXPs">IXPs</a>
+<ul>
+<li><a href="#Peering-at-Internet-Exchange-Points(IXPs)">Peering at Internet Exchange Points(IXPs)</a></li>
+<li><a href="#Peering-at-IXPs-How-Does-a-Route-Server-Work%3F">Peering at IXPs: How Does a Route Server Work?</a></li>
+<li><a href="#Remote-Peering-%255BOptional%255D">Remote Peering [Optional]</a></li>
+</ul>
+</li>
+<li><a href="#BGP-Configuration-Verification-%255BOptional%255D">BGP Configuration Verification [Optional]</a></li>
 </ul>
 <!-- tocstop -->
 <hr />
@@ -371,7 +379,7 @@ function sidebar_toggle() {
 <li><strong>Provider-Customer relationship (or transit)</strong>: Based on a financial settlement that determines how much the customer will pay the provider. The provider forwards the customer’s traffic to destinations found in the provider’s routing table (including the opposite direction of the traffic).</li>
 <li><strong>Peering relationship</strong>: In a peering relationship, two ASes share access to a subset of each other’s routing tables. Peering relationships are formed between Tier-1 ISPs but also between smaller ISPs.
 <ul>
-<li>In the case of Tier-1 ISPs, the two peers need to be of similar size and handle proportional amounts of traffic. Otherwise, the larger ISP would lack the incentive to enter a peering relationship with a smaller size ISP.</li>
+<li>In the case of Tier-1 ISPs, the two peers need to be of <strong>similar size and handle proportional amounts of traffic</strong>[Quiz]. Otherwise, the larger ISP would lack the incentive to enter a peering relationship with a smaller size ISP.</li>
 <li>When two small ISPs peer, they both save the money they would otherwise pay to their providers by directly forwarding traffic between themselves instead of through their providers.</li>
 <li>In a peering relationship, the traffic exchanged between the two peers must be highly asymmetric so that there is enough incentive for both parties to peer with each other(Quiz).</li>
 </ul>
@@ -478,7 +486,16 @@ function sidebar_toggle() {
 <img src="https://i.imgur.com/OVJqXFC.png" style="width: 600px" />
 </li>
 <li>
-<p>Finally, we note that iBGP is not another IGP-like protocol (e.g., RIP or OSPF). IGP-like protocols are used to establish paths between the internal routers of an AS based on specific costs within the AS. In contrast, iBGP is only used to disseminate external routes within the AS.(Quiz)</p>
+<p>IGP vs iBGP vs eBGP</p>
+<ul>
+<li>IGP: routes inside an AS to <strong>internal</strong> destinations</li>
+<li>iBGP: routes inside an AS to <strong>external</strong> destinations</li>
+<li>eBGP: boarder routes in different ASes to <strong>external</strong> destinations</li>
+<li>For example, a router a1 in AS A want to reach router a2 in AS B, it will need iBGP to learn which is the border router, and use IGP to find the shortest path to get there. And the border router from AS A will use eBGP protocol to find the border router from AS B.</li>
+</ul>
+</li>
+<li>
+<p>iBGP is <strong>NOT</strong> another IGP-like protocol (e.g., RIP or OSPF). IGP-like protocols are used to establish paths between the internal routers of an AS based on specific costs within the AS. In contrast, iBGP is only used to disseminate external routes within the AS.(Quiz)</p>
 <ul>
 <li>IGP-like protocols are used to establish paths between the internal routes of an AS based on specific osts within AS. iBGP is used for disseminaing <strong>external</strong> routes within the AS</li>
 </ul>
@@ -495,10 +512,10 @@ function sidebar_toggle() {
 </li>
 <li>A router receives incoming BGP messages and processes them. When a router receives advertisements
 <ol>
-<li>It first <u>applies the import policies to exclude routes from further consideration</u>.</li>
+<li>It first <u>applies the import policies to exclude routes from further consideration</u>[Quiz].</li>
 <li>Then the router <u>implements the decision process to select the best routes</u> that reflect the policy in place.</li>
 <li>Next, the newly <u>selected routes are installed</u> in the forwarding table.</li>
-<li>Finally, the router <u>decides which neighbors to export</u> the route to by applying the export policy.</li>
+<li>Finally, the router <u>decides which neighbors to export</u> by applying the export policy.</li>
 </ol>
 </li>
 </ul>
@@ -599,7 +616,7 @@ c. or by the protocol (e.g., if a route is learned through eBGP or iBGP).</p>
 </li>
 <li>What services are offered at IXPs?
 <ul>
-<li><strong>Public peering</strong>: The most well-known use of IXPs is public peering service, in which two networks use the IXP’s network infrastructure to establish a connection to exchange traffic based on their bilateral relations and traffic requirements. The costs required to set up this connection are a one-time cost for establishing the connection, the monthly charge for using the chosen IXP port (those with higher speeds are more expensive), and perhaps an annual fee of membership in the entity owning and operating the IXP. However, the IXPs do not usually charge based on the amount of exchanged volume. They also do not usually interfere with bilateral relations between the participants unless there is a violation of the GTC. Even with the set-up costs, IXPs are generally cheaper than other conventional methods of exchanging traffic (such as relying on third parties which charge based on the volume of exchanged traffic). IXP participants also often experience better network performance and Quality-of-Service (QoS) because of reduced delays and routing efficiencies. In addition, many companies that are significant players in the Internet space (such as Google) incentivize other networks to connect at IXPs by making it a requirement to peering with them.</li>
+<li><strong>Public peering</strong>: The most well-known use of IXPs is public peering service, in which two networks use the IXP’s network infrastructure to establish a connection to exchange traffic based on their bilateral relations and traffic requirements. The costs required to set up this connection are a one-time cost for establishing the connection, the monthly charge for using the chosen IXP port (those with higher speeds are more expensive), and perhaps an annual fee of membership in the entity owning and operating the IXP. However, <u>the IXPs do not usually charge based on the amount of exchanged volume</u>. They also do not usually interfere with bilateral relations between the participants unless there is a violation of the GTC. Even with the set-up costs, IXPs are generally cheaper than other conventional methods of exchanging traffic (such as relying on third parties which charge based on the volume of exchanged traffic). IXP participants also often experience better network performance and Quality-of-Service (QoS) because of reduced delays and routing efficiencies. In addition, many companies that are significant players in the Internet space (such as Google) incentivize other networks to connect at IXPs by making it a requirement to peering with them.</li>
 <li><strong>Private peering</strong>: Most operational IXPs also provide a private peering service (Private Interconnects, or PIs) that allows direct traffic exchange between the two parties, and <u>doesn’t use the IXP’s public peering infrastructure</u>(Quiz). This is commonly used when the participants want a well-provisioned, dedicated link capable of handling high-volume, bidirectional, and relatively stable traffic.</li>
 <li><strong>Route servers and Service level agreements</strong>: Many IXPs also include service level agreements (SLAs) and <u>free use of the IXP’s route servers</u>(Quiz) for participants. This allows participants to arrange instant peering with many co-located participant networks using essentially a single agreement/BGP session.</li>
 <li><strong>Remote peering through resellers</strong>: Another popular service is IXP reseller/partner programs. Third parties resell IXP ports wherever they have infrastructure connected to the IXP. These third parties can offer the IXP’s service remotely, which will enable networks that have little traffic also to use the IXP. This also enables remote peering, where networks in distant geographic areas can use the IXP.</li>

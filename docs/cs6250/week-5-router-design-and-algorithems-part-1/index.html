@@ -287,23 +287,23 @@ function sidebar_toggle() {
   <h1 id="week-5-router-design-and-algorithms-part-1"><a class="markdownIt-Anchor" href="#week-5-router-design-and-algorithms-part-1"></a> Week 5 - Router Design and Algorithms Part 1</h1>
 <!-- toc -->
 <ul>
-<li><a href="#whats-inside-a-router">What’s Inside a Router?</a></li>
-<li><a href="#router-architecture">Router Architecture</a></li>
-<li><a href="#different-types-of-switching">Different Types of Switching</a></li>
-<li><a href="#challenges-that-the-router-faces">Challenges that the router faces</a>
+<li><a href="#What's-Inside-a-Router%3F">What’s Inside a Router?</a></li>
+<li><a href="#Router-Architecture">Router Architecture</a></li>
+<li><a href="#Different-Types-of-Switching">Different Types of Switching</a></li>
+<li><a href="#Challenges-that-the-router-faces">Challenges that the router faces</a>
 <ul>
-<li><a href="#prefix-match-lookups">Prefix-Match Lookups</a></li>
+<li><a href="#Prefix-Match-Lookups">Prefix-Match Lookups</a></li>
 </ul>
 </li>
-<li><a href="#unibit-tries">Unibit Tries</a></li>
-<li><a href="#multibit-tries">Multibit Tries</a>
+<li><a href="#Unibit-Tries">Unibit Tries</a></li>
+<li><a href="#Multibit-Tries">Multibit Tries</a>
 <ul>
-<li><a href="#prefix-expansion">Prefix Expansion</a></li>
-<li><a href="#multibit-tries-fixed-stride">Multibit tries: Fixed-Stride</a></li>
-<li><a href="#multibit-tries-variable-stride">Multibit Tries: Variable Stride</a></li>
+<li><a href="#Prefix-Expansion">Prefix Expansion</a></li>
+<li><a href="#Multibit-tries-Fixed-Stride">Multibit tries: Fixed-Stride</a></li>
+<li><a href="#Multibit-Tries-Variable-Stride">Multibit Tries: Variable Stride</a></li>
 </ul>
 </li>
-<li><a href="#quiz">Quiz</a></li>
+<li><a href="#Quiz">Quiz</a></li>
 </ul>
 <!-- tocstop -->
 <hr />
@@ -388,6 +388,9 @@ function sidebar_toggle() {
 </li>
 <li>
 <p><strong>Header validation and checksum</strong>: The router checks the packet’s version number, decrements the time-to-live (TTL) field, and recalculates the header checksum.</p>
+<ul>
+<li>Note this happens on the Data plane[Quiz].</li>
+</ul>
 </li>
 <li>
 <p><strong>Route processing</strong>: The routers build their forwarding tables using routing protocols such as RIP, OSPF, and BGP. <strong>These protocols are implemented in the routing processors</strong>.</p>
@@ -567,6 +570,7 @@ function sidebar_toggle() {
 <li>While a <strong>unibit trie</strong> is very efficient and offers advantages such as fast lookup and easier updates, its most significant problem is the number of memory accesses required to perform a lookup. For 32 bit addresses, we can see that looking up the address in a unibit trie might require 32 memory accesses, in the worst case. Assuming a 60 nsec latency, the worst-case search time is 1.92 microseconds. This could be very inefficient in high-speed links.</li>
 <li>Instead, we can implement lookups using a stride. <strong>The stride is the number of bits that we check at each step</strong>[Quiz].</li>
 <li>So an alternative to unibit tries are the <strong>multibit tries</strong>. A multibit trie is a trie where each node has 2^k children, where k is the stride. Next, we will see that we can have two flavors of multibit tries: <strong>fixed-length stride</strong> tries and <strong>variable-length stride</strong> tries.</li>
+<li>A multibit trie is shorter than a unibit trie representing the same prefix database and requires fewer memory accesses to perform a lookup.[Quiz]</li>
 </ul>
 </li>
 </ul>
@@ -599,7 +603,8 @@ function sidebar_toggle() {
 </ul>
 <h3 id="multibit-tries-variable-stride"><a class="markdownIt-Anchor" href="#multibit-tries-variable-stride"></a> Multibit Tries: Variable Stride</h3>
 <ul>
-<li>Why do we need variable strides?
+<li>
+<p>Why do we need variable strides?</p>
 <ul>
 <li>In this topic, we will discuss a more flexible version of the algorithm, which offers us a <strong>variable number of strides</strong>. With this scheme, we can examine a different number of bits every time.</li>
 <li>We encode the stride of the trie node using a pointer to the node. The root node stays as is (in the previous scheme).</li>
@@ -611,12 +616,16 @@ function sidebar_toggle() {
 </li>
 </ul>
 </li>
-<li>Some <strong>key points</strong> about variable stride:
+<li>
+<p>Some <strong>key points</strong> about variable stride:</p>
 <ol>
 <li>Every node can have a different number of bits to be explored.</li>
 <li>The optimizations to the stride length for each node are all done to <strong>save trie memory and the least memory accesses</strong>.</li>
 <li>An optimum variable stride is selected by using dynamic programming</li>
 </ol>
+</li>
+<li>
+<p>Note that, in either fixed length or variable stride tires, the prefix in each node in the trie should have the <strong>same length</strong>.[Quiz]</p>
 </li>
 </ul>
 <h2 id="quiz"><a class="markdownIt-Anchor" href="#quiz"></a> Quiz</h2>

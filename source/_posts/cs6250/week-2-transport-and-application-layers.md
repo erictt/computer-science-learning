@@ -24,7 +24,7 @@
 * The job of delivering the data included in the transport-layer segment to the appropriate socket, as defined in the segment fields, is called **demultiplexing**. 
     * Going up to application layer.
 * Similarly, the sending host will need to gather data from different sockets and encapsulate each data chunk with header information (that will later be used in demultiplexing) to create segments, and then forward the segments to the network layer. We refer to this job as **multiplexing**. 
-    * Going downstream with extra header(Encapsulate the mssage)
+    * Going downstream with extra header(Encapsulate the message)
 
 ## Connectionless and Connection-Oriented Service
 
@@ -62,7 +62,7 @@
     * Finally, the TCP server receives the connection request, and the server creates a socket that is identified by the four-tuple source IP, source port, destination IP, and destination port. 
     * The server uses this socket identifier to demultiplex incoming data and forward them to this socket. Now, the TCP connection is established and the client and server can send and receive data between one another.    
 
-* an example connection establishment.
+* An example connection establishment.
     * <img src="https://i.imgur.com/nIodUGD.png" style="width:500px" />
 * Why don't UDP/TCP use process IDs rather than definw port numbers?
     * Process IDs are specific to OS, therefore use process IDs make the protocol dependent to OS. Also a process should can set up multiple channels.
@@ -171,6 +171,8 @@
 
 * Would all those polices cover? If so, what's the diff from AIMD?
     * https://inst.eecs.berkeley.edu/~ee122/fa08/notes/19-TCPAdvancedx6.pdf
+* In AIAD and MIMD, the plotted throughput line will oscillate over the full bandwidth utilization line but will not converge as was shown for AIMD. On the other hand, **MIAD will converge**. [Quiz]
+* None of the alternative policies are as stable. The decrease policy in AIAD and MIAD is not as aggressive as AIMD, so those will not effectively address congestion control. In contrast, the increase policy in MIAD and MIMD is too aggressive.
 
 ### TCP Reno
 
@@ -220,9 +222,10 @@
     * $$W(t) = C(t-K)^3 + W_{max}$$
 
 * Here, $W_{max}$ is the window when the packet loss was detected. Here C is a scaling constant, and K is the time period that the above function takes to increase W to $W_{max}$ when there is no further loss event and is calculated by using the following equation:
-    * $$K = \sqrt[3]{\frac{W_{max}B}{C}}$$
+    * $$K = \sqrt[3]{\frac{W_{max}\beta}{C}}$$
 
 * It is important to note that time here is the time elapsed since the last loss event instead of the usual ACK-based timer used in TCP Reno. This also makes TCP CUBIC RTT-fair. 
+* The key feature of CUBIC is that its window growth depends only on the time between two consecutive congestion events. One congestion event is the time when TCP undergoes fast recovery. This feature allows CUBIC flows competing in the same bottleneck to have approximately the same window size independent of their RTTs, achieving good RTT-fairness.[Quiz]
 
 ### The TCP Protocol: TCP Throughput    
 

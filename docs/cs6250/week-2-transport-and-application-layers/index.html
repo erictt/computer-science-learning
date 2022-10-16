@@ -287,51 +287,59 @@ function sidebar_toggle() {
   <h1 id="lesson-2-transport-and-application-layers"><a class="markdownIt-Anchor" href="#lesson-2-transport-and-application-layers"></a> Lesson 2 : Transport and Application Layers</h1>
 <!-- toc -->
 <ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#multiplexing">Multiplexing</a>
+<li><a href="#Introduction">Introduction</a></li>
+<li><a href="#Multiplexing">Multiplexing</a>
 <ul>
-<li><a href="#multiplexing-vs-demultiplexing">Multiplexing vs Demultiplexing</a></li>
+<li><a href="#Multiplexing-vs-Demultiplexing">Multiplexing vs Demultiplexing</a></li>
 </ul>
 </li>
-<li><a href="#connectionless-and-connection-oriented-service">Connectionless and Connection-Oriented Service</a>
+<li><a href="#Connectionless-and-Connection-Oriented-Service">Connectionless and Connection-Oriented Service</a>
 <ul>
-<li><a href="#connectionless-serviceudp">Connectionless Service(UDP)</a></li>
-<li><a href="#connection-oriented-servicetcp">Connection-Oriented Service(TCP)</a></li>
+<li><a href="#Connectionless-Service(UDP)">Connectionless Service(UDP)</a>
+<ul>
+<li><a href="#Checksum(an-error-checking-mechanism)">Checksum(an error checking mechanism):</a></li>
 </ul>
 </li>
-<li><a href="#the-tcp-three-way-handshake">The TCP Three-Way Handshake</a>
-<ul>
-<li><a href="#connection-teardown">Connection Teardown</a></li>
+<li><a href="#Connection-Oriented-Service(TCP)">Connection-Oriented Service(TCP)</a></li>
 </ul>
 </li>
-<li><a href="#reliable-transmission">Reliable Transmission</a>
+<li><a href="#The-TCP-Three-Way-Handshake">The TCP Three-Way Handshake</a>
 <ul>
-<li><a href="#selective-acking">Selective ACKing</a></li>
+<li><a href="#Connection-Teardown">Connection Teardown</a></li>
 </ul>
 </li>
-<li><a href="#transmission-control">Transmission Control</a>
+<li><a href="#Reliable-Transmission">Reliable Transmission</a>
 <ul>
-<li><a href="#flow-control">Flow control</a></li>
-<li><a href="#congestion-control">Congestion Control</a></li>
+<li><a href="#Selective-ACKing">Selective ACKing</a></li>
 </ul>
 </li>
-<li><a href="#congestion-control-at-tcp-aimd">Congestion Control at TCP - AIMD</a>
+<li><a href="#Transmission-Control">Transmission Control</a>
 <ul>
-<li><a href="#additive-increase-ai">Additive Increase (AI)</a></li>
-<li><a href="#multiplicative-decrease-md">Multiplicative Decrease (MD)</a></li>
-<li><a href="#aiad-mimd-miad">AIAD - MIMD - MIAD</a></li>
-<li><a href="#tcp-reno">TCP Reno</a></li>
-<li><a href="#slow-start-in-tcp">Slow start in TCP</a></li>
-<li><a href="#tcp-fairness">TCP Fairness</a></li>
+<li><a href="#Flow-control">Flow control</a></li>
+<li><a href="#Congestion-Control">Congestion Control</a></li>
 </ul>
 </li>
-<li><a href="#tcp-cubic">TCP CUBIC</a>
+<li><a href="#Congestion-Control-at-TCP---AIMD">Congestion Control at TCP - AIMD</a>
 <ul>
-<li><a href="#the-tcp-protocol-tcp-throughput">The TCP Protocol: TCP Throughput</a></li>
+<li><a href="#Additive-Increase-(AI)">Additive Increase (AI)</a></li>
+<li><a href="#Multiplicative-Decrease-(MD)">Multiplicative Decrease (MD)</a></li>
+<li><a href="#AIAD---MIMD---MIAD">AIAD - MIMD - MIAD</a></li>
+<li><a href="#TCP-Reno">TCP Reno</a></li>
+<li><a href="#Slow-start-in-TCP">Slow start in TCP</a></li>
+<li><a href="#TCP-Fairness">TCP Fairness</a>
+<ul>
+<li><a href="#Cases-that-TCP-is-not-fair">Cases that TCP is not fair</a></li>
 </ul>
 </li>
-<li><a href="#tcp-in-datacenter">TCP in Datacenter</a></li>
-<li><a href="#terms">Terms</a></li>
+</ul>
+</li>
+<li><a href="#TCP-CUBIC">TCP CUBIC</a>
+<ul>
+<li><a href="#The-TCP-Protocol-TCP-Throughput">The TCP Protocol: TCP Throughput</a></li>
+</ul>
+</li>
+<li><a href="#TCP-in-Datacenter">TCP in Datacenter</a></li>
+<li><a href="#Terms">Terms</a></li>
 </ul>
 <!-- tocstop -->
 <hr />
@@ -372,7 +380,7 @@ function sidebar_toggle() {
 <li>
 <p>Similarly, the sending host will need to gather data from different sockets and encapsulate each data chunk with header information (that will later be used in demultiplexing) to create segments, and then forward the segments to the network layer. We refer to this job as <strong>multiplexing</strong>.</p>
 <ul>
-<li>Going downstream with extra header(Encapsulate the mssage)</li>
+<li>Going downstream with extra header(Encapsulate the message)</li>
 </ul>
 </li>
 </ul>
@@ -439,7 +447,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>
-<p>an example connection establishment.</p>
+<p>An example connection establishment.</p>
 <ul>
 <li>
 <img src="https://i.imgur.com/nIodUGD.png" style="width:500px" />
@@ -633,6 +641,8 @@ function sidebar_toggle() {
 <li><a target="_blank" rel="noopener" href="https://inst.eecs.berkeley.edu/~ee122/fa08/notes/19-TCPAdvancedx6.pdf">https://inst.eecs.berkeley.edu/~ee122/fa08/notes/19-TCPAdvancedx6.pdf</a></li>
 </ul>
 </li>
+<li>In AIAD and MIMD, the plotted throughput line will oscillate over the full bandwidth utilization line but will not converge as was shown for AIMD. On the other hand, <strong>MIAD will converge</strong>. [Quiz]</li>
+<li>None of the alternative policies are as stable. The decrease policy in AIAD and MIAD is not as aggressive as AIMD, so those will not effectively address congestion control. In contrast, the increase policy in MIAD and MIMD is too aggressive.</li>
 </ul>
 <h3 id="tcp-reno"><a class="markdownIt-Anchor" href="#tcp-reno"></a> TCP Reno</h3>
 <ul>
@@ -723,8 +733,8 @@ function sidebar_toggle() {
 <p>Here, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the window when the packet loss was detected. Here C is a scaling constant, and K is the time period that the above function takes to increase W to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> when there is no further loss event and is calculated by using the following equation:</p>
 <ul>
 <li>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>K</mi><mo>=</mo><mroot><mfrac><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mi>B</mi></mrow><mi>C</mi></mfrac><mn>3</mn></mroot></mrow><annotation encoding="application/x-tex">K = \sqrt[3]{\frac{W_{max}B}{C}}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.44em;vertical-align:-0.769em;"></span><span class="mord sqrt"><span class="root"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8635em;"><span style="top:-3.0412em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size6 size1 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.671em;"><span class="svg-align" style="top:-4.4em;"><span class="pstrut" style="height:4.4em;"></span><span class="mord" style="padding-left:1em;"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-3.631em;"><span class="pstrut" style="height:4.4em;"></span><span class="hide-tail" style="min-width:1.02em;height:2.48em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='2.48em' viewBox='0 0 400000 2592' preserveAspectRatio='xMinYMin slice'><path d='M424,2478
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>K</mi><mo>=</mo><mroot><mfrac><mrow><msub><mi>W</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mi>β</mi></mrow><mi>C</mi></mfrac><mn>3</mn></mroot></mrow><annotation encoding="application/x-tex">K = \sqrt[3]{\frac{W_{max}\beta}{C}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.44em;vertical-align:-0.7634em;"></span><span class="mord sqrt"><span class="root"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8701em;"><span style="top:-3.0479em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size6 size1 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6766em;"><span class="svg-align" style="top:-4.4em;"><span class="pstrut" style="height:4.4em;"></span><span class="mord" style="padding-left:1em;"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ma</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-3.6366em;"><span class="pstrut" style="height:4.4em;"></span><span class="hide-tail" style="min-width:1.02em;height:2.48em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='2.48em' viewBox='0 0 400000 2592' preserveAspectRatio='xMinYMin slice'><path d='M424,2478
 c-1.3,-0.7,-38.5,-172,-111.5,-514c-73,-342,-109.8,-513.3,-110.5,-514
 c0,-2,-10.7,14.3,-32,49c-4.7,7.3,-9.8,15.7,-15.5,25c-5.7,9.3,-9.8,16,-12.5,20
 s-5,7,-5,7c-4,-3.3,-8.3,-7.7,-13,-13s-13,-13,-13,-13s76,-122,76,-122s77,-121,77,-121
@@ -734,12 +744,15 @@ v40H1014.6
 s-87.3,378.7,-272.6,1166c-185.3,787.3,-279.3,1182.3,-282,1185
 c-2,6,-10,9,-24,9
 c-8,0,-12,-0.7,-12,-2z M1001 80
-h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.769em;"><span></span></span></span></span></span></span></span></span></span></p>
+h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7634em;"><span></span></span></span></span></span></span></span></span></span></p>
 </li>
 </ul>
 </li>
 <li>
 <p>It is important to note that time here is the time elapsed since the last loss event instead of the usual ACK-based timer used in TCP Reno. This also makes TCP CUBIC RTT-fair.</p>
+</li>
+<li>
+<p>The key feature of CUBIC is that its window growth depends only on the time between two consecutive congestion events. One congestion event is the time when TCP undergoes fast recovery. This feature allows CUBIC flows competing in the same bottleneck to have approximately the same window size independent of their RTTs, achieving good RTT-fairness.[Quiz]</p>
 </li>
 </ul>
 <h3 id="the-tcp-protocol-tcp-throughput"><a class="markdownIt-Anchor" href="#the-tcp-protocol-tcp-throughput"></a> The TCP Protocol: TCP Throughput</h3>

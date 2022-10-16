@@ -78,9 +78,10 @@ The ways they connect:
 * how does the looping problem exist? two possible reasons: 
     1) each bridge doesn't know the entire configuration of the network, it's possible the fragment will be froward back to itself; 
     2) more likely, the loops are built in purpose of redundancy in case of failure.
-* how to solve it? **The spanning tree algorithm**. The algorithm is used to build a network topology that has no loops and reaches all LANs in the local network. In practice, it is by removing ports from the topology that the extended LAN is reduced to an acyclic tree.
+* how to solve it? **The spanning tree algorithm**. The algorithm is used to build a network topology that has no loops and reaches all LANs in the local network. In practice, it is by removing ports from the topology that the extended LAN is reduced to an acyclic tree. The algorithm can help to prevent broadcast storms[Quiz].
     * The figure below shows the final state of the spanning tree. In this example, B1 is the root bridge, since it has the smallest ID. Notice that both B3 and B5 are connected to LAN A, but B5 is the designated bridge since it is closer to the root. Similarly, both B5 and B7 are connected to LAN B, but in this case B5 is the designated bridge since it has the smaller ID; both are an equal distance from B1.
         * <img src="https://i.imgur.com/5UDqRVT.jpg" style="width:500px" />
+        * Note that the root node is not always in the center, the network administrators can configure the switch ID to have a specific spanning tree[Quiz]. And the inactive links will not be forwarded traffic, but still reachable for future updates[Quiz].
         * For more details: https://www.sciencedirect.com/topics/computer-science/spanning-tree-algorithm
 
 ### Comparing to other network connecting devices

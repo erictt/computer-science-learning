@@ -69,7 +69,9 @@
 * A simple scheduling algorithm is the “**take-the-ticket** algorithm”. 
     * Each output line maintains a distributed queue for all input lines that want to send packets to it. When an input line intends to send a packet to a specific output line, it requests a ticket. Then, the input line waits for the ticket to be served. At that point, the input line connects to the output line, the crosspoint is turned on, and the input line sends the packet. 
 * For example, let’s consider the figure below that shows three input lines that want to connect to four output lines. Next to each input line, we see the queue of the output lines it wants to connect with. For example, input lines A and B want to connect with output lines 1, 2, and 3.
-    * <img src="https://i.imgur.com/Q8PtcYI.gif" style="width: 500px" />
+    * <img src="https://i.imgur.com/FO89pwU.png" style="width: 500px" />
+    * <img src="https://i.imgur.com/lEKvF7S.png" style="width: 500px" />
+    * <img src="https://i.imgur.com/meRIagW.jpg" style="width: 500px" />
     * The following figure shows how the entire process progresses. 
     * <img src="https://i.imgur.com/dWidWk5.png" style="width: 500px" />
 * As we see, while A sends its packet in the first iteration, the entire queue for B and C is waiting. We refer to this problem as **head-of-line (HOL)** blocking because the entire queue is blocked by the progress of the head of the queue. 
