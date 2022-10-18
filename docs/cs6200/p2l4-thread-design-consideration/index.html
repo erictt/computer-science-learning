@@ -90,11 +90,16 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
 <li><a href="/cs6250/week-3-intradomain-routing/index.html">Week 3 - Intradomain Routing</a></li>
 <li><a href="/cs6250/week-4-as-relationships-and-interdomain-routing/index.html">Week 4 - AS Relationships and Interdomain Routing</a></li>
-<li><a href="/cs6250/week-5-router-design-and-algorithems-part-1/index.html">Week 5 - Router Design and Algorithms Part 1</a></li>
-<li><a href="/cs6250/week-6-router-design-and-algorithems-part-2/index.html">Week 6 - Router Design and Algorithms Part 2</a></li>
+<li><a href="/cs6250/week-5-router-design-and-algorithems-part-1/index.html">Week 5 - Router Design and Algorithms (Part 1)</a></li>
+<li><a href="/cs6250/week-6-router-design-and-algorithems-part-2/index.html">Week 6 - Router Design and Algorithms (Part 2)</a></li>
 </ul>
 <!--
-
+* [Week 7 - Software Defined Networking (Part 1)](/cs6250/week-7-software-defined-networking-part-1/index.html)
+* [Week 8 - Software Defined Networking (Part 2)](/cs6250/week-8-software-defined-networking-part-2/index.html)
+* [Week 9 - Internet Security](/cs6250/week-9-internet-security/index.html)
+* [Week 10 - Internet Surveillance and Censorship](/cs6250/week-10-internet-surveillance-and-censorship/index.html)
+* [Week 11 - Applications Videos](/cs6250/week-11-applications-video/index.html)
+* [Week 12 - Applications CDNs and Overlay Networks](/cs6250/week-12-applications-cdns-and-overlay-networks/index.html)
 -->
 <h2 id="cs6200-graduate-introduction-to-operating-systems"><a class="markdownIt-Anchor" href="#cs6200-graduate-introduction-to-operating-systems"></a> CS6200 Graduate Introduction to Operating Systems</h2>
 <ul>
@@ -106,9 +111,18 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6200/p2l4-thread-design-consideration/index.html">P2L4 - Thread Design Considerations</a></li>
 <li><a href="/cs6200/p2l5-thread-performance-consideration/index.html">P2L5 - Thread Performance Considerations</a></li>
 <li><a href="/cs6200/p3l1-scheduling/index.html">P3L1 - Scheduling</a></li>
+<li><a href="/cs6200/p3l2-memory-management/index.html">P3L2 - Memory Management</a></li>
 </ul>
 <!--
-
+* [P3L3 - Inter-Process Communication](/cs6200/p3l3-inter-process-communication/index.html) 
+* [P3L4 - Synchronization Constructs](/cs6200/p3l4-synchronization-constructs/index.html) 
+* [P3L5 - I/O Management](/cs6200/p3l5-io-management/index.html) 
+* [P3L6 - Virtualization](/cs6200/p3l6-virtualization/index.html) 
+* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
+* [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
+* [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
+* [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
+* [P5L1 - Memory Management](/cs6200/p5l1-memory-management-t/index.html)
 -->
 <h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
 <ul>
@@ -287,44 +301,40 @@ function sidebar_toggle() {
   <h1 id="p2l4-thread-design-considerations"><a class="markdownIt-Anchor" href="#p2l4-thread-design-considerations"></a> P2L4: Thread Design Considerations</h1>
 <!-- toc -->
 <ul>
-<li><a href="#Kernel-Vs.-User-Level-Threads">Kernel Vs. User Level Threads</a></li>
-<li><a href="#Thread-Related-Data-Structures">Thread Related Data Structures</a>
+<li><a href="#kernel-vs-user-level-threads">Kernel Vs. User Level Threads</a></li>
+<li><a href="#thread-related-data-structures">Thread Related Data Structures</a>
 <ul>
-<li><a href="#Single-CPU">Single CPU</a></li>
-<li><a href="#At-Scale">At Scale</a></li>
-<li><a href="#Hard-and-Light-Process-State">Hard and Light Process State</a></li>
-<li><a href="#Rationale-For-Data-Structures">Rationale For Data Structures</a></li>
+<li><a href="#single-cpu">Single CPU</a></li>
+<li><a href="#at-scale">At Scale</a></li>
+<li><a href="#hard-and-light-process-state">Hard and Light Process State</a></li>
+<li><a href="#rationale-for-data-structures">Rationale For Data Structures</a></li>
 </ul>
 </li>
-<li><a href="#Data-Structures-in-Solaris-2.0(OS)">Data Structures in Solaris 2.0(OS)</a>
+<li><a href="#data-structures-in-solaris-20os">Data Structures in Solaris 2.0(OS)</a>
 <ul>
-<li><a href="#User-Level-Structures">User Level Structures</a></li>
-<li><a href="#Kernel-Level-Structures">Kernel Level Structures</a></li>
+<li><a href="#user-level-structures">User Level Structures</a></li>
+<li><a href="#kernel-level-structures">Kernel Level Structures</a></li>
 </ul>
 </li>
-<li><a href="#Thread-Management-Interaction">Thread Management Interaction</a>
+<li><a href="#thread-management-interaction">Thread Management Interaction</a>
 <ul>
-<li><a href="#Visibility-in-Between">Visibility in Between</a></li>
-<li><a href="#Issue-On-Multiple-CPUs">Issue On Multiple CPUs</a></li>
-<li><a href="#Synchronization-Related-Issues">Synchronization Related Issues</a>
-<ul>
-<li><a href="#Destroy-threads">Destroy threads</a></li>
+<li><a href="#visibility-in-between">Visibility in Between</a></li>
+<li><a href="#issue-on-multiple-cpus">Issue On Multiple CPUs</a></li>
+<li><a href="#synchronization-related-issues">Synchronization Related Issues</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#Interrupts-and-Signals">Interrupts and Signals</a>
+<li><a href="#interrupts-and-signals">Interrupts and Signals</a>
 <ul>
-<li><a href="#Interrupt-Handling">Interrupt Handling</a></li>
-<li><a href="#Signal-Handling">Signal Handling</a></li>
-<li><a href="#Why-Disable-Interrupts-or-Signals%3F-Avoid-Deadlock">Why Disable Interrupts or Signals? Avoid Deadlock</a></li>
-<li><a href="#Interrupts-as-a-Separated-Threads">Interrupts as a Separated Threads</a></li>
-<li><a href="#Interrupts-Top-Vs.-Bottom-Half">Interrupts: Top Vs. Bottom Half</a></li>
-<li><a href="#Performance-of-Threads-as-Interrupts">Performance of Threads as Interrupts</a></li>
-<li><a href="#Threads-and-Signal-Handling">Threads and Signal Handling</a></li>
+<li><a href="#interrupt-handling">Interrupt Handling</a></li>
+<li><a href="#signal-handling">Signal Handling</a></li>
+<li><a href="#why-disable-interrupts-or-signals-avoid-deadlock">Why Disable Interrupts or Signals? Avoid Deadlock</a></li>
+<li><a href="#interrupts-as-a-separated-threads">Interrupts as a Separated Threads</a></li>
+<li><a href="#interrupts-top-vs-bottom-half">Interrupts: Top Vs. Bottom Half</a></li>
+<li><a href="#performance-of-threads-as-interrupts">Performance of Threads as Interrupts</a></li>
+<li><a href="#threads-and-signal-handling">Threads and Signal Handling</a></li>
 </ul>
 </li>
-<li><a href="#Tasks-in-Linux">Tasks in Linux</a></li>
+<li><a href="#tasks-in-linux">Tasks in Linux</a></li>
 </ul>
 <!-- tocstop -->
 <hr />
