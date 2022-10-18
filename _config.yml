@@ -124,12 +124,15 @@ markdown_it_plus:
   pre_class: highlight
   plugins:
     - plugin:
-      name: "@neilsustc/markdown-it-katex"
+      name: "@iktakahiro/markdown-it-katex"
       enable: true
       options:
         strict: false
-mdtoc:
-  maxdepth: 3
+    - plugin:
+      name: "markdown-it-toc-and-anchor"
+      enable: true
+# mdtoc:
+#   maxdepth: 3
   # class: toc
   # decodeEntities: false
   # anchor:
