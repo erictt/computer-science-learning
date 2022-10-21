@@ -59,7 +59,7 @@
 ### Page Table Entry(PTE)
 
 * 32 bits in total for each entry.
-* <img src="https://i.imgur.com/dBgQCO0.jpg" style="width: 600px" />
+* ![](https://i.imgur.com/dBgQCO0.jpg)
     * A **present bit**(P) indicates whether this page is in physical memory or on disk (i.e., it has been swapped out).
     * A **protection bits**(R/W), indicating whether the page could be read from, written to, or executed from.
     * A **dirty bit**(D) indicates whether the page has been modiﬁed since it was brought into memory.
@@ -85,17 +85,17 @@
 ### Multi-level Page Tables
 
 * One way to solve the problem is to use a **two-level paging algorithm**(hierarchical paging), in which the page table itself is also paged.
-    * <img src="https://i.imgur.com/aQpSszr.jpg" style="width: 400px" />
+    * ![](https://i.imgur.com/aQpSszr.jpg)
     * The internal page table only exists when the virtual memory regions are valid.
     * When a process request more memory to be allocated via malloc, the OS will check/create another page table for it, add new entry in the outer page table, map the entry to the new virtual memory region in the internal page table.
 * For example, consider again the system with a 32-bit **logical address** space and a page size of 4 KB. A logical address is divided into a page number consisting of 20 bits and a page offset consisting of 12 bits. Because we page the page table, the page number is further divided into a 10-bit page number and a 10-bit page offset. Thus, a logical address is as follows:
-    * <img src="https://i.imgur.com/ZN6vjRn.jpg" style="width: 300px" />
+    * ![](https://i.imgur.com/ZN6vjRn.jpg)
         * Different way to look at this^
             1. From p1's perspective, p2 + d is the offset, meaning each entry is 2^22 = 4MB and there are 2^10 = 1K records in outer table
             2. From p2's perspective, d is the offset, meaning each entry is 2^12 = 4KB, and there are 1K x 2^10 = 1M potential records.
             3. The 1K outer entries exists no matter what, but the 1M in the internal table doesn't.
     * where p 1 is an index into the outer page table and p 2 is the displacement within the page of the inner page table. The address-translation method for this architecture is:
-        * <img src="https://i.imgur.com/zgqG4Sa.jpg" style="width: 500px" />
+        * ![](https://i.imgur.com/zgqG4Sa.jpg)
         * Because address translation works from the outer page table inward, this scheme is also known as a **forward-mapped** page table.
     * The size of each page in the inner page table is 2^10(p_2) * 2^10(page size or page offset) = 2^20 = 1MB
 
@@ -106,14 +106,14 @@
 
 * A single memory reference require 1 access to the page table entry if it's single-level, 4 accesses if it's four level and 1 access to memory. To avoid this slow action, the standard technique is cache.
 * Most architectures, the MMU integrates a hardware cache which is called TLB - **Translation Lookaside Buffer**.
-* <img src="https://i.imgur.com/LOv09d0.jpg" style="width: 600px" />
+* ![](https://i.imgur.com/LOv09d0.jpg)
 
 ### Inverted Page Tables
 
 * One of the drawbacks of multi-level method is that each page table may consist of millions of entries. These tables may consume large amounts of physical memory just to keep track of how other physical memory is being used.
 
 * To solve this problem, we can use an **inverted page table.** An inverted page table has one entry for each real page (or frame) of memory. Each entry consists of the virtual address of the page stored in that real memory location, with information about the process that owns the page. Thus, only one page table is in the system, and it has only one entry for each page of physical memory.
-    *  <img src="https://i.imgur.com/z3kLrs5.jpg" style="width: 500px" />
+    *  ![](https://i.imgur.com/z3kLrs5.jpg)
 * To illustrate this method, we describe a simplified version of the inverted page table used in the IBM RT. Each virtual address in the system consists of a triple: `<process-id, page-number, offset>`.
 * Each inverted page-table entry is a pair <process-id, page-number> where the process-id assumes the role of the address-space identifier. When a memory reference occurs, part of the virtual address, consisting of <process-id, pagenumber>, is presented to the memory subsystem. The inverted page table is then searched for a match. If a match is found—say, at entry i—then the physical address <i, offset> is generated. If no match is found, then an illegal address access has been attempted.
 * Although this scheme decreases the amount of memory needed to store each page table, it increases the amount of time needed to search the table when a page reference occurs. Because the inverted page table is sorted by physical address, but lookups occur on virtual addresses, the whole table might need to be searched before a match is found. This search would take far too long. To alleviate this problem, we use a **hash table**, to limit the search to one—or at most a few—page-table entries.
@@ -122,18 +122,18 @@
 
 * One approach for quick search is to use a **hashed page table**, with the hash value being the virtual page number. Each entry in the hash table contains a linked list of elements that hash to the same location (to handle collisions). Each element consists of three fields: (1) the virtual page number, (2) the value of the mapped page frame, and (3) a pointer to the next element in the linked list.
 * The algorithm works as follows: The virtual page number in the virtual address is hashed into the hash table. The virtual page number is compared with field 1 in the first element in the linked list. If there is a match, the corresponding page frame (field 2) is used to form the desired physical address. If there is no match, subsequent entries in the linked list are searched for a matching virtual page number.
-    * <img src="https://i.imgur.com/EW5AIMG.jpg" style="width: 500px" />
+    * ![](https://i.imgur.com/EW5AIMG.jpg)
 
 ### IA-32 Segmentation
 
 * Memory management in IA-32 systems is divided into two components **segmentation and paging**—and works as follows: The CPU generates logical addresses, which are given to **the segmentation unit**. The segmentation unit produces a linear address for each logical address. The linear address is then given to the paging unit, which in turn generates the physical address in main memory. Thus, the segmentation and paging units form the equivalent of the memory-management unit (MMU).
-    * <img src="https://i.imgur.com/VygCemh.jpg" style="width: 600px" />
+    * ![](https://i.imgur.com/VygCemh.jpg)
     * the segmentation unit can be code, heap, data, stack, etc.
 
-* <img src="https://i.imgur.com/x2juzcl.jpg" style="width: 500px" />
+* ![](https://i.imgur.com/x2juzcl.jpg)
 * The **logical address** space of a process is divided into two partitions. The first partition consists of up to 8 K segments that are private to that process. The second partition consists of up to 8 K segments that are shared among all the processes. Information about the first partition is kept in the **local descriptor table (LDT);** information about the second partition is kept in the **global descriptor table (GDT)**. Each entry in the LDT and GDT consists of an 8-byte segment descriptor with detailed information about a particular segment, including the base location and limit of that segment.
     * The **logical address** is a pair (selector, offset), where the selector is a 16-bit number:
-        * <img src="https://i.imgur.com/bK6lU5t.jpg" style="width: 200px" />
+        * ![](https://i.imgur.com/bK6lU5t.jpg)
 
 ### Page Size
 
@@ -162,7 +162,7 @@
 
 * Initially, all memory is available for user processes and is considered one large block of available memory, a hole. Eventually, as you will see, memory contains a set of holes of various sizes.
 * The figure below depicts this scheme. 
-    * <img src="https://i.imgur.com/vlVCUyG.jpg" style="width: 600px" />
+    * ![](https://i.imgur.com/vlVCUyG.jpg)
     * Initially, the memory is fully utilized, containing processes 5, 8, and 2. After process 8 leaves, there is one contiguous hole. Later on, process 9 arrives and is allocated memory. Then process 5 departs, resulting in two noncontiguous holes.
 * The problem that memory allocation suffer is called **external fragmentation**. As processes are loaded and removed from memory, the free memory space is broken into little pieces. External fragmentation exists when there is enough total memory space to satisfy a request but the available spaces are not contiguous.
 
@@ -173,11 +173,11 @@
     * On request, it subdivided into 2^x chunks and find smallest 2^x chunk that can satisfy request.
         * The fragmentation is still there, but
     * On free, check near buddy to see if you can aggregate into a larger chunk.
-    * <img src="https://i.imgur.com/pFwnP2k.jpg" style="width: 500px" />
+    * ![](https://i.imgur.com/pFwnP2k.jpg)
     * Because the buddy allocator has granularity of powers of two, there will be some internal fragmentation using the buddy allocator. This is a problem because there are a lot of data structures in the Linux kernel that are not close to powers of 2 in size. For example, the task struct used to represent processes/threads is 1.7Kb. To fix this issue, Linux also use the slab allocator.
 * **The slab allocator** uses cache for common object types/sizes, on top of contiguous memory, which
     * solves the internal fragmentation  and avoid external fragmentation.
-    * <img src="https://i.imgur.com/Lwln0EF.jpg" style="width: 400px" />
+    * ![](https://i.imgur.com/Lwln0EF.jpg)
 
 ### Demand Paging
 
@@ -192,7 +192,7 @@
     5. When the storage read is complete, we modify the internal table kept with the process and the page table to indicate that the page is now in memory.
     6. We restart the instruction that was interrupted by the trap. The process can now access the page as though it had always been in memory.
     
-    * <img src="https://i.imgur.com/nKqJavQ.jpg" style="width: 500px" />
+    * ![](https://i.imgur.com/nKqJavQ.jpg)
 
 ### Page Replacement
 

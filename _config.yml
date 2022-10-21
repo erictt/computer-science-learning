@@ -131,10 +131,3 @@ markdown_it_plus:
     - plugin:
       name: "markdown-it-toc-and-anchor"
       enable: true
-# mdtoc:
-#   maxdepth: 3
-  # class: toc
-  # decodeEntities: false
-  # anchor:
-  #   symbol: '#'
-  #   style: header-anchor
