@@ -32,9 +32,9 @@
 * [Week 4 - AS Relationships and Interdomain Routing](/cs6250/week-4-as-relationships-and-interdomain-routing/index.html)
 * [Week 5 - Router Design and Algorithms (Part 1)](/cs6250/week-5-router-design-and-algorithems-part-1/index.html)
 * [Week 6 - Router Design and Algorithms (Part 2)](/cs6250/week-6-router-design-and-algorithems-part-2/index.html)
+* [Week 7 - Software Defined Networking (Part 1)](/cs6250/week-7-software-defined-networking-part-1/index.html)
 
 <!--
-* [Week 7 - Software Defined Networking (Part 1)](/cs6250/week-7-software-defined-networking-part-1/index.html)
 * [Week 8 - Software Defined Networking (Part 2)](/cs6250/week-8-software-defined-networking-part-2/index.html)
 * [Week 9 - Internet Security](/cs6250/week-9-internet-security/index.html)
 * [Week 10 - Internet Surveillance and Censorship](/cs6250/week-10-internet-surveillance-and-censorship/index.html)
@@ -54,9 +54,9 @@
 * [P3L1 - Scheduling](/cs6200/p3l1-scheduling/index.html)
 * [P3L2 - Memory Management](/cs6200/p3l2-memory-management/index.html)
 * [P3L3 - Inter-Process Communication](/cs6200/p3l3-inter-process-communication/index.html) 
+* [P3L4 - Synchronization Constructs](/cs6200/p3l4-synchronization-constructs/index.html) 
 
 <!--
-* [P3L4 - Synchronization Constructs](/cs6200/p3l4-synchronization-constructs/index.html) 
 * [P3L5 - I/O Management](/cs6200/p3l5-io-management/index.html) 
 * [P3L6 - Virtualization](/cs6200/p3l6-virtualization/index.html) 
 * [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
