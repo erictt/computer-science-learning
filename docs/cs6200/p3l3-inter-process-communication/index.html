@@ -112,9 +112,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6200/p2l5-thread-performance-consideration/index.html">P2L5 - Thread Performance Considerations</a></li>
 <li><a href="/cs6200/p3l1-scheduling/index.html">P3L1 - Scheduling</a></li>
 <li><a href="/cs6200/p3l2-memory-management/index.html">P3L2 - Memory Management</a></li>
+<li><a href="/cs6200/p3l3-inter-process-communication/index.html">P3L3 - Inter-Process Communication</a></li>
 </ul>
 <!--
-* [P3L3 - Inter-Process Communication](/cs6200/p3l3-inter-process-communication/index.html) 
 * [P3L4 - Synchronization Constructs](/cs6200/p3l4-synchronization-constructs/index.html) 
 * [P3L5 - I/O Management](/cs6200/p3l5-io-management/index.html) 
 * [P3L6 - Virtualization](/cs6200/p3l6-virtualization/index.html) 
@@ -298,7 +298,306 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1 id=""><a class="markdownIt-Anchor" href="#"></a> </h1>
+  <h1 id="p3l3-inter-process-communication"><a class="markdownIt-Anchor" href="#p3l3-inter-process-communication"></a> P3L3: Inter-Process Communication</h1>
+<!-- toc -->
+<ul>
+<li><a href="#Inter-Process-Communication">Inter Process Communication</a></li>
+<li><a href="#Message-Based-IPC">Message Based IPC</a>
+<ul>
+<li><a href="#Forms-of-Message-Passing">Forms of Message Passing</a></li>
+</ul>
+</li>
+<li><a href="#Shared-Memory-IPC">Shared Memory IPC</a></li>
+<li><a href="#Copy(messages)-vs.-Map(shared-memory)">Copy(messages) vs. Map(shared memory)</a></li>
+<li><a href="#SysV-Shared-Memory">SysV Shared Memory</a>
+<ul>
+<li><a href="#SysV-Shared-Memory-APIs">SysV Shared Memory APIs</a></li>
+<li><a href="#POSIX-Shared-Memory-API">POSIX Shared Memory API</a></li>
+<li><a href="#Shared-Memory-and-Sync">Shared Memory and Sync</a>
+<ul>
+<li><a href="#PThreads-Sync-for-IPC">PThreads Sync for IPC</a></li>
+<li><a href="#Sync-for-Other-IPC">Sync for Other IPC</a></li>
+<li><a href="#IPC-Command-Line-Tools">IPC Command Line Tools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Shared-Memory-Design-Considerations">Shared Memory Design Considerations</a></li>
+</ul>
+<!-- tocstop -->
+<hr />
+<h2 id="inter-process-communication"><a class="markdownIt-Anchor" href="#inter-process-communication"></a> Inter Process Communication</h2>
+<ul>
+<li><strong>Inter process communication (IPC)</strong> is a set of mechanisms that OS supported for interactions among processes (coordination &amp; communication). The mechanism can be categorized as either <strong>message-based</strong> or <strong>memory-based</strong>.
+<ul>
+<li>message-based. e.g. sockets, pipes, message queue, etc.</li>
+<li>memory-based: shared memory, memory mapped files.</li>
+</ul>
+</li>
+<li>A high-level semantics is RPC, it provides some additional detail as to the protocol(s) that will be used. We will talk about it later.</li>
+<li>One important requirement for IPC is <strong>synchronization primitives</strong>.</li>
+</ul>
+<h2 id="message-based-ipc"><a class="markdownIt-Anchor" href="#message-based-ipc"></a> Message Based IPC</h2>
+<ul>
+<li>In messaged-based IPC, the operating system is responsible for creating and maintaining the channel that is used to send these messages, i.e. socket/port.</li>
+<li>OS create and maintains a channel, such as buffer, FIFO queue.</li>
+<li>OS provides interface to processes – port
+<ul>
+<li>Processes send/write message to a port</li>
+<li>Other processes recv/read message from a port</li>
+</ul>
+</li>
+<li>The kernel required to establish communication and perform each IPC operation</li>
+<li>The interaction between process require
+<ul>
+<li>send: system call + data copy</li>
+<li>recv: system call + data copy</li>
+</ul>
+</li>
+<li>In total request-response interaction requires <strong>four user/kernel crossings and four data copying operations</strong>.</li>
+<li>drawback: overheads, too many ops: user/kernel crossing ,and copying data in and out of the kernel</li>
+<li>advantage: simplicity: kernel does channel management and synchronization</li>
+</ul>
+<h3 id="forms-of-message-passing"><a class="markdownIt-Anchor" href="#forms-of-message-passing"></a> Forms of Message Passing</h3>
+<ul>
+<li>
+<p>Several ways to implement, we will talk about <strong>pipes</strong>, <strong>message queue</strong> and <strong>sockets</strong>.</p>
+</li>
+<li>
+<p>Pipes</p>
+<ul>
+<li>Pipes are characterized by two endpoints, so <strong>only two processes can communicate via a pipe</strong>. There is no notion of a message with pipes; instead, there is just a stream of bytes pushed into the pipe from one process and read from the pipe by the other process.
+<ul>
+<li>Think about the pipe: <code>|</code> in the command line</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Message Queues</p>
+<ul>
+<li>Messages queues understand the notion of messages that they can deliver. A sending process must submit a properly formatted message to the channel, and then the channel can deliver this message to the receiving process.</li>
+<li>The OS level functionality regarding message queues includes mechanisms for message priority, custom message scheduling and more.</li>
+<li>The use of message queues is supported via different APIs in Unix-based systems. Two common APIs are <strong>SysV</strong> and <strong>POSIX</strong>.</li>
+</ul>
+</li>
+<li>
+<p>Socket</p>
+<ul>
+<li>With sockets, processes send and receive messages through the socket interface. The socket API supports <strong>send</strong> and <strong>recv</strong> operations that allow processes to send message buffers in and out of the kernel-level communication buffer.</li>
+<li>For instance, the socket may be a TCP/IP socket, which means that the entire TCP/IP protocol stack is associated with the socket buffer.</li>
+</ul>
+</li>
+<li>
+<p>For message queues, the linux system calls that used for</p>
+<ul>
+<li>send message to a message queue: <code>msgsnd</code></li>
+<li>receive messages from a message queue: <code>msgrcv</code></li>
+<li>perform a message control operation: <code>msgctl</code></li>
+<li>get a message identifier: <code>msgget</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="shared-memory-ipc"><a class="markdownIt-Anchor" href="#shared-memory-ipc"></a> Shared Memory IPC</h2>
+<ul>
+<li>In shared memory IPC, processes read and write into a shared memory region. The operating system is involved in establishing the shared memory channel between the processes. What this means is that the OS will map certain physical memory pages into the virtual address spaces of both processes.
+<ul>
+<li>The virtual addresses in each process pointing to the shared physical location do not have to be the same.</li>
+<li>In addition, the shared physical memory section does not need to be contiguous.</li>
+</ul>
+</li>
+<li>The benefit of this approach is that once the physical memory is mapped into both address spaces, the operating system is out of the way. System calls are used only in the setup phase.</li>
+<li>Data copies are reduced, but not necessarily avoided. For data to be available to both processes, it needs to explicitly be allocated from the virtual addresses the belong to the shared memory region. If that is not the case, the data within the same address space needs to be copied in and out of the shared memory region.</li>
+<li>Since the shared memory area can be concurrently accessed by both processes, this means that processes must explicitly synchronize their shared memory operations. In addition, it is now the developer’s responsibility to handle any protocol-related implementations, which adds to the complexity of the application.</li>
+<li>Unix-based system support two popular shared memory APIs: SysV and POSIX. In addition, shared memory IPC can be established between processes by using a memory-mapped file.</li>
+</ul>
+<h2 id="copymessages-vs-mapshared-memory"><a class="markdownIt-Anchor" href="#copymessages-vs-mapshared-memory"></a> Copy(messages) vs. Map(shared memory)</h2>
+<ul>
+<li>
+<img src="https://i.imgur.com/svs0b6F.jpg" style="width: 600px" />
+</li>
+<li>Windows systems leverage this difference. If the data that needs to be transferred is smaller than a certain threshold, the data is copied in and out of a communication channel via a port-like interface. Otherwise the data is mapped into the address space of the target process. This mechanism is called <strong>Local Procedure Calls (LPC).</strong></li>
+</ul>
+<h2 id="sysv-shared-memory"><a class="markdownIt-Anchor" href="#sysv-shared-memory"></a> SysV Shared Memory</h2>
+<ul>
+<li>The operating systems supports <strong>segments</strong> of shared memory, which don’t need to correspond to contiguous physical pages. The operating system treats shared memory as a shared resource using <strong>system wide</strong> policies. That means that there is a limit on the total number of segments and the total size of the shared memory. Currently in Linux the limit is 4000 segments, although in the past it was as few as 6.</li>
+<li>functions for managing shared memory
+<ul>
+<li>create
+<ul>
+<li>OS allocates the required amount of physical memory and then it assigns to it a unique key. This key is used to uniquely identify the segment within the operating system. Another other process can refer to this segment using this key.</li>
+</ul>
+</li>
+<li>attach
+<ul>
+<li>OS establishes a valid mapping between the virtual addresses of that process and the physical addresses that back the segment.</li>
+</ul>
+</li>
+<li>detach
+<ul>
+<li>invalidating the virtual address mappings</li>
+</ul>
+</li>
+<li>destroy
+<ul>
+<li>Once a segment is created, it’s essentially a persistent entity until there is an explicit request for it to be destroyed.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="sysv-shared-memory-apis"><a class="markdownIt-Anchor" href="#sysv-shared-memory-apis"></a> SysV Shared Memory APIs</h3>
+<ul>
+<li><code>shmget(shmid, size, flag)</code> &lt;-- create or open a segment
+<ul>
+<li>specify the size of the segment through the size argument, and we can set various flags, like permission flags, with the flag argument.</li>
+<li>The shmid is the key that references the shared memory segment. This is not created by the operating system, but rather has to be passed to it by the application.</li>
+</ul>
+</li>
+<li><code>ftok(pathname, proj_id)</code> &lt;-- generate the key
+<ul>
+<li>This function generates a token based on its arguments. If you pass it the same arguments you will always get the same key. It’s basically a hashing function. This is how different processes can agree upon how they will obtain a unique key for the memory segment they wish to share.</li>
+</ul>
+</li>
+<li><code>shmat(shmid, addr, flags)</code> &lt;-- attach the shared memory segment
+<ul>
+<li>The programmer has an option to provide the virtual addresses to which the segment should be mapped, using the addr argument. If NULL is passed, the operating system will choose some suitable addresses.</li>
+<li>The returned virtual memory address can be interpreted in various ways, so it is the programmer’s responsibility to cast the address to that memory region to the appropriate type.</li>
+</ul>
+</li>
+<li><code>shmdt(shmid)</code> &lt;-- detach a segment
+<ul>
+<li>This call invalidates the virtual to physical mappings associated with this shared segment.</li>
+</ul>
+</li>
+<li><code>shmctl(shmid, cmd, buf)</code>
+<ul>
+<li>To send commands to the operating system in reference to the shared memory segment.</li>
+<li>If we specify IPC_RMID as the cmd, we can destroy the segment.</li>
+</ul>
+</li>
+<li>more detail: <a target="_blank" rel="noopener" href="https://tldp.org/LDP/lpg/node21.html">https://tldp.org/LDP/lpg/node21.html</a></li>
+</ul>
+<h3 id="posix-shared-memory-api"><a class="markdownIt-Anchor" href="#posix-shared-memory-api"></a> POSIX Shared Memory API</h3>
+<ul>
+<li>The POSIX shared memory standard doesn’t use segments, but files. They are not “real” files that live in a filesystem that are used elsewhere by the operating system. Instead they are files that live in the <strong>tmpfs</strong> filesystem.</li>
+<li>Since shared memory segments are now referenced by a file descriptor, there is no longer a need for the key generation process.</li>
+<li>The functions:
+<ul>
+<li>created/opened:  <code>shm_open()</code>.</li>
+<li>attach/detach shared memory: <code>mmap()</code> and <code>munmap()</code></li>
+<li>destroy a shared memory region: <code>shm_unlink()</code></li>
+<li>remove file descriptor from the address space of the process: <code>shm_close()</code>, not destroy</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man7/shm_overview.7.html">https://man7.org/linux/man-pages/man7/shm_overview.7.html</a></li>
+</ul>
+<h3 id="shared-memory-and-sync"><a class="markdownIt-Anchor" href="#shared-memory-and-sync"></a> Shared Memory and Sync</h3>
+<ul>
+<li>Shared memory has the same situation we encountered in multithreaded environments – synchronization.</li>
+<li>Couple of options for handling inter-process synchronization:
+<ol>
+<li>mechanism supported by process threading library (PThread)</li>
+<li>OS-supported IPC for synchronization</li>
+</ol>
+</li>
+<li>Either method must coordinate
+<ul>
+<li>number of concurrent accesses to shared segment (i.e. mutexes)</li>
+<li>when data is available and ready for consmption(i.e. signals)</li>
+<li><a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man3/mq_notify.3.html">mq_notify()</a> and <a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man3/sem_wait.3.html">sem_wait()</a>  in Linux</li>
+</ul>
+</li>
+</ul>
+<h4 id="pthreads-sync-for-ipc"><a class="markdownIt-Anchor" href="#pthreads-sync-for-ipc"></a> PThreads Sync for IPC</h4>
+<ul>
+<li>The property of the mutex or the condition variable when they are created is whether or not that synchronization variable is private to a process or shared amongst processes.</li>
+<li>The keyword for this is <strong>PTHREAD_PROCESS_SHARED</strong>. If we specify this in the attribute structs that are passed to mutex/condition variable initialization we will ensure that our synchronization variables will be visible across processes.</li>
+<li>One very important thing is that these data structures for the synchronization construct are allocated from the shared memory region must be visible to both processes!</li>
+<li>
+<img src="https://i.imgur.com/zK6k5Je.jpg" style="width: 600px" />
+</li>
+<li>To create the shared memory segment, we first need to create our <strong>segment identifier</strong>. We do this with <code>ftok</code>, passing <code>arg[0]</code> which is the pathname for the program executable as well as some integer parameter. We pass this <strong>id</strong> into <code>shmget</code>, where we specify a <strong>segment size of 1KB</strong> and also pass in some flags.</li>
+<li>Using the segment id, we attach the segment with <code>shmat</code>, which returns a shared memory address - which we assign to <code>shm_address</code> here. <code>shm_address</code> is the <strong>virtual address</strong> in this process’s address space that points to the physically shared memory.</li>
+<li>Then we cast that address to the datatype of the struct we defined - <code>shm_data_struct_t</code>. This struct has two fields.
+<ul>
+<li>One field is the actual buffer of information, the data.</li>
+<li>The other component is the mutex. In this example, the mutex will control access to the data.</li>
+</ul>
+</li>
+<li>To actually create the mutex, we first have to create the <code>mutexattr</code> struct. Once we create this struct, we can set the pshared attribute with <strong>PTHREAD_PROCESS_SHARED</strong>. Then we initialize the mutex with that data structure, using the pointer to the mutex inside the struct that lives in the shared memory region.</li>
+<li>This set of operations will properly allocate and initialize a mutex that is shared amongst processes.</li>
+</ul>
+<h4 id="sync-for-other-ipc"><a class="markdownIt-Anchor" href="#sync-for-other-ipc"></a> Sync for Other IPC</h4>
+<ul>
+<li>Pthreads isn’t necessarily always supported on every platform. Sometimes, we can rely on other means of synchronization in those cases, such as <strong>message queues</strong> and <strong>semaphores</strong>.</li>
+<li>Message queues. Implement mutual exclusion via send/recv operations.
+<ul>
+<li>For example, process A can write to the data in shared memory and then send a “ready” message into the queue. Process B can receive the msg, read the data, and send an “ok” message back.</li>
+</ul>
+</li>
+<li>Semaphores are an OS support synchronization construct and a binary semaphore can have two states, 0 or 1.
+<ul>
+<li>When a semaphore has a value of 0, the process will be blocked. If the semaphore has a value of 1, the process will decrement the value (to 0) and will proceed.</li>
+</ul>
+</li>
+</ul>
+<h4 id="ipc-command-line-tools"><a class="markdownIt-Anchor" href="#ipc-command-line-tools"></a> IPC Command Line Tools</h4>
+<ul>
+<li>Linux provided some command line utilities for using IPC in general.
+<ul>
+<li><code>ipcs</code> -&gt; list all IPC facilities
+<ul>
+<li><code>-m</code> display info on shared memory IPC only</li>
+</ul>
+</li>
+<li><code>ipcrm</code> -&gt; delete IPC facility
+<ul>
+<li><code>-m [shmid]</code> deletes shm segment with given id</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="shared-memory-design-considerations"><a class="markdownIt-Anchor" href="#shared-memory-design-considerations"></a> Shared Memory Design Considerations</h2>
+<ul>
+<li>Consider
+<ul>
+<li>different APIs/mechanisms for synchronization</li>
+<li>OS provides shared memory, and is out of the way</li>
+<li>data passing/sync protocols are up to the programmer</li>
+</ul>
+</li>
+<li>Ask
+<ul>
+<li>How many segments you need?
+<ul>
+<li>1 large segment -&gt; manager for allocating/freeing memory from shared segment</li>
+<li>multiple segments, one for each pairwise communication
+<ul>
+<li>use pool of segments to avoid creating in the middle of execution</li>
+<li>use a queue of segment ids  to manage the segments for communicating among processes
+<ul>
+<li>or via some other mechanism like message queue.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>How large  the segment it should be?
+<ul>
+<li>if you know the size up front like static size, you can set up the segment size == data size</li>
+<li>if want to support arbitrary messages sizes that are potentially much larger than the segment size,
+<ul>
+<li>One option is to transfer the data in rounds. The sending process sends the message in chunks, and the receiving process reads in those chunks and saves them somewhere until the entire message is received. In this case, the programmer will need to include some protocol to track the progress of the data movement through the shared memory region.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 

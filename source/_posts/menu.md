@@ -53,9 +53,9 @@
 * [P2L5 - Thread Performance Considerations](/cs6200/p2l5-thread-performance-consideration/index.html)
 * [P3L1 - Scheduling](/cs6200/p3l1-scheduling/index.html)
 * [P3L2 - Memory Management](/cs6200/p3l2-memory-management/index.html)
+* [P3L3 - Inter-Process Communication](/cs6200/p3l3-inter-process-communication/index.html) 
 
 <!--
-* [P3L3 - Inter-Process Communication](/cs6200/p3l3-inter-process-communication/index.html) 
 * [P3L4 - Synchronization Constructs](/cs6200/p3l4-synchronization-constructs/index.html) 
 * [P3L5 - I/O Management](/cs6200/p3l5-io-management/index.html) 
 * [P3L6 - Virtualization](/cs6200/p3l6-virtualization/index.html) 
