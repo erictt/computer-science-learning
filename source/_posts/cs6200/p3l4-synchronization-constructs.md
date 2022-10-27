@@ -362,9 +362,7 @@ This figures shows measurements that were gathered from executing a program that
 **Overhead**: how long it would take to execute the number of critical sections. 
 
 Under *high* load, the **queueing lock** performs the best. It is the most scalable; as we add more processors, the overhead does not increase.
-
 The **test_and_test_and_set lock** performs the worst under load. The platform is cache coherent with write-invalidate, and we discussed earlier how this strategy forces O(N^2) memory references to maintain cache coherence.
-
 The spinlock with **static delay** are a little better than the one with **dynamic delay**, since dynamic delay have some measure of randomness and will have more *collisions* than static locks. Also, delaying after every reference is slightly better than delaying after every lock release.
 
 Under *smaller* loads, **test_and_test_and_set** performs pretty well: it has low latency. We can also see that the **dynamic delay** alternatives perform better than the **static delay**. Static delay locks can potentially enforce unnecessarily large delays under small loads, while dynamic delay adjust based on contention.
