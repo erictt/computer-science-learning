@@ -282,7 +282,7 @@ This is expressed using the match statement:
 4. **Redirection through middle boxes**
     * SDX can be used to address the challenges in existing approaches to using middleboxes (firewalls, load balancers, etc). The placement of middleboxes are usually targeted at important junctions, such as the boundary of the enterprise networks with their upstream ISPs. To avoid the high expenses involved in placing middleboxes at every location in case of geographically large ISPs, the traffic is directed through a fixed set of middleboxes by the ISPs. **This is done by manipulating routing protocols such as internal BGP to essentially hijack a subset of traffic and sending it to a middlebox.** This approach could result in unnecessary additional traffic being redirected, and is also limited by the fixed set of middleboxes. To overcome these issues, **an SDX can identify and redirect the desired traffic through a sequence of middleboxes.**
 
-## References:
+## References
 
 * Software-Defined Networking: A Comprehensive Survey: https://arxiv.org/pdf/1406.0440.pdf
 * SDX: A Software Defined Internet Exchange: https://vanbever.eu/pdfs/vanbever_sdx_sigcomm_2014.pdf
