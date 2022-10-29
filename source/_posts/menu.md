@@ -99,8 +99,8 @@
 ## LAFF Linear Algebra
 
 * [Week 1 - Vectors in Linear Algebra](/laff-linear-algebra/week-1/index.html) 
-* [Week 2 - Linear Transformations and Matrices](/laff-linear-algebra/week-2/index.html)
-* [Week 3 - Matrix-Vector Operations](/laff-linear-algebra/week-3/index.html)
+* [Week 2 - Linear Transformations and Matrices](/laff-linear-algebra/week-2/index.html)
+* [Week 3 - Matrix-Vector Operations](/laff-linear-algebra/week-3/index.html)
 * [Week 4 - Matrix-Vector to Matrix-Matrix Multiplication](/laff-linear-algebra/week-4/index.html)
 * [Week 5 - Matrix- Matrix Multiplication](/laff-linear-algebra/week-5/index.html)
 * [Week 6 - Gaussian Elimination](/laff-linear-algebra/week-6/index.html)
