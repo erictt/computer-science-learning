@@ -33,9 +33,9 @@
 * [Week 5 - Router Design and Algorithms (Part 1)](/cs6250/week-5-router-design-and-algorithems-part-1/index.html)
 * [Week 6 - Router Design and Algorithms (Part 2)](/cs6250/week-6-router-design-and-algorithems-part-2/index.html)
 * [Week 7 - Software Defined Networking (Part 1)](/cs6250/week-7-software-defined-networking-part-1/index.html)
+* [Week 8 - Software Defined Networking (Part 2)](/cs6250/week-8-software-defined-networking-part-2/index.html)
 
 <!--
-* [Week 8 - Software Defined Networking (Part 2)](/cs6250/week-8-software-defined-networking-part-2/index.html)
 * [Week 9 - Internet Security](/cs6250/week-9-internet-security/index.html)
 * [Week 10 - Internet Surveillance and Censorship](/cs6250/week-10-internet-surveillance-and-censorship/index.html)
 * [Week 11 - Applications Videos](/cs6250/week-11-applications-video/index.html)
@@ -63,7 +63,6 @@
 * [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
 * [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
 * [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
-* [P5L1 - Memory Management](/cs6200/p5l1-memory-management-t/index.html)
 -->
 
 ## Algorithms: Part II
