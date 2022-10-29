@@ -128,6 +128,6 @@ markdown_it_plus:
       enable: true
       options:
         strict: false
-    - plugin:
-      name: "markdown-it-toc-and-anchor"
-      enable: true
+toc:
+  maxdepth: 3
+  decodeEntities: false
