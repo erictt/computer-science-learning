@@ -73,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
 * [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
 * [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
--->
-<!--
+--><!--
 ## Multivariable Calculus
 
 * [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
@@ -83,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
 * [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
 * [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
--->
-<h2><span id="cs6250-computer-networks"> CS6250 Computer Networks</span></h2>
+--><html><head></head><body><h2><span id="cs6250-computer-networks"> CS6250 Computer Networks</span></h2>
 <ul>
 <li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
 <li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
@@ -157,8 +155,8 @@ document.addEventListener('DOMContentLoaded', function () {
 <h2><span id="laff-linear-algebra"> LAFF Linear Algebra</span></h2>
 <ul>
 <li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
-<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
-<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2&nbsp;- Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3&nbsp;- Matrix-Vector Operations</a></li>
 <li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
 <li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
 <li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
@@ -240,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/glossary/index.html">Glossary</a></li>
 </ul>
 <h2><span id="about-me"> </span></h2>
-
+</body></html>
 </div>
 
 
@@ -297,7 +295,7 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1><span id="hash-tables"> Hash Tables</span></h1>
+  <html><head></head><body><h1><span id="hash-tables"> Hash Tables</span></h1>
 <h2><span id="hashing"> Hashing</span></h2>
 <ul>
 <li>
@@ -316,7 +314,7 @@ function sidebar_toggle() {
 </li>
 <li>
 <p>Implementing hash code: strings</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">String</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> <span class="variable">hash</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">char</span>[] s;</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">h</span> <span class="operator">=</span> hash;</span><br><span class="line">            <span class="keyword">if</span>(h != <span class="number">0</span>) <span class="keyword">return</span> h;</span><br><span class="line">            <span class="type">int</span> <span class="variable">hash</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; length(); i++)</span><br><span class="line">                hash = s[i] + (<span class="number">31</span> * hash);</span><br><span class="line">            hash = h;</span><br><span class="line">            <span class="keyword">return</span> h;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ```    </span><br><span class="line">    </span><br><span class="line">* Modular hashing</span><br><span class="line">    * An <span class="type">int</span> between -<span class="number">2</span>^<span class="number">31</span> and <span class="number">2</span>^<span class="number">31</span> - <span class="number">1.</span></span><br><span class="line">    * **Hash function.** An <span class="type">int</span> between <span class="number">0</span> and M - <span class="number">1</span> (<span class="keyword">for</span> use as array index).</span><br><span class="line"></span><br><span class="line">        ```java</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">hash</span><span class="params">(Key key)</span> &#123; <span class="keyword">return</span> (key.hashCode() &amp; <span class="number">0x7fffffff</span>) % M;&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">String</span> {</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> <span class="variable">hash</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">char</span>[] s;</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> {</span><br><span class="line">            <span class="type">int</span> <span class="variable">h</span> <span class="operator">=</span> hash;</span><br><span class="line">            <span class="keyword">if</span>(h != <span class="number">0</span>) <span class="keyword">return</span> h;</span><br><span class="line">            <span class="type">int</span> <span class="variable">hash</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; length(); i++)</span><br><span class="line">                hash = s[i] + (<span class="number">31</span> * hash);</span><br><span class="line">            hash = h;</span><br><span class="line">            <span class="keyword">return</span> h;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    ```    </span><br><span class="line">    </span><br><span class="line">* Modular hashing</span><br><span class="line">    * An <span class="type">int</span> between -<span class="number">2</span>^<span class="number">31</span> and <span class="number">2</span>^<span class="number">31</span> - <span class="number">1.</span></span><br><span class="line">    * **Hash function.** An <span class="type">int</span> between <span class="number">0</span> and M - <span class="number">1</span> (<span class="keyword">for</span> use as array index).</span><br><span class="line"></span><br><span class="line">        ```java</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">hash</span><span class="params">(Key key)</span> { <span class="keyword">return</span> (key.hashCode() &amp; <span class="number">0x7fffffff</span>) % M;}</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
 <h3><span id="collisions"> Collisions</span></h3>
@@ -353,7 +351,7 @@ function sidebar_toggle() {
 </li>
 <li>Typical choice: α = N / M ~ ½.</li>
 </ul>
-
+</body></html>
 </div>
 
 

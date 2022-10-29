@@ -73,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
 * [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
 * [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
--->
-<!--
+--><!--
 ## Multivariable Calculus
 
 * [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
@@ -83,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
 * [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
 * [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
--->
-<h2><span id="cs6250-computer-networks"> CS6250 Computer Networks</span></h2>
+--><html><head></head><body><h2><span id="cs6250-computer-networks"> CS6250 Computer Networks</span></h2>
 <ul>
 <li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
 <li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
@@ -157,8 +155,8 @@ document.addEventListener('DOMContentLoaded', function () {
 <h2><span id="laff-linear-algebra"> LAFF Linear Algebra</span></h2>
 <ul>
 <li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
-<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
-<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2&nbsp;- Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3&nbsp;- Matrix-Vector Operations</a></li>
 <li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
 <li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
 <li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
@@ -240,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/glossary/index.html">Glossary</a></li>
 </ul>
 <h2><span id="about-me"> </span></h2>
-
+</body></html>
 </div>
 
 
@@ -297,7 +295,7 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1><span id="week-7-software-defined-networking-part-1"> Week 7 - Software Defined Networking (Part 1)</span></h1>
+  <html><head></head><body><h1><span id="week-7-software-defined-networking-part-1"> Week 7 - Software Defined Networking (Part 1)</span></h1>
 <!-- toc -->
 <ul>
 <li><a href="#overview">Overview</a></li>
@@ -516,16 +514,16 @@ function sidebar_toggle() {
 </li>
 </ul>
 <p><strong>In the traditional approach</strong>, the routing algorithms (control plane) and forwarding function (data plane) are closely coupled. <u>The router runs and participates in the routing algorithms.</u> From there it is able to construct the forwarding table which consults it for the forwarding function.</p>
-<p><img src="https://i.imgur.com/xBaSovO.png" alt></p>
+<p><img src="https://i.imgur.com/xBaSovO.png" alt=""></p>
 <p><strong>In the SDN approach</strong>, on the other hand, there is a <strong>remote controller</strong> that computes and distributes the forwarding tables to be used by every router. <strong>This controller is physically separate from the router</strong>[Quiz]. It could be located in some remote data center, <u>managed by the ISP or some other third party</u>[Quiz].</p>
 <p>We have a separation of the functionalities. The routers are solely responsible for forwarding, and the remote controllers are solely responsible for computing and distributing the forwarding tables. The controller is implemented in software, and therefore we say the network is software-defined.</p>
 <p>These software implementations are also increasingly open and publicly available, which <u>speeds up innovation in the field</u>[Quiz].</p>
-<p><img src="https://i.imgur.com/WYHKzcm.png" alt></p>
+<p><img src="https://i.imgur.com/WYHKzcm.png" alt=""></p>
 <h2><span id="the-sdn-architecture"> The SDN Architecture</span></h2>
 <p>The main components of an SDN network:</p>
 <ul>
 <li>
-<p><img src="https://i.imgur.com/gbrsHFE.png" alt></p>
+<p><img src="https://i.imgur.com/gbrsHFE.png" alt=""></p>
 </li>
 <li>
 <p><strong>SDN-controlled network elements</strong></p>
@@ -561,7 +559,7 @@ function sidebar_toggle() {
 <li><strong>Network-wide state-management layer</strong>: stores information of <strong>network-state</strong></li>
 <li><strong>Interface to the network-control application layer</strong>:  communicating between controller and applications</li>
 </ul>
-<p><img src="https://i.imgur.com/opqNQV2.png" alt></p>
+<p><img src="https://i.imgur.com/opqNQV2.png" alt=""></p>
 <ul>
 <li>[Quiz] The details in the graph
 <ul>
@@ -592,14 +590,14 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>A <em>message bus</em> that provides a way for various services and protocol drivers to notify and communicate with each other.<br>
-<img src="https://i.imgur.com/UJ4F65k.png" alt></li>
+<img src="https://i.imgur.com/UJ4F65k.png" alt=""></li>
 </ol>
 </li>
 </ol>
 <ul>
 <li>the guide to install OpenDaylight: <a target="_blank" rel="noopener" href="https://docs.opendaylight.org/en/stable-neon/getting-started-guide/installing_opendaylight.html">https://docs.opendaylight.org/en/stable-neon/getting-started-guide/installing_opendaylight.html</a></li>
 </ul>
-
+</body></html>
 </div>
 
 

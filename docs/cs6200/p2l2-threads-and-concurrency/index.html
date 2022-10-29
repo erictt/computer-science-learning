@@ -73,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
 * [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
 * [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
--->
-<!--
+--><!--
 ## Multivariable Calculus
 
 * [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
@@ -83,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
 * [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
 * [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
--->
-<h2><span id="cs6250-computer-networks"> CS6250 Computer Networks</span></h2>
+--><html><head></head><body><h2><span id="cs6250-computer-networks"> CS6250 Computer Networks</span></h2>
 <ul>
 <li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
 <li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
@@ -157,8 +155,8 @@ document.addEventListener('DOMContentLoaded', function () {
 <h2><span id="laff-linear-algebra"> LAFF Linear Algebra</span></h2>
 <ul>
 <li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
-<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
-<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2&nbsp;- Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3&nbsp;- Matrix-Vector Operations</a></li>
 <li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
 <li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
 <li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
@@ -240,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/glossary/index.html">Glossary</a></li>
 </ul>
 <h2><span id="about-me"> </span></h2>
-
+</body></html>
 </div>
 
 
@@ -297,7 +295,7 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1><span id="p2l2-threads-and-concurrency"> P2L2: Threads and Concurrency</span></h1>
+  <html><head></head><body><h1><span id="p2l2-threads-and-concurrency"> P2L2: Threads and Concurrency</span></h1>
 <!-- toc -->
 <ul>
 <li><a href="#process-vs-thread">Process vs. Thread</a></li>
@@ -423,7 +421,7 @@ function sidebar_toggle() {
 </li>
 <li>
 <p>There are two different APIs:</p>
-  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. lock block</span></span><br><span class="line">lock(m) &#123;</span><br><span class="line">    <span class="comment">// critical section</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. separate function</span></span><br><span class="line">lock(m)</span><br><span class="line"><span class="comment">// critical section</span></span><br><span class="line">unlock(m)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. lock block</span></span><br><span class="line">lock(m) {</span><br><span class="line">    <span class="comment">// critical section</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. separate function</span></span><br><span class="line">lock(m)</span><br><span class="line"><span class="comment">// critical section</span></span><br><span class="line">unlock(m)</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
 <h2><span id="condition-variable"> Condition Variable</span></h2>
@@ -468,14 +466,14 @@ function sidebar_toggle() {
 </li>
 <li>
 <p>What happened in the wait function?</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Wait(mutex,cond) &#123;</span><br><span class="line">    // atomically release mutex </span><br><span class="line">    // and go on wait queue</span><br><span class="line">    </span><br><span class="line">    // wait ...</span><br><span class="line">    </span><br><span class="line">    // remove from the wait queue</span><br><span class="line">    // re-acquire mutex</span><br><span class="line">    // exit the wait operation</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Wait(mutex,cond) {</span><br><span class="line">    // atomically release mutex </span><br><span class="line">    // and go on wait queue</span><br><span class="line">    </span><br><span class="line">    // wait ...</span><br><span class="line">    </span><br><span class="line">    // remove from the wait queue</span><br><span class="line">    // re-acquire mutex</span><br><span class="line">    // exit the wait operation</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>Notice that the mutex is <strong>RELEASED</strong> once the thread goes to the wait stage.</li>
 </ul>
 </li>
 <li>
 <p>The Quiz: Instead of <code>while</code>, why did we not simply use ‘if’?</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Lock(m) &#123;</span><br><span class="line">    while (my_list.not_full()) </span><br><span class="line">        Wait(m, list_full);</span><br><span class="line">    my_list.print_and_remove_all();</span><br><span class="line">&#125; // unlock</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Lock(m) {</span><br><span class="line">    while (my_list.not_full()) </span><br><span class="line">        Wait(m, list_full);</span><br><span class="line">    my_list.print_and_remove_all();</span><br><span class="line">} // unlock</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>while</code> can support multiple consumer threads;
 <ul>
@@ -778,7 +776,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-
+</body></html>
 </div>
 
 

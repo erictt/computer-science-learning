@@ -73,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
 * [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
 * [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
--->
-<!--
+--><!--
 ## Multivariable Calculus
 
 * [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
@@ -83,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
 * [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
 * [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
--->
-<h2><span id="cs6250-computer-networks"> CS6250 Computer Networks</span></h2>
+--><html><head></head><body><h2><span id="cs6250-computer-networks"> CS6250 Computer Networks</span></h2>
 <ul>
 <li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
 <li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
@@ -157,8 +155,8 @@ document.addEventListener('DOMContentLoaded', function () {
 <h2><span id="laff-linear-algebra"> LAFF Linear Algebra</span></h2>
 <ul>
 <li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
-<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
-<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2&nbsp;- Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3&nbsp;- Matrix-Vector Operations</a></li>
 <li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
 <li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
 <li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
@@ -240,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/glossary/index.html">Glossary</a></li>
 </ul>
 <h2><span id="about-me"> </span></h2>
-
+</body></html>
 </div>
 
 
@@ -297,7 +295,7 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1><span id="p3l4-synchronization-constructs"> P3L4: Synchronization Constructs</span></h1>
+  <html><head></head><body><h1><span id="p3l4-synchronization-constructs"> P3L4: Synchronization Constructs</span></h1>
 <!-- toc -->
 <ul>
 <li><a href="#common-synchronization-contructs">Common Synchronization Contructs</a>
@@ -334,7 +332,7 @@ function sidebar_toggle() {
 <h2><span id="common-synchronization-contructs"> Common Synchronization Contructs</span></h2>
 <h3><span id="spinlocks"> Spinlocks</span></h3>
 <p>It’s similar to mutex lock/unlock:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spinlock_lock(s);</span><br><span class="line">    <span class="comment">// critical sesion</span></span><br><span class="line">spinlock_unlock(s);</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spinlock_lock(s);</span><br><span class="line">    <span class="comment">// critical sesion</span></span><br><span class="line">spinlock_unlock(s);</span><br></pre></td></tr></tbody></table></figure>
 <p>The difference is, when lock == busy, the thread that is suspended it’s execution at the spinlock_lock() isn’t blocked like mutex. Instead, it’s spinning. The thread will continue to burn CPU cycles until the lock is free or gets preempted for some reasons.</p>
 <h3><span id="semaphores"> Semaphores</span></h3>
 <p>It’s common sync construct in OS kernels, act like a traffic light to allow the traffic to STOP or GO.</p>
@@ -348,7 +346,7 @@ function sidebar_toggle() {
 <li>when the semaphore is initialized with value: 1, it will be a binary semaphore, act like mutex</li>
 </ul>
 <p>POSIX Semaphores(<a target="_blank" rel="noopener" href="http://linux.die.net/man/3/sem_init">link</a>):</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;semaphore.h&gt;</span></span></span><br><span class="line">    </span><br><span class="line"><span class="type">sem_t</span> sem;</span><br><span class="line"><span class="comment">// pshared: flag of whether this semaphore is in a single process or across processes.</span></span><br><span class="line">sem_init(<span class="type">sem_t</span> *sem, <span class="type">int</span> pshared, <span class="type">int</span> count);  </span><br><span class="line">sem_wait(<span class="type">sem_t</span> *sem);</span><br><span class="line">sem_post(<span class="type">sem_t</span> *sem);</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;semaphore.h&gt;</span></span></span><br><span class="line">    </span><br><span class="line"><span class="type">sem_t</span> sem;</span><br><span class="line"><span class="comment">// pshared: flag of whether this semaphore is in a single process or across processes.</span></span><br><span class="line">sem_init(<span class="type">sem_t</span> *sem, <span class="type">int</span> pshared, <span class="type">int</span> count);  </span><br><span class="line">sem_wait(<span class="type">sem_t</span> *sem);</span><br><span class="line">sem_post(<span class="type">sem_t</span> *sem);</span><br></pre></td></tr></tbody></table></figure>
 <h3><span id="readerwriter-locks"> Reader/Writer Locks</span></h3>
 <p>When specifying synchronization requirements, it is sometimes useful to distinguish among different types of resource access.</p>
 <p>For instance,</p>
@@ -358,7 +356,7 @@ function sidebar_toggle() {
 To cope with this situation, we have <strong>rwlock</strong>s which is similar to mutex, but developers can specify the type of access, and then the lock can behave accordingly.</li>
 </ul>
 <p>The primary API(<a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/v6.0.3/source/include/linux/rwlock.h">link</a>)</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/spinlock.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">rwlock_t</span> m;</span><br><span class="line">read_lock(m);</span><br><span class="line">    <span class="comment">// critical section</span></span><br><span class="line">read_unlock(m);</span><br><span class="line"></span><br><span class="line">write_lock(m);</span><br><span class="line">    <span class="comment">// critical section</span></span><br><span class="line">write_unlock(m);</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/spinlock.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">rwlock_t</span> m;</span><br><span class="line">read_lock(m);</span><br><span class="line">    <span class="comment">// critical section</span></span><br><span class="line">read_unlock(m);</span><br><span class="line"></span><br><span class="line">write_lock(m);</span><br><span class="line">    <span class="comment">// critical section</span></span><br><span class="line">write_unlock(m);</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>read/write == share/exclusive</li>
 </ul>
@@ -397,9 +395,9 @@ To cope with this situation, we have <strong>rwlock</strong>s which is similar t
 <p>All of these methods require some support from the underlying hardware to atomically make updates to a memory location.</p>
 <p>The following lecture will discuss different implementations of spinlocks base on the paper <a target="_blank" rel="noopener" href="https://s3.amazonaws.com/content.udacity-data.com/courses/ud923/references/ud923-anderson-paper.pdf">“The Performance of Spin Lock Alternatives for Shared-Memory Multiprocessors”</a> by Anderson, Thomas E.</p>
 <p>Quiz: Does this spinlock implementation correctly guarantee mutual exclusion? is it efficient?</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">spinlock_init(lock):</span><br><span class="line">    lock = <span class="built_in">free</span>; <span class="comment">// 0 = free, 1 = busy</span></span><br><span class="line"></span><br><span class="line">spinlock_lock(lock):</span><br><span class="line">    spin:</span><br><span class="line">        <span class="keyword">if</span> (lock == <span class="built_in">free</span>) &#123;lock = busy;&#125;</span><br><span class="line">        <span class="keyword">else</span> &#123; <span class="keyword">goto</span> spin; &#125;</span><br><span class="line"></span><br><span class="line">spinlock_unlock(lock):</span><br><span class="line">    lock = <span class="built_in">free</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">spinlock_init(lock):</span><br><span class="line">    lock = <span class="built_in">free</span>; <span class="comment">// 0 = free, 1 = busy</span></span><br><span class="line"></span><br><span class="line">spinlock_lock(lock):</span><br><span class="line">    spin:</span><br><span class="line">        <span class="keyword">if</span> (lock == <span class="built_in">free</span>) {lock = busy;}</span><br><span class="line">        <span class="keyword">else</span> { <span class="keyword">goto</span> spin; }</span><br><span class="line"></span><br><span class="line">spinlock_unlock(lock):</span><br><span class="line">    lock = <span class="built_in">free</span>;</span><br></pre></td></tr></tbody></table></figure>
 <p>What if changing the lock part to</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spinlock_lock(lock):</span><br><span class="line">    <span class="keyword">while</span> (lock = busy);</span><br><span class="line">    lock = busy;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spinlock_lock(lock):</span><br><span class="line">    <span class="keyword">while</span> (lock = busy);</span><br><span class="line">    lock = busy;</span><br></pre></td></tr></tbody></table></figure>
 <p>The answer of both implementations are neither correct, nor efficient. Because we have continuous loop that is spinning as long as the lock is busy which is inefficient. And potentially, when lock is free, all of the waiting threads will set lock to busy at the same time.</p>
 <p>So to check the lock and set the lock value atomically, we need hardware support.</p>
 <h2><span id="atomic-instructions"> Atomic Instructions</span></h2>
@@ -417,7 +415,7 @@ Each of these operations performs <strong>multi cycle operation</strong>.</li>
 <li>concurrent attempts to execute an instruction will be queued and performed serially.</li>
 </ul>
 <p>To fix the quiz:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spinlock_lock(lock) &#123;</span><br><span class="line">    <span class="keyword">while</span>(test_and_set(lock) == busy);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spinlock_lock(lock) {</span><br><span class="line">    <span class="keyword">while</span>(test_and_set(lock) == busy);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>When the first thread arrives, <code>test_and_set</code> looks at the value that lock points to. This value will initially be zero. <code>test_and_set</code> atomically sets the value to one, and returns zero(<em>busy</em> is equal to one). Thus, the first thread can proceed. When subsequent threads arrive, <code>test_and_set</code> will look at the value - which is busy - and just return it. Then these threads will spin.</p>
 <p>Different platform has different hardware. There may be differences in the efficiencies with which different atomic operations execute on different architectures. We need to check the implementation uses one of the atomic instructions available on the target platform. And also make sure that the software is optimized so that it uses the most efficient atomics on a target platform and uses them in an efficient way.</p>
 <h2><span id="shared-memory-multiprocessors"> Shared Memory Multiprocessors</span></h2>
@@ -471,7 +469,7 @@ Each of these operations performs <strong>multi cycle operation</strong>.</li>
 <p>1 and 2 are conflicted with each other. Because 1 means we want to try to execute the atomic operation asap. As a result, the locking operation will immediately incur an atomic operation which can potentially create some additional contention on the network.</p>
 <p>2 and 3 are conflicted as well. To reduce the waiting time, we need to continuously spin on the lock as long as it’s not available. So we can acquire the lock asap.</p>
 <h3><span id="test-and-set-spinlock"> Test and Set Spinlock</span></h3>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">spinlock_init(lock):</span><br><span class="line">    lock = <span class="built_in">free</span>; <span class="comment">// 0 = free, 1 = busy</span></span><br><span class="line"></span><br><span class="line">spinlock_lock(lock) : <span class="comment">// spin</span></span><br><span class="line">    <span class="keyword">while</span>(test_and_set(lock) == busy);</span><br><span class="line"></span><br><span class="line">spinlock_unlock(lock):</span><br><span class="line">    lock = <span class="built_in">free</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">spinlock_init(lock):</span><br><span class="line">    lock = <span class="built_in">free</span>; <span class="comment">// 0 = free, 1 = busy</span></span><br><span class="line"></span><br><span class="line">spinlock_lock(lock) : <span class="comment">// spin</span></span><br><span class="line">    <span class="keyword">while</span>(test_and_set(lock) == busy);</span><br><span class="line"></span><br><span class="line">spinlock_unlock(lock):</span><br><span class="line">    lock = <span class="built_in">free</span>;</span><br></pre></td></tr></tbody></table></figure>
 <p>The <code>test_and_set</code> instruction is a very common atomic that most hardware platforms support.</p>
 <p><strong>Latency</strong>: minimal (just atomic)<br>
 <strong>Delay</strong>: potentially minimal (spinning continuously on the atomic operation)<br>
@@ -479,7 +477,7 @@ Each of these operations performs <strong>multi cycle operation</strong>.</li>
 <p>With this implementation, even if we have coherent caches, they will be bypassed because we’re using an atomic instruction.</p>
 <h3><span id="test-and-test-and-set-spinlock"> Test and Test and Set Spinlock</span></h3>
 <p>The problem with the previous implementation is that all of the CPUs are spinning on the atomic operation. Let’s try to separate the test part from the atomic. The intuition is that CPUs can potentially test their cached copy of the lock and only execute the atomic if it detects that its cached copy has changed.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test (cache), test_and_set (Mm)</span></span><br><span class="line"><span class="comment">// spins on cache (lock == busy)</span></span><br><span class="line"><span class="comment">// atomic if freed (test_and_set)</span></span><br><span class="line"></span><br><span class="line">spinlock_lock(lock):</span><br><span class="line">    <span class="keyword">while</span>((lock == busy) OR (test_and_set(lock) == busy))</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test (cache), test_and_set (Mm)</span></span><br><span class="line"><span class="comment">// spins on cache (lock == busy)</span></span><br><span class="line"><span class="comment">// atomic if freed (test_and_set)</span></span><br><span class="line"></span><br><span class="line">spinlock_lock(lock):</span><br><span class="line">    <span class="keyword">while</span>((lock == busy) OR (test_and_set(lock) == busy))</span><br></pre></td></tr></tbody></table></figure>
 <p>This spinlock is referred to as the <strong>test-and-test-and-set spinlock</strong>. It is also called a spin-on-read or spin-on-cached-value spinlock.</p>
 <p><strong>Latency</strong>: slightly worse than the test-and-set lock due to the extra step for checking lock in memory<br>
 <strong>Delay</strong>: same as latency due to the extra step.<br>
@@ -505,7 +503,7 @@ Each of these operations performs <strong>multi cycle operation</strong>.</li>
 <li>Everyone sees lock is free at the same time, but not everyone attempts to acquire it.</li>
 <li>The rationale behind this is to prevent every thread from executing the atomic instruction at the same time.</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spinlock_lock(lock):</span><br><span class="line">    <span class="keyword">while</span>((lock == busy) OR (test_and_set(lock) == busy)) &#123;</span><br><span class="line">        <span class="comment">// failed to get lock</span></span><br><span class="line">        <span class="keyword">while</span>(lock == busy);</span><br><span class="line">        delay();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spinlock_lock(lock):</span><br><span class="line">    <span class="keyword">while</span>((lock == busy) OR (test_and_set(lock) == busy)) {</span><br><span class="line">        <span class="comment">// failed to get lock</span></span><br><span class="line">        <span class="keyword">while</span>(lock == busy);</span><br><span class="line">        delay();</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
 <p>You can see that all processors waits at the inner while. Once lock == free, they are all gonna delay for a certain time, then go to the outer while. In here, one of the processors will call <code>test_and_set()</code> and set the lock to busy, and the others will continue back to the inner while.</p>
 <p><strong>Latency</strong>: ok. We still have to perform a memory reference to bring the lock into the cache, and then another to perform the atomic. However, this is not much different from what we have seen in the past.<br>
 <strong>Delay</strong>: Much worse because we add more delay to it.<br>
@@ -515,7 +513,7 @@ Each of these operations performs <strong>multi cycle operation</strong>.</li>
 <li>There will be fewer cases in which threads see a busy lock as free and try to execute an atomic that will not be successful.</li>
 </ul>
 <p>An alternative delay-based lock introduces a delay after each memory reference.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spinlock_lock(lock):</span><br><span class="line">    <span class="keyword">while</span>((lock == busy) OR (test_and_set(lock) == busy)) &#123;</span><br><span class="line">        delay();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spinlock_lock(lock):</span><br><span class="line">    <span class="keyword">while</span>((lock == busy) OR (test_and_set(lock) == busy)) {</span><br><span class="line">        delay();</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
 <p>The main benefit of this is that it works on NCC architectures. Since a thread has to go to main memory on every reference on NCC architectures, introducing an artificial delay great decreases the number of reference the thread has to perform while spinning.</p>
 <p>The problem is, when lock is busy, every spin will have some delay, not just when the lock is free. So it adds more delay to the processors.</p>
 <h4><span id="picking-a-delay"> Picking a Delay</span></h4>
@@ -580,7 +578,7 @@ The spinlock with <strong>static delay</strong> are a little better than the one
 <ul>
 <li><a target="_blank" rel="noopener" href="https://open-cas.github.io/cache_line.html">cache line</a>: A <strong>cache line</strong> is the smallest portion of data that can be mapped into a cache. Every mapped cache line is associated with a <strong>core line</strong>, which is a corresponding region on a <strong>backend storage</strong>. Both the <strong>cache storage</strong> and the backend storage are split into blocks of the size of a cache line, and all the cache mappings are aligned to these blocks.</li>
 </ul>
-
+</body></html>
 </div>
 
 

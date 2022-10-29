@@ -130,4 +130,3 @@ markdown_it_plus:
         strict: false
 toc:
   maxdepth: 3
-  decodeEntities: false

@@ -73,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
 * [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
 * [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
--->
-<!--
+--><!--
 ## Multivariable Calculus
 
 * [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
@@ -83,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
 * [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
 * [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
--->
-<h2><span id="cs6250-computer-networks"> CS6250 Computer Networks</span></h2>
+--><html><head></head><body><h2><span id="cs6250-computer-networks"> CS6250 Computer Networks</span></h2>
 <ul>
 <li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
 <li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
@@ -157,8 +155,8 @@ document.addEventListener('DOMContentLoaded', function () {
 <h2><span id="laff-linear-algebra"> LAFF Linear Algebra</span></h2>
 <ul>
 <li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
-<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
-<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2&nbsp;- Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3&nbsp;- Matrix-Vector Operations</a></li>
 <li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
 <li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
 <li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
@@ -240,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/glossary/index.html">Glossary</a></li>
 </ul>
 <h2><span id="about-me"> </span></h2>
-
+</body></html>
 </div>
 
 
@@ -297,7 +295,7 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1><span id="week-1-graphs"> Week 1 - Graphs</span></h1>
+  <html><head></head><body><h1><span id="week-1-graphs"> Week 1 - Graphs</span></h1>
 <h2><span id="undirected-graphs"> Undirected Graphs</span></h2>
 <h3><span id="graph-terminology"> Graph terminology</span></h3>
 <ul>
@@ -487,14 +485,14 @@ function sidebar_toggle() {
 </li>
 <li>
 <p>toString()</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">In</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">In</span>(args[<span class="number">0</span>]);</span><br><span class="line"><span class="type">Digraph</span> <span class="variable">G</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Digraph</span>(in);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">v</span> <span class="operator">=</span> <span class="number">0</span>; v &lt; G.V(); v++) </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> w: G.adj(v))</span><br><span class="line">        StdOut.pringln(v + <span class="string">&quot;-&gt;&quot;</span> + w);</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">In</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">In</span>(args[<span class="number">0</span>]);</span><br><span class="line"><span class="type">Digraph</span> <span class="variable">G</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Digraph</span>(in);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">v</span> <span class="operator">=</span> <span class="number">0</span>; v &lt; G.V(); v++) </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> w: G.adj(v))</span><br><span class="line">        StdOut.pringln(v + <span class="string">"-&gt;"</span> + w);</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li>
 <p>Adjacency-lists digraph representation</p>
 <ul>
 <li>
 <p>same as graph APIs. only difference is:</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addEdge</span><span class="params">(<span class="type">int</span> v, <span class="type">int</span> w)</span> &#123; </span><br><span class="line">    adj[v].add(w);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addEdge</span><span class="params">(<span class="type">int</span> v, <span class="type">int</span> w)</span> { </span><br><span class="line">    adj[v].add(w);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
 </li>
@@ -617,7 +615,7 @@ function sidebar_toggle() {
 </ul>
 <h2><span id="digraph-processing-summary"> Digraph-processing summary</span></h2>
 <img src="https://i.imgur.com/IGKLsoE.jpg" style="width:600px">
-
+</body></html>
 </div>
 
 

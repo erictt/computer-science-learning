@@ -73,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
 * [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
 * [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
--->
-<!--
+--><!--
 ## Multivariable Calculus
 
 * [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
@@ -83,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
 * [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
 * [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
--->
-<h2><span id="cs6250-computer-networks"> CS6250 Computer Networks</span></h2>
+--><html><head></head><body><h2><span id="cs6250-computer-networks"> CS6250 Computer Networks</span></h2>
 <ul>
 <li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
 <li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
@@ -157,8 +155,8 @@ document.addEventListener('DOMContentLoaded', function () {
 <h2><span id="laff-linear-algebra"> LAFF Linear Algebra</span></h2>
 <ul>
 <li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
-<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
-<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2&nbsp;- Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3&nbsp;- Matrix-Vector Operations</a></li>
 <li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
 <li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
 <li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
@@ -240,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/glossary/index.html">Glossary</a></li>
 </ul>
 <h2><span id="about-me"> </span></h2>
-
+</body></html>
 </div>
 
 
@@ -297,7 +295,7 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1><span id="lesson-3-intradomain-routing"> Lesson 3: Intradomain Routing</span></h1>
+  <html><head></head><body><h1><span id="lesson-3-intradomain-routing"> Lesson 3: Intradomain Routing</span></h1>
 <!-- toc -->
 <ul>
 <li><a href="#routing-protocols">Routing Protocols</a>
@@ -474,8 +472,8 @@ function sidebar_toggle() {
 <li>In the second iteration, the nodes exchange their distance vectors and they update their individual views of the network.</li>
 <li>Node x computes its new distance vector, using the Bellman Ford equation for every destination node y and z. For each destination, node x compares the cost to reach that destination through a neighbor node.
 <ul>
-<li><code>dx(y) = min&#123;c(x,y) + dy(y), c(x,z)+dz(y) &#125; = min&#123;2+0, 7+1&#125; = 2</code></li>
-<li><code>dx(z) = min&#123;c(x,y) + dy(z), c(x,z)+dz(z) &#125; = min&#123;2+1, 7+0&#125; = 3</code></li>
+<li><code>dx(y) = min{c(x,y) + dy(y), c(x,z)+dz(y) } = min{2+0, 7+1} = 2</code></li>
+<li><code>dx(z) = min{c(x,y) + dy(z), c(x,z)+dz(z) } = min{2+1, 7+0} = 3</code></li>
 </ul>
 </li>
 <li>At the same time, node x receives the distance vectors from y and z from the first iteration. So it updates its table to reflect its view of the network accordingly.</li>
@@ -705,7 +703,7 @@ function sidebar_toggle() {
 <p>Once a router receives a weight change, it updates its link-state database and floods the newly updated value to the entire network. On receiving the updated value, each router in turn updates its link-state database, recomputes the shortest paths and updates affected entries in its forwarding table.  Similar to when there is a topology change or a failure, this involves a transition period where there is a slightly inconsistent view of the shortest path for few destinations. Although the convergence after a weight change is faster than a failure scenario (as there is no delay in detecting a failure), it still involves a transient period in the network. Hence, understandably, changing the link weights is not done frequently and only done in scenarios where there is new hardware, equipment failures or changes in traffic demands.</p>
 </li>
 </ul>
-
+</body></html>
 </div>
 
 
