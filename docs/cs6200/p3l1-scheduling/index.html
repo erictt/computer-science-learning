@@ -300,39 +300,48 @@ function sidebar_toggle() {
   <h1 id="p3l1-scheduling"><a class="markdownIt-Anchor" href="#p3l1-scheduling"></a> P3L1 : Scheduling</h1>
 <!-- toc -->
 <ul>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#scheduling-algorithm">Scheduling Algorithm</a>
+<li><a href="#Overview">Overview</a></li>
+<li><a href="#Scheduling-Algorithm">Scheduling Algorithm</a>
 <ul>
-<li><a href="#run-to-completion">Run To Completion</a></li>
-<li><a href="#preemptive">Preemptive</a></li>
-<li><a href="#round-robin-scheduling">Round Robin Scheduling</a></li>
+<li><a href="#Run-To-Completion">Run To Completion</a></li>
+<li><a href="#Preemptive">Preemptive</a>
+<ul>
+<li><a href="#Priority-Inversion">Priority Inversion</a></li>
 </ul>
 </li>
-<li><a href="#timesharing-and-timeslices">Timesharing and Timeslices</a>
-<ul>
-<li><a href="#how-long-should-a-timeslice-be">How Long Should a Timeslice Be</a></li>
-<li><a href="#summarizing-timeslice-length">Summarizing Timeslice Length</a></li>
+<li><a href="#Round-Robin-Scheduling">Round Robin Scheduling</a></li>
 </ul>
 </li>
-<li><a href="#runqueue-data-structure">Runqueue Data Structure</a>
+<li><a href="#Timesharing-and-Timeslices">Timesharing and Timeslices</a>
 <ul>
-<li><a href="#linux-o1-scheduler">Linux O(1) Scheduler</a></li>
-<li><a href="#linux-cfs-scheduler">Linux CFS Scheduler</a></li>
+<li><a href="#How-Long-Should-a-Timeslice-Be">How Long Should a Timeslice Be</a>
+<ul>
+<li><a href="#CPU-Bound-Timeslice-Length">CPU Bound Timeslice Length</a></li>
+<li><a href="#Ix2FO-Bound-Timeslice-Length">I/O Bound Timeslice Length</a></li>
 </ul>
 </li>
-<li><a href="#scheduling-on-multiprocessors">Scheduling on Multiprocessors</a>
-<ul>
-<li><a href="#hyperthreading">Hyperthreading</a></li>
-<li><a href="#scheduling-for-hyperthreading-platforms">Scheduling for Hyperthreading Platforms</a></li>
-<li><a href="#how-do-tell-a-thread-is-cpu-bound-or-memory-bound">How do tell a thread is CPU bound or memory bound?</a></li>
-<li><a href="#scheduling-with-hardware-counters">Scheduling with Hardware Counters</a></li>
+<li><a href="#Summarizing-Timeslice-Length">Summarizing Timeslice Length</a></li>
 </ul>
 </li>
-<li><a href="#-">----</a></li>
-<li><a href="#scheduler-choose-what-to-run">Scheduler – choose what to run</a>
+<li><a href="#Runqueue-Data-Structure">Runqueue Data Structure</a>
 <ul>
-<li><a href="#scheduling-multi-level-feedback-queue-mlfq">Scheduling - Multi-level Feedback Queue (MLFQ)</a></li>
-<li><a href="#scheduling-proportional-share">Scheduling - Proportional Share</a></li>
+<li><a href="#Linux-O(1)-Scheduler">Linux O(1) Scheduler</a></li>
+<li><a href="#Linux-CFS-Scheduler">Linux CFS Scheduler</a></li>
+</ul>
+</li>
+<li><a href="#Scheduling-on-Multiprocessors">Scheduling on Multiprocessors</a>
+<ul>
+<li><a href="#Hyperthreading">Hyperthreading</a></li>
+<li><a href="#Scheduling-for-Hyperthreading-Platforms">Scheduling for Hyperthreading Platforms</a></li>
+<li><a href="#How-do-tell-a-thread-is-CPU-bound-or-memory-bound%3F">How do tell a thread is CPU bound or memory bound?</a></li>
+<li><a href="#Scheduling-with-Hardware-Counters">Scheduling with Hardware Counters</a></li>
+</ul>
+</li>
+<li><a href="#----">----</a></li>
+<li><a href="#Scheduler----choose-what-to-run">Scheduler – choose what to run</a>
+<ul>
+<li><a href="#Scheduling---Multi-level-Feedback-Queue-(MLFQ)">Scheduling - Multi-level Feedback Queue (MLFQ)</a></li>
+<li><a href="#Scheduling---Proportional-Share">Scheduling - Proportional Share</a></li>
 </ul>
 </li>
 </ul>
