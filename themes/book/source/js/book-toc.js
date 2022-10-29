@@ -2,6 +2,7 @@ tocbot.init({
     tocSelector: '.book-tocbot',
     contentSelector: '.book-content',
     headingSelector: 'h1, h2, h3, h4, h5',
+    hasInnerContainers: true,
     collapseDepth: 2,
     orderedList: false,
     scrollSmooth: false,

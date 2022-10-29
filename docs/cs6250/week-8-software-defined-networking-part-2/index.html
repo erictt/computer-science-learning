@@ -29,11 +29,11 @@
 
 
     <!-- tocbot -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
     
-    <!-- katex -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <!-- katex css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
 
     
     
@@ -295,7 +295,7 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <html><head></head><body><h1><span id="week-8-software-defined-networking-part-2"> Week 8 - Software Defined Networking (Part 2)</span></h1>
+  <html><head></head><body><h1><span id="week-8---software-defined-networking-part-2"> Week 8 - Software Defined Networking (Part 2)</span></h1>
 <!-- toc -->
 <ul>
 <li><a href="#overview">Overview</a></li>
@@ -311,7 +311,7 @@ function sidebar_toggle() {
 <li><a href="#programming-the-data-plane">Programming the Data Plane</a>
 <ul>
 <li><a href="#the-motivation">The Motivation</a></li>
-<li><a href="#p4s-forwarding-model">P4’s Forwarding Model</a></li>
+<li><a href="#p4-s-forwarding-model">P4’s Forwarding Model</a></li>
 <li><a href="#optional-an-introduction-to-the-p4-programming-language">Optional: An introduction To The P4 Programming Language</a></li>
 </ul>
 </li>
@@ -396,15 +396,15 @@ function sidebar_toggle() {
 <li><strong>Network virtualization</strong>: For a complete virtualization of the network, the network infrastructure needs to provide support for arbitrary network topologies and addressing schemes, similar to the computing layer. Existing virtualization constructs such as VLAN, NAT and MLPS are able to provide full network virtualization, however these technologies are connected by a box-by-box basis configuration and there is no unifying abstraction that can be leveraged to configure these in a global manner, thereby making current network provisioning tasks as long as months and years. New advancements in SDN network virtualization such as VxLAN, NVGRE, FlowVisor, FlowN, NVP are promising.</li>
 <li><strong>Network operating systems</strong>: The promise of SDN is to ease network management and solve networking problems by using a logically centralized controller by way of a network operating system (NOS). The value of a NOS is in providing abstractions, essential services and common APIs to developers. For example, while programming a network policy, if a developer doesn’t need to worry about low-level details about data distribution among routing elements, that is an abstraction. Such systems propel more innovation by reducing inherent complexity of creating new network protocols and network applications. Some popular NOSs are OpenDayLight, OpenContrail, Onix, Beacon and HP VAN SDN.
 <ul>
-<li>For more details and tutorials for OpenDayLight, please follow this link: <a target="_blank" rel="noopener" href="https://www.opendaylight.org/technical-community/getting-started-for-developers/tutorialsLinks">https://www.opendaylight.org/technical-community/getting-started-for-developers/tutorialsLinks</a> .</li>
+<li>For more details and tutorials for OpenDayLight, please follow <a target="_blank" rel="noopener" href="https://www.opendaylight.org/technical-community/getting-started-for-developers/tutorialsLinks">this link</a>.</li>
 </ul>
 </li>
 <li><strong>Northbound interfaces</strong>: <strong>The two core abstractions of an SDN ecosystem are the Southbound and Northbound interfaces. We have already seen Southbound interfaces, and that it already has a widely acceptable norm (OpenFlow). Compared to that, a standard for Northbound interface is still an open problem, as are its use cases. What is relatively clear is that Northbound interfaces are supposed to be a mostly software ecosystem, as opposed to the Southbound interfaces. Another key requirement is the abstraction that guarantees programming language and controller independence. Some popular examples are Floodlight, Trema, NOX, Onix and SFNet.</strong>
 <ul>
-<li>For a tutorial  to get a more hands on experience on Floodlight: <a target="_blank" rel="noopener" href="https://floodlight.atlassian.net/wiki/spaces/floodlightcontroller/pages/1343514/Tutorials">https://floodlight.atlassian.net/wiki/spaces/floodlightcontroller/pages/1343514/Tutorials</a> .</li>
+<li>For a tutorial  to get a more hands on experience on Floodlight, please follow <a target="_blank" rel="noopener" href="https://floodlight.atlassian.net/wiki/spaces/floodlightcontroller/pages/1343514/Tutorials">this link</a>.</li>
 </ul>
 </li>
-<li><strong>Language-based virtualization</strong>: An important characteristic of virtualization is the ability to express modularity and allowing different levels of abstraction. For example, using virtualization we can view a single physical device in different ways. This takes away the complexity away from application developers without compromising on security which is inherently guaranteed. Some popular examples of programming languages that support virtualization are Pyretic, libNetVirt, AutoSlice, RadioVisor, OpenVirteX, etc.</li>
+<li><strong>Language-based virtualization</strong>: An important characteristic of virtualization is the ability to express modularity and allowing different levels of abstraction. For example, using virtualization we can view a single physical device in different ways. This takes away the complexity from application developers without compromising on security which is inherently guaranteed. Some popular examples of programming languages that support virtualization are Pyretic, libNetVirt, AutoSlice, RadioVisor, OpenVirteX, etc.</li>
 <li><strong>Network programming languages</strong>: Network programmability can be achieved using low-level or high-level programming languages. Using low-level languages, it is difficult to write modular code, reuse it and it generally leads to more error-prone development. High level programming languages in SDNs provide abstractions, make development more modular, code more reusable in control plane, do away with device specific and low-level configurations, and generally allow faster development. Some examples of network programming languages in SDNs are Pyretic, Frenetic, Merlin, Nettle, Procera, FML, etc.
 <ul>
 <li>For a tutorial on Frenetic programming language:
@@ -415,7 +415,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 </li>
-<li><strong>Network applications</strong>: These are the functionalities that implement the control plane logic and translate to commands in the data plane. SDNs can be deployed on traditional networks, and can find itself in home area networks, data centers, IXPs etc. Due to this, there is a wide variety of network applications such as routing, load balancing, security enforcement, end-to-end QoS enforcement, power consumption reduction, network virtualization, mobility management, etc. Some well known solutions are Hedera, Aster*x, OSP, OpenQoS, Pronto, Plug-N-Serve, SIMPLE, FAMS, FlowSense, OpenTCP, NetGraph, FortNOX, FlowNAC, VAVE, etc.</li>
+<li><strong>Network applications</strong>: These are the functionalities that implement the control plane logic and translate to commands in the data plane. <u>SDNs can be deployed on traditional networks, and can find itself in home area networks, data centers, IXPs etc.</u> Due to this, there is a wide variety of network applications such as routing, load balancing, security enforcement, end-to-end QoS enforcement, power consumption reduction, network virtualization, mobility management, etc. Some well known solutions are Hedera, Aster*x, OSP, OpenQoS, Pronto, Plug-N-Serve, SIMPLE, FAMS, FlowSense, OpenTCP, NetGraph, FortNOX, FlowNAC, VAVE, etc.</li>
 </ol>
 <h3><span id="sdn-infrastructure-layer"> SDN Infrastructure Layer</span></h3>
 <p>The SDN infrastructure composes of networking equipment (routers, switches and appliance hardware) performing simple forwarding tasks. The physical devices do not have embedded intelligence or control, as the network intelligence is now delegated to a logically centralized control system - the Network Operating System (NOS). An important difference in these networks is that they are built on top of open and standard interfaces that ensure configuration and communication compatibility and interoperability among different control plane and data plane devices. As opposed to traditional networks that use proprietary and closed interfaces, these networks are able to dynamically program heterogeneous network devices as forwarding devices.</p>
@@ -486,7 +486,7 @@ function sidebar_toggle() {
 <li><strong>Protocol independence</strong>: To enable the switches to be <strong>independent of any particular protocol</strong>, the controller defines a packet parser and a set of tables mapping matches and their actions. The packet parser extracts the header fields which are then passed on to the match+action tables to be processed.</li>
 <li><strong>Target independence</strong>: The packet processing programs should be programmed <strong>independent of the underlying target devices</strong>[Quiz]. These generalized programs written in P4 should be converted into target-dependent programs by a compiler which are then used to configure the switch.</li>
 </ul>
-<h3><span id="p4s-forwarding-model"> P4’s Forwarding Model</span></h3>
+<h3><span id="p4-s-forwarding-model"> P4’s Forwarding Model</span></h3>
 <p>The switches using P4 use a programmable parser and a set of match+action tables to forward packets. The tables can be accessed in multiple stages in a series or parallel manner. This contrasts with OpenFlow, which supports only fixed parsers based on predetermined header fields and only <u>a series combination of match+actions tables</u>.</p>
 <p>The P4 model allows generalization of packet processing across various forwarding devices such as routers, load balancers, etc., using multiple technologies such as fixed function switches, NPUs, etc. This generalization allows the design of a common language to write packet processing programs that are independent of the underlying devices. A compiler then maps these programs to different forwarding devices.</p>
 <p>The following are the two main operations of the P4 forwarding model:</p>
@@ -622,10 +622,11 @@ function sidebar_toggle() {
 <script src="/js/book-post.js"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
 
 <!-- To automatically render math in text elements, include the auto-render extension: -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, {

@@ -29,11 +29,11 @@
 
 
     <!-- tocbot -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
     
-    <!-- katex -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <!-- katex css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
 
     
     
@@ -295,7 +295,7 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <html><head></head><body><h1><span id="week-6a-advice-for-applying-machine-learning"> Week 6a - Advice for Applying Machine Learning</span></h1>
+  <html><head></head><body><h1><span id="week-6a---advice-for-applying-machine-learning"> Week 6a - Advice for Applying Machine Learning</span></h1>
 <h2><span id="evaluating-a-learning-algorithm"> Evaluating a Learning Algorithm</span></h2>
 <h3><span id="debugging-a-learning-algorithm"> Debugging a learning algorithm</span></h3>
 <ul>
@@ -345,7 +345,7 @@ function sidebar_toggle() {
 <li>This gives us a binary 0 or 1 error result based on a misclassification. The average test error for the test set is: $$\text{Test Error} = \dfrac{1}{m_{test}} \sum^{m_{test}}<em>{i=1} err(h</em>\Theta(x^{(i)}<em>{test}), y^{(i)}</em>{test})$$</li>
 <li>This gives us the proportion of the test data that was misclassified.</li>
 </ul>
-<h3><span id="model-selection-and-trainvalidationtest-sets"> Model Selection and Train/Validation/Test Sets</span></h3>
+<h3><span id="model-selection-and-train-validation-test-sets"> Model Selection and Train/Validation/Test Sets</span></h3>
 <ul>
 <li>Last time, we split up the data to two sets (70/30). And we used the test sets to choose the best hypothesis(i.e. specifically chose it because the test set error is small), then the hypothesis will gave us the best possible performance on the test set.</li>
 <li>The problem is, the best model is likely to be an overly optimistic estimate of generalization error. Because we had fit this hypothesis to the test set, which is no longer fair to evaluate it on the test set. So there is another way:
@@ -368,8 +368,8 @@ function sidebar_toggle() {
 </li>
 <li>This way, the degree of the polynomial <strong>d</strong> has not been trained using the test set.</li>
 </ul>
-<h2><span id="bias-vs-variance"> Bias vs. Variance</span></h2>
-<h3><span id="diagnosing-bias-vs-variance"> Diagnosing Bias vs. Variance</span></h3>
+<h2><span id="bias-vs.-variance"> Bias vs. Variance</span></h2>
+<h3><span id="diagnosing-bias-vs.-variance"> Diagnosing Bias vs. Variance</span></h3>
 <ul>
 <li>In this section we examine the relationship between the degree of the polynomial d and the underfitting or overfitting of our hypothesis.
 <ul>
@@ -389,7 +389,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h3><span id="regularization-and-biasvariance"> Regularization and Bias/Variance</span></h3>
+<h3><span id="regularization-and-bias-variance"> Regularization and Bias/Variance</span></h3>
 <ul>
 <li>
 <img src="https://i.imgur.com/TR4EBOI.jpg" style="width:500px">
@@ -491,10 +491,11 @@ function sidebar_toggle() {
 <script src="/js/book-post.js"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
 
 <!-- To automatically render math in text elements, include the auto-render extension: -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, {

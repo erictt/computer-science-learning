@@ -29,11 +29,11 @@
 
 
     <!-- tocbot -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
     
-    <!-- katex -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <!-- katex css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
 
     
     
@@ -295,16 +295,16 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <html><head></head><body><h1><span id="week-7-software-defined-networking-part-1"> Week 7 - Software Defined Networking (Part 1)</span></h1>
+  <html><head></head><body><h1><span id="week-7---software-defined-networking-part-1"> Week 7 - Software Defined Networking (Part 1)</span></h1>
 <!-- toc -->
 <ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#what-led-us-to-sdn">What led us to SDN?</a></li>
 <li><a href="#a-brief-history-of-sdn-the-milestones">A Brief History of SDN: The Milestones</a>
 <ul>
-<li><a href="#1-active-networks">1. Active networks</a></li>
-<li><a href="#2-control-and-data-plane-separation">2. Control and data plane separation</a></li>
-<li><a href="#3-openflow-api-and-network-operating-systems">3. OpenFlow API and network operating systems</a></li>
+<li><a href="#1.-active-networks">1. Active networks</a></li>
+<li><a href="#2.-control-and-data-plane-separation">2. Control and data plane separation</a></li>
+<li><a href="#3.-openflow-api-and-network-operating-systems">3. OpenFlow API and network operating systems</a></li>
 </ul>
 </li>
 <li><a href="#why-separate-the-data-plane-from-the-control-plane">Why Separate the Data Plane from the Control Plane?</a></li>
@@ -346,7 +346,7 @@ function sidebar_toggle() {
 <li><strong>Control and data plane separation</strong></li>
 <li><strong>OpenFlow API and network operating systems</strong></li>
 </ol>
-<h3><span id="1-active-networks"> 1. Active networks</span></h3>
+<h3><span id="1.-active-networks"> 1. Active networks</span></h3>
 <ul>
 <li>
 <p>This phase took place from the mid-1990s to the early 2000s. During this time, the internet takeoff resulted in an increase in the applications and appeal of the internet. Researchers were keen on testing new ideas to improve network services. However, this required standardization of new protocols by the IETF (Internet Engineering Task Force), which was a slow and frustrating process.</p>
@@ -407,7 +407,7 @@ function sidebar_toggle() {
 </li>
 </ol>
 <p>One of the biggest downfalls for active networking was that it was too ambitious! Since it required end users to write Java code, it was too far removed from the reality at that time, and hence was not trusted to be safe. Since active networking was more involved in redesigning the architecture of networks, not as much emphasis was given to performance and security – which users were more concerned about. However, it is worthwhile to note that some efforts did aim to build high-performance active routers, and there were a few notable projects that did address the security of networks. Since there were no specific short-term problems that active networks solved, it was harder for them to see widespread deployment. The next efforts had a more focused scope and distinguished between control and data planes. This difference made it easier to focus on innovation in a specific plane and inflict widespread change.</p>
-<h3><span id="2-control-and-data-plane-separation"> 2. Control and data plane separation</span></h3>
+<h3><span id="2.-control-and-data-plane-separation"> 2. Control and data plane separation</span></h3>
 <p>This phase lasted from around 2001 to 2007. During this time, there was a steady increase in traffic volumes and thus, network reliability, predictability and performance became more important. Network operators were looking for better network-management functions such as control over paths to deliver traffic (traffic engineering). Researchers started exploring short-term approaches that were deployable using existing protocols. They identified the challenge in network management lay in the way existing routers and switches tightly integrated the control and data planes. Once this was identified, efforts to separate the two began.</p>
 <p>Technology push:</p>
 <p>The technology pushes that encouraged control and data plane separation were:</p>
@@ -444,7 +444,7 @@ function sidebar_toggle() {
 <li><strong>Distributed state management</strong>.</li>
 </ul>
 <p>Initially, many people thought separating the control and data planes was a bad idea, since there was no clear idea as to how these networks would operate if a controller failed. There was also some skepticism about moving away from a simple network where all have a common view of the network state to one where the router only had a local view of the outcome of route-selection. However, this concept of separation of planes helped researchers think clearly about distributed state management. Several projects exploring clean-slate architecture commenced and laid the foundation for OpenFlow API.</p>
-<h3><span id="3-openflow-api-and-network-operating-systems"> 3. OpenFlow API and network operating systems</span></h3>
+<h3><span id="3.-openflow-api-and-network-operating-systems"> 3. OpenFlow API and network operating systems</span></h3>
 <p>This phase took place from around 2007 to 2010. OpenFlow was born out of the interest in the idea of network experimentation at a scale (by researchers and funding agencies). It was able to balance the vision of fully programmable networks and the practicality of ensuring real world deployment. OpenFlow built on the existing hardware and enabled more functions than earlier route controllers. Although this dependency on hardware limited its flexibility, it enabled immediate deployment.</p>
 <p>The basic working of an OpenFlow switch is as follows. Each switch contains a table of packet-handling rules. Each rule has a pattern, list of actions, set of counters and a priority. <u>When an OpenFlow switch receives a packet, it determines the highest priority matching rule, performs the action associated with it and increments the counter.</u>[Quiz]</p>
 <p>Technology push:</p>
@@ -614,10 +614,11 @@ function sidebar_toggle() {
 <script src="/js/book-post.js"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
 
 <!-- To automatically render math in text elements, include the auto-render extension: -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, {

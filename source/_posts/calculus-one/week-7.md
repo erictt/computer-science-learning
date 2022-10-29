@@ -3,11 +3,15 @@
 ## Trigonometry 
 
 * Trigonometric Functions
+
     * <img src="https://i.imgur.com/X7GpFs9.jpg" style="width:200px" />
+
         * $\sin{\theta} = \frac{opp}{hyp}$, $\csc{\theta} = \frac{hyp}{opp}$
         * $\cos{\theta} = \frac{adj}{hyp}$, $\sec{\theta} = \frac{hyp}{adj}$
         * $\tan{\theta} = \frac{opp}{adj}$, $\cot{\theta} = \frac{adj}{opp}$
+
     * <img src="https://i.imgur.com/3fsoUtQ.jpg" style="width:200px" />
+
         * $\sin{\theta} = \frac{y}{r}$, $\csc{\theta} = \frac{r}{y}$
         * $\cos{\theta} = \frac{x}{r}$, $\sec{\theta} = \frac{r}{x}$
         * $\tan{\theta} = \frac{y}{x}$, $\cot{\theta} = \frac{x}{y}$

@@ -29,11 +29,11 @@
 
 
     <!-- tocbot -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
     
-    <!-- katex -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <!-- katex css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
 
     
     
@@ -306,8 +306,8 @@ function sidebar_toggle() {
 </li>
 <li><a href="#connectionless-and-connection-oriented-service">Connectionless and Connection-Oriented Service</a>
 <ul>
-<li><a href="#connectionless-serviceudp">Connectionless Service(UDP)</a></li>
-<li><a href="#connection-oriented-servicetcp">Connection-Oriented Service(TCP)</a></li>
+<li><a href="#connectionless-service-udp">Connectionless Service(UDP)</a></li>
+<li><a href="#connection-oriented-service-tcp">Connection-Oriented Service(TCP)</a></li>
 </ul>
 </li>
 <li><a href="#the-tcp-three-way-handshake">The TCP Three-Way Handshake</a>
@@ -326,11 +326,11 @@ function sidebar_toggle() {
 <li><a href="#congestion-control">Congestion Control</a></li>
 </ul>
 </li>
-<li><a href="#congestion-control-at-tcp-aimd">Congestion Control at TCP - AIMD</a>
+<li><a href="#congestion-control-at-tcp---aimd">Congestion Control at TCP - AIMD</a>
 <ul>
 <li><a href="#additive-increase-ai">Additive Increase (AI)</a></li>
 <li><a href="#multiplicative-decrease-md">Multiplicative Decrease (MD)</a></li>
-<li><a href="#aiad-mimd-miad">AIAD - MIMD - MIAD</a></li>
+<li><a href="#aiad---mimd---miad">AIAD - MIMD - MIAD</a></li>
 <li><a href="#tcp-reno">TCP Reno</a></li>
 <li><a href="#slow-start-in-tcp">Slow start in TCP</a></li>
 <li><a href="#tcp-fairness">TCP Fairness</a></li>
@@ -388,7 +388,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h2><span id="connectionless-and-connection-oriented-service"> Connectionless and Connection-Oriented Service</span></h2>
-<h3><span id="connectionless-serviceudp"> Connectionless Service(UDP)</span></h3>
+<h3><span id="connectionless-service-udp"> Connectionless Service(UDP)</span></h3>
 <ul>
 <li>The identifier of a UDP socket is a <strong>two-tuple</strong> that consists of <strong>a destination IP address and a destination port number</strong>.</li>
 <li>Consider two hosts, A and B, which are running two processes at UDP ports a and b, respectively. Suppose that Host A sends data to Host B. The transport layer in Host A creates a transport-layer segment by the application data, the source port, and the destination port; and forwards the segment to the network layer. In turn, the network layer encapsulates the segment into a network-layer datagram and sends it to Host B with best-effort delivery. Then Host B identifies the correct socket by looking at the field of destination port, then use the info to demultiplex.</li>
@@ -404,7 +404,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h4><span id="checksuman-error-checking-mechanism"> Checksum(an error checking mechanism):</span></h4>
+<h4><span id="checksum-an-error-checking-mechanism"> Checksum(an error checking mechanism):</span></h4>
 <ul>
 <li>
 <p>it’s a basic error checking since there is no guarantee for link-by-link reliability. The UDP sender adds the bits of the source port, the destination port, and the packet length. It performs a 1’s complement on the sum (all 0s are turned to 1 and all 1s are turned to 0s), which is the value of the checksum. The receiver adds all the four 16-bit words (including the checksum). The result should be all 1’s unless an error has occurred.</p>
@@ -433,7 +433,7 @@ function sidebar_toggle() {
 <p>How is a 1s complement checksum useful for error detection? <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/5607978/how-is-a-1s-complement-checksum-useful-for-error-detection">https://stackoverflow.com/questions/5607978/how-is-a-1s-complement-checksum-useful-for-error-detection</a></p>
 </li>
 </ul>
-<h3><span id="connection-oriented-servicetcp"> Connection-Oriented Service(TCP)</span></h3>
+<h3><span id="connection-oriented-service-tcp"> Connection-Oriented Service(TCP)</span></h3>
 <ul>
 <li>
 <img src="https://i.imgur.com/1h1pQVl.png" style="width:500px">
@@ -615,7 +615,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h2><span id="congestion-control-at-tcp-aimd"> Congestion Control at TCP - AIMD</span></h2>
+<h2><span id="congestion-control-at-tcp---aimd"> Congestion Control at TCP - AIMD</span></h2>
 <ul>
 <li>TCP decreases the window when the level of congestion goes up, and it increases the window when the level of congestion goes down. We refer to this combined mechanism as <strong>additive increase/multiplicative decrease (AIMD)</strong>.</li>
 </ul>
@@ -637,7 +637,7 @@ function sidebar_toggle() {
 <img src="https://i.imgur.com/I4g6waG.png" style="width:500px">
 </li>
 </ul>
-<h3><span id="aiad-mimd-miad"> AIAD - MIMD - MIAD</span></h3>
+<h3><span id="aiad---mimd---miad"> AIAD - MIMD - MIAD</span></h3>
 <ul>
 <li>Would all those polices cover? If so, what’s the diff from AIMD?
 <ul>
@@ -891,10 +891,11 @@ M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist
 <script src="/js/book-post.js"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
 
 <!-- To automatically render math in text elements, include the auto-render extension: -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, {

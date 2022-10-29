@@ -29,11 +29,11 @@
 
 
     <!-- tocbot -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
     
-    <!-- katex -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <!-- katex css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
 
     
     
@@ -306,7 +306,7 @@ function sidebar_toggle() {
 <li><a href="#optimize-for-the-common-case">Optimize for the common case</a></li>
 </ul>
 </li>
-<li><a href="#userkernel-protection-boundary">User/Kernel Protection Boundary</a>
+<li><a href="#user-kernel-protection-boundary">User/Kernel Protection Boundary</a>
 <ul>
 <li><a href="#system-call-flowchart">System Call Flowchart</a></li>
 </ul>
@@ -357,7 +357,7 @@ function sidebar_toggle() {
 <ul>
 <li>The design should be optimized for the way it’s most likely to be used. For example, the “interrupt as threads” design is beneficial to overall system performance because despite the fact that there is a cost incurred for interrupts, there are savings on every mutex lock/unlock operation. Because the latter occur much more frequently than the former (common case), it’s an overall performance gain.</li>
 </ul>
-<h2><span id="userkernel-protection-boundary"> User/Kernel Protection Boundary</span></h2>
+<h2><span id="user-kernel-protection-boundary"> User/Kernel Protection Boundary</span></h2>
 <ul>
 <li>Kernel-mode: where OS resides, it’s privileged, has direct access to the hardware</li>
 <li>User-mode: where application resides</li>
@@ -416,10 +416,11 @@ function sidebar_toggle() {
 <script src="/js/book-post.js"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
 
 <!-- To automatically render math in text elements, include the auto-render extension: -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, {
