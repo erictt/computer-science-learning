@@ -348,7 +348,7 @@ function sidebar_toggle() {
 <li>The separation of control and data plane is achieved by using a programming interface between the SDN controller and the switches.  The SDN <strong>controller</strong> controls the data plane elements via the API. An example of such an API is OpenFlow[Quiz]. A <strong>switch</strong> in OpenFlow has one or more tables for packet handling rules. Each rule matches a subset of network traffic and performs actions such as dropping, forwarding, modifying etc. <strong>An OpenFlow switch</strong> can be instructed by the controller to behave like a <em>firewall</em>, <em>switch</em>, <em>router</em>, or even perform other roles like <em>load balancer</em>, <em>traffic shaper</em>, etc[Quiz].</li>
 <li>As opposed to traditional IP networks, SDN principles allow for a separation of concerns introduced between the definition of networking policies, their implementation in hardware, and the forwarding of traffic. It is this separation that allows for networking control problems to be viewed as tractable pieces, allowing for newer networking abstractions and simplifying networking management, allowing innovation such as IPv6 transmission[Quiz].</li>
 </ul>
-<img src="https://i.imgur.com/ZtyaJfb.png" style="width: 600px">
+<img src="https://i.imgur.com/ZtyaJfb.png" style="width: 800px">
 <p>Traditionally viewed, computer networks have three planes of functionality, which are all abstract logical concepts:</p>
 <ul>
 <li><strong>Data plane</strong>: These are functions and processes that forward data in the form of packets or frames.</li>
@@ -376,16 +376,16 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<img src="https://i.imgur.com/26AvD4I.png" style="width: 600px">
+<img src="https://i.imgur.com/26AvD4I.png" style="width: 800px">
 <h2><span id="the-sdn-landscape"> The SDN Landscape</span></h2>
 <p>The landscape of the SDN architecture can be decomposed into layers as shown in the figure below.<br>
-<img src="https://i.imgur.com/Ptrz4EZ.png" style="width: 600px"></p>
+<img src="https://i.imgur.com/Ptrz4EZ.png" style="width: 800px"></p>
 <p>Each layer performs its own functions through different technologies. The figure above presents three perspectives of the SDN landscape: (a) a plane-oriented view, (b) the SDN layers, and © a system design perspective.</p>
 <ul>
 <li>Southbound Interface is in Data plane, Northbound Interface is in Control plane</li>
 </ul>
 <p>Next, for each layer, we are providing an overview of the technologies that have been developed. Also, for some representative technologies we are referencing links to actively maintained tutorials.</p>
-<img src="https://i.imgur.com/b8K9AGF.png" style="width: 600px">
+<img src="https://i.imgur.com/b8K9AGF.png" style="width: 800px">
 <ol>
 <li><strong>Infrastructure</strong>: Similar to traditional networks, an SDN infrastructure consists of networking equipment (routers, switches and other middlebox hardware). What is now different is that these physical networking equipment are merely forwarding elements that do a simple forwarding task, and any logic to operate them is directed from the centralized control system. Popular examples of such infrastructure equipment include <em>OpenFlow</em> (software) switches such as SwitchLight, Open vSwitch, Pica8, etc.  For further details and hands on tutorial please look through these links:
 <ul>
@@ -461,7 +461,7 @@ function sidebar_toggle() {
 <p>A distributed controller with a centralized cluster of nodes can provide the best throughput, comparing to a single centralized controller and a distributed controller with a physically distributed set of elements.[Quiz]</p>
 <h4><span id="an-example-controller-onos"> An example Controller: ONOS</span></h4>
 <p>ONOS (Open Networking Operating System) is a distributed SDN control platform. It aims to provide a global view of the network to the applications, scale-out performance and fault tolerance. The prototype was built based on Floodlight, an open-source single-instance SDN controller. The below figure depicts the high level architecture.</p>
-<img src="https://i.imgur.com/GaOzGNg.png" style="width: 600px">
+<img src="https://i.imgur.com/GaOzGNg.png" style="width: 800px">
 <p>Owing to the distributed architecture of ONOS, there are several ONOS instances running in a cluster. The management and sharing of the network state across these instances is achieved by maintaining a global network view. This view is built by using the network topology and state information (port, link and host information, etc) that is discovered by each instance.</p>
 <p>To make forwarding and policy decisions, the applications consume information from the view and then update these decisions back to the view. The corresponding OpenFlow managers receive the changes the applications make to the view, and the appropriate switches are programmed.</p>
 <p>Titan, a graph database and a distributed key value store Cassandra is used to implement the view. The applications interact with the network view using the Blueprints graph API.</p>
@@ -479,7 +479,7 @@ function sidebar_toggle() {
 <li>According to the paper, P4 is not being developed as a replacement for OpenFlow, but a strawman proposal for how OpenFlow should evolve in the future.[Quiz]</li>
 </ul>
 <p><strong>P4 is used to configure the switch programmatically and acts as a general interface between the switches and the controller with its main aim of allowing the controller to define how the switches operate.</strong> The below figure explains the relationship between P4 and existing APIs such as OpenFlow, which targets to populate forwarding rules in fixed function switches:</p>
-<img src="https://i.imgur.com/07W0UnU.png" style="width: 600px">
+<img src="https://i.imgur.com/07W0UnU.png" style="width: 800px">
 <p>The following are the <strong>primary goals of P4</strong>:</p>
 <ul>
 <li><strong>Reconfigurability</strong>: <strong>The way parsing and processing of packets</strong> takes place in the switches <strong>should be modifiable</strong> by the controller.</li>
@@ -493,7 +493,7 @@ function sidebar_toggle() {
 <p>(i) <strong>Configure</strong>: These sets of operations are used to program the parser. They specify the <strong>header fields</strong> to be processed in each match+action stage and also define the order of these stages.</p>
 <p>(ii) <strong>Populate</strong>: <u>The entries</u> in the match+action tables specified during configuration <strong>may be altered using the populate operations</strong>. It allows addition and deletion of the entries in the tables.</p>
 <p>In short, configuration determines the packet processing and the supported protocols in a switch whereas population decides the policies to be applied to the packets.</p>
-<img src="https://i.imgur.com/NC5l2kv.png" style="width: 600px">
+<img src="https://i.imgur.com/NC5l2kv.png" style="width: 800px">
 <h3><span id="optional-an-introduction-to-the-p4-programming-language"> Optional: An introduction To The P4 Programming Language</span></h3>
 <p>The abstract forwarding model we saw in the earlier section is used to define a programming language that defines the configuration of a switch and the processing of a packet. P4 is one such packet processing language with the following characteristics:</p>
 <ol>
@@ -502,7 +502,7 @@ function sidebar_toggle() {
 <li>Table Dependency Graphs (TDGs) are used to identify the dependencies between the header fields and help determine the order in which the tables can be executed. Tables with no dependencies may be executed in parallel. Each node in the TDG maps to a match+action table. The nodes contain the match and action with the control flow between tables acting as the edges between the nodes. The analysis of dependencies between the nodes determine where a table may be placed in the pipeline. However, these graphs are not readily available to the programmer.</li>
 </ol>
 <p>To address the dependency issues, the control flow logic to process packets is written using P4 which is then translated to TDGs using a compiler for dependency analysis. The compiler then maps the TDG to a specific target switch.</p>
-<img src="https://i.imgur.com/n1cBXld.png" style="width: 600px">
+<img src="https://i.imgur.com/n1cBXld.png" style="width: 800px">
 <h2><span id="sdn-applications"> SDN Applications</span></h2>
 <h3><span id="overview"> Overview</span></h3>
 <p>An overview of the application areas of SDN.</p>
@@ -562,7 +562,7 @@ function sidebar_toggle() {
 <p><u>Each AS can <strong>define forwarding policies</strong> as if it is the only participant at the SDX, without influencing how other participants forward packets on their own virtual switches</u>[Quiz]. Each AS can have its own SDN applications for dropping, modifying, or forwarding their traffic. The policies can also be different based on the direction of the traffic (inbound or outbound). An inbound policy is applied on the traffic coming from other SDX participant on a virtual switch. An outbound policy is applied to traffic from the participant’s virtual switch port towards other participants. <u>The SDX is responsible to combine the policies from multiple participants into a single policy for the physical switch. </u></p>
 <p>To write policies SDX uses the <strong>Pyretic language</strong> to match header fields of the packets and to express actions on the packets.</p>
 <p>Let’s consider the example of application-specific peering, and let’s see how a participant network expresses example policies:</p>
-<img src="https://i.imgur.com/1VYsynS.png" style="width: 600px">
+<img src="https://i.imgur.com/1VYsynS.png" style="width: 800px">
 <p>According to AS A’s outbound policy, the HTTP traffic with destination port 80 is forwarded to AS B and HTTPS traffic with destination port 443 is forwarded to AS C.</p>
 <p>This is expressed using the match statement:</p>
 <p><code>(match(dstport = 80) &gt;&gt; fwd(B)) +</code><br>
