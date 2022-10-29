@@ -21,7 +21,7 @@
 * The separation of control and data plane is achieved by using a programming interface between the SDN controller and the switches.  The SDN **controller** controls the data plane elements via the API. An example of such an API is OpenFlow[Quiz]. A **switch** in OpenFlow has one or more tables for packet handling rules. Each rule matches a subset of network traffic and performs actions such as dropping, forwarding, modifying etc. **An OpenFlow switch** can be instructed by the controller to behave like a *firewall*, *switch*, *router*, or even perform other roles like *load balancer*, *traffic shaper*, etc[Quiz].
 * As opposed to traditional IP networks, SDN principles allow for a separation of concerns introduced between the definition of networking policies, their implementation in hardware, and the forwarding of traffic. It is this separation that allows for networking control problems to be viewed as tractable pieces, allowing for newer networking abstractions and simplifying networking management, allowing innovation such as IPv6 transmission[Quiz]. 
 
-<img src="https://i.imgur.com/ZtyaJfb.png" style="width: 600px" />
+![](https://i.imgur.com/ZtyaJfb.png)
 
 Traditionally viewed, computer networks have three planes of functionality, which are all abstract logical concepts:
 * **Data plane**: These are functions and processes that forward data in the form of packets or frames.
@@ -47,19 +47,19 @@ what are the advantages to using the SDN technology comparing to traditional(con
     - **Locality of functionality placement**: Previously, the location of middleboxes was a strategic decision and big constraint. However, in this model, the middlebox applications can take actions from anywhere in the network.
     - **Simpler integration**: Integrations of networking applications are smoother. For example, load balancing and routing applications can be combined sequentially.
 
-<img src="https://i.imgur.com/26AvD4I.png" style="width: 600px" />
+![](https://i.imgur.com/26AvD4I.png)
 
 ## The SDN Landscape
 
 The landscape of the SDN architecture can be decomposed into layers as shown in the figure below. 
-<img src="https://i.imgur.com/Ptrz4EZ.png" style="width: 600px" />
+![](https://i.imgur.com/Ptrz4EZ.png)
 
 Each layer performs its own functions through different technologies. The figure above presents three perspectives of the SDN landscape: (a) a plane-oriented view, (b) the SDN layers, and (c) a system design perspective. 
 * Southbound Interface is in Data plane, Northbound Interface is in Control plane
 
 Next, for each layer, we are providing an overview of the technologies that have been developed. Also, for some representative technologies we are referencing links to actively maintained tutorials. 
 
-<img src="https://i.imgur.com/b8K9AGF.png" style="width: 600px" />
+![](https://i.imgur.com/b8K9AGF.png)
 
 1. **Infrastructure**: Similar to traditional networks, an SDN infrastructure consists of networking equipment (routers, switches and other middlebox hardware). What is now different is that these physical networking equipment are merely forwarding elements that do a simple forwarding task, and any logic to operate them is directed from the centralized control system. Popular examples of such infrastructure equipment include *OpenFlow* (software) switches such as SwitchLight, Open vSwitch, Pica8, etc.  For further details and hands on tutorial please look through these links:
     * OpenFlow: https://github.com/mininet/openflow-tutorial/wiki
@@ -135,7 +135,7 @@ A distributed controller with a centralized cluster of nodes can provide the bes
 
 ONOS (Open Networking Operating System) is a distributed SDN control platform. It aims to provide a global view of the network to the applications, scale-out performance and fault tolerance. The prototype was built based on Floodlight, an open-source single-instance SDN controller. The below figure depicts the high level architecture. 
 
-<img src="https://i.imgur.com/GaOzGNg.png" style="width: 600px" />
+![](https://i.imgur.com/GaOzGNg.png)
 
 
 Owing to the distributed architecture of ONOS, there are several ONOS instances running in a cluster. The management and sharing of the network state across these instances is achieved by maintaining a global network view. This view is built by using the network topology and state information (port, link and host information, etc) that is discovered by each instance. 
@@ -162,7 +162,7 @@ Thus, to manage the demand for increasing number of header fields, a need arises
 
 **P4 is used to configure the switch programmatically and acts as a general interface between the switches and the controller with its main aim of allowing the controller to define how the switches operate.** The below figure explains the relationship between P4 and existing APIs such as OpenFlow, which targets to populate forwarding rules in fixed function switches:
 
-<img src="https://i.imgur.com/07W0UnU.png" style="width: 600px" />
+![](https://i.imgur.com/07W0UnU.png)
 
 The following are the **primary goals of P4**:
 
@@ -184,7 +184,7 @@ The following are the two main operations of the P4 forwarding model:
 
 In short, configuration determines the packet processing and the supported protocols in a switch whereas population decides the policies to be applied to the packets.
 
-<img src="https://i.imgur.com/NC5l2kv.png" style="width: 600px" />
+![](https://i.imgur.com/NC5l2kv.png)
 
 ### Optional: An introduction To The P4 Programming Language
 
@@ -195,7 +195,7 @@ The abstract forwarding model we saw in the earlier section is used to define a 
 
 To address the dependency issues, the control flow logic to process packets is written using P4 which is then translated to TDGs using a compiler for dependency analysis. The compiler then maps the TDG to a specific target switch.
 
-<img src="https://i.imgur.com/n1cBXld.png" style="width: 600px" />
+![](https://i.imgur.com/n1cBXld.png)
 
 ## SDN Applications
 
@@ -253,7 +253,7 @@ To write policies SDX uses the **Pyretic language** to match header fields of th
 
 Let’s consider the example of application-specific peering, and let's see how a participant network expresses example policies:
 
-<img src="https://i.imgur.com/1VYsynS.png" style="width: 600px" />
+![](https://i.imgur.com/1VYsynS.png)
 
 
 According to AS A’s outbound policy, the HTTP traffic with destination port 80 is forwarded to AS B and HTTPS traffic with destination port 443 is forwarded to AS C. 
