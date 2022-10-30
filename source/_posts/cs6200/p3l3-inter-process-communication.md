@@ -91,10 +91,13 @@
     * If we specify IPC_RMID as the cmd, we can destroy the segment.
 * more detail: https://tldp.org/LDP/lpg/node21.html
 
-### POSIX Shared Memory API
+## POSIX Shared Memory
 
 * The POSIX shared memory standard doesn't use segments, but files. They are not "real" files that live in a filesystem that are used elsewhere by the operating system. Instead they are files that live in the **tmpfs** filesystem. 
 * Since shared memory segments are now referenced by a file descriptor, there is no longer a need for the key generation process.
+
+### POSIX Shared Memory APIs
+
 * The functions:
     * created/opened:  `shm_open()`.
     * attach/detach shared memory: `mmap()` and `munmap()`
@@ -102,7 +105,7 @@
     * remove file descriptor from the address space of the process: `shm_close()`, not destroy
 * https://man7.org/linux/man-pages/man7/shm_overview.7.html
 
-### Shared Memory and Sync
+## Shared Memory and Sync
 
 * Shared memory has the same situation we encountered in multithreaded environments -- synchronization.
 * Couple of options for handling inter-process synchronization:

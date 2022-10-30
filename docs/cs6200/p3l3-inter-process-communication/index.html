@@ -311,14 +311,18 @@ function sidebar_toggle() {
 <li><a href="#sysv-shared-memory">SysV Shared Memory</a>
 <ul>
 <li><a href="#sysv-shared-memory-apis">SysV Shared Memory APIs</a></li>
-<li><a href="#posix-shared-memory-api">POSIX Shared Memory API</a></li>
+</ul>
+</li>
+<li><a href="#posix-shared-memory">POSIX Shared Memory</a>
+<ul>
+<li><a href="#posix-shared-memory-apis">POSIX Shared Memory APIs</a></li>
+</ul>
+</li>
 <li><a href="#shared-memory-and-sync">Shared Memory and Sync</a>
 <ul>
 <li><a href="#pthreads-sync-for-ipc">PThreads Sync for IPC</a></li>
 <li><a href="#sync-for-other-ipc">Sync for Other IPC</a></li>
 <li><a href="#ipc-command-line-tools">IPC Command Line Tools</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a href="#shared-memory-design-considerations">Shared Memory Design Considerations</a></li>
@@ -477,10 +481,13 @@ function sidebar_toggle() {
 </li>
 <li>more detail: <a target="_blank" rel="noopener" href="https://tldp.org/LDP/lpg/node21.html">https://tldp.org/LDP/lpg/node21.html</a></li>
 </ul>
-<h3 id="posix-shared-memory-api"><a class="markdownIt-Anchor" href="#posix-shared-memory-api"></a> POSIX Shared Memory API</h3>
+<h2 id="posix-shared-memory"><a class="markdownIt-Anchor" href="#posix-shared-memory"></a> POSIX Shared Memory</h2>
 <ul>
 <li>The POSIX shared memory standard doesn’t use segments, but files. They are not “real” files that live in a filesystem that are used elsewhere by the operating system. Instead they are files that live in the <strong>tmpfs</strong> filesystem.</li>
 <li>Since shared memory segments are now referenced by a file descriptor, there is no longer a need for the key generation process.</li>
+</ul>
+<h3 id="posix-shared-memory-apis"><a class="markdownIt-Anchor" href="#posix-shared-memory-apis"></a> POSIX Shared Memory APIs</h3>
+<ul>
 <li>The functions:
 <ul>
 <li>created/opened:  <code>shm_open()</code>.</li>
@@ -491,7 +498,7 @@ function sidebar_toggle() {
 </li>
 <li><a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man7/shm_overview.7.html">https://man7.org/linux/man-pages/man7/shm_overview.7.html</a></li>
 </ul>
-<h3 id="shared-memory-and-sync"><a class="markdownIt-Anchor" href="#shared-memory-and-sync"></a> Shared Memory and Sync</h3>
+<h2 id="shared-memory-and-sync"><a class="markdownIt-Anchor" href="#shared-memory-and-sync"></a> Shared Memory and Sync</h2>
 <ul>
 <li>Shared memory has the same situation we encountered in multithreaded environments – synchronization.</li>
 <li>Couple of options for handling inter-process synchronization:
