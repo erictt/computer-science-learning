@@ -59,7 +59,7 @@
 ### Page Table Entry(PTE)
 
 * 32 bits in total for each entry.
-* <img src="https://i.imgur.com/dBgQCO0.jpg" style="width: 600px" />
+    * <img src="https://i.imgur.com/dBgQCO0.jpg" style="width: 600px" />
     * A **present bit**(P) indicates whether this page is in physical memory or on disk (i.e., it has been swapped out).
     * A **protection bits**(R/W), indicating whether the page could be read from, written to, or executed from.
     * A **dirty bit**(D) indicates whether the page has been modiﬁed since it was brought into memory.

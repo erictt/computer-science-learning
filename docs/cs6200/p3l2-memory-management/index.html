@@ -423,16 +423,18 @@ function sidebar_toggle() {
 <ul>
 <li>
 <p>32 bits in total for each entry.</p>
-</li>
+<ul>
 <li>
 <img src="https://i.imgur.com/dBgQCO0.jpg" style="width: 600px" />
-  * A **present bit**(P) indicates whether this page is in physical memory or on disk (i.e., it has been swapped out).
-  * A **protection bits**(R/W), indicating whether the page could be read from, written to, or executed from.
-  * A **dirty bit**(D) indicates whether the page has been modiﬁed since it was brought into memory.
-  * A **reference bit (a.k.a. accessed bit)**(A) is sometimes used to track whether a page has been accessed, and is useful in determining which pages are popular and thus should be kept in memory;
-  * A **user/supervisor bit** (U/S) which determines if user-mode processes can access the page;
-  * A few bits (PWT, PCD, PAT, and G) that determine how hardware caching works for these pages; 
-  * Finally, **the page frame number (PFN)** itself.
+</li>
+<li>A <strong>present bit</strong>(P) indicates whether this page is in physical memory or on disk (i.e., it has been swapped out).</li>
+<li>A <strong>protection bits</strong>(R/W), indicating whether the page could be read from, written to, or executed from.</li>
+<li>A <strong>dirty bit</strong>(D) indicates whether the page has been modiﬁed since it was brought into memory.</li>
+<li>A <strong>reference bit (a.k.a. accessed bit)</strong>(A) is sometimes used to track whether a page has been accessed, and is useful in determining which pages are popular and thus should be kept in memory;</li>
+<li>A <strong>user/supervisor bit</strong> (U/S) which determines if user-mode processes can access the page;</li>
+<li>A few bits (PWT, PCD, PAT, and G) that determine how hardware caching works for these pages;</li>
+<li>Finally, <strong>the page frame number (PFN)</strong> itself.</li>
+</ul>
 </li>
 <li>
 <p>The MMU uses the page table entry not just to perform the address translation, but also to rely on these bits to determine the validity of the access. If the hardware determines that a physical memory access cannot be performed, it causes a <strong>page fault</strong>.</p>
