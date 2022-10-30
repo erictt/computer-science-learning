@@ -128,9 +128,9 @@ markdown_it_plus:
       enable: true
       options:
         strict: false
-    # - plugin:
-    #   name: "markdown-it-toc-and-anchor"
-    #   enable: false
-toc:
-  maxdepth: 3
-  slugify: transliteration
+    - plugin:
+      name: "markdown-it-toc-and-anchor"
+      enable: false
+# toc:
+#   maxdepth: 3
+#   slugify: transliteration

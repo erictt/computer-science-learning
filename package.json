@@ -12,7 +12,7 @@
     "version": "6.3.0"
   },
   "dependencies": {
-    "@ericytt/hexo-toc": "^1.1.2",
+    "@ericytt/hexo-toc": "^2.0.0",
     "@neilsustc/markdown-it-katex": "github:neilsustc/markdown-it-katex",
     "hexo": "^6.3.0",
     "hexo-generator-category": "^1.0.0",
