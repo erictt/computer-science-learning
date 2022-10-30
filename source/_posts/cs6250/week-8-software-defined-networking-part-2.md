@@ -25,6 +25,7 @@
 
 Traditionally viewed, computer networks have three planes of functionality, which are all abstract logical concepts:
 * **Data plane**: These are functions and processes that forward data in the form of packets or frames.
+    * Note this tis the plane that executes policies from control plane[Quiz]
 * **Control plane**: These refer to functions and processes that determine which path to use by using protocols to populate forwarding tables of data plane elements.
 * **Management plane**: These are services that are used to monitor and configure the control functionality, e.g. SNMP-based tools.
 
@@ -47,12 +48,17 @@ what are the advantages to using the SDN technology comparing to traditional(con
     - **Locality of functionality placement**: Previously, the location of middleboxes was a strategic decision and big constraint. However, in this model, the middlebox applications can take actions from anywhere in the network.
     - **Simpler integration**: Integrations of networking applications are smoother. For example, load balancing and routing applications can be combined sequentially.
 
+* Note that the features like load balancer, IDS, firewalls, etc can be implemented with both conventional networks and SDNs.[Quiz]
+    * And middlebox is an equipment can act like any of these.
+
 <img src="https://i.imgur.com/26AvD4I.png" style="width: 800px" />
 
 ## The SDN Landscape
 
 The landscape of the SDN architecture can be decomposed into layers as shown in the figure below. 
 <img src="https://i.imgur.com/Ptrz4EZ.png" style="width: 800px" />
+
+^ remember all of the layers![Quiz]
 
 Each layer performs its own functions through different technologies. The figure above presents three perspectives of the SDN landscape: (a) a plane-oriented view, (b) the SDN layers, and (c) a system design perspective. 
 * Southbound Interface is in Data plane, Northbound Interface is in Control plane
@@ -74,11 +80,11 @@ Next, for each layer, we are providing an overview of the technologies that have
     * For a tutorial on Frenetic programming language:
         * http://frenetic-lang.github.io/tutorials/Introduction/
         * Pyretic: https://github.com/frenetic-lang/pyretic/wiki
-8. **Network applications**: These are the functionalities that implement the control plane logic and translate to commands in the data plane. <u>SDNs can be deployed on traditional networks, and can find itself in home area networks, data centers, IXPs etc.</u> Due to this, there is a wide variety of network applications such as routing, load balancing, security enforcement, end-to-end QoS enforcement, power consumption reduction, network virtualization, mobility management, etc. Some well known solutions are Hedera, Aster*x, OSP, OpenQoS, Pronto, Plug-N-Serve, SIMPLE, FAMS, FlowSense, OpenTCP, NetGraph, FortNOX, FlowNAC, VAVE, etc.
+8. **Network applications**: These are the functionalities that implement the control plane logic and translate to commands in the data plane. <u>SDNs can be deployed on traditional networks, and can find itself in home area networks, data centers, IXPs etc.</u> Due to this, there is a wide variety of network applications such as *routing*, *load balancing*, *security enforcement*, *end-to-end QoS enforcement*, *power consumption reduction*, *network virtualization*, *mobility management*, etc.[Quiz] Some well known solutions are Hedera, Aster*x, OSP, OpenQoS, Pronto, Plug-N-Serve, SIMPLE, FAMS, FlowSense, OpenTCP, NetGraph, FortNOX, FlowNAC, VAVE, etc.
 
 ### SDN Infrastructure Layer
 
-The SDN infrastructure composes of networking equipment (routers, switches and appliance hardware) performing simple forwarding tasks. The physical devices do not have embedded intelligence or control, as the network intelligence is now delegated to a logically centralized control system - the Network Operating System (NOS). An important difference in these networks is that they are built on top of open and standard interfaces that ensure configuration and communication compatibility and interoperability among different control plane and data plane devices. As opposed to traditional networks that use proprietary and closed interfaces, these networks are able to dynamically program heterogeneous network devices as forwarding devices.
+The SDN infrastructure composes of networking equipment (routers, switches and appliance hardware) performing simple forwarding tasks. The physical devices **do not have embedded intelligence**[Quiz] or control, as the network intelligence is now delegated to a logically centralized control system - the **Network Operating System (NOS)**. An important difference in these networks is that they are built on top of open and standard interfaces that ensure configuration and communication compatibility and interoperability among different control plane and data plane devices. As opposed to traditional networks that use proprietary and closed interfaces, these networks are able to dynamically program heterogeneous network devices as forwarding devices.
 
 In the SDN architecture, a data plane device is a hardware or software entity that forwards packets, while a controller is a software stack running on commodity hardware. A model derived from OpenFlow is currently the most widely accepted design of SDN data plane devices. It is based on a pipeline of flow tables where each entry of a flow table has three parts: 
 1) a matching rule, 
@@ -100,7 +106,7 @@ The Southbound interfaces or APIs are the separating medium between the control 
 
 From a legacy standpoint, development of a new switch typically takes up to two years for commercialization. Added to that is the upgrade cycles and time required to software development for the new product. Since the southbound APIs represent one of the major barriers for introduction and acceptance of any new networking technology, API proposals like OpenFlow have received good reception. These standards promote interoperability and deployment of vendor-agnostic devices. This has already been achieved by the OpenFlow-enabled equipments from different vendors.
 
-Currently , OpenFlow is the most widely accepted southbound standard for SDNs. It provides specification to implement OpenFlow-enabled forwarding devices, and for the communication channel between data and control plane devices. There are three information sources provided by OpenFlow protocol:
+Currently , OpenFlow is the most widely accepted southbound standard for SDNs. It provides specification to implement OpenFlow-enabled forwarding devices, and for the communication channel between data and control plane devices. There are <u>three information sources</u>[Quiz] provided by OpenFlow protocol:
 1. **Event-based message**s that are sent by forwarding devices(e.g. OpenFlow device) to controller (NOS) when there is a link or port change[Quiz]
 2. **Flow statistics**(can be used for QoS)[Quiz] are generated by forwarding devices and collected by controller
 3. Packet messages are sent by **forwarding devices to controller** when they do not know what to do with a new incoming flow [Quiz]
@@ -125,7 +131,7 @@ In this architecture, we typically see a single entity that manages all forwardi
 
 **Distributed controllers:**
 
-Unlike single controller architectures that *cannot scale* in practice, a distributed network operating system (controller) can be scaled to meet the requirements of potentially any environment - small or large networks. Distribution can occur in two ways: it can be <u>a centralized cluster of nodes</u> or <u>physically distributed set of elements</u>. Typically,  a cloud provider that runs across multiple data centers interconnected by a WAN may require a hybrid approach to distribution - clusters of controllers inside each data center and distributed controller nodes in different sites. Properties of distributed controllers:
+Unlike single controller architectures that *cannot scale* in practice, a distributed network operating system (controller) can be scaled to meet the requirements of potentially any environment - <u>small or large networks</u>[Quiz]. Distribution can occur in two ways: it can be <u>a centralized cluster of nodes</u> or <u>physically distributed set of elements</u>[Quiz]. Typically,  a cloud provider that runs across multiple data centers interconnected by a WAN may require a hybrid approach to distribution - clusters of controllers inside each data center and distributed controller nodes in different sites. Properties of distributed controllers:
 1. **Weak consistency semantics**. A centralized controller has the strongest consistency semantics
 2. **Fault tolerance**
 
@@ -140,13 +146,13 @@ ONOS (Open Networking Operating System) is a distributed SDN control platform. I
 
 Owing to the distributed architecture of ONOS, there are several ONOS instances running in a cluster. The management and sharing of the network state across these instances is achieved by maintaining a global network view. This view is built by using the network topology and state information (port, link and host information, etc) that is discovered by each instance. 
 
-To make forwarding and policy decisions, the applications consume information from the view and then update these decisions back to the view. The corresponding OpenFlow managers receive the changes the applications make to the view, and the appropriate switches are programmed. 
+To make forwarding and policy decisions, <u>the applications consume information from the view and then update these decisions back to the view</u>[Quiz]. The corresponding OpenFlow managers receive the changes the applications make to the view, and the appropriate switches are programmed. 
 
 Titan, a graph database and a distributed key value store Cassandra is used to implement the view. The applications interact with the network view using the Blueprints graph API. 
 
 The distributed architecture of ONOS offers scale-out performance and fault tolerance. Each ONOS instance serves as the master OpenFlow controller for a group of switches. The propagation of state changes between a switch and the network view is handled solely by the master instance of that switch. The workload can be distributed by adding more instances to the ONOS cluster in case the data plane increases in capacity or the demand in the control plane goes up. 
 
-To achieve **fault tolerance**, ONOS redistributes the work of a failed instance to other remaining instances. Each switch in the network connects to multiple ONOS instances with only one instance acting as its master. Each ONOS instance acts as a master for a subset of switches. Upon failure of an ONOS instance, an election is <u>held on a consensus basis to choose a master for each of the switches that were controlled by the failed instance</u>[Quiz]. For each switch, a master is selected among the remaining instances with which the switch had established connection. At the end of election for all switches, each switch would have at most one new master instance. 
+To achieve **fault tolerance**, ONOS redistributes the work of a failed instance to other remaining instances. Each switch in the network connects to multiple ONOS instances with only one instance acting as its master. Each ONOS instance acts as a master for a subset of switches. Upon failure of an ONOS instance, an election is <u>held on a **consensus basis to choose a master** for each of the switches that were controlled by the failed instance</u>[Quiz]. For each switch, a master is selected among the remaining instances with which the switch had established connection. At the end of election for all switches, each switch would have at most one new master instance. 
 
 Zoopkeeper is used to maintain the mastership between the switch and the controller. 
 
@@ -154,13 +160,12 @@ Zoopkeeper is used to maintain the mastership between the switch and the control
 
 ### The Motivation
 
-**P4 (Programming Protocol-independent Packet Processors)** is a high-level programming language to configure switches which **works in conjunction** with SDN control protocols(can't be used in conventional network paradigm)[Quiz]. The popular vendor-agnostic OpenFlow interface, which enables the control plane to manage devices from different vendors, started with a simple rule table to match packets based on a dozen header fields. However, this specification has grown over the years to include multiple stages of the rule tables with increasing number of header fields to allow better exposure of a switch’s functionalities to the controller. 
-* P4 is used to program the data plane![Quiz]
+**P4 (Programming Protocol-independent Packet Processors)** is a high-level programming language to configure switches which **works in conjunction with SDN control protocols**(can't be used in conventional network paradigm)[Quiz]. The popular vendor-agnostic OpenFlow interface, which enables the control plane to manage devices from different vendors, started with a simple rule table to match packets based on a dozen header fields. However, this specification has grown over the years to include multiple stages of the rule tables with increasing number of header fields to allow better exposure of a switch’s functionalities to the controller. 
 
 Thus, to manage the demand for increasing number of header fields, a need arises for an extensible, flexible approach to parse packets and match header fields while also exposing an open interface to the controllers to leverage these capabilities. 
 * According to the paper, P4 is not being developed as a replacement for OpenFlow, but a strawman proposal for how OpenFlow should evolve in the future.[Quiz] 
 
-**P4 is used to configure the switch programmatically and acts as a general interface between the switches and the controller with its main aim of allowing the controller to define how the switches operate.** The below figure explains the relationship between P4 and existing APIs such as OpenFlow, which targets to populate forwarding rules in fixed function switches:
+**P4 is used to configure the switch programmatically and acts as a general interface between the switches and the controller with its main aim of allowing the controller to define(or program) how the switches operate.**[Quiz] The below figure explains the relationship between P4 and existing APIs such as OpenFlow, which targets to populate forwarding rules in fixed function switches:
 
 <img src="https://i.imgur.com/07W0UnU.png" style="width: 800px" />
 
@@ -169,6 +174,8 @@ The following are the **primary goals of P4**:
 - **Reconfigurability**: **The way parsing and processing of packets** takes place in the switches **should be modifiable** by the controller. 
 - **Protocol independence**: To enable the switches to be **independent of any particular protocol**, the controller defines a packet parser and a set of tables mapping matches and their actions. The packet parser extracts the header fields which are then passed on to the match+action tables to be processed. 
 - **Target independence**: The packet processing programs should be programmed **independent of the underlying target devices**[Quiz]. These generalized programs written in P4 should be converted into target-dependent programs by a compiler which are then used to configure the switch.
+
+Note that, P4 is to offer programmability on the data plane! [Quiz]
 
 ### P4's Forwarding Model
 
@@ -245,7 +252,7 @@ Let's look into the proposed SDX architecture.
 
 In a traditional IXP the participant ASes connect their BGP-speaking border router to a shared layer-two network and a BGP route server. The layer-2 network is used for forwarding packets (data plane) and the BGP route server is used for exchanging routing information (control plane). 
 
-In the SDX architecture, **each AS has the illusion of its own virtual SDN switch that connects its border router to every other participant AS**. For example, AS A has a virtual switch connecting to the virtual switches of ASes B and C. 
+In the SDX architecture, **each AS has the illusion of its own virtual SDN switch that connects its border router to every other participant AS**[Quiz]. For example, AS A has a virtual switch connecting to the virtual switches of ASes B and C. 
 
 <u>Each AS can **define forwarding policies** as if it is the only participant at the SDX, without influencing how other participants forward packets on their own virtual switches</u>[Quiz]. Each AS can have its own SDN applications for dropping, modifying, or forwarding their traffic. The policies can also be different based on the direction of the traffic (inbound or outbound). An inbound policy is applied on the traffic coming from other SDX participant on a virtual switch. An outbound policy is applied to traffic from the participant’s virtual switch port towards other participants. <u>The SDX is responsible to combine the policies from multiple participants into a single policy for the physical switch. </u>
 
