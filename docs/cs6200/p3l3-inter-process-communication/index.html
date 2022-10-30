@@ -515,7 +515,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h4 id="pthreads-sync-for-ipc"><a class="markdownIt-Anchor" href="#pthreads-sync-for-ipc"></a> PThreads Sync for IPC</h4>
+<h3 id="pthreads-sync-for-ipc"><a class="markdownIt-Anchor" href="#pthreads-sync-for-ipc"></a> PThreads Sync for IPC</h3>
 <ul>
 <li>The property of the mutex or the condition variable when they are created is whether or not that synchronization variable is private to a process or shared amongst processes.</li>
 <li>The keyword for this is <strong>PTHREAD_PROCESS_SHARED</strong>. If we specify this in the attribute structs that are passed to mutex/condition variable initialization we will ensure that our synchronization variables will be visible across processes.</li>
@@ -534,7 +534,7 @@ function sidebar_toggle() {
 <li>To actually create the mutex, we first have to create the <code>mutexattr</code> struct. Once we create this struct, we can set the pshared attribute with <strong>PTHREAD_PROCESS_SHARED</strong>. Then we initialize the mutex with that data structure, using the pointer to the mutex inside the struct that lives in the shared memory region.</li>
 <li>This set of operations will properly allocate and initialize a mutex that is shared amongst processes.</li>
 </ul>
-<h4 id="sync-for-other-ipc"><a class="markdownIt-Anchor" href="#sync-for-other-ipc"></a> Sync for Other IPC</h4>
+<h3 id="sync-for-other-ipc"><a class="markdownIt-Anchor" href="#sync-for-other-ipc"></a> Sync for Other IPC</h3>
 <ul>
 <li>Pthreads isn’t necessarily always supported on every platform. Sometimes, we can rely on other means of synchronization in those cases, such as <strong>message queues</strong> and <strong>semaphores</strong>.</li>
 <li>Message queues. Implement mutual exclusion via send/recv operations.
@@ -548,7 +548,7 @@ function sidebar_toggle() {
 </ul>
 </li>
 </ul>
-<h4 id="ipc-command-line-tools"><a class="markdownIt-Anchor" href="#ipc-command-line-tools"></a> IPC Command Line Tools</h4>
+<h3 id="ipc-command-line-tools"><a class="markdownIt-Anchor" href="#ipc-command-line-tools"></a> IPC Command Line Tools</h3>
 <ul>
 <li>Linux provided some command line utilities for using IPC in general.
 <ul>

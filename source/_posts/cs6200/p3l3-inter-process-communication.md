@@ -116,7 +116,7 @@
     * when data is available and ready for consmption(i.e. signals)
     * [mq_notify()](https://man7.org/linux/man-pages/man3/mq_notify.3.html) and [sem_wait()](https://man7.org/linux/man-pages/man3/sem_wait.3.html)  in Linux
 
-#### PThreads Sync for IPC
+### PThreads Sync for IPC
 
 * The property of the mutex or the condition variable when they are created is whether or not that synchronization variable is private to a process or shared amongst processes.
 * The keyword for this is **PTHREAD_PROCESS_SHARED**. If we specify this in the attribute structs that are passed to mutex/condition variable initialization we will ensure that our synchronization variables will be visible across processes.
@@ -130,7 +130,7 @@
 * To actually create the mutex, we first have to create the `mutexattr` struct. Once we create this struct, we can set the pshared attribute with **PTHREAD_PROCESS_SHARED**. Then we initialize the mutex with that data structure, using the pointer to the mutex inside the struct that lives in the shared memory region.
 * This set of operations will properly allocate and initialize a mutex that is shared amongst processes.
 
-#### Sync for Other IPC
+### Sync for Other IPC
 
 * Pthreads isn't necessarily always supported on every platform. Sometimes, we can rely on other means of synchronization in those cases, such as **message queues** and **semaphores**.
 * Message queues. Implement mutual exclusion via send/recv operations.
@@ -138,7 +138,7 @@
 * Semaphores are an OS support synchronization construct and a binary semaphore can have two states, 0 or 1. 
     * When a semaphore has a value of 0, the process will be blocked. If the semaphore has a value of 1, the process will decrement the value (to 0) and will proceed.
 
-#### IPC Command Line Tools
+### IPC Command Line Tools
 
 * Linux provided some command line utilities for using IPC in general.
     * `ipcs` -> list all IPC facilities
