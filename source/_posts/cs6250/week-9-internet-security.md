@@ -5,7 +5,7 @@
 
 ## Introduction
 
-We focus on
+In this lecture, we focus on
 * Attacks that misuse the DNS protocol and the DNS infrastructure. 
 * Traffic attraction attacks that are based on BGP abuse. 
 * The most popular techniques to infer network reputation. 
@@ -33,7 +33,7 @@ Content Distribution Networks (CDNs) also use DNS-based techniques to distribute
 
 **Fast-Flux Service Networks**
 
-The previous two strategies provide reliability, scalability and resilience, which is great for larger websites. However, this also benefits spammers. Since using these techniques, a DNS request receives multiple A records (each containing a different IP address), this makes it harder to shut down online scams, as if even one IP address is functional, the scam is still working. Similarly, spreading across several servers makes the shutdown of these scams more complex!
+The previous two strategies provide reliability, scalability and resilience, which is great for larger websites. However, this also benefits spammers. Since using these techniques, a DNS request receives multiple A records (each containing a different IP address), this makes it *harder to shut down online scams, as if even one IP address is functional, the scam is still working*. Similarly, spreading across several servers makes the shutdown of these scams more complex!
 * The attackers tend to keep the uptime of domains used for malicious purposes as long as possible[Quiz]
 
 Fast-Flux Service Networks (FFSN) is an extension of the ideas behind RRDNS and CDN. As its name suggests, it is based on a ‘rapid’ change in DNS answers, with a TTL lower than that of RRDNS and CDN. One key difference between FFSN and the other methods is that after the TTL expires, it returns a different set of A records from a larger set of compromised machines. These compromised machines act as proxies between the incoming request and control node/mothership, forming a resilient, robust, one-hop overlay network.
@@ -54,7 +54,7 @@ Next we will talk about approaches that have been suggested to infer network rep
 
 ### Evidence of Abuse
 
-In this section, we discuss FIRE – FInding Rogue nEtworks, a system that monitors the Internet for rogue networks. Rogue networks are networks whose main purpose is malicious activity such as phishing, hosting spam pages, hosting pirated software, etc. It uses three main data sources to identify hosts that likely belong to rogue networks:
+In this section, we discuss FIRE – *FInding Rogue nEtworks*, a system that monitors the Internet for rogue networks. Rogue networks are networks whose main purpose is malicious activity such as phishing, hosting spam pages, hosting pirated software, etc. It uses three main data sources to identify hosts that likely belong to rogue networks:
 
 1. **Botnet command and control providers**
     * Several botnets still rely on centralized command and control (C&C). So a bot-master would prefer to host their C&C on networks where it is unlikely to be taken down. The two main types of botnets this system considers are IRC-based botnets and HTTP-based botnets.
@@ -63,32 +63,33 @@ In this section, we discuss FIRE – FInding Rogue nEtworks, a system that monit
 3. **Phish housing providers**
     * This data source contains URLs of servers that host phishing pages. Phishing pages usually mimic authentic sites to steal login credentials, credit card numbers and other personal information. These pages are hosted on compromised servers and usually are up only for a short period of time. 
 
- The key difference between rogue and legitimate networks is the longevity of malicious behavior. <u>**Legitimate networks** are usually able to remove the malicious content **within a few days** whereas **rogue networks** may let the content be **up for weeks to more than a year**[Quiz]</u>*! By disregarding IP addresses that have been active for a short time, we ignore phishing attacks hosted on legitimate networks and web servers that were temporarily abused for botnet communication. 
+ <u>The key difference between rogue and legitimate networks is the **longevity(persistence) of malicious behavior**</u>[Quiz]. <u>**Legitimate networks** are usually able to remove the malicious content **within a few days** whereas **rogue networks** may let the content be **up for weeks to more than a year**[Quiz]</u>! By disregarding IP addresses that have been active for a short time, we ignore phishing attacks hosted on legitimate networks and web servers that were temporarily abused for botnet communication. 
 
-Each of these data sources produces a list (Li) of malicious IP addresses daily. <u>FIRE combines the information from these three lists to identify rogue AS (organizations are considered equivalent to autonomous systems). The approach is to identify the most malicious networks as those which have **the highest ratio of malicious IP addresses as compared to the total owned IP addresses of that AS**.</u>[Quiz]
+Each of these data sources produces *a list (Li) of malicious IP addresses* daily. <u>FIRE combines the information from these three lists to identify rogue AS (organizations are considered equivalent to autonomous systems). The approach is to identify the most malicious networks as those which have **the highest ratio of malicious IP addresses as compared to the total owned IP addresses of that AS**.</u>[Quiz]
 
 ### Interconnection Patterns
 
-In this topic, we continue our discussion on approaches to infer network reputation. In an earlier topic, we discussed an approach that is based on data plane monitoring. With data plane monitoring only if a network has a large enough concentration of blacklisted IPs it will be flagged as malicious. We flag a network as malicious only after we have observed indications of malicious behavior for a long enough period of time. For example, let's say we have access to a blacklist and we observe a large number of IPs that belong to an AS to be blacklisted for spamming, phishing, hijacking, etc. 
+In an earlier topic, we discussed an approach that is based on data plane monitoring. With data plane monitoring only if a network has a large enough concentration of blacklisted IPs it will be flagged as malicious. We flag a network as malicious only after we have observed indications of malicious behavior for a long enough period of time. For example, let's say we have access to a blacklist and we observe a large number of IPs that belong to an AS to be blacklisted for spamming, phishing, hijacking, etc. 
 
 But in practice, it is not feasible to monitor the traffic of all networks to detect malicious behaviors from the data plane. In addition, the disadvantage of this approach is that 1) it may take a long time until a very large fraction of IPs makes it to a blacklist, and 2) the approach does not differentiate well between networks that are legitimate but abused, and those which are likely operated by cyberactors. 
 
-This topic discusses a complementary approach – ASwatch which uses information **exclusively from the control plane**[Quiz] (ie. routing behavior) to identify malicious networks. Also, this approach aims to detect malicious networks that are likely run by cyberactors, or bulletproof as they are called, rather than networks that may be badly abused.
+This topic discusses a complementary approach – **ASwatch** which uses information **exclusively from the control plane (ie. routing behavior) to identify malicious networks**[Quiz]. Also, this approach aims to detect malicious networks that are likely run by cyberactors, or bulletproof as they are called, rather than networks that may be badly abused.
 
 The approach is based on the observation that bulletproof <u>ASes have distinct interconnection patterns and overall different control plane behavior from most legitimate networks.</u>[Quiz] For example, let's observe example snapshots of the topology around known bulletproof networks, that are taken a few months apart. 
 
-<img src="https://i.imgur.com/LiASfAh.png" style="width: 600px" />
+<img src="https://i.imgur.com/LiASfAh.png" style="width: 800px" />
 
-<img src="https://i.imgur.com/tQ0KZXb.png" style="width: 600px" />
+<img src="https://i.imgur.com/tQ0KZXb.png" style="width: 800px" />
 
-<img src="https://i.imgur.com/kUBDaxG.png" style="width: 600px" />
+<img src="https://i.imgur.com/kUBDaxG.png" style="width: 800px" />
 
-These networks shown as red in the figures are found to be changing upstream providers more aggressively than most legitimate networks, also they are found to behave customer-provider or peering relationships with likely shady networks, rather than connecting with directly with legitimate networks. These behaviors help the bulletproof network to remain unnoticeable for longer, and when complaints may start, the bulletproof network can simply change an upstream provider.
+These networks shown as red in the figures are found to be changing upstream providers more aggressively than most legitimate networks, also they are found to behave customer-provider or peering relationships with likely shady networks, rather than connecting with directly with legitimate networks. **These behaviors help the bulletproof network to remain unnoticeable for longer**, and **when complaints may start, the bulletproof network can simply change an upstream provider**.
 
 The design of ASwatch is based on monitoring global BGP routing activity to learn the control plane behavior of a network. The system has two phases:
 
 1. **Training phase** - The system learns control-plane behavior typical of both types of ASes. The system is given a list of known malicious and legitimate ASes. It then tracks the behavior of these ASes over time to track their business relationships with other ASes and their BGP updates/withdrawals patterns.  ASwatch then computes statistical features of each AS. There are three main families of features:
     1) Rewiring activity – <u>based on changes in the AS connecting activity</u>[Quiz]. Frequent changes in customers/providers, connecting with less popular providers, etc. is usually suspicious behavior.
+        * <u>So to remain undetected by ASwatch, a rogue network can maintain a stable control plane behavior.</u>[Quiz]
     2) IP Space Fragmentation and Churn - based on the advertised prefixes. Malicious ASes are likely to use small BGP prefixes to partition their IP address space and only advertise a small section of these (to avoid all of them being taken down at one if detected).
     3) BGP Routing Dynamics – The BGP announcements and withdrawals for malicious ASes follow different patterns from legitimate ones – such as periodically announcing prefixes for short periods of time.
 The system then uses supervised learning to capture the known behaviors and patterns with a trained model.   
@@ -126,11 +127,11 @@ This system uses a Random Forest (RF) classifier and compares it to a baseline p
 
  1. **Classification by Affected Prefix**: In this class of hijacking attacks, we are primarily concerned with the IP prefixes that are advertised by BGP. There are different ways the prefix can be targeted, such as:
     1) **Exact prefix hijacking**: When two different ASes (one is genuine and the other one is counterfeit) announce a path for the same prefix. This disrupts routing in such a way that traffic is routed towards the hijacker wherever the AS-path route is shortest, thereby disrupting traffic.
-    2) **Sub-prefix hijacking**: This is an extension of exact prefix hijacking, except that in this case, the hijacking AS works with a sub-prefix of the genuine prefix of the real AS. This exploits the characteristic of BGP to favor more specific prefixes, and as a result route large/entire amount of traffic to the hijacking AS.
+    2) **Sub-prefix hijacking**: This is an extension of exact prefix hijacking, except that in this case, the hijacking AS works with a sub-prefix of the genuine prefix of the real AS. <u>This exploits the characteristic of BGP to favor more specific prefixes</u>, and as a result route large/entire amount of traffic to the hijacking AS[Quiz].
         * Example: A given hijacking AS labelled AS2 announces that it has a path to prefix 10.10.0.0/24 which is a part of 10.10.0.0/16 owned by AS1.
     3) **Squatting**: In this type of attack, the hijacking AS announces a prefix that has not yet been announced by the owner AS.
 2. **Classification by AS-Path announcement**: In this class of attacks, an illegitimate AS announces the AS-path for a prefix for which it doesn’t have ownership rights. There are different ways this can be achieved:
-    1) **Type-0 hijacking**: This is simply an AS announcing a prefix not owned by itself.
+    1) **Type-0 hijacking**: This is simply an AS announcing a prefix not owned by itself.Nov 6, 2022
     2) **Type-N hijacking**: This is an attack where the counterfeit AS announces an illegitimate path for a prefix that it does not own to create a fake link (path) between different ASes.
         * For example, {AS2, ASx, ASy, AS1 – 10.0.0.0/23} denotes a fake path between AS2 and AS1, where there is no link between AS2 and ASx. The N denotes the position of the rightmost fake link in the illegitimate announcement, e.g. {AS2, ASy, AS1 – 10.0.0.0/23} is a Type-2 hijacking.
     3) **Type-U hijacking**: In this attack the hijacking AS does not modify the AS-PATH but may change the prefix.
@@ -138,6 +139,7 @@ This system uses a Random Forest (RF) classifier and compares it to a baseline p
     1) Dropped, so that it never reaches the intended destination. This attack falls under the category of **blackholing (BH) attack**.
     2) Eavesdropped or manipulated before it reaches the receiving AS, which is also called as **man-in-the-middle attack (MM)**.
     3) Impersonated, e.g. In this case the network traffic of the victim AS is impersonated and the response to this network traffic is sent back to the sender. This attack is called **imposture (IM) attack.**
+        * Note that these manipulation happen on the data plane[Quiz]
 
 ### Motivations
 
@@ -159,7 +161,7 @@ Let's first look at a legitimate scenario. In the figure below, we have a new pr
 3. As the announcements are made by AS2, AS3 and AS4; A5 eventually receives the full path and new prefix from A4 (4,2,1). 
 4. If multiple routes exist for a prefix, then the selected (best) route is highlighted. Also, this route is selected for announcement to the neighbors. 
 
-<img src="https://i.imgur.com/5fW4Qh6.png" style="width: 600px" />
+<img src="https://i.imgur.com/5fW4Qh6.png" style="width: 800px" />
 
 **Attack Scenario: Hijacking a prefix** 
 
@@ -170,11 +172,13 @@ Let's look at the scenario of prefix hijacking. In this scenario, the attacker u
 4. AS2 will not select the route as the best route as it has the same path length with an existing entry.
 5. AS3 and AS5 will believe the new advertisement, and they will update their entries (10.10.0.0/16 with path 4,2,1) to (10.10.0.0/16 with path 4). Therefore AS5 and AS3 will send all traffic for prefix 10.10.0.0/16 to AS4 instead of AS1.
 
-<img src="https://i.imgur.com/jz6NJ6b.png" style="width: 600px" />
+<img src="https://i.imgur.com/jz6NJ6b.png" style="width: 800px" />
 
 **Attack Scenario: Hijacking a path**
 
 In the figure below we see an attack scenario where a legitimate path is hijacked. 
+
+<img src="https://i.imgur.com/6fBwspd.png" style="width: 800px" />
 
 In this scenario, the attacker manipulates received updates before propagating them to neighbors. 
 
@@ -183,10 +187,7 @@ In this scenario, the attacker manipulates received updates before propagating t
 3. At AS4, the attacker compromises the update for the path by changing it to 4,1 and propagates it to the neighbors AS3, AS2, and AS5. Therefore it claims that it has direct link to AS1 so that others believe the new false path.  
 4. AS5 receives the false path (4,1)  “believes” the new false path and it adopts it. But the rest of the ASes don’t adopt the new path because they either have a shorter path already or an equally long path to AS1 for the same prefix.  
 
-The key observation here is that the attacker does not need not to announce a new prefix, but rather it manipulates an advertisement before propagating it.
-
-<img src="https://i.imgur.com/6fBwspd.png" style="width: 600px" />
-
+The key observation here is that the attacker does not need to announce a new prefix, but rather it manipulates an advertisement before propagating it.
 
 ### Defending against BGP Hijacking
 
@@ -194,24 +195,24 @@ The key observation here is that the attacker does not need not to announce a ne
 
 In this section we will look at some high level ideas behind detecting BGP hijacking. ARTEMIS is a system that is run locally by network operators to safeguard its own prefixes against malicious BGP hijacking attempts. The authors of the ARTEMIS paper (Sermpezis et al) describe a self-operated manner of prefix hijacking detection.
 
-The key ideas behind ARTEMIS are:
+The key ideas behind ARTEMIS are[Quiz]:
 1. **A configuration file**: where all the prefixes owned by the network are listed here for reference. This configuration file is populated by the network operator.
-2. **A mechanism for receiving BGP updates**: this allows receiving updates from local routers and monitoring services. This is built into the system
+2. **A mechanism for receiving BGP updates**: this allows receiving updates **from local routers and monitoring services**. This is built into the system
 
 Using the local configuration file as a reference, for the received BGP updates, ARTEMIS can check for prefixes and AS-PATH fields and trigger alerts when there are anomalies.
 
-<img src="https://i.imgur.com/0Mcnt1w.png" style="width: 600px" />
+<img src="https://i.imgur.com/0Mcnt1w.png" style="width: 800px" />
 
 A point of consideration in BGP hijacking detection is the performance of False Positive (FP) and False Negative (FN) rates when we use different detection criteria. We ideally want a system with the least number of FPs and FNs that are inconsequential. The ARTEMIS system also allows the network operator to choose between a) accuracy and speed, and b) FN which are inconsequential (less impact on control plane) for less FP.
 
 #### Example Mitigation Techniques
 
-For a system that protects against BGP hijacking attacks with less manual intervention, we need automated ways of mitigation from BGP hijacking attacks. The ARTEMIS system uses two automated techniques in mitigating these attacks:
+For a system that protects against BGP hijacking attacks with less manual intervention, we need automated ways of mitigation from BGP hijacking attacks. The ARTEMIS system uses <u>two automated techniques in mitigating these attacks</u>[Quiz]:
 
 1. **Prefix deaggregation**: In a BGP attack scenario, the affected network can either contact other networks or it can simply deaggregate the prefixes that were targeted by announcing more specific prefixes of a certain prefix. Remember our prior discussion of YouTube’s services being attacked by Pakistan Telecom. The targeted prefix was 208.65.153.0/24. Within 90 minutes, YouTube started announcing 208.65.153.128/25 and 208.65.153.0/25, thereby counteracting the attack. Although the event required a long term solution, an immediate mitigation was required for services to come back online.
 2. **Mitigation with Multiple Origin AS (MOAS)**: Here, the idea is to have third party organizations and service providers do BGP announcements for a given network. It is akin to the current model that exists for legitimizing network traffic by third parties that mitigate DDoS attacks. When a BGP hijacking event occurs, the following steps occur:
     1) The third party receives a notification and immediately announces from their locations the hijacked prefix(es). 
-    2) In this way, network traffic from across the world is attracted to the third party organization, which then scrubbs it and tunnels it to the legitimate AS
+    2) In this way, network traffic from across the world is attracted to the third party organization, which then scrubbs it and tunnels it to the legitimate AS.
 
 The authors of the ARTEMIS paper put forth two main findings from their research  work:
 1. **Outsource the task of BGP announcement to third parties**: To combat against BGP hijacking attacks, having even just one single external organization to mitigate BGP attacks is highly effective against BGP attacks.
@@ -231,7 +232,7 @@ To get a better understanding of AS hijacking and its implications, let’s look
 3. The attacker took over the Internet resources and forged a letter of authorization to announce prefixes of AS31733 from a customer’s AS (AS12182, figure below).
 4. The attacker uses a second attack to hijack AS42461 (Relians Ltd., figure below) to announce an unallocated prefix.
 
-<img src="https://i.imgur.com/rJVYnRq.png" style="width: 600px" />
+<img src="https://i.imgur.com/rJVYnRq.png" style="width: 800px" />
 
 In the figure above, we see that Link Telecom (AS 31733) has Digital Networks JSC (AS 12695) as its provider. Linktel (AS 31733) has its allocated prefixes which are targeted by the attacker via Internap (AS 12182). The attacker starts with announcing one prefix, and takes over other prefixes over time. As indicated in the figure, some prefixes are not affected by the attack (unannounced).
 
@@ -259,11 +260,11 @@ The Linktel incident ran its course for about 6 months, starting from the attack
 * Upon further digging, it found that Internap was announcing its prefixes and that it was authorized to do so (based on a forged letter of authorization from the attacker).
 * ventually, Linktel  complains to its upstream ISPs and redelegates reverse DNS entries and announces more specific prefixes. The upstream ISPs comply and withdraw routes from hijacked prefixes.
 
-<img src="https://i.imgur.com/VNvTYyx.png" style="width: 600px" />
+<img src="https://i.imgur.com/VNvTYyx.png" style="width: 800px" />
 
-<img src="https://i.imgur.com/OCtyftZ.png" style="width: 600px" />
+<img src="https://i.imgur.com/OCtyftZ.png" style="width: 800px" />
 
-<img src="https://i.imgur.com/c6yCbUZ.png" style="width: 600px" />
+<img src="https://i.imgur.com/c6yCbUZ.png" style="width: 800px" />
 
 An analysis of traffic flows during the attack period add more insights.
 
@@ -275,7 +276,7 @@ Notably:
 2. A large amount of BGP withdraw messages are received on July 11 for the unallocated space
 3. While Spamhaus blacklists the prefixes on July 28, it's possible that it is due to two reasons: a) Spamhaus takes a long time to detect anomalies, and b) The attacker might’ve performed other activities apart from spamming
  
- <img src="https://i.imgur.com/bKzryxp.png" style="width: 600px" />
+ <img src="https://i.imgur.com/bKzryxp.png" style="width: 800px" />
 
 ## DDoS
 
@@ -286,28 +287,25 @@ In this topic, we are talking about another type of abuse; the **Denial of Servi
 
 Later, when initiating an attack, the attacker instructs these flooding servers to send a high volume of traffic to the victim. This results in the victim host either becoming unreachable or in exhaustion of its bandwidth.
 
-<img src="https://i.imgur.com/AdLdcTp.png" style="width: 600px" />
+<img src="https://i.imgur.com/AdLdcTp.png" style="width: 800px" />
 
 In the above figure, the master host, controlled by the attacker, sends control messages to the three compromised slaves directing them to send a huge amount of traffic to the victim. The packets sent from the slave contain the source address as a random IP address and the destination as the victim’s IP address. This master slave configuration amplifies the intensity of the attack while also making it difficult to protect against it. The attack traffic sent by the slaves contain spoofed source addresses making it difficult for the victim to track the slaves. Also, since the traffic is sent from multiple sources, it’s harder for the victim to isolate and block the attack traffic. 
 
 **Spoofing**:
 
-IP spoofing is the act of setting a false IP address in the source field of a packet with the purpose of impersonating a legitimate server. In DDoS attacks, this can happen in two forms. In the first form, the source IP address is spoofed, resulting in the response of the server sent to some other client instead of the attacker’s machine. This results in wastage of network resources and the client resources while also causing denial of service to legitimate users. 
+IP spoofing is the act of setting a false IP address in the source field of a packet with the purpose of impersonating a legitimate server. In DDoS attacks, this can happen in two forms. In the first form, *the source IP address is spoofed, resulting in the response of the server sent to some other client instead of the attacker’s machine.* This results in wastage of network resources and the client resources while also causing denial of service to legitimate users. 
 
-In the second type of attack, the attacker sets the same IP address in both the source and destination IP fields. This results in the server sending the replies to itself, causing it to crash.
+In the second type of attack, the attacker sets *the same IP address in both the source and destination IP fields*. This results in the server sending the replies to itself, causing it to crash.
 
-### Reflection and Amplification
-
-In this topic we are continuing our discussion on DDoS and we explore two more techniques that the attackers are using to amplify the impact of the attack; namely the techniques of reflection and amplification.
-
-**Reflection and amplification attacks.**
+### Reflection and amplification attacks
 
 In a reflection attack, the attackers use a set of reflectors to initiate an attack on the victim. A reflector is any server that sends a response to a request. For example, any web server or a DNS server would return a SYN ACK in response to a SYN packet as part of TCP handshake. Other examples include query responses sent by a server or Host Unreachable responses to a particular IP. 
+* <u>To detect DNS reflection and amplification attacks, you only need access to data plane data</u>[Quiz]!!
+* <u>To detect BGP attacks(specially BGP path and prefix attacks), you only need access to control plane data</u>[Quiz]!!
 
-Here, the master directs the slaves to send spoofed requests to a very large number of reflectors, usually in the range of 1 million. The slaves set the source address of the packets to the victim’s IP address, thereby redirecting the response of the reflectors to the victim. Thus, the victim receives responses from millions of reflectors resulting in exhaustion of its bandwidth. In addition, the resources of the victim is wasted in processing these responses, making it unable to respond to legitimate requests. This forms the basis of a reflection attack. Let’s consider the below figure. 
+Here, the master directs the slaves to *send spoofed requests to a very large number of reflectors,* usually in the range of 1 million. The slaves *set the source address of the packets to the victim’s IP address*, thereby redirecting the response of the reflectors to the victim. Thus, the victim receives responses from millions of reflectors resulting in exhaustion of its bandwidth. In addition, the resources of the victim is wasted in processing these responses, making it unable to respond to legitimate requests. This forms the basis of a reflection attack. Let’s consider the below figure. (short rephrase: the attackers use a set of reflectors to initiate attacks to the victim instead of attacking it directly[Quiz])
 
-<img src="https://i.imgur.com/uo32ezF.png" style="width: 600px" />
-
+<img src="https://i.imgur.com/uo32ezF.png" style="width: 800px" />
 
 The master commands the three slaves to send spoofed requests to the reflectors, which in turn sends traffic to the victim. This is in contrast with the conventional DDoS attack we saw in the previous section, where the slaves directly send traffic to the victim. Note that the victim can easily identify the reflectors from the response packets. However, the reflector cannot identify the slave sending the spoofed requests. 
 
@@ -319,7 +317,7 @@ In this topic we are providing an overview of the tools that we have to help wit
 
 **Traffic Scrubbing Services**
 
-A scrubbing service diverts the incoming traffic to a specialized server, where the traffic is “scrubbed” into either clean or unwanted traffic. The clean traffic is then sent to its original destination. Although this method offers fine-grained filtering of the packets, there are monetary costs required for an in-time subscription, setup and other recurring costs. The other limitations include reduced effectiveness due to per packet processing and challenges in handling Tbps level attacks. There’s also a possibility of decreased performance as the traffic may be rerouted and becoming susceptible to evasion attacks.
+A scrubbing service diverts the incoming traffic to a specialized server, where the traffic is <u>“scrubbed” into either clean or unwanted traffic.</u> <u>The clean traffic is then sent to its original destination</u>[Quiz]. Although this method offers fine-grained filtering of the packets, there are monetary costs required for an in-time subscription, setup and other recurring costs. The other limitations include reduced effectiveness due to per packet processing and challenges in handling Tbps level attacks. There’s also a possibility of decreased performance as the traffic may be rerouted and becoming susceptible to evasion attacks.
 
 **ACL Filters**
 
@@ -327,33 +325,25 @@ Access Control List filters are deployed by ISPs or IXPs at their AS border rout
 
 **BGP Flowspec**
 
-The flow specification feature of BGP, called Flowspec, helps to mitigate DDoS attacks by supporting the deployment and propagation of fine-grained filters across AS domain borders. It can be designed to match a specific flow or be based on packet attributes like length and fragment. It can also be based on the drop rate limit. Although flowspec has been effective in intra-domain environment, it is not so popular in inter-domain environments as it depends on trust and cooperation among competitive networks. 
+The flow specification feature of BGP, called Flowspec, helps to mitigate DDoS attacks by supporting the deployment and propagation of <u>fine-grained filters across AS domain borders</u>[Quiz]. It can be designed to **match a specific flow or be based on packet attributes** like length and fragment. It can also be based on the drop rate limit. Although flowspec has been effective in intra-domain environment, it is not so popular in inter-domain environments as it depends on trust and cooperation among competitive networks. 
 
 BGP Flowspec is an extension to the BGP protocol which allows rules to be created on the traffic flows and take corresponding actions. This feature of BGP can help mitigate DDoS attacks by specifying appropriate rules. The AS domain borders supporting BGP Flowspec are capable of matching packets in a specific flow based on a variety of parameters such as source IP, destination IP, packet length, protocol used, etc.
 
 The following table shows the available components with an example for FlowSpec: 
 
-<img src="https://i.imgur.com/dV76r6i.png" style="width: 600px" />
+<img src="https://i.imgur.com/dV76r6i.png" style="width: 800px" />
 
 BGP Flowspec example: The following flow specification rule (specified here in a dictionary format) filters all HTTP/HTTPS traffic from port 80 and 443 to one of the Google servers with IP 172.217.19.195 from subnet 130.89.161.0/24. 
  
 ```json
 { 
-
-   “type 1”: "172.217.19.195/32”
-
-   “type 2": "130.89.161.0/24" 
-
+   "type 1": "172.217.19.195/32",
+   "type 2": "130.89.161.0/24" ,
    "type 3": [6], 
-
    "type 5": [80, 443], 
-
    "action": { 
-
-            "type ": "traffic-rate", 
-
-            “value ": "0" 
-
+       "type ": "traffic-rate", 
+       "value": "0" 
       } 
   ```
 
@@ -367,7 +357,7 @@ In contrast to ACL filters, FlowSpec leverages the BGP control plane making it e
 
 In this topic, we will talk about a technique called BGP blackholing, that is a countermeasure to mitigate a DDoS attack. 
 
-With this mechanism, all the attack traffic to a targeted DDoS destination is dropped to a null location. The premise of this approach is that the traffic is stopped closer to the source of the attack and before it reaches the targeted victim. For a high volume attack, it proves to be an effective strategy when compared to other mitigation options. 
+With this mechanism, all the attack traffic to a targeted DDoS destination is dropped to a null location. The premise of this approach is that <u>the traffic is stopped **closer to the source** of the attack and before it reaches the targeted victim.</u>[Quiz] For a high volume attack, it proves to be an effective strategy when compared to other mitigation options. 
 
 This technique is implemented either with the help of the upstream provider or with the help of the IXP (if the network is peering at an IXP). With this technique, the victim AS uses BGP to communicate the attacked destination prefix to its upstream AS, which then drops the attack traffic towards this prefix. Then either the provider (or the IXP) will advertise a more specific prefix and modifying the next-hop address that will divert the attack traffic to a null interface. The blackhole messages are tagged with a specific BGP blackhole community attribute, usually publicly available, to differentiate it from the regular routing updates. 
 
