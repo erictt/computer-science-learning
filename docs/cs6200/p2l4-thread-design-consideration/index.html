@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    
+    <!-- katex css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+
+    <div class="book-menu">
+  <!--
+## Introduction to Probability
+
+* [Unit 1: Probability models and axioms](/introduction-to-probability/unit-1/index.html)
+* [Unit 2: Conditioning and independence](/introduction-to-probability/unit-2/index.html)
+* [Unit 3: Counting](/introduction-to-probability/unit-3/index.html)
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<!--
+## Multivariable Calculus
+
+* [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
+* [Unit 2: Derivatives of multivariable functions](/multivariable-calculus/unit-2/index.html)
+
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="cs6250-computer-networks"><a class="markdownIt-Anchor" href="#cs6250-computer-networks"></a> CS6250 Computer Networks</h2>
+<ul>
+<li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
+<li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
+<li><a href="/cs6250/week-3-intradomain-routing/index.html">Week 3 - Intradomain Routing</a></li>
+<li><a href="/cs6250/week-4-as-relationships-and-interdomain-routing/index.html">Week 4 - AS Relationships and Interdomain Routing</a></li>
+<li><a href="/cs6250/week-5-router-design-and-algorithems-part-1/index.html">Week 5 - Router Design and Algorithms (Part 1)</a></li>
+<li><a href="/cs6250/week-6-router-design-and-algorithems-part-2/index.html">Week 6 - Router Design and Algorithms (Part 2)</a></li>
+<li><a href="/cs6250/week-7-software-defined-networking-part-1/index.html">Week 7 - Software Defined Networking (Part 1)</a></li>
+<li><a href="/cs6250/week-8-software-defined-networking-part-2/index.html">Week 8 - Software Defined Networking (Part 2)</a></li>
+<li><a href="/cs6250/week-9-internet-security/index.html">Week 9 - Internet Security</a></li>
+<li><a href="/cs6250/week-10-internet-surveillance-and-censorship/index.html">Week 10 - Internet Surveillance and Censorship</a></li>
+</ul>
+<!--
+* [Week 11 - Applications Videos](/cs6250/week-11-applications-video/index.html)
+* [Week 12 - Applications CDNs and Overlay Networks](/cs6250/week-12-applications-cdns-and-overlay-networks/index.html)
+-->
+<h2 id="cs6200-graduate-introduction-to-operating-systems"><a class="markdownIt-Anchor" href="#cs6200-graduate-introduction-to-operating-systems"></a> CS6200 Graduate Introduction to Operating Systems</h2>
+<ul>
+<li><a href="/cs6200/p1-preparation/index.html">P0 - Preparation</a></li>
+<li><a href="/cs6200/p1l2-introduction/index.html">P1L2 - Introduction</a></li>
+<li><a href="/cs6200/p2l1-processes-and-process-management/index.html">P2L1 - Processes and Process Management</a></li>
+<li><a href="/cs6200/p2l2-threads-and-concurrency/index.html">P2L2 - Threads and Concurrency</a></li>
+<li><a href="/cs6200/p2l3-pthread/index.html">P2L3 - PThread</a></li>
+<li><a href="/cs6200/p2l4-thread-design-consideration/index.html">P2L4 - Thread Design Considerations</a></li>
+<li><a href="/cs6200/p2l5-thread-performance-consideration/index.html">P2L5 - Thread Performance Considerations</a></li>
+<li><a href="/cs6200/p3l1-scheduling/index.html">P3L1 - Scheduling</a></li>
+<li><a href="/cs6200/p3l2-memory-management/index.html">P3L2 - Memory Management</a></li>
+<li><a href="/cs6200/p3l3-inter-process-communication/index.html">P3L3 - Inter-Process Communication</a></li>
+<li><a href="/cs6200/p3l4-synchronization-constructs/index.html">P3L4 - Synchronization Constructs</a></li>
+</ul>
+<!--
+* [P3L5 - I/O Management](/cs6200/p3l5-io-management/index.html) 
+* [P3L6 - Virtualization](/cs6200/p3l6-virtualization/index.html) 
+* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
+* [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
+* [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
+* [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-2/index.html">Week 2 - Minimum Spanning Trees &amp; Shortest Path</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; String Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+<li><a href="/algorithms-2/week-5/index.html">Week 5 - Regular Expressions</a></li>
+<li><a href="/algorithms-2/week-6/index.html">Week 6 - Reductions</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+<h2 id="others"><a class="markdownIt-Anchor" href="#others"></a> Others</h2>
+<ul>
+<li><a href="/symbols/index.html">Symbols of Mathematics</a></li>
+<li><a href="/glossary/index.html">Glossary</a></li>
+</ul>
+<h2 id="about-me"><a class="markdownIt-Anchor" href="#about-me"></a> <a target="_blank" rel="noopener" href="https://ericyy.me/about/">About Me</a></h2>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="p2l4-thread-design-considerations"><a class="markdownIt-Anchor" href="#p2l4-thread-design-considerations"></a> P2L4: Thread Design Considerations</h1>
+<!-- toc -->
+<ul>
+<li><a href="#kernel-vs-user-level-threads">Kernel Vs. User Level Threads</a></li>
+<li><a href="#thread-related-data-structures">Thread Related Data Structures</a>
+<ul>
+<li><a href="#single-cpu">Single CPU</a></li>
+<li><a href="#at-scale">At Scale</a></li>
+<li><a href="#hard-and-light-process-state">Hard and Light Process State</a></li>
+<li><a href="#rationale-for-data-structures">Rationale For Data Structures</a></li>
+</ul>
+</li>
+<li><a href="#data-structures-in-solaris-20os">Data Structures in Solaris 2.0(OS)</a>
+<ul>
+<li><a href="#user-level-structures">User Level Structures</a></li>
+<li><a href="#kernel-level-structures">Kernel Level Structures</a></li>
+</ul>
+</li>
+<li><a href="#thread-management-interaction">Thread Management Interaction</a>
+<ul>
+<li><a href="#visibility-in-between">Visibility in Between</a></li>
+<li><a href="#issue-on-multiple-cpus">Issue On Multiple CPUs</a></li>
+<li><a href="#synchronization-related-issues">Synchronization Related Issues</a>
+<ul>
+<li><a href="#destroy-threads">Destroy threads</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#interrupts-and-signals">Interrupts and Signals</a>
+<ul>
+<li><a href="#interrupt-handling">Interrupt Handling</a></li>
+<li><a href="#signal-handling">Signal Handling</a></li>
+<li><a href="#why-disable-interrupts-or-signals-avoid-deadlock">Why Disable Interrupts or Signals? Avoid Deadlock</a></li>
+<li><a href="#interrupts-as-a-separated-threads">Interrupts as a Separated Threads</a></li>
+<li><a href="#interrupts-top-vs-bottom-half">Interrupts: Top Vs. Bottom Half</a></li>
+<li><a href="#performance-of-threads-as-interrupts">Performance of Threads as Interrupts</a></li>
+<li><a href="#threads-and-signal-handling">Threads and Signal Handling</a></li>
+</ul>
+</li>
+<li><a href="#tasks-in-linux">Tasks in Linux</a></li>
+</ul>
+<!-- tocstop -->
+<hr />
+<h2 id="kernel-vs-user-level-threads"><a class="markdownIt-Anchor" href="#kernel-vs-user-level-threads"></a> Kernel Vs. User Level Threads</h2>
+<ul>
+<li><a href="/cs6200/p2l2-threads-and-concurrency/index.html#kernel-level-threads-vs-user-level-threads">A review of the concept</a>
+<ul>
+<li>
+<img src="https://i.imgur.com/n6mauOA.jpg" style="width: 600px" />
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="thread-related-data-structures"><a class="markdownIt-Anchor" href="#thread-related-data-structures"></a> Thread Related Data Structures</h2>
+<h3 id="single-cpu"><a class="markdownIt-Anchor" href="#single-cpu"></a> Single CPU</h3>
+<ul>
+<li>A process is described by its process control block, which contains:
+<ul>
+<li>virtual address mapping</li>
+<li>stack</li>
+<li>registers</li>
+</ul>
+</li>
+<li>If the process links in a <strong>user-level threading</strong>(ULT) library, the library will maintain a user-level thread data structure, which contains:
+<ul>
+<li>user-level thread id</li>
+<li>user-level registers</li>
+<li>thread stack</li>
+</ul>
+</li>
+<li>If we want the multiple kernel-level threads associated with the threads in the process, the PCB needs to be duplicated for each kernel-level thread. To avoid the duplication, we can split the PCB into smaller data structures:
+<ul>
+<li>The PCB only keep the virtual address mapping,</li>
+<li>The <strong>kernel-level thread</strong>(KLT) keeps the stack and register</li>
+<li>
+<img src="https://i.imgur.com/tAsXGwj.jpg" style="width: 600px" />
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="at-scale"><a class="markdownIt-Anchor" href="#at-scale"></a> At Scale</h3>
+<ul>
+<li>In a multiple processes situation, there will be multiple ULT, PCB and KLT. To cope with this, the system need to maintain the relationships: ULT &lt;-&gt; PCB, PCB &lt;-&gt; KLT. And if the system has multiple CPU, we also need to maintain the relationship: CPU &lt;-&gt; KLT.</li>
+<li>
+<img src="https://i.imgur.com/rl1hSer.jpg" style="width: 600px" />
+</li>
+<li>For each process, we need to track the kernel level threads that execute on behalf the process, and the for each kernel level thread, we need to track of the processes on whose behalf we execute.</li>
+<li>When kernel itself is multithreaded, we can have multiple kernel-level threads supporting a single user-level process. When kernel needs to schedule/context switch among kernel-level threads that belong to diff processes, it can quickly determine the KLT point to diff PCB.</li>
+</ul>
+<h3 id="hard-and-light-process-state"><a class="markdownIt-Anchor" href="#hard-and-light-process-state"></a> Hard and Light Process State</h3>
+<ul>
+<li>When the operating system context switches between two kernel level threads that belong to the process, there is information relevant to both threads in the process control block, and also information that is only relevant to each thread.</li>
+<li>Information relevant to all threads includes the virtual address mapping, while information relevant to each thread specifically can include things like signals or system call arguments. When context switching among the two kernel level threads, we want to preserve some portion of the PCB and swap out the rest.</li>
+<li>We can split up the information in the PCB into <strong>hard process state</strong> which is <u>relevant for all user level threads</u> in a given process and <strong>light process state</strong> that is <u>only relevant for a subset of user level threads</u> associated with a particular kernel level thread.</li>
+<li>
+<img src="https://i.imgur.com/Xp5tefH.jpg" style="width: 600px" />
+</li>
+</ul>
+<h3 id="rationale-for-data-structures"><a class="markdownIt-Anchor" href="#rationale-for-data-structures"></a> Rationale For Data Structures</h3>
+<ul>
+<li>Single control block:
+<ul>
+<li>large continuous data structure</li>
+<li>private for each entity (even though some information can be shared)</li>
+<li>saved and restored in entirety on each context switch</li>
+<li>updates may be challenging</li>
+</ul>
+</li>
+<li>Multiple data structures:
+<ul>
+<li>smaller data structures</li>
+<li>easier to share</li>
+<li>save and restore only what needs to change on context switch</li>
+<li>user-level library only needs to update a portion of the state for customized behavior</li>
+</ul>
+</li>
+</ul>
+<h2 id="data-structures-in-solaris-20os"><a class="markdownIt-Anchor" href="#data-structures-in-solaris-20os"></a> Data Structures in Solaris 2.0(OS)</h2>
+<ul>
+<li>The Solaris OS is intended for multiple CPU and multi-threads. Each kernel-level thread has a lightweight process data structure associated with it, called <strong>lightweight process(LWP)</strong>, which represents the virtual CPUs onto which the user-level threads are scheduled. And the kernel-level scheduler is responsible for scheduling the kernel-level threads onto physical CPU.</li>
+</ul>
+<h3 id="user-level-structures"><a class="markdownIt-Anchor" href="#user-level-structures"></a> User Level Structures</h3>
+<ul>
+<li>From paper: <a target="_blank" rel="noopener" href="https://s3.amazonaws.com/content.udacity-data.com/courses/ud923/references/ud923-stein-shah-paper.pdf">“Implementing Lightweight Threads”</a> by Stein and Shah
+<ul>
+<li>not POSIX threads, but similar</li>
+</ul>
+</li>
+<li>When a thread is created, the library returns a thread id(tid). This id is <strong>not a direct pointer to</strong> the thread data structure but is rather an index into an array of thread pointers. the reason for that is, if there is a problem with the thread, the value at the index can change to -1 instead of the pointer just pointing to some corrupt memory.</li>
+<li>The thread data structure:
+<ul>
+<li>
+<img src="https://i.imgur.com/GTGvRgH.jpg" style="width: 300px" />
+</li>
+</ul>
+</li>
+<li>To avoid one thread overrun its boundary and overwrite the data for the next thread, we create a red zone for separating the threads. <strong>Red zone</strong> is a portion of the address space that is not allocated. If a thread tries to write to a red zone, the operating system causes a fault.</li>
+</ul>
+<h3 id="kernel-level-structures"><a class="markdownIt-Anchor" href="#kernel-level-structures"></a> Kernel Level Structures</h3>
+<ul>
+<li>
+<img src="https://i.imgur.com/9UGSnpT.jpg" style="width: 400px" />
+</li>
+<li>
+<p>Data structures in details</p>
+<ul>
+<li>Process:
+<ul>
+<li>list of kernel level threads</li>
+<li>virtual address space</li>
+<li>user credentials</li>
+<li>signal handlers</li>
+</ul>
+</li>
+<li><strong>light-weight process (LWP)</strong>:
+<ul>
+<li>user level registers</li>
+<li>system call arguments</li>
+<li>resource usage info</li>
+<li>signal masks</li>
+</ul>
+</li>
+<li>Kernel-level thread(KLT):
+<ul>
+<li>kernel-level registers</li>
+<li>stack pointer</li>
+<li>scheduling info</li>
+<li>pointers to associated LWPs, and CPU structures</li>
+</ul>
+</li>
+<li>CPU:
+<ul>
+<li>current thread</li>
+<li>list of kernel level threads</li>
+<li>dispatching &amp; interrupt handling information</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>LWP contains data that is relevant for some subset of the user threads in a given process, which is similar to the data contained in the ULT, but the LWP is visible to the kernel. When the kernel needs to make scheduling decisions, they can look at the LWP to help make decisions.</p>
+</li>
+<li>
+<p>The KLT has information about an execution context that is always needed. There are operating system services (for example, scheduler) that need to access information about a thread even when the thread is not active. As a result, <strong>the information in the kernel level thread is not swappable</strong>. The LWP data does not have to be present when a process is not running, so its data can be swapped out.</p>
+</li>
+</ul>
+<h2 id="thread-management-interaction"><a class="markdownIt-Anchor" href="#thread-management-interaction"></a> Thread Management Interaction</h2>
+<ul>
+<li>The Solaris <strong>user thread library</strong> life cycle.
+<ul>
+<li>
+<img src="https://i.imgur.com/idV7KLN.png" style="width: 500px" />
+</li>
+</ul>
+</li>
+<li>Why kernel-level threads and user-level threads need to interact with each other?
+<ul>
+<li>Consider a process with four user threads, and a kernel with two threads. At a given time, the process require the level of concurrency to two. It always happens that two of its threads are blocking on, i.e. I/O, and the other two threads are executing.</li>
+<li>Consider the scenario where the two user level threads that are scheduled on the kernel level threads happen to be the two that block. The kernel level threads block as well. This means that the whole process is blocked, even though there are user level threads that can make progress. The user threads have no way to know that the kernel threads are about to block, and has no way to decide before this event occurs.</li>
+<li>It would be helpful if the kernel can <strong>signal</strong> the user-level library before blocking, and the user-level library could potentially request more kernel-level threads, or allocate one kernel thread to  other threads that can be executed immediately.</li>
+</ul>
+</li>
+</ul>
+<h3 id="visibility-in-between"><a class="markdownIt-Anchor" href="#visibility-in-between"></a> Visibility in Between</h3>
+<ul>
+<li>
+<p>The kernel sees:</p>
+<ul>
+<li>Kernel-level threads</li>
+<li>CPUs</li>
+<li>Kernel-level scheduler</li>
+</ul>
+</li>
+<li>
+<p>The user-level library sees:</p>
+<ul>
+<li>User-level threads</li>
+<li>Available kernel-level threads</li>
+</ul>
+</li>
+<li>
+<p>A case of invisibility:</p>
+<ul>
+<li>In a many-to-many case, if a user level thread acquires a lock while running on top of a kernel level thread and that kernel level thread gets preempted, the user level library scheduler will cycle through the remaining user level threads and try to schedule them. If they need the lock, none will be able to execute and time will be wasted until the thread holding the lock is scheduled again.
+<ul>
+<li>The <strong>user level library</strong> makes schedule changes kernel not aware of such as changing the ULT/KLT mapping; The kernel is also unaware of the data structure the user-level threads use such as mutex variable, wait queues.</li>
+</ul>
+</li>
+<li>The one-to-one model helps address some of these issues because the kernel-level threads are aware of the state the of the user-level threads.</li>
+</ul>
+</li>
+<li>
+<p>How/When does the user-level library run?</p>
+<ul>
+<li>The process jumps to the user level library scheduler when:
+<ul>
+<li>ULTs explicitly yield</li>
+<li>Timer set by the by UL library expires</li>
+<li>ULTs call library functions like lock/unlock</li>
+<li>Blocked threads become runnable</li>
+</ul>
+</li>
+<li>UL library scheduler
+<ul>
+<li>runs on ULT operations</li>
+<li>runs on signal from timer or kernel</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="issue-on-multiple-cpus"><a class="markdownIt-Anchor" href="#issue-on-multiple-cpus"></a> Issue On Multiple CPUs</h3>
+<ul>
+<li>In a multi CPU system, the kernel level threads that support a process may be running concurrently on multiple CPUs. We may have a situation where the user level library that is operating in the context of one thread on one CPU needs to somehow impact what is running on another CPU.</li>
+<li>For example, there are three threads in one process : T1, T2, T3, and the thread priority is T3 &gt; T2 &gt; T1. The process is running on a two CPU, two threads OS.
+<ul>
+<li>Currently, T2 is holding the mutex and is executing on one CPU. T3 wants the mutex and is currently blocking. T1 is running on the other CPU. At some point, T2 releases the mutex, and T3 becomes runnable. Since T3 has higher priority than T1, we want to preempt T1.</li>
+<li>We can’t directly modify the registers of CPU, so we need to <strong>send a signal from the context of one thread on one CPU to the context of the other thread on the other CPU</strong>, to tell the other CPU to execute the library code locally, so that the proper scheduling decisions can be made.</li>
+</ul>
+</li>
+</ul>
+<h3 id="synchronization-related-issues"><a class="markdownIt-Anchor" href="#synchronization-related-issues"></a> Synchronization Related Issues</h3>
+<ul>
+<li>In a multi-CPU situation, T2 needs acquire a mutex that is locked by T1. Usually, we put T2 into the mutex queue, and wait for execution. But if T1 takes a short time to release the mutex, schedule T2 to one CPU and waste several CPU cycles might be a better idea.</li>
+<li>Mutexes which sometimes block and sometimes spin are called <strong>adaptive mutex</strong>. These only make sense on multiprocessor systems, since we only want to spin if the owner of the mutex is currently executing in parallel to us.</li>
+</ul>
+<h4 id="destroy-threads"><a class="markdownIt-Anchor" href="#destroy-threads"></a> Destroy threads</h4>
+<ul>
+<li>Instead of destroying threads right away once it’s not used, we
+<ul>
+<li>put it on a “death row”</li>
+<li>periodically destroyed by reaper thread</li>
+<li>otherwise thread structures/stacks are reused.</li>
+</ul>
+</li>
+</ul>
+<h2 id="interrupts-and-signals"><a class="markdownIt-Anchor" href="#interrupts-and-signals"></a> Interrupts and Signals</h2>
+<ul>
+<li><strong>Interrupts</strong> are events that are generated <strong>externally</strong> by components(hardware) other than the CPU to which the interrupt is delivered. Interrupts are notifications that <strong>some external event has occurred</strong>.
+<ul>
+<li>Components may deliver interrupts: I/O devices, Timers, Other CPUs
+<ul>
+<li>For example, when a user-level application tries to perform a illegal task using the hardware, the kernel is notified via an interrupt.</li>
+</ul>
+</li>
+<li>Interrupts varies on different physical platforms</li>
+<li>Interrupts appear asynchronously.</li>
+</ul>
+</li>
+<li><strong>Signals</strong> are events that are triggered by the CPU and the software running on it. e.g. <code>SIGKILL</code>
+<ul>
+<li>which signals can occur depend on the OS</li>
+<li>Signals can appear both <strong>synchronously</strong> and <strong>asynchronously</strong>.</li>
+<li>Signals can occur in direct response to an action taken by a CPU, or they can manifest similar to interrupts.</li>
+</ul>
+</li>
+<li>Signal/Interrupt Similarities
+<ul>
+<li>Both have a unique identifier, values depend on the hardware or OS.</li>
+<li>Both can be <strong>masked</strong>. An interrupt can be masked on a <strong>per-CPU basis</strong> and a signal can be masked on a <strong>per-process basis</strong>.
+<ul>
+<li><strong>A mask is used to disable or delay the notification</strong> of an incoming interrupt or signal.</li>
+</ul>
+</li>
+<li>If the mask indicates that the corresponding interrupt or signal is enabled, the incoming notification will trigger the corresponding <strong>handler</strong>.</li>
+<li><strong>Interrupt handlers</strong> are specified for the entire system by the OS. <strong>Signal handlers</strong> are set on a per-process basis, by the process itself.</li>
+</ul>
+</li>
+<li>Differences
+<ul>
+<li>For interrupts, the kernel has an <strong>interrupt table</strong> which jumps to a particular subroutine depending on the interrupt type.</li>
+<li>For signals, the process likewise has a <strong>signal handler</strong> which selectively enables certain signals using a thread-speciﬁc <strong>signal mask</strong>. The kernel calls the handler if the mask allows (i.e. has the bit set) the signal.</li>
+</ul>
+</li>
+</ul>
+<h3 id="interrupt-handling"><a class="markdownIt-Anchor" href="#interrupt-handling"></a> Interrupt Handling</h3>
+<ul>
+<li>The interrupt interrupts the execution of the thread that was executing on top of the CPU. The CPU looks up the interrupt number in a table and executes the handler routine that the interrupt maps. The interrupt number maps to the starting address of the handling routine, and the program counter can be set to point to that address to start handling the interrupt.</li>
+<li>Which interrupts can occur depends on the hardware of the platform and how the interrupts are handled depends on the operating system running on the platform.</li>
+<li>
+<img src="https://i.imgur.com/GCKytqS.jpg" style="width: 500px" />
+</li>
+</ul>
+<h3 id="signal-handling"><a class="markdownIt-Anchor" href="#signal-handling"></a> Signal Handling</h3>
+<ul>
+<li>Signals are different from interrupts in that signals originate from the CPU. For example, if a process tries to access memory that not allocated, a SIGSEGV signal will be generated.</li>
+<li>For each process, the OS maintains a mapping where the keys correspond to the signal number. Here is a list of signals from POSIX: <a target="_blank" rel="noopener" href="https://pubs.opengroup.org/onlinepubs/9699919799/">signal.h</a></li>
+<li>The default signal responses from the OS includes: Terminate, Ignore, Terminate and Core Dump, Stop or Continue (from stopped)</li>
+<li>For most signals, processes can install its custom handling routine, usually through a system call like <strong>signal()</strong> or <strong>sigaction()</strong> although there are <strong>some signals which cannot be caught</strong>.</li>
+<li>synchronous signals include:
+<ul>
+<li>SIGSEGV</li>
+<li>SIGFPE (divide by zero)</li>
+<li>SIGKILL (from one process to another)</li>
+</ul>
+</li>
+<li>asynchronous signals include:
+<ul>
+<li>SIGKILL (as the receiver)</li>
+<li>SIGALARM (timeout from timer expiration)</li>
+</ul>
+</li>
+</ul>
+<h3 id="why-disable-interrupts-or-signals-avoid-deadlock"><a class="markdownIt-Anchor" href="#why-disable-interrupts-or-signals-avoid-deadlock"></a> Why Disable Interrupts or Signals? Avoid Deadlock</h3>
+<ul>
+<li>Interrupts and signals are handled in the context of the thread being interrupted/signaled. This means that they are handled on the thread’s stack, which can cause certain issues.</li>
+<li>When a thread handles a signal, the program counter of the thread will point to the first address of the handler. The stack pointer will remain the same, meaning that whatever the thread was doing before being interrupted will still be on the stack.</li>
+<li>If the handling code needs to access some shared state that can be used by other threads in the system, we will have to use mutexes. If the thread which is being interrupted had already locked the mutex before being interrupted, we are in a <strong>deadlock</strong>. The thread can’t unlock its mutex until the handler returns, but the handler can’t return until it locks the mutex.</li>
+<li>A simple solution is keep handler code simple, like not acquire mutex, but it’s too restrictive.</li>
+<li>A better solution is to use <strong>interrupt/signal masks</strong> which allow us dynamically enable/disable whether the handling code can interrupt the executing mutex.
+<ul>
+<li>The mask is a sequence of bits where each bits represents a specific interrupt or signal with value 0/1.</li>
+<li>When event occur, the handler will check the mask to decide whether pending or proceed.
+<ul>
+<li>Once the interrupt/signal is pending, others interrupts/signals might also become pending. Typically the handling routine will only be executed once, so if we want to ensure a signal handling routine is executed more than once, it is not sufficient to generate the signal more than once.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>When masks disable interrupt/signal</strong>
+<ul>
+<li>Interrupt masks are per CPU. If the mask disables interrupt, the hardware interrupt routing mechanism will not deliver interrupt to CPU</li>
+<li>Signal masks are per execution context (ULT on top of KLT). If a mask disables a signal, the kernel will see this and will not interrupt the corresponding execution context.</li>
+</ul>
+</li>
+<li>Interrupts on Multicore Systems
+<ul>
+<li>On a multi CPU system, the interrupt routing logic will direct the interrupt to any CPU that at that moment in time has that interrupt enabled. One strategy is to enable interrupts on just one CPU, which will allow avoiding any of the overheads or perturbations related to interrupt handling on any of the other cores. The net effect will be improved performance.</li>
+</ul>
+</li>
+<li>Two Types of Signals
+<ol>
+<li><strong>One-shot signals</strong> refer to signals that will only interrupt once. This means that from the perspective of the user level thread, n signals will look exactly like one signal. One-shot signals must also be explicitly re-enabled every time.</li>
+<li><strong>Real-Time Signals</strong> refer to signals that will interrupt as many times are they are raised. If n signals occur, the handler will be called n times.</li>
+</ol>
+</li>
+</ul>
+<h3 id="interrupts-as-a-separated-threads"><a class="markdownIt-Anchor" href="#interrupts-as-a-separated-threads"></a> Interrupts as a Separated Threads</h3>
+<ul>
+<li>To avoid the deadlock situation we covered before regards to handler code trying to lock a mutex that the thread had already locked, one way from the Sun thread paper is, to allow interrupts to become full-fledged threads, and execute independently.
+<ul>
+<li>
+<img src="https://i.imgur.com/ZMnIWlm.jpg" style="width: 600px" />
+</li>
+<li>In this case, when the handler is blocked, it still has its own context/stack, and can remain blocked. And the main thread can continue to work, and eventually unlock the mutex so the handler will be free to execute.</li>
+<li>However dynamic thread creation is expensive! The decision described in Solaris system is
+<ul>
+<li>if handler doesn’t lock -&gt; execute on interrupted thread’s stack</li>
+<li>if handler can block -&gt; turn into real thread</li>
+</ul>
+</li>
+<li>One way to optimize it is
+<ul>
+<li>pre-create &amp; pre-initialize thread structures for interrupt routines.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="interrupts-top-vs-bottom-half"><a class="markdownIt-Anchor" href="#interrupts-top-vs-bottom-half"></a> Interrupts: Top Vs. Bottom Half</h3>
+<ul>
+<li>When an interrupt is handled in a different thread, we no longer have to disable handling in the thread that may be interrupted. Since the deadlock situation can no longer occur, we don’t need to add any special logic to our main thread.</li>
+<li>However the interrupt/signal work can divided to two parts:
+<ul>
+<li><strong>top half</strong>: handling in the context of the main thread. this half needs to be fast, non-blocking, and min-amount of processing</li>
+<li><strong>bottom half</strong>: allows arbitrary complexity</li>
+<li>
+<img src="https://i.imgur.com/TSsadeE.jpg" style="width: 600px" />
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="performance-of-threads-as-interrupts"><a class="markdownIt-Anchor" href="#performance-of-threads-as-interrupts"></a> Performance of Threads as Interrupts</h3>
+<ul>
+<li>The overhead of performing the necessary checks and potentially creating a new thread in the case of an interrupt adds about 40 SPARC instructions to each interrupt handling operation.</li>
+<li>As a result, it is no longer necessary to disable a signal before locking a mutex and re-enable the signal after releasing the mutex, which saves about 12 instructions per mutex.</li>
+<li>Since mutex lock/unlocks occur much more frequently than interrupts, the net instruction count is decreased when using the interrupt as threads strategy.</li>
+</ul>
+<h3 id="threads-and-signal-handling"><a class="markdownIt-Anchor" href="#threads-and-signal-handling"></a> Threads and Signal Handling</h3>
+<ul>
+<li>
+<p>The enable/disable happens at the user-level threads, and the signal triggered at at the kernel-level. It results an inconsistency between the ULT and KLT.</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/pgzPGpL.jpg" style="width: 600px" />
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Degree concurrency</strong> is used by the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m × n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> model in Solaris to control the amount of multiplexing from ULTs to LWPs (and thus KLTs).</p>
+</li>
+<li>
+<p>Let’s look at four cases:</p>
+</li>
+</ul>
+<ol>
+<li>ULT mask = 1 and KLT mask = 1
+<ul>
+<li>This won’t be a problem since they are the same</li>
+</ul>
+</li>
+<li>ULT mask = 0 &amp; KLT mask = 1 &amp; another ULT mask = 1
+<ul>
+<li>
+<img src="https://i.imgur.com/efTtBcf.jpg" style="width: 400px" />
+</li>
+<li>The** threading library** has a <strong>signal handler’s table</strong> that indicates the signal and corresponding handler function. The <strong>library handling routine</strong> can see the masks of the user level threads.
+<ul>
+<li>e.g. the table: <code>SIGNAL-N: handler-N-start-addr</code></li>
+</ul>
+</li>
+<li>In this case, when a signal occurs at the kernel level, the KLT calls the <strong>threading library provided handler</strong>. The library handling routine knows that one thread can’t handle the signal, but the other can. It invoke the library scheduler and make ULT that has mask enabled running on KLT so that signal can be handled.</li>
+</ul>
+</li>
+<li>ULT mask = 0 &amp; KLT mask = 1 &amp; another ULT mask = 1 &amp; KLT mask = 1
+<ul>
+<li>
+<img src="https://i.imgur.com/5b85iL7.jpg" style="width: 400px" />
+</li>
+<li>In the case where a signal is generated by a kernel level thread that is executing on behalf of a user level thread which does not have the bit enabled, the threading library will know that it cannot pass the signal to this particular user thread.</li>
+<li>What it can do, is send a <strong>directed signal</strong> down to the kernel level thread associated with the user level thread that has the bit enabled. This will cause that kernel level thread to raise the same signal, which will be handled again by the user level library and dispatched to the user level thread that has the bit enabled.</li>
+</ul>
+</li>
+<li>All ULT masks = 0 &amp; all KLT masks = 1, the kernel think the ULKs can handle all signal, but none of them can.
+<ul>
+<li>
+<img src="https://i.imgur.com/ksK2AMG.jpg" style="width: 400px" />
+</li>
+<li>When the signal occurs, the kernel interrupts the execution of whichever thread is currently executing atop it. The library handling routine kicks in and sees that no threads that it manages can handle this particular signal.</li>
+<li>Then, the thread library will make a system call requesting to disable the signal mask on the particular kernel level thread. We can’t change other ULTs that associated with KLTs that running on the other CPUs.</li>
+<li>Then the threading library will reissue the signal for entire process again. The OS will find the other threads in the process and all of the masks associated with the KLTs will be disabled via system call.</li>
+<li>When any of the ULT re-enable the mask, the threading lib will make a system call, and tell the kernel level thread to enable the particular signal mask.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>The algorithm above is optimized for the common cases, because:
+<ul>
+<li>Signals occur much less frequently than does the need to update the signal mask.</li>
+<li>Updates of the signal mask are cheap. They occur at the user level and avoid system calls.</li>
+<li>Signal handling becomes more expensive - as system calls may be needed to correct discrepancies - but they occur less frequently so the added cost is acceptable.</li>
+</ul>
+</li>
+</ul>
+<h2 id="tasks-in-linux"><a class="markdownIt-Anchor" href="#tasks-in-linux"></a> Tasks in Linux</h2>
+<ul>
+<li>
+<p>The main abstraction that Linux uses to represent an execution context is called a <strong>task</strong>. A task is essentially the <strong>execution context of a kernel level thread</strong>. A single-threaded process will have one task, and a multithreaded process will have many tasks.</p>
+</li>
+<li>
+<p>Key elements in task structure(<a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/v5.17/source/include/linux/sched.h#L728">complete</a>):</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">task_struct</span> &#123;</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="comment">// if it&#x27;a single-thread process, the task id = process id, </span></span><br><span class="line">    <span class="comment">// if multi-thread, each task has it&#x27;s own identifier which will be held in the pid(process ID)</span></span><br><span class="line">    <span class="comment">// and the pid is also the first task id</span></span><br><span class="line">    <span class="type">pid_t</span> pid; </span><br><span class="line">    <span class="type">pit_t</span> tgid; <span class="comment">// task group id // TODO i&#x27;m confused. is this the same as pid?</span></span><br><span class="line">    <span class="type">int</span> prio;</span><br><span class="line">    <span class="keyword">volatile</span> <span class="type">long</span> state;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">mm_struct</span> *<span class="title">mm</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">files_struct</span> *<span class="title">files</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">list_head</span> <span class="title">tasks</span>;</span> <span class="comment">// head of the list of tasks</span></span><br><span class="line">    <span class="type">int</span> on_cpu;</span><br><span class="line">    <span class="type">cpumask_t</span> cpus_allowed;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Task creation: clone</p>
+<ul>
+<li>to create a new task, the ops in linux is called <code>clone</code>. here is the function:
+<ul>
+<li><code>clone(function, stack_ptr, sharing_flags, args)</code></li>
+<li>very similar to pthread, and also take an argument: <code>sharing_flags</code></li>
+</ul>
+</li>
+<li>The sharing flag:
+<ul>
+<li>
+<img src="https://i.imgur.com/3nLBkdk.jpg" style="width: 600px" />
+</li>
+<li>If it’s not set, the child will not share anything with the parent.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Linux thread model</p>
+<ul>
+<li><strong>Native POSIX Thread Library(NPTL)</strong>: <strong>1-1 Model</strong> aka, a kernel level task for each user level thread.
+<ul>
+<li>It replaced the earlier implementation of <strong>LinuxThreds</strong>(M:M Model), has similar issues as  Solaris OS.</li>
+</ul>
+</li>
+<li>In NPTL, <strong>the kernel sees every user level thread.</strong> This is acceptable because kernel trapping has become much cheaper, so user/kernel crossings are much more affordable.</li>
+<li>Also, modern platforms have more memory - removing the constraints to keep the number of kernel threads as small as possible.</li>
+</ul>
+</li>
+<li>
+<p>The benefits got from 1:1 model:</p>
+<ul>
+<li><strong>Scheduling.</strong> With 1:1 threads, there is <u>no longer any need for user-level scheduling</u> because the kernel sees all threads and their priorities can be refined to allow scheduler to optimize things appropriately.</li>
+<li><strong>Synchronization.</strong> With 1:1 threads, there is <u>no more management of signal masks</u>. The kernel thread will deliver signals to its user thread if the mask is enabled.</li>
+<li><strong>Signaling.</strong> With 1:1 threads, <u>User threads can be woken up immediately once a mutex is freed, rather than needing to traverse through a user-level threading library that relies on global synchronization primitives</u>. Furthermore, blocking operations(like waiting on a lock) are trivial to recognize, and deadlocks can be avoided because the kernel sees all primitives.</li>
+<li><strong>light-weight processes aren’t necessary</strong> because all of the data for a thread is stored within the thread itself; any shared data across threads is stored in their PCB.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+  
+  <div class="divider"></div>
+</div>
+
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

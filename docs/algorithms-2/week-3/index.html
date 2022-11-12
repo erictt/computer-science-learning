@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    
+    <!-- katex css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+
+    <div class="book-menu">
+  <!--
+## Introduction to Probability
+
+* [Unit 1: Probability models and axioms](/introduction-to-probability/unit-1/index.html)
+* [Unit 2: Conditioning and independence](/introduction-to-probability/unit-2/index.html)
+* [Unit 3: Counting](/introduction-to-probability/unit-3/index.html)
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<!--
+## Multivariable Calculus
+
+* [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
+* [Unit 2: Derivatives of multivariable functions](/multivariable-calculus/unit-2/index.html)
+
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="cs6250-computer-networks"><a class="markdownIt-Anchor" href="#cs6250-computer-networks"></a> CS6250 Computer Networks</h2>
+<ul>
+<li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
+<li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
+<li><a href="/cs6250/week-3-intradomain-routing/index.html">Week 3 - Intradomain Routing</a></li>
+<li><a href="/cs6250/week-4-as-relationships-and-interdomain-routing/index.html">Week 4 - AS Relationships and Interdomain Routing</a></li>
+<li><a href="/cs6250/week-5-router-design-and-algorithems-part-1/index.html">Week 5 - Router Design and Algorithms (Part 1)</a></li>
+<li><a href="/cs6250/week-6-router-design-and-algorithems-part-2/index.html">Week 6 - Router Design and Algorithms (Part 2)</a></li>
+<li><a href="/cs6250/week-7-software-defined-networking-part-1/index.html">Week 7 - Software Defined Networking (Part 1)</a></li>
+<li><a href="/cs6250/week-8-software-defined-networking-part-2/index.html">Week 8 - Software Defined Networking (Part 2)</a></li>
+<li><a href="/cs6250/week-9-internet-security/index.html">Week 9 - Internet Security</a></li>
+<li><a href="/cs6250/week-10-internet-surveillance-and-censorship/index.html">Week 10 - Internet Surveillance and Censorship</a></li>
+</ul>
+<!--
+* [Week 11 - Applications Videos](/cs6250/week-11-applications-video/index.html)
+* [Week 12 - Applications CDNs and Overlay Networks](/cs6250/week-12-applications-cdns-and-overlay-networks/index.html)
+-->
+<h2 id="cs6200-graduate-introduction-to-operating-systems"><a class="markdownIt-Anchor" href="#cs6200-graduate-introduction-to-operating-systems"></a> CS6200 Graduate Introduction to Operating Systems</h2>
+<ul>
+<li><a href="/cs6200/p1-preparation/index.html">P0 - Preparation</a></li>
+<li><a href="/cs6200/p1l2-introduction/index.html">P1L2 - Introduction</a></li>
+<li><a href="/cs6200/p2l1-processes-and-process-management/index.html">P2L1 - Processes and Process Management</a></li>
+<li><a href="/cs6200/p2l2-threads-and-concurrency/index.html">P2L2 - Threads and Concurrency</a></li>
+<li><a href="/cs6200/p2l3-pthread/index.html">P2L3 - PThread</a></li>
+<li><a href="/cs6200/p2l4-thread-design-consideration/index.html">P2L4 - Thread Design Considerations</a></li>
+<li><a href="/cs6200/p2l5-thread-performance-consideration/index.html">P2L5 - Thread Performance Considerations</a></li>
+<li><a href="/cs6200/p3l1-scheduling/index.html">P3L1 - Scheduling</a></li>
+<li><a href="/cs6200/p3l2-memory-management/index.html">P3L2 - Memory Management</a></li>
+<li><a href="/cs6200/p3l3-inter-process-communication/index.html">P3L3 - Inter-Process Communication</a></li>
+<li><a href="/cs6200/p3l4-synchronization-constructs/index.html">P3L4 - Synchronization Constructs</a></li>
+</ul>
+<!--
+* [P3L5 - I/O Management](/cs6200/p3l5-io-management/index.html) 
+* [P3L6 - Virtualization](/cs6200/p3l6-virtualization/index.html) 
+* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
+* [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
+* [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
+* [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-2/index.html">Week 2 - Minimum Spanning Trees &amp; Shortest Path</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; String Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+<li><a href="/algorithms-2/week-5/index.html">Week 5 - Regular Expressions</a></li>
+<li><a href="/algorithms-2/week-6/index.html">Week 6 - Reductions</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+<h2 id="others"><a class="markdownIt-Anchor" href="#others"></a> Others</h2>
+<ul>
+<li><a href="/symbols/index.html">Symbols of Mathematics</a></li>
+<li><a href="/glossary/index.html">Glossary</a></li>
+</ul>
+<h2 id="about-me"><a class="markdownIt-Anchor" href="#about-me"></a> <a target="_blank" rel="noopener" href="https://ericyy.me/about/">About Me</a></h2>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="week-3-maximum-flow-and-minimum-cut-string-sorts"><a class="markdownIt-Anchor" href="#week-3-maximum-flow-and-minimum-cut-string-sorts"></a> Week 3 - Maximum Flow and Minimum Cut &amp; String Sorts</h1>
+<h2 id="maximum-flow-and-minimum-cut"><a class="markdownIt-Anchor" href="#maximum-flow-and-minimum-cut"></a> Maximum Flow and Minimum Cut</h2>
+<h3 id="problems-to-solve"><a class="markdownIt-Anchor" href="#problems-to-solve"></a> Problems to Solve</h3>
+<ul>
+<li>
+<p>Minimum Cut Problem</p>
+<ul>
+<li>
+<p>A cut is a node partition (S, T) such that s is in S and t is in T.</p>
+<ul>
+<li>capacity(S, T) = sum of weights of edges leaving S.</li>
+</ul>
+</li>
+<li>
+<p>Find an s-t cut of minimum capacity.</p>
+</li>
+<li>
+<p>An example of not being the minimum:</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/lTpwnlp.jpg" style="width:400px" />
+</li>
+</ul>
+</li>
+<li>
+<p>The correct answer</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/7FabVRL.jpg" style="width:400px" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Max Flow Problem</p>
+<ul>
+<li>Assign flow to edges so as to:
+<ul>
+<li>Maximize flow sent from s to t.</li>
+<li>Equalize inflow and outflow at every intermediate vertex.</li>
+</ul>
+</li>
+<li>
+<img src="https://i.imgur.com/VJC0V2z.jpg" style="width:300px" />
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="maxflow-mincut-theorem"><a class="markdownIt-Anchor" href="#maxflow-mincut-theorem"></a> Maxflow Mincut Theorem</h3>
+<ul>
+<li>Some terminologies
+<ul>
+<li>
+<p>Original graph</p>
+<ul>
+<li>A graph keeps the capacity from each edges and the flow go through them.</li>
+</ul>
+</li>
+<li>
+<p>Residual graph &amp; Residual edge</p>
+<ul>
+<li>A parallel graph as the original graph which keeps two capacities: the forward capacity(=original capacity - flow); the backward capacity(=flow).
+<ul>
+<li>The backward capacity is used for “undo” flow went through the edge.</li>
+</ul>
+</li>
+<li>
+<img src="https://i.imgur.com/Xo4Y0pw.jpg" style="width:500px" />
+</li>
+</ul>
+</li>
+<li>
+<p>Augmenting paths</p>
+<ul>
+<li>path in residual graph, either:
+<ul>
+<li>increase flow along forward edges.
+<ul>
+<li>
+<img src="https://i.imgur.com/d5iTrjm.jpg" style="width:500px" />
+</li>
+</ul>
+</li>
+<li>decrease flow along backward edges(not empty).
+<ul>
+<li>
+<img src="https://i.imgur.com/G6J5soQ.jpg" style="width:500px" />
+</li>
+<li>The decrease on the backward edge is like re-distribute the flow to other place since the new flow we’re trying to create add the same amount.</li>
+<li>In the case above, 5 was deducted and added to the top edge, and pass long to t.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Key point.</strong> Augmenting path in <strong>original</strong> network is equivalent to <strong>directed path</strong> in <strong>residual</strong> network.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="relation-between-maximum-flow-and-minimum-cut"><a class="markdownIt-Anchor" href="#relation-between-maximum-flow-and-minimum-cut"></a> Relation between Maximum Flow and Minimum Cut</h4>
+<ul>
+<li>Def. The <strong>net flow across</strong> a cut (A, B) is the sum of the flows on its edges from A to B minus the sum of the flows on its edges from from B to A.</li>
+<li>Theorems:
+<ol>
+<li><strong>Flow-value lemma</strong>. Let f be a flow, and let (S, T) be any s-t cut. Then, the net flow sent across the cut is equal to the amount reaching t.
+<ul>
+<li>
+<img src="https://i.imgur.com/kw8OuxN.jpg" style="width:800px" />
+</li>
+<li>Cut capacity always &gt;= Flow value</li>
+</ul>
+</li>
+<li><strong>Weak duality</strong>. Let f be any flow and let (S, T) be any cut. Then, the value of the flow ≤ the capacity of the cut.
+<ul>
+<li>Value of flow f = net flow across cut (S, T) ≤ capacity of cut (S, T).</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="max-flow-and-min-cut"><a class="markdownIt-Anchor" href="#max-flow-and-min-cut"></a> <strong>Max Flow and Min Cut</strong></h4>
+<ul>
+<li>
+<p>Let f be a flow, and let (S, T) be an s-t cut whose capacity equals the value of f. Then f is a max flow and (S, T) is a min cut.</p>
+<ul>
+<li>Re-phrase:
+<ul>
+<li>A flow f is a maxflow iff no augmenting paths. &lt;-- <strong>Augmenting Path Theorem</strong>.</li>
+<li>And, the value of max flow equals capacity of min cut. &lt;--  <strong>Max-Flow Min-Cut Theorem</strong> (Ford-Fulkerson, 1956).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>In my understanding, the capacity of the <strong>min-cut</strong> (S, T) is the <strong>bottleneck</strong> of the graph, which means it’s the <strong>maximum flow</strong> can be passed from S to T. Since the flow is equivalent, it must applies to s and t as well.</p>
+<ul>
+<li>and since <strong>max-flow</strong> already matched the bottleneck, there will be no new augmenting path can increase the flow to break the bottleneck.</li>
+<li>e.g. <img src="https://i.imgur.com/xijaZ5V.jpg" style="width:400px" /></li>
+<li>NOTE: Question: is it possible that the max flow didn’t reach the capacity of all cuts?
+<ul>
+<li>I think it’s possible but it’s still the min cut.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>To compute mincut (S, T) from maxflow f</strong> :</p>
+<ul>
+<li>By augmenting path theorem, no augmenting paths with respect to f(the maxflow).</li>
+<li>Compute S = set of vertices connected to s by an undirected path with no full forward or empty backward edges.</li>
+<li>
+<img src="https://i.imgur.com/mcJplpu.jpg" style="width:500px" />
+</li>
+<li><strong>TODO</strong>: Why? What if there are more than two edges from <code>s</code> have no full forward edges? what if none forward edges?</li>
+</ul>
+</li>
+</ul>
+<h3 id="ford-fulkerson-algorithm"><a class="markdownIt-Anchor" href="#ford-fulkerson-algorithm"></a> Ford-Fulkerson algorithm</h3>
+<p>To find the maximum flow (and min-cut), the algorithm repeatedly finds <strong>augmenting paths</strong> through the <strong>residual graph</strong> and <strong>augments the flow</strong> until no more augmenting paths can be found.</p>
+<ul>
+<li>
+<p>Steps:</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while (there exists an augmenting path) &#123; </span><br><span class="line">    Find augmenting path P </span><br><span class="line">    Compute bottleneck capacity of P </span><br><span class="line">    Augment flow along P </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="how-to-find-an-augmenting-path"><a class="markdownIt-Anchor" href="#how-to-find-an-augmenting-path"></a> How to find an augmenting path?</h4>
+<ul>
+<li>Assume that all capacities are integers between 1 and U(which is true for lots of applications), the algorithm terminates in at most <code>V x U</code>.
+<ul>
+<li>The worst case:
+<ul>
+<li>
+<img src="https://i.imgur.com/qGJYKG7.jpg" style="width:300px" />
+</li>
+</ul>
+</li>
+<li>Every interation, it visit every vertices and only increase the flow by 1. So it needs 100 * 2 interations to finish.</li>
+</ul>
+</li>
+<li>To Avoid the worst case, we can choose different algorithms for choosing augmenting paths.
+<ol>
+<li>Fewest number of arcs. (shortest path)</li>
+<li>Max bottleneck capacity. (fattest path)</li>
+</ol>
+</li>
+<li>Shortest augmenting path.
+<ul>
+<li>Easy to implement with BFS.</li>
+<li>Finds augmenting path with fewest number of arcs.</li>
+<li>Facts:
+<ul>
+<li>At most <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">EV</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> total augmenting paths.</li>
+<li>O(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>E</mi><mn>2</mn></msup><mi>V</mi></mrow><annotation encoding="application/x-tex">E^2V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span>) running time.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Fattest augmenting path.
+<ul>
+<li>Finds augmenting path whose <strong>bottleneck</strong> capacity is maximum.</li>
+<li>Delivers most amount of flow to sink.</li>
+<li>Solve using Dijkstra-style (PFS) algorithm.</li>
+<li>Fact.
+<ul>
+<li>O(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>log</mi><mo>⁡</mo><mi>U</mi></mrow><annotation encoding="application/x-tex">E\log{U}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span></span>) augmentations if capacities are between 1 and U.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="java-api"><a class="markdownIt-Anchor" href="#java-api"></a> Java API</h3>
+<ul>
+<li>
+<p>Flow Edge API</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FlowEdge</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> v, w; <span class="comment">// from and to </span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">double</span> capacity; <span class="comment">// capacity </span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">double</span> flow; <span class="comment">// flow</span></span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> <span class="title function_">FlowEdge</span><span class="params">(<span class="type">int</span> v, <span class="type">int</span> w, <span class="type">double</span> capacity)</span> &#123; <span class="comment">// create a flow edge v→w</span></span><br><span class="line">        <span class="built_in">this</span>.v = v;</span><br><span class="line">        <span class="built_in">this</span>.w = w;</span><br><span class="line">        <span class="built_in">this</span>.capacity = capacity;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">from</span><span class="params">()</span> &#123; <span class="keyword">return</span> v; &#125; <span class="comment">// vertex this edge points from</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">to</span><span class="params">()</span> &#123; <span class="keyword">return</span> w; &#125; <span class="comment">// vertex this edge points to</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">other</span><span class="params">(<span class="type">int</span> v)</span> &#123; <span class="keyword">return</span> v; &#125; <span class="comment">// other endpoint</span></span><br><span class="line">    <span class="type">double</span> <span class="title function_">capacity</span><span class="params">()</span> &#123; <span class="keyword">return</span> capacity; &#125;<span class="comment">// capacity of this edge </span></span><br><span class="line">    <span class="type">double</span> <span class="title function_">flow</span><span class="params">()</span> &#123; <span class="keyword">return</span> flow; &#125;<span class="comment">// flow in this edge </span></span><br><span class="line">    </span><br><span class="line">    <span class="type">double</span> <span class="title function_">residualCapacityTo</span><span class="params">(<span class="type">int</span> v)</span> &#123; <span class="comment">// residual capacity toward v </span></span><br><span class="line">        <span class="keyword">if</span> (vertex == v) <span class="keyword">return</span> flow; <span class="comment">// backward edge</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (vertex == w) <span class="keyword">return</span> capacity - flow; <span class="comment">// forward edge</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(); </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">addResidualFlowTo</span><span class="params">(<span class="type">int</span> v, <span class="type">double</span> delta)</span> &#123; <span class="comment">// add delta flow toward v </span></span><br><span class="line">        <span class="keyword">if</span> (vertex == v) flow -= delta;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (vertex == w) flow += delta;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    String <span class="title function_">toString</span><span class="params">()</span> <span class="comment">// string representation</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Flow Network API</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FlowNetwork</span> &#123;</span><br><span class="line">    <span class="comment">// same as EdgeWeightedGraph, but adjacency lists of FlowEdges instead of Edges</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> V; <span class="comment">// number of vertices</span></span><br><span class="line">    <span class="keyword">private</span> Bag&lt;FlowEdge&gt;[] adj;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">FlowNetwork</span><span class="params">(<span class="type">int</span> V)</span> &#123; </span><br><span class="line">        <span class="built_in">this</span>.V = V; </span><br><span class="line">        adj = (Bag&lt;FlowEdge&gt;[]) <span class="keyword">new</span> <span class="title class_">Bag</span>[V]; </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">v</span> <span class="operator">=</span> <span class="number">0</span>; v &lt; V; v++) </span><br><span class="line">            adj[v] = <span class="keyword">new</span> <span class="title class_">Bag</span>&lt;FlowEdge&gt;(); </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addEdge</span><span class="params">(FlowEdge e)</span> &#123; </span><br><span class="line">        <span class="type">int</span> <span class="variable">v</span> <span class="operator">=</span> e.from(); </span><br><span class="line">        <span class="type">int</span> <span class="variable">w</span> <span class="operator">=</span> e.to(); </span><br><span class="line">        <span class="comment">//  add forward edge add backward edge</span></span><br><span class="line">        adj[v].add(e); </span><br><span class="line">        adj[w].add(e); </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> Iterable&lt;FlowEdge&gt; <span class="title function_">adj</span><span class="params">(<span class="type">int</span> v)</span> &#123; </span><br><span class="line">        <span class="keyword">return</span> adj[v]; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<img src="https://i.imgur.com/cm3Px4e.jpg" style="width:500px" />
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Ford-Fulkerson: Java implementation</strong></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FordFulkerson</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span>[] marked; <span class="comment">// true if s-&gt;v path in residual network</span></span><br><span class="line">    <span class="keyword">private</span> FlowEdge[] edgeTo; <span class="comment">// last edge on s-&gt;v path</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">double</span> value; <span class="comment">// value of flow</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">FordFulkerson</span><span class="params">(FlowNetwork G, <span class="type">int</span> s, <span class="type">int</span> t)</span> &#123;</span><br><span class="line">        value = <span class="number">0.0</span>; </span><br><span class="line">        </span><br><span class="line">        <span class="comment">// method hasAugmentingPath generates the shortest path in edgeTo</span></span><br><span class="line">        <span class="keyword">while</span> (hasAugmentingPath(G, s, t)) &#123; </span><br><span class="line">            <span class="type">double</span> <span class="variable">bottle</span> <span class="operator">=</span> Double.POSITIVE_INFINITY;</span><br><span class="line">            <span class="comment">// it&#x27;s a little confused here since we&#x27;re comparing both </span></span><br><span class="line">            <span class="comment">// the backward and forward edges all togather.</span></span><br><span class="line">            <span class="comment">// Think about it this way:</span></span><br><span class="line">            <span class="comment">//    Assume we find the the bottlenect capacity is 1, </span></span><br><span class="line">            <span class="comment">//    then we will decrease the capacity of this backward edge by 1 </span></span><br><span class="line">            <span class="comment">//    and 1 to both its upstream and downstream. </span></span><br><span class="line">            <span class="comment">//    The total flow is increased by 1 as well.</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">v</span> <span class="operator">=</span> t; v != s; v = edgeTo[v].other(v)) <span class="comment">// compute bottleneck capacity</span></span><br><span class="line">                bottle = Math.min(bottle, edgeTo[v].residualCapacityTo(v));</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">v</span> <span class="operator">=</span> t; v != s; v = edgeTo[v].other(v)) <span class="comment">// augment flow</span></span><br><span class="line">                edgeTo[v].addResidualFlowTo(v, bottle);</span><br><span class="line">            </span><br><span class="line">            value += bottle;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// BFS to find the shortest path in the residual network</span></span><br><span class="line">    <span class="comment">// BE AWARE this algorithm saves the last edge on path to w,</span></span><br><span class="line">    <span class="comment">// because it&#x27;s BFS, we store the last valid path to the target in edgeTo.</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">hasAugmentingPath</span><span class="params">(FlowNetwork G, <span class="type">int</span> s, <span class="type">int</span> t)</span> &#123;</span><br><span class="line">        edgeTo = <span class="keyword">new</span> <span class="title class_">FlowEdge</span>[G.V()]; </span><br><span class="line">        marked = <span class="keyword">new</span> <span class="title class_">boolean</span>[G.V()];</span><br><span class="line"></span><br><span class="line">        Queue&lt;Integer&gt; queue = <span class="keyword">new</span> <span class="title class_">Queue</span>&lt;Integer&gt;(); </span><br><span class="line">        queue.enqueue(s); </span><br><span class="line">        marked[s] = <span class="literal">true</span>; </span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123; </span><br><span class="line">            <span class="type">int</span> <span class="variable">v</span> <span class="operator">=</span> queue.dequeue();</span><br><span class="line">            <span class="keyword">for</span> (FlowEdge e : G.adj(v)) &#123; </span><br><span class="line">                <span class="type">int</span> <span class="variable">w</span> <span class="operator">=</span> e.other(v); </span><br><span class="line">                <span class="comment">// found path from s to w in the residual network?</span></span><br><span class="line">                <span class="keyword">if</span> (e.residualCapacityTo(w) &gt; <span class="number">0</span> &amp;&amp; !marked[w]) &#123; </span><br><span class="line">                    edgeTo[w] = e; <span class="comment">// save last edge on path to w; </span></span><br><span class="line">                    marked[w] = <span class="literal">true</span>; <span class="comment">// mark w; </span></span><br><span class="line">                    queue.enqueue(w); <span class="comment">// add w to the queue </span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> marked[t]; <span class="comment">// is t reachable from s in residual network?</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">value</span><span class="params">()</span> &#123; <span class="keyword">return</span> value; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// is v reachable from s in residual network?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">inCut</span><span class="params">(<span class="type">int</span> v)</span> &#123; <span class="keyword">return</span> marked[v]; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="additional-resources"><a class="markdownIt-Anchor" href="#additional-resources"></a> Additional Resources</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cs.princeton.edu/courses/archive/spr04/cos226/lectures/maxflow.4up.pdf">https://www.cs.princeton.edu/courses/archive/spr04/cos226/lectures/maxflow.4up.pdf</a>
+<ul>
+<li>Note: slides 16 and 17 have a mistake. The flow on edges(s-4 and 4-7) should both be 14.</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LdOnanfc5TM">https://www.youtube.com/watch?v=LdOnanfc5TM</a></li>
+</ul>
+<h2 id="string-sorts"><a class="markdownIt-Anchor" href="#string-sorts"></a> String Sorts</h2>
+<h3 id="strings-in-java"><a class="markdownIt-Anchor" href="#strings-in-java"></a> Strings in Java</h3>
+<ul>
+<li>
+<p><strong>String</strong> Data Type: Sequence of characters (immutable)</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/cTnDfsd.jpg" style="width:400px" />
+</li>
+</ul>
+</li>
+<li>
+<p><strong>StringBuilder</strong> data type. Sequence of characters (mutable/thread safe/slower).</p>
+</li>
+<li>
+<p><strong>String vs. StringBuilder</strong></p>
+<ul>
+<li>
+<p>Quadratic time</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">reverse</span><span class="params">(String s)</span> &#123; </span><br><span class="line">    <span class="type">String</span> <span class="variable">rev</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>; </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> s.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) </span><br><span class="line">        rev += s.charAt(i); </span><br><span class="line">    <span class="keyword">return</span> rev; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Linear time</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">reverse</span><span class="params">(String s)</span> &#123; </span><br><span class="line">    <span class="type">StringBuilder</span> <span class="variable">rev</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(); </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> s.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) </span><br><span class="line">        rev.append(s.charAt(i)); </span><br><span class="line">    <span class="keyword">return</span> rev.toString(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<img src="https://i.imgur.com/6COioGI.jpg" style="width:400px" />
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="alphabets"><a class="markdownIt-Anchor" href="#alphabets"></a> Alphabets</h4>
+<ul>
+<li><strong>Digital key</strong>. Sequence of digits over fixed alphabet.</li>
+<li><strong>Radix</strong>. Number of digits R in alphabet.</li>
+<li>
+<img src="https://i.imgur.com/A4jI4sP.jpg" style="width:600px" />
+</li>
+</ul>
+<h3 id="key-indexed-counting"><a class="markdownIt-Anchor" href="#key-indexed-counting"></a> key-indexed counting</h3>
+<ul>
+<li>
+<p><strong>Assumption</strong>. Keys are integers between 0 and R - 1.</p>
+</li>
+<li>
+<p><strong>Goal</strong>. Sort an array a[] of N integers between 0 and R - 1.</p>
+</li>
+<li>
+<p><strong>Implementation</strong>.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> a.length; </span><br><span class="line"><span class="comment">// EXTENDED_ASCII 256 8 extended ASCII characters</span></span><br><span class="line"><span class="comment">// R = 256</span></span><br><span class="line"><span class="type">int</span>[] count = <span class="keyword">new</span> <span class="title class_">int</span>[R+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. Count frequencies of each letter using (key+1) as index.</span></span><br><span class="line"><span class="comment">// e.g. a is 0 and the index is 1.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++) </span><br><span class="line">    count[a[i]+<span class="number">1</span>]++;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. Compute frequency cumulates which specify destinations.</span></span><br><span class="line"><span class="comment">// after the accumulation, we will be able to tell things like:</span></span><br><span class="line"><span class="comment">//     6 keys &lt; d, 8 keys &lt; e so d’s go in a[6] and a[7]</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="number">0</span>; r &lt; R; r++) </span><br><span class="line">    count[r+<span class="number">1</span>] += count[r];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. Access cumulates using key as index to move items.</span></span><br><span class="line"><span class="comment">// e.g. a[0] = d, count[d] = 8, so aux[8] = d, then accumulate d&#x27;s index, so next d can go to 9</span></span><br><span class="line"><span class="comment">// after the loop, all of the indices will be accumulated to their upper bound, which is why you see f and - are both 12.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++) </span><br><span class="line">    aux[count[a[i]]++] = a[i];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. Copy back into original array.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++) </span><br><span class="line">    a[i] = aux[i];</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<img src="https://i.imgur.com/88fitXA.jpg" style="width:600px" />
+<ul>
+<li><strong>Notice</strong>: use a for 0, b for 1, c for 2, d for 3, e for 4, f for 5 for better explanation</li>
+</ul>
+</li>
+<li>
+<p><strong>Proposition</strong>. Key-indexed counting uses ~ 11 N + 4 R array accesses to sort N items whose <strong>keys are integers between 0 and R - 1</strong>.</p>
+</li>
+</ul>
+<h3 id="lsd-radix-sort"><a class="markdownIt-Anchor" href="#lsd-radix-sort"></a> LSD radix sort</h3>
+<ul>
+<li>Least-signiﬁcant-digit-ﬁrst string sort</li>
+<li>LSD string (radix) sort.
+<ul>
+<li>Consider characters from right to left.</li>
+<li>Stably sort using d^th character as the key (using key-indexed counting).</li>
+</ul>
+</li>
+<li>
+<img src="https://i.imgur.com/8qaZdGr.jpg" style="width:600px" />
+</li>
+<li>
+<img src="https://i.imgur.com/60ABADp.jpg" style="width:600px" />
+</li>
+</ul>
+<h3 id="msd-radix-sort"><a class="markdownIt-Anchor" href="#msd-radix-sort"></a> MSD radix sort</h3>
+<ul>
+<li>
+<p>Most-signiﬁcant-digit-ﬁrst string sort</p>
+<ul>
+<li>Partition array into R pieces according to first character (use key-indexed counting).</li>
+<li>Recursively sort all strings that start with each character (key-indexed counts delineate subarrays to sort).</li>
+</ul>
+</li>
+<li>
+<img src="https://i.imgur.com/X3yqp4c.jpg" style="width:600px" />
+</li>
+<li>
+<p>Treat strings as if they had an extra char at end (smaller than any char).</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/V7owW3R.jpg" style="width:400px" />
+</li>
+</ul>
+</li>
+<li>
+<p>implementation</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/29vzTCy.jpg" style="width:600px" />
+</li>
+</ul>
+</li>
+<li>
+<p>potential for disastrous performance</p>
+<ol>
+<li>much too slow for small subarrays
+<ol>
+<li>Each recursion needs a new <code>count[]</code> array, if using ASCII(256 counts): 100x slower than copy pass for <code>N=2</code>.</li>
+</ol>
+</li>
+<li>Huge number of small subarrays because of recursion.</li>
+</ol>
+<ul>
+<li>Solution: Cutoff to insertion sort for small subarrays.
+<ul>
+<li>Insertion sort, but start at <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>d</mi><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">d^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span></span> th character.</li>
+<li>Implement less() so that it compares starting at <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>d</mi><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">d^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span></span> character.</li>
+<li>
+<img src="https://i.imgur.com/2iHxCJM.jpg" style="width:600px" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-way-radix-quicksort"><a class="markdownIt-Anchor" href="#3-way-radix-quicksort"></a> 3-way radix quicksort</h3>
+<ul>
+<li>
+<p>Do 3-way partitioning on the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>d</mi><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">d^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span></span> character.</p>
+</li>
+<li>
+<img src="https://i.imgur.com/HiwhpWZ.jpg" style="width:600px" />
+</li>
+<li>
+<img src="https://i.imgur.com/WnJymHE.jpg" style="width:600px" />
+</li>
+<li>
+<p>faster than the other two algorithms, but not stable.</p>
+</li>
+</ul>
+<h3 id="summary-of-the-performance-of-sorting-algorithms"><a class="markdownIt-Anchor" href="#summary-of-the-performance-of-sorting-algorithms"></a> Summary of the performance of sorting algorithms</h3>
+<img src="https://i.imgur.com/KW8RotR.jpg" style="width:600px" />
+<h3 id="suffix-arrays"><a class="markdownIt-Anchor" href="#suffix-arrays"></a> Suffix Arrays</h3>
+<ul>
+<li>Keyword-in-context search
+<ul>
+<li>Given a text of N characters, preprocess it to enable fast substring search (find all occurrences of query string context).</li>
+</ul>
+</li>
+</ul>
+<h4 id="suffix-sort"><a class="markdownIt-Anchor" href="#suffix-sort"></a> Suffix sort</h4>
+<ul>
+<li>
+<img src="https://i.imgur.com/cVsQdT1.jpg" style="width:600px" />
+</li>
+<li>
+<p>Longest repeated substring</p>
+<ul>
+<li>Given a string of N characters, find the longest repeated substring.</li>
+<li>
+<img src="https://i.imgur.com/JWmHV3d.jpg" style="width:600px" />
+</li>
+<li>
+<img src="https://i.imgur.com/WUrfBA9.jpg" style="width:600px" />
+</li>
+</ul>
+</li>
+<li>
+<p><strong>worst-case input</strong>: longest repeated substring very long.</p>
+<ul>
+<li>LRS needs at least 1 + 2 + 3 + … + D character compares, where D = length of longest match.</li>
+</ul>
+</li>
+</ul>
+<h4 id="manber-myers-algorithm"><a class="markdownIt-Anchor" href="#manber-myers-algorithm"></a> Manber-Myers algorithm</h4>
+<ul>
+<li>Sufﬁx sorting in linearithmic time
+<ul>
+<li>linear: N, linearithmic: a * N</li>
+</ul>
+</li>
+<li>overview
+<ul>
+<li><strong>Phase 0</strong>: sort on first character using key-indexed counting sort.</li>
+<li><strong>Phase i</strong>: given array of suffixes sorted on first 2 i - 1 characters, create array of suffixes sorted on first 2 i characters.</li>
+</ul>
+</li>
+<li>Key process: Constant-time string compare by indexing into inverse
+<ul>
+<li>
+<img src="https://i.imgur.com/mCQHMGs.jpg" style="width:600px" />
+</li>
+<li>inverse[]:
+<ul>
+<li>before: {0: 17, 1: 16, 2: 15, …, 9: 1, …, 12: 2, …, 14: 0 }</li>
+<li>after: { 0: 14, 1: 9, 2: 12, …}</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+  
+  <div class="divider"></div>
+</div>
+
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

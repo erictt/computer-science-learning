@@ -35,7 +35,7 @@ There are multiple organizations that monitor Chinese censorship for censored do
 
 ### Example DNS Censorship Techniques
 
-**DNS injection** is one of the most common censorship technique employed by the GFW. The GFW **uses a ruleset to determine when to inject DNS replies**[Quiz] to censor network traffic. To start with, it is important to identify and isolate the networks that use DNS injection for censorship. The authors of the paper titled “Towards a Comprehensive Picture of the Great Firewall’s DNS Censorship” use probing techniques and vantage points to search for injected paths and then evaluate the injection.
+**DNS injection** is one of the most common censorship technique employed by the GFW. The GFW **uses a ruleset(not src/dest IPs) to determine when to inject DNS replies to censor network traffic**[Quiz]. To start with, it is important to identify and isolate the networks that use DNS injection for censorship. The authors of the paper titled “Towards a Comprehensive Picture of the Great Firewall’s DNS Censorship” use probing techniques and vantage points to search for injected paths and then evaluate the injection.
 
 When tested against probes for restricted and benign domains, the accuracy of DNS open resolvers to accurately pollute the response is recorded over 99.9%. The steps involved in DNS injection are:
 1. DNS probe is sent to the open DNS resolvers
@@ -48,7 +48,7 @@ Some of the DNS censorship techniques are more elementary, and some are more ela
 
 **Technique 1: Packet Dropping**
 
-As the name suggests, in packet dropping, all network **traffic going to a set of specific IP addresses is discarded**. The censor identifies undesirable traffic and chooses to not properly forward any packets it sees associated with the traversing undesirable traffic instead of following a normal routing protocol.
+As the name suggests, in packet dropping, all network **traffic going to a set of specific IP addresses is discarded**[Quiz]. The censor identifies undesirable traffic and chooses to not properly forward any packets it sees associated with the traversing undesirable traffic instead of following a normal routing protocol.
 
 **Strengths**
 1. Easy to implement
@@ -87,7 +87,7 @@ Not scalable: They are expensive to implement on a large scale network as the pr
 
 **Technique 4: Blocking with Resets**
 
-The GFW employs this technique where it sends a TCP reset (RST) to block individual connections that contain requests with objectionable content. We can see this by packet capturing of requests that are normal and requests that contain **potentially flaggable keywords**[Quiz]. Let’s look at one such example of packet capture.
+The GFW employs this technique where it sends a TCP reset (RST) to <u>block individual connections that contain requests with objectionable content.</u>[Quiz] We can see this by packet capturing of requests that are normal and requests that contain **potentially flaggable keywords**[Quiz]. Let’s look at one such example of packet capture.
 
 **Request 1: Requesting a benign web page**
 
@@ -130,7 +130,7 @@ After the client (cam54190) sends the request containing flaggable keywords, it 
 
 **Technique 5: Immediate Reset of Connections**
 
-Censorship systems like GFW have blocking rules in addition to inspecting content, to suspend traffic coming from a source immediately, for a  short period of time.
+Censorship systems like GFW have blocking rules in addition to inspecting content, <u>to suspend traffic coming from a source immediately, **for a  short period of time**</u>[Quiz].
 
 After sending a request with flaggable keywords (above), we see a series of packet trace, like this:
 
@@ -156,7 +156,7 @@ What are the challenges?
 2. **Need for Scale**: At first, the methods to measure Internet censorship were relying on volunteers who were running measurement software on their own devices. Since this requires them to actually install software and do measurements, we can see that this method is <u>unlikely to reach the scale required.</u>[Quiz] There is a need for methods and tools that are independent of human intervention and participation. 
 3. **Identifying the intent to restrict content access**: While identifying inconsistent or anomalous DNS responses can help to detect a variety of underlying causes such as misconfigurations, identifying DNS manipulation is different and it requires that we detect the intent to block access to content. It poses its own challenges. 
     * So we need to rely on identifying multiple indications to infer DNS manipulation.
-4. **Ethics and Minimizing Risks**: Obviously, there are risks associated with involving citizens in censorship measurement studies, based on how different countries maybe penalizing access to censored material. Therefore, it is safer to stay away from using DNS resolvers or DNS forwarders in the home networks of individual users. Instead, <u>it is safer to rely on open DNS resolvers</u>[Quiz] that are hosted in Internet infrastructure, for example, within Internet service providers or cloud hosting providers. 
+4. **Ethics and Minimizing Risks**: Obviously, there are risks associated with involving citizens in censorship measurement studies, based on how **different countries maybe penalizing access to censored material**. <u>Therefore, it is safer to stay away from using DNS resolvers or DNS forwarders in the home networks of individual users</u>. Instead, <u>it is safer to rely on open DNS resolvers</u>[Quiz] that are hosted in Internet infrastructure, for example, within Internet service providers or cloud hosting providers. 
 
 ### Example Censorship Detection Systems and Their Limitations
 
@@ -166,11 +166,11 @@ In addition, Augur is a new system created to perform longitudinal global measur
 
 ### DNS Censorship: A Global Measurement Methodology
 
-In this section, we explore a method to identify DNS manipulation via machine learning with a system called Iris. The figure below shows an overview of the identification process.
+In this section, we explore <u>a method to identify DNS manipulation via machine learning with a system called **Iris**</u>. The figure below shows an overview of the identification process.
 
 <img src="https://i.imgur.com/aJ8flZd.png" style="width: 800px" />
 
-In previous sections, we discussed how the lack of diversity is an issue while studying DNS manipulation. In order to counter that, <u>Iris uses open DNS resolvers located all over the globe</u>[Quiz]. In order to avoid using home routers (which are usually open due to configuration issues), this dataset is then restricted to a few thousand that are part of the Internet infrastructure. There are two main steps associated with this process:
+In previous sections, we discussed how the lack of diversity is an issue while studying DNS manipulation. In order to counter that, <u>Iris uses open DNS resolvers located all over the globe</u>[Quiz]. In order to **avoid using home routers** (which are usually open due to configuration issues), <u>this dataset is then restricted to a few thousand that are part of the Internet infrastructure</u>(in-house data, no external)[Quiz]. There are two main steps associated with this process:
 
 1. Scanning the Internet’s IPv4 space for open DNS resolvers
 2. Identifying Infrastructure DNS Resolvers
@@ -300,14 +300,14 @@ The measurement machine thus observes that the difference in IP IDs between step
 **Inbound blocking** 
 
 The scenario where filtering occurs on the path from the site to the reflector is termed as inbound blocking. In this case, the SYN-ACK packet sent from the site in step 3 does not reach the reflector. Hence, there is no response generated and the IP ID of the reflector does not increase. The returned IP ID in step 4 will be 7 (IPID(t4)) as shown in the figure. Since the measurement machine observes the increment in IP ID value as 1, it detects filtering on the path from the site to the reflector.
-* The IP ID only increased 1.
+* <u>The IP ID only increased 1. [Quiz]</u>
 
 <img src="https://i.imgur.com/EA1IEwC.png" style="width: 800px" />
 
 **Outbound blocking**
 
 Outbound blocking is the filtering imposed on the outgoing path from the reflector. Here, the reflector receives the SYN-ACK packet and generates a RST packet. As per our example, in step 3, the IP ID increments to 7. However, the RST packet does not reach the site. When the site doesn’t receive a RST packet, it continues to resend the SYN-ACK packets at regular intervals depending on the site’s OS and its configuration. This is shown in step 5 of the figure. It results in further increment of the IP ID value of the reflector. <u>In step 6, the probe by the measurement machine reveals the IP ID has again increased by 2,</u> which shows that retransmission of packets has occurred. In this way, outbound blocking can be detected.
-* The IP ID is sent to measurement machine multiple times in a single request flow.
+* <u>The IP ID is sent to measurement machine **multiple times** in a single request flow.</u>
 
 <img src="https://i.imgur.com/QJLUeRO.png" style="width: 800px" />
 
