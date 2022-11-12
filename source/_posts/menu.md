@@ -35,9 +35,9 @@
 * [Week 7 - Software Defined Networking (Part 1)](/cs6250/week-7-software-defined-networking-part-1/index.html)
 * [Week 8 - Software Defined Networking (Part 2)](/cs6250/week-8-software-defined-networking-part-2/index.html)
 * [Week 9 - Internet Security](/cs6250/week-9-internet-security/index.html)
+* [Week 10 - Internet Surveillance and Censorship](/cs6250/week-10-internet-surveillance-and-censorship/index.html)
 
 <!--
-* [Week 10 - Internet Surveillance and Censorship](/cs6250/week-10-internet-surveillance-and-censorship/index.html)
 * [Week 11 - Applications Videos](/cs6250/week-11-applications-video/index.html)
 * [Week 12 - Applications CDNs and Overlay Networks](/cs6250/week-12-applications-cdns-and-overlay-networks/index.html)
 -->
