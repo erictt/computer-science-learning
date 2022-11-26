@@ -96,11 +96,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6250/week-8-software-defined-networking-part-2/index.html">Week 8 - Software Defined Networking (Part 2)</a></li>
 <li><a href="/cs6250/week-9-internet-security/index.html">Week 9 - Internet Security</a></li>
 <li><a href="/cs6250/week-10-internet-surveillance-and-censorship/index.html">Week 10 - Internet Surveillance and Censorship</a></li>
+<li><a href="/cs6250/week-11-applications-video/index.html">Week 11 - Applications Videos</a></li>
+<li><a href="/cs6250/week-12-applications-cdns-and-overlay-networks/index.html">Week 12 - Applications CDNs and Overlay Networks</a></li>
 </ul>
-<!--
-* [Week 11 - Applications Videos](/cs6250/week-11-applications-video/index.html)
-* [Week 12 - Applications CDNs and Overlay Networks](/cs6250/week-12-applications-cdns-and-overlay-networks/index.html)
--->
 <h2 id="cs6200-graduate-introduction-to-operating-systems"><a class="markdownIt-Anchor" href="#cs6200-graduate-introduction-to-operating-systems"></a> CS6200 Graduate Introduction to Operating Systems</h2>
 <ul>
 <li><a href="/cs6200/p1-preparation/index.html">P0 - Preparation</a></li>
@@ -116,9 +114,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6200/p3l4-synchronization-constructs/index.html">P3L4 - Synchronization Constructs</a></li>
 <li><a href="/cs6200/p3l5-io-management/index.html">P3L5 - I/O Management</a></li>
 <li><a href="/cs6200/p3l6-virtualization/index.html">P3L6 - Virtualization</a></li>
-<li><a href="/cs6200/p4l1-remote-procedure-calls/index.html">P4L1 - Remote Procedure Calls</a></li>
 </ul>
 <!--
+* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
 * [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
 * [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
 * [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
@@ -299,8 +297,230 @@ function sidebar_toggle() {
           <div class="book-post">
   <h1 id="week-12-applications-part-2-cdn"><a class="markdownIt-Anchor" href="#week-12-applications-part-2-cdn"></a> Week 12 - Applications Part 2: CDN</h1>
 <!-- toc -->
+<ul>
+<li><a href="#introduction-to-content-distribution-networks">Introduction to Content Distribution Networks</a></li>
+<li><a href="#content-delivery-challenges">Content Delivery Challenges</a></li>
+<li><a href="#cdns-and-the-internet-ecosystem">CDNs and the Internet Ecosystem</a></li>
+<li><a href="#cdns-server-placement-approaches">CDNs Server Placement Approaches</a></li>
+<li><a href="#how-a-cdn-operates">How a CDN Operates</a></li>
+<li><a href="#cdn-server-selection">CDN Server Selection</a></li>
+<li><a href="#cluster-selection-strategies">Cluster Selection Strategies</a></li>
+<li><a href="#policy-for-server-selection">Policy for Server Selection</a></li>
+<li><a href="#consistent-hashing">Consistent Hashing</a></li>
+<li><a href="#network-protocols-used-for-clusterserver-selections">Network Protocols Used for Cluster/Server Selections</a></li>
+<li><a href="#server-selection-strategies-the-dns-protocol">Server Selection Strategies: The DNS Protocol</a></li>
+<li><a href="#more-on-dns-making-responses-faster-with-caching">More on DNS: Making Responses Faster with Caching</a></li>
+<li><a href="#more-on-dns-resource-records-and-messages">More on DNS: Resource Records and Messages</a></li>
+<li><a href="#server-selection-strategies-ip-anycast">Server Selection Strategies: IP Anycast</a></li>
+<li><a href="#server-selection-strategies-http-redirection">Server Selection Strategies: HTTP Redirection</a></li>
+</ul>
 <!-- tocstop -->
 <hr />
+<p>In this lecture we will focus on the architectures and mechanisms we have in place to support the delivery of video and content in general. More specifically, we will talk about Content Delivery Networks and their placement in the Internet ecosystem, the challenges they face around distribution of the content and the techniques that have been developed to work around the challenges, such as CDN server selection.</p>
+<p>Finally we talk about DNS which is a very important application on its own but it also plays a role in techniques and algorithms used for content distribution.</p>
+<h2 id="introduction-to-content-distribution-networks"><a class="markdownIt-Anchor" href="#introduction-to-content-distribution-networks"></a> Introduction to Content Distribution Networks</h2>
+<p>The classic way of providing content on the Internet was to put the content on a single, publicly accessible web server. This classic method is pretty straightforward - even at scale, having a single, massive data center to service all the requests for one Internet video company is a pretty simple design. <strong>Three major drawbacks</strong>[Quiz] :</p>
+<p>First, users are located all over the globe. There’s potentially <strong>vast geographic distance between the users and the data center</strong>. That’s a problem because the server-to-client packets will have to traverse lots of communication links between many ISPs, and if just one of those links has a throughput lower than the video playout rate, there will be annoying interruptions and delays for the user.</p>
+<p>Second, what happens when a video goes viral? Many requests for the exact same data. It’s wasteful for a single massive data center to repeatedly be sending the exact same data over the same communication link over and over again. <strong>Not only does this waste bandwidth, but the Internet video company also loses a lot of money</strong>, as they have to pay their ISP for every byte of data transmitted.</p>
+<p>The third major drawback to using a single, massive data center is that it is also a <strong>single point of failure</strong>.</p>
+<p>Obviously, the traditional solution is not enough, so almost all major video-streaming companies use <strong>CDNs</strong>, which stands for <strong>Content Distribution Networks</strong>. Basically, CDNs are networks of multiple, geographically distributed servers and/or data centers, with copies of content (videos, but also many other types of Web content), that direct users to a server or server cluster that can best serve the user’s request. CDNs address all of the issues we just discussed, but there are new challenges that come with this approach, and we will be discussing these as well as the methods CDNs use to handle these challenges.</p>
+<h2 id="content-delivery-challenges"><a class="markdownIt-Anchor" href="#content-delivery-challenges"></a> Content Delivery Challenges</h2>
+<p>There are the normal challenges that come from networking, but when we talk about the Internet, which is thousands and thousands of different networks, there are more <strong>challenges that impact all distributed applications (such as CDNs) directly</strong>.</p>
+<p>Here are six major challenges that Internet applications face:</p>
+<ol>
+<li><strong>Peering point congestion.</strong> There’s the business and financial motivation to upgrade the “first mile” (like web hosts) and the “last mile” (end users), but not for the <strong>“middle mile” where expensive peering points between networks with no revenue happen</strong>. These points end up being bottlenecks causing packet loss and increased latency.</li>
+<li><strong>Inefficient routing protocols</strong>. BGP has worked really well over the decades and the massive growth of the best-effort Internet, but it was never designed for modern demands. Between the algorithm only using AS hop count and not taking into account other factors (like congestion, latencies, etc.), and BGP’s well-documented vulnerabilities to malicious actions - it’s not an efficient inter-domain routing protocol for the modern Internet.</li>
+<li><strong>Unreliable networks.</strong> Outages happen all the time. Some are accidents - like misconfigured routers, power outages in an area, accidental severing of undersea fiber cables. Others are malicious, such as DDoS attacks or BGP hijacking. And others yet are from natural disasters.</li>
+<li><strong>Inefficient communication protocols</strong>. Like BGP, TCP was not designed for the demands of the modern Internet. Although it provides reliability and congestion avoidance, <strong>there’s a lot of overhead</strong>. Because it requires an “Ack” for each window of data packets sent, the distance between the server and the end user becomes the overriding bottleneck, and despite all the research into ways to improve TCP, enhancements are slow to actually get implemented across the whole Internet.</li>
+<li><strong>Scalability</strong>. Scaling internet applications are able to respond to current demand by changing resource usage, whether it be a video unexpectedly going viral, or a planned event (like Black Friday shopping traffic peaks). Scaling up infrastructure is expensive and takes time, but it is hard to forecast what capacity needs will be.</li>
+<li><strong>Application limitations and slow rate of change adoption.</strong> As mentioned with TCP, even if there are better protocols developed to meet the needs of the modern Internet, especially with video streaming, historically it can take a long time for better protocols to get adopted. For instance, old browsers, like Internet Explorer 6, do not support newer protocols, and so even if the server side is upgraded, there’s no benefit unless the end users also upgrade to client software that also supports the newer protocols.</li>
+</ol>
+<h2 id="cdns-and-the-internet-ecosystem"><a class="markdownIt-Anchor" href="#cdns-and-the-internet-ecosystem"></a> CDNs and the Internet Ecosystem</h2>
+<p>There are two major shifts that have impacted the evolution of the Internet ecosystem.</p>
+<p>Like we already mentioned, the Internet wasn’t designed for large scale content delivery (it was just a research network originally!), but that’s what it has evolved into. There is an increased demand for online content, especially videos. Content and video accounts for the largest fraction of today’s Internet traffic. <strong>This demand has spurred the development and growth of CDNs, in place of traditional single, massive data centers.</strong></p>
+<p>The second shift is a <strong>“topological flattening”</strong> - the traditional topology (hierarchical) has transitioned to more flat.   Originally and traditionally, tier 1 ISPs formed the backbone of the Internet, and connected at relatively few points directly to each other. But if you recall from one of our earlier lectures, IXPs are infrastructures offering interconnections between networks. They have been increasing in number and popularity due to: a) the services they offer, and b) they lower network operations costs for the ISPs and interconnection costs. In fact, they’ve grown so large and complex that we need more research in order to update our understanding of AS-level topology.</p>
+<p>Both of these shifts mean that in general, we are seeing <u>more traffic being generated and exchanged <strong>locally</strong>, instead of traversing the complete hierarchy</u>. This process has also been driven by major players (e.g., Google, Facebook), which have shifted the focus from traditional tier-1 ISPs to the edge and the end users.  So in this new ecosystem, the spotlight is on the access networks and the end users, rather the large Tier-1 ISPs.</p>
+<p>As an example, here is a diagram from the linked paper illustrating the locations and number of Netflix servers in their Open Connect infrastructure, as of January 2018. The servers are strategically located around the world to be able to locally serve the end users, bypassing the tier one networks for content distribution.</p>
+<p>Each marker denotes a location, the marker sizes are scaled by deployment size.</p>
+<p><img src="https://i.imgur.com/36ZI2T6.png" alt="" /></p>
+<p>Of course, operating a CDN comes to its own challenges. There is the factor of cost. Also, they take up real estate, they use physical devices, they consume a lot of power, they must be well-connected to the greater Internet to be useful, and we haven’t even mentioned the challenge of performing maintenance and upgrades on these systems.</p>
+<p>Some CDNs are <strong>private</strong>, such as Google’s CDN, which distributes YouTube videos and other content. Private CDNs are CDNs that are owned by the content provider.</p>
+<p>Other CDNs are <strong>third party</strong>, such as Akamai and Limelight. Third party CDNs distribute content on behalf of multiple content providers.</p>
+<h2 id="cdns-server-placement-approaches"><a class="markdownIt-Anchor" href="#cdns-server-placement-approaches"></a> CDNs Server Placement Approaches</h2>
+<p>CDNs have lots of server clusters, and they replicate content, whether their own or another provider’s content, across these clusters. But where should a CDN place its server clusters in the overall Internet topology? Of course, the actual geographic locations will highly depend on where its users are located around the world, but there are two different philosophies to speak of: deploying lots of small clusters to get as close as possible to the users, or deploying fewer but larger clusters to critical areas.</p>
+<p>As you can imagine, there’s a tradeoff between these approaches.</p>
+<ul>
+<li><strong>Enter Deep</strong> is the phrase used to describe the first approach. With this philosophy, the CDNs place many <strong>smaller server clusters “deep” into the access networks</strong> around the world. With this philosophy, the goal is to make the distance between a user and the closest server cluster as small as possible, which <strong>reduces the delay and increases the available throughput for each user</strong>[Quiz]. However, the downside to this highly distributed approach is that it is much more difficult to manage and maintain so many clusters.
+<ul>
+<li><img src="https://i.imgur.com/XhC3BsC.png" alt="" /></li>
+</ul>
+</li>
+<li><strong>Bring Home</strong> is the phrase used to describe the second approach. With this philosophy, CDNs place <strong>fewer larger server clusters at key points (typically in IXPs, not in access networks),</strong> “bringing the ISPs home.” There’s not as many server clusters to manage or maintain, so those tasks are easier, but the downside is that the users will experience higher delay and lower throughput.
+<ul>
+<li><img src="https://i.imgur.com/59rlCMB.png" alt="" /></li>
+</ul>
+</li>
+</ul>
+<p><strong>CDNs also employ a hybrid of these approaches.</strong> For instance, Google has 16 “mega data centers”, ~50 clusters of hundreds of servers at IXPs, and many hundreds of clusters of tens of servers at access ISPs. These different server clusters deliver different types of content (like the ones at the access networks store the static portions of search result web pages). So they use a hybrid of both the enter deep and bring home approaches.</p>
+<h2 id="how-a-cdn-operates"><a class="markdownIt-Anchor" href="#how-a-cdn-operates"></a> How a CDN Operates</h2>
+<p>With CDNs, there’s now an extra step needed to intercept a request from the client in order to be able to decide which server cluster should service the request. DNS ends up playing a large role in this process.</p>
+<p><img src="https://i.imgur.com/XI1RLNY.png" alt="" /></p>
+<p>Let’s consider a simple scenario: a content provider, ExampleMovies, pays ExampleCDN to distribute their content. ExampleMovies has URLs with “video” and an ID for the video (so Star Wars 37 might have a URL of <a target="_blank" rel="noopener" href="http://video.examplemovies.com/R2D2C3PO37">http://video.examplemovies.com/R2D2C3PO37</a>). Let’s walk through the six steps that occur when a user requests to watch Star Wars 37 on ExampleMovies.</p>
+<ol>
+<li>The user visits <a target="_blank" rel="noopener" href="http://examplemovies.com">examplemovies.com</a> and navigates to the web page with <em>Star Wars 37</em>.</li>
+<li>The user clicks on the link <a target="_blank" rel="noopener" href="http://video.examplemovies.com/R2D2C3PO37">http://video.examplemovies.com/R2D2C3PO37</a> and the user’s host sends a DNS query for the domain “<a target="_blank" rel="noopener" href="http://video.examplemovies.com">video.examplemovies.com</a>”.</li>
+<li>The DNS query goes to the user’s local DNS server (LDNS), which in many cases is a DNS server in their access ISP’s network. This DNS server issues an iterative DNS query for “video” to the authoritative DNS server for <a target="_blank" rel="noopener" href="http://examplemovies.com">examplemovies.com</a>, which is ExampleMovies’s DNS server. ExampleMovies’s DNS server knows that the “video” domain is stored on ExampleCDN, so it sends back a hostname in ExampleCDN’s domain, like <a target="_blank" rel="noopener" href="http://a1130.examplecdn.com">a1130.examplecdn.com</a>.</li>
+<li>The user’s LDNS performs an iterative DNS query to ExampleCDN’s name server for <a target="_blank" rel="noopener" href="http://a1130.examplecdn.com">a1130.examplecdn.com</a>. ExampleCDN’s name server system (eventually) returns an IP address of an appropriate ExampleCDN content server to the user’s LDNS. (Which content server? We’ll talk about that in the next section.)</li>
+<li>The user’s LDNS returns the ExampleCDN IP address to the user. Notice - from the user’s perspective, all that happened was they asked for an IP address for “<a target="_blank" rel="noopener" href="http://video.examplemovies.com">video.examplemovies.com</a>”, and then they got an IP address back.</li>
+<li>The user’s client directly connects via TCP to the IP address provided by the user’s LDNS, and then sends an HTTP GET request for the video.</li>
+</ol>
+<p>Notice the interplay of the DNS request/responses, and what the user’s perspective of the whole exchange is. By intercepting the requests with DNS, CDNs have the opportunity to choose where to direct users, based on location and/or current conditions.</p>
+<h2 id="cdn-server-selection"><a class="markdownIt-Anchor" href="#cdn-server-selection"></a> CDN Server Selection</h2>
+<p>Recall that the content in CDN can be served from multiple servers that are geographically distributed. The first thing that needs to be done in order to serve the content to an end-user is to select the server to serve the content from. This process is quite important as it significantly impacts the end-user performance. If we end up picking a cluster that’s too far away or overwhelmed, the user’s video playback will end up freezing (and if the user is too frustrated by the experience, they’ll navigate to somewhere else on the internet = lost business!).</p>
+<p>There are two main steps in this <strong>process</strong>[Quiz]. <strong>The first step consists of mapping the client to a cluster.</strong> Recall that a CDN constitutes of geographically distributed clusters with each cluster containing a set of servers. In the <strong>next step, a server is selected from the cluster.</strong></p>
+<p><img src="https://i.imgur.com/x4HpmZ0.png" alt="" /></p>
+<p><img src="https://i.imgur.com/Co1h8Nq.png" alt="" /></p>
+<h2 id="cluster-selection-strategies"><a class="markdownIt-Anchor" href="#cluster-selection-strategies"></a> Cluster Selection Strategies</h2>
+<p>The simplest strategy is to pick the geographically closest cluster “as the crow flies.”</p>
+<p><img src="https://i.imgur.com/SgxbFfz.png" alt="" /></p>
+<p>However, it has some limitations.</p>
+<ul>
+<li>Recall from our example scenario in the previous section - ExampleCDN name server system didn’t directly interact with the user, but rather with the user’s Local Domain Name Server (LDNS). <strong>So, picking the geographically closest cluster is really “picking the cluster closest to the LDNS” and not “closest to the user.”</strong> Most of the time, that works ok, but some customers use a remote LDNS. To overcome this, there have been <strong>suggestions made to include the client IP in the interaction between the ExampleCDN name server system and the LDNS</strong>. This allows the ExampleCDN name server system to know where the client is located.</li>
+<li>Another very important limitation is that the cluster which is <strong>geographically closest may not be the best choice in terms of actual end-to-end network performance</strong>[Quiz]. This can happen because of multiple reasons:
+<ul>
+<li>One, due to routing inefficiencies in routing protocols such as BGP, the actual network path to the geographically closest server might actually be longer than the path to an alternative cluster. This can lead to a higher RTT, even though the server is closest geographically.</li>
+<li>Another important reason could be that the <strong>path to the geographically closest cluster or the cluster itself could be congested</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>The second limitation suggests that relying on a static cluster selection policy (liked based on the geographical distance) can be sub-optimal as the underlying network conditions are dynamic. Instead, cluster selection can be based on <strong>more real-time measurements of end-to-end performance metrics</strong> such as delay to get a better picture of the current traffic conditions.</p>
+<p><img src="https://i.imgur.com/j99luZx.png" alt="" /></p>
+<p>There are two key aspects to note here. The first aspect is to decide which end-to-end performance metrics to consider while selecting the cluster.</p>
+<p><img src="https://i.imgur.com/RTP2pr2.png" alt="" /></p>
+<p>There are various e2e metrics that can be used here. For instance, one could use <strong>network-layer metrics such as delay, available bandwidth or both</strong>. A <strong>better strategy could be to use application-layer metrics</strong>. For instance, if the content to be delivered is video, metrics such as re-buffering ratio and average bitrate can be used in cluster selection. Similarly, for web-browsing, application-layer performance indicators such as page load time can be used.</p>
+<p>The second aspect is how to obtain real-time measurements?</p>
+<p><strong>Active measurements:</strong> One way would be to use active measurements. Thus, the LDNS could probe multiple clusters, such as by sending a ping request to multiple clusters for monitoring the RTT and then use the “closest” server. However, most of the LDNS are not equipped to perform such active measurements. Furthermore, this would also create a lot of traffic.</p>
+<p><strong>Passive measurements:</strong> Another strategy could be that the CDN’s name server system uses passive measurements to keep track of the network conditions. The figure below shows an example.</p>
+<p><img src="https://i.imgur.com/lsBs4rG.png" alt="" /></p>
+<p>The name server system in the CDN could keep a track of the performance metrics based on the current traffic conditions. Note that this information can be kept at an aggregate level. For instance, by clubbing IPs from the same subnet together. This is because IPs under the same subnet are most likely to have similar paths to different clusters, thus experiencing similar end-to-end performance. Thus, the best cluster for same subnet can be noted down based on the performance existing sessions are observing. Next time, a new client requests for content, it can be routed to the best performing cluster based on the existing session information.</p>
+<p>Limitations: Note that this kind of cluster selection strategy requires a centralized controller which has a real-time view of the network conditions between all client-cluster pairs. Given the scale of today’s networks, it can be challenging to design a purely centralized system.</p>
+<p>Researchers have proposed the design of a distributed system that uses a two-layered system.</p>
+<ul>
+<li>A coarse-grained global layer operates at larger time scales (timescale of a few tens of seconds (or minutes)). This layer has a global view of client quality measurements. It builds a data-driven prediction model of video quality.</li>
+<li>A fine-grained per-client decision layer that operates at the millisecond timescale. It makes actual decisions upon a client request. This is based on the latest (but possibly stale) pre-computed global model and up-to-date per-client state.</li>
+</ul>
+<p><img src="https://i.imgur.com/mUSimi7.png" alt="" /></p>
+<p>A second challenge in the above approach is that it needs to have data for different subnet-cluster pairs. Thus, some of the clients deliberately need to be routed to sub-optimal clusters.</p>
+<p>More details about such a cluster-selection system are given in the paper <a target="_blank" rel="noopener" href="https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-ganjam.pdf">https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-ganjam.pdf</a>.</p>
+<h2 id="policy-for-server-selection"><a class="markdownIt-Anchor" href="#policy-for-server-selection"></a> Policy for Server Selection</h2>
+<p>Once the cluster has been selected, the next step is to select a server within the cluster. Let us understand what could be the intuition behind selecting a server.</p>
+<p>The simplest strategy could be to assign a server randomly. While this strategy is simple, it is not optimal. Why? One reason is that the workload for different servers and a random assignment might end up selecting a highly loaded server whereas a less loaded server was available.</p>
+<p>One solution to this can be to do some load-balancing and route a client to the least-loaded server. While this solves the above mentioned problem, it is still not optimal.</p>
+<p>To understand why this is the case, let us look at how a server in the CDN cluster serves the content to a client.</p>
+<p>Recall that a CDN server is responsible for distributing content for a variety of content providers. Thus, the same cluster could be serving video content and also web content. Similarly, it could also be serving the same type of content for a variety of content providers. E.g. serve video from different video providers. Thus, not all the servers have all the content at a time. This is because the servers have limited disk space and proactively fetching all the content to the servers is simply not feasible.</p>
+<p><img src="https://i.imgur.com/zU3qCyQ.png" alt="" /></p>
+<p>Instead, the data is fetched to these servers from an origin server in a lazy manner. Essentially, when a request for a new content arrives, it is routed to a server (step 2) within the selected cluster (step 1) and this server requests the content from an origin server (step 3). This step usually takes additional time. Once the content has been fetched, it is served to the client (step 4). Note that the server can cache this content for any future request and does not need to go to the origin server.</p>
+<p>Now, if this is the case, let us see what happens if we just use a simple load balancing technique for server selection. It could happen that another server already had the content requested, but it was not selected because the client was loaded to a less-loaded server. Thus, a client unnecessarily had to see a higher delay. Furthermore, there are unnecessary requests from the CDN servers to the origin server.</p>
+<p>How to handle this problem? A simple solution is then to map the requests based on the content. Essentially, requests for the same piece of content can be mapped to the same machine by using some sort of content-based hashing. E.g. Assume a request for <a target="_blank" rel="noopener" href="http://exampleCDN.com/contentFoo">exampleCDN.com/contentFoo</a>. A hash function calculates hash of contentFoo and returns a server. And the client can be mapped to that server. Thus, all the requests for contentFoo will be mapped to the same server.</p>
+<p>While this idea is fairly simple, it has some challenges. One of the challenge arises from the fact that the cluster environment is quite dynamic and is characterized by frequent machine failures and load changes. Now, when there is a change in the cluster environment such as when a machine fails, the hash table used to map the content to servers needs to be recomputed.</p>
+<p>One way to handle this is to recompute the hash function for all the objects. However, that is simply expensive and sub-optimal. An ideal solution would be to only move the objects that were assigned to the server. Now, the question is how do we achieve this using a hash table.</p>
+<h2 id="consistent-hashing"><a class="markdownIt-Anchor" href="#consistent-hashing"></a> Consistent Hashing</h2>
+<p>In order to achieve this, <strong>consistent hashing</strong>, which is an example of distributed hash table has been developed. Consistent hashing tends to balance load, by assigning roughly the same number of content IDs, and requires relatively little movement of these content IDs when nodes join and leave the system.</p>
+<p>The main idea behind consistent hashing is that servers and the content objects are mapped to the same ID space. For instance, imagine we map the servers to the edge of a circle (say uniformly).</p>
+<p><img src="https://i.imgur.com/lPoytI1.png" alt="" /></p>
+<p>In the next step, we can also map the object to the circle.</p>
+<p><img src="https://i.imgur.com/ij0QISR.png" alt="" /></p>
+<p>Now, the successor server for an object ID can be responsible for serving the object.</p>
+<p><img src="https://i.imgur.com/nAvhrow.png" alt="" /></p>
+<p>Let us see, what happens when a server (#41 in this case) leaves. <strong>The objects that the server was responsible for can now be served by the next server.</strong>[Quiz: Not a random server]</p>
+<p><img src="https://i.imgur.com/OVGX7tq.png" alt="" /></p>
+<p>It can be proved that the solution is optimal, which means that least number of keys need to be remapped to maintain load-balance on an average. On a side note, this algorithm was proposed as a part of a popular distributed lookup protocol, known as Chord and was also used for content lookup in peer-to-peer applications such as BitTorrent, Napster.</p>
+<h2 id="network-protocols-used-for-clusterserver-selections"><a class="markdownIt-Anchor" href="#network-protocols-used-for-clusterserver-selections"></a> Network Protocols Used for Cluster/Server Selections</h2>
+<p>So far, we have mainly looked at the policies used for selecting a CDN server. Let us now look at the actual network protocol (i.e. the mechanisms that are used for this purpose).</p>
+<p>Specifically, we will look at three different network protocols that can be used for server selection.</p>
+<ul>
+<li>DNS</li>
+<li>HTTP redirection</li>
+<li>IP Anycast</li>
+</ul>
+<p>Let us start by looking at the DNS protocol.</p>
+<h2 id="server-selection-strategies-the-dns-protocol"><a class="markdownIt-Anchor" href="#server-selection-strategies-the-dns-protocol"></a> Server Selection Strategies: The DNS Protocol</h2>
+<p><strong>Why do we need DNS?</strong></p>
+<ul>
+<li>Easily remembered by humans. The main disadvantage of hostnames is that they are consisting of variable characters and thus it’s difficult for routers to process them. This is where the Domain Name System (DNS) comes in. It help us translate hostnames to IP addresses. The DNS is implemented using a hierarchical pattern.</li>
+</ul>
+<p><strong>How does DNS work?</strong></p>
+<p>First, DNS provides a distributed database implemented over a hierarchy of servers. Second, <strong>DNS is an application layer protocol that allows hosts to query this database and provide the translation of hostnames to IP addresses.</strong> Here are the main steps that a host takes to use DNS:</p>
+<ol>
+<li>The user host runs the client side of the DNS application</li>
+<li>The browser extracts the hostname <a target="_blank" rel="noopener" href="http://www.someschool.edu">www.someschool.edu</a> Links to an external site.and passes it to client side of the DNS application.</li>
+<li>DNS Client sends a query containing the hostname of DNS</li>
+<li>DNS Client eventually receives a reply which included IP address for the hostname</li>
+<li>As soon as the host receives the IP addresses, it can initiate a TCP connection to the HTTP server located at that port at that IP</li>
+</ol>
+<p>There are other service offered by DNS:</p>
+<ol>
+<li>
+<p><strong>Mail server/Host aliasing</strong>: Email servers have to have simple and mnemonic names. Eg @hotmail.com. However, the canonical hostname can be difficult to remember eg <a target="_blank" rel="noopener" href="http://relay2.west-coast.hotmail.com">relay2.west-coast.hotmail.com</a>. DNS is used to get the canonical hostname (and IP address) for an alias hostname. Also, a host can have one or more names.  If there are two hostnames then this usually is a combination of canonical and mnemonic hostnames. DNS can be used to find the canonical hostname for a given host and also obtain an IP for that host.</p>
+</li>
+<li>
+<p><strong>Load distribution:</strong> Busy websites may be replicated over multiple servers. When a client makes a DNS query, the DNS server responds with the entire set of addresses but rotates the address ordering with each reply. This helps in distributing the traffic across servers.</p>
+</li>
+</ol>
+<p><strong>The DNS hierarchy</strong></p>
+<p>A simple design for DNS would have been based on a centralized model where we have a single DNS server that contains all the hostnames-to-IP mappings, and clients simply direct all their queries to this single DNS server, and this server responds directly to the querying clients.</p>
+<p>This model, though very simplistic, would not be the best option for multiple reasons. <strong>First, it introduces a single point of failure.</strong> If that single server collapses then the entire Internet would not be able to work either! <strong>Second, it would be very difficult for a single server to handle all the volume of the querying traffic.</strong> A single DNS server would have to process a very large number of DNS queries. Third, this model is based on a centralized database which cannot be close to all querying clients. This model would cause significant delays and slow performance for the clients which are geographically distant and thus they might have to communicate over slow or congested links. And finally, maintaining this centralized database would be a big problem as we would have to update a huge database with updates for every single host in the Internet.</p>
+<p><strong>Because of the above reasons we have a distributed hierarchical database for DNS. The DNS uses a hierarchical scheme to solve the scalability problem. A portion of the hierarchy of the DNS servers is shown in the following diagram:</strong></p>
+<p><img src="https://i.imgur.com/8CuLagP.png" alt="" /></p>
+<p>When a client requests the IP address for a specific domain name, as for example <a target="_blank" rel="noopener" href="http://gatech.edu">gatech.edu</a> or <a target="_blank" rel="noopener" href="http://amazon.com">amazon.com</a>, the client will finally know this mapping with the help of this server hierarchy. In a nutshell, it works as follows: Let’s suppose that a client requests the IP address for <a target="_blank" rel="noopener" href="http://amazon.com">amazon.com</a>. The client will first contact the root server, which will return the IP address of a top level domain server. Then the client will contact that top level domain server to receive a referral to the authoritative server for <a target="_blank" rel="noopener" href="http://amazon.com">amazon.com</a>. Finally, the client will make a query to that authoritative server to receive the domain-to-IP mapping and to finally reach <a target="_blank" rel="noopener" href="http://amazon.com">amazon.com</a>.</p>
+<p>The DNS hierarchy consists of the following types of servers:</p>
+<p><strong>Root DNS servers:</strong> There are 13 servers, each of which is a network of replicated servers mostly located in North America. As of May 2019, the total number of server instances is 984.</p>
+<p><strong>Top level domain (TLD)  Servers:</strong> These servers are responsible for the top level domains such as .com, .org, .edu, etc and also all of the country top level domains such as .uk, .fr, .jp.</p>
+<p><strong>Authoritative servers:</strong> An organization’s authoritative DNS server keeps the DNS records that need to be publicly accessible, such as the domain name - IP mappings for web serves and mail servers of that organization.</p>
+<p><strong>Local DNS servers.</strong> Even though this type of servers is not considered as strictly belonging to the DNS hierarchy, nevertheless it is considered central to the overall DNS architecture. Each Internet Service Provider (ISP), such as a university, a company or a small residential ISP, has one or more local DNS servers. Hosts that connect to an ISP are provided with the IP addresses of one or more local DNS servers. So, when a host makes a DNS query, the query is sent to the provided local DNS server, which in turn acts as a proxy, and it forwards the query into the DNS hierarchy.</p>
+<p><strong>How DNS works: Recursive and Iterative DNS queries</strong></p>
+<p>Let’s consider the example below:</p>
+<p><img src="https://i.imgur.com/e7GEroO.png" alt="" /></p>
+<p>The host requests the IP address of <a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu">gaia.cs.umass.edu</a>. The local DNS server of the requesting host is <a target="_blank" rel="noopener" href="http://dns.poly.edu">dns.poly.edu</a>. The authoritative DNS server of the requested domain name is <a target="_blank" rel="noopener" href="http://dns.umass.edu">dns.umass.edu</a>. First, the host sends a query to the local DNS (<a target="_blank" rel="noopener" href="http://dns.poly.edu">dns.poly.edu</a>) (step marked 1). This query is a message that contains the hostname to be translated which is <a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu">gaia.cs.umass.edu</a>. This local DNS server forwards this query to root level server which notices that this is a query for .edu TLD servers (step 2) and it returns back to the local DNS server a list of TLD servers responsible for .edu (step 3). The local DNS server queries one of the TLD servers (step 4). The TLD server notes the <a target="_blank" rel="noopener" href="http://umass.edu">umass.edu</a> suffix and returns the IP address of the authoritative DNS server for the University of Massachusetts to the local server (step 5). Finally, the local server queries the authoritative DNS server (step 6) receives the IP address of <a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu">gaia.cs.umass.edu</a>. (step 7)</p>
+<p>The process of obtaining the mapping of a hostname to an IP address is known as name-address resolution. We observe that through the name address resolution process the host interacts with the DNS hierarchy using two types of queries: iterative and recursive.</p>
+<p><strong>In the iterative query process, the querying host is referred to a different DNS server in the chain, until it can fully resolve the request.</strong></p>
+<p><strong>Whereas in the recursive query, the querying host, and each DNS server in the chain queries the next server and delegates the query to it.</strong> We note that the usual pattern is for the first query from the requesting host to the local DNS server to be recursive, and the remaining queries to be iterative.</p>
+<p><img src="https://i.imgur.com/k1jfmCY.png" alt="" /></p>
+<p>In the above figure, we can see an example of a recursive query.</p>
+<h2 id="more-on-dns-making-responses-faster-with-caching"><a class="markdownIt-Anchor" href="#more-on-dns-making-responses-faster-with-caching"></a> More on DNS: Making Responses Faster with Caching</h2>
+<p><strong>What is DNS caching?</strong></p>
+<p>One way to make the DNS resolution faster, is to cache the responses. This will help in reducing the performance delay and make it more efficient.</p>
+<p>The idea of DNS Caching is that, in both iterative and recursive queries, after a server receives the DNS reply of mapping from any host to IP address,  it stores this information in the Cache memory before sending it to the client.</p>
+<p><strong>An Example of DNS Caching</strong></p>
+<p>Consider a host A (<a target="_blank" rel="noopener" href="http://apricot.poly.edu">apricot.poly.edu</a>) that queries a local DNS server <a target="_blank" rel="noopener" href="http://dns.poly.edu">dns.poly.edu</a> for the IP of <a target="_blank" rel="noopener" href="http://cnn.com">cnn.com</a>. After some time another host B (<a target="_blank" rel="noopener" href="http://kiwi.poly.fr">kiwi.poly.fr</a>) queries a local DNS server <a target="_blank" rel="noopener" href="http://dns.poly.edu">dns.poly.edu</a> for the IP for the same hostname (<a target="_blank" rel="noopener" href="http://cnn.com">cnn.com</a>). Because of caching local DNS will be able to <strong>immediately send the response</strong>(without querying)[Quiz] for <a target="_blank" rel="noopener" href="http://cnn.com">cnn.com</a>.</p>
+<h2 id="more-on-dns-resource-records-and-messages"><a class="markdownIt-Anchor" href="#more-on-dns-resource-records-and-messages"></a> More on DNS: Resource Records and Messages</h2>
+<p><strong>DNS Records</strong></p>
+<p>The DNS servers store the mappings between hostnames and IP addresses as resource records (RRs). These resource records are contained inside the DNS reply messages. A DNS resource record has four fields: (name, value, Type, TTL). The TTL specifies the time (in sec) a record should remain in the cache. The name and the value depend on the type of the resource record.</p>
+<p>The most common types are four[Quiz]:</p>
+<ul>
+<li><strong>TYPE=A</strong>: the name is a domain name and value is the IP address of the hostname. (<a target="_blank" rel="noopener" href="http://abc.com">abc.com</a>, 190.191.192.193, A)</li>
+<li><strong>TYPE=NS</strong>: the name is the domain name, and the value is the appropriate authoritative DNS server that can obtain the IP addresses for hosts in that domain. (<a target="_blank" rel="noopener" href="http://abc.com">abc.com</a>, <a target="_blank" rel="noopener" href="http://dns.abc.com">dns.abc.com</a>, NS)</li>
+<li><strong>TYPE=CNAME</strong>: the name is the alias hostname, and the value is the canonical name, (<a target="_blank" rel="noopener" href="http://abc.com">abc.com</a>, <a target="_blank" rel="noopener" href="http://relay1.dnsserver.abc.com">relay1.dnsserver.abc.com</a>, CNAME)</li>
+<li><strong>TYPE=MX</strong>: the name is the alias hostname of a mail server, and the Value is the canonical name of the email server. (<a target="_blank" rel="noopener" href="http://abc.com">abc.com</a>, <a target="_blank" rel="noopener" href="http://mail.dnsserver.abc.com">mail.dnsserver.abc.com</a>, MX)</li>
+</ul>
+<p><strong>DNS Message Format</strong></p>
+<p><img src="https://i.imgur.com/oBi3ROv.png" alt="" /></p>
+<p>The first field is an ID that is an identifier for the query and it allows the client to match queries with responses.</p>
+<p>The flags section have multiple fields. For example, a field allows to specify if the DNS message is a query or response. Another field specifies if a query is recursive or not.</p>
+<p>The question section contains information about the query that is being made for example the hostname that is being queried, the type of the query (A, MX, etc).</p>
+<p>In the answer section, and if the message is a reply, we will have the resource records for the hostname that was originally queried.</p>
+<p>In the authority section, we have resource records for more authoritative servers.</p>
+<p>The additional section contains other helpful records. For example, if the original query was for an MX record, then the answer section will contain the resource record for the canonical hostname of the mail server, and the additional section will contain the IP address for the canonical hostname.</p>
+<h2 id="server-selection-strategies-ip-anycast"><a class="markdownIt-Anchor" href="#server-selection-strategies-ip-anycast"></a> Server Selection Strategies: IP Anycast</h2>
+<p>One interesting network protocol that can sometimes be used for server selection is IP Anycast.</p>
+<p>Let us first understand what is IP anycast? The main goal of IP anycast is to route a client to the “closest” server, as determined by BGP (Border Gateway Protocol), a routing protocol used for inter-AS routing. <strong>This is achieved by assigning the same IP address to multiple servers belonging to different clusters.</strong> Now, each of these servers will use the standard BGP to advertise this IP address. Thus multiple BGP routes for the same IP address corresponding to different cluster locations will propagate in the public Internet. Now when a BGP router receives multiple route advertisements for this IP address, it would treat them as multiple paths to the same locations, although, in reality these routes correspond to different physical locations. In the end, the shortest path will be stored and used for routing packets.</p>
+<p>Using this strategy can enable CDNs to deliver content using the “closest” server to a client. Figure below shows an example.</p>
+<p><img src="https://i.imgur.com/0SCmYzi.png" alt="" /></p>
+<p>Now a client from AS1 will be routed to the cluster C1, which is only 1 AS hop away from it. For a client belonging to different cluster, AS2, it will be routed to a different cluster as it is the “closest” cluster.</p>
+<p>Clearly, this strategy is useful as typically you would expect that the path “closest” to the server in terms of BGP route provides the best end-to-end performance. However, this is not always the case because of the dynamic nature of the Internet. For instance, it could happen that the link is congested and thus for a new client it was actually better to go to cluster C2. Clearly, server selection using anycast routing does not take this into account. Thus, it is not commonly used in practice by CDNs.</p>
+<p>One particular instance, though not of content delivery, where IP anycasting is used is in routing to the DNS server. For instance, Google provides public DNS servers that can be used for resolving domain names to IP address. In order to serve clients from multiple locations, it has multiple DNS servers distributed geographically with all of the servers being assigned the same address. Now, a client that is using public Google DNS servers for domain name resolution, will be routed to the “closest” server in terms of the BGP path, thus making the DNS query faster.</p>
+<h2 id="server-selection-strategies-http-redirection"><a class="markdownIt-Anchor" href="#server-selection-strategies-http-redirection"></a> Server Selection Strategies: HTTP Redirection</h2>
+<p>In that case, the server can send HTTP redirects to some of the clients. <strong>One benefit of this method is that it does not require any central coordination.</strong> A recent measurement study reports that YouTube uses this kind of mechanism for load balancing. According to the study, YouTube first tries to u<strong>se HTTP redirection for sharing the load within a cluster, and then can also use it to redirect clients to a different cluster if the former is not enough</strong>(Not just share load, but also redirect to somewhere else)[Quiz].</p>
 
 </div>
 

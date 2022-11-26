@@ -36,11 +36,8 @@
 * [Week 8 - Software Defined Networking (Part 2)](/cs6250/week-8-software-defined-networking-part-2/index.html)
 * [Week 9 - Internet Security](/cs6250/week-9-internet-security/index.html)
 * [Week 10 - Internet Surveillance and Censorship](/cs6250/week-10-internet-surveillance-and-censorship/index.html)
-
-<!--
 * [Week 11 - Applications Videos](/cs6250/week-11-applications-video/index.html)
 * [Week 12 - Applications CDNs and Overlay Networks](/cs6250/week-12-applications-cdns-and-overlay-networks/index.html)
--->
 
 ## CS6200 Graduate Introduction to Operating Systems
 
@@ -57,9 +54,9 @@
 * [P3L4 - Synchronization Constructs](/cs6200/p3l4-synchronization-constructs/index.html) 
 * [P3L5 - I/O Management](/cs6200/p3l5-io-management/index.html) 
 * [P3L6 - Virtualization](/cs6200/p3l6-virtualization/index.html) 
-* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
 
 <!--
+* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
 * [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
 * [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
 * [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
