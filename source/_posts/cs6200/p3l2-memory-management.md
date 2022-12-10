@@ -90,6 +90,7 @@
     * When a process request more memory to be allocated via malloc, the OS will check/create another page table for it, add new entry in the outer page table, map the entry to the new virtual memory region in the internal page table.
 * For example, consider again the system with a 32-bit **logical address** space and a page size of 4 KB. A logical address is divided into a page number consisting of 20 bits and a page offset consisting of 12 bits. Because we page the page table, the page number is further divided into a 10-bit page number and a 10-bit page offset. Thus, a logical address is as follows:
     * <img src="https://i.imgur.com/ZN6vjRn.jpg" style="width: 300px" />
+        
         * Different way to look at this^
             1. From p1's perspective, p2 + d is the offset, meaning each entry is 2^22 = 4MB and there are 2^10 = 1K records in outer table
             2. From p2's perspective, d is the offset, meaning each entry is 2^12 = 4KB, and there are 1K x 2^10 = 1M potential records.

@@ -195,13 +195,18 @@
     4. SMT with 2 hardware threads
 * Now compare different scenarios:
     1. <img src="https://i.imgur.com/hfj0Wg3.jpg" style="width: 400px" />
+        
         * threads "interfere" each other,
         * "contend" for CPU pipeline resources
         * performance for each task degrades by 2x
         * memory is idle
+    
     2. <img src="https://i.imgur.com/KSjqhq8.jpg" style="width: 400px" />
+    
         * CPU idle, waste CPU cycles
+    
     3. <img src="https://i.imgur.com/Ir847Rb.jpg" style="width: 400px" />
+    
         * mix of CPU and memory-intensive threads
             * avoid/limit contention of processor pipeline
             * all components (CPU and memory) well utilized  
@@ -209,7 +214,7 @@
 ### How do tell a thread is CPU bound or memory bound? 
 
 * Previously, we used sleep time to determine a process is interactive or CPU intensive. But it won't work for two reasons:
-    * The thread is not really sleeping when it is waiting on memory access.It is waiting at some stage in the processor pipeline, not on some software queue.
+    * The thread is not really sleeping when it is waiting on memory access. It is waiting at some stage in the processor pipeline, not on some software queue.
     * To keep track of the sleep time we were using software methods and that is too slow at this level. The context switch takes on the order of cycles, so we need to be able to make our decision on what to run very quickly.
 * We need some hardware-level information in order to help make our decision.
 * Most modern platforms contain **hardware counters** that get updated as the processor executes and keep information about various aspects of execution, like

@@ -114,13 +114,11 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6200/p3l4-synchronization-constructs/index.html">P3L4 - Synchronization Constructs</a></li>
 <li><a href="/cs6200/p3l5-io-management/index.html">P3L5 - I/O Management</a></li>
 <li><a href="/cs6200/p3l6-virtualization/index.html">P3L6 - Virtualization</a></li>
+<li><a href="/cs6200/p4l1-remote-procedure-calls/index.html">P4L1 - Remote Procedure Calls</a></li>
+<li><a href="/cs6200/p4l2-distributed-file-systems/index.html">P4L2 - Distributed File Systems</a></li>
+<li><a href="/cs6200/p4l3-distributed-shared-memory/index.html">P4L3 - Distributed Shared Memory</a></li>
+<li><a href="/cs6200/p4l4-datacenter-technologies/index.html">P4L4 - Datacenter Technologies</a></li>
 </ul>
-<!--
-* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
-* [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
-* [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
-* [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
--->
 <h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
 <ul>
 <li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
@@ -692,20 +690,29 @@ function sidebar_toggle() {
 <ol>
 <li>
 <img src="https://i.imgur.com/hfj0Wg3.jpg" style="width: 400px" />
- * threads "interfere" each other,
- * "contend" for CPU pipeline resources
- * performance for each task degrades by 2x
- * memory is idle
+<ul>
+<li>threads “interfere” each other,</li>
+<li>“contend” for CPU pipeline resources</li>
+<li>performance for each task degrades by 2x</li>
+<li>memory is idle</li>
+</ul>
 </li>
 <li>
 <img src="https://i.imgur.com/KSjqhq8.jpg" style="width: 400px" />
- * CPU idle, waste CPU cycles
+<ul>
+<li>CPU idle, waste CPU cycles</li>
+</ul>
 </li>
 <li>
 <img src="https://i.imgur.com/Ir847Rb.jpg" style="width: 400px" />
- * mix of CPU and memory-intensive threads
-     * avoid/limit contention of processor pipeline
-     * all components (CPU and memory) well utilized  
+<ul>
+<li>mix of CPU and memory-intensive threads
+<ul>
+<li>avoid/limit contention of processor pipeline</li>
+<li>all components (CPU and memory) well utilized</li>
+</ul>
+</li>
+</ul>
 </li>
 </ol>
 </li>
@@ -714,7 +721,7 @@ function sidebar_toggle() {
 <ul>
 <li>Previously, we used sleep time to determine a process is interactive or CPU intensive. But it won’t work for two reasons:
 <ul>
-<li>The thread is not really sleeping when it is waiting on memory <a target="_blank" rel="noopener" href="http://access.It">access.It</a> is waiting at some stage in the processor pipeline, not on some software queue.</li>
+<li>The thread is not really sleeping when it is waiting on memory access. It is waiting at some stage in the processor pipeline, not on some software queue.</li>
 <li>To keep track of the sleep time we were using software methods and that is too slow at this level. The context switch takes on the order of cycles, so we need to be able to make our decision on what to run very quickly.</li>
 </ul>
 </li>

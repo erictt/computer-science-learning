@@ -114,13 +114,11 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6200/p3l4-synchronization-constructs/index.html">P3L4 - Synchronization Constructs</a></li>
 <li><a href="/cs6200/p3l5-io-management/index.html">P3L5 - I/O Management</a></li>
 <li><a href="/cs6200/p3l6-virtualization/index.html">P3L6 - Virtualization</a></li>
+<li><a href="/cs6200/p4l1-remote-procedure-calls/index.html">P4L1 - Remote Procedure Calls</a></li>
+<li><a href="/cs6200/p4l2-distributed-file-systems/index.html">P4L2 - Distributed File Systems</a></li>
+<li><a href="/cs6200/p4l3-distributed-shared-memory/index.html">P4L3 - Distributed Shared Memory</a></li>
+<li><a href="/cs6200/p4l4-datacenter-technologies/index.html">P4L4 - Datacenter Technologies</a></li>
 </ul>
-<!--
-* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
-* [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
-* [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
-* [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
--->
 <h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
 <ul>
 <li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
@@ -479,12 +477,18 @@ function sidebar_toggle() {
 <ul>
 <li>
 <img src="https://i.imgur.com/ZN6vjRn.jpg" style="width: 300px" />
-  * Different way to look at this^
-      1. From p1's perspective, p2 + d is the offset, meaning each entry is 2^22 = 4MB and there are 2^10 = 1K records in outer table
-      2. From p2's perspective, d is the offset, meaning each entry is 2^12 = 4KB, and there are 1K x 2^10 = 1M potential records.
-      3. The 1K outer entries exists no matter what, but the 1M in the internal table doesn't.
+<ul>
+<li>Different way to look at this^
+<ol>
+<li>From p1’s perspective, p2 + d is the offset, meaning each entry is 2^22 = 4MB and there are 2^10 = 1K records in outer table</li>
+<li>From p2’s perspective, d is the offset, meaning each entry is 2^12 = 4KB, and there are 1K x 2^10 = 1M potential records.</li>
+<li>The 1K outer entries exists no matter what, but the 1M in the internal table doesn’t.</li>
+</ol>
 </li>
-<li>where p 1 is an index into the outer page table and p 2 is the displacement within the page of the inner page table. The address-translation method for this architecture is:
+</ul>
+</li>
+<li>
+<p>where p 1 is an index into the outer page table and p 2 is the displacement within the page of the inner page table. The address-translation method for this architecture is:</p>
 <ul>
 <li>
 <img src="https://i.imgur.com/zgqG4Sa.jpg" style="width: 500px" />
@@ -492,7 +496,9 @@ function sidebar_toggle() {
 <li>Because address translation works from the outer page table inward, this scheme is also known as a <strong>forward-mapped</strong> page table.</li>
 </ul>
 </li>
-<li>The size of each page in the inner page table is 2^10(p_2) * 2^10(page size or page offset) = 2^20 = 1MB</li>
+<li>
+<p>The size of each page in the inner page table is 2^10(p_2) * 2^10(page size or page offset) = 2^20 = 1MB</p>
+</li>
 </ul>
 </li>
 <li>
