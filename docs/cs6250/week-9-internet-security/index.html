@@ -471,7 +471,7 @@ The system then uses supervised learning to capture the known behaviors and patt
 </li>
 <li><strong>Classification by AS-Path announcement</strong>: In this class of attacks, an illegitimate AS announces the AS-path for a prefix for which it doesn’t have ownership rights. There are different ways this can be achieved:
 <ol>
-<li><strong>Type-0 hijacking</strong>: This is simply an AS announcing a prefix not owned by itself.Nov 6, 2022</li>
+<li><strong>Type-0 hijacking</strong>: This is simply an AS announcing a prefix not owned by itself.</li>
 <li><strong>Type-N hijacking</strong>: This is an attack where the counterfeit AS announces an illegitimate path for a prefix that it does not own to create a fake link (path) between different ASes.
 <ul>
 <li>For example, {AS2, ASx, ASy, AS1 – 10.0.0.0/23} denotes a fake path between AS2 and AS1, where there is no link between AS2 and ASx. The N denotes the position of the rightmost fake link in the illegitimate announcement, e.g. {AS2, ASy, AS1 – 10.0.0.0/23} is a Type-2 hijacking.</li>

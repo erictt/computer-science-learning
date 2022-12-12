@@ -131,7 +131,7 @@ This system uses a Random Forest (RF) classifier and compares it to a baseline p
         * Example: A given hijacking AS labelled AS2 announces that it has a path to prefix 10.10.0.0/24 which is a part of 10.10.0.0/16 owned by AS1.
     3) **Squatting**: In this type of attack, the hijacking AS announces a prefix that has not yet been announced by the owner AS.
 2. **Classification by AS-Path announcement**: In this class of attacks, an illegitimate AS announces the AS-path for a prefix for which it doesn’t have ownership rights. There are different ways this can be achieved:
-    1) **Type-0 hijacking**: This is simply an AS announcing a prefix not owned by itself.Nov 6, 2022
+    1) **Type-0 hijacking**: This is simply an AS announcing a prefix not owned by itself.
     2) **Type-N hijacking**: This is an attack where the counterfeit AS announces an illegitimate path for a prefix that it does not own to create a fake link (path) between different ASes.
         * For example, {AS2, ASx, ASy, AS1 – 10.0.0.0/23} denotes a fake path between AS2 and AS1, where there is no link between AS2 and ASx. The N denotes the position of the rightmost fake link in the illegitimate announcement, e.g. {AS2, ASy, AS1 – 10.0.0.0/23} is a Type-2 hijacking.
     3) **Type-U hijacking**: In this attack the hijacking AS does not modify the AS-PATH but may change the prefix.
