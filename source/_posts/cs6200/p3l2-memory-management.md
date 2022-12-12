@@ -91,11 +91,11 @@
 * For example, consider again the system with a 32-bit **logical address** space and a page size of 4 KB. A logical address is divided into a page number consisting of 20 bits and a page offset consisting of 12 bits. Because we page the page table, the page number is further divided into a 10-bit page number and a 10-bit page offset. Thus, a logical address is as follows:
     * <img src="https://i.imgur.com/ZN6vjRn.jpg" style="width: 300px" />
         
-        * Different way to look at this^
-            1. From p1's perspective, p2 + d is the offset, meaning each entry is 2^22 = 4MB and there are 2^10 = 1K records in outer table
-            2. From p2's perspective, d is the offset, meaning each entry is 2^12 = 4KB, and there are 1K x 2^10 = 1M potential records.
-            3. The 1K outer entries exists no matter what, but the 1M in the internal table doesn't.
-    * where p 1 is an index into the outer page table and p 2 is the displacement within the page of the inner page table. The address-translation method for this architecture is:
+    * Different way to look at this^
+        1. From p1's perspective, p2 + d is the offset, meaning each entry is 2^22 = 4MB and there are 2^10 = 1K records in outer table
+        2. From p2's perspective, d is the offset, meaning each entry is 2^12 = 4KB, and there are 1K x 2^10 = 1M potential records.
+        3. The 1K outer entries exists no matter what, but the 1M in the internal table doesn't.
+    * where p_1 is an index into the outer page table and p_2 is the displacement within the page of the inner page table. The address-translation method for this architecture is:
         * <img src="https://i.imgur.com/zgqG4Sa.jpg" style="width: 500px" />
         * Because address translation works from the outer page table inward, this scheme is also known as a **forward-mapped** page table.
     * The size of each page in the inner page table is 2^10(p_2) * 2^10(page size or page offset) = 2^20 = 1MB

@@ -479,18 +479,17 @@ function sidebar_toggle() {
 <ul>
 <li>
 <img src="https://i.imgur.com/ZN6vjRn.jpg" style="width: 300px" />
-<ul>
-<li>Different way to look at this^
+</li>
+<li>
+<p>Different way to look at this^</p>
 <ol>
 <li>From p1’s perspective, p2 + d is the offset, meaning each entry is 2^22 = 4MB and there are 2^10 = 1K records in outer table</li>
 <li>From p2’s perspective, d is the offset, meaning each entry is 2^12 = 4KB, and there are 1K x 2^10 = 1M potential records.</li>
 <li>The 1K outer entries exists no matter what, but the 1M in the internal table doesn’t.</li>
 </ol>
 </li>
-</ul>
-</li>
 <li>
-<p>where p 1 is an index into the outer page table and p 2 is the displacement within the page of the inner page table. The address-translation method for this architecture is:</p>
+<p>where p_1 is an index into the outer page table and p_2 is the displacement within the page of the inner page table. The address-translation method for this architecture is:</p>
 <ul>
 <li>
 <img src="https://i.imgur.com/zgqG4Sa.jpg" style="width: 500px" />

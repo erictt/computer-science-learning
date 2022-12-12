@@ -348,11 +348,13 @@ function sidebar_toggle() {
 <li>The second part of any device is its <strong>internal structure</strong>. This part of the device is <strong>implementation speciﬁc and is responsible for implementing the abstraction the device presents to the system</strong>. Very simple devices will have one or a few hardware chips to implement their functionality; more complex devices will include a simple <em>CPU</em>, some <em>general purpose memory</em>, and other <em>device-speciﬁc chips</em> to get their job done.</li>
 </ul>
 <img src="https://i.imgur.com/cjg9fSk.jpg" style="width: 500px" />
-In the picture above, the (simpliﬁed) device interface is comprised of three registers: 
-- a **status** register, which can be read to see the current status of the device; 
-- a **command** register, to tell the device to perform a certain task; 
-- a **data** register to pass data to the device, or get data from the device. 
-By reading and writing these registers, the operating system can control device behavior.
+<p>In the picture above, the (simpliﬁed) device interface is comprised of three registers:</p>
+<ul>
+<li>a <strong>status</strong> register, which can be read to see the current status of the device;</li>
+<li>a <strong>command</strong> register, to tell the device to perform a certain task;</li>
+<li>a <strong>data</strong> register to pass data to the device, or get data from the device.</li>
+</ul>
+<p>By reading and writing these registers, the operating system can control device behavior.</p>
 <h2 id="cpu-device-interconnect"><a class="markdownIt-Anchor" href="#cpu-device-interconnect"></a> CPU Device Interconnect</h2>
 <p>A device communicates with a computer system by sending signals over a cable or even through the air. The device communicates with the machine via a connection point, or <strong>port</strong>. If devices share a common set of wires, the connection is called a <strong>bus</strong>. A <strong>bus</strong>, like the PCI bus used in most computers today, is a set of wires and a rigidly defined protocol that specifies a set of messages that can be sent on the wires.</p>
 <img src="https://i.imgur.com/TOHsnsR.jpg" style="width: 600px" />
@@ -367,7 +369,7 @@ By reading and writing these registers, the operating system can control device 
 <li>making the I/O subsystem <strong>independent</strong> of the hardware simplifies the job of the operating-system developer.</li>
 </ul>
 <img src="https://i.imgur.com/b9vgHN3.jpg" style="width: 600px" />
-### Types of Devices
+<h3 id="types-of-devices"><a class="markdownIt-Anchor" href="#types-of-devices"></a> Types of Devices</h3>
 <ul>
 <li><strong>Block</strong>: disk
 <ul>
@@ -473,7 +475,7 @@ By reading and writing these registers, the operating system can control device 
 <li>number of disk blocks</li>
 <li>start of free blocks</li>
 </ul>
-<p>The overall state of the block group is further described by the group descriptor, which contains information about:</p>
+<p>The overall state of the block group is further described by the <strong>group descriptor</strong>, which contains information about:</p>
 <ul>
 <li>bitmaps</li>
 <li>number of free nodes</li>
@@ -493,7 +495,7 @@ By reading and writing these registers, the operating system can control device 
 <p>The first section of blocks contain blocks that point directly to data. The direct pointers will point to 1kb per entry.</p>
 <p>To extend the number a disk blocks that can be addressed via a single inode element, while also keeping the size of the inode small, we can use indirect pointers.</p>
 <p>An indirect pointer will point to a block of pointers, where each pointer points to data. Given that a block contains 1kB of space, and a pointer is 4B large, a single indirect pointer can point to 256KB of file content.</p>
-<p>A double indirect pointer will point to a block of single indirect pointers, while will point to pointers to data. This means that a single double indirect pointer can point to 2562561KB = 64MB of file content.</p>
+<p>A double indirect pointer will point to a block of single indirect pointers, while will point to pointers to data. This means that a single double indirect pointer can point to 256 x 256 x 1KB = 64MB of file content.</p>
 <p>The benefits of indirect pointers is that it allows us to use relatively small inodes while being able to address larger and large files.</p>
 <p>The downside of indirect pointers is that file access is slowed down. Without any indirect pointers, we have at most two disk accesses to get a block of content: one access for the inode, one access for the block. With double indirect pointers, we double the number of accesses we need to make: inode + block + two pointers.</p>
 <p>Quiz: An inode has the following structure: Each block pointer is 4B. If a block on disk is 1KB, what is the maximum file size that can be supported by this structure(nearest GB)? And what is the maximum file size if a block on disk is 8KB(nearest TB)?</p>

@@ -194,19 +194,19 @@
     3. hardware switching instantaneous
     4. SMT with 2 hardware threads
 * Now compare different scenarios:
-    1. <img src="https://i.imgur.com/hfj0Wg3.jpg" style="width: 400px" />
-        
+    1. First:
+        * <img src="https://i.imgur.com/hfj0Wg3.jpg" style="width: 400px" />
         * threads "interfere" each other,
         * "contend" for CPU pipeline resources
         * performance for each task degrades by 2x
         * memory is idle
     
-    2. <img src="https://i.imgur.com/KSjqhq8.jpg" style="width: 400px" />
-    
+    2. Second:
+        * <img src="https://i.imgur.com/KSjqhq8.jpg" style="width: 400px" />
         * CPU idle, waste CPU cycles
     
-    3. <img src="https://i.imgur.com/Ir847Rb.jpg" style="width: 400px" />
-    
+   3. Third
+        * <img src="https://i.imgur.com/Ir847Rb.jpg" style="width: 400px" />
         * mix of CPU and memory-intensive threads
             * avoid/limit contention of processor pipeline
             * all components (CPU and memory) well utilized  

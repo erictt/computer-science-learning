@@ -206,7 +206,7 @@ In summary, atomic instructions on SMP systems are more expensive than on single
 3. contention - bus/network inter-connection(I/C) traffic. ideally zero
     * By contention, we mean the contention due to the actual atomic memory references as well as the subsequent coherence traffic. 
 
-1 and 2 are conflicted with each other. Because 1 means we want to try to execute the atomic operation asap. As a result, the locking operation will immediately incur an atomic operation which can potentially create some additional contention on the network. 
+1 and 3 are conflicted with each other. Because 1 means we want to try to execute the atomic operation asap. As a result, the locking operation will immediately incur an atomic operation which can potentially create some additional contention on the network. 
 
 2 and 3 are conflicted as well. To reduce the waiting time, we need to continuously spin on the lock as long as it's not available. So we can acquire the lock asap.
 

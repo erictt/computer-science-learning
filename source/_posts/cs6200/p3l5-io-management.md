@@ -18,10 +18,13 @@ A canonical device has two important components:
 - The second part of any device is its **internal structure**. This part of the device is **implementation speciﬁc and is responsible for implementing the abstraction the device presents to the system**. Very simple devices will have one or a few hardware chips to implement their functionality; more complex devices will include a simple *CPU*, some *general purpose memory*, and other *device-speciﬁc chips* to get their job done.
 
 <img src="https://i.imgur.com/cjg9fSk.jpg" style="width: 500px" />
+
 In the picture above, the (simpliﬁed) device interface is comprised of three registers: 
+
 - a **status** register, which can be read to see the current status of the device; 
 - a **command** register, to tell the device to perform a certain task; 
 - a **data** register to pass data to the device, or get data from the device. 
+
 By reading and writing these registers, the operating system can control device behavior.
 
 ## CPU Device Interconnect
@@ -40,6 +43,7 @@ Device Driver Layer
 - making the I/O subsystem **independent** of the hardware simplifies the job of the operating-system developer.
 
 <img src="https://i.imgur.com/b9vgHN3.jpg" style="width: 600px" />
+
 ### Types of Devices
 
 - **Block**: disk
@@ -184,7 +188,7 @@ Each block group contains several blocks.
 - number of disk blocks
 - start of free blocks
 
-The overall state of the block group is further described by the group descriptor, which contains information about:
+The overall state of the block group is further described by the **group descriptor**, which contains information about:
 - bitmaps
 - number of free nodes
 - number of directories
@@ -217,7 +221,7 @@ To extend the number a disk blocks that can be addressed via a single inode elem
 
 An indirect pointer will point to a block of pointers, where each pointer points to data. Given that a block contains 1kB of space, and a pointer is 4B large, a single indirect pointer can point to 256KB of file content.
 
-A double indirect pointer will point to a block of single indirect pointers, while will point to pointers to data. This means that a single double indirect pointer can point to 2562561KB = 64MB of file content.
+A double indirect pointer will point to a block of single indirect pointers, while will point to pointers to data. This means that a single double indirect pointer can point to 256 x 256 x 1KB = 64MB of file content.
 
 The benefits of indirect pointers is that it allows us to use relatively small inodes while being able to address larger and large files.
 
