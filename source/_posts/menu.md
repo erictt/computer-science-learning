@@ -24,6 +24,23 @@
 * [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
 -->
 
+## CS6210: Advanced Operating Systems
+
+* [Lesson 02: OS Structure](/cs6210/lesson-02/index.html)
+* [Lesson 3: Virtualization](/cs6210/lesson-03/index.html)
+* [Lesson 4: Parallel Systems - Part 1](/cs6210/lesson-04-1/index.html)
+* [Lesson 4: Parallel Systems - Part 2](/cs6210/lesson-04-2/index.html)
+
+<!--
+* [Lesson 5: Distributed Systems](/cs6210/lesson-05/index.html)
+* [Lesson 6: Distributed Objects and Middleware](/cs6210/lesson-06/index.html)
+* [Lesson 7: Distributed Subsystems](/cs6210/lesson-07/index.html)
+* [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
+* [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
+* [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
+* [Lesson 11: Security](/cs6210/lesson-11/index.html)
+-->
+
 ## CS6250 Computer Networks
 
 * [Week 1 - Internet Architecture](/cs6250/week-1-internet-architecture/index.html)

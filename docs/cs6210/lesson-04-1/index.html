@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    
+    <!-- katex css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+
+    <div class="book-menu">
+  <!--
+## Introduction to Probability
+
+* [Unit 1: Probability models and axioms](/introduction-to-probability/unit-1/index.html)
+* [Unit 2: Conditioning and independence](/introduction-to-probability/unit-2/index.html)
+* [Unit 3: Counting](/introduction-to-probability/unit-3/index.html)
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<!--
+## Multivariable Calculus
+
+* [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
+* [Unit 2: Derivatives of multivariable functions](/multivariable-calculus/unit-2/index.html)
+
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="cs6210-advanced-operating-systems"><a class="markdownIt-Anchor" href="#cs6210-advanced-operating-systems"></a> CS6210: Advanced Operating Systems</h2>
+<ul>
+<li><a href="/cs6210/lesson-02/index.html">Lesson 02: OS Structure</a></li>
+<li><a href="/cs6210/lesson-03/index.html">Lesson 3: Virtualization</a></li>
+<li><a href="/cs6210/lesson-04-1/index.html">Lesson 4: Parallel Systems - Part 1</a></li>
+<li><a href="/cs6210/lesson-04-2/index.html">Lesson 4: Parallel Systems - Part 2</a></li>
+</ul>
+<!--
+* [Lesson 5: Distributed Systems](/cs6210/lesson-05/index.html)
+* [Lesson 6: Distributed Objects and Middleware](/cs6210/lesson-06/index.html)
+* [Lesson 7: Distributed Subsystems](/cs6210/lesson-07/index.html)
+* [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
+* [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
+* [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
+* [Lesson 11: Security](/cs6210/lesson-11/index.html)
+-->
+<h2 id="cs6250-computer-networks"><a class="markdownIt-Anchor" href="#cs6250-computer-networks"></a> CS6250 Computer Networks</h2>
+<ul>
+<li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
+<li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
+<li><a href="/cs6250/week-3-intradomain-routing/index.html">Week 3 - Intradomain Routing</a></li>
+<li><a href="/cs6250/week-4-as-relationships-and-interdomain-routing/index.html">Week 4 - AS Relationships and Interdomain Routing</a></li>
+<li><a href="/cs6250/week-5-router-design-and-algorithems-part-1/index.html">Week 5 - Router Design and Algorithms (Part 1)</a></li>
+<li><a href="/cs6250/week-6-router-design-and-algorithems-part-2/index.html">Week 6 - Router Design and Algorithms (Part 2)</a></li>
+<li><a href="/cs6250/week-7-software-defined-networking-part-1/index.html">Week 7 - Software Defined Networking (Part 1)</a></li>
+<li><a href="/cs6250/week-8-software-defined-networking-part-2/index.html">Week 8 - Software Defined Networking (Part 2)</a></li>
+<li><a href="/cs6250/week-9-internet-security/index.html">Week 9 - Internet Security</a></li>
+<li><a href="/cs6250/week-10-internet-surveillance-and-censorship/index.html">Week 10 - Internet Surveillance and Censorship</a></li>
+<li><a href="/cs6250/week-11-applications-video/index.html">Week 11 - Applications Videos</a></li>
+<li><a href="/cs6250/week-12-applications-cdns-and-overlay-networks/index.html">Week 12 - Applications CDNs and Overlay Networks</a></li>
+</ul>
+<h2 id="cs6200-graduate-introduction-to-operating-systems"><a class="markdownIt-Anchor" href="#cs6200-graduate-introduction-to-operating-systems"></a> CS6200 Graduate Introduction to Operating Systems</h2>
+<ul>
+<li><a href="/cs6200/p1-preparation/index.html">P0 - Preparation</a></li>
+<li><a href="/cs6200/p1l2-introduction/index.html">P1L2 - Introduction</a></li>
+<li><a href="/cs6200/p2l1-processes-and-process-management/index.html">P2L1 - Processes and Process Management</a></li>
+<li><a href="/cs6200/p2l2-threads-and-concurrency/index.html">P2L2 - Threads and Concurrency</a></li>
+<li><a href="/cs6200/p2l3-pthread/index.html">P2L3 - PThread</a></li>
+<li><a href="/cs6200/p2l4-thread-design-consideration/index.html">P2L4 - Thread Design Considerations</a></li>
+<li><a href="/cs6200/p2l5-thread-performance-consideration/index.html">P2L5 - Thread Performance Considerations</a></li>
+<li><a href="/cs6200/p3l1-scheduling/index.html">P3L1 - Scheduling</a></li>
+<li><a href="/cs6200/p3l2-memory-management/index.html">P3L2 - Memory Management</a></li>
+<li><a href="/cs6200/p3l3-inter-process-communication/index.html">P3L3 - Inter-Process Communication</a></li>
+<li><a href="/cs6200/p3l4-synchronization-constructs/index.html">P3L4 - Synchronization Constructs</a></li>
+<li><a href="/cs6200/p3l5-io-management/index.html">P3L5 - I/O Management</a></li>
+<li><a href="/cs6200/p3l6-virtualization/index.html">P3L6 - Virtualization</a></li>
+</ul>
+<!--
+* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
+* [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
+* [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
+* [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
+-->
+<h2 id="algorithms-part-ii"><a class="markdownIt-Anchor" href="#algorithms-part-ii"></a> Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-2/index.html">Week 2 - Minimum Spanning Trees &amp; Shortest Path</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; String Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+<li><a href="/algorithms-2/week-5/index.html">Week 5 - Regular Expressions</a></li>
+<li><a href="/algorithms-2/week-6/index.html">Week 6 - Reductions</a></li>
+</ul>
+<h2 id="algorithms-part-i"><a class="markdownIt-Anchor" href="#algorithms-part-i"></a> Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="introduction-to-software-design-and-architecture"><a class="markdownIt-Anchor" href="#introduction-to-software-design-and-architecture"></a> Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="calculus-two-sequences-and-series"><a class="markdownIt-Anchor" href="#calculus-two-sequences-and-series"></a> Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="laff-linear-algebra"><a class="markdownIt-Anchor" href="#laff-linear-algebra"></a> LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="stanford-machine-learning"><a class="markdownIt-Anchor" href="#stanford-machine-learning"></a> Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="calculus-one"><a class="markdownIt-Anchor" href="#calculus-one"></a> Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="computational-thinking"><a class="markdownIt-Anchor" href="#computational-thinking"></a> Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="effective-thinking-through-mathematics"><a class="markdownIt-Anchor" href="#effective-thinking-through-mathematics"></a> Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="cs50-introduction-to-computer-science"><a class="markdownIt-Anchor" href="#cs50-introduction-to-computer-science"></a> CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+<h2 id="others"><a class="markdownIt-Anchor" href="#others"></a> Others</h2>
+<ul>
+<li><a href="/symbols/index.html">Symbols of Mathematics</a></li>
+<li><a href="/glossary/index.html">Glossary</a></li>
+</ul>
+<h2 id="about-me"><a class="markdownIt-Anchor" href="#about-me"></a> <a target="_blank" rel="noopener" href="https://ericyy.me/about/">About Me</a></h2>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="lesson-4-parallel-operating-system-part-1"><a class="markdownIt-Anchor" href="#lesson-4-parallel-operating-system-part-1"></a> Lesson 4: Parallel Operating System - Part 1</h1>
+<h2 id="shared-memory-machine-model"><a class="markdownIt-Anchor" href="#shared-memory-machine-model"></a> Shared Memory Machine Model</h2>
+<ul>
+<li>
+<p>Dance Hall Architecture:</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/GdC11HY.jpg" style="width: 800px" />
+</li>
+</ul>
+<ul>
+<li>CPUs on one side of the interconnection network, and memory on the other side.</li>
+<li>The entire memory space is accessible from any CPU.</li>
+</ul>
+</li>
+<li>
+<p>Symmetric Multiprocessor (SMP) Architecture:</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/ClBtjah.jpg" style="width: 800px" />
+</li>
+</ul>
+<ul>
+<li><u>The CPUs are connected to the memory via a system bus</u>.</li>
+<li>The access time from any CPU to the memory is the same.</li>
+<li>Each CPU is equipped with a private cache.</li>
+</ul>
+</li>
+<li>
+<p>Distributed Shared Memory (DSM) Architecture:</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/AEcXzsz.jpg" style="width: 800px" />
+</li>
+</ul>
+<ul>
+<li>Each CPU has a piece of memory connected to it to facilitate faster access.</li>
+<li>Each CPU can access other memory spaces through the interconnection network.</li>
+<li>Each CPU is equipped with a private cache.</li>
+</ul>
+</li>
+</ul>
+<h3 id="memory-consistency-model"><a class="markdownIt-Anchor" href="#memory-consistency-model"></a> Memory Consistency Model</h3>
+<ul>
+<li>A Memory Consistency Model formulates what can be expected from the system.</li>
+<li><strong>Sequential Consistency (SC)</strong>:
+<ul>
+<li><strong>Program order:</strong> Memory accesses from each process are ordered.</li>
+<li><strong>Arbitrary interleaving</strong>: The interaction between processes in terms of memory accesses is arbitrary.</li>
+</ul>
+</li>
+</ul>
+<h3 id="cache-coherence"><a class="markdownIt-Anchor" href="#cache-coherence"></a> Cache Coherence</h3>
+<p>To deal with the cache problem is multiprocessor situation. The goal is to avoid overhead and expect performance increase as the number of processors increase. Despite of the strategies we have below, the best solution is do not share memory since it can avoid cache coherence issue.</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/RYDjUFm.jpg" style="width: 800px" />
+</li>
+</ul>
+<ul>
+<li>How the system implements the Memory Consistency Model in the presence of private caches.</li>
+<li><strong>Non-cache-coherent (NCC)</strong> multiprocessor: This model grants a shared memory space to all the CPUs, while <strong>leaving the private cache coherence issue to software</strong>.</li>
+<li><strong>Cache-coherent (CC)</strong> multiprocessor:
+<ul>
+<li><strong>Write-invalidate</strong>: Whenever a CPU writes to a memory location in its cache that happens to be fetched by other CPUs, the HW broadcasts a message on the system bus to invalidate other CPUs’ caches.</li>
+<li><strong>Write-update</strong>: Whenever a CPU writes to a memory location in its cache that happens to be fetched by other CPUs, the HW broadcasts an update on the system bus to replicate this change on other CPUs’ caches.</li>
+</ul>
+</li>
+</ul>
+<h2 id="synchronization"><a class="markdownIt-Anchor" href="#synchronization"></a> Synchronization</h2>
+<h3 id="basic-synchronization-primitives"><a class="markdownIt-Anchor" href="#basic-synchronization-primitives"></a> Basic Synchronization Primitives:</h3>
+<ul>
+<li>Lock:
+<ul>
+<li>A primitive to protect shared data structure in multi-threaded operations.</li>
+<li>Types of locks:
+<ol>
+<li><strong>Mutual exclusion</strong>: Can be used by one thread at a time (e.g. protect a data structure while writing to it).</li>
+<li><strong>Shared lock</strong>: Allows multiple threads to access the data at the same time (e.g. Multiple threads reading the same data at the same time, while preventing the modification of this data).</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Barrier synchronization</strong>:
+<ul>
+<li>A primitive to ensure that multiple threads reached a particular point in terms of computations.
+<ul>
+<li>Like a reverse from a semaphore, will block all threads until n threads arrive at this point.</li>
+</ul>
+</li>
+<li>It blocks threads that reach this point until the other threads (those that use the same barrier) reach the same point, and then all threads can continue execution.</li>
+<li>The access time from any CPU to the memory is the same.</li>
+</ul>
+</li>
+</ul>
+<h3 id="atomic-operations"><a class="markdownIt-Anchor" href="#atomic-operations"></a> Atomic Operations:</h3>
+<ul>
+<li>If we have a lock (e.g. global variable) that is shared between multiple threads, each thread will need to execute read/write operations to acquire/release this lock. This read/write operation is called atomic.</li>
+<li>Read/write operations are <strong>atomic</strong>, but checking/blocking/acquiring the lock is not atomic. This can cause problems while acquiring/releasing the lock. SO we need a new <strong>semantic atomic instruction</strong> to use with the lock to ensure thread-safe.</li>
+<li>Atomic RMW (Read – Modify – Write) instructions:
+<ul>
+<li><strong>Test-and-set</strong>: Takes a specific memory location as an argument, <strong>returns its current value</strong> and <strong>sets it to one</strong>.</li>
+<li><strong>Fetch-and-increment</strong>: Takes a specific memory location as an argument, returns its current value and <strong>increments it by one, or any given value</strong>.</li>
+<li>These instructions called in general “<strong>Fetch-and- 𝜙</strong> [fi:]”, where 𝜙 is any given operation.</li>
+</ul>
+</li>
+</ul>
+<h3 id="scalability-issues-with-synchronization"><a class="markdownIt-Anchor" href="#scalability-issues-with-synchronization"></a> Scalability Issues with Synchronization:</h3>
+<ul>
+<li><strong>Latency</strong>: The overhead of acquiring/releasing the lock.
+<ul>
+<li>The lock is being used, how long can i acquire it. It’s the time spent by a thread in acquiring the lock.</li>
+</ul>
+</li>
+<li><strong>Waiting time</strong>: How long to wait till a thread can acquire the lock.
+<ul>
+<li>It depends on what these threads are doing with this lock.</li>
+<li>For instance, if this thread acquires this lock, and then it is modifying the data for a long time before releasing it, and if another thread comes along and wants the team lock, it’s going to wait for a long time.</li>
+</ul>
+</li>
+<li><strong>Contention</strong>: If there’re multiple threads spinning on a specific lock, we expect an overhead on the system bus. This overhead increases time consumed from the point a thread releases that lock to the point it’s acquired by another thread.
+<ul>
+<li>Threads compete to acquire the lock simultaneously.</li>
+</ul>
+</li>
+</ul>
+<h3 id="spinlocks"><a class="markdownIt-Anchor" href="#spinlocks"></a> Spinlocks:</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cs.ericyy.me/cs6200/p3l4-synchronization-constructs/index.html#test-and-test-and-set-spinlock">Notes from CS6200</a></li>
+</ul>
+<h4 id="naive-spinlock"><a class="markdownIt-Anchor" href="#naive-spinlock"></a> Naive Spinlock</h4>
+<ul>
+<li>(<strong>spin on test-and-set</strong>): A thread that is waiting for a lock to be released will spin on the lock <strong>(infinitely execute test-and-set)</strong> till it’s released. This type has three issues:</li>
+<li><strong>Too much contention</strong>: Each waiting processor accesses the shared flag as frequent as possible using expensive Fetch-and- 𝜙 operation.</li>
+<li><strong>Doesn’t exploit caches</strong>.</li>
+<li><strong>Disrupts useful work</strong>.</li>
+</ul>
+<h4 id="caching-spinlock"><a class="markdownIt-Anchor" href="#caching-spinlock"></a> Caching Spinlock</h4>
+<ul>
+<li>(<strong>spin on read</strong>): On a cache-coherent system, the threads that are waiting for a lock to be released can spin on the cached value of the lock. This removes the contention from the communication network. The problem with this type is once the lock is released, all the spinning threads will try to execute test-and-set to acquire the lock, which produces a huge amount of network traffic.</li>
+</ul>
+<h4 id="spinlock-with-delay"><a class="markdownIt-Anchor" href="#spinlock-with-delay"></a> Spinlock with delay</h4>
+<ul>
+<li>Whenever a lock is released, each pending processor will wait for a specified delay time before trying to acquire the lock.</li>
+<li>Each processor will have its own delay.</li>
+<li>In some situations, the lock isn’t blocking a lot of threads and can be acquired immediately without causing much contention. <u>To avoid unnecessary delays in this case, we can use dynamic delays.</u> When the lock is released, the processor waits for a certain amount of time, and then tries to acquire the lock. If the lock was not acquired during this delay, this means that is has high contention, then the processor will double its delay time(exponential backoff).</li>
+<li>
+<img src="https://i.imgur.com/QWD4xhm.jpg" style="width: 800px" />
+</li>
+<li>In comparison, the second implementation doesn’t use cache. So if the processors are non-cache coherent multi-processor, this algorithm will still work.</li>
+<li><u>If there’s a lot of contention, then the static assignment of delay may be better than the dynamic exponential backoff.</u> But in general, any kind of delay or any kind of procrastination will help a lock algorithm better than the naive spin lock that we talked about.</li>
+</ul>
+<h4 id="ticket-lock"><a class="markdownIt-Anchor" href="#ticket-lock"></a> Ticket lock</h4>
+<ul>
+<li>
+<p><u>ensure fairness.</u> This lock structure maintains data fields to determine which thread has the lock now (<strong>now_serving</strong>), and which one should acquire the lock next (<strong>next_ticket</strong>).</p>
+</li>
+<li>
+<img src="https://i.imgur.com/GX6Nn6d.jpg" style="width: 800px" />
+</li>
+<li>
+<p>If a processor wants to acquire the look, it executes (fetch-and-increment) on the next_ticket field. Then waits till the now_serving value of the lock is equal to the ticket value of the processor.</p>
+</li>
+<li>
+<p>This structure ensures fairness between processors. Each thread gets a chance to acquire the lock.</p>
+</li>
+<li>
+<p>The processor releases the lock by incrementing now_serving.</p>
+</li>
+<li>
+<p>It adds overhead to the network for maintaining the lock information.</p>
+</li>
+</ul>
+<h4 id="array-based-queuing-lock-anderson"><a class="markdownIt-Anchor" href="#array-based-queuing-lock-anderson"></a> Array-based Queuing Lock (Anderson):</h4>
+<p>The ONLY atomic instruction: <strong>fetch-and-inc(queuelast);</strong></p>
+<img src="https://i.imgur.com/vYzeXjl.jpg" style="width: 800px" />
+<ul>
+<li>The thread that is releasing the lock will signal another pending thread to acquire the lock.</li>
+<li>The lock maintains two data structures:
+<ol>
+<li>A circular queue of flags, where each processor either has the lock (<strong>has_lock</strong>) or waiting for it to be released (<strong>must_wait</strong>).</li>
+<li>A “queue_last” variable to specify the <strong>next free spot</strong> in the queue.</li>
+</ol>
+</li>
+<li>The pending thread will spin on its position in the queue till it can jump to (has_lock) and acquire the lock.</li>
+<li>When a thread is releasing the lock, it will signal the next thread in the queue, by setting the next position in the flags array to (has_lock).</li>
+<li>Advantages:
+<ul>
+<li>There’s only one atomic operation a thread has to execute to acquire the lock.</li>
+<li>The lock is fair. It maintains the order of requests.</li>
+<li>The spin position of each processor (must_wait) ensures independence between different threads.</li>
+<li>Whenever a lock is released, exactly one thread is signaled to acquire the lock. This decreases contention.</li>
+</ul>
+</li>
+<li>Disadvantage:
+<ul>
+<li><strong>The size of the queue will depend on the number of processors.</strong> Since the lock maintains a <strong>STATIC</strong> data structure, it must create a structure that can accommodate for the worst-case scenario (all processors are waiting for the lock). If we have a large-scale multi-processing system, this can be a problem (high space complexity).</li>
+</ul>
+</li>
+</ul>
+<h4 id="linked-list-based-queuing-lock-mcs-lock"><a class="markdownIt-Anchor" href="#linked-list-based-queuing-lock-mcs-lock"></a> Linked List-based Queuing Lock (MCS Lock):</h4>
+<ul>
+<li>
+<p>To avoid the space complexity of the Array-based Queuing Lock, a linked list can be used as a representation for the queue, so the size of the queue will be exactly equal to the dynamic sharing of the lock.</p>
+<ul>
+<li>This means that the size of the queue will be equal to the number of processors that are actually using the queue right now, not all the processors in the system.</li>
+</ul>
+</li>
+<li>
+<p>The lock data structure is a <strong>dummy node</strong> and will be the initial node of the linked list.</p>
+</li>
+<li>
+<p>Each thread gets a node with two fields:</p>
+<ul>
+<li><strong>got_it</strong>: To indicate that the thread acquired the lock (locally accessible to the processor).</li>
+<li><strong>next</strong>: To point to the next thread in the queue.</li>
+</ul>
+</li>
+<li>
+<p>Whenever a new thread wants to join the queue, it will execute an atomic operation (<strong>fetch-and-store(L, me)</strong>):</p>
+<ol>
+<li>It change the “next” pointer in the last node to point to itself.</li>
+<li>Set the “next” pointer of its node to null.</li>
+<li>Spin on its “got_it” field.</li>
+<li>
+<img src="https://i.imgur.com/aja7H5D.jpg" style="width: 800px" />
+</li>
+</ol>
+</li>
+<li>
+<p>When a thread releases the lock, it should remove itself from the list and signal the next thread. If there’s no thread waiting for the lock, the releasing thread should set the “next” pointer to null.</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/UZPW9w4.jpg" style="width: 800px" />
+</li>
+</ul>
+</li>
+<li>
+<p>A problem can arise if a new thread tries to acquire the lock at the same time the releasing thread sets the pointer to null. A race condition will happen.</p>
+<ul>
+<li>This is a <strong>corner case</strong> that <code>me</code> think it’s the last request.</li>
+</ul>
+</li>
+<li>
+<p>To avoid this issue, the releasing thread should do a <strong>comp-and-swap(L, me, nil)</strong> atomic operation. It checks if the last requester pointer is still pointing at itself and if yes it sets the pointer to null.</p>
+<ul>
+<li>So in the instruction, it compares first two arguments: last and me, if the same, set L to the third argument: nil.
+<ul>
+<li>the instruction returns true if the swap succeeded. Otherwise won’t do the swap and return false.</li>
+<li>When it return false, <strong>me</strong> is gonna <strong>spin</strong> on <code>me</code>’s next pointer == null to wait for the next pointer to become not null. Once it’s not null, <code>me</code> is gonna signal the successor that he gets the lock.</li>
+</ul>
+</li>
+<li>TODO: Look into the code to get a better understanding.</li>
+<li>
+<img src="https://i.imgur.com/Lt2xucv.jpg" style="width: 800px" />
+</li>
+</ul>
+</li>
+<li>
+<p>Advantages:</p>
+<ul>
+<li>Guarantees FIFO <strong>ordering</strong> of lock acquisitions. &lt;-- Fair</li>
+<li>Processors <strong>spin</strong> on locally-accessed flags only. &lt;-- Unique</li>
+<li>The space complexity of this data structure is proportional to the number of requesters to the lock at any point of time. &lt;-- Dynamic</li>
+<li>Works well on cache-coherent or non-cache-coherent systems.</li>
+</ul>
+</li>
+<li>
+<p>Disadvantage:</p>
+<ul>
+<li>If the processor only has <strong>test and set</strong> instruction, then an exponential backoff algorithm would be a good bet for scalability, because you need to implement these two instructions.</li>
+</ul>
+</li>
+</ul>
+<h3 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h3>
+<img src="https://i.imgur.com/mdiNl1D.jpg" style="width: 800px" />
+- Spin:
+    - pvt: spin on private variable
+    - sh: spin on shared variable
+- RMW ops pre CS:
+    - How many ops of RMW are required for a lock.
+    - Depends on the amount of contention except for Anderson and MCS, which has two fixed numbers.
+<h2 id="barrier-synchronization"><a class="markdownIt-Anchor" href="#barrier-synchronization"></a> Barrier Synchronization</h2>
+<h3 id="centralized-counting-barrier"><a class="markdownIt-Anchor" href="#centralized-counting-barrier"></a> Centralized Counting Barrier</h3>
+<ul>
+<li>We have a counter that is initialized by the number of threads 𝑁 to be synchronized.</li>
+<li>Once a thread arrives to the barrier, it atomically decrements the counter, and spins on it till it becomes zero.</li>
+<li>The last thread to arrive will decrement the counter. Now the counter is zero, so that thread will reset the counter to its initial value 𝑁, so that it can be used for the next barrier.</li>
+<li>A problem can arise if one of the threads races to the next barrier before the counter is reset to its initial value 𝑁. This thread will directly go through the barrier.
+<ul>
+<li>To solve this problem, we add another spin loop so that the threads will wait for the counter to become zero, then wait again till it becomes 𝑁.</li>
+<li>
+<img src="https://i.imgur.com/Gve4a02.jpg" style="width: 800px" />
+</li>
+<li>Question: when all threads reach the second <code>while</code>, what if one of the thread update the N to N-1, and some other threads are still haven’t do the <code>count == N</code> check yet? It might cause some threads stuck forever.</li>
+</ul>
+</li>
+</ul>
+<h3 id="sense-reversing-barrier"><a class="markdownIt-Anchor" href="#sense-reversing-barrier"></a> Sense Reversing Barrier</h3>
+<p>To reduce the spin from 2 to 1.</p>
+<ul>
+<li>In a Counting Barrier we have two spin loops for each thread. One waits for the counter to become zero, and the other one waits for the counter to become 𝑁.</li>
+<li>To avoid having two loops, we add another variable “<strong>sense</strong>” that is shared between all the threads to be synchronized.</li>
+<li>This variable will be true for the current barrier, and false for all the other barriers.</li>
+<li>This way we can determine which barrier we’re in at any particular point of time.</li>
+<li>Whenever a thread arrives at the barrier, it decrements the counter and spins on “sense” reversal.</li>
+<li>The last thread will reset the counter to 𝑁 and reverses the “sense” variable.</li>
+<li>The problem with this technique is that we have two shared variables between all the threads, which decreases the possibilities for scalability (More sharing → Less scalability).</li>
+<li>
+<img src="https://i.imgur.com/bWPVE0l.jpg" style="width: 800px" />
+</li>
+</ul>
+<h3 id="tree-barrier"><a class="markdownIt-Anchor" href="#tree-barrier"></a> Tree Barrier</h3>
+<p>To reduce the contention among all of the threads, only the nodes that rise up to the parent spin on the locksence.</p>
+<ul>
+<li>Instead of having a single pair of “count” and “lock_sense” variables shared between 𝑁 threads, we will have a pair of variables for each 𝐾 number of threads, where 𝐾 &lt; 𝑁.</li>
+<li>Processors are divided into groups. Each group is assigned to a tree leaf.</li>
+<li>When a thread arrives to the barrier, it decrements the <strong>counter</strong> and spins on <strong>lock_sense</strong>.</li>
+<li>The last thread of the leaf will arrive and decrement the counter to zero. Then it checks if it has a “parent”, if yes it decrements the counter of its parent and spins on the parent’s <strong>lock_sense</strong>.</li>
+<li>This operation is executed recursively until the last thread arrives to the barrier.</li>
+<li>The last thread will decrement the counter at the root of the tree to zero, which indicates that everyone arrived. This thread will then reset the counter to 𝑁 and reverse the root’s <strong>lock_sense</strong> flag.</li>
+<li>All the threads till the bottom of the true will wake up <strong>recursively</strong>.
+<ul>
+<li>
+<img src="https://i.imgur.com/9nhLaFD.jpg" style="width: 800px" />
+</li>
+</ul>
+</li>
+<li>This allows for higher scalability since the amount of sharing is relatively small.</li>
+<li>Disadvantages:
+<ul>
+<li>The spin location is not static for each thread. It depends on the time the thread arrives to the barrier.
+<ul>
+<li>Meaning p0 and p1 both have a chance to move up to spin.</li>
+</ul>
+</li>
+<li>If you have a <strong>huge number of threads</strong>, the tree will grow too deep and will results in <strong>contention</strong> on the system.</li>
+<li>On a non-cache-coherent system, a thread might need to <strong>modify/spin on a variable in a remote memory</strong>, which adds <strong>contention</strong> to the system.</li>
+</ul>
+</li>
+</ul>
+<h3 id="mcs-tree-barrier-4-ary-arrival"><a class="markdownIt-Anchor" href="#mcs-tree-barrier-4-ary-arrival"></a> MCS Tree Barrier (4-Ary arrival)</h3>
+<p>To minimize contention, MCS tree implements the barrier with two trees: arrival tree and wakeup tree. Both offers static positions for the nodes.</p>
+<ul>
+<li>
+<p>This is a modified Tree Barrier where each node is allowed to have at most 4 children.</p>
+</li>
+<li>
+<p>Each node has two data structure:</p>
+<ul>
+<li><strong>HaveChildren</strong>: Indicates if the node is a parent or not, and how many children it has if any.</li>
+<li><strong>ChildNotReady</strong>: Each child thread has a unique spot in the parent’s ChildNotReady structure to signal the arrival of that child thread. These spots are statically determined.</li>
+</ul>
+</li>
+<li>
+<p>Whenever a thread arrives to the barrier, it sets it’s spot in the parent’s ChildNotReady structure to True. The thread spins on the arrival of its own children if it has any.</p>
+</li>
+<li>
+<p>A 4-Ary tree facilitates the best performance.</p>
+</li>
+<li>
+<p>In a cache-coherent system, it can be arranged so that all the ChildNotReady structure can be packed in one word, so the parent processor just spins on a single memory location.</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/GvwNrG9.jpg" style="width: 800px" />
+</li>
+</ul>
+</li>
+<li>
+<p>Although the <strong>arrival tree</strong> is a 4-Ary tree as shown in the above figure, the <strong>wakeup tree</strong> is a binary tree.</p>
+</li>
+<li>
+<p>Each thread has a <strong>ChildPointer</strong> that can be used to signal the child to wake up.</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/JIHnMQZ.jpg" style="width: 800px" />
+</li>
+</ul>
+</li>
+<li>
+<p>key takeaway:</p>
+<ul>
+<li>the wakeup tree is binary.</li>
+<li>The arrival tree is 4-ary.</li>
+<li>The <strong>static locations</strong> associated with each processor, both in the arrival tree and the wakeup tree</li>
+</ul>
+</li>
+</ul>
+<h3 id="tournament-barrier"><a class="markdownIt-Anchor" href="#tournament-barrier"></a> Tournament Barrier</h3>
+<ul>
+<li>
+<p>The barrier is represented by a tournament data structure (binary tree) with 𝑁 players and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo><mi>log</mi><mo>⁡</mo></mo><mn>2</mn></msub><mi>N</mi></mrow><annotation encoding="application/x-tex">\log_2N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93858em;vertical-align:-0.24414em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> rounds.</p>
+</li>
+<li>
+<p>The <strong>winning thread of each round is predetermined</strong>. This allows the spin locations to be static.</p>
+<ul>
+<li>E.g. P0 is the winner and it spins to wait for P1 to arrive.</li>
+</ul>
+</li>
+<li>
+<p>Tournament Barriers don’t need a Fetch-and- 𝜙 operation.</p>
+</li>
+<li>
+<p>Tournament Barriers works even if the system doesn’t have a shared memory, where threads can only <strong>communicate through message passing</strong> (No shared memory → Cluster machine).</p>
+<ul>
+<li>If you have NCC NUMA machine, it is possible to locate the spin location in the memory that is very close to P0 P2 P4 and P6 respectively.</li>
+</ul>
+</li>
+<li>
+<img src="https://i.imgur.com/AwZcmUz.jpg" style="width: 800px" />
+</li>
+<li>
+<p>The main difference is that in the tournament barrier, the spin locations are statically determined, whereas in the tree barrier we saw that the spin locations are dynamically determined based on who arrives at a particular node in the barrier in the tree in that algorithm.</p>
+</li>
+<li>
+<p>Another important difference between the tournament barrier and the tree barrier is that there is no need for a <strong>fetch and phi</strong> operation.</p>
+</li>
+<li>
+<p>The amount of communication in the tournament barrier in terms of all the notation is exactly similar to the tree barrier it is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log{N})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span><span class="mclose">)</span></span></span></span>.</p>
+</li>
+</ul>
+<h3 id="dissemination-barrier"><a class="markdownIt-Anchor" href="#dissemination-barrier"></a> Dissemination Barrier</h3>
+<ul>
+<li>In each round <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝑘</mi></mrow><annotation encoding="application/x-tex">𝑘</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>, whenever a processor <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝑃</mi><mi>𝑖</mi></msub></mrow><annotation encoding="application/x-tex">𝑃_𝑖</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> arrives at the barrier, it will signal processor <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mrow><mi>i</mi><mo>+</mo><msup><mn>2</mn><mi>k</mi></msup><mo>⋅</mo><mi>m</mi><mi>o</mi><mi>d</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">P_{i+2^k \cdot mod(N)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0609499999999998em;vertical-align:-0.3776199999999999em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34479999999999994em;"><span style="top:-2.49738em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight"><span class="mord mtight">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7820285714285713em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mbin mtight">⋅</span><span class="mord mathnormal mtight">m</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">d</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3776199999999999em;"><span></span></span></span></span></span></span></span></span></span> This creates a cyclic communication order between the processors.
+<ul>
+<li>For easier understanding, the formula can be interpreted as:
+<ul>
+<li>Round 0, each process send message to the 2^0 neighbor.</li>
+<li>Round 1, each process send message to the 2^1 neighbor, aka, p0 -&gt; p2, p1 -&gt; p3, and so on.</li>
+<li>Round 2, each process send message to the 2^2 neighbor, aka, p0 -&gt; p4, p1 -&gt; p(5%5=0), and so on.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A Dissemination Barrier would need ⌈<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo><mi>log</mi><mo>⁡</mo></mo><mn>2</mn></msub><mi>N</mi></mrow><annotation encoding="application/x-tex">\log_2N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93858em;vertical-align:-0.24414em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>⌉ rounds for all the processors to wake up.</li>
+<li>Spin locations are statically determined.</li>
+<li>
+<img src="https://i.imgur.com/lWKudKa.jpg" style="width: 800px" />
+</li>
+</ul>
+<h2 id="so-far"><a class="markdownIt-Anchor" href="#so-far"></a> So far</h2>
+<ul>
+<li>Spin algorithms:
+<ul>
+<li>test-and-set</li>
+<li>test-and-set with cacahe</li>
+<li>test-and-set with delay</li>
+<li>ticket</li>
+<li>queue</li>
+</ul>
+</li>
+<li>Barrier algorithms:
+<ul>
+<li>Counter</li>
+<li>Tree</li>
+<li>MCS Tree</li>
+<li>Tornament</li>
+<li>Dissemination</li>
+</ul>
+</li>
+<li>Parallel Architectures: ? When?
+<ul>
+<li>Cache Coherence shared-memory multiprocessors</li>
+<li>Cache Coherence non-unified memory access</li>
+<li>Non-cache coherence non-unified memory access</li>
+<li>Multiprocessor clusters.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+  
+  <div class="divider"></div>
+</div>
+
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
