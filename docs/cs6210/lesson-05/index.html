@@ -521,18 +521,21 @@ function sidebar_toggle() {
 <li><strong>Hardware overhead</strong>: How the network controller is interfaced to the CPU. There are two types of network controllers:
 <ol>
 <li>DMA(direct memory access): The network controller moves bits of the message from system memory into its private buffer without intervention of the CPU.</li>
-<li>The CPU does program I/O to move the bits from the memory into the buffer of the network controller.</li>
-</ol>
+<li>The CPU does program I/O to move the bits from the memory into the buffer of the network controller.
 <ul>
-<li><img src="https://i.imgur.com/IctbBQw.jpg" alt="" /></li>
+<li>
+<img src="https://i.imgur.com/IctbBQw.jpg" style="width: 400px" />
+</li>
 </ul>
+</li>
+</ol>
 </li>
 <li><strong>Software overhead</strong>: What the OS takes to prepare the message for transmission.</li>
 </ul>
 </li>
 </ul>
 <h3 id="rpc-latency"><a class="markdownIt-Anchor" href="#rpc-latency"></a> RPC Latency</h3>
-<p><img src="https://i.imgur.com/mmW40zV.jpg" alt="" /></p>
+<img src="https://i.imgur.com/mmW40zV.jpg" style="width: 400px" />
 <ul>
 <li>These are the steps needed to perform an RPC:
 <ol>
@@ -787,8 +790,12 @@ function sidebar_toggle() {
 <p><img src="https://i.imgur.com/t9MclNm.jpg" alt="" /></p>
 <h3 id="synthesizing-a-tcp-ip-stack"><a class="markdownIt-Anchor" href="#synthesizing-a-tcp-ip-stack"></a> Synthesizing a TCP-IP Stack</h3>
 <ul>
-<li>Specify the Abstract Behavioral Specifications and produce the Concrete Behavioral Specifications.</li>
-<li>Using an ensemble suite of micro-protocols to produce the unoptimized OCAML code.</li>
+<li>Specify the <strong>Abstract</strong> Behavioral Specifications and produce the <strong>Concrete</strong> Behavioral Specifications.</li>
+<li>Using an <strong>ensemble suite of micro-protocols</strong> to produce the unoptimized OCAML code.
+<ul>
+<li>e.g. TCP/IP: flow control, sliding window, encryption, scatter/gather, etc.</li>
+</ul>
+</li>
 <li>Sources of possible optimization:
 <ul>
 <li>Explicit memory management instead of implicit garbage collection.</li>
@@ -800,10 +807,14 @@ function sidebar_toggle() {
 </li>
 <li>Using NuPrl:
 <ul>
-<li>Static optimization: A NuPrl expert and an OCAML expert goes through the protocol stack layer by layer and identify optimization possibilities.</li>
-<li>Dynamic optimization: Collapsing multiple layers, if possible, to avoid latency.</li>
-<li>This is achieved by deriving common case predicates from the state of the protocol using conditional statements.</li>
+<li><strong>Static optimization</strong>: A NuPrl expert and an OCAML expert goes through the protocol stack layer by layer and identify optimization possibilities.</li>
+<li><strong>Dynamic optimization</strong>: Collapsing multiple layers, if possible, to avoid latency.
+<ul>
+<li>This is achieved by deriving <strong>common case predicates</strong>(CCP) from the state of the protocol using conditional statements.</li>
 <li>If the CCP is satisfied, the protocol layers will be bypassed by a generated code for this CCP.</li>
+</ul>
+</li>
+<li><img src="https://i.imgur.com/MaDojhz.jpg" alt="" /></li>
 </ul>
 </li>
 </ul>

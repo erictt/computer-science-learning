@@ -125,12 +125,12 @@
     - **Hardware overhead**: How the network controller is interfaced to the CPU. There are two types of network controllers:
         1. DMA(direct memory access): The network controller moves bits of the message from system memory into its private buffer without intervention of the CPU.
         2. The CPU does program I/O to move the bits from the memory into the buffer of the network controller.
-        - ![](https://i.imgur.com/IctbBQw.jpg)
+            - <img src="https://i.imgur.com/IctbBQw.jpg" style="width: 400px" />
     - **Software overhead**: What the OS takes to prepare the message for transmission.
 
 ### RPC Latency
 
-![](https://i.imgur.com/mmW40zV.jpg)
+<img src="https://i.imgur.com/mmW40zV.jpg" style="width: 400px" />
 
 * These are the steps needed to perform an RPC:
     1. **Client call**: Setting up the arguments for the procedure call, and makes the call to the kernel. The kernel validates the call, marshals the arguments into a network packet and sets up the controller to do the transmission.
@@ -321,11 +321,11 @@ The roadblocks to the Active Network vision:
 
 ![](https://i.imgur.com/t9MclNm.jpg)
 
-
 ### Synthesizing a TCP-IP Stack
 
-* Specify the Abstract Behavioral Specifications and produce the Concrete Behavioral Specifications.
-* Using an ensemble suite of micro-protocols to produce the unoptimized OCAML code.
+* Specify the **Abstract** Behavioral Specifications and produce the **Concrete** Behavioral Specifications.
+* Using an **ensemble suite of micro-protocols** to produce the unoptimized OCAML code.
+    * e.g. TCP/IP: flow control, sliding window, encryption, scatter/gather, etc.
 * Sources of possible optimization:
     - Explicit memory management instead of implicit garbage collection.
     - Avoid marshaling/unmarshaling across layers.
@@ -333,9 +333,10 @@ The roadblocks to the Active Network vision:
     - Header compression.
     - Locality enhancement for common code sequences.
 * Using NuPrl:
-    - Static optimization: A NuPrl expert and an OCAML expert goes through the protocol stack layer by layer and identify optimization possibilities.
-    - Dynamic optimization: Collapsing multiple layers, if possible, to avoid latency.
-    - This is achieved by deriving common case predicates from the state of the protocol using conditional statements.
-    - If the CCP is satisfied, the protocol layers will be bypassed by a generated code for this CCP.
+    - **Static optimization**: A NuPrl expert and an OCAML expert goes through the protocol stack layer by layer and identify optimization possibilities.
+    - **Dynamic optimization**: Collapsing multiple layers, if possible, to avoid latency.
+        - This is achieved by deriving **common case predicates**(CCP) from the state of the protocol using conditional statements.
+        - If the CCP is satisfied, the protocol layers will be bypassed by a generated code for this CCP.
+    - ![](https://i.imgur.com/MaDojhz.jpg)
 
 ![](https://i.imgur.com/XTCSOpi.jpg)
