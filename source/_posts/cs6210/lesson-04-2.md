@@ -180,6 +180,10 @@ In Summary
 * **A non-uniform memory access (NUMA) architecture**: Connecting all the nodes in the system through an Inter-connecting Network. The large distance between accessing processors and the target memory results in lower performance.
 * **Deep memory hierarchy** (Multi-cache).
 * **False sharing**: Sometimes the cache hierarchy (large cache lines) makes the memory addresses touched by different threads on different cores to be on the same cache block. This gives the illusion that these addresses are shared (without programmatic sharing). This particularly happens on modern processors because they tend to have larger cache blocks.
+    * e.g. An array of 4 integers, and 4 threads are updating the corresponding integer matching with their IDs. Technically they don't share data, but the array is still shared among four threads because the array is in the same cache line. We can avoid this by forcing each element of the array to be in different cache line so they don't share anything. But it's too much work for developers to think of.
+    * https://www.youtube.com/watch?v=OuzYICZUthM&list=PLLX-Q6B8xqZ8n8bwjGdzBJ25X2utwnoEG&index=7
+    * ![](media/16771805621366.jpg)
+
 
 ### OS Design Principles
 

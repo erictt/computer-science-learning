@@ -1,4 +1,4 @@
-# Lesson 02: OS Structure
+# Lesson 2: OS Structure
 
 <!-- toc -->
 

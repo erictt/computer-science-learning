@@ -90,9 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6210/lesson-03/index.html">Lesson 3: Virtualization</a></li>
 <li><a href="/cs6210/lesson-04-1/index.html">Lesson 4: Parallel Systems - Part 1</a></li>
 <li><a href="/cs6210/lesson-04-2/index.html">Lesson 4: Parallel Systems - Part 2</a></li>
+<li><a href="/cs6210/lesson-05/index.html">Lesson 5: Distributed Systems</a></li>
 </ul>
 <!--
-* [Lesson 5: Distributed Systems](/cs6210/lesson-05/index.html)
 * [Lesson 6: Distributed Objects and Middleware](/cs6210/lesson-06/index.html)
 * [Lesson 7: Distributed Subsystems](/cs6210/lesson-07/index.html)
 * [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
@@ -570,7 +570,13 @@ function sidebar_toggle() {
 <li>The memory latency is huge due to faster processors and more complex controllers.</li>
 <li><strong>A non-uniform memory access (NUMA) architecture</strong>: Connecting all the nodes in the system through an Inter-connecting Network. The large distance between accessing processors and the target memory results in lower performance.</li>
 <li><strong>Deep memory hierarchy</strong> (Multi-cache).</li>
-<li><strong>False sharing</strong>: Sometimes the cache hierarchy (large cache lines) makes the memory addresses touched by different threads on different cores to be on the same cache block. This gives the illusion that these addresses are shared (without programmatic sharing). This particularly happens on modern processors because they tend to have larger cache blocks.</li>
+<li><strong>False sharing</strong>: Sometimes the cache hierarchy (large cache lines) makes the memory addresses touched by different threads on different cores to be on the same cache block. This gives the illusion that these addresses are shared (without programmatic sharing). This particularly happens on modern processors because they tend to have larger cache blocks.
+<ul>
+<li>e.g. An array of 4 integers, and 4 threads are updating the corresponding integer matching with their IDs. Technically they don’t share data, but the array is still shared among four threads because the array is in the same cache line. We can avoid this by forcing each element of the array to be in different cache line so they don’t share anything. But it’s too much work for developers to think of.</li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=OuzYICZUthM&amp;list=PLLX-Q6B8xqZ8n8bwjGdzBJ25X2utwnoEG&amp;index=7">https://www.youtube.com/watch?v=OuzYICZUthM&amp;list=PLLX-Q6B8xqZ8n8bwjGdzBJ25X2utwnoEG&amp;index=7</a></li>
+<li><img src="media/16771805621366.jpg" alt="" /></li>
+</ul>
+</li>
 </ul>
 <h3 id="os-design-principles"><a class="markdownIt-Anchor" href="#os-design-principles"></a> OS Design Principles</h3>
 <img src="https://i.imgur.com/kdOcyoH.jpg" style="width: 800px" />
