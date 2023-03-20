@@ -31,9 +31,9 @@
 * [Lesson 4: Parallel Systems - Part 1](/cs6210/lesson-04-1/index.html)
 * [Lesson 4: Parallel Systems - Part 2](/cs6210/lesson-04-2/index.html)
 * [Lesson 5: Distributed Systems](/cs6210/lesson-05/index.html)
+* [Lesson 6: Distributed Objects and Middleware](/cs6210/lesson-06/index.html)
 
 <!--
-* [Lesson 6: Distributed Objects and Middleware](/cs6210/lesson-06/index.html)
 * [Lesson 7: Distributed Subsystems](/cs6210/lesson-07/index.html)
 * [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
 * [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)

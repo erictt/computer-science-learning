@@ -91,9 +91,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6210/lesson-04-1/index.html">Lesson 4: Parallel Systems - Part 1</a></li>
 <li><a href="/cs6210/lesson-04-2/index.html">Lesson 4: Parallel Systems - Part 2</a></li>
 <li><a href="/cs6210/lesson-05/index.html">Lesson 5: Distributed Systems</a></li>
+<li><a href="/cs6210/lesson-06/index.html">Lesson 6: Distributed Objects and Middleware</a></li>
 </ul>
 <!--
-* [Lesson 6: Distributed Objects and Middleware](/cs6210/lesson-06/index.html)
 * [Lesson 7: Distributed Subsystems](/cs6210/lesson-07/index.html)
 * [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
 * [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
@@ -312,115 +312,146 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1 id="lesson-6-spring-operating-system"><a class="markdownIt-Anchor" href="#lesson-6-spring-operating-system"></a> Lesson 6: Spring Operating System</h1>
-<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction:</h2>
+<h2 id="l06a-introduction"><a class="markdownIt-Anchor" href="#l06a-introduction"></a> L06a. Introduction</h2>
 <ul>
-<li>
-<p>How to design for the continuous and incremental evolution for the complex distributed SW systems (Functionality + Performance)?</p>
+<li>How to design for the continuous and incremental evolution for the complex distributed software systems (functionality + performance)?
 <ul>
-<li>Using Distributed Object Technology, we can design scalable OS services in a parallel system.</li>
+<li>Using <strong>Distributed Object Technology</strong>, we can design scalable OS services in a parallel system.</li>
 </ul>
 </li>
-<li>
-<p>How to innovate in the commercial OS space?</p>
+<li>How to innovate in the commercial OS space?
 <ul>
-<li>In a commercial space, the choice becomes whether to build a new OS or to build a better implementation of an existing OS. Due to the installed base of applications, moving to a new OS is not a good option. Sun, therefore, took the latter approach with Spring.</li>
+<li>In a commercial space, the choice becomes <u>whether to build a new OS or to build a better implementation of an existing OS</u>. Due to the installed base of applications, moving to a new OS is not a good option. Sun, therefore, took the latter approach with Spring.</li>
 </ul>
 </li>
-<li>
-<p>The OS Sun was developing had to:</p>
+<li>The OS Sun was developing had to:
 <ul>
 <li>Run existing applications unchanged and yet allow for them to be scaled to larger capacities via clusters.</li>
-<li>Allow for 3 rd party vendors to use the APIs exposed optimally without breaking anything.</li>
+<li>Allow for 3rd party vendors to use the APIs exposed optimally without breaking anything.</li>
 </ul>
 </li>
 </ul>
 <h3 id="object-based-vs-procedural-design"><a class="markdownIt-Anchor" href="#object-based-vs-procedural-design"></a> Object-Based vs. Procedural Design</h3>
+<p><img src="https://i.imgur.com/DcP7IoO.jpg" alt="" /></p>
 <ul>
 <li>Procedural Design:
 <ul>
 <li>The code is written as a monolithic entity.</li>
-<li>We have a shared state represented by the global variables, and private states represented by the function calls.</li>
+<li>We have a <strong>shared state</strong> represented by the global variables, and <strong>private states</strong> represented by the function calls.</li>
 </ul>
 </li>
 <li>Object-Based Design:
 <ul>
-<li>The state is entirely contained inside the object.</li>
+<li>The <strong>state is contained inside</strong> the object.</li>
 <li>Methods inside the object manipulate the state. Only the methods are visible externally.</li>
 </ul>
 </li>
 <li>In Spring, Object Orientation is applied to build the OS Kernel.</li>
 </ul>
 <h3 id="spring-approach"><a class="markdownIt-Anchor" href="#spring-approach"></a> Spring Approach</h3>
+<p><img src="https://i.imgur.com/LA1GcVB.jpg" alt="" /></p>
 <ul>
 <li>Provide strong interfaces to each sub-system.</li>
-<li>The system is open and flexible. Thus, 3 rd party vendors can integrate their SW to the system.</li>
-<li>IDL (Interface Definition Language) is used to define the OS interfaces. This provided flexibility in terms of the programming language.</li>
-<li>A microkernel was used to facilitate extensibility:
+<li>The system is open and flexible. Thus, 3rd party vendors can integrate their software to the system.</li>
+<li><strong>IDL</strong> (<strong>Interface Definition Language</strong>) is used to define the OS interfaces. This provided flexibility in terms of the programming language.</li>
+<li>The kernel in Spring is used to facilitate extensibility:
 <ul>
-<li>Nucleus: Threads + IPC.</li>
-<li>VM Manager: Memory management.</li>
+<li><strong>Nucleus</strong>: Threads + IPC.</li>
+<li><strong>Virtual Memory Manager</strong>: Memory management.</li>
 </ul>
 </li>
 <li>Sun provided a “Network Proxy” node so that the OS can be used as a network OS.</li>
 </ul>
 <h3 id="nucleus"><a class="markdownIt-Anchor" href="#nucleus"></a> Nucleus</h3>
+<p><img src="https://i.imgur.com/6hhzK8G.jpg" alt="" /></p>
 <ul>
 <li>Nucleus is the microkernel of Spring OS. It manages only the threads abstractions and the IPC.</li>
 <li>Door:
 <ul>
-<li>A SW capability to a target domain (a domain is container or an address space where threads can execute).</li>
+<li>A software capability to a target domain (a domain is container or an address space where threads can execute).</li>
 <li>Threads can enter a target domain using the Door. It represents the entry point methods to the domain.</li>
-<li>Every domain will have a Door Table containing the IDs of the Doors this domain can access.</li>
+<li>Every domain will have a <strong>Door Table</strong> containing the <strong>IDs</strong> of the Doors this domain can access.</li>
 <li>Multiple client domains can have access to the same Door.</li>
 </ul>
 </li>
-<li>How to make a Protected Procedure Call?
+<li>How to make a <strong>Protected Procedure Call</strong>?
 <ul>
 <li>The client domain invokes the Door handle of the target domain.</li>
-<li>The Nucleus verifies this invocation.</li>
+<li>The <strong>Nucleus verifies this invocation</strong>.</li>
 <li>The Nucleus allocates a server thread to the target domain and executes the invocation that is indicated by this particular Door handle.</li>
 <li>Since it’s a Protected Procedure Call, the client thread will be deactivated, and the thread is allocated to the target domain to execute the invocation.</li>
 <li>On return, the thread is deactivated, and the client thread is reactivated to continue execution.</li>
-<li>Similar to LRPC in terms of doing fast cross address space calls using the Door mechanism.</li>
+<li><u>Similar to LRPC</u> in terms of doing fast cross address space calls using the Door mechanism.</li>
 <li>This ensures high performance.</li>
 </ul>
 </li>
 </ul>
 <h3 id="object-invocation-across-the-network"><a class="markdownIt-Anchor" href="#object-invocation-across-the-network"></a> Object Invocation Across the Network</h3>
+<p><img src="https://i.imgur.com/fqjELzn.jpg" alt="" /></p>
 <ul>
-<li>Object invocation between client/server domains across the network is facilitated using the Network Proxy.</li>
-<li>Each domain has multiple Network Proxies to communicate with different nodes on the network. This facilitates specialization since these different proxies can represent different protocols.</li>
+<li>Object invocation between client/server domains across the network is facilitated using the <strong>Network Proxy</strong>.</li>
+<li><u>Each domain has <strong>multiple Network Proxies</strong></u> to communicate with different nodes on the network. This facilitates specialization since these different proxies can represent different protocols.</li>
 <li>Network Proxies are invisible to the clients/servers.</li>
 <li>How to establish communication over the network?
 <ul>
-<li>A Network Proxy (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝑃</mi><mi>𝑟</mi><mi>𝑜</mi><mi>𝑥</mi><msub><mi>𝑦</mi><mi>𝑠</mi></msub></mrow><annotation encoding="application/x-tex">𝑃𝑟𝑜𝑥𝑦_𝑠</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">o</span><span class="mord mathnormal">x</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>) will be instantiated on the server node and a Door will be created for communication between this Proxy and the server domain through the Nucleus.</li>
-<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝑃</mi><mi>𝑟</mi><mi>𝑜</mi><mi>𝑥</mi><msub><mi>𝑦</mi><mi>𝑠</mi></msub></mrow><annotation encoding="application/x-tex">𝑃𝑟𝑜𝑥𝑦_𝑠</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">o</span><span class="mord mathnormal">x</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> will export the network handle embedding the Door created on the server domain to the Network Proxy of the client domain <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝑃</mi><mi>𝑟</mi><mi>𝑜</mi><mi>𝑥</mi><msub><mi>𝑦</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">𝑃𝑟𝑜𝑥𝑦_c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">o</span><span class="mord mathnormal">x</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> . These Proxies and the communication between them are outside the kernel.</li>
-<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝑃</mi><mi>𝑟</mi><mi>𝑜</mi><mi>𝑥</mi><msub><mi>𝑦</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">𝑃𝑟𝑜𝑥𝑦_c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">o</span><span class="mord mathnormal">x</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>will use this network handle to establish a connection between the client’s Nucleus and the server’s Nucleus.</li>
+<li>A Network Proxy (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>𝑃𝑟𝑜𝑥𝑦</mtext><mi>𝑠</mi></msub></mrow><annotation encoding="application/x-tex">\text{𝑃𝑟𝑜𝑥𝑦}_𝑠</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.92747em;vertical-align:-0.24414em;"></span><span class="mord"><span class="mord text"><span class="mord textit">P</span><span class="mord textit">ro</span><span class="mord textit">x</span><span class="mord textit">y</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.057252em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span></span></span></span>) will be instantiated on the server node and a Door will be created for communication between this Proxy and the server domain through the Nucleus.</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>𝑃𝑟𝑜𝑥𝑦</mtext><mi>𝑠</mi></msub></mrow><annotation encoding="application/x-tex">\text{𝑃𝑟𝑜𝑥𝑦}_𝑠</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.92747em;vertical-align:-0.24414em;"></span><span class="mord"><span class="mord text"><span class="mord textit">P</span><span class="mord textit">ro</span><span class="mord textit">x</span><span class="mord textit">y</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.057252em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span></span></span></span> will export the network handle embedding the Door created on the server domain to the Network Proxy of the client domain <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>𝑃𝑟𝑜𝑥𝑦</mtext><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">\text{𝑃𝑟𝑜𝑥𝑦}_c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.92747em;vertical-align:-0.24414em;"></span><span class="mord"><span class="mord text"><span class="mord textit">P</span><span class="mord textit">ro</span><span class="mord textit">x</span><span class="mord textit">y</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.057252em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span></span></span></span>. These Proxies and the communication between them are outside the kernel.</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>𝑃𝑟𝑜𝑥𝑦</mtext><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">\text{𝑃𝑟𝑜𝑥𝑦}_c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.92747em;vertical-align:-0.24414em;"></span><span class="mord"><span class="mord text"><span class="mord textit">P</span><span class="mord textit">ro</span><span class="mord textit">x</span><span class="mord textit">y</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.057252em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span></span></span></span> will use this network handle to establish a connection between the client’s Nucleus and the server’s Nucleus.</li>
 <li>The client domain will then invoke the Door inside its Nucleus and the two Proxies will facilitate the invoking the server.</li>
 </ul>
 </li>
 </ul>
 <h3 id="secure-object-invocation"><a class="markdownIt-Anchor" href="#secure-object-invocation"></a> Secure Object Invocation</h3>
+<p><img src="https://i.imgur.com/pdKetTH.jpg" alt="" /></p>
 <ul>
 <li>Spring OS facilitates providing different privilege levels for different clients using the “Front Object”.</li>
 <li>An underlying object may have a Front Object that is directly connected to it (without Doors).</li>
-<li>Whenever a client domain tries to access this protected domain, the Front Object will check the Access Control List (ACL) to see what privileges this client domain has for accessing the protected domain.</li>
+<li>Whenever a client domain tries to access this protected domain, the Front Object will check the <strong>Access Control List (ACL)</strong> to see what privileges this client domain has for accessing the protected domain.</li>
 <li>Different instances of the Front Object can be created with different access policies to the same underlying object.</li>
-<li>Doors are SW capabilities, which means they can be passed from client domain to another. When passing a Door, the client domain can determine whether to pass the same privileges or not.</li>
+<li><strong>Doors are software capabilities</strong>, which means they can be passed from client domain to another. When passing a Door, the client domain can determine whether to pass the same privileges or not.</li>
 </ul>
+<p><img src="https://i.imgur.com/NrkosOK.jpg" alt="" /></p>
 <h3 id="virtual-memory-management"><a class="markdownIt-Anchor" href="#virtual-memory-management"></a> Virtual Memory Management</h3>
+<p><img src="https://i.imgur.com/dNnZ6w1.jpg" alt="" /></p>
 <ul>
 <li>Virtual memory management is part of the Spring OS kernel.</li>
 <li>The VMM is responsible for managing the linear address space of each process.</li>
-<li>The VMM breaks this linear address space into memory regions (sets of pages with different sizes).</li>
-<li>These memory regions are mapped to different memory objects.</li>
-<li>These memory objects are the mechanism by which parts of the address space can be mapped into different backing entities (e.g. desk, file system, etc.).</li>
-<li>Pager Object: Responsible for establishing the connection between virtual memory and physical memory. The Pager Object makes sure that a memory object has a representation in the physical memory.</li>
+<li>The VMM breaks this linear address space into <strong>memory regions</strong> (sets of pages with different sizes).</li>
+<li>These memory regions are mapped to different <strong>memory objects</strong>.</li>
+<li>These memory objects are the mechanism by which parts of the address space <u>can be mapped into different <strong>backing entities</strong></u> (e.g. desk, file system, etc.).</li>
+</ul>
+<h4 id="pager-object"><a class="markdownIt-Anchor" href="#pager-object"></a> Pager Object</h4>
+<p><img src="https://i.imgur.com/orpJYt3.jpg" alt="" /></p>
+<ul>
+<li>The <strong>Pager Object</strong> is responsible for establishing the connection between virtual memory and physical memory.</li>
+<li>The Pager Object makes sure that a memory object has a representation in the physical memory.</li>
 <li>The Pager Object will create a cache object representation for the memory object in the DRAM.</li>
-<li>The Pager Object gives the ability to have different</li>
-<li>These associations between memory objects and physical objects can be dynamically created.</li>
-<li>The same memory object can have distinct cache representations on different physical memory spaces.</li>
-<li>The Pager Objects maintains the coherence of these different cache objects if needed.</li>
+<li>The Pager Object gives the ability to have different regions of the linear address space of a given process by associating different pager objects with each of the regions that correspond to a particular memory object.</li>
+<li>These associations between region and memory objects can be dynamically created.</li>
+<li>The same memory object can have <u>distinct cache representations on different physical memory spaces</u>.</li>
+<li>The Pager Objects <strong>maintains the coherence of these different cache objects</strong> if needed.
+<ul>
+<li>Each pager objects within Pager ensure the consistency.</li>
+</ul>
+</li>
+</ul>
+<h4 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h4>
+<p><img src="https://i.imgur.com/8XIwoK5.jpg" alt="" /></p>
+<ul>
+<li>Object oriented kernel
+<ul>
+<li>nucleus -&gt; threads + IPC</li>
+<li>linedkie’s microkernel -&gt; nucleus + address space</li>
+<li>door + doortable -&gt; basis for cross domain calls</li>
+<li>object invocation and cross machine calls</li>
+<li>virtual memory management
+<ul>
+<li>Address space object, memory object, external pagers, cached object.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Compare to Tornado. Tornado uses uses clustered object as an optimization for implementing kernel services. Spring’s object technology permeates entire OS for structuring mechanism.</li>
 </ul>
 <h3 id="dynamic-client-server-relationships"><a class="markdownIt-Anchor" href="#dynamic-client-server-relationships"></a> Dynamic Client-Server Relationships</h3>
 <ul>
@@ -437,14 +468,38 @@ function sidebar_toggle() {
 </ul>
 <h3 id="subcontract"><a class="markdownIt-Anchor" href="#subcontract"></a> Subcontract</h3>
 <ul>
-<li>As mentioned earlier, IDL is used to define the OS interfaces.</li>
-<li>The Subcontract is the implementation of the IDL interfaces.</li>
-<li>This makes the Subcontract hide the runtime behavior of an object from the actual interface.</li>
-<li>The client stub generation will be simple, since all the details about the server (Where is the server? How to access it? Which replica/cached copy of the server should I go to?) will be hidden in the Subcontract.</li>
-<li>A Subcontract can be changed dynamically while the stub stays fixed. This facilitates adding functionalities to existing services using the Subcontract mechanism.</li>
-<li>Marshal/Un-marshal Interface: The Subcontract will marshal/un-marshal arguments when requested by the client. The Subcontract will do the appropriate steps to execute the request based on the location of the server (e.g. on the same machine, on the network, on a different processor, etc.).</li>
-<li>The Subcontract on the client side has an invocation mechanism.</li>
-<li>On the server side, the Subcontract has (create – revoke – process) mechanisms.</li>
+<li>
+<p>As mentioned earlier, IDL is used to define the OS interfaces.</p>
+</li>
+<li>
+<p>The Subcontract is the implementation of the IDL interfaces, it hides the runtime behavior of an object from the actual interface.</p>
+<ul>
+<li>For instance, there could be a singleton implementation of the server, or it could be a replicated implementation of the server. The client does not care.</li>
+</ul>
+</li>
+<li>
+<p>The client stub generation will be simple, since all the details about the server will be hidden in the Subcontract.</p>
+</li>
+<li>
+<p>IDL compiler is used to produce three pieces of source code:</p>
+<ol>
+<li>A language specific form of the IDL interface</li>
+<li>Client side stub code: Code meant to be dynamically linked into a client’s program to access an object that is implemented in another address space or on another machine</li>
+<li>Server side stub code: Code to be linked into an object manager to translate incoming remote object invocations into the run-time environment of the object’s implementation.</li>
+</ol>
+</li>
+<li>
+<p>A <strong>Subcontract can be changed dynamically</strong> while the stub stays fixed. This facilitates adding functionalities to existing services using the Subcontract mechanism.</p>
+</li>
+<li>
+<p>Marshal/Un-marshal Interface: The Subcontract will marshal/unmarshal arguments when requested by the client. The Subcontract will do the appropriate steps to execute the request based on the location of the server (e.g. on the same machine, on the network, on a different processor, etc.).</p>
+</li>
+<li>
+<p>The Subcontract on the client side has an invocation mechanism.</p>
+</li>
+<li>
+<p>On the server side, the Subcontract has (create – revoke – process) mechanisms.</p>
+</li>
 </ul>
 <h3 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h3>
 <ul>
@@ -461,18 +516,18 @@ function sidebar_toggle() {
 <h2 id="l06b-java-rmi"><a class="markdownIt-Anchor" href="#l06b-java-rmi"></a> L06b. Java RMI</h2>
 <h3 id="java-distributed-object-model"><a class="markdownIt-Anchor" href="#java-distributed-object-model"></a> Java Distributed Object Model</h3>
 <ul>
-<li>Much of the hard work needed to build a client/server system using RPS (marshaling/un-marshaling, publishing the remote object on the network for the clients to access, etc.) are all managed undercover by the Java Distributed Object Model.</li>
+<li>Much of the hard work needed to build a client/server system using RPS (marshaling/unmarshaling, publishing the remote object on the network for the clients to access, etc.) are all managed undercover by the Java Distributed Object Model.</li>
 <li>Java Distributed Object Model concepts:
 <ul>
-<li>Remote Object: Accessible from different address spaces.</li>
-<li>Remote Interface: Declarations for methods in a remote object.</li>
-<li>Failure Semantics: Clients deal with RMI failure exceptions.</li>
+<li><strong>Remote Object</strong>: Accessible from different address spaces.</li>
+<li><strong>Remote Interface</strong>: Declarations for methods in a remote object.</li>
+<li><strong>Failure Semantics</strong>: Clients deal with RMI failure exceptions.</li>
 </ul>
 </li>
-<li>Similarities/differences between local objects and remote objects:
+<li><strong>Similarities/differences between local objects and remote objects</strong>:
 <ul>
-<li>In Local Object Model, the Object references passed as object invocation parameters, they are passed as a pure reference (i.e. if client changes the object, server will see the change).</li>
-<li>In Distributed Object Model, the Object references passed as object invocation parameters, they are passed as Value/Result (i.e. if client changes the object, server will not see the change because a copy of the object is actually sent to the invoked method).</li>
+<li>In Local Object Model, the Object references passed as object invocation parameters, they are passed as a <strong>pure reference</strong> (i.e. if client changes the object, server will see the change).</li>
+<li>In Distributed Object Model, the Object references passed as object invocation parameters, they are passed as <strong>Value/Result</strong> (i.e. if client changes the object, server will not see the change because <u>a copy of the object is actually sent</u> to the invoked method).</li>
 </ul>
 </li>
 </ul>
@@ -480,19 +535,43 @@ function sidebar_toggle() {
 <ul>
 <li>Reuse of Local Implementation:
 <ul>
-<li>Extend a Local Implementation of the Account Class to implement Bank Account.</li>
-<li>Use the Built-in Class called Remote Interface to make the methods in Bank Account visible remotely on the network.</li>
-<li>Only the interface is visible to the client and not the actual implementation or the instantiated objects.</li>
-<li>The actual location of the object is not visible to the client. Therefore, the implementer has to do the hard work of finding a way to make the location of the service visible to clients on the network (i.e. Instantiated Objects).</li>
-<li>In this case, we used the Local Implementation and used only the Remote Interface to make the object instances remotely accessible. So, the all the hard work of making the object instances remotely accessible needs to be done by the implementer. This is why this approach is not <strong>preferable</strong>. However, this approach has the advantage of providing fine-grained control on selective sharing of services.</li>
+<li>
+<p><img src="https://i.imgur.com/JPuqF1f.jpg" alt="" /></p>
+</li>
+<li>
+<p>Extend a Local Implementation of the Account Class to implement Bank Account.</p>
+</li>
+<li>
+<p>Use the Built-in Class called Remote Interface to make the methods in Bank Account visible remotely on the network.</p>
+</li>
+<li>
+<p>Only the interface is visible to the client and not the actual implementation or the instantiated objects.</p>
+</li>
+<li>
+<p>The actual location of the object is not visible to the client. Therefore, the implementer has to do the hard work of finding a way to make the location of the service visible to clients on the network (i.e. Instantiated Objects).</p>
+</li>
+<li>
+<p>In this case, we used the Local Implementation and used only the Remote Interface to make the object instances remotely accessible. So, all the hard work of making the object instances remotely accessible needs to be done by the implementer. This is why this approach is <strong>not preferable</strong>. However, this approach has the advantage of providing fine-grained control on selective sharing of services.</p>
+</li>
 </ul>
 </li>
 <li>Reuse of Remote Object Class
 <ul>
-<li>Extend the Remote Interface so that the Account Interface now becomes visible to any client that wants to access the Object.</li>
-<li>Extend the Remote Object Class and Remote Server Class in order to get the Account Implementation Object.</li>
-<li>Now, when we instantiate the Account Implementation Object, it becomes visible to the network clients through the Java Runtime System.</li>
-<li>The Java RMI system is responsible for all the hard work of making the Server Object Instance visible to network clients and hence this is the more preferred way of building network services and making them available for remote clients anywhere on the network.</li>
+<li>
+<p><img src="https://i.imgur.com/WST8BAh.jpg" alt="" /></p>
+</li>
+<li>
+<p>Extend the Remote Interface so that the Account Interface now becomes visible to any client that wants to access the Object.</p>
+</li>
+<li>
+<p>Extend the Remote Object Class and Remote Server Class in order to get the Account Implementation Object.</p>
+</li>
+<li>
+<p>Now, when we instantiate the Account Implementation Object, it becomes visible to the network clients through the Java Runtime System.</p>
+</li>
+<li>
+<p>The Java RMI system is responsible for all the hard work of making the Server Object Instance visible to network clients and hence this is the more <strong>preferred</strong> way of building network services and making them available for remote clients anywhere on the network.</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -507,13 +586,13 @@ function sidebar_toggle() {
 <li>Bind the URL to the Object Instance created.</li>
 </ol>
 </li>
+<li><img src="https://i.imgur.com/jyDPAJQ.jpg" alt="" /></li>
 <li>This allows the clients to be able to discover the existence of the new service on the network.</li>
 </ul>
 </li>
 <li>On Client side:
 <ul>
-<li>Any arbitrary client can easily discover and access the server object on the network using the following procedure:</li>
-</ul>
+<li>Any arbitrary client can easily discover and access the server object on the network using the following procedure:
 <ol>
 <li>Lookup the service provider URL by contacting a bootstrap name server in the Java RMI system and get a local access point for that remote object on the client-side.</li>
 <li>Use the local access point for the remote object on the client-side by simply calling the invocation methods, which look like normal procedure calls.
@@ -522,26 +601,29 @@ function sidebar_toggle() {
 <li>The client does NOT know or care about the location of the server object.</li>
 </ul>
 </li>
-<li>If there are failures in any of execution of the methods (functions), then Remote Exceptions will be issued by the server through the Java Runtime System back to the client.
+<li>If there are failures in any of execution of the methods (functions), then Remote Exceptions will be issued by the server through the Java Runtime System back to the client.</li>
+</ol>
 <ul>
 <li>A problem with Remote Exceptions is that the client may have no way of knowing at what point in the call invocation the failure happened.</li>
 </ul>
 </li>
-</ol>
+<li><img src="https://i.imgur.com/hjedUKR.jpg" alt="" /></li>
+</ul>
 </li>
 </ul>
 <h3 id="rmi-implementation"><a class="markdownIt-Anchor" href="#rmi-implementation"></a> RMI Implementation</h3>
+<p><img src="https://i.imgur.com/FnHfGxI.jpg" alt="" /></p>
 <ul>
-<li>The Java RMI functionality is implemented using the Remote Reference Layer (RRL).</li>
-<li>The Client-side stub initiates the remote method invocation call, which causes RRL to marshal the arguments in order to send them over the network. When the server responds, the RRL un-marshals the results for the client.</li>
-<li>Similarly, the Server-side skeleton
+<li>The Java RMI functionality is implemented using the <strong>Remote Reference Layer (RRL)</strong>.</li>
+<li>The Client-side stub initiates the remote method invocation call, which causes RRL to marshal the arguments in order to send them over the network. When the server responds, the RRL unmarshals the results for the client.</li>
+<li>Similarly, the Server-side <strong>skeleton</strong>
 <ul>
-<li>Uses RRL to un-marshal the arguments from client message.</li>
+<li>Uses RRL to unmarshal the arguments from client message.</li>
 <li>Makes the call to the server implementing the Remote Object.</li>
 <li>Marshals the results from the server into a message to be sent to the client.</li>
 </ul>
 </li>
-<li>Marshaling and un-marshaling are also called as Serializing and De-serializing Java objects and is done by the RRL layer.</li>
+<li>Marshaling and unmarshaling are also called as <strong>Serializing and De-serializing Java objects</strong> and is done by the RRL layer.</li>
 <li>The RRL layer is similar to the Subcontract mechanism in the Spring Network OS. Java RMI derives a lot from the Subcontract mechanism.</li>
 <li>In summary:
 <ul>
@@ -552,31 +634,84 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h3 id="rmi-transport-layer"><a class="markdownIt-Anchor" href="#rmi-transport-layer"></a> RMI Transport Layer</h3>
+<p><img src="https://i.imgur.com/c5FFPXD.jpg" alt="" /></p>
 <p>The RMI Transport Layer provides the following four abstractions:</p>
 <ul>
-<li>Endpoint:
+<li><strong>Endpoint</strong>:
 <ul>
-<li>This is a Protection Domain or a Sandbox like Java Virtual Machine for execution of a server call or client call within the Sandbox.</li>
+<li>This is a <strong>Protection Domain</strong> or a <strong>Sandbox</strong> like <strong>Java Virtual Machine</strong> for execution of a server call or client call within the Sandbox.</li>
 <li>The Endpoint has a table of Remote Objects that it can access (similar to Door Table in Spring OS).</li>
 </ul>
 </li>
-<li>Transport:
+<li><strong>Transport</strong>:
 <ul>
+<li>The <strong>connection management</strong> of the transport layer is responsible for
+<ul>
+<li>setting up connections,</li>
+<li>tearing down connections,</li>
+<li>listening for incoming connections,</li>
+<li>and establishing the connection.</li>
+</ul>
+</li>
 <li>The RRL layer decides which transport protocol to use (TCP or UDP Protocol) and it gives that command to the Transport Layer.</li>
 <li>The Transport listens on channel for incoming connections.</li>
 <li>The Transport is responsible for locating the dispatcher that invokes the remote method.</li>
 <li>The Transport mechanism sits below the RRL layer and allows the object invocations to happen through the Transport Layer.</li>
 </ul>
 </li>
-<li>Channel:
+<li><strong>Channel</strong>:
 <ul>
 <li>The type of the Transport decides the type of the Channel (TCP or UDP Channel).</li>
 <li>Two Endpoints make a connection on the Channel and do I/O using the connection on the Channel.</li>
 </ul>
 </li>
 </ul>
-<h2 id="l06c-enterprise-java-beans"><a class="markdownIt-Anchor" href="#l06c-enterprise-java-beans"></a> L06c. Enterprise Java Beans</h2>
-<p>What is a Java Bean?</p>
+<h2 id="l06c-enterprise-java-beansejb"><a class="markdownIt-Anchor" href="#l06c-enterprise-java-beansejb"></a> L06c. Enterprise Java Beans(EJB)</h2>
+<h3 id="n-tier-applications"><a class="markdownIt-Anchor" href="#n-tier-applications"></a> N-Tier Applications</h3>
+<p><img src="https://i.imgur.com/ezxgHld.jpg" alt="" /></p>
+<ul>
+<li>
+<p>Distributed Giant Scale Services are also called as N-tier applications because the software stack of an application comprises of several different layers:</p>
+<ul>
+<li><strong>Presentation Layer</strong>: Responsible for painting the browser screen and generating the web-page based on your request.</li>
+<li><strong>Application Layer</strong>: Responsible for the application logic that corresponds to what the service is providing.</li>
+<li><strong>Business Logic Layer</strong>: Corresponds to the way fees/prices are calculated.</li>
+<li><strong>Database Layer</strong>: Accesses the database that contains the information that is queried and updated based on the user request.</li>
+</ul>
+</li>
+<li>
+<p>N-tier applications must handle the following:</p>
+<ul>
+<li>Persistence of data/actions.</li>
+<li>Transaction properties.</li>
+<li>Data caching.</li>
+<li>Clustering related services/data.</li>
+<li>Security.</li>
+<li>Concurrency: Exploit parallelism across several simultaneous requests.</li>
+<li>Reusing components: Portions of the application logic are reused in different components in order to serve simultaneous requests from several different clients.</li>
+</ul>
+</li>
+<li>
+<p>Also an opportunity to exploit parallelism, such as finding the availability of seats crossing airline companies, accepting requests simultaneously.</p>
+</li>
+</ul>
+<h3 id="structuring-n-tier-applications"><a class="markdownIt-Anchor" href="#structuring-n-tier-applications"></a> Structuring N-Tier Applications</h3>
+<p><img src="https://i.imgur.com/j6IdPcM.jpg" alt="" /></p>
+<ul>
+<li>A Java Bean is a unit of reuse and contains a bundle of Java Objects to provide a specific functionality, e.g. a Java Bean may provide the shopping cart functionality.</li>
+<li>A Container is a Protection Domain implemented in a Java Virtual Machine (JVM) and it packages and hosts a related collection of Java Beans to provide higher-level functionality.</li>
+<li>An Application Service is constructed by using multiple Containers, typically present on different servers and used in a distributed manner.</li>
+<li>Mnemonic: Java Objects → Java Beans → Containers → Application Service.</li>
+<li>The <strong>JEE (Java Enterprise Edition)</strong> framework has 4 containers for constructing an application service:
+<ul>
+<li><strong>Client Container</strong>: Resides on a web server and interacts with client browser.</li>
+<li><strong>Applet Container</strong>: Package the objects that constitute.</li>
+<li><strong>Web Container</strong>: Contains a Presentation Logic. Responsible for creating web pages to be sent back to the client browser.</li>
+<li><strong>EJB Container</strong>: Manages the Business Logic that decides what needs to be done to carry out the client browser requests. It also communicates with the Database server to read/write data corresponding to the client browser requests.</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-is-a-java-bean"><a class="markdownIt-Anchor" href="#what-is-a-java-bean"></a> What is a Java Bean?</h3>
 <ul>
 <li>A Java Bean is a reusable software component that has many Java objects in a bundle so that the Java Bean can be passed around easily from one application to another application for reuse.</li>
 <li>Some of the challenges for different enterprises to provide together a common service are to maintain and evolve:
@@ -596,73 +731,39 @@ function sidebar_toggle() {
 </ol>
 </li>
 </ul>
-<h3 id="n-tier-applications"><a class="markdownIt-Anchor" href="#n-tier-applications"></a> N-Tier Applications</h3>
-<ul>
-<li>
-<p>Distributed Giant Scale Services are also called as N-tier applications because the software stack of an application comprises of several different layers:</p>
-<ul>
-<li>Presentation Layer: Responsible for painting the browser screen and generating the web-page based on your request.</li>
-<li>Application Layer: Responsible for the application logic that corresponds to what the service is providing.</li>
-<li>Business Logic Layer: Corresponds to the way fees/prices are calculated.</li>
-<li>Database Layer: Accesses the database that contains the information that is queried and updated based on the user request.</li>
-</ul>
-</li>
-<li>
-<p>N-tier applications must handle the following:</p>
-<ul>
-<li>Persistence of data/actions.</li>
-<li>Transaction properties.</li>
-<li>Data caching.</li>
-<li>Clustering related services/data.</li>
-<li>Security.</li>
-<li>Concurrency: Exploit parallelism across several simultaneous requests.</li>
-<li>Reusing components: Portions of the application logic are reused in different components in order to serve simultaneous requests from several different clients.</li>
-</ul>
-</li>
-</ul>
-<h3 id="structuring-n-tier-applications"><a class="markdownIt-Anchor" href="#structuring-n-tier-applications"></a> Structuring N-Tier Applications</h3>
-<ul>
-<li>A Java Bean is a unit of reuse and contains a bundle of Java Objects to provide a specific functionality, e.g. a Java Bean may provide the shopping cart functionality.</li>
-<li>A Container is a Protection Domain implemented in a Java Virtual Machine (JVM) and it packages and hosts a related collection of Java Beans to provide higher-level functionality.</li>
-<li>An Application Service is constructed by using multiple Containers, typically present on different servers and used in a distributed manner.</li>
-<li>Mnemonic: Java Objects → Java Beans → Containers → Application Service.</li>
-<li>The JEE (Java Enterprise Edition) framework has 4 containers for constructing an application service:
-<ul>
-<li>Client Container: Resides on a web server and interacts with client browser.</li>
-<li>Applet Container: Resides on a web server and interacts with client browser.</li>
-<li>Web Container: Contains a Presentation Logic. Responsible for creating web pages to be sent back to the client browser.</li>
-<li>EJB Container: Manages the Business Logic that decides what needs to be done to carry out the client browser requests. It also communicates with the Database server to read/write data corresponding to the client browser requests.</li>
-</ul>
-</li>
-</ul>
 <h3 id="types-of-java-beans"><a class="markdownIt-Anchor" href="#types-of-java-beans"></a> Types of Java Beans</h3>
 <ul>
-<li>Entity Bean: Persistent Objects with Primary Keys so that they can be easily retrieved from a database.
+<li>
+<p><strong>Entity Bean</strong>: <strong>Persistent Objects</strong> with <strong>Primary Keys</strong> so that they can be easily retrieved from a database.</p>
 <ul>
 <li>An Entity Bean may be a row of a database.</li>
 <li>There are two types of persistence:
 <ol>
-<li>Bean-managed Persistence: Persistence managed by the Bean.</li>
-<li>Container-managed Persistence: Persistence managed by Container.</li>
+<li><strong>Bean-managed Persistence</strong>: Persistence managed by the Bean.</li>
+<li><strong>Container-managed Persistence</strong>: Persistence managed by Container.</li>
 </ol>
 </li>
 </ul>
 </li>
-<li>Session Bean: A Bean associated with client-server session.
+<li>
+<p><strong>Session Bean</strong>: A Bean associated with client-server session.</p>
 <ul>
 <li>There’re two types of Session Beans:
 <ol>
-<li>Stateful Session Beans: Remember the state associated with the session across multiple sessions.</li>
-<li>Stateless Session Beans: The state is thrown away at the end of each session.</li>
+<li><strong>Stateful</strong> Session Beans: Remember the state associated with the session across multiple sessions.</li>
+<li><strong>Stateless</strong> Session Beans: The state is thrown away at the end of each session.</li>
 </ol>
 </li>
 </ul>
 </li>
-<li>Message-driven Beans: Useful for asynchronous behavior. An example would be receiving messages of interest that are typically event-driven (e.g. stock ticker information, newsfeed, RSS feed, etc.).</li>
-<li>Each Java Bean type denotes a particular functionality. Each Java Bean can be constructed into 2 forms, based on the granularity level:
+<li>
+<p><strong>Message-driven Beans</strong>: Useful <strong>for asynchronous</strong> behavior. An example would be receiving messages of interest that are typically event-driven (e.g. stock ticker information, newsfeed, RSS feed, etc.).</p>
+</li>
+<li>
+<p>Each Java Bean type denotes a particular functionality. Each Java Bean can be constructed into 2 forms, based on the granularity level:</p>
 <ul>
-<li>Fine-grained Java Beans: Provide more concurrency in dealing with individual requests.</li>
-<li>Coarse-grained Java Beans: Provide less concurrency, but keep the business logic simple.</li>
+<li><strong>Fine-grained Java Beans</strong>: Provide more concurrency in dealing with individual requests.</li>
+<li><strong>Coarse-grained Java Beans</strong>: Provide less concurrency, but keep the business logic simple.</li>
 <li>Thus, the tradeoff in structuring N-tier applications is to choose either:
 <ol>
 <li>Fine-grained granularity: More concurrency + complex business logic.</li>
@@ -673,30 +774,37 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h3 id="java-beans-design-alternatives"><a class="markdownIt-Anchor" href="#java-beans-design-alternatives"></a> Java Beans Design Alternatives</h3>
+<h4 id="1-coarse-grain-session-beans"><a class="markdownIt-Anchor" href="#1-coarse-grain-session-beans"></a> 1. Coarse grain session Beans</h4>
+<p><img src="https://i.imgur.com/hU1aoxg.jpg" alt="" /></p>
 <ul>
-<li>The Client Container and the Applet Container are in the Web-server so we will not consider them. Instead, we’ll only consider the Web Container (Presentation Logic) and EJB Container (Business Logic) in the several design alternatives below.</li>
+<li>The Client Container and the Applet Container are in the Web-server so we will not consider them. Instead, we’ll only consider the <strong>Web Container (Presentation Logic)</strong> and <strong>EJB Container (Business Logic)</strong> in the several design alternatives below.</li>
 <li>A Servlet corresponds to an individual session with a particular client.</li>
 <li>Coarse-grained Session Bean:
 <ul>
-<li>A Coarse-grained Session Bean is associated with each Servlet and serves the needs of a Client.</li>
-<li>Each Client is associated with one Session.</li>
+<li>A Coarse-grained Session Bean is <strong>associated with each Servlet</strong> and serves the needs of a Client.</li>
+<li><strong>Each Client is associated with one Session</strong>.</li>
+</ul>
+</li>
+</ul>
+<ul>
 <li>Pros:
 <ol>
 <li>Minimal Container services needed from the EJB Container: The EJB Container coordinates concurrent independent sessions.</li>
 <li>Business Logic is not exposed beyond the corporate network since the Business Logic is contained in the EJB Container and not in the Web Container.</li>
 </ol>
 </li>
-<li>Cons:<br />
-3. The Application Structure is similar to a Monolithic kernel.<br />
-4. There is very limited concurrency for accessing different parts of a database in parallel. Hence, Coarse-grained Bean structure represents a lost opportunity in exploiting parallelism.</li>
-</ul>
+<li>Cons:
+<ol>
+<li>The Application Structure is similar to a <strong>Monolithic</strong> kernel.</li>
+<li>There is very <strong>limited concurrency</strong> for accessing different parts of a database in parallel. Hence, Coarse-grained Bean structure represents a lost opportunity in exploiting parallelism.</li>
+</ol>
 </li>
 </ul>
-<p><img src="https://i.imgur.com/jFJWVl6.jpg" alt="" /></p>
+<h4 id="2-data-access-objectdao"><a class="markdownIt-Anchor" href="#2-data-access-objectdao"></a> 2. Data Access Object(DAO)</h4>
+<p>fine-grained</p>
+<p><img src="https://i.imgur.com/Qe3HFmD.jpg" alt="" /></p>
 <ul>
-<li>Data Access Object:
-<ul>
-<li>The Business Logic is pushed to be in the Web Container containing Servlet and Presentation Logic. Similar to having a 3-tier software structure of (Servlet – Presentation Logic – Business Logic).</li>
+<li>The <strong>Business Logic is pushed to be in the Web Container</strong> containing Servlet and Presentation Logic. Similar to having a 3-tier software structure of (Servlet – Presentation Logic – Business Logic).</li>
 <li>All Data Access happens through Entity Beans, which have Persistence characteristics. That is, Data Access Object (DAO) is implemented using Entity Beans.</li>
 <li>Entity Beans can have Container-Managed Persistence or Bean-Managed Persistence.</li>
 <li>An Entity Bean can represent the granularity of either one row of a database or a set of rows.</li>
@@ -708,34 +816,43 @@ function sidebar_toggle() {
 <li>The granularity of the Data Access Object (DAO) determines the level of concurrency desired in constructing the application service. This provides reusability opportunities.</li>
 </ol>
 </li>
-<li>Cons: Business Logic is exposed outside the corporate network because it was move from the EJB Container to the Web Container.</li>
+<li>Cons: <strong>Business Logic is exposed outside the corporate network</strong> because it was move from the EJB Container to the Web Container.</li>
 </ul>
+<h4 id="3-session-beans-with-entity-beans"><a class="markdownIt-Anchor" href="#3-session-beans-with-entity-beans"></a> 3. Session Beans with Entity Beans</h4>
+<p><img src="https://i.imgur.com/Z2H4qMi.jpg" alt="" /></p>
+<ul>
+<li>
+<p>The Web Container contains only the Servlet and the Presentation Logic associated with the Servlet.</p>
 </li>
-</ul>
-<p><img src="https://i.imgur.com/P0Fhbmm.jpg" alt="" /></p>
-<ul>
-<li>Session Beans with Entity Beans:
-<ul>
-<li>The Web Container contains only the Servlet and the Presentation Logic associated with the Servlet.</li>
-<li>The Business Logic sits along with the Session Façade and Entity Bean in the EJB Container.</li>
-<li>A Session Façade is associated with each Client Session. The Session Façade handles all data access needs of its associated Business Logic.</li>
-<li>The DAOs are implemented using multiple Entity Beans (having CMP/BMP) so that we get Concurrency and can reduce data accesses across different client requests.</li>
-<li>The Session Bean communicates with the Entity Bean using Java RMI or local interfaces.
+<li>
+<p>The Business Logic sits along with the Session Façade and Entity Bean in the EJB Container.</p>
+</li>
+<li>
+<p>A Session Façade is associated with each Client Session. The Session Façade handles all data access needs of its associated Business Logic.</p>
+</li>
+<li>
+<p>The DAOs are implemented using multiple Entity Beans (having CMP/BMP) so that we get Concurrency and can reduce data accesses across different client requests.</p>
+</li>
+<li>
+<p>The Session Bean communicates with the Entity Bean using Java RMI or local interfaces.</p>
 <ol>
 <li>Using local interface makes the communication faster since no network communication is used</li>
 <li>Using RMI makes the communication flexible enough to be used anywhere in network.</li>
 </ol>
 </li>
-<li>Pros:<br />
-3. No network communication between Business Logic and Entity Beans.<br />
-4. Business Logic is not exposed beyond the corporate network.<br />
-5. There is an opportunity for the Entity Bean to cluster the requests from different clients and reduce accesses to the database server across several different client requests that are temporally happening at the same time.<br />
-6. The granularity of the Data Access Object (DAO) determines the level of concurrency desired in constructing the application service. This provides reusability opportunities.</li>
-<li>Cons: We’re causing additional network access to do the service we want for the data access and that can be mitigated by co-locating the Entity Bean and the Session Façade in the same EJB Container.</li>
-</ul>
+<li>
+<p>Pros:</p>
+<ol>
+<li>No network communication between Business Logic and Entity Beans.</li>
+<li>Business Logic is not exposed beyond the corporate network.</li>
+<li>There is an opportunity for the Entity Bean to cluster the requests from different clients and reduce accesses to the database server across several different client requests that are temporally happening at the same time.</li>
+<li>The granularity of the Data Access Object (DAO) determines the level of concurrency desired in constructing the application service. This provides reusability opportunities.</li>
+</ol>
+</li>
+<li>
+<p>Cons: We’re causing <strong>additional network access</strong> to do the service we want for the data access and that can be mitigated by co-locating the Entity Bean and the Session Façade in the same EJB Container.</p>
 </li>
 </ul>
-<p><img src="https://i.imgur.com/A6ziG46.jpg" alt="" /></p>
 
 </div>
 
