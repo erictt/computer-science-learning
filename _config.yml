@@ -116,7 +116,6 @@ markdown:
   preset: "default"
   render:
     html: true
-    highlight: true
     xhtmlOut: false
     breaks: true
     langPrefix:

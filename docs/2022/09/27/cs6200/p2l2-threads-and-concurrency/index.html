@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    
+    <!-- katex css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+
+    <div class="book-menu">
+  <!--
+## Introduction to Probability
+
+* [Unit 1: Probability models and axioms](/introduction-to-probability/unit-1/index.html)
+* [Unit 2: Conditioning and independence](/introduction-to-probability/unit-2/index.html)
+* [Unit 3: Counting](/introduction-to-probability/unit-3/index.html)
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<!--
+## Multivariable Calculus
+
+* [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
+* [Unit 2: Derivatives of multivariable functions](/multivariable-calculus/unit-2/index.html)
+
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="CS6210-Advanced-Operating-Systems">CS6210: Advanced Operating Systems</h2>
+<ul>
+<li><a href="/cs6210/lesson-02/index.html">Lesson 02: OS Structure</a></li>
+<li><a href="/cs6210/lesson-03/index.html">Lesson 3: Virtualization</a></li>
+<li><a href="/cs6210/lesson-04-1/index.html">Lesson 4: Parallel Systems - Part 1</a></li>
+<li><a href="/cs6210/lesson-04-2/index.html">Lesson 4: Parallel Systems - Part 2</a></li>
+<li><a href="/cs6210/lesson-05/index.html">Lesson 5: Distributed Systems</a></li>
+<li><a href="/cs6210/lesson-06/index.html">Lesson 6: Distributed Objects and Middleware</a></li>
+</ul>
+<!--
+* [Lesson 7: Distributed Subsystems](/cs6210/lesson-07/index.html)
+* [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
+* [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
+* [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
+* [Lesson 11: Security](/cs6210/lesson-11/index.html)
+-->
+<h2 id="CS6250-Computer-Networks">CS6250 Computer Networks</h2>
+<ul>
+<li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
+<li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
+<li><a href="/cs6250/week-3-intradomain-routing/index.html">Week 3 - Intradomain Routing</a></li>
+<li><a href="/cs6250/week-4-as-relationships-and-interdomain-routing/index.html">Week 4 - AS Relationships and Interdomain Routing</a></li>
+<li><a href="/cs6250/week-5-router-design-and-algorithems-part-1/index.html">Week 5 - Router Design and Algorithms (Part 1)</a></li>
+<li><a href="/cs6250/week-6-router-design-and-algorithems-part-2/index.html">Week 6 - Router Design and Algorithms (Part 2)</a></li>
+<li><a href="/cs6250/week-7-software-defined-networking-part-1/index.html">Week 7 - Software Defined Networking (Part 1)</a></li>
+<li><a href="/cs6250/week-8-software-defined-networking-part-2/index.html">Week 8 - Software Defined Networking (Part 2)</a></li>
+<li><a href="/cs6250/week-9-internet-security/index.html">Week 9 - Internet Security</a></li>
+<li><a href="/cs6250/week-10-internet-surveillance-and-censorship/index.html">Week 10 - Internet Surveillance and Censorship</a></li>
+<li><a href="/cs6250/week-11-applications-video/index.html">Week 11 - Applications Videos</a></li>
+<li><a href="/cs6250/week-12-applications-cdns-and-overlay-networks/index.html">Week 12 - Applications CDNs and Overlay Networks</a></li>
+</ul>
+<h2 id="CS6200-Graduate-Introduction-to-Operating-Systems">CS6200 Graduate Introduction to Operating Systems</h2>
+<ul>
+<li><a href="/cs6200/p1-preparation/index.html">P0 - Preparation</a></li>
+<li><a href="/cs6200/p1l2-introduction/index.html">P1L2 - Introduction</a></li>
+<li><a href="/cs6200/p2l1-processes-and-process-management/index.html">P2L1 - Processes and Process Management</a></li>
+<li><a href="/cs6200/p2l2-threads-and-concurrency/index.html">P2L2 - Threads and Concurrency</a></li>
+<li><a href="/cs6200/p2l3-pthread/index.html">P2L3 - PThread</a></li>
+<li><a href="/cs6200/p2l4-thread-design-consideration/index.html">P2L4 - Thread Design Considerations</a></li>
+<li><a href="/cs6200/p2l5-thread-performance-consideration/index.html">P2L5 - Thread Performance Considerations</a></li>
+<li><a href="/cs6200/p3l1-scheduling/index.html">P3L1 - Scheduling</a></li>
+<li><a href="/cs6200/p3l2-memory-management/index.html">P3L2 - Memory Management</a></li>
+<li><a href="/cs6200/p3l3-inter-process-communication/index.html">P3L3 - Inter-Process Communication</a></li>
+<li><a href="/cs6200/p3l4-synchronization-constructs/index.html">P3L4 - Synchronization Constructs</a></li>
+<li><a href="/cs6200/p3l5-io-management/index.html">P3L5 - I/O Management</a></li>
+<li><a href="/cs6200/p3l6-virtualization/index.html">P3L6 - Virtualization</a></li>
+</ul>
+<!--
+* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
+* [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
+* [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
+* [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
+-->
+<h2 id="Algorithms-Part-II">Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-2/index.html">Week 2 - Minimum Spanning Trees &amp; Shortest Path</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; String Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+<li><a href="/algorithms-2/week-5/index.html">Week 5 - Regular Expressions</a></li>
+<li><a href="/algorithms-2/week-6/index.html">Week 6 - Reductions</a></li>
+</ul>
+<h2 id="Algorithms-Part-I">Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="Introduction-to-Software-Design-and-Architecture">Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="Calculus-Two-Sequences-and-Series">Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="LAFF-Linear-Algebra">LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="Stanford-Machine-Learning">Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="Calculus-One">Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="Computational-Thinking">Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="Effective-Thinking-Through-Mathematics">Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="CS50-Introduction-to-Computer-Science">CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+<h2 id="Others">Others</h2>
+<ul>
+<li><a href="/symbols/index.html">Symbols of Mathematics</a></li>
+<li><a href="/glossary/index.html">Glossary</a></li>
+</ul>
+<h2 id="About-Me"><a target="_blank" rel="noopener" href="https://ericyy.me/about/">About Me</a></h2>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1>P2L2: Threads and Concurrency</h1>
+<!-- toc -->
+<ul>
+<li><a href="#process-vs-thread">Process vs. Thread</a></li>
+<li><a href="#benefits-of-multithreading">Benefits of Multithreading</a></li>
+<li><a href="#basic-thread-mechanisms">Basic Thread Mechanisms</a></li>
+<li><a href="#mutual-exclusionmutex">Mutual Exclusion(mutex)</a></li>
+<li><a href="#condition-variable">Condition Variable</a></li>
+<li><a href="#readerswriter-problem">Readers/Writer Problem</a></li>
+<li><a href="#avoiding-common-pitfalls">Avoiding Common Pitfalls</a>
+<ul>
+<li><a href="#spurious-wake-ups">Spurious Wake-ups</a></li>
+<li><a href="#deadlocks">Deadlocks</a></li>
+</ul>
+</li>
+<li><a href="#kernel-level-threads-vs-user-level-threads">Kernel-Level Threads Vs. User-Level Threads</a>
+<ul>
+<li><a href="#multithreading-models">Multithreading Models</a></li>
+<li><a href="#scope-of-multithreading">Scope of Multithreading</a></li>
+</ul>
+</li>
+<li><a href="#multithreading-patterns">Multithreading Patterns</a>
+<ul>
+<li><a href="#bossworkers-pattern">Boss/Workers Pattern</a></li>
+<li><a href="#pipeline-pattern">Pipeline Pattern</a></li>
+<li><a href="#layered-pattern">Layered Pattern</a></li>
+<li><a href="#quiz">Quiz</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<hr>
+<h2 id="Process-vs-Thread">Process vs. Thread</h2>
+<ul>
+<li>A process owns a <strong>virtual memory space</strong> and OS initialize a <strong>PCB</strong> to manage the state.</li>
+<li>Threads represent a multiple, independent execution contexts. They are part of the same virtual address space, (also means the physical address spaces). However they will potentially execute different instructions, and access different portions of that address space.</li>
+<li>PCB in single-thread process vs multithreaded process
+<ul>
+<li>
+<img src="https://i.imgur.com/2uV8di5.jpg" style="width: 600px" />
+</li>
+<li>The PCB for multithreaded process is different. In a multi-threaded process, threads share the same code/data/filter, but also have its own registers and stack.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Benefits-of-Multithreading">Benefits of Multithreading</h2>
+<ul>
+<li>
+<p>Parallelization: Speed up the program’s execution by spreading the work from one thread/one processor to multiple threads that can execute in parallel on multiple processors.</p>
+</li>
+<li>
+<p>Specialization: Give high priority to tasks that handle more important tasks; Potentially, the thread keep its entire state in the processor cache(hot cache, cache lookups are fast), and the thread can run its task without interruption.</p>
+</li>
+<li>
+<p>Why not just write a multiprocess application?</p>
+<ul>
+<li>Process doesn’t share address space and execution context, all of the data have to be allocated memory. Threads share address space and the execution code which makes it more memory-efficient.</li>
+<li>Inter process communication (IPC) - is more costly than inter thread communication, which consists primarily of reading/writing shared variables.</li>
+</ul>
+</li>
+<li>
+<p>Are threads useful on single CPU?</p>
+<ul>
+<li>Yes, when (t_idle) &gt; 2 * (t_ctx_switch). e.g. disk I/O or network I/O.
+<ul>
+<li>
+<img src="https://i.imgur.com/fZQIY5e.jpg" style="width: 300px" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Multithreading the OS kernel, support multiple execution contexts, which is particularly useful when we do have multiple CPUs so OS can run threads behalf of the apps and run os-level daemons/drivers on different threads.</p>
+</li>
+</ul>
+<h2 id="Basic-Thread-Mechanisms">Basic Thread Mechanisms</h2>
+<ul>
+<li>
+<p>Threads can access the same physical memory address, which introduced a <strong>data race problem</strong>. If threads all access the same address, and make changes, the data will be inconsistent. To avoid the problem, there is a mechanism called <strong>mutual exclusion(mutex)</strong>, which can be used for making the memory access exclusive. And it also offer waiting condition to let threads work with each other.</p>
+</li>
+<li>
+<p>Thread data structure:</p>
+<ul>
+<li>A thread have thread id, program counter, stack pointer, registers, attributes, etc.</li>
+</ul>
+</li>
+<li>
+<p>Create a thread: <code>fork(proc, args)</code>(not UNIX fork, which is used for creating processes)</p>
+<ul>
+<li>When fork is called, a new thread is created/forked from the parent thread.</li>
+</ul>
+</li>
+<li>
+<p>Join the thread back to parent thread: <code>join(thread)</code> which need to be called on the parent thread</p>
+<ul>
+<li>when <code>join</code> is called, <strong>the parent will be blocked until child thread is finished</strong>. So watch out if there is a <code>while(true)</code> for loop in child thread:D</li>
+<li>After join returns, the resource associated with child thread will be deallocated.</li>
+</ul>
+</li>
+<li>
+<p>Example</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/fFq4Hx8.jpg" style="width: 600px" />
+</li>
+<li>thread 1 might run before or after the function call <code>safe_insert(6)</code>, so there is no guarantee which <code>safe_insert</code> will be executed first.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Mutual-Exclusion-mutex">Mutual Exclusion(mutex)</h2>
+<ul>
+<li>
+<p>To avoid multi threads access the same address at the same time, operating systems support a construct called a <strong>mutex</strong>. <strong>A mutex is like a lock that should be used whenever you access data/state that is shared among threads.</strong> When a thread locks a mutex, it has exclusive access to the shared resource. Other threads attempting to lock the same mutex will fail.</p>
+</li>
+<li>
+<p>How it works:</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/dPMqY03.jpg" style="width: 600px" />
+</li>
+<li>When T1/T2/T3 attempt to acquire the lock, only one will have the chance to get it.</li>
+</ul>
+</li>
+<li>
+<p>There are two different APIs:</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. lock block</span></span><br><span class="line">lock(m) &#123;</span><br><span class="line">    <span class="comment">// critical section</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. separate function</span></span><br><span class="line">lock(m)</span><br><span class="line"><span class="comment">// critical section</span></span><br><span class="line">unlock(m)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Condition-Variable">Condition Variable</h2>
+<ul>
+<li>
+<p>Let’s take a look at a producer and consumer example. This is the pseudocode. It has three pieces:</p>
+<ul>
+<li>main: create 10 producer threads, and 1 consumer thread</li>
+<li>producers: lock the mutex, and insert one id (<code>my_list-&gt;insert</code>)</li>
+<li>consumer: lock the mutex, clean up the list if it’s full, otherwise it wait and try again.</li>
+<li>
+<img src="https://i.imgur.com/MwtnqbF.jpg" style="width: 600px" />
+</li>
+<li>The problem is that the consumer shouldn’t keep running check whether the list is full but gets notified once it’s full. This is when <code>Condition</code> is useful.</li>
+</ul>
+</li>
+<li>
+<img src="https://i.imgur.com/s70WRi3.jpg" style="width: 600px" />
+</li>
+<li>
+<p>In the image above, the <code>Wait</code> is a condition function that being called for waiting for the condition <code>list_full</code> and <code>Signal</code> is used for notifying another thread that the condition <code>list_full</code> is met.</p>
+</li>
+<li>
+<p>Condition Variable API</p>
+<ol>
+<li>Wait(mutex, cond)
+<ol>
+<li>mutex is automatically released &amp; reacquired on wait</li>
+</ol>
+</li>
+<li>Signal(cond)
+<ol>
+<li>notify only one thread waiting on condition</li>
+</ol>
+</li>
+<li>Broadcast(cond)
+<ol>
+<li>notify all waiting threads</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>What happened in the wait function?</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Wait(mutex,cond) &#123;</span><br><span class="line">    // atomically release mutex </span><br><span class="line">    // and go on wait queue</span><br><span class="line">    </span><br><span class="line">    // wait ...</span><br><span class="line">    </span><br><span class="line">    // remove from the wait queue</span><br><span class="line">    // re-acquire mutex</span><br><span class="line">    // exit the wait operation</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Notice that the mutex is <strong>RELEASED</strong> once the thread goes to the wait stage.</li>
+</ul>
+</li>
+<li>
+<p>The Quiz: Instead of <code>while</code>, why did we not simply use ‘if’?</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Lock(m) &#123;</span><br><span class="line">    while (my_list.not_full()) </span><br><span class="line">        Wait(m, list_full);</span><br><span class="line">    my_list.print_and_remove_all();</span><br><span class="line">&#125; // unlock</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>while</code> can support multiple consumer threads;
+<ul>
+<li>if it’s <code>if</code>. When multiple threads get into the wait condition, and they all get notified the condition. They will acquire the lock one by one and execute <code>my_list.print_and_remove_all();</code> regardless it’s full or not. The list can change before any consumers access it. <code>while</code> can guarantee that <code>my_list.print_and_remove_all();</code> only being called when it’s full.</li>
+</ul>
+</li>
+<li><code>if</code> cannot guarantee access to m once the condition is signaled;</li>
+</ul>
+</li>
+</ul>
+<h2 id="Readers-Writer-Problem">Readers/Writer Problem</h2>
+<ul>
+<li><strong>Read/write problem</strong>: some subset of threads that want to read from shared state, and one thread that wants to write to shared state.</li>
+<li>To solve the problem,
+<ul>
+<li>one way is to use two counters: one for read_counter, the other for writer_counter, so
+<ul>
+<li>when read_counter == 0 and writer_counter == 0, read is ok, writer is ok.</li>
+<li>when read_counter &gt; 0 read is ok</li>
+<li>when writer_counter == 1, neither read nor write.</li>
+</ul>
+</li>
+<li>the other way is to use one counter: <code>resource_counter</code> to indicate resource usage situation: 0: free, -1: 1 writer, &gt;0: multiple readers</li>
+<li>
+<img src="https://i.imgur.com/MOquvBQ.jpg" style="width: 600px" />
+</li>
+</ul>
+</li>
+<li>Here are some pseudocode for the second approach:
+<ul>
+<li>
+<img src="https://i.imgur.com/iI4hMCg.jpg" style="width: 600px" />
+</li>
+<li>The <code>writer_phase</code> is used in <code>reader_thread</code> for signaling the writer thread.</li>
+<li>The <code>reader_phase</code> is used in <code>writer_thread</code> for signaling the writer thread.</li>
+<li>The <code>resource_counter</code> is a <strong>proxy variable</strong> that reflects the state that the current resource is in. Instead of controlling updates to the shared state, we can instead control access to this proxy variable. As long as any update to the shared state is first reflected in an update to the proxy variable, we can ensure that our state is accessed via the policies we wish to enforce.</li>
+<li>Notice the order of <code>Broadcast(read_phase); Signal(write_phase);</code>, it prefer readers than writer.</li>
+</ul>
+</li>
+<li>Critical Section Structure of the code:
+<ul>
+<li>
+<img src="https://i.imgur.com/41K52U2.jpg" style="width: 600px" />
+</li>
+<li>Both of the writer and readers follow the structure:
+<ul>
+<li>
+<img src="https://i.imgur.com/0z9HTAV.jpg" style="width: 600px" />
+</li>
+</ul>
+</li>
+<li>This implementation allows dealing complex situation that mutex doesn’t support, like one writer/multiple writer.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Avoiding-Common-Pitfalls">Avoiding Common Pitfalls</h2>
+<ul>
+<li>keep track of mutex/cond. variables used with a shared resource.
+<ul>
+<li>e.g. add comments on the mutex</li>
+</ul>
+</li>
+<li>check that you’re always using lock/unlock</li>
+<li>using a single mutex to access a single resource!</li>
+<li>check that you’re signaling correct condition</li>
+<li>check that you are not using signal when broadcast is needed
+<ul>
+<li>only 1 thread will proceed… remaining threads will continue to wait.</li>
+</ul>
+</li>
+<li>ask do you need priority guarantee.</li>
+</ul>
+<h3 id="Spurious-Wake-ups">Spurious Wake-ups</h3>
+<ul>
+<li>
+<img src="https://i.imgur.com/TYMYMGj.jpg" style="width: 600px" />
+</li>
+<li>
+<p>This is a problem doesn’t necessary affect correctness but may impact performance.</p>
+</li>
+<li>
+<p>The root cause is that broadcast() and signal() been called inside the lock, and when the reader was signaled, the writer might still holds the lock. Then the reader will switch from the read_phase wait lock to the counter_mutex lock and doesn’t do anything useful, but wasted several context switch from the CPU.</p>
+</li>
+<li>
+<p>Let’s see some examples:</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/euhZ4v2.jpg" style="width: 600px" />
+</li>
+<li>
+<p>Put the broadcast and signal outside of the lock block will solve the spurious wake-up issue for the writer, but we can’t put the <code>signal(writer_phase)</code> outside the lock because we can’t continue to access the protected resource: <code>if(counter_resource == 0)</code> out of the lock.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Deadlocks">Deadlocks</h3>
+<ul>
+<li>Def: when two or more competing threads are waiting on each other to complete, but none of them ever do.</li>
+<li>E.g. the lock m_A and m_B created a <strong>cycle</strong>
+<ul>
+<li>T1 -&gt; lock(m_A) -&gt; lock(m_B) -&gt; foo1(A, B)</li>
+<li>T2 -&gt; lock(m_B) -&gt; lock(m_A) -&gt; foo2(A, B)</li>
+<li></li>
+</ul>
+</li>
+<li>How to avoid:
+<ul>
+<li>fine-grained locking. Always unlock A before locking B</li>
+<li>Use mega lock to lock all resources. It’s useful for some cases, but it’s too restrictive, and limited parallelism.</li>
+<li><strong>maintain lock order,</strong> every thread needs to acquire m_A at first, then m_B.
+<ul>
+<li>This is the most common solution.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In summary, A cycle in the wait graph is <strong>necessary</strong> and <strong>sufficient</strong> for a deadlock to occur.
+<ul>
+<li>edges from thread waiting on a resource to thread owning a resource</li>
+</ul>
+</li>
+<li>What can we do?
+<ul>
+<li>deadlock prevention
+<ul>
+<li>Each time a thread is about to acquire a mutex, we can check if that operation will cause a deadlock. This can be expensive.</li>
+</ul>
+</li>
+<li>Deadlock detection &amp; recovery rollback
+<ul>
+<li>We can accomplish this through analysis of the wait graph and trying to determine whether any cycles have occurred. This is still an expensive operation as it requires us to have a rollback strategy in the event that we need to recover.</li>
+</ul>
+</li>
+<li>Ostrich algorithm. Simply do nothing, and reboot the system if the system goes wrong.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Kernel-Level-Threads-Vs-User-Level-Threads">Kernel-Level Threads Vs. User-Level Threads</h2>
+<ul>
+<li><strong>Kernel level threads</strong> imply that the operating system itself is <strong>multithreaded</strong>. Kernel level threads are visible to the kernel and are managed by kernel level components like the <strong>kernel level scheduler</strong>. The operating system scheduler will determine how these threads will be mapped onto the underlying physical CPU(s) and which ones will execute at any given point.</li>
+<li>Some kernel level threads may exist to support user level applications, while other kernel level threads may exist just to run <strong>operating system level services</strong>, like daemons for instance.</li>
+<li>At the user level, the processes themselves are multithreaded and these are the user level threads. <strong>For a user level thread to actually execute, it must first be associated with a kernel level thread, and then the OS level scheduler must schedule that kernel level thread on the CPU.</strong></li>
+</ul>
+<h3 id="Multithreading-Models">Multithreading Models</h3>
+<ul>
+<li>One-to-One Model
+<ul>
+<li>each user level thread associated with one kernel thread.</li>
+<li>Advantages:
+<ul>
+<li>OS understands the needs of the threads, like I/O blocking</li>
+</ul>
+</li>
+<li>Disadvantages:
+<ul>
+<li>Expensive, must go to kernel and do the system call.</li>
+<li>Rely/Limited on the mechanisms and policies supported by the kernel.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Many-to-One Model
+<ul>
+<li>All user level threads for a process associated with one kernel thread.</li>
+<li>Advantages:
+<ul>
+<li>Everything is done at the user level, which frees us from being reliant on the OS limits and policies.</li>
+</ul>
+</li>
+<li>Disadvantage:
+<ul>
+<li>OS loses its insight into application needs. If the <strong>user-level library</strong> scheduled a blocking operation like I/O, the kernel level thread will see the thread is blocked and end up blocking the entire process.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Many-to-Many Model
+<ul>
+<li>some user threads to have a many-to-one relationship, the other have one-to-one.</li>
+<li>Advantage:
+<ul>
+<li>The kernel is aware that the process is multithreaded since it has assigned multiple kernel level threads to the process.</li>
+<li>Some threads can be scheduled to any kernel-level threads, which is called <strong>unbound</strong> thread. If a user-level thread is mapping to a kernel level thread permanently, it’s called <strong>bound</strong> thread.</li>
+</ul>
+</li>
+<li>Disadvantage:
+<ul>
+<li>requires extra coordination between user-level and kernel-level management.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Scope-of-Multithreading">Scope of Multithreading</h3>
+<ul>
+<li>The question is whether the threads inside a process is visible to kernel or not.
+<ul>
+<li>If not, it’s called <strong>process scope</strong>, and the <strong>user level library</strong> manage the threads for the given process it linked to, the OS/Kernel can’t see them, and will  probably allocate the CPU relative to the total amount of user threads evenly.</li>
+<li>If yes, it’s called <strong>system scope</strong>, and the <strong>OS-level thread managers</strong>(e.g. CPU scheduler) will be aware of the amount of threads in the process and allocates the threads by the total amount of threads.</li>
+</ul>
+</li>
+<li>e.g. A has 6 threads, B has 3 threads.
+<ul>
+<li>if they are in the process scope, 50% of the kernel threads will be allocated to A, 50% to B.</li>
+<li>if they are in the system scope, the total 9 threads will be evenly allocated into all kernel threads.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Multithreading-Patterns">Multithreading Patterns</h2>
+<h3 id="Boss-Workers-Pattern">Boss/Workers Pattern</h3>
+<ul>
+<li>boss: assign work to workers; workers: perform entire task</li>
+<li>throughput of the system limited by boss thread =&gt; must keep boss efficient
+<ul>
+<li>throughput = 1 / boss_time_pre_task</li>
+</ul>
+</li>
+<li>Different ways boss assign works
+<ol>
+<li>directly signaling specific workers
+<ul>
+<li>Boss needs to do some extra work to track every worker’s status.</li>
+<li>Workers don’t need to synchronize with the others</li>
+</ul>
+</li>
+<li>establish a queue between the boss and the workers
+<ul>
+<li>boss is a producer, and the workers are consumers</li>
+<li>boss doesn’t need to know the process detail in the worker</li>
+<li>worker takes job from the queue from the top and process it</li>
+<li>synchronization is required, need to maintain a concurrent queue so only one worker can retrieve from it.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>For the second approach, the queue filling up is dependent primarily on <strong>the number of workers</strong>. So how many?
+<ol>
+<li>create on demand. inefficient, the cost of creating thread is significant.</li>
+<li>more common ways: create a fix-sized pool of workers. Can be increased when high demands.</li>
+</ol>
+</li>
+<li>One downside of second approach:
+<ul>
+<li><strong>locality</strong>. Boss doesn’t keep the status of any workers, not aware of whether the task is simple or not.</li>
+<li>One solution to this is, <strong>worker variants</strong>. Use a subset of workers to work on the same specific works. Since the jobs are the same, the state is likely be present in hot cache, aka better performance.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Pipeline-Pattern">Pipeline Pattern</h3>
+<ul>
+<li>The overall task is divided into subtasks and each of the subtasks are assigned a different thread. each of the subtasks might have different amount of threads.</li>
+<li>The throughput of the pipeline will be dependent on the weakest link in the pipeline; that is, the task that takes the longest amount of time to complete.</li>
+<li>The best way to pass work between these stages is a shared buffer-based communication between stages. That means the thread for stage one will put its completed work on a buffer that the thread from stage two will read from and so on.</li>
+<li>A key benefit of this approach is specialization and locality, which can lead to more efficiency, as state required for subsequent similar jobs is likely to be present in CPU caches.</li>
+<li>A downside of this approach is that it is difficult to keep the pipeline balanced over time. When the input rate changes, or the resources at a given stage are exhausted, rebalancing may be required.</li>
+</ul>
+<h3 id="Layered-Pattern">Layered Pattern</h3>
+<ul>
+<li>Similar to pipeline pattern. instead of putting each task into a thread, this approach groups similar tasks into a “layer” and the threads assigned to the layer can work on the group of subtasks.</li>
+<li>A benefit of this approach is that we can have specialization while being less fine-grained than the pipeline pattern. However it’s not suit for all applications.</li>
+</ul>
+<h3 id="Quiz">Quiz</h3>
+<ul>
+<li>For a 6-step toy order application, and 6 threads. We have two solutions:
+<ol>
+<li>a boss-workers solution
+<ol>
+<li>a worker process a toy order in 120ms</li>
+</ol>
+</li>
+<li>a pipeline solution,
+<ol>
+<li>each of the 6 steps take 20ms</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>How long will it take for these solutions to complete 10 and 11 orders?
+<ul>
+<li>boss-worker (10): 240ms</li>
+<li>boss-worker (11): 360ms
+<ul>
+<li>Note that, one of threads is boss, 5 are workers</li>
+</ul>
+</li>
+<li>pipeline (10): 300ms
+<ul>
+<li>how to calculate?
+<ul>
+<li>Once the first job is popped, that’s 120ms. Then every 20ms, there is another one finished. So:
+<ul>
+<li>120 + 9 * 20 = 300ms</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>pipeline (11): 320ms</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+  
+  <div class="divider"></div>
+</div>
+
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

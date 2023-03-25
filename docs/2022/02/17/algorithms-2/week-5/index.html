@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    
+    <!-- katex css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+
+    <div class="book-menu">
+  <!--
+## Introduction to Probability
+
+* [Unit 1: Probability models and axioms](/introduction-to-probability/unit-1/index.html)
+* [Unit 2: Conditioning and independence](/introduction-to-probability/unit-2/index.html)
+* [Unit 3: Counting](/introduction-to-probability/unit-3/index.html)
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<!--
+## Multivariable Calculus
+
+* [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
+* [Unit 2: Derivatives of multivariable functions](/multivariable-calculus/unit-2/index.html)
+
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="CS6210-Advanced-Operating-Systems">CS6210: Advanced Operating Systems</h2>
+<ul>
+<li><a href="/cs6210/lesson-02/index.html">Lesson 02: OS Structure</a></li>
+<li><a href="/cs6210/lesson-03/index.html">Lesson 3: Virtualization</a></li>
+<li><a href="/cs6210/lesson-04-1/index.html">Lesson 4: Parallel Systems - Part 1</a></li>
+<li><a href="/cs6210/lesson-04-2/index.html">Lesson 4: Parallel Systems - Part 2</a></li>
+<li><a href="/cs6210/lesson-05/index.html">Lesson 5: Distributed Systems</a></li>
+<li><a href="/cs6210/lesson-06/index.html">Lesson 6: Distributed Objects and Middleware</a></li>
+</ul>
+<!--
+* [Lesson 7: Distributed Subsystems](/cs6210/lesson-07/index.html)
+* [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
+* [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
+* [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
+* [Lesson 11: Security](/cs6210/lesson-11/index.html)
+-->
+<h2 id="CS6250-Computer-Networks">CS6250 Computer Networks</h2>
+<ul>
+<li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
+<li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
+<li><a href="/cs6250/week-3-intradomain-routing/index.html">Week 3 - Intradomain Routing</a></li>
+<li><a href="/cs6250/week-4-as-relationships-and-interdomain-routing/index.html">Week 4 - AS Relationships and Interdomain Routing</a></li>
+<li><a href="/cs6250/week-5-router-design-and-algorithems-part-1/index.html">Week 5 - Router Design and Algorithms (Part 1)</a></li>
+<li><a href="/cs6250/week-6-router-design-and-algorithems-part-2/index.html">Week 6 - Router Design and Algorithms (Part 2)</a></li>
+<li><a href="/cs6250/week-7-software-defined-networking-part-1/index.html">Week 7 - Software Defined Networking (Part 1)</a></li>
+<li><a href="/cs6250/week-8-software-defined-networking-part-2/index.html">Week 8 - Software Defined Networking (Part 2)</a></li>
+<li><a href="/cs6250/week-9-internet-security/index.html">Week 9 - Internet Security</a></li>
+<li><a href="/cs6250/week-10-internet-surveillance-and-censorship/index.html">Week 10 - Internet Surveillance and Censorship</a></li>
+<li><a href="/cs6250/week-11-applications-video/index.html">Week 11 - Applications Videos</a></li>
+<li><a href="/cs6250/week-12-applications-cdns-and-overlay-networks/index.html">Week 12 - Applications CDNs and Overlay Networks</a></li>
+</ul>
+<h2 id="CS6200-Graduate-Introduction-to-Operating-Systems">CS6200 Graduate Introduction to Operating Systems</h2>
+<ul>
+<li><a href="/cs6200/p1-preparation/index.html">P0 - Preparation</a></li>
+<li><a href="/cs6200/p1l2-introduction/index.html">P1L2 - Introduction</a></li>
+<li><a href="/cs6200/p2l1-processes-and-process-management/index.html">P2L1 - Processes and Process Management</a></li>
+<li><a href="/cs6200/p2l2-threads-and-concurrency/index.html">P2L2 - Threads and Concurrency</a></li>
+<li><a href="/cs6200/p2l3-pthread/index.html">P2L3 - PThread</a></li>
+<li><a href="/cs6200/p2l4-thread-design-consideration/index.html">P2L4 - Thread Design Considerations</a></li>
+<li><a href="/cs6200/p2l5-thread-performance-consideration/index.html">P2L5 - Thread Performance Considerations</a></li>
+<li><a href="/cs6200/p3l1-scheduling/index.html">P3L1 - Scheduling</a></li>
+<li><a href="/cs6200/p3l2-memory-management/index.html">P3L2 - Memory Management</a></li>
+<li><a href="/cs6200/p3l3-inter-process-communication/index.html">P3L3 - Inter-Process Communication</a></li>
+<li><a href="/cs6200/p3l4-synchronization-constructs/index.html">P3L4 - Synchronization Constructs</a></li>
+<li><a href="/cs6200/p3l5-io-management/index.html">P3L5 - I/O Management</a></li>
+<li><a href="/cs6200/p3l6-virtualization/index.html">P3L6 - Virtualization</a></li>
+</ul>
+<!--
+* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
+* [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
+* [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
+* [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
+-->
+<h2 id="Algorithms-Part-II">Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-2/index.html">Week 2 - Minimum Spanning Trees &amp; Shortest Path</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; String Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+<li><a href="/algorithms-2/week-5/index.html">Week 5 - Regular Expressions</a></li>
+<li><a href="/algorithms-2/week-6/index.html">Week 6 - Reductions</a></li>
+</ul>
+<h2 id="Algorithms-Part-I">Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="Introduction-to-Software-Design-and-Architecture">Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="Calculus-Two-Sequences-and-Series">Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="LAFF-Linear-Algebra">LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="Stanford-Machine-Learning">Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="Calculus-One">Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="Computational-Thinking">Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="Effective-Thinking-Through-Mathematics">Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="CS50-Introduction-to-Computer-Science">CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+<h2 id="Others">Others</h2>
+<ul>
+<li><a href="/symbols/index.html">Symbols of Mathematics</a></li>
+<li><a href="/glossary/index.html">Glossary</a></li>
+</ul>
+<h2 id="About-Me"><a target="_blank" rel="noopener" href="https://ericyy.me/about/">About Me</a></h2>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1>Regular Expressions &amp; Data Compression</h1>
+<h2 id="Regular-Expressions">Regular Expressions</h2>
+<h3 id="DFA-vs-NFA">DFA vs NFA</h3>
+<ul>
+<li>Deterministic finite state automata (DFA);</li>
+<li>Nondeterministic finite state automata (NFA).</li>
+</ul>
+<ul>
+<li>
+<p>Basic plan:</p>
+<ol>
+<li>Build DFA/NFA from RE.</li>
+<li>Simulate DFA/NFA with text as input.</li>
+</ol>
+</li>
+<li>
+<p>refer to <a href="/algorithms-2/week-4/index.html#knuth-morris-pratt-kmp">week 4#knuth-morris-pratt-kmp</a> for the DFA implementation</p>
+<ul>
+<li>Bad news with DFA is, it may have exponential # of states.</li>
+</ul>
+</li>
+<li>
+<p>NFA is widely used in modern languages.</p>
+</li>
+</ul>
+<h3 id="NFA">NFA</h3>
+<ul>
+<li>Features:
+<ul>
+<li>RE enclosed in parentheses.</li>
+<li>One state per Re character (start = 0, accept = M).</li>
+<li>Red <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mrow><mi>ϵ</mi><mtext>-transition</mtext></mrow></mstyle></mrow><annotation encoding="application/x-tex">\color{red}{\epsilon\text{-transition}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6679em;"></span><span class="mord" style="color:red;"><span class="mord mathnormal" style="color:red;">ϵ</span><span class="mord text" style="color:red;"><span class="mord" style="color:red;">-transition</span></span></span></span></span></span> (change state, but don’t scan text);</li>
+<li>Black match transition (change state and scan to next text char).</li>
+<li>Accept if <strong>any</strong> sequence of transitions ends in accept state.</li>
+</ul>
+</li>
+<li>RE:
+<ul>
+<li>
+<img src="https://i.imgur.com/OZPphzB.jpg" style="width:600px" />
+</li>
+<li>Red directions are <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ϵ</span></span></span></span> transition which are stored in a <strong>digraph</strong> G.
+<ul>
+<li>0→1, 1→2, 1→6, 2→3, 3→2, 3→4, 5→8, 8→9, 10→11</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The general steps are to find states reachableeither by either match transitions or <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mrow><mi>ϵ</mi><mtext>-transition</mtext></mrow></mstyle></mrow><annotation encoding="application/x-tex">\color{red}{\epsilon\text{-transition}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6679em;"></span><span class="mord" style="color:red;"><span class="mord mathnormal" style="color:red;">ϵ</span><span class="mord text" style="color:red;"><span class="mord" style="color:red;">-transition</span></span></span></span></span></span> alternatively.</li>
+<li>Take <code>A A B D</code> as an example to simulate the RE.
+<ul>
+<li>
+<img src="https://i.imgur.com/ezeRWid.jpg" style="width:600px" />
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Java-implementation">Java implementation</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NFA</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">char</span>[] re; <span class="comment">// match transitions</span></span><br><span class="line">    <span class="keyword">private</span> Digraph G; <span class="comment">// epsilon transition digraph </span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> M; <span class="comment">// number of states</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">NFA</span><span class="params">(String regexp)</span> &#123;</span><br><span class="line">        M = regexp.length();</span><br><span class="line">        re = regexp.toCharArray();</span><br><span class="line">        G = buildEpsilonTransitionDigraph(); </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">recognizes</span><span class="params">(String txt)</span> &#123;</span><br><span class="line">        Bag&lt;Integer&gt; pc = <span class="keyword">new</span> <span class="title class_">Bag</span>&lt;Integer&gt;(); </span><br><span class="line">        <span class="type">DirectedDFS</span> <span class="variable">dfs</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DirectedDFS</span>(G, <span class="number">0</span>); <span class="comment">// states reachable from start by ε-transitions</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">v</span> <span class="operator">=</span> <span class="number">0</span>; v &lt; G.V(); v++) </span><br><span class="line">            <span class="keyword">if</span> (dfs.marked(v)) pc.add(v);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; txt.length(); i++) &#123;</span><br><span class="line">            <span class="comment">// states reachable after scanning past txt.charAt(i)</span></span><br><span class="line">            Bag&lt;Integer&gt; match = <span class="keyword">new</span> <span class="title class_">Bag</span>&lt;Integer&gt;(); </span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> v : pc) &#123;</span><br><span class="line">                <span class="keyword">if</span> (v == M) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span> ((re[v] == txt.charAt(i)) || re[v] == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">                    match.add(v+<span class="number">1</span>); </span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// follow ε-transitions</span></span><br><span class="line">            dfs = <span class="keyword">new</span> <span class="title class_">DirectedDFS</span>(G, match); </span><br><span class="line">            pc = <span class="keyword">new</span> <span class="title class_">Bag</span>&lt;Integer&gt;(); </span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">v</span> <span class="operator">=</span> <span class="number">0</span>; v &lt; G.V(); v++) </span><br><span class="line">                <span class="keyword">if</span> (dfs.marked(v)) pc.add(v);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> v : pc) </span><br><span class="line">            <span class="keyword">if</span> (v == M) <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// accept if can end in state M</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Digraph <span class="title function_">buildEpsilonTransitionDigraph</span><span class="params">()</span> &#123; </span><br><span class="line">        </span><br><span class="line">        <span class="type">Digraph</span> <span class="variable">G</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Digraph</span>(M+<span class="number">1</span>); </span><br><span class="line">        Stack&lt;Integer&gt; ops = <span class="keyword">new</span> <span class="title class_">Stack</span>&lt;Integer&gt;(); </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; M; i++) &#123; </span><br><span class="line">            <span class="type">int</span> <span class="variable">lp</span> <span class="operator">=</span> i;</span><br><span class="line">            <span class="keyword">if</span> (re[i] == <span class="string">&#x27;(&#x27;</span> || re[i] == <span class="string">&#x27;|&#x27;</span>) ops.push(i); <span class="comment">// left parentheses and |</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (re[i] == <span class="string">&#x27;)&#x27;</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">or</span> <span class="operator">=</span> ops.pop(); </span><br><span class="line">                <span class="keyword">if</span> (re[or] == <span class="string">&#x27;|&#x27;</span>) &#123; <span class="comment">// 2-way or</span></span><br><span class="line">                    lp = ops.pop();</span><br><span class="line">                    G.addEdge(lp, or+<span class="number">1</span>);</span><br><span class="line">                    G.addEdge(or, i); </span><br><span class="line">                &#125; <span class="keyword">else</span> lp = or;</span><br><span class="line">            &#125;</span><br><span class="line">    </span><br><span class="line">            <span class="comment">// closure (needs 1-character lookahead)</span></span><br><span class="line">            <span class="keyword">if</span> (i &lt; M-<span class="number">1</span> &amp;&amp; re[i+<span class="number">1</span>] == <span class="string">&#x27;*&#x27;</span>) &#123; </span><br><span class="line">                G.addEdge(lp, i+<span class="number">1</span>); </span><br><span class="line">                G.addEdge(i+<span class="number">1</span>, lp); </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (re[i] == <span class="string">&#x27;(&#x27;</span> || re[i] == <span class="string">&#x27;*&#x27;</span> || re[i] == <span class="string">&#x27;)&#x27;</span>) <span class="comment">// metasymbols</span></span><br><span class="line">                G.addEdge(i, i+<span class="number">1</span>);</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> G;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>In this implemenation, we only considered metacharacters: <code>( ) . * |</code>
+<ul>
+<li>Here are the construction rules:
+<ul>
+<li>
+<img src="https://i.imgur.com/k3BfTl3.jpg" style="width:400px" />
+</li>
+</ul>
+</li>
+<li>Building the NFA corresponding to <code>( ( A * B | A C ) D )</code>
+<ul>
+<li>
+<img src="https://i.imgur.com/6egCHo7.jpg" style="width:600px" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Data-Compression">Data Compression</h2>
+<ul>
+<li>
+<p>This course only talked about <strong>lossless compression</strong>.</p>
+</li>
+<li>
+<p>A data compression algorithm includes:</p>
+<ul>
+<li><strong>Message</strong>. Binary data <strong>B</strong> we want to compress.</li>
+<li><strong>Compress</strong>. Generates a “compressed” representation <strong>C (B)</strong>.</li>
+<li><strong>Expand</strong>. Reconstructs original bitstream <strong>B</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Compression ratio</strong>. Bits in <strong>C (B)</strong> / bits in <strong>B</strong>.</p>
+</li>
+<li>
+<p>A simple example is Run-length encoding.</p>
+<ul>
+<li>Simple type of redundancy in a bitstream:
+<ul>
+<li>0000000000 0000011111 1100000001 1111111111 &lt;- 40 bits</li>
+</ul>
+</li>
+<li>Transfer to below by representing alternating runs of 0s and 1s:
+<ul>
+<li>1111 0111 0111 1011 &lt;- 16 bits
+<ul>
+<li>15 0s, then 7 1s, then 7 0s, then 11 1s.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Huffman-compression">Huffman compression</h3>
+<ul>
+<li>
+<p>Term: Variable-length preﬁx-free codes.</p>
+<ul>
+<li>Use a binary trie to represent. Chars in leaves, and codeword is path from root to leaf:
+<ul>
+<li>
+<img src="https://i.imgur.com/3u2zUTk.jpg" style="width:400px"/>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Compression.</p>
+<ul>
+<li>Method 1: start at leaf; follow path up to the root; print bits in reverse.</li>
+<li>Method 2: create ST of key-value pairs. Codeword table Trie representation</li>
+</ul>
+</li>
+<li>
+<p>Expansion.</p>
+<ul>
+<li>Start at root.</li>
+<li>Go left if bit is 0;</li>
+<li>go right if 1.</li>
+<li>If leaf node, print char and return to root.</li>
+</ul>
+</li>
+<li>
+<p>Java implementation</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://algs4.cs.princeton.edu/55compression/Huffman.java.html">https://algs4.cs.princeton.edu/55compression/Huffman.java.html</a></li>
+</ul>
+</li>
+<li>
+<p>Constructing a Huffman encoding trie</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/cgswtxX.jpg" style="width:600px"/>
+</li>
+<li>
+<img src="https://i.imgur.com/m2wozN1.jpg" style="width:600px"/>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="LZW-compression">LZW compression</h3>
+<ul>
+<li>
+<p>Compression</p>
+<ul>
+<li>Create ST associating W-bit codewords with string keys.</li>
+<li>Initialize ST with codewords for single-char keys.</li>
+<li>Find longest string s in ST that is a prefix of unscanned part of input.</li>
+<li>Write the W-bit codeword associated with s.</li>
+<li>Add s + c to ST, where c is next char in the input.</li>
+<li>
+<img src="https://i.imgur.com/W5g6DC1.jpg" style="width:600px"/>
+</li>
+</ul>
+</li>
+<li>
+<p>Expansion</p>
+<ul>
+<li>Create ST associating string values with W-bit keys.</li>
+<li>Initialize ST to contain single-char values.</li>
+<li>Read a W-bit key.</li>
+<li>Find associated string value in ST and write it out.</li>
+<li>Update ST.</li>
+<li>
+<img src="https://i.imgur.com/FDK3EUu.jpg" style="width:600px"/>
+</li>
+</ul>
+</li>
+<li>
+<p>Java implementation</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://algs4.cs.princeton.edu/55compression/LZW.java.html">https://algs4.cs.princeton.edu/55compression/LZW.java.html</a></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LZW</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">R</span> <span class="operator">=</span> <span class="number">256</span>;        <span class="comment">// number of input chars</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">L</span> <span class="operator">=</span> <span class="number">4096</span>;       <span class="comment">// number of codewords = 2^W</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">W</span> <span class="operator">=</span> <span class="number">12</span>;         <span class="comment">// codeword width</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Do not instantiate.</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">LZW</span><span class="params">()</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Reads a sequence of 8-bit bytes from standard input; compresses</span></span><br><span class="line"><span class="comment">     * them using LZW compression with 12-bit codewords; and writes the results</span></span><br><span class="line"><span class="comment">     * to standard output.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">compress</span><span class="params">()</span> &#123; </span><br><span class="line">        <span class="type">String</span> <span class="variable">input</span> <span class="operator">=</span> BinaryStdIn.readString();</span><br><span class="line">        TST&lt;Integer&gt; st = <span class="keyword">new</span> <span class="title class_">TST</span>&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// since TST is not balanced, it would be better to insert in a different order</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; R; i++)</span><br><span class="line">            st.put(<span class="string">&quot;&quot;</span> + (<span class="type">char</span>) i, i);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">code</span> <span class="operator">=</span> R+<span class="number">1</span>;  <span class="comment">// R is codeword for EOF</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (input.length() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> st.longestPrefixOf(input);  <span class="comment">// Find max prefix match s.</span></span><br><span class="line">            BinaryStdOut.write(st.get(s), W);      <span class="comment">// Print s&#x27;s encoding.</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">t</span> <span class="operator">=</span> s.length();</span><br><span class="line">            <span class="keyword">if</span> (t &lt; input.length() &amp;&amp; code &lt; L)    <span class="comment">// Add s to symbol table.</span></span><br><span class="line">                st.put(input.substring(<span class="number">0</span>, t + <span class="number">1</span>), code++);</span><br><span class="line">            input = input.substring(t);            <span class="comment">// Scan past s in input.</span></span><br><span class="line">        &#125;</span><br><span class="line">        BinaryStdOut.write(R, W);</span><br><span class="line">        BinaryStdOut.close();</span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Reads a sequence of bit encoded using LZW compression with</span></span><br><span class="line"><span class="comment">     * 12-bit codewords from standard input; expands them; and writes</span></span><br><span class="line"><span class="comment">     * the results to standard output.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">expand</span><span class="params">()</span> &#123;</span><br><span class="line">        String[] st = <span class="keyword">new</span> <span class="title class_">String</span>[L];</span><br><span class="line">        <span class="type">int</span> i; <span class="comment">// next available codeword value</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// initialize symbol table with all 1-character strings</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; R; i++)</span><br><span class="line">            st[i] = <span class="string">&quot;&quot;</span> + (<span class="type">char</span>) i;</span><br><span class="line">        st[i++] = <span class="string">&quot;&quot;</span>;                        <span class="comment">// (unused) lookahead for EOF</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">codeword</span> <span class="operator">=</span> BinaryStdIn.readInt(W);</span><br><span class="line">        <span class="keyword">if</span> (codeword == R) <span class="keyword">return</span>;           <span class="comment">// expanded message is empty string</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">val</span> <span class="operator">=</span> st[codeword];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            BinaryStdOut.write(val);</span><br><span class="line">            codeword = BinaryStdIn.readInt(W);</span><br><span class="line">            <span class="keyword">if</span> (codeword == R) <span class="keyword">break</span>;</span><br><span class="line">            <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> st[codeword];</span><br><span class="line">            <span class="keyword">if</span> (i == codeword) s = val + val.charAt(<span class="number">0</span>);   <span class="comment">// special case hack</span></span><br><span class="line">            <span class="keyword">if</span> (i &lt; L) st[i++] = val + s.charAt(<span class="number">0</span>);</span><br><span class="line">            val = s;</span><br><span class="line">        &#125;</span><br><span class="line">        BinaryStdOut.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Sample client that calls &#123;<span class="doctag">@code</span> compress()&#125; if the command-line</span></span><br><span class="line"><span class="comment">     * argument is &quot;-&quot; an &#123;<span class="doctag">@code</span> expand()&#125; if it is &quot;+&quot;.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args the command-line arguments</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>      (args[<span class="number">0</span>].equals(<span class="string">&quot;-&quot;</span>)) compress();</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (args[<span class="number">0</span>].equals(<span class="string">&quot;+&quot;</span>)) expand();</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal command line argument&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+  
+  <div class="divider"></div>
+</div>
+
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

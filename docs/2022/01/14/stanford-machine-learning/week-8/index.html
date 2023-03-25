@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    
+    <!-- katex css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+
+    <div class="book-menu">
+  <!--
+## Introduction to Probability
+
+* [Unit 1: Probability models and axioms](/introduction-to-probability/unit-1/index.html)
+* [Unit 2: Conditioning and independence](/introduction-to-probability/unit-2/index.html)
+* [Unit 3: Counting](/introduction-to-probability/unit-3/index.html)
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<!--
+## Multivariable Calculus
+
+* [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
+* [Unit 2: Derivatives of multivariable functions](/multivariable-calculus/unit-2/index.html)
+
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="CS6210-Advanced-Operating-Systems">CS6210: Advanced Operating Systems</h2>
+<ul>
+<li><a href="/cs6210/lesson-02/index.html">Lesson 02: OS Structure</a></li>
+<li><a href="/cs6210/lesson-03/index.html">Lesson 3: Virtualization</a></li>
+<li><a href="/cs6210/lesson-04-1/index.html">Lesson 4: Parallel Systems - Part 1</a></li>
+<li><a href="/cs6210/lesson-04-2/index.html">Lesson 4: Parallel Systems - Part 2</a></li>
+<li><a href="/cs6210/lesson-05/index.html">Lesson 5: Distributed Systems</a></li>
+<li><a href="/cs6210/lesson-06/index.html">Lesson 6: Distributed Objects and Middleware</a></li>
+</ul>
+<!--
+* [Lesson 7: Distributed Subsystems](/cs6210/lesson-07/index.html)
+* [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
+* [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
+* [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
+* [Lesson 11: Security](/cs6210/lesson-11/index.html)
+-->
+<h2 id="CS6250-Computer-Networks">CS6250 Computer Networks</h2>
+<ul>
+<li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
+<li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
+<li><a href="/cs6250/week-3-intradomain-routing/index.html">Week 3 - Intradomain Routing</a></li>
+<li><a href="/cs6250/week-4-as-relationships-and-interdomain-routing/index.html">Week 4 - AS Relationships and Interdomain Routing</a></li>
+<li><a href="/cs6250/week-5-router-design-and-algorithems-part-1/index.html">Week 5 - Router Design and Algorithms (Part 1)</a></li>
+<li><a href="/cs6250/week-6-router-design-and-algorithems-part-2/index.html">Week 6 - Router Design and Algorithms (Part 2)</a></li>
+<li><a href="/cs6250/week-7-software-defined-networking-part-1/index.html">Week 7 - Software Defined Networking (Part 1)</a></li>
+<li><a href="/cs6250/week-8-software-defined-networking-part-2/index.html">Week 8 - Software Defined Networking (Part 2)</a></li>
+<li><a href="/cs6250/week-9-internet-security/index.html">Week 9 - Internet Security</a></li>
+<li><a href="/cs6250/week-10-internet-surveillance-and-censorship/index.html">Week 10 - Internet Surveillance and Censorship</a></li>
+<li><a href="/cs6250/week-11-applications-video/index.html">Week 11 - Applications Videos</a></li>
+<li><a href="/cs6250/week-12-applications-cdns-and-overlay-networks/index.html">Week 12 - Applications CDNs and Overlay Networks</a></li>
+</ul>
+<h2 id="CS6200-Graduate-Introduction-to-Operating-Systems">CS6200 Graduate Introduction to Operating Systems</h2>
+<ul>
+<li><a href="/cs6200/p1-preparation/index.html">P0 - Preparation</a></li>
+<li><a href="/cs6200/p1l2-introduction/index.html">P1L2 - Introduction</a></li>
+<li><a href="/cs6200/p2l1-processes-and-process-management/index.html">P2L1 - Processes and Process Management</a></li>
+<li><a href="/cs6200/p2l2-threads-and-concurrency/index.html">P2L2 - Threads and Concurrency</a></li>
+<li><a href="/cs6200/p2l3-pthread/index.html">P2L3 - PThread</a></li>
+<li><a href="/cs6200/p2l4-thread-design-consideration/index.html">P2L4 - Thread Design Considerations</a></li>
+<li><a href="/cs6200/p2l5-thread-performance-consideration/index.html">P2L5 - Thread Performance Considerations</a></li>
+<li><a href="/cs6200/p3l1-scheduling/index.html">P3L1 - Scheduling</a></li>
+<li><a href="/cs6200/p3l2-memory-management/index.html">P3L2 - Memory Management</a></li>
+<li><a href="/cs6200/p3l3-inter-process-communication/index.html">P3L3 - Inter-Process Communication</a></li>
+<li><a href="/cs6200/p3l4-synchronization-constructs/index.html">P3L4 - Synchronization Constructs</a></li>
+<li><a href="/cs6200/p3l5-io-management/index.html">P3L5 - I/O Management</a></li>
+<li><a href="/cs6200/p3l6-virtualization/index.html">P3L6 - Virtualization</a></li>
+</ul>
+<!--
+* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
+* [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
+* [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
+* [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
+-->
+<h2 id="Algorithms-Part-II">Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-2/index.html">Week 2 - Minimum Spanning Trees &amp; Shortest Path</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; String Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+<li><a href="/algorithms-2/week-5/index.html">Week 5 - Regular Expressions</a></li>
+<li><a href="/algorithms-2/week-6/index.html">Week 6 - Reductions</a></li>
+</ul>
+<h2 id="Algorithms-Part-I">Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="Introduction-to-Software-Design-and-Architecture">Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="Calculus-Two-Sequences-and-Series">Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="LAFF-Linear-Algebra">LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="Stanford-Machine-Learning">Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="Calculus-One">Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="Computational-Thinking">Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="Effective-Thinking-Through-Mathematics">Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="CS50-Introduction-to-Computer-Science">CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+<h2 id="Others">Others</h2>
+<ul>
+<li><a href="/symbols/index.html">Symbols of Mathematics</a></li>
+<li><a href="/glossary/index.html">Glossary</a></li>
+</ul>
+<h2 id="About-Me"><a target="_blank" rel="noopener" href="https://ericyy.me/about/">About Me</a></h2>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1>Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</h1>
+<h2 id="Unsupervised-Learning">Unsupervised Learning</h2>
+<h3 id="Clustering">Clustering</h3>
+<ul>
+<li>Check <a target="_blank" rel="noopener" href="https://cs.ericyy.me/computational-thinking/lecture-12/index.html#clustering">Computational Thinking(Lecture 12)</a> for the <strong>clustering</strong> and <strong>k-means algorithm</strong> notes.</li>
+<li>
+<img src="https://i.imgur.com/Oiob5tT.jpg" style="width:500px" />
+</li>
+</ul>
+<h4 id="Optimization-Objective">Optimization Objective</h4>
+<ul>
+<li>Cost Function: $$J(c^{(1)}), \ldots, c^{(m)}, \mu_{1}, \ldots, \mu_{k}) = \frac{1}{m}\sum_{i=1}^{m} \lVert x^{(i)} - \mu_{c^{(i)}} \rVert^2$$
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>c</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">c^{(i)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span> = index of cluster(1,2,…,K) to which exampe <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(i)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span> is currently assigned.</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\mu_{k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> = cluster centroid <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mi>k</mi></msub><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\mu_k \in \mathbb{R}^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span>)</li>
+</ul>
+</li>
+<li>a little explanation about the <strong>k-means algorithm</strong>
+<ul>
+<li>cluster assigned step: minimize <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mo>…</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">J(\ldots)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="minner">…</span><span class="mclose">)</span></span></span></span></li>
+<li>move centroid step: choose <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span></span></span></span> which minimized <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mo>…</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">J(\ldots)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="minner">…</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+</li>
+</ul>
+<h4 id="Random-Initialization">Random Initialization</h4>
+<ul>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>&lt;</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">K &lt; m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span></p>
+</li>
+<li>
+<p>Randomly pick <strong>K</strong> training examples</p>
+</li>
+<li>
+<p>Set <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mn>1</mn></msub><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msub><mi>μ</mi><mi>K</mi></msub></mrow><annotation encoding="application/x-tex">\mu_1, \ldots, \mu_K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> equal to these <strong>K</strong> examples.</p>
+</li>
+<li>
+<p>How to fix <strong>Local Optima</strong></p>
+<ul>
+<li>the situation like:
+<ul>
+<li>
+<img src="https://i.imgur.com/G4suxPy.jpg" style="width:300px" />
+</li>
+</ul>
+</li>
+<li>The solution is: Try multiple times of random initialization.</li>
+<li>
+<img src="https://i.imgur.com/fozIOTI.jpg" style="width:360px" />
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Choosing-the-Number-of-Clusters">Choosing the Number of Clusters</h4>
+<ul>
+<li>First method is to use <strong>Elbow method</strong>:
+<ul>
+<li>
+<img src="https://i.imgur.com/hOwyMSc.jpg" style="width:200px" />
+</li>
+<li>Sometimes, you won’t get an elbow, instead with a smooth line, which means this method doesn’t work in this way.</li>
+</ul>
+</li>
+<li>Another method: <strong>market segmentation</strong>
+<ul>
+<li>For example: T-shirt size
+<ul>
+<li>If you have three sizes (S,M,L)</li>
+<li>Or five sizes (XS, S, M, L, XL)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Dimensionality-Reduction">Dimensionality Reduction</h2>
+<h3 id="Motivation">Motivation</h3>
+<ol>
+<li>
+<p><strong>Data Compression</strong></p>
+<ul>
+<li>For Example, Reduce data from 2D to 1D</li>
+<li>
+<img src="https://i.imgur.com/tTm93dC.jpg" style="width:200px"/>
+</li>
+<li>When the features are highly correlated, they can be combined into a single attribute.</li>
+<li>It can speed up our algorithms and reduce the spaces.</li>
+<li>Another example: 3D -&gt; 2D
+<ul>
+<li>
+<img src="https://i.imgur.com/qKY3SzH.jpg" style="width:500px" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Visualization</strong></p>
+<ul>
+<li>It’s hard to visualize highly dimensional(&gt;3D) data. So we can reduce the dimension to help us to understand the data better.</li>
+<li>For example, collect a large data set about many facts of a country around the world:
+<ul>
+<li>
+<img src="https://i.imgur.com/P7Klc7H.jpg" style="width:400px"/>
+</li>
+<li>If we reduce the dimension to 2D:
+<ul>
+<li>
+<img src="https://i.imgur.com/loyltSx.jpg" style="width:200px" />
+</li>
+</ul>
+</li>
+<li>Then visualize:
+<ul>
+<li>
+<img src="https://i.imgur.com/Vd0bNrg.jpg" style="width:300px" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Principal-Component-Analysis-PCA">Principal Component Analysis(PCA)</h3>
+<h4 id="Problem-Formulation">Problem Formulation</h4>
+<ul>
+<li>
+<p>Say we want to reduce a 2D data to 1D:</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/cqJCGCa.jpg" style="width:200px" />
+</li>
+<li>In other words, find a single line which to project the data, and minimize the distance between each point and the line.</li>
+<li>This distance we call it <strong>projection error</strong> (the blue lines below):
+<ul>
+<li>
+<img src="https://i.imgur.com/qNhC97G.jpg" style="width:200px" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>A more formal description is:</p>
+<ul>
+<li>Reduce from <strong>2</strong>-dimension to <strong>1</strong>­‐dimension: Find a direction (a vector <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>u</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">u^{(1)} \in \mathbb{R}^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9271em;vertical-align:-0.0391em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span>)onto which to project the data so as to minimize the projection error.</li>
+</ul>
+</li>
+<li>
+<p>More general:</p>
+<ul>
+<li>Reduce from <strong>n</strong>-dimension to <strong>k</strong>­‐dimension: Find <strong>k</strong> vectors <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>u</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>u</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msup><mi>u</mi><mrow><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">u^{(1)}, u^{(2)}, \ldots, u^{(k)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0824em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>) onto which to project the data so as to minimize the projection error.</li>
+</ul>
+</li>
+<li>
+<p><strong>PCA is not linear regression</strong></p>
+<ul>
+<li>
+<img src="https://i.imgur.com/3oTdkHi.jpg" style="width:420px" />
+</li>
+<li>Linear regression is trying to minimize the distance <strong>vertically</strong></li>
+<li>PCA is trying to find the shortest orthogonal distances.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Algorithm">Algorithm</h4>
+<ul>
+<li>Before applying PCA, we must do data preprocessing.</li>
+<li><strong>Data Preprocessing</strong>
+<ul>
+<li>Training set: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>m</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(1)}, x^{(2)}, \ldots, x^{(m)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0824em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">m</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span></li>
+<li>Preprocessing (To have comparable range of values):
+<ul>
+<li>feature scaling: <a href="/stanford-machine-learning/week-2.html#feature-scaling">Check Week 2</a>
+<ul>
+<li>Z-scaling
+<ul>
+<li>Each feature has a mean of 0 &amp; a standard deviation of 1</li>
+</ul>
+</li>
+<li>Interpolation
+<ul>
+<li>Map minimum value to 0, maximum value to 1, and linearly interpolate</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>mean normalization
+<ul>
+<li>rescale the mean of each feature set to 0</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Algorithm</strong>
+<ul>
+<li>Reduce data from <strong>n</strong>-dimensions to <strong>k</strong>-dimensions. Then project the data set to <strong>k</strong> dimensions.
+<ul>
+<li>the <strong>k</strong>-dimensions, denoted by <strong>k</strong> vectors (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>u</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>u</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msup><mi>u</mi><mrow><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">u^{(1)}, u^{(2)}, \ldots, u^{(k)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0824em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>)</li>
+<li>And the projected data sets denoted by (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>z</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>z</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msup><mi>z</mi><mrow><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">z^{(1)}, z^{(2)}, \ldots, z^{(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0824em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">n</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>)</li>
+</ul>
+</li>
+<li>Compute “covariance matrix”: $$\Sigma = \frac{1}{m}\sum_{i=0}^n (x^{(i)})(x^{(i)})^T$$
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Σ</mi></mrow><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Σ</span></span></span></span>: Sigma, [n x n] matrix</li>
+<li><code>Sigma = (1/m)*(X'X)</code></li>
+</ul>
+</li>
+<li>Compute “eigenvectors” of matrix <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Σ</mi></mrow><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Σ</span></span></span></span>:
+<ul>
+<li>In Matlab: <code>[U, S, V] = svd(Sigma);</code>
+<ul>
+<li><code>svd</code>: singular value decomposition</li>
+</ul>
+</li>
+<li><code>U,S,V</code>: Matrix
+<ul>
+<li>
+<img src="https://i.imgur.com/WfFMGjY.jpg" style="width:300px" />
+</li>
+<li>And we are going to take the first <strong>k</strong> columns of U to find <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span>, which will be a [n x k] matrix. We call this matrix <strong>U_reduce</strong> matrix.</li>
+<li>Then <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><msubsup><mi>U</mi><mtext>reduce</mtext><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msubsup><mi>X</mi></mrow><annotation encoding="application/x-tex">z = U_{\text{reduce}}&#x27;X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.035em;vertical-align:-0.2831em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-2.4169em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">reduce</span></span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2831em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>, and z will be a <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>k</mi><mo>×</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(k \times 1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span> vector.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In summay:
+<ul>
+<li><code>[U, S, V] = svd(Sigma);</code></li>
+<li><code>Ureduce = U(:, 1:k);</code></li>
+<li><code>z = Ureduce'*x;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Applying-PCA">Applying PCA</h3>
+<h4 id="Reconstruction-from-Compressed-Representation">Reconstruction from Compressed Representation</h4>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>x</mi><mtext>approx</mtext><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup><mo>=</mo><msub><mi>U</mi><mtext>reduce</mtext></msub><msup><mi>z</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x_{\text{approx}}^{(1)} = U_{\text{reduce}} z^{(1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2975em;vertical-align:-0.2527em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.5834em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">approx</span></span></span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2527em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.038em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">reduce</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>x</mi><mtext>approx</mtext><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">x_{\text{approx}}^{(1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2975em;vertical-align:-0.2527em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.5834em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">approx</span></span></span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2527em;"><span></span></span></span></span></span></span></span></span></span>: [n x 1]</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><mtext>reduce</mtext></msub></mrow><annotation encoding="application/x-tex">U_{\text{reduce}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">reduce</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>: [n x k]</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>z</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">z^{(1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>: [k x 1]</li>
+</ul>
+</li>
+<li>And we want to minimize the difference between <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mtext>approx</mtext></msub></mrow><annotation encoding="application/x-tex">x_{\text{approx}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">approx</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></li>
+</ul>
+<h4 id="Choosing-the-Number-of-Principal-Components-k">Choosing the Number of Principal Components(k)</h4>
+<ul>
+<li>Choosing <strong>k</strong>(Number of Principal Components)</li>
+<li>Average squared projection error: $$\frac{1}{m} \sum_{i=1}^m \lVert x^{(i)} - x_{\text{approx}^{(i)}} \rVert ^2$$</li>
+<li>Total variation in the data: $$\frac{1}{m} \sum_{i=1}^m \lVert x^{(i)} \rVert ^2$$</li>
+<li>Typically, choose <strong>k</strong> to be smallest value so that $$\frac{\frac{1}{m} \sum_{i=1}^m \lVert x^{(i)} - x_{\text{approx}^{(i)}} \rVert ^2}{\frac{1}{m} \sum_{i=1}^m \lVert x^{(i)} \rVert ^2} \le 0.01$$
+<ul>
+<li>In other words, 99% of variance is retained.</li>
+</ul>
+</li>
+<li>Back to the <code>svd</code> function(<code>[U, S, V] = svd(Sigma)</code>), we get <strong>S</strong>, which is a diagonal matrix, and $$\frac{\frac{1}{m} \sum_{i=1}^m \lVert x^{(i)} - x_{\text{approx}^{(i)}} \rVert ^2}{\frac{1}{m} \sum_{i=1}^m \lVert x^{(i)} \rVert ^2} = 1 - \frac{\sum_{i=1}^k S_{ii}}{\sum_{i=1}^n S_{ii}} \le 0.01$$
+<ul>
+<li>So instead calculating all of the data set, we can just use <strong>S</strong> to find the <strong>k</strong>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Advice-for-Applying-PCA">Advice for Applying PCA</h4>
+<ul>
+<li><strong>Supervised learning speedup</strong>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo separator="true">,</mo><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>m</mi><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mi>m</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(m)}, y^{(m)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">m</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">m</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>Extract inputs:
+<ul>
+<li>Unlabeled dataset: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>m</mi><mo stretchy="false">)</mo></mrow></msup><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>10000</mn></msup><mtext> </mtext><munder accentunder="true"><mrow><mi>P</mi><mi>C</mi><mi>A</mi></mrow><mo stretchy="true">→</mo></munder><mtext> </mtext><msup><mi>z</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>z</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msup><mi>z</mi><mrow><mo stretchy="false">(</mo><mi>m</mi><mo stretchy="false">)</mo></mrow></msup><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>1000</mn></msup></mrow><annotation encoding="application/x-tex">x^{(1)}, x^{(2)}, \ldots, x^{(m)} \in \mathbb{R}^{10000} \ \underrightarrow{PCA} \ z^{(1)}, z^{(2)}, \ldots, z^{(m)} \in \mathbb{R}^{1000}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0824em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">m</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.41em;vertical-align:-0.522em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10000</span></span></span></span></span></span></span></span></span><span class="mspace"> </span><span class="mord accentunder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6833em;"><span class="svg-align" style="top:-2.478em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="height:0.522em;min-width:0.888em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128
+-16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20
+ 11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7
+ 39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85
+-40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5
+-12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67
+ 151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">PC</span><span class="mord mathnormal">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.522em;"><span></span></span></span></span></span><span class="mspace"> </span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">m</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1000</span></span></span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+</li>
+<li>New training set:
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msup><mi>z</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo separator="true">,</mo><mo stretchy="false">(</mo><msup><mi>z</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mo stretchy="false">(</mo><msup><mi>z</mi><mrow><mo stretchy="false">(</mo><mi>m</mi><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mi>m</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(z^{(1)}, y^{(1)}), (z^{(2)}, y^{(2)}), \ldots, (z^{(m)}, y^{(m)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">m</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">m</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
+</ul>
+</li>
+<li>Note: Mapping <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo>→</mo><msup><mi>z</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(i)} \rightarrow z^{(i)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span> should be defined by running PCA <strong>ONLY</strong> on the training set. This mapping can be applied as well to the examples <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>x</mi><mrow><mi>c</mi><mi>v</mi></mrow><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">x_{cv}^{(i)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1614em;vertical-align:-0.1166em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.5834em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1166em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>x</mi><mrow><mi>t</mi><mi>e</mi><mi>s</mi><mi>t</mi></mrow><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">x_{test}^{(i)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2906em;vertical-align:-0.2458em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.4542em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">es</span><span class="mord mathnormal mtight">t</span></span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2458em;"><span></span></span></span></span></span></span></span></span></span> in the cross validation and test sets.</li>
+</ul>
+</li>
+<li><strong>Application of PCA</strong>
+<ul>
+<li>Compression
+<ul>
+<li>Reduce memory/disk needed to store data</li>
+<li>Speed up learning algorithm</li>
+</ul>
+</li>
+<li>Visualization</li>
+</ul>
+</li>
+<li><strong>Bad use of PCA: To prevent overfitting</strong>
+<ul>
+<li>Might work OK, but isn’t a good way to address overfitting. Use regularization instead.</li>
+</ul>
+</li>
+<li><strong>When Design a ML system,</strong>
+<ul>
+<li>You should first consider the whole thing without PCA. Use the raw data first. Only if that doesn’t do what you want, like, exceed the memory, disk space, etc., then implement PCA.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+  
+  <div class="divider"></div>
+</div>
+
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

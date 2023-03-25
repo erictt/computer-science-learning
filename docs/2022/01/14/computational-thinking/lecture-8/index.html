@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Eric&#39;s CS Notes
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    
+    <!-- katex css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>ERIC&#39;S CS NOTES</span>
+  </a>
+</div>
+
+    <div class="book-menu">
+  <!--
+## Introduction to Probability
+
+* [Unit 1: Probability models and axioms](/introduction-to-probability/unit-1/index.html)
+* [Unit 2: Conditioning and independence](/introduction-to-probability/unit-2/index.html)
+* [Unit 3: Counting](/introduction-to-probability/unit-3/index.html)
+* [Unit 4: Discrete random variables](/introduction-to-probability/unit-4/index.html)
+* [Unit 5: Continuous random variables](/introduction-to-probability/unit-5/index.html)
+* [Unit 6: Further topics on random variables](/introduction-to-probability/unit-6/index.html)
+* [Unit 7: Bayesian inference](/introduction-to-probability/unit-7/index.html)
+* [Unit 8: Limit theorems and classical statistics](/introduction-to-probability/unit-8/index.html)
+* [Unit 9: Bernoulli and Poisson processes](/introduction-to-probability/unit-9/index.html)
+* [Unit 10: Markov chains](/introduction-to-probability/unit-10/index.html)
+-->
+<!--
+## Multivariable Calculus
+
+* [Unit 1: Thinking about multivariable functions](/multivariable-calculus/unit-1/index.html)
+* [Unit 2: Derivatives of multivariable functions](/multivariable-calculus/unit-2/index.html)
+
+* [Unit 3: Applications of multivariable derivatives](/multivariable-calculus/unit-3/index.html)
+* [Unit 4: Integrating multivariable functions](/multivariable-calculus/unit-4/index.html)
+* [Unit 5: Green's, Stokes', and the divergence theorems](/multivariable-calculus/unit-5/index.html)
+-->
+<h2 id="CS6210-Advanced-Operating-Systems">CS6210: Advanced Operating Systems</h2>
+<ul>
+<li><a href="/cs6210/lesson-02/index.html">Lesson 02: OS Structure</a></li>
+<li><a href="/cs6210/lesson-03/index.html">Lesson 3: Virtualization</a></li>
+<li><a href="/cs6210/lesson-04-1/index.html">Lesson 4: Parallel Systems - Part 1</a></li>
+<li><a href="/cs6210/lesson-04-2/index.html">Lesson 4: Parallel Systems - Part 2</a></li>
+<li><a href="/cs6210/lesson-05/index.html">Lesson 5: Distributed Systems</a></li>
+<li><a href="/cs6210/lesson-06/index.html">Lesson 6: Distributed Objects and Middleware</a></li>
+</ul>
+<!--
+* [Lesson 7: Distributed Subsystems](/cs6210/lesson-07/index.html)
+* [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
+* [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
+* [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
+* [Lesson 11: Security](/cs6210/lesson-11/index.html)
+-->
+<h2 id="CS6250-Computer-Networks">CS6250 Computer Networks</h2>
+<ul>
+<li><a href="/cs6250/week-1-internet-architecture/index.html">Week 1 - Internet Architecture</a></li>
+<li><a href="/cs6250/week-2-transport-and-application-layers/index.html">Week 2 - Transport and Application Layers</a></li>
+<li><a href="/cs6250/week-3-intradomain-routing/index.html">Week 3 - Intradomain Routing</a></li>
+<li><a href="/cs6250/week-4-as-relationships-and-interdomain-routing/index.html">Week 4 - AS Relationships and Interdomain Routing</a></li>
+<li><a href="/cs6250/week-5-router-design-and-algorithems-part-1/index.html">Week 5 - Router Design and Algorithms (Part 1)</a></li>
+<li><a href="/cs6250/week-6-router-design-and-algorithems-part-2/index.html">Week 6 - Router Design and Algorithms (Part 2)</a></li>
+<li><a href="/cs6250/week-7-software-defined-networking-part-1/index.html">Week 7 - Software Defined Networking (Part 1)</a></li>
+<li><a href="/cs6250/week-8-software-defined-networking-part-2/index.html">Week 8 - Software Defined Networking (Part 2)</a></li>
+<li><a href="/cs6250/week-9-internet-security/index.html">Week 9 - Internet Security</a></li>
+<li><a href="/cs6250/week-10-internet-surveillance-and-censorship/index.html">Week 10 - Internet Surveillance and Censorship</a></li>
+<li><a href="/cs6250/week-11-applications-video/index.html">Week 11 - Applications Videos</a></li>
+<li><a href="/cs6250/week-12-applications-cdns-and-overlay-networks/index.html">Week 12 - Applications CDNs and Overlay Networks</a></li>
+</ul>
+<h2 id="CS6200-Graduate-Introduction-to-Operating-Systems">CS6200 Graduate Introduction to Operating Systems</h2>
+<ul>
+<li><a href="/cs6200/p1-preparation/index.html">P0 - Preparation</a></li>
+<li><a href="/cs6200/p1l2-introduction/index.html">P1L2 - Introduction</a></li>
+<li><a href="/cs6200/p2l1-processes-and-process-management/index.html">P2L1 - Processes and Process Management</a></li>
+<li><a href="/cs6200/p2l2-threads-and-concurrency/index.html">P2L2 - Threads and Concurrency</a></li>
+<li><a href="/cs6200/p2l3-pthread/index.html">P2L3 - PThread</a></li>
+<li><a href="/cs6200/p2l4-thread-design-consideration/index.html">P2L4 - Thread Design Considerations</a></li>
+<li><a href="/cs6200/p2l5-thread-performance-consideration/index.html">P2L5 - Thread Performance Considerations</a></li>
+<li><a href="/cs6200/p3l1-scheduling/index.html">P3L1 - Scheduling</a></li>
+<li><a href="/cs6200/p3l2-memory-management/index.html">P3L2 - Memory Management</a></li>
+<li><a href="/cs6200/p3l3-inter-process-communication/index.html">P3L3 - Inter-Process Communication</a></li>
+<li><a href="/cs6200/p3l4-synchronization-constructs/index.html">P3L4 - Synchronization Constructs</a></li>
+<li><a href="/cs6200/p3l5-io-management/index.html">P3L5 - I/O Management</a></li>
+<li><a href="/cs6200/p3l6-virtualization/index.html">P3L6 - Virtualization</a></li>
+</ul>
+<!--
+* [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
+* [P4L2 - Distributed File Systems](/cs6200/p4l2-distributed-file-systems/index.html) 
+* [P4L3 - Distributed Shared Memory](/cs6200/p4l3-distributed-shared-memory/index.html) 
+* [P4L4 - Datacenter Technologies](/cs6200/p4l4-datacenter-technologies/index.html) 
+-->
+<h2 id="Algorithms-Part-II">Algorithms: Part II</h2>
+<ul>
+<li><a href="/algorithms-2/week-1/index.html">Week 1 - Undirected Graph &amp; Directed Graph</a></li>
+<li><a href="/algorithms-2/week-2/index.html">Week 2 - Minimum Spanning Trees &amp; Shortest Path</a></li>
+<li><a href="/algorithms-2/week-3/index.html">Week 3 - Maximum Flow and Minimum Cut &amp; String Sort</a></li>
+<li><a href="/algorithms-2/week-4/index.html">Week 4 - Tries &amp; Substring Search</a></li>
+<li><a href="/algorithms-2/week-5/index.html">Week 5 - Regular Expressions</a></li>
+<li><a href="/algorithms-2/week-6/index.html">Week 6 - Reductions</a></li>
+</ul>
+<h2 id="Algorithms-Part-I">Algorithms: Part I</h2>
+<ul>
+<li><a href="/algorithms-1/week-1/index.html">Week 1 - Union-Find &amp; Analysis of Algorithms</a></li>
+<li><a href="/algorithms-1/week-2/index.html">Week 2 - Stacks and Queues &amp; Elementary Sorts</a></li>
+<li><a href="/algorithms-1/week-3/index.html">Week 3 - Mergesort &amp; Quicksort</a></li>
+<li><a href="/algorithms-1/week-4/index.html">Week 4 - Priority Queues &amp; Elementary Symbols</a></li>
+<li><a href="/algorithms-1/week-5/index.html">Week 5 - Balanced Search Trees</a></li>
+<li><a href="/algorithms-1/week-6/index.html">Week 6 - Hash Tables</a></li>
+</ul>
+<h2 id="Introduction-to-Software-Design-and-Architecture">Introduction to Software Design and Architecture</h2>
+<ul>
+<li><a href="/introduction-to-software-design-and-architecture/design-pattern/index.html">Design Pattern</a></li>
+</ul>
+<h2 id="Calculus-Two-Sequences-and-Series">Calculus Two: Sequences and Series</h2>
+<ul>
+<li><a href="/calculus-two/week-1/index.html">Week 1 - Sequences</a></li>
+<li><a href="/calculus-two/week-2/index.html">Week 2 - Series</a></li>
+<li><a href="/calculus-two/week-3/index.html">Week 3 - Convergence Tests</a></li>
+<li><a href="/calculus-two/week-4/index.html">Week 4 - Alternating Series</a></li>
+<li><a href="/calculus-two/week-5/index.html">Week 5 - Power Series</a></li>
+<li><a href="/calculus-two/week-6/index.html">Week 6 - Taylor Series</a></li>
+</ul>
+<h2 id="LAFF-Linear-Algebra">LAFF Linear Algebra</h2>
+<ul>
+<li><a href="/laff-linear-algebra/week-1/index.html">Week 1 - Vectors in Linear Algebra</a></li>
+<li><a href="/laff-linear-algebra/week-2/index.html">Week 2 - Linear Transformations and Matrices</a></li>
+<li><a href="/laff-linear-algebra/week-3/index.html">Week 3 - Matrix-Vector Operations</a></li>
+<li><a href="/laff-linear-algebra/week-4/index.html">Week 4 - Matrix-Vector to Matrix-Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-5/index.html">Week 5 - Matrix- Matrix Multiplication</a></li>
+<li><a href="/laff-linear-algebra/week-6/index.html">Week 6 - Gaussian Elimination</a></li>
+<li><a href="/laff-linear-algebra/week-7/index.html">Week 7 - More Gaussian Elimination and Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-8/index.html">Week 8 - More on Matrix Inversion</a></li>
+<li><a href="/laff-linear-algebra/week-9/index.html">Week 9 - Vector Spaces</a></li>
+<li><a href="/laff-linear-algebra/week-10/index.html">Week 10 - Vector Spaces, Orthogonality, and Linear Least-Squares</a></li>
+<li><a href="/laff-linear-algebra/week-11/index.html">Week 11 - Orthogonal Projection, Low Rank Approximation, and Orthogonal Bases</a></li>
+<li><a href="/laff-linear-algebra/week-12/index.html">Week 12 - Eigenvalues and Eigenvectors</a></li>
+</ul>
+<h2 id="Stanford-Machine-Learning">Stanford Machine Learning</h2>
+<ul>
+<li><a href="/stanford-machine-learning/week-1/index.html">Week 1 - Introduction</a></li>
+<li><a href="/stanford-machine-learning/week-2/index.html">Week 2 - Linear Regression with Multiple Variables</a></li>
+<li><a href="/stanford-machine-learning/week-3/index.html">Week 3 - Logistic Regression &amp; Regularization</a></li>
+<li><a href="/stanford-machine-learning/week-4/index.html">Week 4 - Neural Networks: Representation</a></li>
+<li><a href="/stanford-machine-learning/week-5/index.html">Week 5 - Neural Networks: Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6a/index.html">Week 6a - Advice for Applying Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-6b/index.html">Week 6b - Machine Learning System Design</a></li>
+<li><a href="/stanford-machine-learning/week-7/index.html">Week 7 - Support Vector Machines</a></li>
+<li><a href="/stanford-machine-learning/week-8/index.html">Week 8 - Unsupervised Learning &amp; Dimensionality Reduction</a></li>
+<li><a href="/stanford-machine-learning/week-9a/index.html">Week 9a - Anomaly Detection</a></li>
+<li><a href="/stanford-machine-learning/week-9b/index.html">Week 9b - Recommender Systems</a></li>
+<li><a href="/stanford-machine-learning/week-10/index.html">Week 10 - Large Scale Machine Learning</a></li>
+<li><a href="/stanford-machine-learning/week-11/index.html">Week 11 - Application Example: Photo OCR</a></li>
+</ul>
+<h2 id="Calculus-One">Calculus One</h2>
+<ul>
+<li><a href="/calculus-one/week-2-3/index.html">Week 2-3 - Functions &amp; Limits</a></li>
+<li><a href="/calculus-one/week-4/index.html">Week 4 - The Beginning of Derivatives</a></li>
+<li><a href="/calculus-one/week-5/index.html">Week 5 - Techniques of Differentiation</a></li>
+<li><a href="/calculus-one/week-6/index.html">Week 6 - Chain Rule</a></li>
+<li><a href="/calculus-one/week-7/index.html">Week 7 - Derivatives of Trigonometric Functions</a></li>
+<li><a href="/calculus-one/week-8/index.html">Week 8 - Derivatives in the Real World</a></li>
+<li><a href="/calculus-one/week-9/index.html">Week 9 - Optimization</a></li>
+<li><a href="/calculus-one/week-10/index.html">Week 10 - Linear Approximation</a></li>
+<li><a href="/calculus-one/week-11-12/index.html">Week 11-12 - Antidifferentiation &amp; Integration</a></li>
+<li><a href="/calculus-one/week-13/index.html">Week 13 - Fundamental Theorem of Calculus</a></li>
+<li><a href="/calculus-one/week-14/index.html">Week 14 - Substitution Rule</a></li>
+<li><a href="/calculus-one/week-15/index.html">Week 15 - Techniques of Integration</a></li>
+<li><a href="/calculus-one/week-16/index.html">Week 16 - Applications of Integration</a></li>
+</ul>
+<h2 id="Computational-Thinking">Computational Thinking</h2>
+<ul>
+<li><a href="/computational-thinking/lecture-1/index.html">Lecture 1 - Optimization and Knapsack Problem</a></li>
+<li><a href="/computational-thinking/lecture-2/index.html">Lecture 2 - Decision Trees and Dynamic Programming</a>
+<ul>
+<li><a href="/computational-thinking/lecture-2-powerset/index.html">Exercise: Power Set Function</a></li>
+</ul>
+</li>
+<li><a href="/computational-thinking/lecture-3/index.html">Lecture 3 - Graphs</a></li>
+<li><a href="/computational-thinking/lecture-4-5/index.html">Lecture 4-5 - Plotting</a></li>
+<li><a href="/computational-thinking/lecture-6-7/index.html">Lecture 6-7 - Stochastic Programs &amp; Inferential Statistics</a></li>
+<li><a href="/computational-thinking/lecture-8/index.html">Lecture 8 - Monte Carlo Simulation</a></li>
+<li><a href="/computational-thinking/lecture-9/index.html">Lecture 9 - Sampling and Standard Error</a></li>
+<li><a href="/computational-thinking/lecture-10-11/index.html">Lecture 10-11 - Experimental Data</a></li>
+<li><a href="/computational-thinking/lecture-12/index.html">Lecture 12 - Machine Learning</a></li>
+<li><a href="/computational-thinking/lecture-13/index.html">Lecture 13 - Statistical Abuses</a></li>
+</ul>
+<h2 id="Effective-Thinking-Through-Mathematics">Effective Thinking Through Mathematics</h2>
+<ul>
+<li><a href="/effective-thinking-through-mathematics/note/index.html">Note</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html">Week 4 (/Telling the Story of Infinity)</a></li>
+<li><a href="/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html">Week 5 (/Telling the Story of Euler Circuit Theorem)</a></li>
+</ul>
+<h2 id="CS50-Introduction-to-Computer-Science">CS50 Introduction to Computer Science</h2>
+<ul>
+<li><a href="/cs50/week-1/index.html">Week 1 - C</a></li>
+<li><a href="/cs50/week-2/index.html">Week 2 - Arrays</a></li>
+<li><a href="/cs50/week-3/index.html">Week 3 - Algorithms</a></li>
+<li><a href="/cs50/week-4/index.html">Week 4 - Memory</a></li>
+<li><a href="/cs50/week-5/index.html">Week 5 - Data Structures</a></li>
+<li><a href="/cs50/week-6/index.html">Week 6 - HTTP</a></li>
+<li><a href="/cs50/week-7-10/index.html">Week 7-10 - Machine Learning/Python/SQL/Javascript</a></li>
+</ul>
+<h2 id="Others">Others</h2>
+<ul>
+<li><a href="/symbols/index.html">Symbols of Mathematics</a></li>
+<li><a href="/glossary/index.html">Glossary</a></li>
+</ul>
+<h2 id="About-Me"><a target="_blank" rel="noopener" href="https://ericyy.me/about/">About Me</a></h2>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1>Lecture 8</h1>
+<h2 id="The-Central-Limit-Theorem-CLT">The Central Limit Theorem (CLT)</h2>
+<ul>
+<li>
+<p>Given a sufficiently large sample:</p>
+<ol>
+<li>The means of the samples in a set of samples (the sample means) will be approximately normally distributed,</li>
+<li>This normal distribution will have a mean close to the mean of the population, and</li>
+<li>The variance of the sample means (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>σ</mi><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">\sigma_{\bar{x}}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0611em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-2.453em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord accent mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord mathnormal mtight">x</span></span><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord mtight">ˉ</span></span></span></span></span></span></span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span>) will be close to the variance of the population (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sigma^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>) divided by the sample size (N).
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>σ</mi><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover><mn>2</mn></msubsup><mo>=</mo><mfrac><msup><mi>σ</mi><mn>2</mn></msup><mi>N</mi></mfrac></mrow><annotation encoding="application/x-tex">\sigma_{\bar{x}}^2=\frac{\sigma^2}{N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0611em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-2.453em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord accent mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord mathnormal mtight">x</span></span><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord mtight">ˉ</span></span></span></span></span></span></span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.3629em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0179em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover></msub><mo>=</mo><mfrac><mi>σ</mi><msqrt><mi>N</mi></msqrt></mfrac></mrow><annotation encoding="application/x-tex">\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{N}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2474em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord accent mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord mathnormal mtight">x</span></span><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord mtight">ˉ</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2334em;vertical-align:-0.538em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6954em;"><span style="top:-2.5374em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9323em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight" style="padding-left:0.833em;"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span><span style="top:-2.8923em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1077em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">σ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.538em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+<li>Reference:
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.khanacademy.org/math/statistics-probability/sampling-distributions-library/sample-means/v/central-limit-theorem">Sampling distribution of a sample mean (Khan Academy)</a></li>
+<li><a target="_blank" rel="noopener" href="http://onlinestatbook.com/stat_sim/sampling_dist/index.html">Simulation (onlinestatbook.com)</a></li>
+</ul>
+</li>
+<li>More details in <a href="lecture-9.md#standard-error">lecture 9</a></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>A sample to prove: point 1 and point 2.</p>
+<ul>
+<li>Test with a six-sided die
+<ul>
+<li>roll 100000 times(samples). Every time roll once, and get the mean values(the means of the samples).
+<ul>
+<li>Get mean and STD with the 100000 results</li>
+</ul>
+</li>
+<li>roll 20000 times(samples). Every time roll 50 dies, and get the mean values(the means of the samples).
+<ul>
+<li>Get mean and STD with the 20000 results</li>
+</ul>
+</li>
+<li>Base on the CLT, the test results should be normal distributed</li>
+</ul>
+</li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random, pylab</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getMeanAndStd</span>(<span class="params">vals</span>):</span><br><span class="line">    mean = <span class="built_in">sum</span>(vals)/<span class="built_in">float</span>(<span class="built_in">len</span>(vals))</span><br><span class="line">    std = (<span class="built_in">sum</span>([(x-mean)**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> vals])/<span class="built_in">len</span>(vals))**<span class="number">0.5</span></span><br><span class="line">    <span class="keyword">return</span> (mean, std)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">plotMeans</span>(<span class="params">numDice, numRolls, numBins, legend, color, style</span>):</span><br><span class="line"></span><br><span class="line">    means = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(numRolls//numDice):</span><br><span class="line">        vals = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(numDice):</span><br><span class="line">            vals += <span class="number">5</span>*random.random()</span><br><span class="line">        means.append(vals/<span class="built_in">float</span>(numDice))</span><br><span class="line">    </span><br><span class="line">    pylab.hist(means, numBins, color = color, label = legend,</span><br><span class="line">               weights = pylab.array(<span class="built_in">len</span>(means)*[<span class="number">1</span>])/<span class="built_in">len</span>(means),</span><br><span class="line">               hatch = style)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> getMeanAndStd(means)</span><br><span class="line"></span><br><span class="line">mean, std = plotMeans(<span class="number">1</span>, <span class="number">1000000</span>, <span class="number">19</span>, <span class="string">&#x27;1 die&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Mean of rolling 1 die =&#x27;</span>, <span class="built_in">str</span>(mean) + <span class="string">&#x27;,&#x27;</span>, <span class="string">&#x27;Std =&#x27;</span>, std)</span><br><span class="line"></span><br><span class="line">mean, std = plotMeans(<span class="number">50</span>, <span class="number">1000000</span>, <span class="number">19</span>, <span class="string">&#x27;Mean of 50 dice&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;//&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Mean of rolling 50 dice =&#x27;</span>, <span class="built_in">str</span>(mean) + <span class="string">&#x27;,&#x27;</span>, <span class="string">&#x27;Std =&#x27;</span>, std)</span><br><span class="line"></span><br><span class="line">pylab.title(<span class="string">&#x27;Rolling Continuous Dice&#x27;</span>)</span><br><span class="line">pylab.xlabel(<span class="string">&#x27;Value&#x27;</span>)</span><br><span class="line">pylab.ylabel(<span class="string">&#x27;Probability&#x27;</span>)</span><br><span class="line">pylab.legend()</span><br></pre></td></tr></table></figure>
+  <img src="https://i.imgur.com/xEj6BKF.jpg" style="width:400px"/>
+<ul>
+<li>Conclusion:
+<ul>
+<li>It doesn’t matter what the shape of the distribution of values happens to be</li>
+<li>If we are trying to estimate the mean of a population using sufficiently large samples</li>
+<li>The CLT allows us to use the empirical rule when computing confidence intervals</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Monte-Carlo-Simulation">Monte Carlo Simulation</h2>
+<h3 id="Finding-π">Finding π</h3>
+<ul>
+<li>
+<p>Think about inscribing a circle in a square with sides of length 2, so that the radius, r, of the circle is of length 1. (Invented by the French mathematicians Buffon (17071788) and Laplace (1749-1827))</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/1PQdu4V.jpg" style="width:200px" />
+</li>
+<li>By the definition of π, area = πr^2 . Since r is 1, π = area.</li>
+<li>If the locations of the needles are truly random, we know that,
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mtext>needles in circle</mtext><mtext>needles in square</mtext></mfrac><mo>=</mo><mfrac><mtext>area of circle</mtext><mtext>area of square</mtext></mfrac></mrow><annotation encoding="application/x-tex">\frac{\text{needles in circle}}{\text{needles in square}}=\frac{\text{area of circle}}{\text{area of square}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3612em;vertical-align:-0.4811em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">needles in square</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">needles in circle</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.3612em;vertical-align:-0.4811em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">area of square</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">area of circle</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+</ul>
+</li>
+<li>solving for the area of the circle,
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>area of circle</mtext><mo>=</mo><mfrac><mrow><mtext>area of sqaure </mtext><mo>∗</mo><mtext> needles in circle</mtext></mrow><mtext>needles in square</mtext></mfrac></mrow><annotation encoding="application/x-tex">\text{area of circle} = \frac{\text{area of sqaure}\ *\ \text{needles in circle}}{\text{needles in square}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">area of circle</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.4133em;vertical-align:-0.4811em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9322em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">needles in square</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4461em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">area of sqaure</span></span><span class="mspace mtight"><span class="mtight"> </span></span><span class="mbin mtight">∗</span><span class="mspace mtight"><span class="mtight"> </span></span><span class="mord text mtight"><span class="mord mtight">needles in circle</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+</ul>
+</li>
+<li>Recall that the area of a 2 by 2 square is 4, so,
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>area of circle</mtext><mo>=</mo><mfrac><mrow><mn>4</mn><mo>∗</mo><mtext>needles in circle</mtext></mrow><mtext>needles in square</mtext></mfrac></mrow><annotation encoding="application/x-tex">\text{area of circle} = \frac{4 * \text{needles in circle}}{\text{needles in square}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">area of circle</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.3612em;vertical-align:-0.4811em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">needles in square</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span><span class="mbin mtight">∗</span><span class="mord text mtight"><span class="mord mtight">needles in circle</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+<li>in this case <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>area of circle</mtext><mo>=</mo><mi>π</mi><msup><mi>r</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\text{area of circle} = {\pi}r^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">area of circle</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>, and r=1, so:
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mo>=</mo><mfrac><mrow><mn>4</mn><mo>∗</mo><mtext>needles in circle</mtext></mrow><mtext>needles in square</mtext></mfrac></mrow><annotation encoding="application/x-tex">\pi = \frac{4 * \text{needles in circle}}{\text{needles in square}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.3612em;vertical-align:-0.4811em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">needles in square</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span><span class="mbin mtight">∗</span><span class="mord text mtight"><span class="mord mtight">needles in circle</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getMeanAndStd</span>(<span class="params">data</span>):</span><br><span class="line">    mean = <span class="built_in">sum</span>(data)/<span class="built_in">float</span>(<span class="built_in">len</span>(data))</span><br><span class="line">    std = (<span class="built_in">sum</span>([(d-mean)**<span class="number">2</span> <span class="keyword">for</span> d <span class="keyword">in</span> data])/<span class="built_in">len</span>(data))**<span class="number">0.5</span></span><br><span class="line">    <span class="keyword">return</span> (mean, std)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">throwNeedls</span>(<span class="params">numNeedles</span>):</span><br><span class="line">    inCircle = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> needle <span class="keyword">in</span> <span class="built_in">range</span>(numNeedles):</span><br><span class="line">        <span class="keyword">if</span> (random.random()**<span class="number">2</span> + random.random()**<span class="number">2</span>)**<span class="number">0.5</span> &lt;= <span class="number">1.0</span>:</span><br><span class="line">            inCircle+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">4</span>*inCircle/numNeedles</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getEst</span>(<span class="params">numNeedles, numTrails</span>):</span><br><span class="line">    estPis = []</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(numTrails):</span><br><span class="line">        estPis.append(throwNeedls(numNeedles))</span><br><span class="line">    <span class="keyword">return</span> getMeanAndStd(estPis)</span><br><span class="line"></span><br><span class="line"><span class="comment"># we want 95% (an arbitrary choice of accuracy) confidence interval with +- 0.005 precision</span></span><br><span class="line"><span class="comment"># 95% =&gt; 0.95 =&gt; 0.475*2</span></span><br><span class="line"><span class="comment"># check the z-table 0.475 =&gt; 1.96 std</span></span><br><span class="line"><span class="comment"># so we are looking for 1.96 std less that precision</span></span><br><span class="line"><span class="comment"># z-table: https://en.wikipedia.org/wiki/Standard_normal_table</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">estPi</span>(<span class="params">precision, numTrails</span>):</span><br><span class="line">    numNeedles = <span class="number">1000</span></span><br><span class="line">    std = precision <span class="comment"># just initial the value of std, can be any numbers large than precision</span></span><br><span class="line">    <span class="keyword">while</span>(std * <span class="number">1.96</span> &gt;= precision):</span><br><span class="line">        mean, std = getEst(numNeedles, numTrails)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Mean=&quot;</span>+<span class="built_in">str</span>(mean)+<span class="string">&quot;, Std=&quot;</span>+<span class="built_in">str</span>(<span class="built_in">round</span>(std, <span class="number">6</span>))+<span class="string">&quot;, Needls=&quot;</span>+<span class="built_in">str</span>(numNeedles))</span><br><span class="line">        numNeedles *= <span class="number">2</span> </span><br><span class="line">        </span><br><span class="line">random.seed(<span class="number">0</span>)</span><br><span class="line">estPi(<span class="number">0.005</span>, <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/erictt/computer-science-learning/blob/master/computational-thinking/unit-3/lecture-8-2.py">more exercise</a></p>
+</li>
+<li>
+<p>In general, to estimate the area of some region R</p>
+<ol>
+<li>Pick an enclosing region, E, such that the area of E is easy to calculate and R lies completely within E.</li>
+<li>Pick a set of random points that lie within E.</li>
+<li>Let F be the fraction of the points that fall within R.</li>
+<li>Multiply the area of E by F.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+  
+  <div class="divider"></div>
+</div>
+
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
