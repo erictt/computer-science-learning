@@ -18,21 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "0e2e747f1ce098a8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "cs6210/lesson-06.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "3367daa399feec31",
@@ -98,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cs6210/lesson-06.md",
+                "file": "cs6210/lesson-07.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cs6210/lesson-06.md",
+                "file": "cs6210/lesson-07.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cs6210/lesson-06.md"
+                "file": "cs6210/lesson-07.md"
               }
             }
           },
@@ -155,8 +143,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -169,14 +156,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "ccf42ca0e49adf7c",
+  "active": "4144cdfe6cecf81b",
   "lastOpenFiles": [
+    "cs6210/cs6210.canvas",
+    "cs6210/lesson-07.md",
+    "cs6210/lesson-06.md",
+    "cs6210/test-1.md",
+    "cs6210/lesson-09.md",
+    "cs6210/paper-summary-example.md",
     "calculus-one/week-11-12.md",
     "calculus-one/week-10.md",
-    "cs6210/lesson-06.md",
-    "cs6210/lesson-07.md",
     "cs6210/lesson-02/index.html.md",
-    "Untitled.canvas",
     "Untitled 3.canvas",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
