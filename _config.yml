@@ -4,18 +4,18 @@
 
 # Site
 title: Eric's CS Notes
-subtitle: ''
-description: ''
+subtitle: ""
+description: ""
 keywords:
 author: Eric Yang
 language: en
-timezone: ''
+# timezone: ""
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://cs.ericy.me
 root: /
-permalink: :id/
+# permalink: ":id/"
 permalink_defaults:
 permalink_pathed_title:
   use: true
@@ -41,7 +41,7 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ''
+  exclude: ""
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -51,7 +51,7 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace: ''
+  tab_replace: ""
   wrap: true
   hljs: false
 
@@ -60,7 +60,7 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
 
@@ -112,25 +112,23 @@ deploy:
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
 
-markdown_it_plus:
-  highlight: true
-  html: true
-  xhtmlOut: true
-  breaks: true
-  langPrefix:
-  linkify: true
-  typographer:
-  quotes: “”‘’
-  pre_class: highlight
+markdown:
+  preset: "default"
+  render:
+    html: true
+    highlight: true
+    xhtmlOut: false
+    breaks: true
+    langPrefix:
+    linkify: true
+    typographer: true
+    quotes: "“”‘’"
   plugins:
     - plugin:
-      name: "@iktakahiro/markdown-it-katex"
+      name: "@neilsustc/markdown-it-katex"
       enable: true
       options:
         strict: false
-    - plugin:
-      name: "markdown-it-toc-and-anchor"
-      enable: false
 # toc:
 #   maxdepth: 3
 #   slugify: transliteration

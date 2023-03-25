@@ -28,7 +28,6 @@ page fault handling - case 1
 ### Basics
 
 
-
 ### Handling Page Faults 
 
 #### Case 1

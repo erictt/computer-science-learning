@@ -12,7 +12,7 @@
 
 ### Object-Based vs. Procedural Design
 
-![](https://i.imgur.com/DcP7IoO.jpg)
+![|500](https://i.imgur.com/DcP7IoO.jpg)
 
 * Procedural Design:
     - The code is written as a monolithic entity.
@@ -24,7 +24,7 @@
 
 ### Spring Approach
 
-![](https://i.imgur.com/LA1GcVB.jpg)
+![|500](https://i.imgur.com/LA1GcVB.jpg)
 
 * Provide strong interfaces to each sub-system.
 * The system is open and flexible. Thus, 3rd party vendors can integrate their software to the system.
@@ -103,8 +103,7 @@
 
 #### Summary
 
-![](https://i.imgur.com/8XIwoK5.jpg)
-
+![|500](https://i.imgur.com/8XIwoK5.jpg)
 * Object oriented kernel
     - nucleus -> threads + IPC
     - linedkie's microkernel -> nucleus + address space
