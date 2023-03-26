@@ -123,7 +123,7 @@
 * **Bit-by-bit Round Robin**
     * Imagine a system wherein a single round, one bit from each active flow is transmitted in a round-robin manner. This would ensure fairness in bandwidth allocation. However, since it’s not possible to split up the packets in the real world, we consider an imaginary bit-by-bit system to calculate the packet-finishing time and send a packet as a whole. 
     * Let $R(t)$ be the current round number at time t. If the router can send µ bits per second and the number of active flows is N, the rate of increase in round number is given by
-        * $dR/dt = µ/N$
+        * $dR/dt = \mu/N$
     * The rate of increase in round number is inversely proportional to the number of active flows. An important takeaway is that the number of rounds required to transmit a packet does not depend on the number of backlogged queues. 
     * Consider a flow α. Let a packet of size p bits arrive as the i-th packet in the flow. If it arrives at an empty queue, it reaches the head of the queue at the current round R(t). If not, it reaches the head after the packet in front of it finishes it. Combining both the scenarios, the round number at which the packet reaches the head is given by 
         * $S(i) = \text{max}(R(t), F(i−1))$

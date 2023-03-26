@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "cs6210/lesson-07.md",
+                "file": "calculus-one/week-6.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "3367daa399feec31",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cs6210/lesson-07.md",
+                "file": "calculus-one/week-6.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cs6210/lesson-07.md",
+                "file": "calculus-one/week-6.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cs6210/lesson-07.md"
+                "file": "calculus-one/week-6.md"
               }
             }
           },
@@ -158,8 +157,14 @@
   },
   "active": "4144cdfe6cecf81b",
   "lastOpenFiles": [
-    "cs6210/cs6210.canvas",
+    "cs6250/week-1-internet-architecture.md",
+    "cs6250/week-5-router-design-and-algorithems-part-1.md",
+    "cs6250/week-6-router-design-and-algorithems-part-2.md",
+    "cs6210/lesson-03.md",
+    "cs6210/lesson-04-1.md",
+    "cs6210/lesson-04-2.md",
     "cs6210/lesson-07.md",
+    "cs6210/cs6210.canvas",
     "cs6210/lesson-06.md",
     "cs6210/test-1.md",
     "cs6210/lesson-09.md",
