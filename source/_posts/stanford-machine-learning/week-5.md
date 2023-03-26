@@ -100,12 +100,12 @@
 
 * With neural networks, we are working with sets of matrices: $$\begin{aligned} \Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}, \ldots \\ D^{(1)}, D^{(2)}, D^{(3)}, \ldots \end{aligned}$$
 * In order to use optimizing functions such as "fminunc()", we will want to "unroll" all the elements and put them into one long vector:
-    
+
     ```matlab
     thetaVector = [ Theta1(:); Theta2(:); Theta3(:); ]
     deltaVector = [ D1(:); D2(:); D3(:) ]
     ``` 
-    
+
 * If the dimensions of Theta1 is 10x11, Theta2 is 10x11 and Theta3 is 1x11, then we can get back our original matrices from the "unrolled" versions as follows: 
 
     ```matlab
@@ -116,11 +116,10 @@
 * Summarize:
     * Have initial parameters $\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}$.
     * Unroll to get **initialTheta** to pass to **fminumc(@costFunction, initialTheta, options)**
-        
         * **function [jval, gradientVec] = costFunction(thetaVec)**
             * From **thetaVec**, get $\Theta^{(1)}, \Theta^{(2)}, \Theta^{(3)}$.
-            * Use forward prop/back prop to compute $D^{{1}}, D^{{2}}, D^{{3}}$ and $J(\Theta)$.
-            * Unroll $D^{{1}}, D^{{2}}, D^{{3}}$ to get **gradientVec**.
+            * Use forward prop/back prop to compute $D^{(1)}, D^{(2)}, D^{(3)}$ and $J(\Theta)$.
+            * Unroll $D^{(1)}, D^{(2)}, D^{(3)}$ to get **gradientVec**.
 
 ### Gradient Checking
 

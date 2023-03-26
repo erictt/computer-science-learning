@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "calculus-one/week-6.md",
+                "file": "stanford-machine-learning/week-5.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "calculus-one/week-6.md",
+                "file": "stanford-machine-learning/week-5.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "calculus-one/week-6.md",
+                "file": "stanford-machine-learning/week-5.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "calculus-one/week-6.md"
+                "file": "stanford-machine-learning/week-5.md"
               }
             }
           },
@@ -142,7 +142,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -155,30 +156,50 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "4144cdfe6cecf81b",
+  "active": "ccf42ca0e49adf7c",
   "lastOpenFiles": [
-    "cs6250/week-1-internet-architecture.md",
-    "cs6250/week-5-router-design-and-algorithems-part-1.md",
-    "cs6250/week-6-router-design-and-algorithems-part-2.md",
-    "cs6210/lesson-03.md",
-    "cs6210/lesson-04-1.md",
-    "cs6210/lesson-04-2.md",
-    "cs6210/lesson-07.md",
+    "stanford-machine-learning/week-5.md",
+    "stanford-machine-learning/week-4.md",
+    "stanford-machine-learning/week-6b.md",
+    "stanford-machine-learning/week-6a.md",
+    "stanford-machine-learning/week-11.md",
+    "stanford-machine-learning/week-10.md",
+    "stanford-machine-learning/week-9b.md",
+    "stanford-machine-learning/week-9a.md",
+    "stanford-machine-learning/week-8.md",
+    "stanford-machine-learning/week-7.md",
+    "stanford-machine-learning/New Folder With Items/week-9b.md",
+    "stanford-machine-learning/New Folder With Items/week-9a.md",
+    "stanford-machine-learning/New Folder With Items/week-8.md",
+    "stanford-machine-learning/New Folder With Items/week-7.md",
+    "stanford-machine-learning/New Folder With Items/week-11.md",
+    "stanford-machine-learning/New Folder With Items/week-10.md",
+    "stanford-machine-learning/New Folder With Items",
+    "stanford-machine-learning/week-3.md",
+    "stanford-machine-learning/week-2.md",
+    "stanford-machine-learning/week-1.md",
+    "stanford-machine-learning/ex8/ex8/visualizeFit.m",
+    "stanford-machine-learning/ex8/ex8/token.mat",
+    "stanford-machine-learning/ex8/ex8/submit.m",
+    "stanford-machine-learning/ex8/ex8/selectThreshold.m",
+    "stanford-machine-learning/ex8/ex8/normalizeRatings.m",
+    "stanford-machine-learning/ex8/ex8/multivariateGaussian.m",
+    "stanford-machine-learning/ex8/ex8/movie_ids.txt",
+    "stanford-machine-learning/ex8/ex8/loadMovieList.m",
+    "stanford-machine-learning/ex8/ex8/fmincg.m",
+    "stanford-machine-learning/ex7/ex7/bird_small.png",
+    "algorithms-1/week-6.md",
+    "algorithms-1/week-5.md",
+    "algorithms-1/week-4.md",
+    "algorithms-1/week-3.md",
+    "algorithms-1/week-2.md",
+    "algorithms-1/week-1.md",
+    "algorithms-2/week-6.md",
     "cs6210/cs6210.canvas",
-    "cs6210/lesson-06.md",
-    "cs6210/test-1.md",
-    "cs6210/lesson-09.md",
-    "cs6210/paper-summary-example.md",
-    "calculus-one/week-11-12.md",
-    "calculus-one/week-10.md",
-    "cs6210/lesson-02/index.html.md",
+    "laff-linear-algebra/LAFF-2.0xM/Programming/Week11/building.png",
+    "laff-linear-algebra/LAFF-2.0xM/Answers/Week11/building.png",
     "Untitled 3.canvas",
     "Untitled 2.canvas",
-    "Untitled 1.canvas",
-    "menu.md",
-    "cs6210/lesson-02",
-    "index.md",
-    "statistical-learning/chapter-2.md",
-    "calculus-one/week-7.md"
+    "Untitled 1.canvas"
   ]
 }
