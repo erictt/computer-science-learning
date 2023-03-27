@@ -312,24 +312,88 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1>Easy Mistakes</h1>
-<h2 id="Condition-Error">Condition Error</h2>
+  <h1>Paper Summary I</h1>
+<p>Written by Lei Yang(lyang423) @2023/03/26</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Title: Xen and the Art of Virtualization</span><br><span class="line">Authors: Paul Barham, Boris Dragovic, Keir Fraser, Steven Hand, Tim Harris, Alex Ho, Rolf Neugebauer, Ian Pratt, and Andrew Warfield</span><br></pre></td></tr></table></figure>
+<h2 id="Introduction">Introduction</h2>
 <ul>
-<li>In a while condition like <code>while (!qW.isEmpty() || !qV.isEmpty())</code>, make sure you need match both or just one.</li>
-<li>Make sure whether the question is asking for throw exception or return -1 like values
+<li>Xen is a high-performance, resource-managed virtual machine monitor (VMM) that facilitates various applications, including server consolidation, colocated hosting environments, distributed web services, secure computing platforms, and application portability.</li>
+<li>The motivation is to overcome the limitations of full virtualization, which often suffers from <strong>performance overhead</strong> and <strong>increased complexity</strong> due to the emulation of an entire hardware platform.</li>
+</ul>
+<h2 id="Approach-towards-Virtualization">Approach towards Virtualization</h2>
 <ul>
-<li>sometimes, the question require to return -1 if the parameter given is empty, and throw expection if the parameter is null.</li>
+<li>Xen requires modifications to the guest operating systems to work cooperatively with the VMM. This approach results in reduced complexity and improved performance compared to full virtualization.</li>
+<li>Comparing to Denali’s implementation, Xen focuses on supporting popular general-purpose operating systems like Linux, Windows, and NetBSD and intends to scale approximately 100 virtual machiens.</li>
+</ul>
+<ul>
+<li>Xen’s design principles:
+<ul>
+<li>Suport for unmodified application binaryies, aka no changes to application binary interface(ABI)</li>
+<li>Suport full multi-application operating system</li>
+<li>Obtain high performance and strong resource isolation</li>
+<li>Do not hide the effects of resource virtualization from guest OSes</li>
 </ul>
 </li>
-<li>edge cases are really complicated, make sure check triple times and think of some different approaches to test the code.
+</ul>
+<h3 id="The-Virtual-Machine-Interface">The Virtual Machine Interface</h3>
 <ul>
-<li>for example, short path for <code>e.g. 1 0, 1 2, 2 3, 3 4, 4 5, 5 0 and check 3 and 1 (digraph2.txt)</code>
+<li><strong>Memory</strong>: Guest OSes are responsible for allocating and managing the hardware page tables. Xen allocates 64MB at the top of every address space to avoid TLB flusing when entering and leaving hypervisor.</li>
+<li><strong>CPU</strong>:
+<ol>
+<li>To protect the hypervisor, Xen utilizes the privilege rings and keeps the hypervisor at ring 0, and the guest OS and applications at a lower privilege level. The privileged instructions requires to be validated and executed within Xen.</li>
+<li>To handle the two types of exceptions: system calls and page faults, Xen allows guest OS to register a ‘fast’ exception handler whcih can be accessed directly by the processor without indirecting via ring 0.</li>
+</ol>
+</li>
+<li><strong>Device I/O</strong>: I/O data is transfferred to and from each domain via Xen, using shared-memory, asychronous buffer-descriptor rings.</li>
+</ul>
+<h3 id="Control-and-Management">Control and Management</h3>
+<p><img src="https://i.imgur.com/zPBBYOl.png" alt="|600"></p>
+<h2 id="Detailed-Design">Detailed Design</h2>
+<h3 id="Control-Transfer-Hypercalls-and-Events">Control Transfer: Hypercalls and Events</h3>
 <ul>
-<li>if start looping and return the first result we get, the distance will be 4 which is wrong.</li>
+<li><strong>Hypercalls</strong> are used by guest operating systems running in virtual machines to request privileged operations from the hypervisor, such as requesting a set of page-table updates. When a hypercall is made, Xen validates and applies the requested updates and then returns control to the calling domain when this is completed.</li>
+<li>Communication from Xen to a domain is provided through an <strong>asynchronous event mechanism</strong>, which replaces the usual delivery mechanisms for device interrupts and allows lightweight notiﬁcation of important events such as domain-termination requests.</li>
+</ul>
+<h3 id="Data-Transfer-I-O-Rings">Data Transfer: I/O Rings</h3>
+<ul>
+<li>Xen provides an <strong>asynchronous</strong> <strong>I/O descriptor ring</strong> that is a circular queue of descriptors allocated by a domain but accessible from within Xen. Each ring has two pairs of producer-consumer pointers: domains place requests and Xen remove the requests for handling; Xen place responses and the domains consume the responses.</li>
+</ul>
+<h3 id="Subsystem-Virtualization">Subsystem Virtualization</h3>
+<ul>
+<li><strong>CPU Scheduling</strong>: Xen uses the Borrowed Virtual Time(BVT) scheduling algorithm which provides low-latency dispatch by using virtual-time warping.</li>
+<li><strong>Time and timers</strong>: Xen offers guest OSes real time, virtual time and wall-clock time.
+<ul>
+<li>Real time is the accurate time synced with external soruce.</li>
+<li>Virtual time is typically used for timeslice sharing.</li>
+<li>Wall-clock time is a measure of the real time that takes into account any adjustments made to the clock due to factors such as daylight saving time or changes in timezone.</li>
 </ul>
 </li>
+<li><strong>Virtual address translation</strong>: The guest OSes are restricted to read-only access to their page tables. All updates to the page table will be trapped to the Hypervisor to validate the updates and propagate the changes to the shadow page tables.</li>
+<li><strong>Physical memory</strong>: Memory is statically partitioned at creation. To adjust the usage of each domain, Xen implements a balloon dirver by passing the memory pages between the Xen and the guest OSes.</li>
+<li><strong>Network</strong>:
+<ul>
+<li>Similar to disk I/O, Xen offers two network I/O rings of buffer descriptors, one for transmit and one for receive. To transmit a packet, the guest OS enqueue a buffer descriptor onto the transmit ring. Xen copies it and applies the filter rules.</li>
+<li>For efficiency, guest OS exchanges an unused page frame for each packet it receives to avoid the packet copying between Xen and guest OS.</li>
 </ul>
 </li>
+<li><strong>Disk</strong>: All domains except Domain0 access disk via the abstraction of virtual block devices(VBDs).</li>
+</ul>
+<h3 id="Building-a-New-Domain">Building a New Domain</h3>
+<ul>
+<li>This task is mostly delegated to <em>Domain0</em> which uses its privileged control interfaces to access the new domain’s memory and inform Xen of initial register state.</li>
+</ul>
+<h2 id="Performance-Evaluation">Performance Evaluation</h2>
+<ul>
+<li>Xen achieves near-native performance for guest OSes, with minimal overhead compared to running on bare hardware. The paper presents several benchmarks and case studies demonstrating that Xen’s ability to efficiently manage a large number of virtual CPUs and its effectiveness in a multiprocessor environment.</li>
+</ul>
+<h2 id="Related-Work">Related Work</h2>
+<ul>
+<li>Virtualization has evolved over decades, with early systems like IBM VM/370 and VMware using full virtualization, which has performance drawbacks. Xen employs paravirtualization, improving performance by presenting a modified interface to guest OSes. It offers a more general solution without constraints on safety, termination, or language, and can support language-level virtual machines running over a guest OS, highlighting its flexibility and efficiency.</li>
+</ul>
+<h2 id="Future-Work-and-Conclusion">Future Work and Conclusion</h2>
+<ul>
+<li>The future work of Xen will be focusing on virtual block devices, physical memory performance, Internet-scale computing infrastructure, and better support for management and administration.</li>
+<li>In conclusion, Xen simplifies transient server hosting and offers near-equivalent performance to baseline Linux, showcasing its potential for broad applicability.</li>
 </ul>
 
 </div>

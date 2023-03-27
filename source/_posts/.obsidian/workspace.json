@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "stanford-machine-learning/week-5.md",
+                "file": "cs6210/paper-summary-1.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ff608545f42c72d7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "menu.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "stanford-machine-learning/week-5.md",
+                "file": "menu.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "stanford-machine-learning/week-5.md",
+                "file": "menu.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "stanford-machine-learning/week-5.md"
+                "file": "menu.md"
               }
             }
           },
@@ -156,8 +169,11 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "ccf42ca0e49adf7c",
+  "active": "ff608545f42c72d7",
   "lastOpenFiles": [
+    "cs6210/paper-summary-1.md",
+    "cs6210/lesson-07.md",
+    "menu.md",
     "stanford-machine-learning/week-5.md",
     "stanford-machine-learning/week-4.md",
     "stanford-machine-learning/week-6b.md",
@@ -192,9 +208,6 @@
     "algorithms-1/week-5.md",
     "algorithms-1/week-4.md",
     "algorithms-1/week-3.md",
-    "algorithms-1/week-2.md",
-    "algorithms-1/week-1.md",
-    "algorithms-2/week-6.md",
     "cs6210/cs6210.canvas",
     "laff-linear-algebra/LAFF-2.0xM/Programming/Week11/building.png",
     "laff-linear-algebra/LAFF-2.0xM/Answers/Week11/building.png",
