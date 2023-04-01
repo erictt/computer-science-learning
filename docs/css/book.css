@@ -504,7 +504,7 @@ img {
 }
 @media all and (min-width: 1280px) {
   .off-canvas-content {
-    margin-left: 14rem;
+    margin-left: 18rem;
     padding: 2.2rem 2.2rem;
   }
 }
@@ -547,7 +547,7 @@ img {
 
 .book-sidebar {
   position: fixed;
-  width: 14rem;
+  width: 18rem;
   height: 100%;
   z-index: 500;
   background-color: #f7f8f9;
@@ -599,7 +599,7 @@ img {
   position: fixed;
   top: 3.25rem;
   bottom: 0rem;
-  width: 14rem;
+  width: 18rem;
   overflow-x: hidden;
   overflow-y: auto;
   font-size: 0.7rem;
@@ -671,7 +671,7 @@ img {
 .sidebar-toggle {
   position: fixed;
   bottom: 0.6rem;
-  left: 14.7rem;
+  left: 18.7rem;
   transition: left 200ms;
   display: flex;
   justify-content: center;
