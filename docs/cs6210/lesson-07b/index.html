@@ -94,9 +94,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6210/lesson-06/index.html">Lesson 6: Distributed Objects and Middleware</a></li>
 <li><a href="/cs6210/lesson-07a/index.html">Lesson 7a: Distributed Subsystems - GMS</a></li>
 <li><a href="/cs6210/lesson-07b/index.html">Lesson 7b: Distributed Subsystems - DSM</a></li>
+<li><a href="/cs6210/lesson-07c/index.html">Lesson 7c: Distributed Subsystems - DFS</a></li>
 </ul>
 <!--
-* [Lesson 7c: Distributed Subsystems - DFS](/cs6210/lesson-07c/index.html)
 * [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
 * [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
 * [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
@@ -323,7 +323,7 @@ function sidebar_toggle() {
 </ul>
 <h2 id="Cluster-as-a-Parallel-Machine">Cluster as a Parallel Machine</h2>
 <h3 id="Sequential-Program">Sequential Program</h3>
-<p><img src="https://i.imgur.com/2o38mhX.png" alt=""></p>
+<img src="https://i.imgur.com/2o38mhX.png" style="width: 800px" />
 <ul>
 <li>To exploit a cluster starting from a sequential program, one possibility is automatic parallelization, which means writing a sequential program and letting a tool identify opportunities for parallelism and map it to the cluster.</li>
 <li>Automatic parallelization is an example of implicitly parallel programming, where the program is not written explicitly in parallel but the tool identifies opportunities for parallelism and maps it to the cluster.</li>
@@ -331,7 +331,7 @@ function sidebar_toggle() {
 <li>Automatic parallelization works well for certain classes of programs called data parallel programs, where the data accesses are fairly static and determinable at compile time.</li>
 </ul>
 <h3 id="Message-Passing">Message Passing</h3>
-<p><img src="https://i.imgur.com/tPeuuQC.png" alt=""></p>
+<img src="https://i.imgur.com/tPeuuQC.png" style="width: 800px" />
 <ul>
 <li>The other way to exploit a cluster is to write the program as a truly parallel program, or explicitly parallel program, where the application programmer thinks about the application and writes the program explicitly in parallel.</li>
 <li>There are two styles of explicitly parallel programs: message passing style and shared memory style.</li>
@@ -340,7 +340,7 @@ function sidebar_toggle() {
 <li>The downside to the message-passing style of programming is that it is difficult to program, as it requires the programmer to think in terms of coordinating the activities on different processes by explicitly sending and receiving messages from their peers, which is a radical change of thinking in terms of how to structure a program.</li>
 </ul>
 <h3 id="DSM">DSM</h3>
-<p><img src="https://i.imgur.com/MZj30m5.png" alt=""></p>
+<img src="https://i.imgur.com/MZj30m5.png" style="width: 800px" />
 <ul>
 <li>The DSM abstraction is a way of giving the illusion to the application programmer that all of the memory in the entire cluster is shared, even though it is not physically shared.</li>
 <li>The DSM library provides a shared memory semantic to the application program, allowing for an easier transition path from a sequential program or program written on an SMP to a program that runs on the cluster.</li>
@@ -360,7 +360,7 @@ function sidebar_toggle() {
 <li>It is important to reflect on the progress made in shared memory systems and learn about the details of machines built in the past, either in hardware or software.</li>
 </ul>
 <h2 id="Shared-Memory-Programming">Shared Memory Programming</h2>
-<p><img src="https://i.imgur.com/pcKtHIu.png" alt=""></p>
+<img src="https://i.imgur.com/pcKtHIu.png" style="width: 800px" />
 <ul>
 <li>Shared memory programming uses synchronization primitives like locks and barriers to protect data structures so that one thread can exclusively modify the data.</li>
 <li>Mutual exclusion locks and barrier synchronization are popular synchronization primitives used in shared memory programming.</li>
@@ -375,27 +375,27 @@ function sidebar_toggle() {
 <li>In parallel programming, coherence mechanism must fulfill the guarantee made by the memory consistency model to the application programmer.</li>
 </ul>
 <h3 id="Sequential-Consistency">Sequential Consistency</h3>
-<p><img src="https://i.imgur.com/7l4Gg7n.png" alt=""></p>
+<img src="https://i.imgur.com/7l4Gg7n.png" style="width: 800px" />
 <ul>
 <li>In sequential consistency, memory accesses are expected to happen in textual order on individual processors but the interleaving of memory accesses from different processors is arbitrary.</li>
 <li>The memory model preserves atomicity for individual read-write operations and honors the program order.</li>
 <li>SC memory model doesn’t distinguish between data accesses and synchronization accesses.</li>
 </ul>
 <h3 id="SC-Memory-Model">SC Memory Model:</h3>
-<p><img src="https://i.imgur.com/MjZGeN3.png" alt=""></p>
+<img src="https://i.imgur.com/MjZGeN3.png" style="width: 800px" />
 <ul>
 <li>SC memory model doesn’t know the association between locks and data structures.</li>
 <li>Coherence action is taken on every read-write access, which leads to more overhead and poorer scalability.</li>
 </ul>
 <h3 id="Typical-Parallel-Program">Typical Parallel Program:</h3>
-<p><img src="https://i.imgur.com/J1llQoD.png" alt=""></p>
+<img src="https://i.imgur.com/J1llQoD.png" style="width: 800px" />
 <ul>
 <li>A typical parallel program involves getting a lock for accessing data structures and releasing it after the critical section.</li>
 <li>The SC memory model doesn’t differentiate between synchronization and data accesses.</li>
 <li>Coherence action is taken on every access even if it’s not warranted until the lock is released.</li>
 </ul>
 <h3 id="Release-Consistency">Release Consistency:</h3>
-<p><img src="https://i.imgur.com/1CQmKvJ.png" alt=""></p>
+<img src="https://i.imgur.com/1CQmKvJ.png" style="width: 800px" />
 <ul>
 <li>Release consistency is a memory consistency model that distinguishes between synchronization and data accesses.</li>
 <li>Every critical section consists of acquire, data accesses governed by the lock, and release.</li>
@@ -403,14 +403,14 @@ function sidebar_toggle() {
 <li>Barrier synchronization can also be mapped to acquire and release.</li>
 </ul>
 <h3 id="RC-Memory-Model">RC Memory Model:</h3>
-<p><img src="https://i.imgur.com/ym1Xrc4.png" alt=""></p>
+<img src="https://i.imgur.com/ym1Xrc4.png" style="width: 800px" />
 <ul>
 <li>RC memory model distinguishes between normal data accesses and synchronization accesses.</li>
 <li>It initiates coherence actions corresponding to normal data accesses but doesn’t block the processors.</li>
 <li>It only takes coherence action when a release synchronization operation is encountered.</li>
 </ul>
 <h3 id="Distributed-Shared-Memory-Example">Distributed Shared Memory Example</h3>
-<p><img src="https://i.imgur.com/SVq87tU.png" alt=""></p>
+<img src="https://i.imgur.com/SVq87tU.png" style="width: 800px" />
 <ul>
 <li>RC memory model allows for parallel modifications to shared data structures</li>
 <li>Program example: one thread modifies structure A while another waits and then uses it</li>
@@ -423,13 +423,13 @@ function sidebar_toggle() {
 <li>Better performance in shared memory machines compared to SC memory model</li>
 </ul>
 <h3 id="Lazy-RC">Lazy RC</h3>
-<p><img src="https://i.imgur.com/LXs0SJT.png" alt=""></p>
+<img src="https://i.imgur.com/LXs0SJT.png" style="width: 800px" />
 <ul>
 <li>Lazy RC defers coherence actions to the point of lock acquisition rather than lock release</li>
 <li>Overlapping of computation with communication is still possible in the window of time between lock release and lock acquisition</li>
 </ul>
 <h3 id="Eager-vs-Lazy-RC">Eager vs Lazy RC</h3>
-<p><img src="https://i.imgur.com/lctRnu6.png" alt=""></p>
+<img src="https://i.imgur.com/lctRnu6.png" style="width: 800px" />
 <ul>
 <li>Vanilla RC is the eager release consistent memory model while LRC is the lazy release consistent memory model</li>
 <li>Eager RC broadcasts changes to all processors while Lazy RC only communicates with the necessary processors through point-to-point communication</li>
@@ -442,7 +442,7 @@ function sidebar_toggle() {
 <li>Lazy release consistency reduces the number of messages and data transferred between processors, which is especially significant for programs that exhibit false sharing and make extensive use of locks.</li>
 </ul>
 <h3 id="Software-DSM">Software DSM</h3>
-<p><img src="https://i.imgur.com/vBEaWiw.png" alt=""></p>
+<img src="https://i.imgur.com/vBEaWiw.png" style="width: 800px" />
 <ul>
 <li>In a computational cluster, each node has its private physical memory, and there is no physically shared memory.</li>
 <li>The DSM software implements the consistency model to the programmer.</li>
@@ -457,7 +457,7 @@ function sidebar_toggle() {
 <li>Page-level granularity and single-writer multiple-reader protocol don’t live happily together and will lead to false sharing and ping-ponging of pages.</li>
 </ul>
 <h3 id="LRC-with-Multi-Writer-Coherence-Protocol">LRC with Multi Writer Coherence Protocol</h3>
-<p><img src="https://i.imgur.com/9ipNyv3.png" alt=""></p>
+<img src="https://i.imgur.com/9ipNyv3.png" style="width: 800px" />
 <ul>
 <li>A new coherence protocol is introduced which allows multiple writers to write to the same page while maintaining coherence at the granularity of pages</li>
 <li>The granularity of coherence maintenance is chosen as a page because it matches the operating system’s granularity and allows DSM to be integrated with the operating system</li>
@@ -476,7 +476,7 @@ function sidebar_toggle() {
 <li>The association between changes made to a page is only specific to the lock governing that critical section</li>
 </ul>
 <h4 id="Implementation">Implementation</h4>
-<p><img src="https://i.imgur.com/acchRwm.png" alt=""></p>
+<img src="https://i.imgur.com/acchRwm.png" style="width: 800px" />
 <ul>
 <li>When a process or thread tries to write to a page X, the operating system creates a twin for that page and makes the original page writeable by that process.</li>
 <li>When the thread reaches the release point, the DSM software computes the diff between the original and modified versions of the page.</li>
@@ -490,20 +490,20 @@ function sidebar_toggle() {
 <li>Garbage collection is used to reduce the space overhead by periodically applying diffs to the original copy of the page and getting rid of them.</li>
 </ul>
 <h3 id="Non-Page-Based-DSM">Non Page Based DSM</h3>
-<p><img src="https://i.imgur.com/tq2pE8U.png" alt=""></p>
+<img src="https://i.imgur.com/tq2pE8U.png" style="width: 800px" />
 <ul>
 <li>Non-page based DSM systems do not use granularity of a page for coherence maintenance.</li>
 <li>Library-based approach uses programming framework/library to annotate shared variables, and generates a trap at point of access to contact DSM software for coherence action.</li>
 <li>Structured DSM provides abstractions manipulated using API calls that take coherence actions at the point of call execution.</li>
 </ul>
 <h3 id="Scalability">Scalability</h3>
-<p><img src="https://i.imgur.com/EfXq8fF.png" alt=""></p>
+<img src="https://i.imgur.com/EfXq8fF.png" style="width: 800px" />
 <ul>
 <li>DSM provides a programming model that looks and feels like a shared memory threads package, but performance does not necessarily scale up as we increase the number of processors in the cluster.</li>
 <li>Overhead increases with the number of processors, and this buildup of overhead happens in true memory multi-processors.</li>
 </ul>
 <h3 id="DSM-and-Speedup">DSM and Speedup</h3>
-<p><img src="https://i.imgur.com/qxvVk16.png" alt=""></p>
+<img src="https://i.imgur.com/qxvVk16.png" style="width: 800px" />
 <ul>
 <li>The computation to communication ratio must be high for any hope of speed up with DSM.</li>
 <li>If sharing is too fine-grained, there is no hope of speed up, especially with DSM systems that are only an illusion of shared memory via software.</li>

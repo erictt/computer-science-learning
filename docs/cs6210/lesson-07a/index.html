@@ -94,9 +94,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6210/lesson-06/index.html">Lesson 6: Distributed Objects and Middleware</a></li>
 <li><a href="/cs6210/lesson-07a/index.html">Lesson 7a: Distributed Subsystems - GMS</a></li>
 <li><a href="/cs6210/lesson-07b/index.html">Lesson 7b: Distributed Subsystems - DSM</a></li>
+<li><a href="/cs6210/lesson-07c/index.html">Lesson 7c: Distributed Subsystems - DFS</a></li>
 </ul>
 <!--
-* [Lesson 7c: Distributed Subsystems - DFS](/cs6210/lesson-07c/index.html)
 * [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
 * [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
 * [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
@@ -340,17 +340,15 @@ function sidebar_toggle() {
 </ul>
 <h2 id="Handling-Page-Faults">Handling Page Faults</h2>
 <h3 id="Case-1">Case 1</h3>
-<p><img src="https://i.imgur.com/JADVQuh.png" alt=""></p>
-<ul>
-<li>Physical memory on each host is divided into local and global parts.</li>
-<li>Page fault handling in GMS involves finding if the page is in the global cache of another node in the cluster.</li>
-<li>If the page is found in another node’s global cache, that node sends the page to the requesting node.</li>
-<li>The requesting node’s local allocation of physical memory increases by one.</li>
-<li>To make space for the new page, the requesting node sends the oldest page from its global cache to the node that had the requested page in its cache.</li>
-<li>The global allocation (community service part) of the requesting node decreases by one, while the global allocation of the sending node remains unchanged.</li>
-</ul>
+<img src="https://i.imgur.com/JADVQuh.png" style="width: 800px" />
+- Physical memory on each host is divided into local and global parts.
+- Page fault handling in GMS involves finding if the page is in the global cache of another node in the cluster.
+- If the page is found in another node's global cache, that node sends the page to the requesting node.
+- The requesting node's local allocation of physical memory increases by one.
+- To make space for the new page, the requesting node sends the oldest page from its global cache to the node that had the requested page in its cache.
+- The global allocation (community service part) of the requesting node decreases by one, while the global allocation of the sending node remains unchanged.
 <h3 id="Case-2">Case 2</h3>
-<p><img src="https://i.imgur.com/XSHGtGw.png" alt=""></p>
+<img src="https://i.imgur.com/XSHGtGw.png" style="width: 800px" />
 <ul>
 <li>In this case, there is no community service happening on host P due to high memory pressure.</li>
 <li>If there is another page fault, the only option is to throw out some page from its current working set to make room for the missing page.</li>
@@ -360,18 +358,16 @@ function sidebar_toggle() {
 <li>There is no change on host Q in terms of the split between local and global.</li>
 </ul>
 <h3 id="Case-3">Case 3</h3>
-<p><img src="https://i.imgur.com/30dNwHF.png" alt=""></p>
-<ul>
-<li>In this case, the faulting page is not available in the cluster memories and needs to be fetched from disk.</li>
-<li>The local allocation of physical memory on host P increases by one as the working set grows due to the page fault.</li>
-<li>To make room for the new page, the global allocation on host P decreases by one and the oldest page from the global cache is sent to a peer memory in the cluster.</li>
-<li>The peer memory that receives the replacement page could be either in the local or global part of the host.</li>
-<li>If the oldest page on the peer memory is in the global cache, it is discarded. If it is in the local part, it could be dirty and needs to be written back to disk.</li>
-<li>The local allocation of physical memory on the peer memory could decrease if the globally oldest page is in the local part and can be thrown out.</li>
-<li>The local and global allocation on host P changes as described above, while the allocation on the peer memory could remain unchanged or decrease depending on the globally oldest page.</li>
-</ul>
+<img src="https://i.imgur.com/30dNwHF.png" style="width: 800px" />
+- In this case, the faulting page is not available in the cluster memories and needs to be fetched from disk.
+- The local allocation of physical memory on host P increases by one as the working set grows due to the page fault.
+- To make room for the new page, the global allocation on host P decreases by one and the oldest page from the global cache is sent to a peer memory in the cluster.
+- The peer memory that receives the replacement page could be either in the local or global part of the host.
+- If the oldest page on the peer memory is in the global cache, it is discarded. If it is in the local part, it could be dirty and needs to be written back to disk.
+- The local allocation of physical memory on the peer memory could decrease if the globally oldest page is in the local part and can be thrown out.
+- The local and global allocation on host P changes as described above, while the allocation on the peer memory could remain unchanged or decrease depending on the globally oldest page.
 <h3 id="Case-4">Case 4</h3>
-<p><img src="https://i.imgur.com/ONGX0Ip.png" alt=""></p>
+<img src="https://i.imgur.com/ONGX0Ip.png" style="width: 800px" />
 <ul>
 <li>In this case, a page is actively shared between host P and host Q.</li>
 <li>When a page fault occurs on host P for page X, GMS finds that page X is in the local cache of host Q and makes a copy of it into the local cache of host P.</li>
@@ -382,7 +378,7 @@ function sidebar_toggle() {
 <li>The active sharing of page X between host P and host Q does not concern GMS for maintaining coherence between the copies on multiple nodes.</li>
 </ul>
 <h2 id="Local-and-Global-Boundary">Local and Global Boundary</h2>
-<p><img src="https://i.imgur.com/PF6RiZy.png" alt=""></p>
+<img src="https://i.imgur.com/PF6RiZy.png" style="width: 800px" />
 <ul>
 <li>In all cases except where the global part of the faulting node’s cache is empty, the local part goes up by one and the global part comes down by one.</li>
 <li>When the faulting page is in the global cache of a different node, there is no change in the balance between local and global on either node.</li>
@@ -399,7 +395,7 @@ function sidebar_toggle() {
 <li>The algorithm optimizes memory usage by swapping pages between nodes in the LAN.</li>
 </ul>
 <h2 id="Geriatrics-Age-management">Geriatrics!(Age management)</h2>
-<p><img src="https://i.imgur.com/XAZXJfL.png" alt=""></p>
+<img src="https://i.imgur.com/XAZXJfL.png" style="width: 800px" />
 <ul>
 <li>Age management is a critical part of the GMS system, as it determines which pages should be evicted and replaced with new pages.</li>
 <li>The age of a page represents how long it has been since it was last accessed, with smaller ages indicating more recently accessed pages.</li>
@@ -414,7 +410,7 @@ function sidebar_toggle() {
 <li>The GMS system also follows the principle of thinking globally but acting locally, where global information is used to make local decisions.</li>
 </ul>
 <h2 id="Implementation-in-Unix">Implementation in Unix</h2>
-<p><img src="https://i.imgur.com/hD6Yv6m.png" alt=""></p>
+<img src="https://i.imgur.com/hD6Yv6m.png" style="width: 800px" />
 <ul>
 <li>In systems research, identifying a pain point and coming up with a clever solution is important.</li>
 <li>Implementing the solution, even if it’s a simple idea, requires heavy lifting and technical details.</li>
@@ -429,7 +425,7 @@ function sidebar_toggle() {
 <li>The technical details of how GMS integrates with the VM, UBC, and other components of the operating system are important and may be reusable knowledge for other systems research.</li>
 </ul>
 <h2 id="Data-Structures">Data Structures</h2>
-<p><img src="https://i.imgur.com/UNrPfGS.png" alt=""></p>
+<img src="https://i.imgur.com/UNrPfGS.png" style="width: 800px" />
 <ul>
 <li>GMS uses distributed data structures for virtual memory management across the cluster.</li>
 <li>The virtual address is converted into a universal ID (UID) to uniquely identify a virtual address.</li>
@@ -437,7 +433,9 @@ function sidebar_toggle() {
 <li>The <strong>POD tells which node owns which pages</strong>, and it is replicated on all nodes in the cluster. The <strong>GCD maps UIDs (unique identifiers for virtual addresses) to the nodes that host the corresponding PFDs</strong>. The <strong>PFD contains the mapping between UIDs and page frame numbers (PFNs)</strong> and is stored on the node that owns the page.</li>
 <li>When a <strong>page fault occurs</strong>, the node first converts the virtual address to a UID and uses the POD to determine the owner of the page. It then uses the GCD to find the node that hosts the PFD for that UID and sends the UID to that node. The node with the PFD retrieves the page and sends it back to the requesting node.
 <ul>
-<li><img src="https://i.imgur.com/FA1JAou.png" alt=""></li>
+<li>
+<img src="https://i.imgur.com/FA1JAou.png" style="width: 800px" />
+</li>
 <li>Node A converts virtual address to UID and goes to page ownership directory (POD)</li>
 <li>POD tells Node A who the owner of the page is (Node B), which has the Global Page Frame Directory (GCD)</li>
 <li>Node B looks up its GCD and sends UID to node C, which has the Page Frame Directory (PFD) for that UID</li>
@@ -447,13 +445,17 @@ function sidebar_toggle() {
 <li>Network communication occurs only when there is a page fault, and most page faults are for non-shared pages, meaning the POD and GCD are co-resident on the same node. In this case, there is no network communication to look up the GCD.</li>
 <li>There can be a <strong>miss when requesting a page</strong>, which can happen if the page has been evicted from the PFD or if the POD information is stale due to changes in the network. In these cases, the request can be retried after looking up the updated POD or GCD.
 <ul>
-<li><img src="https://i.imgur.com/Ie6o0Rf.png" alt=""></li>
+<li>
+<img src="https://i.imgur.com/Ie6o0Rf.png" style="width: 800px" />
+</li>
 <li>Misses are uncommon compared to page faults, and network communication is mostly local to the node</li>
 </ul>
 </li>
 <li>To handle <strong>page evictions</strong>, each node has a paging daemon that puts evicted pages onto a candidate node based on weight information obtained from the geriatric management system (GMS). The paging daemon also coordinates with the GMS to update the GCD with the new PFD location for the corresponding UID. This happens in an aggregated manner when the free list falls below a threshold.
 <ul>
-<li><img src="https://i.imgur.com/e1KKUws.png" alt=""></li>
+<li>
+<img src="https://i.imgur.com/e1KKUws.png" style="width: 800px" />
+</li>
 </ul>
 </li>
 </ul>

@@ -12,7 +12,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ### Sequential Program
 
-![](https://i.imgur.com/2o38mhX.png)
+<img src="https://i.imgur.com/2o38mhX.png" style="width: 800px" />
 
 - To exploit a cluster starting from a sequential program, one possibility is automatic parallelization, which means writing a sequential program and letting a tool identify opportunities for parallelism and map it to the cluster.
 - Automatic parallelization is an example of implicitly parallel programming, where the program is not written explicitly in parallel but the tool identifies opportunities for parallelism and maps it to the cluster.
@@ -21,7 +21,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ### Message Passing
 
-![](https://i.imgur.com/tPeuuQC.png)
+<img src="https://i.imgur.com/tPeuuQC.png" style="width: 800px" />
 
 - The other way to exploit a cluster is to write the program as a truly parallel program, or explicitly parallel program, where the application programmer thinks about the application and writes the program explicitly in parallel.
 - There are two styles of explicitly parallel programs: message passing style and shared memory style.
@@ -31,7 +31,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ### DSM
 
-![](https://i.imgur.com/MZj30m5.png)
+<img src="https://i.imgur.com/MZj30m5.png" style="width: 800px" />
 
 - The DSM abstraction is a way of giving the illusion to the application programmer that all of the memory in the entire cluster is shared, even though it is not physically shared.
 - The DSM library provides a shared memory semantic to the application program, allowing for an easier transition path from a sequential program or program written on an SMP to a program that runs on the cluster.
@@ -52,7 +52,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ## Shared Memory Programming
 
-![](https://i.imgur.com/pcKtHIu.png)
+<img src="https://i.imgur.com/pcKtHIu.png" style="width: 800px" />
 
 - Shared memory programming uses synchronization primitives like locks and barriers to protect data structures so that one thread can exclusively modify the data.
 - Mutual exclusion locks and barrier synchronization are popular synchronization primitives used in shared memory programming.
@@ -68,7 +68,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ### Sequential Consistency
 
-![](https://i.imgur.com/7l4Gg7n.png)
+<img src="https://i.imgur.com/7l4Gg7n.png" style="width: 800px" />
 
 - In sequential consistency, memory accesses are expected to happen in textual order on individual processors but the interleaving of memory accesses from different processors is arbitrary.
 - The memory model preserves atomicity for individual read-write operations and honors the program order.
@@ -76,14 +76,14 @@ Can we make the cluster appear like a shared memory machine?
 
 ### SC Memory Model:
 
-![](https://i.imgur.com/MjZGeN3.png)
+<img src="https://i.imgur.com/MjZGeN3.png" style="width: 800px" />
 
 - SC memory model doesn't know the association between locks and data structures.
 - Coherence action is taken on every read-write access, which leads to more overhead and poorer scalability.
 
 ###  Typical Parallel Program:
 
-![](https://i.imgur.com/J1llQoD.png)
+<img src="https://i.imgur.com/J1llQoD.png" style="width: 800px" />
 
 - A typical parallel program involves getting a lock for accessing data structures and releasing it after the critical section.
 - The SC memory model doesn't differentiate between synchronization and data accesses.
@@ -91,7 +91,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ###  Release Consistency:
 
-![](https://i.imgur.com/1CQmKvJ.png)
+<img src="https://i.imgur.com/1CQmKvJ.png" style="width: 800px" />
 
 - Release consistency is a memory consistency model that distinguishes between synchronization and data accesses.
 - Every critical section consists of acquire, data accesses governed by the lock, and release.
@@ -100,7 +100,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ###  RC Memory Model:
 
-![](https://i.imgur.com/ym1Xrc4.png)
+<img src="https://i.imgur.com/ym1Xrc4.png" style="width: 800px" />
 
 
 - RC memory model distinguishes between normal data accesses and synchronization accesses.
@@ -109,7 +109,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ### Distributed Shared Memory Example
 
-![](https://i.imgur.com/SVq87tU.png)
+<img src="https://i.imgur.com/SVq87tU.png" style="width: 800px" />
 
 
 - RC memory model allows for parallel modifications to shared data structures
@@ -124,14 +124,14 @@ Can we make the cluster appear like a shared memory machine?
 
 ### Lazy RC
 
-![](https://i.imgur.com/LXs0SJT.png)
+<img src="https://i.imgur.com/LXs0SJT.png" style="width: 800px" />
 
 - Lazy RC defers coherence actions to the point of lock acquisition rather than lock release
 - Overlapping of computation with communication is still possible in the window of time between lock release and lock acquisition
 
 ### Eager vs Lazy RC
 
-![](https://i.imgur.com/lctRnu6.png)
+<img src="https://i.imgur.com/lctRnu6.png" style="width: 800px" />
 
 
 - Vanilla RC is the eager release consistent memory model while LRC is the lazy release consistent memory model
@@ -146,7 +146,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ### Software DSM
 
-![](https://i.imgur.com/vBEaWiw.png)
+<img src="https://i.imgur.com/vBEaWiw.png" style="width: 800px" />
 
 
 - In a computational cluster, each node has its private physical memory, and there is no physically shared memory.
@@ -163,7 +163,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ### LRC with Multi Writer Coherence Protocol
 
-![](https://i.imgur.com/9ipNyv3.png)
+<img src="https://i.imgur.com/9ipNyv3.png" style="width: 800px" />
 
 - A new coherence protocol is introduced which allows multiple writers to write to the same page while maintaining coherence at the granularity of pages
 - The granularity of coherence maintenance is chosen as a page because it matches the operating system's granularity and allows DSM to be integrated with the operating system
@@ -183,7 +183,7 @@ Can we make the cluster appear like a shared memory machine?
 
 #### Implementation
 
-![](https://i.imgur.com/acchRwm.png)
+<img src="https://i.imgur.com/acchRwm.png" style="width: 800px" />
 
 - When a process or thread tries to write to a page X, the operating system creates a twin for that page and makes the original page writeable by that process.
 - When the thread reaches the release point, the DSM software computes the diff between the original and modified versions of the page.
@@ -198,7 +198,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ### Non Page Based DSM
 
-![](https://i.imgur.com/tq2pE8U.png)
+<img src="https://i.imgur.com/tq2pE8U.png" style="width: 800px" />
 
 
 - Non-page based DSM systems do not use granularity of a page for coherence maintenance.
@@ -207,7 +207,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ### Scalability
 
-![](https://i.imgur.com/EfXq8fF.png)
+<img src="https://i.imgur.com/EfXq8fF.png" style="width: 800px" />
 
 
 - DSM provides a programming model that looks and feels like a shared memory threads package, but performance does not necessarily scale up as we increase the number of processors in the cluster.
@@ -215,7 +215,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ### DSM and Speedup
 
-![](https://i.imgur.com/qxvVk16.png)
+<img src="https://i.imgur.com/qxvVk16.png" style="width: 800px" />
 
 
 - The computation to communication ratio must be high for any hope of speed up with DSM.

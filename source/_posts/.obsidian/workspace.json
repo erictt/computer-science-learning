@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "menu.md",
+                "file": "cs6210/lesson-07c.md",
                 "mode": "source",
                 "source": false
               }
@@ -31,7 +31,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,7 +82,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "3367daa399feec31",
@@ -97,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "menu.md",
+                "file": "cs6210/lesson-09.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "menu.md",
+                "file": "cs6210/lesson-09.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "menu.md"
+                "file": "cs6210/lesson-09.md"
               }
             }
           },
@@ -167,15 +169,18 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "31fc167d8f47c41a",
+  "active": "69099e58b3529e09",
   "lastOpenFiles": [
+    "cs6210/lesson-07b.md-r",
+    "cs6210/lesson-07a.md-r",
     "cs6210/lesson-07c.md",
+    "cs6210/lesson-09.md",
     "cs6210/lesson-07b.md",
     "cs6210/lesson-07a.md",
+    "cs6210/lesson-04-1.md",
     "menu.md",
     "cs6210/lesson-07/index.html.md",
     "cs6210/lesson-07",
-    "cs6210/lesson-09.md",
     "cs6210/paper-summary-1.md",
     "cs6210/paper-summary-2.md",
     "Untitled.md",
@@ -194,9 +199,7 @@
     "stanford-machine-learning/New Folder With Items/week-8.md",
     "stanford-machine-learning/New Folder With Items/week-7.md",
     "stanford-machine-learning/New Folder With Items/week-11.md",
-    "stanford-machine-learning/New Folder With Items/week-10.md",
     "stanford-machine-learning/New Folder With Items",
-    "stanford-machine-learning/week-3.md",
     "stanford-machine-learning/ex8/ex8/visualizeFit.m",
     "stanford-machine-learning/ex8/ex8/token.mat",
     "stanford-machine-learning/ex8/ex8/submit.m",
@@ -204,7 +207,6 @@
     "stanford-machine-learning/ex8/ex8/normalizeRatings.m",
     "stanford-machine-learning/ex8/ex8/multivariateGaussian.m",
     "stanford-machine-learning/ex8/ex8/movie_ids.txt",
-    "stanford-machine-learning/ex8/ex8/loadMovieList.m",
     "stanford-machine-learning/ex7/ex7/bird_small.png",
     "cs6210/cs6210.canvas",
     "laff-linear-algebra/LAFF-2.0xM/Programming/Week11/building.png",

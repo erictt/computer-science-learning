@@ -23,7 +23,7 @@ GMS only works for read across the network. The only pages that been paged out t
 
 ### Case 1
 
-![](https://i.imgur.com/JADVQuh.png)
+<img src="https://i.imgur.com/JADVQuh.png" style="width: 800px" />
 - Physical memory on each host is divided into local and global parts.
 - Page fault handling in GMS involves finding if the page is in the global cache of another node in the cluster.
 - If the page is found in another node's global cache, that node sends the page to the requesting node.
@@ -33,7 +33,7 @@ GMS only works for read across the network. The only pages that been paged out t
 
 ### Case 2
 
-![](https://i.imgur.com/XSHGtGw.png)
+<img src="https://i.imgur.com/XSHGtGw.png" style="width: 800px" />
 
 - In this case, there is no community service happening on host P due to high memory pressure.
 - If there is another page fault, the only option is to throw out some page from its current working set to make room for the missing page.
@@ -44,7 +44,7 @@ GMS only works for read across the network. The only pages that been paged out t
 
 ### Case 3
 
-![](https://i.imgur.com/30dNwHF.png)
+<img src="https://i.imgur.com/30dNwHF.png" style="width: 800px" />
 - In this case, the faulting page is not available in the cluster memories and needs to be fetched from disk.
 - The local allocation of physical memory on host P increases by one as the working set grows due to the page fault.
 - To make room for the new page, the global allocation on host P decreases by one and the oldest page from the global cache is sent to a peer memory in the cluster.
@@ -55,7 +55,7 @@ GMS only works for read across the network. The only pages that been paged out t
 
 ### Case 4
 
-![](https://i.imgur.com/ONGX0Ip.png)
+<img src="https://i.imgur.com/ONGX0Ip.png" style="width: 800px" />
 
 - In this case, a page is actively shared between host P and host Q.
 - When a page fault occurs on host P for page X, GMS finds that page X is in the local cache of host Q and makes a copy of it into the local cache of host P.
@@ -67,7 +67,7 @@ GMS only works for read across the network. The only pages that been paged out t
 
 ## Local and Global Boundary
 
-![](https://i.imgur.com/PF6RiZy.png)
+<img src="https://i.imgur.com/PF6RiZy.png" style="width: 800px" />
 
 - In all cases except where the global part of the faulting node's cache is empty, the local part goes up by one and the global part comes down by one.
 - When the faulting page is in the global cache of a different node, there is no change in the balance between local and global on either node.
@@ -85,7 +85,7 @@ GMS only works for read across the network. The only pages that been paged out t
 
 ## Geriatrics!(Age management)
 
-![](https://i.imgur.com/XAZXJfL.png)
+<img src="https://i.imgur.com/XAZXJfL.png" style="width: 800px" />
 
 - Age management is a critical part of the GMS system, as it determines which pages should be evicted and replaced with new pages.
 - The age of a page represents how long it has been since it was last accessed, with smaller ages indicating more recently accessed pages.
@@ -101,7 +101,7 @@ GMS only works for read across the network. The only pages that been paged out t
 
 ## Implementation in Unix
 
-![](https://i.imgur.com/hD6Yv6m.png)
+<img src="https://i.imgur.com/hD6Yv6m.png" style="width: 800px" />
 
 - In systems research, identifying a pain point and coming up with a clever solution is important.
 - Implementing the solution, even if it's a simple idea, requires heavy lifting and technical details.
@@ -117,24 +117,24 @@ GMS only works for read across the network. The only pages that been paged out t
 
 ## Data Structures
 
-![](https://i.imgur.com/UNrPfGS.png)
+<img src="https://i.imgur.com/UNrPfGS.png" style="width: 800px" />
 
 - GMS uses distributed data structures for virtual memory management across the cluster.
 - The virtual address is converted into a universal ID (UID) to uniquely identify a virtual address.
 - Three key data structures are used: PFD (Page frame Directory), GCD (Global Cache Directory), and POD (Page Ownership Directory).
 - The **POD tells which node owns which pages**, and it is replicated on all nodes in the cluster. The **GCD maps UIDs (unique identifiers for virtual addresses) to the nodes that host the corresponding PFDs**. The **PFD contains the mapping between UIDs and page frame numbers (PFNs)** and is stored on the node that owns the page.
 - When a **page fault occurs**, the node first converts the virtual address to a UID and uses the POD to determine the owner of the page. It then uses the GCD to find the node that hosts the PFD for that UID and sends the UID to that node. The node with the PFD retrieves the page and sends it back to the requesting node.
-	- ![](https://i.imgur.com/FA1JAou.png)
+	- <img src="https://i.imgur.com/FA1JAou.png" style="width: 800px" />
 	- Node A converts virtual address to UID and goes to page ownership directory (POD)
 	- POD tells Node A who the owner of the page is (Node B), which has the Global Page Frame Directory (GCD)
 	- Node B looks up its GCD and sends UID to node C, which has the Page Frame Directory (PFD) for that UID
 	- Node C retrieves the page, sends it to Node A, which maps it and resumes the process
 - Network communication occurs only when there is a page fault, and most page faults are for non-shared pages, meaning the POD and GCD are co-resident on the same node. In this case, there is no network communication to look up the GCD.
 - There can be a **miss when requesting a page**, which can happen if the page has been evicted from the PFD or if the POD information is stale due to changes in the network. In these cases, the request can be retried after looking up the updated POD or GCD.
-	- ![](https://i.imgur.com/Ie6o0Rf.png)
+	- <img src="https://i.imgur.com/Ie6o0Rf.png" style="width: 800px" />
 	- Misses are uncommon compared to page faults, and network communication is mostly local to the node
 - To handle **page evictions**, each node has a paging daemon that puts evicted pages onto a candidate node based on weight information obtained from the geriatric management system (GMS). The paging daemon also coordinates with the GMS to update the GCD with the new PFD location for the corresponding UID. This happens in an aggregated manner when the free list falls below a threshold.
-	- ![](https://i.imgur.com/e1KKUws.png)
+	- <img src="https://i.imgur.com/e1KKUws.png" style="width: 800px" />
 
 ## Conclusion
 

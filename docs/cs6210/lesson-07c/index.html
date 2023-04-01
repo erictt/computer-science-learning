@@ -94,9 +94,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6210/lesson-06/index.html">Lesson 6: Distributed Objects and Middleware</a></li>
 <li><a href="/cs6210/lesson-07a/index.html">Lesson 7a: Distributed Subsystems - GMS</a></li>
 <li><a href="/cs6210/lesson-07b/index.html">Lesson 7b: Distributed Subsystems - DSM</a></li>
+<li><a href="/cs6210/lesson-07c/index.html">Lesson 7c: Distributed Subsystems - DFS</a></li>
 </ul>
 <!--
-* [Lesson 7c: Distributed Subsystems - DFS](/cs6210/lesson-07c/index.html)
 * [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
 * [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
 * [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
@@ -315,23 +315,126 @@ function sidebar_toggle() {
           <div class="book-post">
   <h1>Lesson 7c: Distributed Subsystems - Distributed File Systems</h1>
 <p>How to use cluster memory for cooperate caching of files?</p>
-<h3 id="Outline">Outline</h3>
-<ol start="5">
-<li>Preliminaries (Striping a File to Multiple Disks)</li>
-<li>Preliminaries (Log Structured File System)</li>
-<li>Preliminaries Software (RAID)</li>
-<li>Putting Them All Together Plus More</li>
-<li>Dynamic Management</li>
-<li>Log Based Striping and Stripe Groups</li>
-<li>Stripe Group</li>
-<li>Cooperative Caching</li>
-<li>Log Cleaning</li>
-<li>Unix File System</li>
-<li>xFS Data Structures</li>
-<li>Client Reading a File Own Cache</li>
-<li>Client Writing a File</li>
-<li>Distributed File Systems Conclusion</li>
-</ol>
+<h2 id="Preliminaries-Striping-a-File-to-Multiple-Disks">Preliminaries (Striping a File to Multiple Disks)</h2>
+<p><img src="https://i.imgur.com/JcOBi7z.png" alt=""></p>
+<ul>
+<li>RAID stands for redundant array of inexpensive disks, and it allows multiple disks to be strung together in parallel to increase I/O bandwidth.</li>
+<li>A file can be striped across multiple disks to increase overall I/O bandwidth.</li>
+<li>Error-correcting codes are used to detect and correct errors in the data that is striped across multiple disks.</li>
+<li>The RAID technology can have a small write problem, which occurs when small files are written across multiple disks, making it inefficient to read.</li>
+</ul>
+<h2 id="Preliminaries-Log-Structured-File-System">Preliminaries (Log Structured File System)</h2>
+<p><img src="https://i.imgur.com/3EiWC14.png" alt=""></p>
+<ul>
+<li>Log structured file systems write changes to files as log records rather than writing the file as-is.</li>
+<li>Changes to multiple files can be buffered in a contiguous log segment data structure and written out sequentially to the disk.</li>
+<li>The log segment can be striped across multiple disks using RAID technology.</li>
+<li>The log structured file system solves the small write problem by writing changes to multiple files in one log segment rather than writing small files across multiple disks.</li>
+<li>Latency may be associated with reading a file for the first time from the disk in a log structured file system.</li>
+<li>Logs must be cleaned periodically to remove old writes to parts of a file that are no longer relevant.</li>
+</ul>
+<h2 id="Preliminaries-Software-RAID">Preliminaries Software (RAID)</h2>
+<p><img src="https://i.imgur.com/67Rr4ds.png" alt=""></p>
+<ul>
+<li>Software RAID combines log structured file system and RAID technology.</li>
+<li>Log segments are written to nodes connected to disks on a local area network rather than data files.</li>
+<li>The log segment can be striped across multiple nodes using software RAID technology.</li>
+<li>The software RAID technology solves the problem of using expensive hardware in hardware RAID technology.</li>
+</ul>
+<h2 id="Putting-Them-All-Together-Plus-More">Putting Them All Together Plus More</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/img/l7/54.JPG?raw=true">https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/img/l7/54.JPG?raw=true</a><br>
+<img src="https://i.imgur.com/GrrASy9.png" alt=""></p>
+<ul>
+<li>xFS is a distributed file system built at UC Berkeley.</li>
+<li>It builds on prior technologies, including log-based striping from the Zebra file system and co-operative caching.</li>
+<li>xFS aims to be truly scalable and move towards serverlessness, meaning no reliance on a central server.</li>
+<li>It introduces new techniques such as dynamic management of data and metadata, subsetting of the storage servers.</li>
+<li>Further details on these techniques will be discussed in the rest of the lecture.</li>
+</ul>
+<h2 id="Dynamic-Management">Dynamic Management</h2>
+<p><img src="https://i.imgur.com/3FJGX02.png" alt=""></p>
+<ul>
+<li>In a traditional centralized NFS server, data blocks reside on disks while metadata and file cache are stored in the memory of the server.</li>
+<li>The server keeps a client caching directory to track who is accessing its files.</li>
+<li>However, this centralized structure can result in hot spots and scalability issues.</li>
+<li>In xFS, metadata management is dynamically distributed and data structures like metadata, file cache, and caching information can be distributed among nodes.</li>
+<li>This allows for dynamic management of data and metadata to avoid hot spots.</li>
+<li>xFS also utilizes cooperative client caching to conserve memory and increase efficiency.</li>
+</ul>
+<h2 id="Log-Based-Striping-and-Stripe-Groups">Log Based Striping and Stripe Groups</h2>
+<p><img src="https://i.imgur.com/wCHkmcB.png" alt=""></p>
+<p><img src="https://i.imgur.com/ksP4NUx.png" alt=""></p>
+<ul>
+<li>xFS uses log based striping in software to avoid small write problems.</li>
+<li>Clients write changes made to files to an append only log, which is a data structure residing in the memory of the client.</li>
+<li>When the log segment fills up, it is written to disk and striped across storage servers.</li>
+<li>Storage servers keep log segments written by different clients.</li>
+<li>Stripe groups subset the storage servers and assign different groups for different log segments.</li>
+<li>This allows parallel client activities and increases availability and throughput.</li>
+<li>Efficient log cleaning is facilitated by stripe groups and allows for parallelism in management of the system.</li>
+<li>Subsetting the server group for striping increases availability and allows for incremental satisfaction of the user community in spite of failures.</li>
+</ul>
+<h2 id="Cooperative-Caching">Cooperative Caching</h2>
+<p><img src="https://i.imgur.com/cdl6Zj3.png" alt=""></p>
+<ul>
+<li>xFS uses available memory in clients to cooperatively cache files and reduce stress on data file management.</li>
+<li>Unlike traditional Unix file systems, xFS worries about cache coherence and maintains it at the file block level.</li>
+<li>If a file is being read-shared by multiple clients, a write request results in a conflict, and the manager sends an invalidation message to the clients, revokes the token given to the requesting client, and distributes the file to a future requester.</li>
+<li>Using the fact that copies of the file exist in multiple clients, xFS exploits this to do cooperative caching and retrieve file content from a client’s cache instead of going to the disk.</li>
+</ul>
+<h2 id="Log-Cleaning">Log Cleaning</h2>
+<p><img src="https://i.imgur.com/CGkOb6X.png" alt=""></p>
+<ul>
+<li>As client activities progress, log segments evolve on the disk, and log cleaning is required to clean up the disk and get rid of unnecessary data.</li>
+<li>Log cleaning involves finding the utilization status of old log segments, picking some log segments to clean, reading all the live blocks in the chosen log segments, and writing them into a new log segment before garbage collecting the old segments.</li>
+<li>xFS makes clients responsible for log cleaning and stripe groups responsible for cleaning activities in their set of servers.</li>
+<li>The leader of each stripe group assigns cleaning services to the members of the group, and conflicts between client updates and cleaner functions are resolved by the manager.</li>
+</ul>
+<h2 id="Unix-File-System">Unix File System</h2>
+<p><img src="https://i.imgur.com/eoWPhnl.png" alt=""><br>
+<img src="https://i.imgur.com/3cBvZg4.png" alt=""></p>
+<ul>
+<li>xFS implementation details are being discussed.</li>
+<li>Unix file systems have i-node data structures.</li>
+<li>i-nodes map file names to data blocks on the disk.</li>
+<li>The file system can use the i-node to determine where the data blocks are located based on a file name and offset.</li>
+<li>This is a standard feature of Unix file systems.</li>
+</ul>
+<h2 id="xFS-Data-Structures">xFS Data Structures</h2>
+<p><img src="https://i.imgur.com/TK2zEGg.png" alt=""></p>
+<ul>
+<li>Metadata management in a distributed file system is not static.</li>
+<li>Every client node has a replicated data structure called manager map that tells who the metadata manager is for a particular file name.</li>
+<li>The manager node uses a file directory data structure to map the file name to an i-number and an i-map data structure to get the i-node address for that file.</li>
+<li>The stripe group map tells how the file is striped and which storage server contains the log segment ID associated with that file.</li>
+<li>The manager has to go through multiple data structures to go from the file name to the data blocks associated with that file, but caching helps reduce the long path for file access.</li>
+</ul>
+<h2 id="Client-Reading-a-File-Own-Cache">Client Reading a File Own Cache</h2>
+<p><img src="https://i.imgur.com/6WR5Wcx.png" alt=""></p>
+<p><img src="https://i.imgur.com/OFQ9JcV.png" alt=""></p>
+<p><img src="https://i.imgur.com/L504Bqd.png" alt=""></p>
+<ul>
+<li>Local caching of files in a client’s memory helps speed up file access.</li>
+<li>If a file is not in the local cache, the client consults the manager map data structure to know who’s the manager for that file.</li>
+<li>The manager may tell the client that another peer has a copy of the file in their cache, and the data can be obtained from there.</li>
+<li>If the data is not available in any cache, the manager has to go through multiple data structures to find the data blocks on a storage server, and there could be multiple network hops involved.</li>
+<li>The worst-case scenario involves accessing all the data structures in the manager, going through network hops and storage lookups to get the data blocks for the requested file.</li>
+</ul>
+<h2 id="Client-Writing-a-File">Client Writing a File</h2>
+<p><img src="https://i.imgur.com/YNgl6e8.png" alt=""></p>
+<ul>
+<li>Writing to a file involves aggregating writes into a Log Segment Data Structure in the client’s memory.</li>
+<li>The client flushes the Log Segment to the disk, striping it on the Storage Servers that are part of the Stripe Group.</li>
+<li>The manager is notified of the Log Segments being flushed to the disk.</li>
+<li>Technical Innovations of xFS include Log-based Striping, Cooperative Caching with Dynamic Management of Data and Metadata, and Distributive Log Cleaning.</li>
+</ul>
+<h2 id="Distributed-File-Systems-Conclusion">Distributed File Systems Conclusion</h2>
+<ul>
+<li>Network file systems are essential in any computing environment.</li>
+<li>Companies like NetApp have developed scalable NFS products.</li>
+<li>Lessons learned from the design and implementation of distributed file systems can be applied to other distributed subsystems.</li>
+<li>Creative techniques were used to fully utilize memory available in local area network nodes in the studied papers on GSM, DSM, and DFS.</li>
+</ul>
 
 </div>
 
