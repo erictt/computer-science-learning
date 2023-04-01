@@ -4,7 +4,7 @@ How to use cluster memory for cooperate caching of files?
 
 ## Preliminaries (Striping a File to Multiple Disks)
 
-<img src="https://i.imgur.com/JcOBi7z.png" style="width: 800px" />
+![](https://i.imgur.com/JcOBi7z.png)
 
 - RAID stands for redundant array of inexpensive disks, and it allows multiple disks to be strung together in parallel to increase I/O bandwidth.
 - A file can be striped across multiple disks to increase overall I/O bandwidth.
@@ -13,7 +13,7 @@ How to use cluster memory for cooperate caching of files?
 
 ## Preliminaries (Log Structured File System)
 
-<img src="https://i.imgur.com/3EiWC14.png" style="width: 800px" />
+![](https://i.imgur.com/3EiWC14.png)
 
 - Log structured file systems write changes to files as log records rather than writing the file as-is.
 - Changes to multiple files can be buffered in a contiguous log segment data structure and written out sequentially to the disk.
@@ -24,7 +24,7 @@ How to use cluster memory for cooperate caching of files?
 
 ## Preliminaries Software (RAID)
 
-<img src="https://i.imgur.com/67Rr4ds.png" style="width: 800px" />
+![](https://i.imgur.com/67Rr4ds.png)
 
 - Software RAID combines log structured file system and RAID technology.
 - Log segments are written to nodes connected to disks on a local area network rather than data files.
@@ -35,7 +35,7 @@ How to use cluster memory for cooperate caching of files?
 ## Putting Them All Together Plus More
 
 https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/img/l7/54.JPG?raw=true
-<img src="https://i.imgur.com/GrrASy9.png" style="width: 800px" />
+![](https://i.imgur.com/GrrASy9.png)
 
 - xFS is a distributed file system built at UC Berkeley.
 - It builds on prior technologies, including log-based striping from the Zebra file system and co-operative caching.
@@ -45,7 +45,7 @@ https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/i
 
 ## Dynamic Management
 
-<img src="https://i.imgur.com/3FJGX02.png" style="width: 800px" />
+![](https://i.imgur.com/3FJGX02.png)
 
 
 - In a traditional centralized NFS server, data blocks reside on disks while metadata and file cache are stored in the memory of the server.
@@ -57,10 +57,10 @@ https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/i
 
 ##  Log Based Striping and Stripe Groups
 
-<img src="https://i.imgur.com/wCHkmcB.png" style="width: 800px" />
+![](https://i.imgur.com/wCHkmcB.png)
 
 
-<img src="https://i.imgur.com/ksP4NUx.png" style="width: 800px" />
+![](https://i.imgur.com/ksP4NUx.png)
 
 
 - xFS uses log based striping in software to avoid small write problems.
@@ -74,7 +74,7 @@ https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/i
 
 ## Cooperative Caching
 
-<img src="https://i.imgur.com/cdl6Zj3.png" style="width: 800px" />
+![](https://i.imgur.com/cdl6Zj3.png)
 
 
 - xFS uses available memory in clients to cooperatively cache files and reduce stress on data file management.
@@ -84,7 +84,7 @@ https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/i
 
 ##  Log Cleaning
 
-<img src="https://i.imgur.com/CGkOb6X.png" style="width: 800px" />
+![](https://i.imgur.com/CGkOb6X.png)
 
 
 - As client activities progress, log segments evolve on the disk, and log cleaning is required to clean up the disk and get rid of unnecessary data.
@@ -94,8 +94,8 @@ https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/i
 
 ## Unix File System
 
-<img src="https://i.imgur.com/eoWPhnl.png" style="width: 800px" />
-<img src="https://i.imgur.com/3cBvZg4.png" style="width: 800px" />
+![](https://i.imgur.com/eoWPhnl.png)
+![](https://i.imgur.com/3cBvZg4.png)
 
 
 - xFS implementation details are being discussed.
@@ -106,7 +106,7 @@ https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/i
 
 ##  xFS Data Structures
 
-<img src="https://i.imgur.com/TK2zEGg.png" style="width: 800px" />
+![](https://i.imgur.com/TK2zEGg.png)
 
 
 - Metadata management in a distributed file system is not static.
@@ -117,13 +117,13 @@ https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/i
 
 ## Client Reading a File Own Cache
 
-<img src="https://i.imgur.com/6WR5Wcx.png" style="width: 800px" />
+![](https://i.imgur.com/6WR5Wcx.png)
 
 
-<img src="https://i.imgur.com/OFQ9JcV.png" style="width: 800px" />
+![](https://i.imgur.com/OFQ9JcV.png)
 
 
-<img src="https://i.imgur.com/L504Bqd.png" style="width: 800px" />
+![](https://i.imgur.com/L504Bqd.png)
 
 
 - Local caching of files in a client's memory helps speed up file access.
@@ -134,7 +134,7 @@ https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/i
 
 ## Client Writing a File
 
-<img src="https://i.imgur.com/YNgl6e8.png" style="width: 800px" />
+![](https://i.imgur.com/YNgl6e8.png)
 
 - Writing to a file involves aggregating writes into a Log Segment Data Structure in the client's memory.
 - The client flushes the Log Segment to the disk, striping it on the Storage Servers that are part of the Stripe Group.

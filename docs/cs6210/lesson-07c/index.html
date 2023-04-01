@@ -316,7 +316,7 @@ function sidebar_toggle() {
   <h1>Lesson 7c: Distributed Subsystems - Distributed File Systems</h1>
 <p>How to use cluster memory for cooperate caching of files?</p>
 <h2 id="Preliminaries-Striping-a-File-to-Multiple-Disks">Preliminaries (Striping a File to Multiple Disks)</h2>
-<p><img src="https://i.imgur.com/JcOBi7z.png" alt=""></p>
+<img src="https://i.imgur.com/JcOBi7z.png" style="width: 800px" />
 <ul>
 <li>RAID stands for redundant array of inexpensive disks, and it allows multiple disks to be strung together in parallel to increase I/O bandwidth.</li>
 <li>A file can be striped across multiple disks to increase overall I/O bandwidth.</li>
@@ -324,7 +324,7 @@ function sidebar_toggle() {
 <li>The RAID technology can have a small write problem, which occurs when small files are written across multiple disks, making it inefficient to read.</li>
 </ul>
 <h2 id="Preliminaries-Log-Structured-File-System">Preliminaries (Log Structured File System)</h2>
-<p><img src="https://i.imgur.com/3EiWC14.png" alt=""></p>
+<img src="https://i.imgur.com/3EiWC14.png" style="width: 800px" />
 <ul>
 <li>Log structured file systems write changes to files as log records rather than writing the file as-is.</li>
 <li>Changes to multiple files can be buffered in a contiguous log segment data structure and written out sequentially to the disk.</li>
@@ -334,7 +334,7 @@ function sidebar_toggle() {
 <li>Logs must be cleaned periodically to remove old writes to parts of a file that are no longer relevant.</li>
 </ul>
 <h2 id="Preliminaries-Software-RAID">Preliminaries Software (RAID)</h2>
-<p><img src="https://i.imgur.com/67Rr4ds.png" alt=""></p>
+<img src="https://i.imgur.com/67Rr4ds.png" style="width: 800px" />
 <ul>
 <li>Software RAID combines log structured file system and RAID technology.</li>
 <li>Log segments are written to nodes connected to disks on a local area network rather than data files.</li>
@@ -343,7 +343,7 @@ function sidebar_toggle() {
 </ul>
 <h2 id="Putting-Them-All-Together-Plus-More">Putting Them All Together Plus More</h2>
 <p><a target="_blank" rel="noopener" href="https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/img/l7/54.JPG?raw=true">https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/img/l7/54.JPG?raw=true</a><br>
-<img src="https://i.imgur.com/GrrASy9.png" alt=""></p>
+<img src="https://i.imgur.com/GrrASy9.png" style="width: 800px" /></p>
 <ul>
 <li>xFS is a distributed file system built at UC Berkeley.</li>
 <li>It builds on prior technologies, including log-based striping from the Zebra file system and co-operative caching.</li>
@@ -352,7 +352,7 @@ function sidebar_toggle() {
 <li>Further details on these techniques will be discussed in the rest of the lecture.</li>
 </ul>
 <h2 id="Dynamic-Management">Dynamic Management</h2>
-<p><img src="https://i.imgur.com/3FJGX02.png" alt=""></p>
+<img src="https://i.imgur.com/3FJGX02.png" style="width: 800px" />
 <ul>
 <li>In a traditional centralized NFS server, data blocks reside on disks while metadata and file cache are stored in the memory of the server.</li>
 <li>The server keeps a client caching directory to track who is accessing its files.</li>
@@ -362,8 +362,8 @@ function sidebar_toggle() {
 <li>xFS also utilizes cooperative client caching to conserve memory and increase efficiency.</li>
 </ul>
 <h2 id="Log-Based-Striping-and-Stripe-Groups">Log Based Striping and Stripe Groups</h2>
-<p><img src="https://i.imgur.com/wCHkmcB.png" alt=""></p>
-<p><img src="https://i.imgur.com/ksP4NUx.png" alt=""></p>
+<img src="https://i.imgur.com/wCHkmcB.png" style="width: 800px" />
+<img src="https://i.imgur.com/ksP4NUx.png" style="width: 800px" />
 <ul>
 <li>xFS uses log based striping in software to avoid small write problems.</li>
 <li>Clients write changes made to files to an append only log, which is a data structure residing in the memory of the client.</li>
@@ -375,7 +375,7 @@ function sidebar_toggle() {
 <li>Subsetting the server group for striping increases availability and allows for incremental satisfaction of the user community in spite of failures.</li>
 </ul>
 <h2 id="Cooperative-Caching">Cooperative Caching</h2>
-<p><img src="https://i.imgur.com/cdl6Zj3.png" alt=""></p>
+<img src="https://i.imgur.com/cdl6Zj3.png" style="width: 800px" />
 <ul>
 <li>xFS uses available memory in clients to cooperatively cache files and reduce stress on data file management.</li>
 <li>Unlike traditional Unix file systems, xFS worries about cache coherence and maintains it at the file block level.</li>
@@ -383,7 +383,7 @@ function sidebar_toggle() {
 <li>Using the fact that copies of the file exist in multiple clients, xFS exploits this to do cooperative caching and retrieve file content from a client’s cache instead of going to the disk.</li>
 </ul>
 <h2 id="Log-Cleaning">Log Cleaning</h2>
-<p><img src="https://i.imgur.com/CGkOb6X.png" alt=""></p>
+<img src="https://i.imgur.com/CGkOb6X.png" style="width: 800px" />
 <ul>
 <li>As client activities progress, log segments evolve on the disk, and log cleaning is required to clean up the disk and get rid of unnecessary data.</li>
 <li>Log cleaning involves finding the utilization status of old log segments, picking some log segments to clean, reading all the live blocks in the chosen log segments, and writing them into a new log segment before garbage collecting the old segments.</li>
@@ -391,8 +391,8 @@ function sidebar_toggle() {
 <li>The leader of each stripe group assigns cleaning services to the members of the group, and conflicts between client updates and cleaner functions are resolved by the manager.</li>
 </ul>
 <h2 id="Unix-File-System">Unix File System</h2>
-<p><img src="https://i.imgur.com/eoWPhnl.png" alt=""><br>
-<img src="https://i.imgur.com/3cBvZg4.png" alt=""></p>
+<img src="https://i.imgur.com/eoWPhnl.png" style="width: 800px" />
+<img src="https://i.imgur.com/3cBvZg4.png" style="width: 800px" />
 <ul>
 <li>xFS implementation details are being discussed.</li>
 <li>Unix file systems have i-node data structures.</li>
@@ -401,7 +401,7 @@ function sidebar_toggle() {
 <li>This is a standard feature of Unix file systems.</li>
 </ul>
 <h2 id="xFS-Data-Structures">xFS Data Structures</h2>
-<p><img src="https://i.imgur.com/TK2zEGg.png" alt=""></p>
+<img src="https://i.imgur.com/TK2zEGg.png" style="width: 800px" />
 <ul>
 <li>Metadata management in a distributed file system is not static.</li>
 <li>Every client node has a replicated data structure called manager map that tells who the metadata manager is for a particular file name.</li>
@@ -410,9 +410,9 @@ function sidebar_toggle() {
 <li>The manager has to go through multiple data structures to go from the file name to the data blocks associated with that file, but caching helps reduce the long path for file access.</li>
 </ul>
 <h2 id="Client-Reading-a-File-Own-Cache">Client Reading a File Own Cache</h2>
-<p><img src="https://i.imgur.com/6WR5Wcx.png" alt=""></p>
-<p><img src="https://i.imgur.com/OFQ9JcV.png" alt=""></p>
-<p><img src="https://i.imgur.com/L504Bqd.png" alt=""></p>
+<img src="https://i.imgur.com/6WR5Wcx.png" style="width: 800px" />
+<img src="https://i.imgur.com/OFQ9JcV.png" style="width: 800px" />
+<img src="https://i.imgur.com/L504Bqd.png" style="width: 800px" />
 <ul>
 <li>Local caching of files in a client’s memory helps speed up file access.</li>
 <li>If a file is not in the local cache, the client consults the manager map data structure to know who’s the manager for that file.</li>
@@ -421,7 +421,7 @@ function sidebar_toggle() {
 <li>The worst-case scenario involves accessing all the data structures in the manager, going through network hops and storage lookups to get the data blocks for the requested file.</li>
 </ul>
 <h2 id="Client-Writing-a-File">Client Writing a File</h2>
-<p><img src="https://i.imgur.com/YNgl6e8.png" alt=""></p>
+<img src="https://i.imgur.com/YNgl6e8.png" style="width: 800px" />
 <ul>
 <li>Writing to a file involves aggregating writes into a Log Segment Data Structure in the client’s memory.</li>
 <li>The client flushes the Log Segment to the disk, striping it on the Storage Servers that are part of the Stripe Group.</li>
