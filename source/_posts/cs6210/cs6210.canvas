@@ -1,7 +1,7 @@
 {
 	"nodes":[
 		{"id":"daa223c515c64469","x":-220,"y":-300,"width":400,"height":400,"type":"file","file":"cs6210/lesson-06.md"},
-		{"id":"ef9940a2c41dd722","x":-220,"y":160,"width":400,"height":400,"type":"file","file":"cs6210/lesson-07.md"}
+		{"id":"ef9940a2c41dd722","x":-220,"y":160,"width":400,"height":400,"type":"file","file":"cs6210/lesson-07a.md"}
 	],
 	"edges":[]
 }

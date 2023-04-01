@@ -8,19 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4144cdfe6cecf81b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "cs6210/lesson-07.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ff608545f42c72d7",
+            "id": "31fc167d8f47c41a",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -93,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "3367daa399feec31",
@@ -110,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cs6210/lesson-07.md",
+                "file": "menu.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cs6210/lesson-07.md",
+                "file": "menu.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cs6210/lesson-07.md"
+                "file": "menu.md"
               }
             }
           },
@@ -180,13 +167,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "4144cdfe6cecf81b",
+  "active": "31fc167d8f47c41a",
   "lastOpenFiles": [
+    "cs6210/lesson-07c.md",
+    "cs6210/lesson-07b.md",
+    "cs6210/lesson-07a.md",
+    "menu.md",
+    "cs6210/lesson-07/index.html.md",
+    "cs6210/lesson-07",
     "cs6210/lesson-09.md",
     "cs6210/paper-summary-1.md",
     "cs6210/paper-summary-2.md",
-    "menu.md",
-    "cs6210/lesson-07.md",
     "Untitled.md",
     "stanford-machine-learning/week-5.md",
     "stanford-machine-learning/week-4.md",
@@ -206,8 +197,6 @@
     "stanford-machine-learning/New Folder With Items/week-10.md",
     "stanford-machine-learning/New Folder With Items",
     "stanford-machine-learning/week-3.md",
-    "stanford-machine-learning/week-2.md",
-    "stanford-machine-learning/week-1.md",
     "stanford-machine-learning/ex8/ex8/visualizeFit.m",
     "stanford-machine-learning/ex8/ex8/token.mat",
     "stanford-machine-learning/ex8/ex8/submit.m",
@@ -216,9 +205,7 @@
     "stanford-machine-learning/ex8/ex8/multivariateGaussian.m",
     "stanford-machine-learning/ex8/ex8/movie_ids.txt",
     "stanford-machine-learning/ex8/ex8/loadMovieList.m",
-    "stanford-machine-learning/ex8/ex8/fmincg.m",
     "stanford-machine-learning/ex7/ex7/bird_small.png",
-    "algorithms-1/week-6.md",
     "cs6210/cs6210.canvas",
     "laff-linear-algebra/LAFF-2.0xM/Programming/Week11/building.png",
     "laff-linear-algebra/LAFF-2.0xM/Answers/Week11/building.png",
