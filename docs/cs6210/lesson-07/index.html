@@ -92,10 +92,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6210/lesson-04-2/index.html">Lesson 4: Parallel Systems - Part 2</a></li>
 <li><a href="/cs6210/lesson-05/index.html">Lesson 5: Distributed Systems</a></li>
 <li><a href="/cs6210/lesson-06/index.html">Lesson 6: Distributed Objects and Middleware</a></li>
-<li><a href="/cs6210/paper-summary-1/index.html">Paper Summary I</a></li>
+<li><a href="/cs6210/lesson-07/index.html">Lesson 7: Distributed Subsystems</a></li>
 </ul>
 <!--
-* [Lesson 7: Distributed Subsystems](/cs6210/lesson-07/index.html)
 * [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
 * [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
 * [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
@@ -319,58 +318,349 @@ function sidebar_toggle() {
 <li>DSM: Can we make the cluster appear like a shared memory machine?</li>
 <li>DFS: How to use cluster memory for cooperate caching of files?</li>
 </ul>
-<h2 id="L07a-Global-Memory-System">L07a: Global Memory System</h2>
-<p>page out the unused pages to other nodes in the cluster</p>
-<p>no dirty cache in remote memory<br>
-cache -&gt; physical memory(i.e. DRAM)<br>
-local disk has whole pages.</p>
-<p>in local can be private or shared.<br>
-pages in global are private copies</p>
-<p>page coherence is the problem of the application. GMS only responsible for paging.</p>
-<p>use LRU for purge global oldest page<br>
-oldest can be in local or global</p>
-<p>page fault handling - case 1</p>
 <h2 id="L07a-Global-Memory-Systems-GMS">L07a: Global Memory Systems(GMS)</h2>
+<p>In a working set of multiple machines connected to LAN, some machines have more memory presure than the others. To utilize the memory from other machines to alleviate the busy ones is the main goal of GMS. The assumption is accessing the local disks take much more time than using the memory for paging accross the network. (Modern LANs can provide Gigabit or even 10 Gigabit connectivity between nodes, which can make it faster to access data from remote nodes than accessing data from a local disk.) In addition, we want to use idl cluster memory for other nodes in the network.</p>
+<p>Comparing to tradition memory management: virtrual address -&gt; physical address or disk, GMS trades network communication for disk I/O, changes the mapping to: virtrual address -&gt; physical address or cluster memory or disk.</p>
+<p>GMS only works for read across the network. The only pages that been paged out to the cluster memories are not dirty. GMS only serves as another level in the memory hierachy. The disk always has all of the copies of the pges.</p>
 <h3 id="Basics">Basics</h3>
+<ul>
+<li>In GSM, “cache” refers to physical memory, specifically dynamic random access memory (DRAM).</li>
+<li>Physical memory at each node is split into “local” (working set of currently executing processes) and “global” (community service for holding swapped out pages from fellow nodes).</li>
+<li>The split between local and global is dynamic and responds to memory pressure.</li>
+</ul>
+<ul>
+<li>Pages can be private or shared, and shared pages are the concern of the application for maintaining the <strong>page coherence</strong>.
+<ul>
+<li>The pages in “global” are always private to some processes.</li>
+<li>The pages in “local” can be private or shared among multiple processes.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>GSM serves as a paging facility for remote paging and uses a page replacement algorithm (typically LRU) to manage memory.</li>
+<li>One of the key technical contributions of GSM is managing age information to pick the globally oldest page for replacement in the community service for handling page faults.</li>
+</ul>
 <h3 id="Handling-Page-Faults">Handling Page Faults</h3>
 <h4 id="Case-1">Case 1</h4>
+<p><img src="https://i.imgur.com/JADVQuh.png" alt=""></p>
+<ul>
+<li>Physical memory on each host is divided into local and global parts.</li>
+<li>Page fault handling in GMS involves finding if the page is in the global cache of another node in the cluster.</li>
+<li>If the page is found in another node’s global cache, that node sends the page to the requesting node.</li>
+<li>The requesting node’s local allocation of physical memory increases by one.</li>
+<li>To make space for the new page, the requesting node sends the oldest page from its global cache to the node that had the requested page in its cache.</li>
+<li>The global allocation (community service part) of the requesting node decreases by one, while the global allocation of the sending node remains unchanged.</li>
+</ul>
 <h4 id="Case-2">Case 2</h4>
+<p><img src="https://i.imgur.com/XSHGtGw.png" alt=""></p>
+<ul>
+<li>In this case, there is no community service happening on host P due to high memory pressure.</li>
+<li>If there is another page fault, the only option is to throw out some page from its current working set to make room for the missing page.</li>
+<li>The victim candidate for the page is chosen from the local part of host P.</li>
+<li>The oldest page from the local part of host P is sent out as a victim.</li>
+<li>The distribution of local and global on host P remains unchanged, as global is already zero.</li>
+<li>There is no change on host Q in terms of the split between local and global.</li>
+</ul>
 <h4 id="Case-3">Case 3</h4>
+<p><img src="https://i.imgur.com/30dNwHF.png" alt=""></p>
+<ul>
+<li>In this case, the faulting page is not available in the cluster memories and needs to be fetched from disk.</li>
+<li>The local allocation of physical memory on host P increases by one as the working set grows due to the page fault.</li>
+<li>To make room for the new page, the global allocation on host P decreases by one and the oldest page from the global cache is sent to a peer memory in the cluster.</li>
+<li>The peer memory that receives the replacement page could be either in the local or global part of the host.</li>
+<li>If the oldest page on the peer memory is in the global cache, it is discarded. If it is in the local part, it could be dirty and needs to be written back to disk.</li>
+<li>The local allocation of physical memory on the peer memory could decrease if the globally oldest page is in the local part and can be thrown out.</li>
+<li>The local and global allocation on host P changes as described above, while the allocation on the peer memory could remain unchanged or decrease depending on the globally oldest page.</li>
+</ul>
 <h4 id="Case-4">Case 4</h4>
+<p><img src="https://i.imgur.com/ONGX0Ip.png" alt=""></p>
+<ul>
+<li>In this case, a page is actively shared between host P and host Q.</li>
+<li>When a page fault occurs on host P for page X, GMS finds that page X is in the local cache of host Q and makes a copy of it into the local cache of host P.</li>
+<li>The working set on host P increases, so the local allocation of physical memory on host P goes up by one and the global allocation goes down by one.</li>
+<li>GMS picks an arbitrary page from the global cache on host P to send to the host R that has the globally oldest page.</li>
+<li>The total memory pressure in the cluster goes up by one, so host R must pick an LRU candidate from its physical memory to send to the disk and make room for the incoming page from host P.</li>
+<li>If the LRU candidate comes from the local cache of host R, the working set on host R decreases and the local allocation goes down by one, while the global allocation goes up by one.</li>
+<li>The active sharing of page X between host P and host Q does not concern GMS for maintaining coherence between the copies on multiple nodes.</li>
+</ul>
 <h3 id="Local-and-Global-Boundary">Local and Global Boundary</h3>
+<p><img src="https://i.imgur.com/PF6RiZy.png" alt=""></p>
+<ul>
+<li>In all cases except where the global part of the faulting node’s cache is empty, the local part goes up by one and the global part comes down by one.</li>
+<li>When the faulting page is in the global cache of a different node, there is no change in the balance between local and global on either node.</li>
+<li>If the faulting page is on disk, we have to make space in the cluster memory by throwing out a page, and if the LRU page on the node with the globally oldest page is in the local cache, the local part goes down by one and the global part goes up by one.</li>
+<li>If the page is actively shared, there is no change in the balance between local and global on either node, but one of the node’s global pages has to be sent to the node with the globally oldest page, and if the replacement candidate comes from the local cache, the local part shrinks by one and the global part increases by one to accommodate the new page.</li>
+</ul>
 <h3 id="Behavior-of-Algorithm">Behavior of Algorithm</h3>
-<h3 id="Geriatrics">Geriatrics!</h3>
+<ul>
+<li>The behavior of GMS global memory management is dynamic, not static.</li>
+<li>The split between local and global cache changes based on the memory pressure at a particular node.</li>
+<li>Idle nodes with a decreasing working set can become memory servers for peers on the network.</li>
+<li>The algorithm does not handle coherence maintenance, which must be managed at a higher level of software.</li>
+<li>The global cache acts as a surrogate for the disk, providing faster access to pages than the disk itself.</li>
+<li>The algorithm optimizes memory usage by swapping pages between nodes in the LAN.</li>
+</ul>
+<h3 id="Geriatrics-Age-management">Geriatrics!(Age management)</h3>
+<p><img src="https://i.imgur.com/XAZXJfL.png" alt=""></p>
+<ul>
+<li>Age management is a critical part of the GMS system, as it determines which pages should be evicted and replaced with new pages.</li>
+<li>The age of a page represents how long it has been since it was last accessed, with smaller ages indicating more recently accessed pages.</li>
+<li>The GMS system breaks age management into epochs, which are time periods during which management work is done by a single node.</li>
+<li>The duration of an epoch is set by the parameter T, which is the maximum duration that an epoch can last.</li>
+<li>The epoch management work is either time-bound (limited by T) or space-bound (limited by M replacements). M is another parameter that represents the maximum number of page replacements that can occur in an epoch.</li>
+<li>At the beginning of each epoch, each node sends its age information to the initiator node. This includes the age of all local and global pages residing on the node.</li>
+<li>The initiator node calculates the minimum age of the M pages that will be replaced in the upcoming epoch. It also computes the weight for each node, which represents the fraction of replacements that will come from that node.</li>
+<li>The node with the highest weight becomes the initiator for the next epoch.</li>
+<li>When a page fault occurs, the node checks the age of the page that needs to be replaced. If the age is greater than the minimum age, the page is discarded. If it is less than the minimum age, the node sends the page to a peer node based on the weight distribution.</li>
+<li>By using age management to approximate a global LRU (Least Recently Used) algorithm, the GMS system ensures that older pages are evicted and replaced with newer pages, thus improving overall system performance.</li>
+<li>The GMS system also follows the principle of thinking globally but acting locally, where global information is used to make local decisions.</li>
+</ul>
 <h3 id="Implementation-in-Unix">Implementation in Unix</h3>
+<p><img src="https://i.imgur.com/hD6Yv6m.png" alt=""></p>
+<ul>
+<li>In systems research, identifying a pain point and coming up with a clever solution is important.</li>
+<li>Implementing the solution, even if it’s a simple idea, requires heavy lifting and technical details.</li>
+<li>Implementation tricks and techniques can be reusable knowledge for other systems research.</li>
+<li>The authors of GSM used the OSF/1 operating system by DEC(Digital Equipment Corporation) operating system as the base system for their memory management system.</li>
+<li>The OSF/1 memory system has two key components: the virtual memory system (VM) and the unified buffer cache (UBC).</li>
+<li>The virtual memory system (VM) is responsible for mapping process virtual address space to physical memory, and the unified buffer cache (UBC) is used by the file system to cache disk-resident files in physical memory.</li>
+<li>The GMS implementation required modifying both the VM and UBC components of the operating system to support the global memory system.</li>
+<li>Writing pages to disk remains unchanged in the GMS implementation, as only page faults are redirected to the cluster memory.</li>
+<li>Collecting age information for anonymous pages in the VM is challenging since the operating system doesn’t see individual memory accesses made by a user process. To address this, the GMS implementation includes a daemon that periodically dumps the contents of the Translation Lookaside Buffer (TLB) to collect age information for anonymous pages.</li>
+<li>The GMS implementation also includes modifications to the pageout daemon and free list maintenance for allocating and freeing frames on each node.</li>
+<li>The technical details of how GMS integrates with the VM, UBC, and other components of the operating system are important and may be reusable knowledge for other systems research.</li>
+</ul>
 <h3 id="Data-Structures">Data Structures</h3>
-<h3 id="Putting-the-Data-Structures-to-Work">Putting the Data Structures to Work</h3>
+<p><img src="https://i.imgur.com/UNrPfGS.png" alt=""></p>
+<ul>
+<li>GMS uses distributed data structures for virtual memory management across the cluster.</li>
+<li>The virtual address is converted into a universal ID (UID) to uniquely identify a virtual address.</li>
+<li>Three key data structures are used: PFD (Page frame Directory), GCD (Global Cache Directory), and POD (Page Ownership Directory).</li>
+<li>The <strong>POD tells which node owns which pages</strong>, and it is replicated on all nodes in the cluster. The <strong>GCD maps UIDs (unique identifiers for virtual addresses) to the nodes that host the corresponding PFDs</strong>. The <strong>PFD contains the mapping between UIDs and page frame numbers (PFNs)</strong> and is stored on the node that owns the page.</li>
+<li>When a <strong>page fault occurs</strong>, the node first converts the virtual address to a UID and uses the POD to determine the owner of the page. It then uses the GCD to find the node that hosts the PFD for that UID and sends the UID to that node. The node with the PFD retrieves the page and sends it back to the requesting node.
+<ul>
+<li><img src="https://i.imgur.com/FA1JAou.png" alt=""></li>
+<li>Node A converts virtual address to UID and goes to page ownership directory (POD)</li>
+<li>POD tells Node A who the owner of the page is (Node B), which has the Global Page Frame Directory (GCD)</li>
+<li>Node B looks up its GCD and sends UID to node C, which has the Page Frame Directory (PFD) for that UID</li>
+<li>Node C retrieves the page, sends it to Node A, which maps it and resumes the process</li>
+</ul>
+</li>
+<li>Network communication occurs only when there is a page fault, and most page faults are for non-shared pages, meaning the POD and GCD are co-resident on the same node. In this case, there is no network communication to look up the GCD.</li>
+<li>There can be a <strong>miss when requesting a page</strong>, which can happen if the page has been evicted from the PFD or if the POD information is stale due to changes in the network. In these cases, the request can be retried after looking up the updated POD or GCD.
+<ul>
+<li><img src="https://i.imgur.com/Ie6o0Rf.png" alt=""></li>
+<li>Misses are uncommon compared to page faults, and network communication is mostly local to the node</li>
+</ul>
+</li>
+<li>To handle <strong>page evictions</strong>, each node has a paging daemon that puts evicted pages onto a candidate node based on weight information obtained from the geriatric management system (GMS). The paging daemon also coordinates with the GMS to update the GCD with the new PFD location for the corresponding UID. This happens in an aggregated manner when the free list falls below a threshold.
+<ul>
+<li><img src="https://i.imgur.com/e1KKUws.png" alt=""></li>
+</ul>
+</li>
+</ul>
 <h3 id="Conclusion">Conclusion</h3>
+<p>The concept of paging across a network is interesting but may not be feasible in certain environments such as individual-owned workstations. However, it may be feasible in large-scale clusters in data centers. The enduring aspects of this research are the techniques, distributed data structures, and algorithms for implementing the concept. The next lesson module will feature another thought experiment on using cluster memory.</p>
 <h2 id="L07b-Distributed-Shared-Memory">L07b: Distributed Shared Memory</h2>
-<ol>
-<li>Distributed Shared Memory Introduction</li>
-<li>Cluster as a Parallel Machine (Sequential Program)</li>
-<li>Cluster as a Parallel Machine (Message Passing)</li>
-<li>Cluster as a Parallel Machine (DSM)</li>
-<li>History of Shared Memory Systems</li>
-<li>Shared Memory Programming</li>
-<li>Memory Consistency and Cache Coherence</li>
-<li>Sequential Consistency</li>
-<li>SC Memory Model</li>
-<li>Typical Parallel Program</li>
-<li>Release Consistency</li>
-<li>RC Memory Model</li>
-<li>Distributed Shared Memory Example</li>
-<li>Advantage of RC over SC</li>
-<li>Lazy RC</li>
-<li>Eager vs Lazy RC</li>
-<li>Pros and Cons of Lazy and Eager</li>
-<li>Software DSM</li>
-<li>LRC with Multi Writer Coherence Protocol</li>
-<li>Implementation</li>
-<li>Non Page Based DSM</li>
-<li>Scalability</li>
-<li>DSM and Speedup</li>
-<li>Distributed Shared Memory Conclusion</li>
-</ol>
+<h2 id="Introduction">Introduction</h2>
+<ul>
+<li>Distributed Shared Memory (DSM) is a software implementation that provides the illusion of shared memory to applications in a distributed system.</li>
+<li>DSM allows exploiting remote memories in a cluster to make it appear as a shared memory machine, simplifying application development.</li>
+<li>DSM works by creating an operating system abstraction that provides the illusion of shared memory to applications, even though nodes in the local area network do not physically share memory.</li>
+</ul>
+<h2 id="Cluster-as-a-Parallel-Machine">Cluster as a Parallel Machine</h2>
+<h3 id="Sequential-Program">Sequential Program</h3>
+<p><img src="https://i.imgur.com/2o38mhX.png" alt=""></p>
+<ul>
+<li>To exploit a cluster starting from a sequential program, one possibility is automatic parallelization, which means writing a sequential program and letting a tool identify opportunities for parallelism and map it to the cluster.</li>
+<li>Automatic parallelization is an example of implicitly parallel programming, where the program is not written explicitly in parallel but the tool identifies opportunities for parallelism and maps it to the cluster.</li>
+<li>High Performance Fortran is an example of a programming language that does automatic parallelization, where the user uses directives for distribution of data and computation.</li>
+<li>Automatic parallelization works well for certain classes of programs called data parallel programs, where the data accesses are fairly static and determinable at compile time.</li>
+</ul>
+<h3 id="Message-Passing">Message Passing</h3>
+<p><img src="https://i.imgur.com/tPeuuQC.png" alt=""></p>
+<ul>
+<li>The other way to exploit a cluster is to write the program as a truly parallel program, or explicitly parallel program, where the application programmer thinks about the application and writes the program explicitly in parallel.</li>
+<li>There are two styles of explicitly parallel programs: message passing style and shared memory style.</li>
+<li>The message passing style of explicitly parallel program is true to the physical nature of the cluster, where every processor has its private memory and cannot directly access the memory of another processor. It uses a message passing library that provides primitives for application threads to do sends and receives to peers executing on other nodes of the cluster.</li>
+<li>Examples of message passing libraries include MPI, PVM, and CLF from Digital Equipment Corporation, and many scientific applications running on large scale clusters use this style of programming using MPI as the message passing fabric.</li>
+<li>The downside to the message-passing style of programming is that it is difficult to program, as it requires the programmer to think in terms of coordinating the activities on different processes by explicitly sending and receiving messages from their peers, which is a radical change of thinking in terms of how to structure a program.</li>
+</ul>
+<h3 id="DSM">DSM</h3>
+<p><img src="https://i.imgur.com/MZj30m5.png" alt=""></p>
+<ul>
+<li>The DSM abstraction is a way of giving the illusion to the application programmer that all of the memory in the entire cluster is shared, even though it is not physically shared.</li>
+<li>The DSM library provides a shared memory semantic to the application program, allowing for an easier transition path from a sequential program or program written on an SMP to a program that runs on the cluster.</li>
+<li>The DSM abstraction eliminates the need for marshaling and unmarshaling arguments being passed from one processor to another, as all of that is handled by the fact that there is shared memory.</li>
+<li>The DSM abstraction gives the same level of comfort to a programmer who is used to programming on a true shared memory machine when they move to a cluster, as they can use the same set of primitives for synchronization and thread creation.</li>
+<li>The advantage of DSM style of writing an explicitly parallel program is that it allows for thinking in terms of shared memory, sharing pointers across the entire cluster, and using locks and barriers for synchronization.</li>
+</ul>
+<h3 id="History-of-Shared-Memory-Systems">History of Shared Memory Systems</h3>
+<ul>
+<li>The history of shared memory systems over the last 20+ years shows the space occupied by the efforts to build shared memory systems in hardware and software.</li>
+<li>Software DSM was first thought of in the mid-80s, with systems like Ivy, Clouds Operating System, and similar systems built at UPenn.</li>
+<li>In the early '90s, systems like Munin and TreadMarks were built, followed by Blizzard, Shasta, Cashmere, and Beehive in the later half of the '90s.</li>
+<li>Structured DSM provided a higher-level abstraction than just memory to computations that needed to be built on a cluster. Systems like Linda, Orca, Stampede, and PTS were built in the early to mid-'90s.</li>
+<li>Early hardware shared memory systems like BBN Butterfly and Sequent Symmetry appeared in the market in the mid-'80s, followed by KSR-1, Alewife, and DASH in the early to mid-'90s.</li>
+<li>Commercial versions of distributed shared memory machines like SGI Origin 2000 and SGI Altix were built, with thousands of processors in the latter.</li>
+<li>IBM Bluegene is another example of a shared memory system, and clusters of SMPs have become the workhorses in data centers.</li>
+<li>It is important to reflect on the progress made in shared memory systems and learn about the details of machines built in the past, either in hardware or software.</li>
+</ul>
+<h2 id="Shared-Memory-Programming">Shared Memory Programming</h2>
+<p><img src="https://i.imgur.com/pcKtHIu.png" alt=""></p>
+<ul>
+<li>Shared memory programming uses synchronization primitives like locks and barriers to protect data structures so that one thread can exclusively modify the data.</li>
+<li>Mutual exclusion locks and barrier synchronization are popular synchronization primitives used in shared memory programming.</li>
+<li>There are two types of memory accesses that happen in a shared memory program - normal reads and writes to shared data and accesses to synchronization variables used in implementing locks and barriers.</li>
+<li>The operating system or user-level threads library provides mutual exclusion locks or barrier primitives, and in implementing those synchronization primitives, algorithms use reads and writes to shared memory.</li>
+</ul>
+<h3 id="Memory-Consistency-and-Cache-Coherence">Memory Consistency and Cache Coherence</h3>
+<ul>
+<li>Memory consistency model is a contract between the application programmer and the system that answers the “when” question - how soon changes made to a shared memory location by one processor will be visible to other processes that have the same memory location in their respective private caches.</li>
+<li>Cache coherence answers the “how” question - how is the system, i.e., system software plus hardware, implementing the contract of the memory consistency model?</li>
+<li>Cache coherence mechanism ensures that all processes see the changes made to shared memory, commensurate with the memory consistency model.</li>
+<li>In parallel programming, coherence mechanism must fulfill the guarantee made by the memory consistency model to the application programmer.</li>
+</ul>
+<h3 id="Sequential-Consistency">Sequential Consistency</h3>
+<p><img src="https://i.imgur.com/7l4Gg7n.png" alt=""></p>
+<ul>
+<li>In sequential consistency, memory accesses are expected to happen in textual order on individual processors but the interleaving of memory accesses from different processors is arbitrary.</li>
+<li>The memory model preserves atomicity for individual read-write operations and honors the program order.</li>
+<li>SC memory model doesn’t distinguish between data accesses and synchronization accesses.</li>
+</ul>
+<h3 id="SC-Memory-Model">SC Memory Model:</h3>
+<p><img src="https://i.imgur.com/MjZGeN3.png" alt=""></p>
+<ul>
+<li>SC memory model doesn’t know the association between locks and data structures.</li>
+<li>Coherence action is taken on every read-write access, which leads to more overhead and poorer scalability.</li>
+</ul>
+<h3 id="Typical-Parallel-Program">Typical Parallel Program:</h3>
+<p><img src="https://i.imgur.com/J1llQoD.png" alt=""></p>
+<ul>
+<li>A typical parallel program involves getting a lock for accessing data structures and releasing it after the critical section.</li>
+<li>The SC memory model doesn’t differentiate between synchronization and data accesses.</li>
+<li>Coherence action is taken on every access even if it’s not warranted until the lock is released.</li>
+</ul>
+<h3 id="Release-Consistency">Release Consistency:</h3>
+<p><img src="https://i.imgur.com/1CQmKvJ.png" alt=""></p>
+<ul>
+<li>Release consistency is a memory consistency model that distinguishes between synchronization and data accesses.</li>
+<li>Every critical section consists of acquire, data accesses governed by the lock, and release.</li>
+<li>Coherence actions prior to the release operation by P1 have to be complete before P2 acquires the same lock.</li>
+<li>Barrier synchronization can also be mapped to acquire and release.</li>
+</ul>
+<h3 id="RC-Memory-Model">RC Memory Model:</h3>
+<p><img src="https://i.imgur.com/ym1Xrc4.png" alt=""></p>
+<ul>
+<li>RC memory model distinguishes between normal data accesses and synchronization accesses.</li>
+<li>It initiates coherence actions corresponding to normal data accesses but doesn’t block the processors.</li>
+<li>It only takes coherence action when a release synchronization operation is encountered.</li>
+</ul>
+<h3 id="Distributed-Shared-Memory-Example">Distributed Shared Memory Example</h3>
+<p><img src="https://i.imgur.com/SVq87tU.png" alt=""></p>
+<ul>
+<li>RC memory model allows for parallel modifications to shared data structures</li>
+<li>Program example: one thread modifies structure A while another waits and then uses it</li>
+<li>P2 waits on a condition variable and releases a lock until P1 signals that the modification is done</li>
+<li>Coherence actions are only completed before releasing the lock</li>
+</ul>
+<h3 id="Advantage-of-RC-over-SC">Advantage of RC over SC</h3>
+<ul>
+<li>RC memory model allows for overlapping of computation with communication</li>
+<li>Better performance in shared memory machines compared to SC memory model</li>
+</ul>
+<h3 id="Lazy-RC">Lazy RC</h3>
+<p><img src="https://i.imgur.com/LXs0SJT.png" alt=""></p>
+<ul>
+<li>Lazy RC defers coherence actions to the point of lock acquisition rather than lock release</li>
+<li>Overlapping of computation with communication is still possible in the window of time between lock release and lock acquisition</li>
+</ul>
+<h3 id="Eager-vs-Lazy-RC">Eager vs Lazy RC</h3>
+<p><img src="https://i.imgur.com/lctRnu6.png" alt=""></p>
+<ul>
+<li>Vanilla RC is the eager release consistent memory model while LRC is the lazy release consistent memory model</li>
+<li>Eager RC broadcasts changes to all processors while Lazy RC only communicates with the necessary processors through point-to-point communication</li>
+</ul>
+<h3 id="Pros-and-Cons-of-Lazy-and-Eager-Release-Consistency-Model">Pros and Cons of Lazy and Eager Release Consistency Model</h3>
+<ul>
+<li>A system is release consistent if specific operations are performed before ordinary access or release is allowed to perform with respect to any other processor</li>
+<li>Eager release consistency: A processor delays propagating its modification to shared data until it comes to a release.</li>
+<li>Lazy release consistency: The propagation of modifications is postponed until the time of the acquire.</li>
+<li>Lazy release consistency reduces the number of messages and data transferred between processors, which is especially significant for programs that exhibit false sharing and make extensive use of locks.</li>
+</ul>
+<h3 id="Software-DSM">Software DSM</h3>
+<p><img src="https://i.imgur.com/vBEaWiw.png" alt=""></p>
+<ul>
+<li>In a computational cluster, each node has its private physical memory, and there is no physically shared memory.</li>
+<li>The DSM software implements the consistency model to the programmer.</li>
+<li>DSM software implements sharing and coherence maintenance at the level of pages.</li>
+<li>DSM software provides a global virtual memory abstraction to the application program.</li>
+<li>DSM software handles coherence maintenance by having distributed ownership for the different virtual pages.</li>
+<li>Local physical memories available in each processor host portions of the global virtual memory space in the individual processors commensurate with the access pattern of the application on the different processors.</li>
+<li>The DSM software handles the coherence maintenance of individual pages.</li>
+<li>Early examples of systems that built software DSM include Ivy, Clouds, Mirage, and Munin.</li>
+<li>Single-writer multiple-reader protocol is used where multiple readers can share a page at any point of time, but a single writer is only allowed to have the page at any point of time.</li>
+<li>False sharing can occur where data appears to be shared even though programmatically they are not.</li>
+<li>Page-level granularity and single-writer multiple-reader protocol don’t live happily together and will lead to false sharing and ping-ponging of pages.</li>
+</ul>
+<h3 id="LRC-with-Multi-Writer-Coherence-Protocol">LRC with Multi Writer Coherence Protocol</h3>
+<p><img src="https://i.imgur.com/9ipNyv3.png" alt=""></p>
+<ul>
+<li>A new coherence protocol is introduced which allows multiple writers to write to the same page while maintaining coherence at the granularity of pages</li>
+<li>The granularity of coherence maintenance is chosen as a page because it matches the operating system’s granularity and allows DSM to be integrated with the operating system</li>
+<li>The Treadmarks system uses lazy release consistency (LRC) with multiple writer protocol</li>
+<li>In LRC, the DSM invalidates pages that were modified by the previous lock holder before allowing a new lock holder to modify the same pages</li>
+<li>The DSM software creates diffs of the changes made to pages within a critical section and applies these diffs to the original version of the page when a new lock holder accesses the page</li>
+<li>The DSM software applies all the diffs made by previous lock holders to the original page to create the current version of the page for the new lock holder</li>
+<li>The DSM software brings in the diffs at the point of access to avoid unnecessary communication</li>
+<li>The LRC protocol allows bringing in only what is needed and only invalidating pages that may have been modified</li>
+<li>If multiple processors modify a page under the same lock, the DSM software applies all the diffs made by previous lock holders to the original page to create the current version of the page for the new lock holder</li>
+<li>The DSM software brings in the diffs at the point of access to avoid unnecessary communication</li>
+<li>The DSM software invalidates pages modified by the previous lock holder before allowing a new lock holder to modify the same pages</li>
+<li>The multiple-writer coherence protocol allows multiple users to access different portions of the same page using different locks</li>
+<li>The DSM software only applies the diffs made under the same lock to the original page for the new lock holder</li>
+<li>Multiple threads can modify the same page as long as they use different locks, and the DSM software only applies the diffs made under the same lock to the original page for the new lock holder</li>
+<li>The association between changes made to a page is only specific to the lock governing that critical section</li>
+</ul>
+<h4 id="Implementation">Implementation</h4>
+<p><img src="https://i.imgur.com/acchRwm.png" alt=""></p>
+<ul>
+<li>When a process or thread tries to write to a page X, the operating system creates a twin for that page and makes the original page writeable by that process.</li>
+<li>When the thread reaches the release point, the DSM software computes the diff between the original and modified versions of the page.</li>
+<li>When the same block governing accesses to the released page is acquired by a different processor, all pages touched in the critical section are invalidated, including X.</li>
+<li>When a processor has a page fault for X, the DSM software knows there is a diff on another node needed to update the page for the current lock acquirer.</li>
+<li>Once the thread in the critical section completes its release operation, the original page is write-protected and the twin is removed.</li>
+<li>If multiple writers are modifying the same page under different locks, it is an application problem and represents a data race.</li>
+<li>TreadMarks implemented this LRC multiple writer coherence protocol on a Unix system.</li>
+<li>The DSM software catches an exception called SIGSEGV when a shared page is accessed by a thread and gets into gear.</li>
+<li>There is space overhead for creating a twin at the point of write and creating a diff data structure at release.</li>
+<li>Garbage collection is used to reduce the space overhead by periodically applying diffs to the original copy of the page and getting rid of them.</li>
+</ul>
+<h3 id="Non-Page-Based-DSM">Non Page Based DSM</h3>
+<p><img src="https://i.imgur.com/tq2pE8U.png" alt=""></p>
+<ul>
+<li>Non-page based DSM systems do not use granularity of a page for coherence maintenance.</li>
+<li>Library-based approach uses programming framework/library to annotate shared variables, and generates a trap at point of access to contact DSM software for coherence action.</li>
+<li>Structured DSM provides abstractions manipulated using API calls that take coherence actions at the point of call execution.</li>
+</ul>
+<h3 id="Scalability">Scalability</h3>
+<p><img src="https://i.imgur.com/EfXq8fF.png" alt=""></p>
+<ul>
+<li>DSM provides a programming model that looks and feels like a shared memory threads package, but performance does not necessarily scale up as we increase the number of processors in the cluster.</li>
+<li>Overhead increases with the number of processors, and this buildup of overhead happens in true memory multi-processors.</li>
+</ul>
+<h3 id="DSM-and-Speedup">DSM and Speedup</h3>
+<p><img src="https://i.imgur.com/qxvVk16.png" alt=""></p>
+<ul>
+<li>The computation to communication ratio must be high for any hope of speed up with DSM.</li>
+<li>If sharing is too fine-grained, there is no hope of speed up, especially with DSM systems that are only an illusion of shared memory via software.</li>
+<li>Pointer codes may result in increasing overhead for coherence maintenance in DSM in a local area network.</li>
+</ul>
+<h3 id="Distributed-Shared-Memory-Conclusion">Distributed Shared Memory Conclusion</h3>
+<ul>
+<li>DSM as originally envisioned, that is a threads package for a cluster, is dead.</li>
+<li>Structured DSM, which provides higher-level data abstractions for sharing among threads, is attractive to reduce programming pain for developers of distributed applications on a cluster.</li>
+</ul>
 <h2 id="L07c-Distributed-File-Systems">L07c: Distributed File Systems</h2>
 <h3 id="Outline">Outline</h3>
 <ol start="5">
