@@ -36,7 +36,7 @@
 
 ### Nucleus
 
-![](https://i.imgur.com/6hhzK8G.jpg)
+<img src="https://i.imgur.com/6hhzK8G.jpg" style="width: 800px" />
 
 * Nucleus is the microkernel of Spring OS. It manages only the threads abstractions and the IPC.
 * Door:
@@ -55,7 +55,7 @@
 
 ### Object Invocation Across the Network
 
-![](https://i.imgur.com/fqjELzn.jpg)
+<img src="https://i.imgur.com/fqjELzn.jpg" style="width: 800px" />
 
 * Object invocation between client/server domains across the network is facilitated using the **Network Proxy**.
 * <u>Each domain has **multiple Network Proxies**</u> to communicate with different nodes on the network. This facilitates specialization since these different proxies can represent different protocols.
@@ -68,7 +68,7 @@
 
 ### Secure Object Invocation
 
-![](https://i.imgur.com/pdKetTH.jpg)
+<img src="https://i.imgur.com/pdKetTH.jpg" style="width: 800px" />
 
 * Spring OS facilitates providing different privilege levels for different clients using the “Front Object”.
 * An underlying object may have a Front Object that is directly connected to it (without Doors).
@@ -76,11 +76,11 @@
 * Different instances of the Front Object can be created with different access policies to the same underlying object.
 * **Doors are software capabilities**, which means they can be passed from client domain to another. When passing a Door, the client domain can determine whether to pass the same privileges or not.
 
-![](https://i.imgur.com/NrkosOK.jpg)
+<img src="https://i.imgur.com/NrkosOK.jpg" style="width: 800px" />
 
 ### Virtual Memory Management
 
-![](https://i.imgur.com/dNnZ6w1.jpg)
+<img src="https://i.imgur.com/dNnZ6w1.jpg" style="width: 800px" />
 
 * Virtual memory management is part of the Spring OS kernel.
 * The VMM is responsible for managing the linear address space of each process.
@@ -90,7 +90,7 @@
 
 #### Pager Object
 
-![](https://i.imgur.com/orpJYt3.jpg)
+<img src="https://i.imgur.com/orpJYt3.jpg" style="width: 800px" />
 
 * The **Pager Object** is responsible for establishing the connection between virtual memory and physical memory. 
 * The Pager Object makes sure that a memory object has a representation in the physical memory.
@@ -165,7 +165,7 @@
 ### Local vs. Remote Implementation
 
 * Reuse of Local Implementation:
-    - ![](https://i.imgur.com/JPuqF1f.jpg)
+    - <img src="https://i.imgur.com/JPuqF1f.jpg" style="width: 800px" />
 
     - Extend a Local Implementation of the Account Class to implement Bank Account.
     - Use the Built-in Class called Remote Interface to make the methods in Bank Account visible remotely on the network.
@@ -173,7 +173,7 @@
     - The actual location of the object is not visible to the client. Therefore, the implementer has to do the hard work of finding a way to make the location of the service visible to clients on the network (i.e. Instantiated Objects).
     - In this case, we used the Local Implementation and used only the Remote Interface to make the object instances remotely accessible. So, all the hard work of making the object instances remotely accessible needs to be done by the implementer. This is why this approach is **not preferable**. However, this approach has the advantage of providing fine-grained control on selective sharing of services.
 * Reuse of Remote Object Class
-    - ![](https://i.imgur.com/WST8BAh.jpg)
+    - <img src="https://i.imgur.com/WST8BAh.jpg" style="width: 800px" />
 
     - Extend the Remote Interface so that the Account Interface now becomes visible to any client that wants to access the Object.
     - Extend the Remote Object Class and Remote Server Class in order to get the Account Implementation Object.
@@ -187,7 +187,7 @@
         1. Instantiate the Object.
         2. Create a URL.
         3. Bind the URL to the Object Instance created.
-    - ![](https://i.imgur.com/jyDPAJQ.jpg)
+    - <img src="https://i.imgur.com/jyDPAJQ.jpg" style="width: 800px" />
     - This allows the clients to be able to discover the existence of the new service on the network.
 * On Client side:
     * Any arbitrary client can easily discover and access the server object on the network using the following procedure:
@@ -197,11 +197,11 @@
             - The client does NOT know or care about the location of the server object.
         3. If there are failures in any of execution of the methods (functions), then Remote Exceptions will be issued by the server through the Java Runtime System back to the client.
         - A problem with Remote Exceptions is that the client may have no way of knowing at what point in the call invocation the failure happened.
-    * ![](https://i.imgur.com/hjedUKR.jpg)
+    * <img src="https://i.imgur.com/hjedUKR.jpg" style="width: 800px" />
 
 ### RMI Implementation
 
-![](https://i.imgur.com/FnHfGxI.jpg)
+<img src="https://i.imgur.com/FnHfGxI.jpg" style="width: 800px" />
 
 * The Java RMI functionality is implemented using the **Remote Reference Layer (RRL)**.
 * The Client-side stub initiates the remote method invocation call, which causes RRL to marshal the arguments in order to send them over the network. When the server responds, the RRL unmarshals the results for the client.
@@ -218,7 +218,7 @@
 
 ### RMI Transport Layer
 
-![](https://i.imgur.com/c5FFPXD.jpg)
+<img src="https://i.imgur.com/c5FFPXD.jpg" style="width: 800px" />
 
 The RMI Transport Layer provides the following four abstractions:
 
@@ -243,7 +243,7 @@ The RMI Transport Layer provides the following four abstractions:
 
 ### N-Tier Applications
 
-![](https://i.imgur.com/ezxgHld.jpg)
+<img src="https://i.imgur.com/ezxgHld.jpg" style="width: 800px" />
 
 * Distributed Giant Scale Services are also called as N-tier applications because the software stack of an application comprises of several different layers:
     - **Presentation Layer**: Responsible for painting the browser screen and generating the web-page based on your request.
@@ -263,7 +263,7 @@ The RMI Transport Layer provides the following four abstractions:
 
 ### Structuring N-Tier Applications
 
-![](https://i.imgur.com/j6IdPcM.jpg)
+<img src="https://i.imgur.com/j6IdPcM.jpg" style="width: 800px" />
 
 * A Java Bean is a unit of reuse and contains a bundle of Java Objects to provide a specific functionality, e.g. a Java Bean may provide the shopping cart functionality.
 * A Container is a Protection Domain implemented in a Java Virtual Machine (JVM) and it packages and hosts a related collection of Java Beans to provide higher-level functionality.
@@ -314,7 +314,7 @@ The RMI Transport Layer provides the following four abstractions:
 
 #### 1. Coarse grain session Beans
 
-![](https://i.imgur.com/hU1aoxg.jpg)
+<img src="https://i.imgur.com/hU1aoxg.jpg" style="width: 800px" />
 
 * The Client Container and the Applet Container are in the Web-server so we will not consider them. Instead, we’ll only consider the **Web Container (Presentation Logic)** and **EJB Container (Business Logic)** in the several design alternatives below.
 * A Servlet corresponds to an individual session with a particular client.
@@ -332,7 +332,7 @@ The RMI Transport Layer provides the following four abstractions:
 
 fine-grained
 
-![](https://i.imgur.com/Qe3HFmD.jpg)
+<img src="https://i.imgur.com/Qe3HFmD.jpg" style="width: 800px" />
 
 - The **Business Logic is pushed to be in the Web Container** containing Servlet and Presentation Logic. Similar to having a 3-tier software structure of (Servlet – Presentation Logic – Business Logic).
 - All Data Access happens through Entity Beans, which have Persistence characteristics. That is, Data Access Object (DAO) is implemented using Entity Beans.
@@ -347,7 +347,7 @@ fine-grained
 
 #### 3. Session Beans with Entity Beans
 
-![](https://i.imgur.com/Z2H4qMi.jpg)
+<img src="https://i.imgur.com/Z2H4qMi.jpg" style="width: 800px" />
 
 - The Web Container contains only the Servlet and the Presentation Logic associated with the Servlet.
 - The Business Logic sits along with the Session Façade and Entity Bean in the EJB Container.
