@@ -30,9 +30,20 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "9e295f505685978a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "cs6210/lesson-10.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -99,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cs6210/lesson-09.md",
+                "file": "cs6210/lesson-07c.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cs6210/lesson-09.md",
+                "file": "cs6210/lesson-07c.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cs6210/lesson-09.md"
+                "file": "cs6210/lesson-07c.md"
               }
             }
           },
@@ -169,17 +180,20 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "69099e58b3529e09",
+  "active": "31fc167d8f47c41a",
   "lastOpenFiles": [
+    "cs6210/lesson-07b.md",
+    "cs6210/lesson-07c.md",
+    "cs6210/lesson-07a.md",
+    "menu.md",
+    "cs6210/lesson-04-2 1.md",
+    "cs6210/lesson-04b.md",
+    "cs6210/lesson-04a.md",
+    "cs6210/lesson-10.md",
+    "cs6210/lesson-09.md",
     "cs6210/lesson-07c.md-r",
     "cs6210/lesson-07b.md-r",
     "cs6210/lesson-07a.md-r",
-    "cs6210/lesson-07c.md",
-    "cs6210/lesson-09.md",
-    "cs6210/lesson-07b.md",
-    "cs6210/lesson-07a.md",
-    "cs6210/lesson-04-1.md",
-    "menu.md",
     "cs6210/lesson-07/index.html.md",
     "cs6210/lesson-07",
     "cs6210/paper-summary-1.md",
@@ -198,15 +212,12 @@
     "stanford-machine-learning/New Folder With Items/week-9b.md",
     "stanford-machine-learning/New Folder With Items/week-9a.md",
     "stanford-machine-learning/New Folder With Items/week-8.md",
-    "stanford-machine-learning/New Folder With Items/week-7.md",
-    "stanford-machine-learning/New Folder With Items/week-11.md",
     "stanford-machine-learning/New Folder With Items",
     "stanford-machine-learning/ex8/ex8/visualizeFit.m",
     "stanford-machine-learning/ex8/ex8/token.mat",
     "stanford-machine-learning/ex8/ex8/submit.m",
     "stanford-machine-learning/ex8/ex8/selectThreshold.m",
     "stanford-machine-learning/ex8/ex8/normalizeRatings.m",
-    "stanford-machine-learning/ex8/ex8/multivariateGaussian.m",
     "stanford-machine-learning/ex7/ex7/bird_small.png",
     "cs6210/cs6210.canvas",
     "laff-linear-algebra/LAFF-2.0xM/Programming/Week11/building.png",

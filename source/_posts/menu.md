@@ -28,16 +28,16 @@
 
 * [Lesson 02: OS Structure](/cs6210/lesson-02/index.html)
 * [Lesson 3: Virtualization](/cs6210/lesson-03/index.html)
-* [Lesson 4: Parallel Systems - Part 1](/cs6210/lesson-04-1/index.html)
-* [Lesson 4: Parallel Systems - Part 2](/cs6210/lesson-04-2/index.html)
+* [Lesson 4: Parallel Systems - Part 1](/cs6210/lesson-04a/index.html)
+* [Lesson 4: Parallel Systems - Part 2](/cs6210/lesson-04b/index.html)
 * [Lesson 5: Distributed Systems](/cs6210/lesson-05/index.html)
 * [Lesson 6: Distributed Objects and Middleware](/cs6210/lesson-06/index.html)
-* [Lesson 7a: Distributed Subsystems - GMS](/cs6210/lesson-07a/index.html)
-* [Lesson 7b: Distributed Subsystems - DSM](/cs6210/lesson-07b/index.html)
-* [Lesson 7c: Distributed Subsystems - DFS](/cs6210/lesson-07c/index.html)
+* [Lesson 7: Distributed Subsystems - GMS](/cs6210/lesson-07a/index.html)
+* [Lesson 7: Distributed Subsystems - DSM](/cs6210/lesson-07b/index.html)
+* [Lesson 7: Distributed Subsystems - DFS](/cs6210/lesson-07c/index.html)
+* [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
 
 <!--
-* [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
 * [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
 * [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
 * [Lesson 11: Security](/cs6210/lesson-11/index.html)

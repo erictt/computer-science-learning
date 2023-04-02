@@ -1,4 +1,4 @@
-# Lesson 7b: Distributed Subsystems - Distributed Shared Memory
+# Lesson 7: Distributed Subsystems - Distributed Shared Memory
 
 Can we make the cluster appear like a shared memory machine?
 
@@ -24,8 +24,8 @@ Can we make the cluster appear like a shared memory machine?
 <img src="https://i.imgur.com/tPeuuQC.png" style="width: 800px" />
 
 - The other way to exploit a cluster is to write the program as a truly parallel program, or explicitly parallel program, where the application programmer thinks about the application and writes the program explicitly in parallel.
-- There are two styles of explicitly parallel programs: message passing style and shared memory style.
-- The message passing style of explicitly parallel program is true to the physical nature of the cluster, where every processor has its private memory and cannot directly access the memory of another processor. It uses a message passing library that provides primitives for application threads to do sends and receives to peers executing on other nodes of the cluster.
+- There are two styles of explicitly parallel programs: **message passing** style and **shared memory** style.
+- The message passing style is true to the physical nature of the cluster, where every processor has its private memory and cannot directly access the memory of another processor. It uses a message passing library that provides primitives for application threads to do sends and receives to peers executing on other nodes of the cluster.
 - Examples of message passing libraries include MPI, PVM, and CLF from Digital Equipment Corporation, and many scientific applications running on large scale clusters use this style of programming using MPI as the message passing fabric.
 - The downside to the message-passing style of programming is that it is difficult to program, as it requires the programmer to think in terms of coordinating the activities on different processes by explicitly sending and receiving messages from their peers, which is a radical change of thinking in terms of how to structure a program.
 
@@ -61,10 +61,10 @@ Can we make the cluster appear like a shared memory machine?
 
 ### Memory Consistency and Cache Coherence
 
-- Memory consistency model is a contract between the application programmer and the system that answers the "when" question - how soon changes made to a shared memory location by one processor will be visible to other processes that have the same memory location in their respective private caches.
-- Cache coherence answers the "how" question - how is the system, i.e., system software plus hardware, implementing the contract of the memory consistency model?
+- Memory consistency model is a contract between the application programmer and the system that answers when the changes made to a shared memory location by one processor will be visible to other processes that have the same memory location in their respective private caches.
+- Cache coherence answers how is the system, i.e., system software plus hardware, implementing the contract of the memory consistency model?
 - Cache coherence mechanism ensures that all processes see the changes made to shared memory, commensurate with the memory consistency model.
-- In parallel programming, coherence mechanism must fulfill the guarantee made by the memory consistency model to the application programmer.
+- In parallel programming, coherence mechanism must fulfill the guarantee made by the memory **consistency model to the application programmer**.
 
 ### Sequential Consistency
 
@@ -74,14 +74,14 @@ Can we make the cluster appear like a shared memory machine?
 - The memory model preserves atomicity for individual read-write operations and honors the program order.
 - SC memory model doesn't distinguish between data accesses and synchronization accesses.
 
-### SC Memory Model:
+#### SC Memory Model
 
 <img src="https://i.imgur.com/MjZGeN3.png" style="width: 800px" />
 
 - SC memory model doesn't know the association between locks and data structures.
 - Coherence action is taken on every read-write access, which leads to more overhead and poorer scalability.
 
-###  Typical Parallel Program:
+###  Typical Parallel Program
 
 <img src="https://i.imgur.com/J1llQoD.png" style="width: 800px" />
 
@@ -89,7 +89,7 @@ Can we make the cluster appear like a shared memory machine?
 - The SC memory model doesn't differentiate between synchronization and data accesses.
 - Coherence action is taken on every access even if it's not warranted until the lock is released.
 
-###  Release Consistency:
+###  Release Consistency(RC)
 
 <img src="https://i.imgur.com/1CQmKvJ.png" style="width: 800px" />
 
@@ -98,7 +98,7 @@ Can we make the cluster appear like a shared memory machine?
 - Coherence actions prior to the release operation by P1 have to be complete before P2 acquires the same lock.
 - Barrier synchronization can also be mapped to acquire and release.
 
-###  RC Memory Model:
+####  RC Memory Model
 
 <img src="https://i.imgur.com/ym1Xrc4.png" style="width: 800px" />
 
@@ -142,58 +142,47 @@ Can we make the cluster appear like a shared memory machine?
 - A system is release consistent if specific operations are performed before ordinary access or release is allowed to perform with respect to any other processor
 - Eager release consistency: A processor delays propagating its modification to shared data until it comes to a release.
 - Lazy release consistency: The propagation of modifications is postponed until the time of the acquire.
-- Lazy release consistency reduces the number of messages and data transferred between processors, which is especially significant for programs that exhibit false sharing and make extensive use of locks.
+- Lazy release consistency **reduces the number of messages and data transferred** between processors, which is especially **significant for** programs that *exhibit false sharing and make extensive use of locks*.
 
 ### Software DSM
 
 <img src="https://i.imgur.com/vBEaWiw.png" style="width: 800px" />
+Software DSM is a way to implement the illusion of a global shared memory in a computational cluster where each node has its own private physical memory. The system software has to implement the consistency model to the programmer as there is no physically shared memory. In a tightly coupled multiprocessor, coherence is maintained at individual memory access level by the hardware. However, in a cluster, this fine-grain of maintaining coherence at individual memory access level leads to too much overhead.
 
+To implement software DSM, the granularity of coherence maintenance is at the level of a page. The global virtual memory abstraction is provided to the application program running on the cluster, which views the entire cluster as a globally shared virtual memory. Under the cover, the DSM software partition the global address space into chunks that are managed individually on the nodes of the different processors of the cluster.
 
-- In a computational cluster, each node has its private physical memory, and there is no physically shared memory.
-- The DSM software implements the consistency model to the programmer.
-- DSM software implements sharing and coherence maintenance at the level of pages.
-- DSM software provides a global virtual memory abstraction to the application program.
-- DSM software handles coherence maintenance by having distributed ownership for the different virtual pages.
-- Local physical memories available in each processor host portions of the global virtual memory space in the individual processors commensurate with the access pattern of the application on the different processors.
-- The DSM software handles the coherence maintenance of individual pages.
-- Early examples of systems that built software DSM include Ivy, Clouds, Mirage, and Munin.
-- Single-writer multiple-reader protocol is used where multiple readers can share a page at any point of time, but a single writer is only allowed to have the page at any point of time.
-- False sharing can occur where data appears to be shared even though programmatically they are not.
-- Page-level granularity and single-writer multiple-reader protocol don't live happily together and will lead to false sharing and ping-ponging of pages.
+The DSM software maintains coherence by having distributed ownership for the different virtual pages that constitute this global virtual address space. The ownership responsibility is split into individual processors, which are responsible for keeping complete coherence information for that particular page and taking the coherence actions commensurate with that page.
+
+The DSM software implements the global virtual memory abstraction and knows exactly who to contact as the owner of the page to get the current copy of the page. When there is a page fault, the DSM software communicates with the operating system to handle it, contacts the owner of the page, and asks for the current copy of the page. The owner sends the page to the node that is requesting it, and the page is put into the physical memory, and the VM manager updates the page table for the thread to resume its execution.
+
+An early example of systems that built software DSM includes Ivy, Clouds, Mirage, and Munin. They used coherence maintenance at the granularity of an individual page and a single-writer multiple-reader protocol. However, the single-writer multiple-reader protocol has the potential for false sharing, which is the problem of data appearing to be shared even though programmatically they are not. The page-based coherence maintenance and the single-writer multiple-reader protocol do not live happily together and can lead to false sharing and ping-ponging of the pages due to the false sharing among the threads of the application across the entire network.
 
 ### LRC with Multi Writer Coherence Protocol
 
 <img src="https://i.imgur.com/9ipNyv3.png" style="width: 800px" />
 
-- A new coherence protocol is introduced which allows multiple writers to write to the same page while maintaining coherence at the granularity of pages
-- The granularity of coherence maintenance is chosen as a page because it matches the operating system's granularity and allows DSM to be integrated with the operating system
-- The Treadmarks system uses lazy release consistency (LRC) with multiple writer protocol
-- In LRC, the DSM invalidates pages that were modified by the previous lock holder before allowing a new lock holder to modify the same pages
-- The DSM software creates diffs of the changes made to pages within a critical section and applies these diffs to the original version of the page when a new lock holder accesses the page
-- The DSM software applies all the diffs made by previous lock holders to the original page to create the current version of the page for the new lock holder
-- The DSM software brings in the diffs at the point of access to avoid unnecessary communication
-- The LRC protocol allows bringing in only what is needed and only invalidating pages that may have been modified
-- If multiple processors modify a page under the same lock, the DSM software applies all the diffs made by previous lock holders to the original page to create the current version of the page for the new lock holder
-- The DSM software brings in the diffs at the point of access to avoid unnecessary communication
-- The DSM software invalidates pages modified by the previous lock holder before allowing a new lock holder to modify the same pages
-- The multiple-writer coherence protocol allows multiple users to access different portions of the same page using different locks
-- The DSM software only applies the diffs made under the same lock to the original page for the new lock holder
-- Multiple threads can modify the same page as long as they use different locks, and the DSM software only applies the diffs made under the same lock to the original page for the new lock holder
-- The association between changes made to a page is only specific to the lock governing that critical section
+- The goal of the multiple writer coherence protocol is to maintain coherence information at the granularity of pages, so the DSM can be integrated with the operating system.
+- Multiple writer coherence allows multiple writers to write to the same page, recognizing that an application programmer may have packed lots of different data structures within the same page.
+- The coherence protocol used in this system is LRC, which defers consistency traffic until the point of access.
+- When a processor acquires a lock and makes modifications, the DSM software creates a diff of the changes made to the pages within the critical section.
+- When another processor requests the same lock, the DSM software invalidates the pages modified by the previous lock holder, based on the diffs stored by the DSM software.
+- If a processor tries to access an invalidated page, the DSM software retrieves the original page and diffs from the previous lock holder and applies them to create the current version of the page for the new lock holder.
+- If multiple processors modify the same page, the DSM software applies all the diffs in order to create the current version of the page.
+- LRC allows the DSM software to bring in only the data that the new lock holder needs, deferring the retrieval of diffs until the point of access.
+- The DSM software can extend this protocol to any number of processors that may have made modifications to the same pages under the provision of the lock.
 
 #### Implementation
 
 <img src="https://i.imgur.com/acchRwm.png" style="width: 800px" />
 
-- When a process or thread tries to write to a page X, the operating system creates a twin for that page and makes the original page writeable by that process.
-- When the thread reaches the release point, the DSM software computes the diff between the original and modified versions of the page.
-- When the same block governing accesses to the released page is acquired by a different processor, all pages touched in the critical section are invalidated, including X.
-- When a processor has a page fault for X, the DSM software knows there is a diff on another node needed to update the page for the current lock acquirer.
-- Once the thread in the critical section completes its release operation, the original page is write-protected and the twin is removed.
-- If multiple writers are modifying the same page under different locks, it is an application problem and represents a data race.
-- TreadMarks implemented this LRC multiple writer coherence protocol on a Unix system.
-- The DSM software catches an exception called SIGSEGV when a shared page is accessed by a thread and gets into gear.
-- There is space overhead for creating a twin at the point of write and creating a diff data structure at release.
+- When a process or thread attempts to write to a page X, the operating system creates a twin for that page and makes the original page writeable by the process.
+- At the release point, the DSM software calculates the diff between the original and modified versions of the page, storing it in a diff data structure.
+- When a different processor acquires the same lock governing the released page, all pages touched in the previous critical section, including X, are invalidated. If there is a page fault for X, the DSM software retrieves the necessary diff from another node to update the page for the current lock acquirer.
+- After the thread in the critical section completes its release operation, the original page is write-protected, and the twin is deleted to free up the physical memory that was allocated for it.
+- In case multiple writers are modifying the same page under different locks, it represents an application problem and a data race.
+- The LRC multiple writer coherence protocol was implemented on a Unix system by TreadMarks.
+- When a thread accesses a shared page, the DSM software catches the SIGSEGV exception to take appropriate action.
+- There is a space overhead for creating a twin at the point of write and creating a diff data structure at release.
 - Garbage collection is used to reduce the space overhead by periodically applying diffs to the original copy of the page and getting rid of them.
 
 ### Non Page Based DSM
@@ -201,9 +190,8 @@ Can we make the cluster appear like a shared memory machine?
 <img src="https://i.imgur.com/tq2pE8U.png" style="width: 800px" />
 
 
-- Non-page based DSM systems do not use granularity of a page for coherence maintenance.
-- Library-based approach uses programming framework/library to annotate shared variables, and generates a trap at point of access to contact DSM software for coherence action.
-- Structured DSM provides abstractions manipulated using API calls that take coherence actions at the point of call execution.
+- The library-based approach uses a programming framework/library to annotate shared variables, causing a trap at the point of access to contact the DSM software, which can take coherence actions. This approach eliminates false sharing possible in page-based systems and single write or cache coherence protocols. Systems that use this approach include Shasta and Beehive.
+- The structured DSM approach provides abstractions at the level of meaningful application structures, using API calls to execute semantics and take coherence actions. Examples of systems that use this approach include Linda, Orca, Stampede, Stampede RT, and PTS.
 
 ### Scalability
 

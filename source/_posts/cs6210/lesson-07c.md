@@ -1,4 +1,4 @@
-# Lesson 7c: Distributed Subsystems - Distributed File Systems
+# Lesson 7: Distributed Subsystems - Distributed File Systems
 
 How to use cluster memory for cooperate caching of files?
 
@@ -26,16 +26,14 @@ How to use cluster memory for cooperate caching of files?
 
 <img src="https://i.imgur.com/67Rr4ds.png" style="width: 800px" />
 
-- Software RAID combines log structured file system and RAID technology.
-- Log segments are written to nodes connected to disks on a local area network rather than data files.
-- The log segment can be striped across multiple nodes using software RAID technology.
-- The software RAID technology solves the problem of using expensive hardware in hardware RAID technology.
+- Software RAID is a solution to the problems of hardware RAID, which can be expensive and have difficulty handling small writes.
+- The Zebra file system is an example of software RAID that combines log-structured file systems and RAID technology.
+- The file system uses commodity hardware, such as nodes connected to disks in a local area network, to stripe log segments across multiple nodes.
+- Log segments representing changes made to multiple files on a client node are striped across different nodes.
+- The process of striping log segments in software RAID is similar to hardware RAID, with the software performing the striping on multiple nodes in a local area network.
 
 
 ## Putting Them All Together Plus More
-
-https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/img/l7/54.JPG?raw=true
-<img src="https://i.imgur.com/GrrASy9.png" style="width: 800px" />
 
 - xFS is a distributed file system built at UC Berkeley.
 - It builds on prior technologies, including log-based striping from the Zebra file system and co-operative caching.
@@ -59,14 +57,13 @@ https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/i
 
 <img src="https://i.imgur.com/wCHkmcB.png" style="width: 800px" />
 
-
-<img src="https://i.imgur.com/ksP4NUx.png" style="width: 800px" />
-
-
 - xFS uses log based striping in software to avoid small write problems.
 - Clients write changes made to files to an append only log, which is a data structure residing in the memory of the client.
 - When the log segment fills up, it is written to disk and striped across storage servers.
 - Storage servers keep log segments written by different clients.
+
+<img src="https://i.imgur.com/ksP4NUx.png" style="width: 800px" />
+
 - Stripe groups subset the storage servers and assign different groups for different log segments.
 - This allows parallel client activities and increases availability and throughput.
 - Efficient log cleaning is facilitated by stripe groups and allows for parallelism in management of the system.
@@ -78,7 +75,7 @@ https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/i
 
 
 - xFS uses available memory in clients to cooperatively cache files and reduce stress on data file management.
-- Unlike traditional Unix file systems, xFS worries about cache coherence and maintains it at the file block level.
+- Unlike traditional Unix file systems, xFS worries about cache coherence and **maintains it at the file block level**.
 - If a file is being read-shared by multiple clients, a write request results in a conflict, and the manager sends an invalidation message to the clients, revokes the token given to the requesting client, and distributes the file to a future requester.
 - Using the fact that copies of the file exist in multiple clients, xFS exploits this to do cooperative caching and retrieve file content from a client's cache instead of going to the disk.
 
@@ -94,15 +91,7 @@ https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/i
 
 ## Unix File System
 
-<img src="https://i.imgur.com/eoWPhnl.png" style="width: 800px" />
-<img src="https://i.imgur.com/3cBvZg4.png" style="width: 800px" />
-
-
-- xFS implementation details are being discussed.
-- Unix file systems have i-node data structures.
-- i-nodes map file names to data blocks on the disk.
-- The file system can use the i-node to determine where the data blocks are located based on a file name and offset.
-- This is a standard feature of Unix file systems.
+https://cs.ericy.me/cs6200/p3l5-io-management/index.html#ext2-Second-Extended-Filesystem
 
 ##  xFS Data Structures
 
@@ -110,27 +99,22 @@ https://github.com/audrey617/CS6210-Advanced-Operating-Systems-Notes/blob/main/i
 
 
 - Metadata management in a distributed file system is not static.
-- Every client node has a replicated data structure called manager map that tells who the metadata manager is for a particular file name.
+- Every client node has a replicated data structure called **manager map** that tells who the metadata manager is for a particular file name.
 - The manager node uses a file directory data structure to map the file name to an i-number and an i-map data structure to get the i-node address for that file.
 - The stripe group map tells how the file is striped and which storage server contains the log segment ID associated with that file.
 - The manager has to go through multiple data structures to go from the file name to the data blocks associated with that file, but caching helps reduce the long path for file access.
 
 ## Client Reading a File Own Cache
 
-<img src="https://i.imgur.com/6WR5Wcx.png" style="width: 800px" />
+In the xFS distributed file system, caching plays a significant role in improving file access performance. When a client node receives a file name and offset, it looks up the directory to obtain an index and offset. If the file has been accessed before and is in the client's cache, then the data block can be obtained from the local cache, bypassing the need for network communication and disk access. This provides the fastest path for file access and is the common case.
+- <img src="https://i.imgur.com/6WR5Wcx.png" style="width: 800px" />
 
+However, if the file is not in the client's cache, then the client has to consult the manager map data structure to determine the metadata manager for the file. This may involve a network hop to the manager node. If the manager node determines that the file is currently in another client's cache, then the data can be obtained from that client's cache, which is still faster than disk access. This is the second-best path for file access and may involve multiple network hops.
+- <img src="https://i.imgur.com/OFQ9JcV.png" style="width: 800px" />
+In the worst-case scenario, the file is not in any cache and has to be retrieved from disk. This involves a longer path, with multiple data structures involved. The client node consults the manager map data structure to determine the metadata manager for the file and obtains the index and offset from the directory. The manager node then looks up its imap data structure and stripe group map data structure to determine the location of the I node that corresponds to the log segment for the requested data block. The manager then contacts the storage server to obtain the index node of the log segment ID and uses the stripe group map to determine which storage servers have the log segment striped and which one to contact for the requested portion of the file.
+- <img src="https://i.imgur.com/L504Bqd.png" style="width: 800px" />
 
-<img src="https://i.imgur.com/OFQ9JcV.png" style="width: 800px" />
-
-
-<img src="https://i.imgur.com/L504Bqd.png" style="width: 800px" />
-
-
-- Local caching of files in a client's memory helps speed up file access.
-- If a file is not in the local cache, the client consults the manager map data structure to know who's the manager for that file.
-- The manager may tell the client that another peer has a copy of the file in their cache, and the data can be obtained from there.
-- If the data is not available in any cache, the manager has to go through multiple data structures to find the data blocks on a storage server, and there could be multiple network hops involved.
-- The worst-case scenario involves accessing all the data structures in the manager, going through network hops and storage lookups to get the data blocks for the requested file.
+This long path involves network hops and accessing storage servers to retrieve the data blocks. However, if the index node for the log segment ID associated with the file has been previously accessed by the manager, it may be present in the manager's cache, allowing the manager to bypass some of the network hops. Overall, caching helps minimize the number of network hops and disk access needed for file access, improving performance in the xFS distributed file system.
 
 ## Client Writing a File
 

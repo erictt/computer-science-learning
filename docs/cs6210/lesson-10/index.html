@@ -88,16 +88,16 @@ document.addEventListener('DOMContentLoaded', function () {
 <ul>
 <li><a href="/cs6210/lesson-02/index.html">Lesson 02: OS Structure</a></li>
 <li><a href="/cs6210/lesson-03/index.html">Lesson 3: Virtualization</a></li>
-<li><a href="/cs6210/lesson-04-1/index.html">Lesson 4: Parallel Systems - Part 1</a></li>
-<li><a href="/cs6210/lesson-04-2/index.html">Lesson 4: Parallel Systems - Part 2</a></li>
+<li><a href="/cs6210/lesson-04a/index.html">Lesson 4: Parallel Systems - Part 1</a></li>
+<li><a href="/cs6210/lesson-04b/index.html">Lesson 4: Parallel Systems - Part 2</a></li>
 <li><a href="/cs6210/lesson-05/index.html">Lesson 5: Distributed Systems</a></li>
 <li><a href="/cs6210/lesson-06/index.html">Lesson 6: Distributed Objects and Middleware</a></li>
-<li><a href="/cs6210/lesson-07a/index.html">Lesson 7a: Distributed Subsystems - GMS</a></li>
-<li><a href="/cs6210/lesson-07b/index.html">Lesson 7b: Distributed Subsystems - DSM</a></li>
-<li><a href="/cs6210/lesson-07c/index.html">Lesson 7c: Distributed Subsystems - DFS</a></li>
+<li><a href="/cs6210/lesson-07a/index.html">Lesson 7: Distributed Subsystems - GMS</a></li>
+<li><a href="/cs6210/lesson-07b/index.html">Lesson 7: Distributed Subsystems - DSM</a></li>
+<li><a href="/cs6210/lesson-07c/index.html">Lesson 7: Distributed Subsystems - DFS</a></li>
+<li><a href="/cs6210/lesson-09/index.html">Lesson 9: Internet Computing</a></li>
 </ul>
 <!--
-* [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
 * [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
 * [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
 * [Lesson 11: Security](/cs6210/lesson-11/index.html)
@@ -313,7 +313,168 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  
+  <h1>RT and Multimedia</h1>
+<h2 id="L10a-TS-Linux">L10a: TS-Linux</h2>
+<ol>
+<li>TS-Linux Introduction:</li>
+</ol>
+<ul>
+<li>General purpose operating systems historically catered to throughput-oriented applications, but now there’s a growing need for soft real-time guarantees for latency-sensitive applications.</li>
+<li>Time-sensitive Linux is an extension of commodity Linux that addresses providing guarantees for real-time apps in the presence of throughput-oriented apps and bounding performance loss of throughput-oriented apps in the presence of latency-sensitive apps.</li>
+<li>This module discusses approaches to address these questions.</li>
+</ul>
+<ol start="2">
+<li>Sources of Latency:</li>
+</ol>
+<p><img src="https://i.imgur.com/3pv6SuK.png" alt=""></p>
+<ul>
+<li>Time-sensitive apps require quick responses to events, but there are three sources of latency in typical general purpose operating systems: timer latency, preemption latency, and scheduler latency.</li>
+<li>Timer latency comes from the inaccuracy of the timing mechanism due to the granularity of the timing mechanism available in general purpose operating systems.</li>
+<li>Preemption latency happens when the kernel is in the middle of doing something from which it can’t be preempted or when the kernel itself is in the middle of handling another higher priority interrupt.</li>
+<li>Scheduler latency prevents an external event from being delivered to the application that’s waiting for it because a higher priority task is already in the scheduler’s queue.</li>
+</ul>
+<ol start="3">
+<li>Timers Available</li>
+</ol>
+<p><img src="https://i.imgur.com/ji4AzXO.png" alt=""></p>
+<ul>
+<li>There are different kinds of timers available in operating systems, such as periodic timers, one-shot timers, and soft timers.</li>
+<li>Periodic timers have periodicity as their pro but have event recognition latency as their con, and their worst-case latency is the periodicity itself.</li>
+<li>One-shot timers are exact timers that can go off exactly when you want the interrupt delivered but have overhead associated with fielding them.</li>
+<li>Soft timers have reduced overhead since there are no timer interrupts, but there’s latency associated with them and an overhead of polling all events to see if any of them have expired.</li>
+<li>Firm timer is a new mechanism proposed in TS Linux that combines the pros of all three types of timers while avoiding their individual cons.</li>
+</ul>
+<p><img src="https://i.imgur.com/n9WS96G.png" alt=""></p>
+<p>Section 4: Firm Timer Design</p>
+<p><img src="https://i.imgur.com/tgang9w.png" alt=""></p>
+<ul>
+<li>The firm timer design combines the benefits of one-shot and soft timers.</li>
+<li>The overshoot parameter is a knob used to program the one-shot timer to interrupt at a point after the actual event happened.</li>
+<li>The overshoot window allows the kernel to dispatch expired timers and reprogram the one-shot timer to interrupt at the next event to avoid interrupt overhead.</li>
+<li>The combination of hard and soft timers in the firm timer design reduces the number of one-shot timer interrupts.</li>
+</ul>
+<p>Section 5: Firm Timer Implementation</p>
+<p><img src="https://i.imgur.com/gQCCzEL.png" alt=""></p>
+<ul>
+<li>The timer-q data structure maintains tasks and their corresponding expiry times in order.</li>
+<li>The APIC hardware, a programmable interrupt controller, is used in modern CPUs for reprogramming one-shot timers with low overhead.</li>
+<li>The interrupt handler looks for expired tasks in the timer-q data structure and calls the corresponding callback handlers.</li>
+<li>The firm timer implementation uses an overshoot parameter to avoid fielding one-shot interrupts.</li>
+<li>If the distance between one-shot timers is long, the kernel will use periodic timers instead and dispatch the one-shot event at the preceding periodic timer event.</li>
+<li>The firm timer implementation reduces timer latency by combining one-shot, soft, and periodic timers.</li>
+</ul>
+<p>Section 6: Reducing Kernel Preemption Latency</p>
+<p><img src="https://i.imgur.com/WwVdkoF.png" alt=""></p>
+<ul>
+<li>
+<p>Kernel preemption latency is a source of latency that can be reduced.<br>
+<img src="https://i.imgur.com/fnRfcDG.png" alt=""><br>
+<img src="https://i.imgur.com/1NUat25.png" alt=""><br>
+<img src="https://i.imgur.com/OntEFHp.png" alt=""></p>
+</li>
+<li>
+<p>Two approaches to reducing kernel preemption latency are explicitly inserting preemption points in the kernel and allowing preemption of the kernel anytime the kernel is not manipulating shared data structures.</p>
+</li>
+<li>
+<p>The lock-breaking preemptible kernel combines these two approaches by breaking long critical sections into two sections: manipulating shared data and other code, allowing the kernel to be preempted safely and enabling checking for expired timers.<br>
+<img src="https://i.imgur.com/kbkZ7Yj.png" alt=""></p>
+</li>
+</ul>
+<p>Section 7: TS-Linux Conclusion</p>
+<ul>
+<li>TS-Linux can provide quality of service guarantees for real-time applications running on commodity operating systems such as Linux by addressing the three sources of latency.</li>
+<li>Proportional period scheduling and priority-based scheduling are used to reduce scheduling latency and avoid priority inversion, ensuring that both time-sensitive and throughput-oriented tasks get CPU time.</li>
+<li>The performance evaluation carried out in the paper shows that both objectives are achieved.</li>
+</ul>
+<h2 id="L10b-PTS">L10b: PTS</h2>
+<ol>
+<li>PTS Introduction:</li>
+</ol>
+<ul>
+<li>This lesson focuses on middleware for real-time and distributed multimedia applications.</li>
+<li>It builds on the previous lesson’s study of an OS scheduler for accurate timing in upper layers of software.</li>
+</ul>
+<ol start="2">
+<li>Programming Paradigms:</li>
+</ol>
+<p><img src="https://i.imgur.com/b0fHBvE.png" alt=""></p>
+<ul>
+<li>PThreads and sockets are APIs for developing parallel and distributed programs.</li>
+<li>Socket API is low-level and lacks semantic richness for emerging multimedia distributed applications.</li>
+</ul>
+<ol start="3">
+<li>Novel Multimedia Apps:</li>
+</ol>
+<p><img src="https://i.imgur.com/JucjLAD.png" alt=""></p>
+<ul>
+<li>Sensor-based distributed multimedia applications are computationally intensive and exhibit a control loop going from sensing to actuation in real-time.</li>
+<li>Computational engines such as clusters and clouds may be deployed to cater to the needs of these applications.</li>
+</ul>
+<ol start="4">
+<li>Example - Large Scale Situation Awareness:</li>
+</ol>
+<p><img src="https://i.imgur.com/bF6GHTc.png" alt=""></p>
+<ul>
+<li>Large-scale situation awareness applications require pruning sensor streams and avoiding false positives and negatives.</li>
+<li>The programming infrastructure needs to facilitate time-sensitive data and provide the right level of abstractions for simplicity.</li>
+</ul>
+<ol start="5">
+<li>Programming Model for Situation Awareness:</li>
+</ol>
+<p><img src="https://i.imgur.com/MI7PLyL.png" alt=""></p>
+<ul>
+<li>The objective in Situation Awareness applications is to process streams of data for high-level inferences.</li>
+<li>Video Analytics is in the purview of a domain expert, but systems can come in with programming models to alleviate pain points.</li>
+<li>PTS is an exemplar of a distributed programming system for catering to the needs of Situation Awareness Applications.</li>
+</ul>
+<p>Section 6: PTS Programming Model</p>
+<p><img src="https://i.imgur.com/Uim23NW.png" alt=""></p>
+<ul>
+<li>The PTS programming model is a distributed application with threads and channels as the high-level abstractions.</li>
+<li>The computation graph generated by the PTS programming model looks similar to a UNIX process socket graph.</li>
+<li>The semantics of the channel abstraction is different from the socket abstraction, as the channel holds time sequenced data objects.</li>
+<li>A channel allows many-to-many connections, and a thread can produce or consume data from a channel using the put and get primitives, respectively.</li>
+<li>A channel contains a continuous stream of data with time stamps associated with them, and the programming model allows an application to specify time variables in an abstract way.</li>
+<li>The PTS programming model allows the propagation of temporal causality and correlation of incoming streams, improving the inferencing and hypothesis in situation awareness applications.</li>
+</ul>
+<p>Section 7: Bundling Streams</p>
+<p><img src="https://i.imgur.com/nM5Bfa9.png" alt=""></p>
+<ul>
+<li>The bundling of streams in PTS allows grouping of streams labeled as a group, with an anchor stream and dependent streams.</li>
+<li>The group get primitive allows getting correspondingly timestamped items from all the streams in a given group, reducing the burden of selecting temporally correlated items from individual streams.</li>
+</ul>
+<p>Section 8: Power of Simplicity</p>
+<p><img src="https://i.imgur.com/oHitOjh.png" alt=""></p>
+<ul>
+<li>The power of simplicity is the key for adoption in system design.</li>
+<li>Converting a sequential program for video analytics into a distributed program using PTS is straightforward, by interposing channels between computations and using the get/put primitives.</li>
+<li>The PTS programming model uses threads as computational entities and channels as the means of communication between them.</li>
+</ul>
+<p>Section 9: PTS Design Principles</p>
+<p><img src="https://i.imgur.com/7cbUtcW.png" alt=""></p>
+<ul>
+<li>PTS provides simple abstractions (channel and get/put operations) to manipulate data.</li>
+<li>Channels can be accessed from anywhere in the distributed system and are network-wide unique, similar to UNIX sockets.</li>
+<li>The run-time system and APIs treat time as a first-class entity, allowing for seamless integration of live and historical data.</li>
+<li>PTS allows streams to be persistent under application control.</li>
+</ul>
+<p>Section 10: Persistent Channel Architecture</p>
+<p><img src="https://i.imgur.com/CE6lmp2.png" alt=""></p>
+<ul>
+<li>All computations can be considered as producers or consumers of data, with worker threads reacting to get/put calls.</li>
+<li>The channel architecture has three layers: Live Channel Layer, Interaction Layer, and Backend Layer.</li>
+<li>The Live Channel Layer holds a snapshot of items generated on a channel, and the Garbage Collection trigger moves old data to a garbage list.</li>
+<li>The Persistence Layer handles items that need to be persisted, using a pickling handler function specified by the application.</li>
+<li>The Backend Layer supports different backends for storing channel data, including MySQL, Unix file system, and GPFS.</li>
+<li>All persistence activities happen automatically under the covers.</li>
+</ul>
+<p>Section 11: PTS Conclusion</p>
+<ul>
+<li>PTS provides a simple programming model for developing live stream analysis applications.</li>
+<li>Time-based distributed data structures for streams, automatic data management, and transparent stream persistence are unique features of the PTS programming model.</li>
+<li>The paper discusses the systems challenges solved by PTS to provide this programming model.</li>
+</ul>
+
 </div>
 
 

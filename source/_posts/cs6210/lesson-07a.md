@@ -1,4 +1,4 @@
-# Lesson 7a: Distributed Subsystems L0- Global Memory Systems(GMS)
+# Lesson 7: Distributed Subsystems L0- Global Memory Systems(GMS)
 
 * How can we use peer memory for paging across LAN?
 
