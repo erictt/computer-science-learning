@@ -12,7 +12,7 @@
 
 ### Object-Based vs. Procedural Design
 
-![|500](https://i.imgur.com/DcP7IoO.jpg)
+<img src="https://i.imgur.com/DcP7IoO.jpg" style="width: 800px" />
 
 * Procedural Design:
     - The code is written as a monolithic entity.
@@ -24,7 +24,7 @@
 
 ### Spring Approach
 
-![|500](https://i.imgur.com/LA1GcVB.jpg)
+<img src="https://i.imgur.com/LA1GcVB.jpg" style="width: 800px" />
 
 * Provide strong interfaces to each sub-system.
 * The system is open and flexible. Thus, 3rd party vendors can integrate their software to the system.
