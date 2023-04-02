@@ -365,7 +365,7 @@ function sidebar_toggle() {
 <li>Sun provided a “Network Proxy” node so that the OS can be used as a network OS.</li>
 </ul>
 <h3 id="nucleus"><a class="markdownIt-Anchor" href="#nucleus"></a> Nucleus</h3>
-<p><img src="https://i.imgur.com/6hhzK8G.jpg" alt=""></p>
+<img src="https://i.imgur.com/6hhzK8G.jpg" style="width: 800px" />
 <ul>
 <li>Nucleus is the microkernel of Spring OS. It manages only the threads abstractions and the IPC.</li>
 <li>Door:
@@ -389,7 +389,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h3 id="object-invocation-across-the-network"><a class="markdownIt-Anchor" href="#object-invocation-across-the-network"></a> Object Invocation Across the Network</h3>
-<p><img src="https://i.imgur.com/fqjELzn.jpg" alt=""></p>
+<img src="https://i.imgur.com/fqjELzn.jpg" style="width: 800px" />
 <ul>
 <li>Object invocation between client/server domains across the network is facilitated using the <strong>Network Proxy</strong>.</li>
 <li><u>Each domain has <strong>multiple Network Proxies</strong></u> to communicate with different nodes on the network. This facilitates specialization since these different proxies can represent different protocols.</li>
@@ -404,7 +404,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h3 id="secure-object-invocation"><a class="markdownIt-Anchor" href="#secure-object-invocation"></a> Secure Object Invocation</h3>
-<p><img src="https://i.imgur.com/pdKetTH.jpg" alt=""></p>
+<img src="https://i.imgur.com/pdKetTH.jpg" style="width: 800px" />
 <ul>
 <li>Spring OS facilitates providing different privilege levels for different clients using the “Front Object”.</li>
 <li>An underlying object may have a Front Object that is directly connected to it (without Doors).</li>
@@ -412,9 +412,9 @@ function sidebar_toggle() {
 <li>Different instances of the Front Object can be created with different access policies to the same underlying object.</li>
 <li><strong>Doors are software capabilities</strong>, which means they can be passed from client domain to another. When passing a Door, the client domain can determine whether to pass the same privileges or not.</li>
 </ul>
-<p><img src="https://i.imgur.com/NrkosOK.jpg" alt=""></p>
+<img src="https://i.imgur.com/NrkosOK.jpg" style="width: 800px" />
 <h3 id="virtual-memory-management"><a class="markdownIt-Anchor" href="#virtual-memory-management"></a> Virtual Memory Management</h3>
-<p><img src="https://i.imgur.com/dNnZ6w1.jpg" alt=""></p>
+<img src="https://i.imgur.com/dNnZ6w1.jpg" style="width: 800px" />
 <ul>
 <li>Virtual memory management is part of the Spring OS kernel.</li>
 <li>The VMM is responsible for managing the linear address space of each process.</li>
@@ -423,7 +423,7 @@ function sidebar_toggle() {
 <li>These memory objects are the mechanism by which parts of the address space <u>can be mapped into different <strong>backing entities</strong></u> (e.g. desk, file system, etc.).</li>
 </ul>
 <h4 id="pager-object"><a class="markdownIt-Anchor" href="#pager-object"></a> Pager Object</h4>
-<p><img src="https://i.imgur.com/orpJYt3.jpg" alt=""></p>
+<img src="https://i.imgur.com/orpJYt3.jpg" style="width: 800px" />
 <ul>
 <li>The <strong>Pager Object</strong> is responsible for establishing the connection between virtual memory and physical memory.</li>
 <li>The Pager Object makes sure that a memory object has a representation in the physical memory.</li>
@@ -538,7 +538,7 @@ function sidebar_toggle() {
 <li>Reuse of Local Implementation:
 <ul>
 <li>
-<p><img src="https://i.imgur.com/JPuqF1f.jpg" alt=""></p>
+<img src="https://i.imgur.com/JPuqF1f.jpg" style="width: 800px" />
 </li>
 <li>
 <p>Extend a Local Implementation of the Account Class to implement Bank Account.</p>
@@ -560,7 +560,7 @@ function sidebar_toggle() {
 <li>Reuse of Remote Object Class
 <ul>
 <li>
-<p><img src="https://i.imgur.com/WST8BAh.jpg" alt=""></p>
+<img src="https://i.imgur.com/WST8BAh.jpg" style="width: 800px" />
 </li>
 <li>
 <p>Extend the Remote Interface so that the Account Interface now becomes visible to any client that wants to access the Object.</p>
@@ -588,7 +588,9 @@ function sidebar_toggle() {
 <li>Bind the URL to the Object Instance created.</li>
 </ol>
 </li>
-<li><img src="https://i.imgur.com/jyDPAJQ.jpg" alt=""></li>
+<li>
+<img src="https://i.imgur.com/jyDPAJQ.jpg" style="width: 800px" />
+</li>
 <li>This allows the clients to be able to discover the existence of the new service on the network.</li>
 </ul>
 </li>
@@ -609,12 +611,14 @@ function sidebar_toggle() {
 <li>A problem with Remote Exceptions is that the client may have no way of knowing at what point in the call invocation the failure happened.</li>
 </ul>
 </li>
-<li><img src="https://i.imgur.com/hjedUKR.jpg" alt=""></li>
+<li>
+<img src="https://i.imgur.com/hjedUKR.jpg" style="width: 800px" />
+</li>
 </ul>
 </li>
 </ul>
 <h3 id="rmi-implementation"><a class="markdownIt-Anchor" href="#rmi-implementation"></a> RMI Implementation</h3>
-<p><img src="https://i.imgur.com/FnHfGxI.jpg" alt=""></p>
+<img src="https://i.imgur.com/FnHfGxI.jpg" style="width: 800px" />
 <ul>
 <li>The Java RMI functionality is implemented using the <strong>Remote Reference Layer (RRL)</strong>.</li>
 <li>The Client-side stub initiates the remote method invocation call, which causes RRL to marshal the arguments in order to send them over the network. When the server responds, the RRL unmarshals the results for the client.</li>
@@ -636,7 +640,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h3 id="rmi-transport-layer"><a class="markdownIt-Anchor" href="#rmi-transport-layer"></a> RMI Transport Layer</h3>
-<p><img src="https://i.imgur.com/c5FFPXD.jpg" alt=""></p>
+<img src="https://i.imgur.com/c5FFPXD.jpg" style="width: 800px" />
 <p>The RMI Transport Layer provides the following four abstractions:</p>
 <ul>
 <li><strong>Endpoint</strong>:
@@ -670,7 +674,7 @@ function sidebar_toggle() {
 </ul>
 <h2 id="l06c-enterprise-java-beansejb"><a class="markdownIt-Anchor" href="#l06c-enterprise-java-beansejb"></a> L06c. Enterprise Java Beans(EJB)</h2>
 <h3 id="n-tier-applications"><a class="markdownIt-Anchor" href="#n-tier-applications"></a> N-Tier Applications</h3>
-<p><img src="https://i.imgur.com/ezxgHld.jpg" alt=""></p>
+<img src="https://i.imgur.com/ezxgHld.jpg" style="width: 800px" />
 <ul>
 <li>
 <p>Distributed Giant Scale Services are also called as N-tier applications because the software stack of an application comprises of several different layers:</p>
@@ -698,7 +702,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h3 id="structuring-n-tier-applications"><a class="markdownIt-Anchor" href="#structuring-n-tier-applications"></a> Structuring N-Tier Applications</h3>
-<p><img src="https://i.imgur.com/j6IdPcM.jpg" alt=""></p>
+<img src="https://i.imgur.com/j6IdPcM.jpg" style="width: 800px" />
 <ul>
 <li>A Java Bean is a unit of reuse and contains a bundle of Java Objects to provide a specific functionality, e.g. a Java Bean may provide the shopping cart functionality.</li>
 <li>A Container is a Protection Domain implemented in a Java Virtual Machine (JVM) and it packages and hosts a related collection of Java Beans to provide higher-level functionality.</li>
@@ -777,7 +781,7 @@ function sidebar_toggle() {
 </ul>
 <h3 id="java-beans-design-alternatives"><a class="markdownIt-Anchor" href="#java-beans-design-alternatives"></a> Java Beans Design Alternatives</h3>
 <h4 id="1-coarse-grain-session-beans"><a class="markdownIt-Anchor" href="#1-coarse-grain-session-beans"></a> 1. Coarse grain session Beans</h4>
-<p><img src="https://i.imgur.com/hU1aoxg.jpg" alt=""></p>
+<img src="https://i.imgur.com/hU1aoxg.jpg" style="width: 800px" />
 <ul>
 <li>The Client Container and the Applet Container are in the Web-server so we will not consider them. Instead, we’ll only consider the <strong>Web Container (Presentation Logic)</strong> and <strong>EJB Container (Business Logic)</strong> in the several design alternatives below.</li>
 <li>A Servlet corresponds to an individual session with a particular client.</li>
@@ -804,7 +808,7 @@ function sidebar_toggle() {
 </ul>
 <h4 id="2-data-access-objectdao"><a class="markdownIt-Anchor" href="#2-data-access-objectdao"></a> 2. Data Access Object(DAO)</h4>
 <p>fine-grained</p>
-<p><img src="https://i.imgur.com/Qe3HFmD.jpg" alt=""></p>
+<img src="https://i.imgur.com/Qe3HFmD.jpg" style="width: 800px" />
 <ul>
 <li>The <strong>Business Logic is pushed to be in the Web Container</strong> containing Servlet and Presentation Logic. Similar to having a 3-tier software structure of (Servlet – Presentation Logic – Business Logic).</li>
 <li>All Data Access happens through Entity Beans, which have Persistence characteristics. That is, Data Access Object (DAO) is implemented using Entity Beans.</li>
@@ -821,7 +825,7 @@ function sidebar_toggle() {
 <li>Cons: <strong>Business Logic is exposed outside the corporate network</strong> because it was move from the EJB Container to the Web Container.</li>
 </ul>
 <h4 id="3-session-beans-with-entity-beans"><a class="markdownIt-Anchor" href="#3-session-beans-with-entity-beans"></a> 3. Session Beans with Entity Beans</h4>
-<p><img src="https://i.imgur.com/Z2H4qMi.jpg" alt=""></p>
+<img src="https://i.imgur.com/Z2H4qMi.jpg" style="width: 800px" />
 <ul>
 <li>
 <p>The Web Container contains only the Servlet and the Presentation Logic associated with the Servlet.</p>

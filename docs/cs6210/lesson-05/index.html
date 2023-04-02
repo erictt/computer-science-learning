@@ -321,7 +321,9 @@ function sidebar_toggle() {
 <li>No physical memory is shared between nodes on a Distributed System. Nodes communicate by sending messages on the network.</li>
 <li>The <strong>communication time/messaging time</strong>  is much larger than the <strong>Event Computation Time</strong> (the time a node takes to complete a process).
 <ul>
-<li><img src="https://i.imgur.com/lXrR5di.jpg" alt=""></li>
+<li>
+<img src="https://i.imgur.com/lXrR5di.jpg" style="width: 800px" />
+</li>
 <li>NOTE how it’s calculated. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">t_m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is a-&gt;c. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">t_e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is a-b.</li>
 </ul>
 </li>
@@ -364,10 +366,9 @@ function sidebar_toggle() {
 <li>The <strong>time stamp</strong> of communication events will be <strong>either</strong> the counter value of the <strong>sender</strong> process or the <strong>receiver</strong> process <strong>whichever greater</strong>.</li>
 </ul>
 </li>
-<li><img src="https://i.imgur.com/Lf3VZkE.jpg" alt="">
-<ul>
-<li>In condition 2, d has to be 3, event the previous counter in the process is 0. because the value has to be max counter of incoming message or the counter from local process.</li>
-</ul>
+<li>
+<img src="https://i.imgur.com/Lf3VZkE.jpg" style="width: 800px" />
+  * In condition 2, d has to be 3, event the previous counter in the process is 0. because the value has to be max counter of incoming message or the counter from local process.
 </li>
 </ul>
 <h3 id="logical-clock-conditions"><a class="markdownIt-Anchor" href="#logical-clock-conditions"></a> Logical Clock Conditions</h3>
@@ -438,7 +439,9 @@ function sidebar_toggle() {
 <li>
 <p>In real world scenarios, the logical clock might be drifting of the real time due to anomalies in the logical clocks.</p>
 <ul>
-<li><img src="https://i.imgur.com/FLPW4h0.jpg" alt=""></li>
+<li>
+<img src="https://i.imgur.com/FLPW4h0.jpg" style="width: 800px" />
+</li>
 </ul>
 </li>
 <li>
@@ -492,15 +495,13 @@ function sidebar_toggle() {
 <li>Using equation 1 and 2, and bound <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">ϵ</span></span></span></span> on mutual drift: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mi>μ</mi><mo>≥</mo><mi>ϵ</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>k</mi><mo stretchy="false">)</mo></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{red}{\mu \ge \epsilon / (1 - k)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8304100000000001em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="color:red;">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel" style="color:red;">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="color:red;">ϵ</span><span class="mord" style="color:red;">/</span><span class="mopen" style="color:red;">(</span><span class="mord" style="color:red;">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin" style="color:red;">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;color:red;">k</span><span class="mclose" style="color:red;">)</span></span></span></span> to avoid anomalies.</li>
 <li>Real world scenario, target for interprocess communication time &gt; mutual clock drift
 <ul>
-<li><img src="https://i.imgur.com/D1GfmR9.jpg" alt="">
-<ul>
-<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>&lt;</mo><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\mu &lt; \epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">ϵ</span></span></span></span></li>
-</ul>
+<li>
+<img src="https://i.imgur.com/D1GfmR9.jpg" style="width: 800px" />
+  * $\mu < \epsilon$
 </li>
-<li><img src="https://i.imgur.com/ptnh3Hf.jpg" alt="">
-<ul>
-<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>&gt;</mo><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\mu &gt; \epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">ϵ</span></span></span></span></li>
-</ul>
+<li>
+<img src="https://i.imgur.com/ptnh3Hf.jpg" style="width: 800px" />
+  * $\mu > \epsilon$
 </li>
 </ul>
 </li>
@@ -562,7 +563,9 @@ function sidebar_toggle() {
 <ul>
 <li>Making an RPC call involves three data copies:
 <ul>
-<li><img src="https://i.imgur.com/g24aKmd.jpg" alt=""></li>
+<li>
+<img src="https://i.imgur.com/g24aKmd.jpg" style="width: 800px" />
+</li>
 </ul>
 <ul>
 <li>First copy: The client stub takes the arguments of the RPC and converts it to an RPC message.</li>
@@ -579,7 +582,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h4 id="control-transfer"><a class="markdownIt-Anchor" href="#control-transfer"></a> Control Transfer</h4>
-<p><img src="https://i.imgur.com/BaMWS14.jpg" alt=""></p>
+<img src="https://i.imgur.com/BaMWS14.jpg" style="width: 800px" />
 <ul>
 <li>This includes the multiple <strong>context switches</strong> that have to happen to execute an RPC call:
 <ol>
@@ -611,7 +614,7 @@ function sidebar_toggle() {
 <h2 id="l05d-active-networks"><a class="markdownIt-Anchor" href="#l05d-active-networks"></a> L05d. Active Networks</h2>
 <h3 id="introduction-3"><a class="markdownIt-Anchor" href="#introduction-3"></a> Introduction</h3>
 <p>Note from Computer Network course: <a target="_blank" rel="noopener" href="https://cs.ericyy.me/cs6250/week-7-software-defined-networking-part-1/index.html#1-active-networks">https://cs.ericyy.me/cs6250/week-7-software-defined-networking-part-1/index.html#1-active-networks</a></p>
-<p><img src="https://i.imgur.com/x6ApgQo.jpg" alt=""></p>
+<img src="https://i.imgur.com/x6ApgQo.jpg" style="width: 800px" />
 <ul>
 <li>The primary issue once a packet leaves a node in a distributed system is to route the packet reliably and quickly to its destination.</li>
 <li>The intermediate routers have routing tables. The routing table determine, given the packet destination, what the next hub for this packet is. This is done by a simple table lookup.</li>
@@ -620,7 +623,7 @@ function sidebar_toggle() {
 <li>The idea is to make the nodes on the network active by making them look into the message and figure out what to do with it.</li>
 </ul>
 <h3 id="how-to-implement-active-networks"><a class="markdownIt-Anchor" href="#how-to-implement-active-networks"></a> How to implement Active Networks</h3>
-<p><img src="https://i.imgur.com/eFU4WUc.jpg" alt=""></p>
+<img src="https://i.imgur.com/eFU4WUc.jpg" style="width: 800px" />
 <ul>
 <li>The OS provides <strong>Quality of Service (QoS) APIs</strong> to the application. These APIs will be used by the application to give the OS an idea about the nature of the message.</li>
 <li>The OS uses QoS to synthesize code and creates the packet (IP-header + code + payload) that will be handed to the internet.</li>
@@ -632,7 +635,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h3 id="active-node-transfer-system-ants-toolkit"><a class="markdownIt-Anchor" href="#active-node-transfer-system-ants-toolkit"></a> Active Node Transfer System (ANTS) Toolkit</h3>
-<p><img src="https://i.imgur.com/0rdsixp.jpg" alt=""></p>
+<img src="https://i.imgur.com/0rdsixp.jpg" style="width: 800px" />
 <ul>
 <li>The ANTS Toolkit is an application level package that takes the payload and QoS from the application and create a capsule (ANTS header + payload) that is passed to the protocol stack.</li>
 <li>The protocol stack will create the packet by adding an IP header to the capsule.</li>
@@ -641,7 +644,7 @@ function sidebar_toggle() {
 <li>Another addition is, with ANTS Toolkit, the core IP network will remain unchanged, and the Active Nodes will <strong>only be added at the edges of the network</strong>.</li>
 </ul>
 <h3 id="ants-capsules"><a class="markdownIt-Anchor" href="#ants-capsules"></a> ANTS Capsules</h3>
-<p><img src="https://i.imgur.com/IiYNvFF.jpg" alt=""></p>
+<img src="https://i.imgur.com/IiYNvFF.jpg" style="width: 800px" />
 <ul>
 <li>ANTS header consists of:
 <ul>
@@ -665,7 +668,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h4 id="capsule-implementation"><a class="markdownIt-Anchor" href="#capsule-implementation"></a> Capsule Implementation</h4>
-<p><img src="https://i.imgur.com/w1hdBEI.jpg" alt=""></p>
+<img src="https://i.imgur.com/w1hdBEI.jpg" style="width: 800px" />
 <ul>
 <li>When a node receives a capsule, one of two possibilities can happen:
 <ol>
@@ -754,7 +757,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h3 id="design-cycle"><a class="markdownIt-Anchor" href="#design-cycle"></a> Design Cycle</h3>
-<p><img src="https://i.imgur.com/g5z3o54.jpg" alt=""></p>
+<img src="https://i.imgur.com/g5z3o54.jpg" style="width: 800px" />
 <ul>
 <li><strong>Specification</strong>: <strong>IOA</strong>(I/O automata) is used to express abstract specifications of the system at the level of individual components.
 <ul>
@@ -772,7 +775,7 @@ function sidebar_toggle() {
 <li><strong>Optimization</strong>: <strong>NuPrl</strong> framework is used to optimize OCAML code to prepare it for deployment.</li>
 </ul>
 <h3 id="from-specifications-to-implementation"><a class="markdownIt-Anchor" href="#from-specifications-to-implementation"></a> From Specifications to Implementation</h3>
-<p><img src="https://i.imgur.com/LH32b1O.jpg" alt=""></p>
+<img src="https://i.imgur.com/LH32b1O.jpg" style="width: 800px" />
 <ul>
 <li>Abstract Behavioral Specifications:
 <ul>
@@ -789,7 +792,7 @@ function sidebar_toggle() {
 <li>The unoptimized NuPrl code will be converted to an optimized NuPrl code using the Theorem Prover Framework.</li>
 <li>The optimized NuPrl code will be converted to an optimized OCAML code.</li>
 </ul>
-<p><img src="https://i.imgur.com/t9MclNm.jpg" alt=""></p>
+<img src="https://i.imgur.com/t9MclNm.jpg" style="width: 800px" />
 <h3 id="synthesizing-a-tcp-ip-stack"><a class="markdownIt-Anchor" href="#synthesizing-a-tcp-ip-stack"></a> Synthesizing a TCP-IP Stack</h3>
 <ul>
 <li>Specify the <strong>Abstract</strong> Behavioral Specifications and produce the <strong>Concrete</strong> Behavioral Specifications.</li>
@@ -816,11 +819,13 @@ function sidebar_toggle() {
 <li>If the CCP is satisfied, the protocol layers will be bypassed by a generated code for this CCP.</li>
 </ul>
 </li>
-<li><img src="https://i.imgur.com/MaDojhz.jpg" alt=""></li>
+<li>
+<img src="https://i.imgur.com/MaDojhz.jpg" style="width: 800px" />
+</li>
 </ul>
 </li>
 </ul>
-<p><img src="https://i.imgur.com/XTCSOpi.jpg" alt=""></p>
+<img src="https://i.imgur.com/XTCSOpi.jpg" style="width: 800px" />
 <table>
 <thead>
 <tr>
