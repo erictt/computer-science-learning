@@ -103,7 +103,8 @@
 
 #### Summary
 
-![|500](https://i.imgur.com/8XIwoK5.jpg)
+<img src="https://i.imgur.com/8XIwoK5.jpg" style="width: 800px" />
+
 * Object oriented kernel
     - nucleus -> threads + IPC
     - linedkie's microkernel -> nucleus + address space
