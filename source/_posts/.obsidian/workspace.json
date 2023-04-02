@@ -42,8 +42,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "7a1fa6ad89b5b316",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "menu.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -110,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cs6210/lesson-07c.md",
+                "file": "menu.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cs6210/lesson-07c.md",
+                "file": "menu.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +163,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cs6210/lesson-07c.md"
+                "file": "menu.md"
               }
             }
           },
@@ -180,17 +193,18 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "31fc167d8f47c41a",
+  "active": "7a1fa6ad89b5b316",
   "lastOpenFiles": [
-    "cs6210/lesson-07b.md",
+    "cs6210/lesson-09.md",
     "cs6210/lesson-07c.md",
-    "cs6210/lesson-07a.md",
     "menu.md",
+    "cs6210/lesson-02.md",
+    "cs6210/lesson-07b.md",
+    "cs6210/lesson-07a.md",
     "cs6210/lesson-04-2 1.md",
     "cs6210/lesson-04b.md",
     "cs6210/lesson-04a.md",
     "cs6210/lesson-10.md",
-    "cs6210/lesson-09.md",
     "cs6210/lesson-07c.md-r",
     "cs6210/lesson-07b.md-r",
     "cs6210/lesson-07a.md-r",
@@ -211,7 +225,6 @@
     "stanford-machine-learning/week-7.md",
     "stanford-machine-learning/New Folder With Items/week-9b.md",
     "stanford-machine-learning/New Folder With Items/week-9a.md",
-    "stanford-machine-learning/New Folder With Items/week-8.md",
     "stanford-machine-learning/New Folder With Items",
     "stanford-machine-learning/ex8/ex8/visualizeFit.m",
     "stanford-machine-learning/ex8/ex8/token.mat",
