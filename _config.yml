@@ -112,22 +112,17 @@ deploy:
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
 
-markdown:
-  preset: "default"
-  render:
-    html: true
-    xhtmlOut: false
-    breaks: true
-    langPrefix:
-    linkify: true
-    typographer: true
-    quotes: "“”‘’"
+markdown_it_plus:
+  html: true
+  xhtmlOut: false
+  breaks: true
+  langPrefix:
+  linkify: true
+  typographer: true
+  quotes: "“”‘’"
   plugins:
     - plugin:
       name: "@neilsustc/markdown-it-katex"
       enable: true
       options:
         strict: false
-# toc:
-#   maxdepth: 3
-#   slugify: transliteration
