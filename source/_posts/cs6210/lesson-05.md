@@ -8,7 +8,7 @@
 * A Distributed System is a collection of **nodes connected** by a LAN/WAN.
 * No physical memory is shared between nodes on a Distributed System. Nodes communicate by sending messages on the network.
 * The **communication time/messaging time**  is much larger than the **Event Computation Time** (the time a node takes to complete a process).
-    * ![](https://i.imgur.com/lXrR5di.jpg)
+    * <img src="https://i.imgur.com/lXrR5di.jpg" style="width: 800px" />
     * NOTE how it's calculated. $t_m$ is a->c. $t_e$ is a-b.
 * Formal definition from Lamport: A system is distributable if the **message transmission time** $𝑇_𝑚$ is not negligible(可忽略不计的) to the time between events in a **single process** $𝑇_𝑒$.
     
@@ -36,7 +36,7 @@
     - We'll have a **local clock (counter)** attached to each process. The time stamp would be the counter value.
     - The counter value is **monotonically increasing**.
     - The **time stamp** of communication events will be **either** the counter value of the **sender** process or the **receiver** process **whichever greater**.
-* ![](https://i.imgur.com/Lf3VZkE.jpg)
+* <img src="https://i.imgur.com/Lf3VZkE.jpg" style="width: 800px" />
     * In condition 2, d has to be 3, event the previous counter in the process is 0. because the value has to be max counter of incoming message or the counter from local process.
 
 ### Logical Clock Conditions
@@ -84,7 +84,7 @@
 ### Lamport Physical Clock:
 
 * In real world scenarios, the logical clock might be drifting of the real time due to anomalies in the logical clocks.
-    - ![](https://i.imgur.com/FLPW4h0.jpg)
+    - <img src="https://i.imgur.com/FLPW4h0.jpg" style="width: 800px" />
 
 * We can say the event $𝑎$ happened before event $𝑏$ in real time $(a \mapsto b)$ if:
     - $C_i(a) < C_j(b)$
@@ -107,9 +107,9 @@
             - difference equation formulation of PC1
     * Using equation 1 and 2, and bound $\epsilon$ on mutual drift: $\textcolor{red}{\mu \ge \epsilon / (1 - k)}$ to avoid anomalies.
     * Real world scenario, target for interprocess communication time > mutual clock drift
-        * ![](https://i.imgur.com/D1GfmR9.jpg)
+        * <img src="https://i.imgur.com/D1GfmR9.jpg" style="width: 800px" />
             * $\mu < \epsilon$
-        * ![](https://i.imgur.com/ptnh3Hf.jpg)
+        * <img src="https://i.imgur.com/ptnh3Hf.jpg" style="width: 800px" />
             * $\mu > \epsilon$
 
 ## L05c. Latency Limits
@@ -148,7 +148,7 @@
 #### Marshaling and Data Copying
 
 * Making an RPC call involves three data copies:
-    * ![](https://i.imgur.com/g24aKmd.jpg)
+    * <img src="https://i.imgur.com/g24aKmd.jpg" style="width: 800px" />
     - First copy: The client stub takes the arguments of the RPC and converts it to an RPC message.
     - Second copy: The kernel has to copy the RPC message from the memory space it resides on to its own buffer.
     - Third copy: The network controller will then copy the RPC message from the kernel buffer to its internal buffer using DMA. This is an unavoidable hardware action.
@@ -159,7 +159,7 @@
 
 #### Control Transfer
 
-![](https://i.imgur.com/BaMWS14.jpg)
+<img src="https://i.imgur.com/BaMWS14.jpg" style="width: 800px" />
 
 * This includes the multiple **context switches** that have to happen to execute an RPC call:
     1. When the client makes an RPC call, it blocks till it receives the results. The kernel makes a context switch to serve another process. This is important to make sure that the client node is not underutilized.
@@ -185,7 +185,7 @@
 
 Note from Computer Network course: https://cs.ericyy.me/cs6250/week-7-software-defined-networking-part-1/index.html#1-active-networks
 
-![](https://i.imgur.com/x6ApgQo.jpg)
+<img src="https://i.imgur.com/x6ApgQo.jpg" style="width: 800px" />
 
 * The primary issue once a packet leaves a node in a distributed system is to route the packet reliably and quickly to its destination.
 * The intermediate routers have routing tables. The routing table determine, given the packet destination, what the next hub for this packet is. This is done by a simple table lookup.
@@ -195,7 +195,7 @@ Note from Computer Network course: https://cs.ericyy.me/cs6250/week-7-software-d
 
 ### How to implement Active Networks
 
-![](https://i.imgur.com/eFU4WUc.jpg)
+<img src="https://i.imgur.com/eFU4WUc.jpg" style="width: 800px" />
 
 * The OS provides **Quality of Service (QoS) APIs** to the application. These APIs will be used by the application to give the OS an idea about the nature of the message.
 * The OS uses QoS to synthesize code and creates the packet (IP-header + code + payload) that will be handed to the internet.
@@ -205,7 +205,7 @@ Note from Computer Network course: https://cs.ericyy.me/cs6250/week-7-software-d
 
 ### Active Node Transfer System (ANTS) Toolkit
 
-![](https://i.imgur.com/0rdsixp.jpg)
+<img src="https://i.imgur.com/0rdsixp.jpg" style="width: 800px" />
 
 * The ANTS Toolkit is an application level package that takes the payload and QoS from the application and create a capsule (ANTS header + payload) that is passed to the protocol stack.
 * The protocol stack will create the packet by adding an IP header to the capsule.
@@ -215,7 +215,7 @@ Note from Computer Network course: https://cs.ericyy.me/cs6250/week-7-software-d
 
 ### ANTS Capsules
 
-![](https://i.imgur.com/IiYNvFF.jpg)
+<img src="https://i.imgur.com/IiYNvFF.jpg" style="width: 800px" />
 
 * ANTS header consists of:
     - **Type field**: An MD5 hash of the code to be executed.
@@ -231,7 +231,7 @@ Note from Computer Network course: https://cs.ericyy.me/cs6250/week-7-software-d
 
 #### Capsule Implementation
 
-![](https://i.imgur.com/w1hdBEI.jpg)
+<img src="https://i.imgur.com/w1hdBEI.jpg" style="width: 800px" />
 
 * When a node receives a capsule, one of two possibilities can happen:
     1. If this node had received capsules of this type before:
@@ -292,7 +292,7 @@ The roadblocks to the Active Network vision:
 
 ### Design Cycle
 
-![](https://i.imgur.com/g5z3o54.jpg)
+<img src="https://i.imgur.com/g5z3o54.jpg" style="width: 800px" />
 
 * **Specification**: **IOA**(I/O automata) is used to express abstract specifications of the system at the level of individual components.
     - C-like syntax.
@@ -305,7 +305,7 @@ The roadblocks to the Active Network vision:
 
 ### From Specifications to Implementation
 
-![](https://i.imgur.com/LH32b1O.jpg)
+<img src="https://i.imgur.com/LH32b1O.jpg" style="width: 800px" />
 
 * Abstract Behavioral Specifications:
     - Describes the functionality of the sub-systems in terms of requirements using IOA.
@@ -319,7 +319,7 @@ The roadblocks to the Active Network vision:
 * The unoptimized NuPrl code will be converted to an optimized NuPrl code using the Theorem Prover Framework.
 * The optimized NuPrl code will be converted to an optimized OCAML code.
 
-![](https://i.imgur.com/t9MclNm.jpg)
+<img src="https://i.imgur.com/t9MclNm.jpg" style="width: 800px" />
 
 ### Synthesizing a TCP-IP Stack
 
@@ -337,9 +337,9 @@ The roadblocks to the Active Network vision:
     - **Dynamic optimization**: Collapsing multiple layers, if possible, to avoid latency.
         - This is achieved by deriving **common case predicates**(CCP) from the state of the protocol using conditional statements.
         - If the CCP is satisfied, the protocol layers will be bypassed by a generated code for this CCP.
-    - ![](https://i.imgur.com/MaDojhz.jpg)
+    - <img src="https://i.imgur.com/MaDojhz.jpg" style="width: 800px" />
 
-![](https://i.imgur.com/XTCSOpi.jpg)
+<img src="https://i.imgur.com/XTCSOpi.jpg" style="width: 800px" />
 
 
 |   |  2 |  3 |  4 |  5 |  6 |  7 |  8 |
