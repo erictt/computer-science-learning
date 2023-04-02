@@ -301,6 +301,5 @@ The primitives available in Coral for manipulating the sloppy DHT are put and ge
 
 ### Conclusion
 
-- Coral offers a participatory approach to democratize content generation, storage, and distribution.
-- Commercial CDNs like Akamai contractually mirror content for customers and deploy their own mirrors to deal with increases in requests.
-- Lesson module on Internet Scale Computing is complete.
+- Lesson covered DHTs, CDNs, key-based routing, and sloppy DHT.
+- Coral System democratizes content generation, storage, and distribution through a participatory approach.
