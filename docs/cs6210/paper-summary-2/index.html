@@ -95,9 +95,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6210/lesson-07a/index.html">Lesson 7: Distributed Subsystems - GMS</a></li>
 <li><a href="/cs6210/lesson-07b/index.html">Lesson 7: Distributed Subsystems - DSM</a></li>
 <li><a href="/cs6210/lesson-07c/index.html">Lesson 7: Distributed Subsystems - DFS</a></li>
+<li><a href="/cs6210/lesson-09/index.html">Lesson 9: Internet Computing</a></li>
 </ul>
 <!--
-* [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
 * [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
 * [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
 * [Lesson 11: Security](/cs6210/lesson-11/index.html)
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/symbols/index.html">Symbols of Mathematics</a></li>
 <li><a href="/glossary/index.html">Glossary</a></li>
 </ul>
-<h2 id="about-me"><a class="markdownIt-Anchor" href="#about-me"></a> <a target="_blank" rel="noopener" href="https://ericyy.me/about/">About Me</a></h2>
+<h2 id="about-me"><a class="markdownIt-Anchor" href="#about-me"></a> <a target="_blank" rel="noopener" href="https://ericy.me/about/">About Me</a></h2>
 
 </div>
 
@@ -323,7 +323,7 @@ function sidebar_toggle() {
 <p>The model expresses the computation as two functions: <strong>Map</strong> and <strong>Reduce</strong>.</p>
 <ul>
 <li><strong>Map</strong>: processes input pairs, producing intermediate key/value pairs, and forward them to the reduce function.</li>
-<li><strong>Reduce</strong>: receive intermediate keys and associated set of values, aggragate the values to form a possibly smaller set of values.<br>
+<li><strong>Reduce</strong>: receive intermediate keys and associated set of values, aggregate the values to form a possibly smaller set of values.<br>
 The paper gives several examples, including distribute grep, count of URL access frequency, reverse web-link graph, etc.</li>
 </ul>
 <h2 id="implementation"><a class="markdownIt-Anchor" href="#implementation"></a> Implementation</h2>
@@ -340,7 +340,7 @@ The paper gives several examples, including distribute grep, count of URL access
 <li>Once all tasks are complete, the master signals the user program, and the MapReduce call returns to the user code.</li>
 </ol>
 </li>
-<li>The master keeps several data strcutures such as the identity, task and state of each worker, and also conduit the intermediate file regoins for propagating map tasks to reduce tasks.</li>
+<li>The master keeps several data structures such as the identity, task, and state of each worker, and also conduit the intermediate file regions for propagating map tasks to reduce tasks.</li>
 <li>MapReduce ensures fault tolerance through:
 <ol>
 <li>Detecting and rescheduling failed tasks on idle workers.</li>
@@ -348,19 +348,19 @@ The paper gives several examples, including distribute grep, count of URL access
 <li>Creating temporary output files and promoting them to final output files atomically to avoid inconsistencies.</li>
 </ol>
 </li>
-<li>The master also take the location of input files into account to save network bandwidth.</li>
+<li>The master also takes the location of input files into account to save network bandwidth.</li>
 <li>In practice, the pieces of map phase and reduce phase should be much larger than the number of workers to improve dynamic load balancing and failure recovery.</li>
-<li>To handle the problem of stragglers, MapReduce typically increase the computational resoruces by a few percent which significantly reduce the time to complete large operations.</li>
+<li>To handle the problem of stragglers, MapReduce typically increase the computational resources by a few percent, which significantly reduce the time to complete large operations.</li>
 </ul>
 <h2 id="refinements"><a class="markdownIt-Anchor" href="#refinements"></a> Reﬁnements</h2>
 <ol>
-<li><strong>Partition Function</strong>:  In addition to the default partitioning function, the user can provide a special functionto avoid imbalanced partitioning.</li>
+<li><strong>Partition Function</strong>:  In addition to the default partitioning function, the user can provide a special function to avoid imbalanced partitioning.</li>
 <li><strong>Ordering Guarantees</strong>: MapReduce guarantees the order of the intermediate key/value pairs within a given partition.</li>
 <li><strong>Combiner Function</strong>: A user-specified function that aggregates intermediate key/value pairs on the map worker before transferring data to reduce workers, reducing network traffic and increasing efficiency.</li>
 <li><strong>Input and Output Types</strong>: Allowing users to specify custom input and output types, enabling the system to handle various data formats and sources.</li>
 <li><strong>Side-effects</strong>: Tasks that produce multiple output ﬁles with cross-ﬁle consistency requirements should be deterministic.</li>
 <li><strong>Skipping Bad Records</strong>: Implementing a mechanism to skip over problematic input records, enhancing fault tolerance and ensuring successful job completion despite occasional corrupt or ill-formatted data.</li>
-<li><strong>Local Execution</strong>: MapReduce offers an alternative implementation of the MapReduce library that sequentially executes all of the work for a MapReduce operation on the local machine for debugging, profiling, and small-scale testing.</li>
+<li><strong>Local Execution</strong>: MapReduce offers an alternative implementation of the MapReduce library that sequentially executes all the work for a MapReduce operation on the local machine for debugging, profiling, and small-scale testing.</li>
 <li><strong>Status Information</strong>: Providing real-time status information about the ongoing computation, enabling users to monitor progress and diagnose issues.</li>
 <li><strong>Counters</strong>: Offering user-defined counters to track global information during the MapReduce execution, facilitating debugging and optimization.</li>
 </ol>
@@ -373,16 +373,16 @@ The paper gives several examples, including distribute grep, count of URL access
 <li><strong>Efficiency</strong>: The system demonstrates competitive or superior performance compared to alternative solutions, attributed to its automatic parallelization and built-in optimizations.</li>
 </ol>
 <h2 id="experience"><a class="markdownIt-Anchor" href="#experience"></a> Experience</h2>
-<p>MapReduce has been used across a wide range od domains in Google. One of our most significant uses is the rewrite of the indexing system. The key benefits:</p>
+<p>MapReduce has been used across a wide range of domains in Google. One of our most significant uses is the rewrite of the indexing system. The key benefits:</p>
 <ol>
-<li>The code that deals with fault tolerance, distribution and parallelization is hidden by MapReduce.</li>
+<li>The code that deals with fault tolerance, distribution, and parallelization is hidden by MapReduce.</li>
 <li>Unrelated computations are separated.</li>
-<li>Indexing proecss becomes eaiser to operate by leavraging MapReduce to handle the machine failures, networking hiccups, etc.</li>
+<li>Indexing process becomes easier to operate by leveraging MapReduce to handle the machine failures, networking hiccups, etc.</li>
 </ol>
 <h2 id="related-work"><a class="markdownIt-Anchor" href="#related-work"></a> Related Work</h2>
-<p>The paper compares MapReduce with variety of paarallel programming models such as Bulk Sysnchronous Programming, MPI, River, BAD-FS, TACC, etc. to emphise the key differences and similarities that MapReduce introduces, e.g. locality optimization and buckup taks mechanism.</p>
+<p>The paper compares MapReduce with variety of parallel programming models such as Bulk Synchronous Programming, MPI, River, BAD-FS, TACC, etc. to emphasize the key differences and similarities that MapReduce introduces, e.g., locality optimization and backup task mechanism.</p>
 <h2 id="conclusions"><a class="markdownIt-Anchor" href="#conclusions"></a> Conclusions</h2>
-<p>The MapReduce model is easy to use and can be adapted to a large variety of problems. In practise, restricting the model makes it easy to parallielize and distribute computations. Network bandwidth is a scarce resource with some optimization such as reading data from local disks. Redundant execution can be used to reduce the impact of slow machines.</p>
+<p>The MapReduce model is easy to use and can be adapted to a large variety of problems. In practice, restricting the model makes it easy to parallelize and distribute computations. Network bandwidth is a scarce resource, with some optimization, such as reading data from local disks. Redundant execution can be used to reduce the impact of slow machines.</p>
 
 </div>
 
