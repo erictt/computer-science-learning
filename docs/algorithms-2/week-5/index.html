@@ -344,7 +344,7 @@ function sidebar_toggle() {
 <ul>
 <li>RE enclosed in parentheses.</li>
 <li>One state per Re character (start = 0, accept = M).</li>
-<li>Red <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mrow><mi>ϵ</mi><mtext>-transition</mtext></mrow></mstyle></mrow><annotation encoding="application/x-tex">\color{red}{\epsilon\text{-transition}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66786em;vertical-align:0em;"></span><span class="mord" style="color:red;"><span class="mord mathnormal" style="color:red;">ϵ</span><span class="mord text" style="color:red;"><span class="mord" style="color:red;">-transition</span></span></span></span></span></span> (change state, but don’t scan text);</li>
+<li>Red <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mrow><mi>ϵ</mi><mtext>-transition</mtext></mrow></mstyle></mrow><annotation encoding="application/x-tex">\color{red}{\epsilon\text{-transition}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6679em;"></span><span class="mord" style="color:red;"><span class="mord mathnormal" style="color:red;">ϵ</span><span class="mord text" style="color:red;"><span class="mord" style="color:red;">-transition</span></span></span></span></span></span> (change state, but don’t scan text);</li>
 <li>Black match transition (change state and scan to next text char).</li>
 <li>Accept if <strong>any</strong> sequence of transitions ends in accept state.</li>
 </ul>
@@ -354,14 +354,14 @@ function sidebar_toggle() {
 <li>
 <img src="https://i.imgur.com/OZPphzB.jpg" style="width:600px" />
 </li>
-<li>Red directions are <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">ϵ</span></span></span></span> transition which are stored in a <strong>digraph</strong> G.
+<li>Red directions are <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ϵ</span></span></span></span> transition which are stored in a <strong>digraph</strong> G.
 <ul>
 <li>0→1, 1→2, 1→6, 2→3, 3→2, 3→4, 5→8, 8→9, 10→11</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>The general steps are to find states reachableeither by either match transitions or <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mrow><mi>ϵ</mi><mtext>-transition</mtext></mrow></mstyle></mrow><annotation encoding="application/x-tex">\color{red}{\epsilon\text{-transition}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66786em;vertical-align:0em;"></span><span class="mord" style="color:red;"><span class="mord mathnormal" style="color:red;">ϵ</span><span class="mord text" style="color:red;"><span class="mord" style="color:red;">-transition</span></span></span></span></span></span> alternatively.</li>
+<li>The general steps are to find states reachableeither by either match transitions or <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mrow><mi>ϵ</mi><mtext>-transition</mtext></mrow></mstyle></mrow><annotation encoding="application/x-tex">\color{red}{\epsilon\text{-transition}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6679em;"></span><span class="mord" style="color:red;"><span class="mord mathnormal" style="color:red;">ϵ</span><span class="mord text" style="color:red;"><span class="mord" style="color:red;">-transition</span></span></span></span></span></span> alternatively.</li>
 <li>Take <code>A A B D</code> as an example to simulate the RE.
 <ul>
 <li>

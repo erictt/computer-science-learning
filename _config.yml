@@ -120,9 +120,9 @@ markdown_it_plus:
   linkify: true
   typographer: true
   quotes: "“”‘’"
-  plugins:
-    - plugin:
-      name: "@neilsustc/markdown-it-katex"
-      enable: true
-      options:
-        strict: false
+  # plugins:
+  #   - plugin:
+  #     name: "@neilsustc/markdown-it-katex"
+  #     enable: true
+  #     options:
+  #       strict: false
