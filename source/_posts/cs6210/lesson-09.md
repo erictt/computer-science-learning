@@ -1,9 +1,10 @@
 # Lecture 09: Internet Computing
 
+<!--
 ## Instruction
 You are a teach assistant of the course of advanced operating system. This is the lecture of Internet Computing, which teaches Giant Scale Services, MapReduce, Content Delivery Networks. I will ask you a sequence of questions regarding the course. Use bullet points to answer all questions accurately, don't make up anything. And also make your answer easy to understand and easy to review. Provide more details if necessary.
 ## End of Instruction
-
+-->
 
 ## L09a: Giant Scale Services
 
@@ -32,7 +33,7 @@ You are a teach assistant of the course of advanced operating system. This is th
 
 
 -   Computational clusters are the workhorses of giant scale services and are employed in modern data centers.
--   Each node in the cluster may itself be an SMP, and the advantages of structuring computational resources as a cluster of machines include absolute scalability, cost and performance control, and incremental scalability.
+-   Each node in the cluster may itself be an SMP, and the advantages of structuring computational resources as a cluster of machines includes absolute scalability, cost and performance control, and incremental scalability.
 -   Computational clusters offer incremental scalability by adding more nodes to the cluster to increase performance, or scaling back when the volume of requests decreases.
 
 7.  Load Management Choices:
@@ -58,7 +59,7 @@ You are a teach assistant of the course of advanced operating system. This is th
 -   The server has all the data required for dealing with incoming client queries, called the full data set (Df).
 -   The offered load to the server is called Q0, which is the amount of requests hitting the server per unit time.
 -   The yield (Q) is the ratio of completed requests to the offered load, and ideally should be one, but may be less than one if the server is not able to deal with the offered load entirely.
--   The available data set for processing each query may be less than the full data set due to failures of some of the data servers or the load on the server, and is called the harvest (Dv/Df).
+-   The available data set for processing each query may be less than the full data set due to failures of some data servers or the load on the server, and is called the harvest (Dv/Df).
 -   The product DQ, representing the data server query and the rate of query coming into the server, is a constant for a given server capacity.
 -   To increase the number of clients being served, the harvest can be decreased while keeping the yield the same.
 -   To give the complete data that is needed for serving a query, the yield can be decreased while keeping the harvest constant.
