@@ -69,10 +69,10 @@
 * [P2L5 - Thread Performance Considerations](/cs6200/p2l5-thread-performance-consideration/index.html)
 * [P3L1 - Scheduling](/cs6200/p3l1-scheduling/index.html)
 * [P3L2 - Memory Management](/cs6200/p3l2-memory-management/index.html)
-* [P3L3 - Inter-Process Communication](/cs6200/p3l3-inter-process-communication/index.html) 
-* [P3L4 - Synchronization Constructs](/cs6200/p3l4-synchronization-constructs/index.html) 
-* [P3L5 - I/O Management](/cs6200/p3l5-io-management/index.html) 
-* [P3L6 - Virtualization](/cs6200/p3l6-virtualization/index.html) 
+* [P3L3 - Inter-Process Communication](/cs6200/p3l3-inter-process-communication/index.html)
+* [P3L4 - Synchronization Constructs](/cs6200/p3l4-synchronization-constructs/index.html)
+* [P3L5 - I/O Management](/cs6200/p3l5-io-management/index.html)
+* [P3L6 - Virtualization](/cs6200/p3l6-virtualization/index.html)
 
 <!--
 * [P4L1 - Remote Procedure Calls](/cs6200/p4l1-remote-procedure-calls/index.html) 
@@ -114,7 +114,7 @@
 
 ## LAFF Linear Algebra
 
-* [Week 1 - Vectors in Linear Algebra](/laff-linear-algebra/week-1/index.html) 
+* [Week 1 - Vectors in Linear Algebra](/laff-linear-algebra/week-1/index.html)
 * [Week 2 - Linear Transformations and Matrices](/laff-linear-algebra/week-2/index.html)
 * [Week 3 - Matrix-Vector Operations](/laff-linear-algebra/week-3/index.html)
 * [Week 4 - Matrix-Vector to Matrix-Matrix Multiplication](/laff-linear-algebra/week-4/index.html)
@@ -173,13 +173,11 @@
 * [Lecture 12 - Machine Learning](/computational-thinking/lecture-12/index.html)
 * [Lecture 13 - Statistical Abuses](/computational-thinking/lecture-13/index.html)
 
-
 ## Effective Thinking Through Mathematics
 
 * [Note](/effective-thinking-through-mathematics/note/index.html)
 * [Week 4 (/Telling the Story of Infinity)](/effective-thinking-through-mathematics/week-4-telling-the-story-of-infinity/index.html)
 * [Week 5 (/Telling the Story of Euler Circuit Theorem)](/effective-thinking-through-mathematics/week-5-telling-the-story-of-the-euler-circuit-theorem/index.html)
-
 
 ## CS50 Introduction to Computer Science
 
@@ -196,4 +194,4 @@
 * [Symbols of Mathematics](/symbols/index.html)
 * [Glossary](/glossary/index.html)
 
-## [About Me](https://ericyy.me/about/)
+## [About Me](https://ericy.me/about/)
