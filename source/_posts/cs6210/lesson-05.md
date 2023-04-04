@@ -7,11 +7,10 @@
 
 * A Distributed System is a collection of **nodes connected** by a LAN/WAN.
 * No physical memory is shared between nodes on a Distributed System. Nodes communicate by sending messages on the network.
-* The **communication time/messaging time**  is much larger than the **Event Computation Time** (the time a node takes to complete a process).
+* The **communication time/messaging time**  is much larger than the **event computation time** (the time a node takes to complete a process).
     * <img src="https://i.imgur.com/lXrR5di.jpg" style="width: 800px" />
-    * NOTE how it's calculated. $t_m$ is a->c. $t_e$ is a-b.
+    * NOTE how it's calculated. $t_m$ is a->c. $t_e$ is a->b.
 * Formal definition from Lamport: A system is distributable if the **message transmission time** $𝑇_𝑚$ is not negligible(可忽略不计的) to the time between events in a **single process** $𝑇_𝑒$.
-    
 
 ### Distributed System Events Ordering
 
@@ -32,29 +31,29 @@
     - Its own events.
     - Its communication events.
 * Lamport's logical clocks:
-    - The idea here is that we need to associate a time stamp with each event in the entire distributed system.
+    - The idea here is that we need to associate a timestamp with each event in the entire distributed system.
     - We'll have a **local clock (counter)** attached to each process. The time stamp would be the counter value.
     - The counter value is **monotonically increasing**.
-    - The **time stamp** of communication events will be **either** the counter value of the **sender** process or the **receiver** process **whichever greater**.
+    - The **timestamp** of communication events will be **either** the counter value of the **sender** process or the **receiver** process **whichever greater**.
 * <img src="https://i.imgur.com/Lf3VZkE.jpg" style="width: 800px" />
-    * In condition 2, d has to be 3, event the previous counter in the process is 0. because the value has to be max counter of incoming message or the counter from local process.
+- In condition 2, d has to be 3, even the previous counter in the process is 0. Because the value has to be max counter of incoming message or the counter from local process.
 
 ### Logical Clock Conditions
 
 * If we have two events 𝑎 and 𝑏 in the **same process** 𝑖, then $𝐶_𝑖(𝑎) < 𝐶_𝑖(𝑏)$.
 * If we have a communication event between event 𝑎 on process 𝑖 and event 𝑑 on process $j$ then:
-    - $𝐶_𝑎 < 𝐶_𝑗(𝑑)$
+    - $𝐶_i(𝑎) < 𝐶_𝑗(𝑑)$
     - $C_j(a) = \max(𝐶_𝑗(𝑎)++ , 𝐶_𝑗)$
-* If we have two **concurrent** events 𝑏 and 𝑑, then the **time stamps** will be **arbitrary**.
+* If we have two **concurrent** events 𝑏 and 𝑑, then the **timestamps** will be **arbitrary**.
 * This means that Lamport Clocks gives us a **partial order** of all the events happening on the distributed system.
 * $c(x) < c(y) \ne x → y$ 
 
 ### Lamport Total Order
 
-* If we have two events $𝑎$ process $𝑖$ and $𝑏$ on process $j$, and we can to assert that $𝑎$ is totally ordered ahead of $𝑏$: $(𝑎 ⇒ 𝑏)$ iff
+* If we have two events $𝑎$ on process $𝑖$ and $𝑏$ on process $j$, and we can to assert that $𝑎$ is totally ordered ahead of $𝑏$: $(𝑎 ⇒ 𝑏)$ iff
     - $𝐶_𝑖(𝑎) < 𝐶_j(𝑑)$ or
-    - $𝐶_𝑖(𝑎) = 𝐶_𝑗(𝑑)$ and $𝑃_𝑖 ≪ 𝑃_j$, where (`≪`) is and arbitrary well-known condition to break the tie (e.g. the greater the process ID the higher the order). 
-* Once we get the total order, time stamps are meaningless.
+    - $𝐶_𝑖(𝑎) = 𝐶_𝑗(𝑑)$ and $𝑃_𝑖 ≪ 𝑃_j$, where (`≪`) is an arbitrary well-known condition to break the tie (e.g. the greater the process ID the higher the order). 
+* Once we get the total order, timestamps are meaningless.
 
 ### Distributed Mutual Exclusion (ME) Lock Algorithm
 
@@ -78,7 +77,7 @@
     - $𝑁 − 1$ acknowledge messages.
     - $𝑁 − 1$ unlock messages.
 * Can we do better?
-    - If a process $𝑖$ lock request precedes another process $𝑗$ request in the queue, we can defer the acknowledgement of $𝑖$ and use the unlock message itself as an acknowledgement for $𝑗$.
+    - If a process $𝑖$ lock request precedes another process $𝑗$ lock request in the queue, we can defer the acknowledgement of $𝑖$ and use the unlock message itself as an acknowledgement for $𝑗$.
         - combine with unlock => $2(N-1)$
 
 ### Lamport Physical Clock:
@@ -97,7 +96,7 @@
         * mutual clock drift $\epsilon$, 
             * The time difference between the time i think and the time the other think.
         * individual clock drift $k$, 
-            * Individual clock drift is what my clock is reading at any point of time and how far off is it from real time.
+            * Individual clock drift is, what my clock is reading at any point of time, and how far off is it from real time.
         * the interprocess communication time $\mu$.
     * Let $\mu$ be the lower bound on IPC, to avoid anomalies when: $a_i\ \text{on}\ P_i \mapsto \textcolor{green}{a_b\ \text{on}\ P_j}$
         1. $C_i(t + \mu) - \textcolor{green}{C_j(t)} > 0$

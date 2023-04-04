@@ -215,7 +215,7 @@ The API for manipulating the distributed hash table data structure includes putk
 
 <img src="https://i.imgur.com/WApbZ7g.png" style="width: 800px" />
 
-- The traditional approach for constructing a distributed hash table involves a greedy algorithm where a key value is placed in a node that is very close to the key. When retrieving a key, the algorithm looks for the node closest to the key.
+- The traditional approach for constructing a distributed hash table involves a greedy algorithm where a key value is placed **in a node that is very close to the key**. When retrieving a key, the algorithm looks for the node closest to the key.
 - Routing tables at each node in the system only list the nodes that can be communicated with directly.
 - If a node is not in the routing table, the algorithm goes to a node that is close enough to the desired node, hoping that it will know how to communicate with the desired node.
 - The goal of the greedy approach is to get to the desired destination as quickly as possible with the minimum number of hops.
@@ -252,29 +252,29 @@ The API for manipulating the distributed hash table data structure includes putk
 - In each hop, the Coral key-based routing goes to some node that is half the distance to the destination in the node ID namespace. 
 - If the node does not have a direct way to reach the desired node, and a nearby node is contacted to obtain information on nodes that are close enough to the desired destination.
 
-<img src="https://i.imgur.com/zKcI0Q5.png" style="width: 800px" />
+
+<img src="https://i.imgur.com/nZB7ecL.png" style="width: 800px" />
 
 ### Coral Sloppy DHT 
 
 The primitives available in Coral for manipulating the sloppy DHT are put and get operations.
 
-#### Put Operation
+<img src="https://i.imgur.com/AAkIGy4.png" style="width: 800px" />
 
-<img src="https://i.imgur.com/x6q3TsB.png" style="width: 800px" />
+#### Put Operation
 
 - The put operation takes two parameters: key and value.
 	- Key is the content hash, and value is the node ID of the proxy with the content for that key.
 - Put can be initiated by the origin server or a node that wants to serve as a proxy.
 - The result of doing the put operation is to store this key value in some metadata server.
 - We need to place this key value in an appropriate node based on space and time metrics.
-- **Full** state means a particular node is already storing l values for a key.
-- **Loaded** is stating how many requests per unit time a node is willing to entertain for a particular key.
+- **Full** state means a particular node is already storing $l$ values for **a particular key**.
+- **Loaded** is stating how many requests per unit time a node is willing to entertain for **a particular key**.
 - The Coral key-based routing algorithm reduces the distance by half to find the appropriate node to place the key.
 - We ask each node along the way if it is loaded or full, and if it is, we retract our steps and choose an appropriate node.
 - The Coral put operation chooses an appropriate node that is neither full nor loaded to entertain requests for retrieving the particular key value pair.
 
 #### Get Operation
-<img src="https://i.imgur.com/5UOslTS.png" style="width: 800px" />
 
 - The get operation works similarly to the put operation.
 - We go to a node that is half the distance to the key we are looking for.
@@ -292,12 +292,12 @@ The primitives available in Coral for manipulating the sloppy DHT are put and ge
 - Jacques uses Coral to get the content by following the key-based routing algorithm and ends up at David's computer.
 	- <img src="https://i.imgur.com/DIWu4Y9.png" style="width: 800px" />
 
-- Jacques serves as a proxy for the content and puts a new key value pair in the system.
+- Jacques serves as a proxy for the content and puts a new key value pair in the system. But **David can only handle one key**, so Jacques backtrack to a middle point.
 	- <img src="https://i.imgur.com/wTgwlKd.png" style="width: 800px" />
 
 - Kamal also uses Coral to get the content and ends up getting it from Jacques, who serves as a proxy.
 	- <img src="https://i.imgur.com/6uhBtdH.png" style="width: 800px" />
-- The metadata server load is distributed and the origin server is not stressed.
+- KEY OUTPUT: **The metadata server load is distributed and the origin server is not stressed.**
 
 ### Conclusion
 

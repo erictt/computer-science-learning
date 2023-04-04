@@ -96,9 +96,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/cs6210/lesson-07b/index.html">Lesson 7: Distributed Subsystems - DSM</a></li>
 <li><a href="/cs6210/lesson-07c/index.html">Lesson 7: Distributed Subsystems - DFS</a></li>
 <li><a href="/cs6210/lesson-09/index.html">Lesson 9: Internet Computing</a></li>
+<li><a href="/cs6210/lesson-10/index.html">Lesson 10: RT and Multimedia</a></li>
 </ul>
 <!--
-* [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
 * [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
 * [Lesson 11: Security](/cs6210/lesson-11/index.html)
 -->
@@ -512,7 +512,7 @@ You are a teach assistant of the course of advanced operating system. This is th
 <h3 id="traditionalgreedy-approach"><a class="markdownIt-Anchor" href="#traditionalgreedy-approach"></a> Traditional(Greedy) Approach</h3>
 <img src="https://i.imgur.com/WApbZ7g.png" style="width: 800px" />
 <ul>
-<li>The traditional approach for constructing a distributed hash table involves a greedy algorithm where a key value is placed in a node that is very close to the key. When retrieving a key, the algorithm looks for the node closest to the key.</li>
+<li>The traditional approach for constructing a distributed hash table involves a greedy algorithm where a key value is placed <strong>in a node that is very close to the key</strong>. When retrieving a key, the algorithm looks for the node closest to the key.</li>
 <li>Routing tables at each node in the system only list the nodes that can be communicated with directly.</li>
 <li>If a node is not in the routing table, the algorithm goes to a node that is close enough to the desired node, hoping that it will know how to communicate with the desired node.</li>
 <li>The goal of the greedy approach is to get to the desired destination as quickly as possible with the minimum number of hops.</li>
@@ -578,11 +578,11 @@ You are a teach assistant of the course of advanced operating system. This is th
 <li>In each hop, the Coral key-based routing goes to some node that is half the distance to the destination in the node ID namespace.</li>
 <li>If the node does not have a direct way to reach the desired node, and a nearby node is contacted to obtain information on nodes that are close enough to the desired destination.</li>
 </ul>
-<img src="https://i.imgur.com/zKcI0Q5.png" style="width: 800px" />
+<img src="https://i.imgur.com/nZB7ecL.png" style="width: 800px" />
 <h3 id="coral-sloppy-dht"><a class="markdownIt-Anchor" href="#coral-sloppy-dht"></a> Coral Sloppy DHT</h3>
 <p>The primitives available in Coral for manipulating the sloppy DHT are put and get operations.</p>
+<img src="https://i.imgur.com/AAkIGy4.png" style="width: 800px" />
 <h4 id="put-operation"><a class="markdownIt-Anchor" href="#put-operation"></a> Put Operation</h4>
-<img src="https://i.imgur.com/x6q3TsB.png" style="width: 800px" />
 <ul>
 <li>The put operation takes two parameters: key and value.
 <ul>
@@ -592,14 +592,13 @@ You are a teach assistant of the course of advanced operating system. This is th
 <li>Put can be initiated by the origin server or a node that wants to serve as a proxy.</li>
 <li>The result of doing the put operation is to store this key value in some metadata server.</li>
 <li>We need to place this key value in an appropriate node based on space and time metrics.</li>
-<li><strong>Full</strong> state means a particular node is already storing l values for a key.</li>
-<li><strong>Loaded</strong> is stating how many requests per unit time a node is willing to entertain for a particular key.</li>
+<li><strong>Full</strong> state means a particular node is already storing <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span></span></span></span> values for <strong>a particular key</strong>.</li>
+<li><strong>Loaded</strong> is stating how many requests per unit time a node is willing to entertain for <strong>a particular key</strong>.</li>
 <li>The Coral key-based routing algorithm reduces the distance by half to find the appropriate node to place the key.</li>
 <li>We ask each node along the way if it is loaded or full, and if it is, we retract our steps and choose an appropriate node.</li>
 <li>The Coral put operation chooses an appropriate node that is neither full nor loaded to entertain requests for retrieving the particular key value pair.</li>
 </ul>
 <h4 id="get-operation"><a class="markdownIt-Anchor" href="#get-operation"></a> Get Operation</h4>
-<img src="https://i.imgur.com/5UOslTS.png" style="width: 800px" />
 <ul>
 <li>The get operation works similarly to the put operation.</li>
 <li>We go to a node that is half the distance to the key we are looking for.</li>
@@ -632,7 +631,7 @@ You are a teach assistant of the course of advanced operating system. This is th
 </ul>
 </li>
 <li>
-<p>Jacques serves as a proxy for the content and puts a new key value pair in the system.</p>
+<p>Jacques serves as a proxy for the content and puts a new key value pair in the system. But <strong>David can only handle one key</strong>, so Jacques backtrack to a middle point.</p>
 <ul>
 <li>
 <img src="https://i.imgur.com/wTgwlKd.png" style="width: 800px" />
@@ -648,7 +647,7 @@ You are a teach assistant of the course of advanced operating system. This is th
 </ul>
 </li>
 <li>
-<p>The metadata server load is distributed and the origin server is not stressed.</p>
+<p>KEY OUTPUT: <strong>The metadata server load is distributed and the origin server is not stressed.</strong></p>
 </li>
 </ul>
 <h3 id="conclusion-3"><a class="markdownIt-Anchor" href="#conclusion-3"></a> Conclusion</h3>
