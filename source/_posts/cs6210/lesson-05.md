@@ -115,34 +115,37 @@
 
 ### Introduction
 
-* Network communication is a key factor in determining the performance of a distributed system. Hence, the OS has to reduce the latency for the network services.
-* **Latency** vs **Throughput**:
+* Network communication is a key factor in determining the performance of a distributed system. The lesson will focus on practical techniques for achieving efficient network communication in the operating system, both by improving the application interface and the protocol stack.
+* What are **Latency** and **Throughput**:
     - Latency is the elapsed time for an event.
     - Throughput is the number of events that can be executed per unit time.
     - Higher bandwidth means higher throughput but doesn't necessarily result in lower latency.
-* Overhead on RPC:
-    - **Hardware overhead**: How the network controller is interfaced to the CPU. There are two types of network controllers:
-        1. DMA(direct memory access): The network controller moves bits of the message from system memory into its private buffer without intervention of the CPU.
-        2. The CPU does program I/O to move the bits from the memory into the buffer of the network controller.
-            - <img src="https://i.imgur.com/IctbBQw.jpg" style="width: 400px" />
-    - **Software overhead**: What the OS takes to prepare the message for transmission.
+- **RPC** is crucial to the performance of client-server based distributed systems, and latency for RPC-based communication is crucial to its performance.
+- The two components of latency for message communication in a distributed system are **hardware overhead** and **software overhead**.
+	- The **hardware overhead** involves moving the bits from the system memory into the internal buffer of the network controller, typically using DMA(direct memory access).
+		1. **DMA(direct memory access)**: The network controller moves bits of the message from system memory into its private buffer without intervention of the CPU.
+	        2. Another way is **the CPU does program I/O** to move the bits from the memory into the buffer of the network controller.
+	- The **software overhead** is added by the operating system to make the message available in the memory of the processor for transmission.
 
-### RPC Latency
+### Components of RPC
 
 <img src="https://i.imgur.com/mmW40zV.jpg" style="width: 400px" />
 
 * These are the steps needed to perform an RPC:
-    1. **Client call**: Setting up the arguments for the procedure call, and makes the call to the kernel. The kernel validates the call, marshals the arguments into a network packet and sets up the controller to do the transmission.
-    2. **Controller**: The controller moves the message to its own buffer, and then put it on the bus.
-    3. **Time on wire**: Depends on the available bandwidth.
-    4. **Interrupt handling**: The message arrives to the server as an interrupt. The **OS** moves the message to the server's controller buffer, and then to the node's memory.
-    5. **Server setup to execute the call**: Locating and dispatching the server procedure, unmarshal the arguments from the network packet.
-    6. **Server execution**: The server executes the call and sends the results to the client in the same way described above.
-    7. **Client setup to receive the results and restart execution**.
-* Source of overhead in RPC:
-    * Marshaling & Data copying
-    * Control transfer
-    * Protocol processing
+    1. **Client call**: This is where the client sets up the arguments for the call and makes a call into the kernel. The kernel then validates the call, marshals the arguments into a network packet, and sets up the controller to transmit the packet. This step includes activities by both the client program and the kernel to get the network packet ready for transmission.
+    2. **Controller**: This component is purely hardware-dependent and involves the time it takes for the controller to DMA the message into its buffer and put the message out on the wire.
+    3. **Time on wire**: The time it takes for the message to travel from the client to the server depends on the distance between them, the available bandwidth, and the presence of intermediate routers. The limiting factor is the speed of light.
+    4. **Interrupt handling**: When the message arrives on the server node, it triggers an interrupt that must be handled by the operating system. The bits from the network packet are moved into the controller buffer and then into the memory of the node. This step is responsible for preparing the data for the server procedure to execute.
+    5. **Server setup to execute the call**: Once the interrupt handling is complete, the server procedure must be located, dispatched, and the network packet unmarshalled to get the arguments for the call that the server procedure has to execute.
+    6. **Server execution**: This step involves actually executing the server procedure, and its duration depends on the complexity of the procedure and the processing power of the server.
+    7. **Server reply**: After the server procedure has completed execution, the server sends the reply back to the client. This involves converting the reply into a network packet and handing it over to the controller, which then puts it out on the wire. The client must receive the reply and set up to process it and restart its execution.
+- Overall, RPC latency involves a series of steps, including setup, transmission, and processing, that can cause significant delays in executing a remote procedure call. The details of each step vary depending on the hardware and network configuration and the complexity of the client-server application.
+
+### Source of overhead in RPC
+
+- Marshaling & Data copying
+* Control transfer
+* Protocol processing
 
 #### Marshaling and Data Copying
 
@@ -182,11 +185,13 @@
 
 ### Introduction
 
-Note from Computer Network course: https://cs.ericyy.me/cs6250/week-7-software-defined-networking-part-1/index.html#1-active-networks
+This part of the lesson focuses on accommodating the quality of service needs of individual packet flows through the network.
+
+Note from Computer Network course: https://cs.ericy.me/cs6250/week-7-software-defined-networking-part-1/index.html#1-active-networks
 
 <img src="https://i.imgur.com/x6ApgQo.jpg" style="width: 800px" />
 
-* The primary issue once a packet leaves a node in a distributed system is to route the packet reliably and quickly to its destination.
+* The primary question is, once a packet leaves a node in a distributed system, how to route the packet reliably and quickly to its destination.
 * The intermediate routers have routing tables. The routing table determine, given the packet destination, what the next hub for this packet is. This is done by a simple table lookup.
 * We can change this simple lookup to a code execution on the router. This is called **Active Networks**.
 * The packets will carry the payload and code to be executed by the router to determine what the next step for this packet is.
@@ -259,7 +264,7 @@ Note from Computer Network course: https://cs.ericyy.me/cs6250/week-7-software-d
     - Protection threats
         - ANTS runtime safety => Java sandboxing
         - Code spoofing => robust fingerprint
-        - software integrity => restricted API
+        - Software integrity => restricted API
     - Resource Management threats
         - At each node => restricted API
         - Flooding the network => Internet already susceptible
