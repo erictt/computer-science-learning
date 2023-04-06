@@ -58,7 +58,7 @@
 <img src="https://i.imgur.com/fqjELzn.jpg" style="width: 800px" />
 
 * Object invocation between client/server domains across the network is facilitated using the **Network Proxy**.
-* <u>Each domain has **multiple Network Proxies**</u> to communicate with different nodes on the network. This facilitates specialization since these different proxies can represent different protocols.
+* Each domain has **multiple Network Proxies** to communicate with different nodes on the network. This facilitates specialization since these different proxies can represent different protocols.
 * Network Proxies are invisible to the clients/servers.
 * How to establish communication over the network?
     - A Network Proxy ($\text{𝑃𝑟𝑜𝑥𝑦}_𝑠$) will be instantiated on the server node and a Door will be created for communication between this Proxy and the server domain through the Nucleus.
@@ -70,11 +70,12 @@
 
 <img src="https://i.imgur.com/pdKetTH.jpg" style="width: 800px" />
 
-* Spring OS facilitates providing different privilege levels for different clients using the “Front Object”.
+- A server object may need to provide different privilege levels to different clients. In Spring, the security model uses a **Front Object** to provide different privilege levels for different clients.
 * An underlying object may have a Front Object that is directly connected to it (without Doors).
 * Whenever a client domain tries to access this protected domain, the Front Object will check the **Access Control List (ACL)** to see what privileges this client domain has for accessing the protected domain.
 * Different instances of the Front Object can be created with different access policies to the same underlying object.
-* **Doors are software capabilities**, which means they can be passed from client domain to another. When passing a Door, the client domain can determine whether to pass the same privileges or not.
+* **Doors as software capabilities**, can be passed from client domain to to other domains, and the policies can be implemented through the front object. 
+	* e.g. the Front Object can reduce the privilege level of the capability provided to the printer object as a one-time capability.
 
 <img src="https://i.imgur.com/NrkosOK.jpg" style="width: 800px" />
 
@@ -82,24 +83,16 @@
 
 <img src="https://i.imgur.com/dNnZ6w1.jpg" style="width: 800px" />
 
-* Virtual memory management is part of the Spring OS kernel.
-* The VMM is responsible for managing the linear address space of each process.
-* The VMM breaks this linear address space into **memory regions** (sets of pages with different sizes).
-* These memory regions are mapped to different **memory objects**.
-* These memory objects are the mechanism by which parts of the address space <u>can be mapped into different **backing entities**</u> (e.g. desk, file system, etc.).
+* **Virtual Memory Manager (VMM)**: The VMM is responsible for managing the linear address space of a process by dividing it into regions and mapping those **memory regions** to specific **memory objects**.
+	* The abstraction of a memory object allows a region of virtual memory to be associated with a backing file, or swap space on the disk.
 
 #### Pager Object
 
 <img src="https://i.imgur.com/orpJYt3.jpg" style="width: 800px" />
 
-* The **Pager Object** is responsible for establishing the connection between virtual memory and physical memory. 
-* The Pager Object makes sure that a memory object has a representation in the physical memory.
-* The Pager Object will create a cache object representation for the memory object in the DRAM.
-* The Pager Object gives the ability to have different regions of the linear address space of a given process by associating different pager objects with each of the regions that correspond to a particular memory object.
-* These associations between region and memory objects can be dynamically created.
-* The same memory object can have <u>distinct cache representations on different physical memory spaces</u>.
-* The Pager Objects **maintains the coherence of these different cache objects** if needed.
-    * Each pager objects within Pager ensure the consistency.
+* **Pager objects**: Pager objects establish the connection between virtual memory (memory objects) and physical memory (cached object representations in DRAM). They are responsible for ensuring that memory objects are brought into physical memory when the process needs to access a particular region of its address space.
+* **Cached object representations**: When a pager object maps a memory object to a region of the address space, it creates a cached object representation in DRAM. This allows the process to access that portion of its address space.
+- **Shared memory objects**: It is possible for a memory object to be shared between two different address spaces. In this case, distinct pager objects are responsible for managing the coherence of the cached representations of the shared memory object in the two address spaces.
 
 #### Summary
 
@@ -116,7 +109,7 @@
 
 ### Dynamic Client-Server Relationships
 
-* The client-server interaction should be irrelative to the physical locations of the clients and the servers (Same machine – different nodes on a network).
+- Spring is a network OS. The clients and servers interact seamlessly, regardless of their physical location in the network. 
 * Scenario #1: We have several replica of the servers (to increase availability). The clients will be dynamically routed to different servers depending on the physical proximity of the client and the server, and also on the load distribution.
 * Scenario #2: The servers are cached. The clients can dynamically access these cached copies instead of accessing the servers themselves.
 * Then, we have two types of dynamic decisions:
@@ -128,7 +121,7 @@
 
 * As mentioned earlier, IDL is used to define the OS interfaces.
 * The Subcontract is the implementation of the IDL interfaces, it hides the runtime behavior of an object from the actual interface.
-    * For instance, there could be a singleton implementation of the server, or it could be a replicated implementation of the server. The client does not care.
+    - For instance, there could be a singleton implementation of the server, or it could be a replicated implementation of the server. The client does not care.
 * The client stub generation will be simple, since all the details about the server will be hidden in the Subcontract.
 
 * IDL compiler is used to produce three pieces of source code: 
@@ -136,10 +129,8 @@
     2) Client side stub code: Code meant to be dynamically linked into a client’s program to access an object that is implemented in another address space or on another machine 
     3) Server side stub code: Code to be linked into an object manager to translate incoming remote object invocations into the run-time environment of the object’s implementation.
 
-* A **Subcontract can be changed dynamically** while the stub stays fixed. This facilitates adding functionalities to existing services using the Subcontract mechanism.
+* **Dynamic loading of subcontracts**: Subcontracts can be discovered and installed at runtime, allowing for seamless addition of functionality to existing services. For example, if a singleton server becomes replicated, a new subcontract can be introduced to handle the replicated servers without any changes to the client stub.
 * Marshal/Un-marshal Interface: The Subcontract will marshal/unmarshal arguments when requested by the client. The Subcontract will do the appropriate steps to execute the request based on the location of the server (e.g. on the same machine, on the network, on a different processor, etc.).
-* The Subcontract on the client side has an invocation mechanism.
-* On the server side, the Subcontract has (create – revoke – process) mechanisms.
 
 ### Conclusion
 
@@ -154,32 +145,58 @@
 
 ### Java Distributed Object Model
 
-* Much of the hard work needed to build a client/server system using RPS (marshaling/unmarshaling, publishing the remote object on the network for the clients to access, etc.) are all managed undercover by the Java Distributed Object Model.
-* Java Distributed Object Model concepts:
+* The Java Distributed Object Model, also known as Java Remote Method Invocation (RMI), simplifies the process of creating client-server systems by handling aspects like marshaling, unmarshaling, and publishing remote objects for clients. It shares some similarities with the Spring system's subcontract mechanism.
+* Here's an overview of the Java Distributed Object Model:
     - **Remote Object**: Accessible from different address spaces.
-    - **Remote Interface**: Declarations for methods in a remote object.
-    - **Failure Semantics**: Clients deal with RMI failure exceptions.
+    - **Remote Interface**: A remote interface defines the method declarations for a remote object that clients can access from anywhere.
+    - **Failure Semantics**: Clients in the Java distributed object model must handle RMI exceptions, which represent failure scenarios when invoking remote methods.
 * **Similarities/differences between local objects and remote objects**:
-    - In Local Object Model, the Object references passed as object invocation parameters, they are passed as a **pure reference** (i.e. if client changes the object, server will see the change).
-    - In Distributed Object Model, the Object references passed as object invocation parameters, they are passed as **Value/Result** (i.e. if client changes the object, server will not see the change because <u>a copy of the object is actually sent</u> to the invoked method).
+	- **Similarity**: Both local and remote objects in Java allow passing object references as parameters when making an object invocation. 
+	- **Difference**: The passing mechanism for remote objects is **value/result**, meaning a **copy of the object** is sent to the invoked method. In contrast, local objects pass a **pure reference**, allowing modifications made by the invoked method to be reflected in the original object. This difference means that any changes made by the client to an object after passing its reference to the server will not be visible to the server.
 
 ### Local vs. Remote Implementation
 
-* Reuse of Local Implementation:
-    - <img src="https://i.imgur.com/JPuqF1f.jpg" style="width: 800px" />
+In this example, we'll construct a bank account server using Java's distributed object model. The server provides APIs for deposit, withdrawal, and balance inquiries. We'll consider two possibilities for implementing this service as a distributed object accessible from clients anywhere in the network below. Before divng into details. Here are some deifnitions:
+1. Remote Interface(`java.rmi.Remote`): This interface is completely abstract and has no methods.
+	- `interface Remote {}`
+2. Remote interface: `BandAccount` for a bank account extends `Remote`.
 
-    - Extend a Local Implementation of the Account Class to implement Bank Account.
-    - Use the Built-in Class called Remote Interface to make the methods in Bank Account visible remotely on the network.
-    - Only the interface is visible to the client and not the actual implementation or the instantiated objects.
-    - The actual location of the object is not visible to the client. Therefore, the implementer has to do the hard work of finding a way to make the location of the service visible to clients on the network (i.e. Instantiated Objects).
-    - In this case, we used the Local Implementation and used only the Remote Interface to make the object instances remotely accessible. So, all the hard work of making the object instances remotely accessible needs to be done by the implementer. This is why this approach is **not preferable**. However, this approach has the advantage of providing fine-grained control on selective sharing of services.
-* Reuse of Remote Object Class
-    - <img src="https://i.imgur.com/WST8BAh.jpg" style="width: 800px" />
+	```Java
+	import java.rmi.*;
+	
+	public interface BankAccount extends Remote {
+		public void deposit(float amount) throws RemoteException;
+		public void withdraw(float amount) throws OverdrawnException, RemoteException;
+		public float balance() throws RemoteException;
+	}
+    ```
 
-    - Extend the Remote Interface so that the Account Interface now becomes visible to any client that wants to access the Object.
-    - Extend the Remote Object Class and Remote Server Class in order to get the Account Implementation Object.
-    - Now, when we instantiate the Account Implementation Object, it becomes visible to the network clients through the Java Runtime System.
-    - The Java RMI system is responsible for all the hard work of making the Server Object Instance visible to network clients and hence this is the more **preferred** way of building network services and making them available for remote clients anywhere on the network.
+4. Reuse of Local Implementation:
+	- <img src="https://i.imgur.com/2OUnyDd.png" style="width: 400px" />
+	- The developer starts with a local class called `Account` and extends it to create a `BankAcctImpl` class with public API methods.
+	- Using Java's built-in `Remote` Interface, the server makes the `BankAccount` methods visible on the network.
+	- In this approach, the developer has to do some extra work (the "heavy lifting") to make the location of the instantiated `BankAccount` object visible to clients on the network. This typically involves setting up a registry service that maps the `BankAccountInterface` to the actual location of the `BankAccount` object.
+5. Reuse of Remote Object Class
+	- <img src="https://i.imgur.com/6yNF0sO.png" style="width: 400px" />
+	- Similar to the last implementation, the developer writes the `BankAccount` interface and publishes its methods using the `Remote` Interface. 
+	- The difference is, the `BankAcctImpl` extends `RemoteServer` classes and implements `BankAccount` Interface.
+
+		```Java
+		package myPackage;
+		
+		import java.rmi.RemoteException; 
+		import java.rmi.server.RemoteServer;
+		
+		public class BankAcctImpl extends RemoteServer implements BankAccount {
+			public void deposit(float amount) throws RemoteException {...};
+			public void withdraw(float amount) throws OverdrawnException, RemoteException {...};
+			public float balance() throws RemoteException {...};
+		}
+		```
+
+	- When the BankAccount object is instantiated, it becomes instantly visible to network clients. This is because it **inherits the built-in classes** from the Java distributed object model.
+	- Now, when we instantiate the BankAccount object, it becomes visible to the network clients through the Java Runtime System.
+	- The Java RMI system is responsible for all the hard work of making the Server Object Instance visible to network clients and hence this is the more **preferred** way of building network services and making them available for remote clients anywhere on the network.
 
 ### How does Java RMI work?
 
@@ -188,21 +205,34 @@
         1. Instantiate the Object.
         2. Create a URL.
         3. Bind the URL to the Object Instance created.
-    - <img src="https://i.imgur.com/jyDPAJQ.jpg" style="width: 800px" />
+
+	```Java
+	BankAccount acct = new BankAcctImpl(); 
+	URL url = new URL(“rmi://zaphod/account”); // bind url to remote object 
+	java.rmi.Naming.bind(url, acct);
+	```
+
     - This allows the clients to be able to discover the existence of the new service on the network.
 * On Client side:
-    * Any arbitrary client can easily discover and access the server object on the network using the following procedure:
+    - Any arbitrary client can easily discover and access the server object on the network using the following procedure:
         1. Lookup the service provider URL by contacting a bootstrap name server in the Java RMI system and get a local access point for that remote object on the client-side.
         2. Use the local access point for the remote object on the client-side by simply calling the invocation methods, which look like normal procedure calls.
             - The Java Runtime System knows how to locate the server object in order to do the invocation.
             - The client does NOT know or care about the location of the server object.
         3. If there are failures in any of execution of the methods (functions), then Remote Exceptions will be issued by the server through the Java Runtime System back to the client.
         - A problem with Remote Exceptions is that the client may have no way of knowing at what point in the call invocation the failure happened.
-    * <img src="https://i.imgur.com/hjedUKR.jpg" style="width: 800px" />
+
+	```java
+	BankAccount acct = java.rmi.Naming.lookup(url);// lookup account 
+	float balance; 
+	acct.deposit(243.50); 
+	acct.withdraw(100.00); 
+	balance = acct.balance();
+	```
 
 ### RMI Implementation
 
-<img src="https://i.imgur.com/FnHfGxI.jpg" style="width: 800px" />
+<img src="https://i.imgur.com/vqPJnap.png" style="width: 400px" />
 
 * The Java RMI functionality is implemented using the **Remote Reference Layer (RRL)**.
 * The Client-side stub initiates the remote method invocation call, which causes RRL to marshal the arguments in order to send them over the network. When the server responds, the RRL unmarshals the results for the client.

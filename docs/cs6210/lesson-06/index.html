@@ -392,7 +392,7 @@ function sidebar_toggle() {
 <img src="https://i.imgur.com/fqjELzn.jpg" style="width: 800px" />
 <ul>
 <li>Object invocation between client/server domains across the network is facilitated using the <strong>Network Proxy</strong>.</li>
-<li><u>Each domain has <strong>multiple Network Proxies</strong></u> to communicate with different nodes on the network. This facilitates specialization since these different proxies can represent different protocols.</li>
+<li>Each domain has <strong>multiple Network Proxies</strong> to communicate with different nodes on the network. This facilitates specialization since these different proxies can represent different protocols.</li>
 <li>Network Proxies are invisible to the clients/servers.</li>
 <li>How to establish communication over the network?
 <ul>
@@ -406,36 +406,36 @@ function sidebar_toggle() {
 <h3 id="secure-object-invocation"><a class="markdownIt-Anchor" href="#secure-object-invocation"></a> Secure Object Invocation</h3>
 <img src="https://i.imgur.com/pdKetTH.jpg" style="width: 800px" />
 <ul>
-<li>Spring OS facilitates providing different privilege levels for different clients using the “Front Object”.</li>
+<li>A server object may need to provide different privilege levels to different clients. In Spring, the security model uses a <strong>Front Object</strong> to provide different privilege levels for different clients.</li>
+</ul>
+<ul>
 <li>An underlying object may have a Front Object that is directly connected to it (without Doors).</li>
 <li>Whenever a client domain tries to access this protected domain, the Front Object will check the <strong>Access Control List (ACL)</strong> to see what privileges this client domain has for accessing the protected domain.</li>
 <li>Different instances of the Front Object can be created with different access policies to the same underlying object.</li>
-<li><strong>Doors are software capabilities</strong>, which means they can be passed from client domain to another. When passing a Door, the client domain can determine whether to pass the same privileges or not.</li>
+<li><strong>Doors as software capabilities</strong>, can be passed from client domain to to other domains, and the policies can be implemented through the front object.
+<ul>
+<li>e.g. the Front Object can reduce the privilege level of the capability provided to the printer object as a one-time capability.</li>
+</ul>
+</li>
 </ul>
 <img src="https://i.imgur.com/NrkosOK.jpg" style="width: 800px" />
 <h3 id="virtual-memory-management"><a class="markdownIt-Anchor" href="#virtual-memory-management"></a> Virtual Memory Management</h3>
 <img src="https://i.imgur.com/dNnZ6w1.jpg" style="width: 800px" />
 <ul>
-<li>Virtual memory management is part of the Spring OS kernel.</li>
-<li>The VMM is responsible for managing the linear address space of each process.</li>
-<li>The VMM breaks this linear address space into <strong>memory regions</strong> (sets of pages with different sizes).</li>
-<li>These memory regions are mapped to different <strong>memory objects</strong>.</li>
-<li>These memory objects are the mechanism by which parts of the address space <u>can be mapped into different <strong>backing entities</strong></u> (e.g. desk, file system, etc.).</li>
+<li><strong>Virtual Memory Manager (VMM)</strong>: The VMM is responsible for managing the linear address space of a process by dividing it into regions and mapping those <strong>memory regions</strong> to specific <strong>memory objects</strong>.
+<ul>
+<li>The abstraction of a memory object allows a region of virtual memory to be associated with a backing file, or swap space on the disk.</li>
+</ul>
+</li>
 </ul>
 <h4 id="pager-object"><a class="markdownIt-Anchor" href="#pager-object"></a> Pager Object</h4>
 <img src="https://i.imgur.com/orpJYt3.jpg" style="width: 800px" />
 <ul>
-<li>The <strong>Pager Object</strong> is responsible for establishing the connection between virtual memory and physical memory.</li>
-<li>The Pager Object makes sure that a memory object has a representation in the physical memory.</li>
-<li>The Pager Object will create a cache object representation for the memory object in the DRAM.</li>
-<li>The Pager Object gives the ability to have different regions of the linear address space of a given process by associating different pager objects with each of the regions that correspond to a particular memory object.</li>
-<li>These associations between region and memory objects can be dynamically created.</li>
-<li>The same memory object can have <u>distinct cache representations on different physical memory spaces</u>.</li>
-<li>The Pager Objects <strong>maintains the coherence of these different cache objects</strong> if needed.
-<ul>
-<li>Each pager objects within Pager ensure the consistency.</li>
+<li><strong>Pager objects</strong>: Pager objects establish the connection between virtual memory (memory objects) and physical memory (cached object representations in DRAM). They are responsible for ensuring that memory objects are brought into physical memory when the process needs to access a particular region of its address space.</li>
+<li><strong>Cached object representations</strong>: When a pager object maps a memory object to a region of the address space, it creates a cached object representation in DRAM. This allows the process to access that portion of its address space.</li>
 </ul>
-</li>
+<ul>
+<li><strong>Shared memory objects</strong>: It is possible for a memory object to be shared between two different address spaces. In this case, distinct pager objects are responsible for managing the coherence of the cached representations of the shared memory object in the two address spaces.</li>
 </ul>
 <h4 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h4>
 <img src="https://i.imgur.com/8XIwoK5.jpg" style="width: 800px" />
@@ -457,7 +457,9 @@ function sidebar_toggle() {
 </ul>
 <h3 id="dynamic-client-server-relationships"><a class="markdownIt-Anchor" href="#dynamic-client-server-relationships"></a> Dynamic Client-Server Relationships</h3>
 <ul>
-<li>The client-server interaction should be irrelative to the physical locations of the clients and the servers (Same machine – different nodes on a network).</li>
+<li>Spring is a network OS. The clients and servers interact seamlessly, regardless of their physical location in the network.</li>
+</ul>
+<ul>
 <li>Scenario #1: We have several replica of the servers (to increase availability). The clients will be dynamically routed to different servers depending on the physical proximity of the client and the server, and also on the load distribution.</li>
 <li>Scenario #2: The servers are cached. The clients can dynamically access these cached copies instead of accessing the servers themselves.</li>
 <li>Then, we have two types of dynamic decisions:
@@ -491,16 +493,10 @@ function sidebar_toggle() {
 </ol>
 </li>
 <li>
-<p>A <strong>Subcontract can be changed dynamically</strong> while the stub stays fixed. This facilitates adding functionalities to existing services using the Subcontract mechanism.</p>
+<p><strong>Dynamic loading of subcontracts</strong>: Subcontracts can be discovered and installed at runtime, allowing for seamless addition of functionality to existing services. For example, if a singleton server becomes replicated, a new subcontract can be introduced to handle the replicated servers without any changes to the client stub.</p>
 </li>
 <li>
 <p>Marshal/Un-marshal Interface: The Subcontract will marshal/unmarshal arguments when requested by the client. The Subcontract will do the appropriate steps to execute the request based on the location of the server (e.g. on the same machine, on the network, on a different processor, etc.).</p>
-</li>
-<li>
-<p>The Subcontract on the client side has an invocation mechanism.</p>
-</li>
-<li>
-<p>On the server side, the Subcontract has (create – revoke – process) mechanisms.</p>
 </li>
 </ul>
 <h3 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h3>
@@ -518,68 +514,74 @@ function sidebar_toggle() {
 <h2 id="l06b-java-rmi"><a class="markdownIt-Anchor" href="#l06b-java-rmi"></a> L06b. Java RMI</h2>
 <h3 id="java-distributed-object-model"><a class="markdownIt-Anchor" href="#java-distributed-object-model"></a> Java Distributed Object Model</h3>
 <ul>
-<li>Much of the hard work needed to build a client/server system using RPS (marshaling/unmarshaling, publishing the remote object on the network for the clients to access, etc.) are all managed undercover by the Java Distributed Object Model.</li>
-<li>Java Distributed Object Model concepts:
+<li>The Java Distributed Object Model, also known as Java Remote Method Invocation (RMI), simplifies the process of creating client-server systems by handling aspects like marshaling, unmarshaling, and publishing remote objects for clients. It shares some similarities with the Spring system’s subcontract mechanism.</li>
+<li>Here’s an overview of the Java Distributed Object Model:
 <ul>
 <li><strong>Remote Object</strong>: Accessible from different address spaces.</li>
-<li><strong>Remote Interface</strong>: Declarations for methods in a remote object.</li>
-<li><strong>Failure Semantics</strong>: Clients deal with RMI failure exceptions.</li>
+<li><strong>Remote Interface</strong>: A remote interface defines the method declarations for a remote object that clients can access from anywhere.</li>
+<li><strong>Failure Semantics</strong>: Clients in the Java distributed object model must handle RMI exceptions, which represent failure scenarios when invoking remote methods.</li>
 </ul>
 </li>
 <li><strong>Similarities/differences between local objects and remote objects</strong>:
 <ul>
-<li>In Local Object Model, the Object references passed as object invocation parameters, they are passed as a <strong>pure reference</strong> (i.e. if client changes the object, server will see the change).</li>
-<li>In Distributed Object Model, the Object references passed as object invocation parameters, they are passed as <strong>Value/Result</strong> (i.e. if client changes the object, server will not see the change because <u>a copy of the object is actually sent</u> to the invoked method).</li>
+<li><strong>Similarity</strong>: Both local and remote objects in Java allow passing object references as parameters when making an object invocation.</li>
+<li><strong>Difference</strong>: The passing mechanism for remote objects is <strong>value/result</strong>, meaning a <strong>copy of the object</strong> is sent to the invoked method. In contrast, local objects pass a <strong>pure reference</strong>, allowing modifications made by the invoked method to be reflected in the original object. This difference means that any changes made by the client to an object after passing its reference to the server will not be visible to the server.</li>
 </ul>
 </li>
 </ul>
 <h3 id="local-vs-remote-implementation"><a class="markdownIt-Anchor" href="#local-vs-remote-implementation"></a> Local vs. Remote Implementation</h3>
+<p>In this example, we’ll construct a bank account server using Java’s distributed object model. The server provides APIs for deposit, withdrawal, and balance inquiries. We’ll consider two possibilities for implementing this service as a distributed object accessible from clients anywhere in the network below. Before divng into details. Here are some deifnitions:</p>
+<ol>
+<li>
+<p>Remote Interface(<code>java.rmi.Remote</code>): This interface is completely abstract and has no methods.</p>
 <ul>
-<li>Reuse of Local Implementation:
-<ul>
-<li>
-<img src="https://i.imgur.com/JPuqF1f.jpg" style="width: 800px" />
-</li>
-<li>
-<p>Extend a Local Implementation of the Account Class to implement Bank Account.</p>
-</li>
-<li>
-<p>Use the Built-in Class called Remote Interface to make the methods in Bank Account visible remotely on the network.</p>
-</li>
-<li>
-<p>Only the interface is visible to the client and not the actual implementation or the instantiated objects.</p>
-</li>
-<li>
-<p>The actual location of the object is not visible to the client. Therefore, the implementer has to do the hard work of finding a way to make the location of the service visible to clients on the network (i.e. Instantiated Objects).</p>
-</li>
-<li>
-<p>In this case, we used the Local Implementation and used only the Remote Interface to make the object instances remotely accessible. So, all the hard work of making the object instances remotely accessible needs to be done by the implementer. This is why this approach is <strong>not preferable</strong>. However, this approach has the advantage of providing fine-grained control on selective sharing of services.</p>
-</li>
+<li><code>interface Remote &#123;&#125;</code></li>
 </ul>
 </li>
-<li>Reuse of Remote Object Class
+<li>
+<p>Remote interface: <code>BandAccount</code> for a bank account extends <code>Remote</code>.</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.rmi.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BankAccount</span> <span class="keyword">extends</span> <span class="title class_">Remote</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deposit</span><span class="params">(<span class="type">float</span> amount)</span> <span class="keyword">throws</span> RemoteException;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">withdraw</span><span class="params">(<span class="type">float</span> amount)</span> <span class="keyword">throws</span> OverdrawnException, RemoteException;</span><br><span class="line">	<span class="keyword">public</span> <span class="type">float</span> <span class="title function_">balance</span><span class="params">()</span> <span class="keyword">throws</span> RemoteException;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Reuse of Local Implementation:</p>
 <ul>
 <li>
-<img src="https://i.imgur.com/WST8BAh.jpg" style="width: 800px" />
+<img src="https://i.imgur.com/2OUnyDd.png" style="width: 400px" />
+</li>
+<li>The developer starts with a local class called <code>Account</code> and extends it to create a <code>BankAcctImpl</code> class with public API methods.</li>
+<li>Using Java’s built-in <code>Remote</code> Interface, the server makes the <code>BankAccount</code> methods visible on the network.</li>
+<li>In this approach, the developer has to do some extra work (the “heavy lifting”) to make the location of the instantiated <code>BankAccount</code> object visible to clients on the network. This typically involves setting up a registry service that maps the <code>BankAccountInterface</code> to the actual location of the <code>BankAccount</code> object.</li>
+</ul>
 </li>
 <li>
-<p>Extend the Remote Interface so that the Account Interface now becomes visible to any client that wants to access the Object.</p>
+<p>Reuse of Remote Object Class</p>
+<ul>
+<li>
+<img src="https://i.imgur.com/6yNF0sO.png" style="width: 400px" />
 </li>
 <li>
-<p>Extend the Remote Object Class and Remote Server Class in order to get the Account Implementation Object.</p>
+<p>Similar to the last implementation, the developer writes the <code>BankAccount</code> interface and publishes its methods using the <code>Remote</code> Interface.</p>
 </li>
 <li>
-<p>Now, when we instantiate the Account Implementation Object, it becomes visible to the network clients through the Java Runtime System.</p>
+<p>The difference is, the <code>BankAcctImpl</code> extends <code>RemoteServer</code> classes and implements <code>BankAccount</code> Interface.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> myPackage;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.rmi.RemoteException; </span><br><span class="line"><span class="keyword">import</span> java.rmi.server.RemoteServer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BankAcctImpl</span> <span class="keyword">extends</span> <span class="title class_">RemoteServer</span> <span class="keyword">implements</span> <span class="title class_">BankAccount</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deposit</span><span class="params">(<span class="type">float</span> amount)</span> <span class="keyword">throws</span> RemoteException &#123;...&#125;;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">withdraw</span><span class="params">(<span class="type">float</span> amount)</span> <span class="keyword">throws</span> OverdrawnException, RemoteException &#123;...&#125;;</span><br><span class="line">	<span class="keyword">public</span> <span class="type">float</span> <span class="title function_">balance</span><span class="params">()</span> <span class="keyword">throws</span> RemoteException &#123;...&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>When the BankAccount object is instantiated, it becomes instantly visible to network clients. This is because it <strong>inherits the built-in classes</strong> from the Java distributed object model.</p>
+</li>
+<li>
+<p>Now, when we instantiate the BankAccount object, it becomes visible to the network clients through the Java Runtime System.</p>
 </li>
 <li>
 <p>The Java RMI system is responsible for all the hard work of making the Server Object Instance visible to network clients and hence this is the more <strong>preferred</strong> way of building network services and making them available for remote clients anywhere on the network.</p>
 </li>
 </ul>
 </li>
-</ul>
+</ol>
 <h3 id="how-does-java-rmi-work"><a class="markdownIt-Anchor" href="#how-does-java-rmi-work"></a> How does Java RMI work?</h3>
 <ul>
-<li>On Server side:
+<li>
+<p>On Server side:</p>
 <ul>
 <li>The server object is made visible on the network using the 3-step procedure:
 <ol>
@@ -588,13 +590,14 @@ function sidebar_toggle() {
 <li>Bind the URL to the Object Instance created.</li>
 </ol>
 </li>
-<li>
-<img src="https://i.imgur.com/jyDPAJQ.jpg" style="width: 800px" />
-</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BankAccount</span> <span class="variable">acct</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BankAcctImpl</span>(); </span><br><span class="line"><span class="type">URL</span> <span class="variable">url</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(“rmi:<span class="comment">//zaphod/account”); // bind url to remote object </span></span><br><span class="line">java.rmi.Naming.bind(url, acct);</span><br></pre></td></tr></table></figure>
+<ul>
 <li>This allows the clients to be able to discover the existence of the new service on the network.</li>
 </ul>
 </li>
-<li>On Client side:
+<li>
+<p>On Client side:</p>
 <ul>
 <li>Any arbitrary client can easily discover and access the server object on the network using the following procedure:
 <ol>
@@ -611,14 +614,12 @@ function sidebar_toggle() {
 <li>A problem with Remote Exceptions is that the client may have no way of knowing at what point in the call invocation the failure happened.</li>
 </ul>
 </li>
-<li>
-<img src="https://i.imgur.com/hjedUKR.jpg" style="width: 800px" />
-</li>
 </ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BankAccount</span> <span class="variable">acct</span> <span class="operator">=</span> java.rmi.Naming.lookup(url);<span class="comment">// lookup account </span></span><br><span class="line"><span class="type">float</span> balance; </span><br><span class="line">acct.deposit(<span class="number">243.50</span>); </span><br><span class="line">acct.withdraw(<span class="number">100.00</span>); </span><br><span class="line">balance = acct.balance();</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="rmi-implementation"><a class="markdownIt-Anchor" href="#rmi-implementation"></a> RMI Implementation</h3>
-<img src="https://i.imgur.com/FnHfGxI.jpg" style="width: 800px" />
+<img src="https://i.imgur.com/vqPJnap.png" style="width: 400px" />
 <ul>
 <li>The Java RMI functionality is implemented using the <strong>Remote Reference Layer (RRL)</strong>.</li>
 <li>The Client-side stub initiates the remote method invocation call, which causes RRL to marshal the arguments in order to send them over the network. When the server responds, the RRL unmarshals the results for the client.</li>

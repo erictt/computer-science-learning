@@ -311,11 +311,11 @@ The roadblocks to the Active Network vision:
 
 <img src="https://i.imgur.com/LH32b1O.jpg" style="width: 800px" />
 
-* Abstract Behavioral Specifications:
+* **Abstract Behavioral Specifications**:
     - Describes the functionality of the sub-systems in terms of requirements using IOA.
     - IOA facilitate proofing of the Abstract Behavioral Specifications against the required properties.
-* Concrete Behavioral Specifications: Produced by refining the Abstract Behavioral Specifications.
-* Implementation: Translating the Concrete Behavioral Specifications into code using OCAML.
+* **Concrete Behavioral Specifications**: Produced by refining the Abstract Behavioral Specifications.
+* **Implementation**: Translating the Concrete Behavioral Specifications into code using OCAML.
 
 ### From Implementation to Optimization
 
@@ -344,18 +344,3 @@ The roadblocks to the Active Network vision:
     - <img src="https://i.imgur.com/MaDojhz.jpg" style="width: 800px" />
 
 <img src="https://i.imgur.com/XTCSOpi.jpg" style="width: 800px" />
-
-
-|   |  2 |  3 |  4 |  5 |  6 |  7 |  8 |
-|---|----|----|----|----|----|----|----|
-| 2 |  4 |  6 |  8 | 10 | 12 | 14 | 16 |
-| 3 |  6 |  9 | 12 | 15 | 18 | 21 | 24 |
-| 4 |  8 | 12 | 16 | 20 | 24 | 28 | 32 |
-| 5 | 10 | 15 | 20 | 25 | 30 | 35 | 40 |
-| 6 | 12 | 18 | 24 | 30 | 36 | 42 | 48 |
-| 7 | 14 | 21 | 28 | 35 | 42 | 49 | 56 |
-| 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 |
-| 9 | 18 | 27 | 36 | 45 | 54 | 63 | 72 |
-|10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 |
-|11 | 22 | 33 | 44 | 55 | 66 | 77 | 88 |
-|12 | 24 | 36 | 48 | 60 | 72 | 84 | 96 |
