@@ -294,7 +294,7 @@ The RMI Transport Layer provides the following four abstractions:
 
 ### Structuring N-Tier Applications
 
-<img src="https://i.imgur.com/j6IdPcM.jpg" style="width: 800px" />
+![](https://i.imgur.com/dK29co9.png)
 
 * A Java Bean is a unit of reuse and contains a bundle of Java Objects to provide a specific functionality, e.g. a Java Bean may provide the shopping cart functionality.
 * A Container is a Protection Domain implemented in a Java Virtual Machine (JVM) and it packages and hosts a related collection of Java Beans to provide higher-level functionality.
@@ -320,7 +320,6 @@ The RMI Transport Layer provides the following four abstractions:
     2. Structuring of Distributed Services, providing customers various options based on cost, convenience, guarantees, etc.
     3. Handling resource conflicts that might occur between simultaneous requests across space and time coming from several different clients.
 
-
 ### Types of Java Beans
 
 * **Entity Bean**: **Persistent Objects** with **Primary Keys** so that they can be easily retrieved from a database.
@@ -345,52 +344,41 @@ The RMI Transport Layer provides the following four abstractions:
 
 #### 1. Coarse grain session Beans
 
-<img src="https://i.imgur.com/hU1aoxg.jpg" style="width: 800px" />
+<img src="https://i.imgur.com/l8m6s1X.png" style="width: 800px" />
 
-* The Client Container and the Applet Container are in the Web-server so we will not consider them. Instead, we’ll only consider the **Web Container (Presentation Logic)** and **EJB Container (Business Logic)** in the several design alternatives below.
-* A Servlet corresponds to an individual session with a particular client.
-* Coarse-grained Session Bean:
-    - A Coarse-grained Session Bean is **associated with each Servlet** and serves the needs of a Client.
-    - **Each Client is associated with one Session**.
+In this approach, **business logic** and **data access** are combined in a single **session bean**. The session bean acts as a "facade" and provides a **simplified interface for clients**. Clients interact with the session bean, which, in turn, manages the underlying data and enforces business rules. This approach is suitable for simple applications with limited data access requirements. However, it can lead to a **tight coupling** between business logic and data access, making the application less modular and harder to maintain.
+
 - Pros:
-    1. Minimal Container services needed from the EJB Container: The EJB Container coordinates concurrent independent sessions.
-    2. Business Logic is not exposed beyond the corporate network since the Business Logic is contained in the EJB Container and not in the Web Container.
+    1. Minimal container services needed from the EJB container: The EJB container coordinates concurrent independent sessions.
+    2. Business logic not exposed to the outside world since the Business logic is contained in the EJB container and not in the Web container.
 - Cons:
-    1. The Application Structure is similar to a **Monolithic** kernel.
-    2. There is very **limited concurrency** for accessing different parts of a database in parallel. Hence, Coarse-grained Bean structure represents a lost opportunity in exploiting parallelism.
+    1. The application structure is similar to a **monolithic** kernel.
+    2. Limited concurrency for database access, missed opportunity for parallel data retrieval.
 
 #### 2. Data Access Object(DAO)
 
 fine-grained
 
-<img src="https://i.imgur.com/Qe3HFmD.jpg" style="width: 800px" />
+<img src="https://i.imgur.com/EJ5MxT2.png" style="width: 800px" />
 
-- The **Business Logic is pushed to be in the Web Container** containing Servlet and Presentation Logic. Similar to having a 3-tier software structure of (Servlet – Presentation Logic – Business Logic).
-- All Data Access happens through Entity Beans, which have Persistence characteristics. That is, Data Access Object (DAO) is implemented using Entity Beans.
-- Entity Beans can have Container-Managed Persistence or Bean-Managed Persistence.
-- An Entity Bean can represent the granularity of either one row of a database or a set of rows.
-- Multiple Entity Beans can work in parallel for a single client-server session.
-- The EJB Container contains these Entity Beans.
+The DAO pattern is a way to separate **data access logic** from **business logic**. DAOs are responsible for accessing and manipulating the data in the underlying data storage, while the business logic is encapsulated in session beans. Clients interact with session beans, which delegate data access operations to DAOs. This separation of concerns makes the application more modular and easier to maintain. The DAO pattern can be combined with other patterns, such as the Value Object pattern, to improve the efficiency of data transfer between the application tiers.
+
 - Pros:
-    1. There is an opportunity for the Entity Bean to cluster the requests from different clients and reduce accesses to the database server across several different client requests that are temporally happening at the same time.
-    2. The granularity of the Data Access Object (DAO) determines the level of concurrency desired in constructing the application service. This provides reusability opportunities.
-- Cons: **Business Logic is exposed outside the corporate network** because it was move from the EJB Container to the Web Container.
+	1. Exploits concurrency for data access, allows parallel requests to share data access.
+	2. The granularity of the Data Access Object (DAO) determines the level of concurrency desired in constructing the application service. This provides reusability opportunities.
+- Cons: 
+	1. **Business Logic is exposed outside the corporate network** because it was move from the EJB container to the Web container.
 
 #### 3. Session Beans with Entity Beans
 
-<img src="https://i.imgur.com/Z2H4qMi.jpg" style="width: 800px" />
+<img src="https://i.imgur.com/mhP3do6.png" style="width: 800px" />
 
-- The Web Container contains only the Servlet and the Presentation Logic associated with the Servlet.
-- The Business Logic sits along with the Session Façade and Entity Bean in the EJB Container.
-- A Session Façade is associated with each Client Session. The Session Façade handles all data access needs of its associated Business Logic.
-- The DAOs are implemented using multiple Entity Beans (having CMP/BMP) so that we get Concurrency and can reduce data accesses across different client requests.
-- The Session Bean communicates with the Entity Bean using Java RMI or local interfaces.
-    1. Using local interface makes the communication faster since no network communication is used
-    2. Using RMI makes the communication flexible enough to be used anywhere in network.
+In this approach, business logic is encapsulated in session beans, while data access is handled by entity beans. Entity beans are designed to represent persistent data and manage the relationships between data entities. Clients interact with session beans, which, in turn, interact with entity beans to perform data operations. This approach helps separate business logic from data access and can provide better performance and scalability when dealing with complex data models. However, it can be more complex to implement and maintain, as it involves additional components and interactions.
 
 - Pros:
-    1. No network communication between Business Logic and Entity Beans.
-    2. Business Logic is not exposed beyond the corporate network.
-    3. There is an opportunity for the Entity Bean to cluster the requests from different clients and reduce accesses to the database server across several different client requests that are temporally happening at the same time.
-    4. The granularity of the Data Access Object (DAO) determines the level of concurrency desired in constructing the application service. This provides reusability opportunities.
-- Cons: We’re causing **additional network access** to do the service we want for the data access and that can be mitigated by co-locating the Entity Bean and the Session Façade in the same EJB Container.
+	1. No network communication between Business Logic and Entity Beans.
+	2. Business logic is not exposed beyond the corporate network.
+	3. There is an opportunity for the Entity Bean to cluster the requests from different clients and reduce accesses to the database server across several different client requests that are temporally happening at the same time.
+	4. The granularity of the Data Access Object (DAO) determines the level of concurrency desired in constructing the application service. This provides reusability opportunities.
+- Cons: 
+	1. May incur **additional network access** for data access service which can be mitigated by co-locating the Entity Bean and the Session Façade in the same EJB Container.
