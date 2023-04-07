@@ -2,7 +2,7 @@
 
 * How can we use peer memory for paging across LAN?
 
-In a working set of multiple machines connected to LAN, some machines have more memory presure than the others. To utilize the memory from other machines to alleviate the busy ones is the main goal of GMS. The assumption is accessing the local disks take much more time than using the memory for paging accross the network. (Modern LANs can provide Gigabit or even 10 Gigabit connectivity between nodes, which can make it faster to access data from remote nodes than accessing data from a local disk.) In addition, we want to use idl cluster memory for other nodes in the network.
+In a working set of multiple machines connected to LAN, some machines have more memory presure than the others. To utilize the memory from other machines to alleviate the busy ones is the main goal of GMS. The assumption is accessing the local disks take much more time than using the memory for paging accross the network. (Modern LANs can provide Gigabit or even 10 Gigabit connectivity between nodes, which can make it faster to access data from remote nodes than accessing data from a local disk.) In addition, we want to use idle cluster memory for other nodes in the network.
 
 Comparing to tradition memory management: virtrual address -> physical address or disk, GMS trades network communication for disk I/O, changes the mapping to: virtrual address -> physical address or cluster memory or disk.
 
@@ -91,7 +91,8 @@ GMS only works for read across the network. The only pages that been paged out t
 - The age of a page represents how long it has been since it was last accessed, with smaller ages indicating more recently accessed pages.
 - The GMS system breaks age management into epochs, which are time periods during which management work is done by a single node.
 - The duration of an epoch is set by the parameter T, which is the maximum duration that an epoch can last.
-- The epoch management work is either time-bound (limited by T) or space-bound (limited by M replacements). M is another parameter that represents the maximum number of page replacements that can occur in an epoch.
+- The epoch management work is either time-bound (limited by T) or space-bound (limited by M replacements). 
+	- M is another parameter that represents the maximum number of page replacements that can occur in an epoch.
 - At the beginning of each epoch, each node sends its age information to the initiator node. This includes the age of all local and global pages residing on the node.
 - The initiator node calculates the minimum age of the M pages that will be replaced in the upcoming epoch. It also computes the weight for each node, which represents the fraction of replacements that will come from that node.
 - The node with the highest weight becomes the initiator for the next epoch.
@@ -103,17 +104,14 @@ GMS only works for read across the network. The only pages that been paged out t
 
 <img src="https://i.imgur.com/hD6Yv6m.png" style="width: 800px" />
 
-- In systems research, identifying a pain point and coming up with a clever solution is important.
-- Implementing the solution, even if it's a simple idea, requires heavy lifting and technical details.
-- Implementation tricks and techniques can be reusable knowledge for other systems research.
-- The authors of GSM used the OSF/1 operating system by DEC(Digital Equipment Corporation) operating system as the base system for their memory management system.
-- The OSF/1 memory system has two key components: the virtual memory system (VM) and the unified buffer cache (UBC).
+- In systems research, identifying a pain point and coming up with a clever solution is important. But implementing the solution, even if it's a simple idea, requires heavy lifting and technical details.
+- The authors of GSM used the OSF/1 operating system by DEC(Digital Equipment Corporation) operating system as the base system for the memory management system.
+- The OSF/1 memory system has two key components: the **virtual memory** system (VM) and the **unified buffer cache** (UBC).
 - The virtual memory system (VM) is responsible for mapping process virtual address space to physical memory, and the unified buffer cache (UBC) is used by the file system to cache disk-resident files in physical memory.
 - The GMS implementation required modifying both the VM and UBC components of the operating system to support the global memory system.
 - Writing pages to disk remains unchanged in the GMS implementation, as only page faults are redirected to the cluster memory.
 - Collecting age information for anonymous pages in the VM is challenging since the operating system doesn't see individual memory accesses made by a user process. To address this, the GMS implementation includes a daemon that periodically dumps the contents of the Translation Lookaside Buffer (TLB) to collect age information for anonymous pages.
 - The GMS implementation also includes modifications to the pageout daemon and free list maintenance for allocating and freeing frames on each node.
-- The technical details of how GMS integrates with the VM, UBC, and other components of the operating system are important and may be reusable knowledge for other systems research.
 
 ## Data Structures
 
@@ -121,10 +119,16 @@ GMS only works for read across the network. The only pages that been paged out t
 
 - GMS uses distributed data structures for virtual memory management across the cluster.
 - The virtual address is converted into a universal ID (UID) to uniquely identify a virtual address.
-- Three key data structures are used: PFD (Page frame Directory), GCD (Global Cache Directory), and POD (Page Ownership Directory).
-- The **POD tells which node owns which pages**, and it is replicated on all nodes in the cluster. The **GCD maps UIDs (unique identifiers for virtual addresses) to the nodes that host the corresponding PFDs**. The **PFD contains the mapping between UIDs and page frame numbers (PFNs)** and is stored on the node that owns the page.
-- When a **page fault occurs**, the node first converts the virtual address to a UID and uses the POD to determine the owner of the page. It then uses the GCD to find the node that hosts the PFD for that UID and sends the UID to that node. The node with the PFD retrieves the page and sends it back to the requesting node.
-	- <img src="https://i.imgur.com/FA1JAou.png" style="width: 800px" />
+	- The UID can be in one of the four states: 1) cached locally on a single node, 2) cached locally on multiple nodes, 3) cached on single node on behalf of another node, 4) not cached at all.
+- Three key data structures are used: PFD (Page frame Directory), GCD (Global Cache Directory), and POD (Page Ownership Directory) for searching pages when page fault occurs.
+	- The **PFD is a per-node data stucture**. It contains the mapping from UID to page frame number (PFN) that is stored on it's node.
+	- The **GCD is a cluster-wide data sturcture**, it maps UID -> the node that host the corresponding PFD. 
+	- The **POD tells which node owns which pages**, and it is **replicated** on all nodes in the cluster.
+- When a **page fault occurs**, 
+	1. the node first converts the virtual address to a UID and uses the POD to determine the owner of the page. 
+	2. It then uses the GCD to find the node that hosts the PFD for that UID and sends the UID to that node. 
+	3. The node with the PFD retrieves the page and sends it back to the requesting node.
+- <img src="https://i.imgur.com/FA1JAou.png" style="width: 800px" />
 	- Node A converts virtual address to UID and goes to page ownership directory (POD)
 	- POD tells Node A who the owner of the page is (Node B), which has the Global Page Frame Directory (GCD)
 	- Node B looks up its GCD and sends UID to node C, which has the Page Frame Directory (PFD) for that UID
@@ -132,7 +136,7 @@ GMS only works for read across the network. The only pages that been paged out t
 - Network communication occurs only when there is a page fault, and most page faults are for non-shared pages, meaning the POD and GCD are co-resident on the same node. In this case, there is no network communication to look up the GCD.
 - There can be a **miss when requesting a page**, which can happen if the page has been evicted from the PFD or if the POD information is stale due to changes in the network. In these cases, the request can be retried after looking up the updated POD or GCD.
 	- <img src="https://i.imgur.com/Ie6o0Rf.png" style="width: 800px" />
-	- Misses are uncommon compared to page faults, and network communication is mostly local to the node
+	- Note that, misses are uncommon compared to page faults, and network communication is mostly local to the node.
 - To handle **page evictions**, each node has a paging daemon that puts evicted pages onto a candidate node based on weight information obtained from the geriatric management system (GMS). The paging daemon also coordinates with the GMS to update the GCD with the new PFD location for the corresponding UID. This happens in an aggregated manner when the free list falls below a threshold.
 	- <img src="https://i.imgur.com/e1KKUws.png" style="width: 800px" />
 
