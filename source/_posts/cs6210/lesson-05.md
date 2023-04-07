@@ -88,8 +88,10 @@
 * We can say the event $𝑎$ happened before event $𝑏$ in real time $(a \mapsto b)$ if:
     - $C_i(a) < C_j(b)$
     - Physical clock conditions:
-        1. PC1: Bound on individual clock drift: $$(\frac{dC_i(t)}{dt} - 1) < \textcolor{red}{k}\ \ \ \ \lor i\ ; (\textcolor{red}{k} \ll 1)$$
-        2. PC2: Bound on mutual drift: $$\lor i, j: C_i(t) - C_j(t) < \textcolor{red}{\epsilon}$$
+        1. PC1 (Bound on individual clock drift): $$(\frac{dC_i(t)}{dt} - 1) < \textcolor{red}{k}\ \ \ \ \lor i\ ; (\textcolor{red}{k} \ll 1)$$
+	        - The individual clock drift (k) should be very small, indicating that all clocks in the distributed system run approximately correctly.
+        2. PC2 (Bound on mutual drift): $$\lor i, j: C_i(t) - C_j(t) < \textcolor{red}{\epsilon}$$
+	        - The mutual drift between clocks on different nodes should be very small. This is represented by a small quantity, epsilon($\epsilon$).
 * IPC time and clock drift:
     * <img src="https://i.imgur.com/WYNRswF.jpg" style="width: 400px" />
     * Terms: 
@@ -98,10 +100,10 @@
         * individual clock drift $k$, 
             * Individual clock drift is, what my clock is reading at any point of time, and how far off is it from real time.
         * the interprocess communication time $\mu$.
-    * Let $\mu$ be the lower bound on IPC, to avoid anomalies when: $a_i\ \text{on}\ P_i \mapsto \textcolor{green}{a_b\ \text{on}\ P_j}$
+    * Let $\mu$ be the lower bound on IPC, to avoid anomalies when: $a\ \text{on}\ P_i \mapsto \textcolor{green}{b\ \text{on}\ P_j}$
         1. $C_i(t + \mu) - \textcolor{green}{C_j(t)} > 0$
             - the parity between the interprocess communication time is less than $\mu$
-        2. $c_i(t + \mu) - C_j(t) > \textcolor{red}{\mu (1-k)}$
+        2. $C_i(t + \mu) - C_i(t) > \textcolor{red}{\mu (1-k)}$
             - individual clock drift is really small comparing to $\mu$
             - difference equation formulation of PC1
     * Using equation 1 and 2, and bound $\epsilon$ on mutual drift: $\textcolor{red}{\mu \ge \epsilon / (1 - k)}$ to avoid anomalies.
