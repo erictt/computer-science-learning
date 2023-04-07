@@ -149,9 +149,9 @@ Can we make the cluster appear like a shared memory machine?
 
 Software DSM is a way to implement the illusion of a global shared memory in a computational cluster where each node has its own private physical memory. The software has to implement the consistency model to the programmer as there is no physically shared memory. In a tightly coupled multiprocessor, coherence is maintained at individual memory access level by the hardware. However, in a cluster, this **fine-grain** of maintaining coherence at individual memory access level leads to too much **overhead**.
 
-To implement software DSM, the granularity of coherence maintenance is at the level of a page. The global virtual memory abstraction is provided to the application program running on the cluster, which views the entire cluster as a globally shared virtual memory. Under the cover, the DSM software partition the global address space into chunks that are managed individually on the nodes of the different processors of the cluster.
+To implement software DSM, **the granularity of coherence maintenance is at the level of a page**. The global virtual memory abstraction is provided to the application program running on the cluster, which views the entire cluster as a globally shared virtual memory. Under the cover, the DSM software partition the global address space into chunks that are managed individually on the nodes of the different processors of the cluster.
 
-The DSM software maintains coherence by having distributed ownership for the different virtual pages that constitute this global virtual address space. The ownership responsibility is split into individual processors, which are responsible for keeping complete coherence information for that particular page and taking the coherence actions commensurate with that page.
+The DSM software maintains coherence by having **distributed ownership for the different virtual pages** that constitute this global virtual address space. The ownership responsibility is split into individual processors, which are responsible for keeping complete coherence information for that particular page and taking the coherence actions commensurate with that page.
 
 The DSM software implements the global virtual memory abstraction and knows exactly who to contact as the owner of the page to get the current copy of the page. When there is a page fault, the DSM software communicates with the operating system to handle it, contacts the owner of the page, and asks for the current copy of the page. The owner sends the page to the node that is requesting it, and the page is put into the physical memory, and the VM manager updates the page table for the thread to resume its execution.
 
@@ -161,7 +161,7 @@ An early example of systems that built software DSM includes Ivy, Clouds, Mirage
 
 <img src="https://i.imgur.com/9ipNyv3.png" style="width: 800px" />
 
-- The goal of the multiple writer coherence protocol is to maintain coherence information at the granularity of pages, so the DSM can be integrated with the operating system.
+- The goal of the **multiple writer coherence protocol** is to maintain coherence information at the granularity of pages, so the DSM can be integrated with the operating system.
 - Multiple writer coherence allows multiple writers to write to the same page, recognizing that an application programmer may have packed lots of different data structures within the same page.
 - The coherence protocol used in this system is LRC, which defers consistency traffic until the point of access.
 - When a processor acquires a lock and makes modifications, the DSM software creates a diff of the changes made to the pages within the critical section.
@@ -182,8 +182,8 @@ An early example of systems that built software DSM includes Ivy, Clouds, Mirage
 - In case multiple writers are modifying the same page under different locks, it represents an application problem and a data race.
 - The LRC multiple writer coherence protocol was implemented on a Unix system by TreadMarks.
 - When a thread accesses a shared page, the DSM software catches the SIGSEGV exception to take appropriate action.
-- There is a space overhead for creating a twin at the point of write and creating a diff data structure at release.
-- Garbage collection is used to reduce the space overhead by periodically applying diffs to the original copy of the page and getting rid of them.
+- There is a **space overhead** for creating a twin at the point of write and creating a diff data structure at release.
+- **Garbage collection is used to reduce the space overhead** by periodically applying diffs to the original copy of the page and getting rid of them.
 
 ### Non Page Based DSM
 
