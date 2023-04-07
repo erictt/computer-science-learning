@@ -317,7 +317,7 @@ function sidebar_toggle() {
 <p>Can we make the cluster appear like a shared memory machine?</p>
 <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
 <ul>
-<li>Distributed Shared Memory (DSM) is a software implementation that provides the illusion of shared memory to applications in a distributed system.</li>
+<li>Distributed Shared Memory (DSM) is a <strong>software implementation</strong> that provides the illusion of shared memory to applications in a distributed system.</li>
 <li>DSM allows exploiting remote memories in a cluster to make it appear as a shared memory machine, simplifying application development.</li>
 <li>DSM works by creating an operating system abstraction that provides the illusion of shared memory to applications, even though nodes in the local area network do not physically share memory.</li>
 </ul>
@@ -364,15 +364,19 @@ function sidebar_toggle() {
 <ul>
 <li>Shared memory programming uses synchronization primitives like locks and barriers to protect data structures so that one thread can exclusively modify the data.</li>
 <li>Mutual exclusion locks and barrier synchronization are popular synchronization primitives used in shared memory programming.</li>
-<li>There are two types of memory accesses that happen in a shared memory program - normal reads and writes to shared data and accesses to synchronization variables used in implementing locks and barriers.</li>
+<li>There are two types of memory accesses that happen in a shared memory program:
+<ol>
+<li>Normal reads and writes to shared data,</li>
+<li>Accesses to synchronization variables used in implementing locks and barriers.</li>
+</ol>
+</li>
 <li>The operating system or user-level threads library provides mutual exclusion locks or barrier primitives, and in implementing those synchronization primitives, algorithms use reads and writes to shared memory.</li>
 </ul>
 <h3 id="memory-consistency-and-cache-coherence"><a class="markdownIt-Anchor" href="#memory-consistency-and-cache-coherence"></a> Memory Consistency and Cache Coherence</h3>
 <ul>
-<li>Memory consistency model is a contract between the application programmer and the system that answers when the changes made to a shared memory location by one processor will be visible to other processes that have the same memory location in their respective private caches.</li>
-<li>Cache coherence answers how is the system, i.e., system software plus hardware, implementing the contract of the memory consistency model?</li>
-<li>Cache coherence mechanism ensures that all processes see the changes made to shared memory, commensurate with the memory consistency model.</li>
-<li>In parallel programming, coherence mechanism must fulfill the guarantee made by the memory <strong>consistency model to the application programmer</strong>.</li>
+<li><strong>Memory consistency</strong> model is a contract between the application programmer and the system that answers when <strong>the changes made to a shared memory location by one processor</strong> will be <strong>visible to other processes</strong> that share the same memory location in their respective private caches. It deals with the ordering and visibility of memory operations (like read, write, and atomic operations) across different processors or cores in a multiprocessor system.</li>
+<li><strong>Cache coherence</strong> addresses the problem that arises when multi-processors have their own <strong>private caches</strong>. When a shared memory location that is cached by other processors, it can lead to inconsistent data across the caches. Cache coherence ensures all caches have a consistent view of the shared memory.</li>
+<li>In parallel programming, coherence mechanism must fulfill the guarantee made by the <strong>memory consistency model to the application programmer</strong>.</li>
 </ul>
 <h3 id="sequential-consistency"><a class="markdownIt-Anchor" href="#sequential-consistency"></a> Sequential Consistency</h3>
 <img src="https://i.imgur.com/7l4Gg7n.png" style="width: 800px" />
@@ -384,14 +388,13 @@ function sidebar_toggle() {
 <h4 id="sc-memory-model"><a class="markdownIt-Anchor" href="#sc-memory-model"></a> SC Memory Model</h4>
 <img src="https://i.imgur.com/MjZGeN3.png" style="width: 800px" />
 <ul>
-<li>SC memory model doesn’t know the association between locks and data structures.</li>
-<li>Coherence action is taken on every read-write access, which leads to more overhead and poorer scalability.</li>
+<li>SC memory model <em>doesn’t know the association between locks and data structures</em>.</li>
+<li><em>Coherence action is taken on every read-write access</em>, which leads to more overhead and poorer scalability.</li>
 </ul>
 <h3 id="typical-parallel-program"><a class="markdownIt-Anchor" href="#typical-parallel-program"></a> Typical Parallel Program</h3>
 <img src="https://i.imgur.com/J1llQoD.png" style="width: 800px" />
 <ul>
 <li>A typical parallel program involves getting a lock for accessing data structures and releasing it after the critical section.</li>
-<li>The SC memory model doesn’t differentiate between synchronization and data accesses.</li>
 <li>Coherence action is taken on every access even if it’s not warranted until the lock is released.</li>
 </ul>
 <h3 id="release-consistencyrc"><a class="markdownIt-Anchor" href="#release-consistencyrc"></a> Release Consistency(RC)</h3>
@@ -405,7 +408,6 @@ function sidebar_toggle() {
 <h4 id="rc-memory-model"><a class="markdownIt-Anchor" href="#rc-memory-model"></a> RC Memory Model</h4>
 <img src="https://i.imgur.com/ym1Xrc4.png" style="width: 800px" />
 <ul>
-<li>RC memory model distinguishes between normal data accesses and synchronization accesses.</li>
 <li>It initiates coherence actions corresponding to normal data accesses but doesn’t block the processors.</li>
 <li>It only takes coherence action when a release synchronization operation is encountered.</li>
 </ul>
@@ -443,7 +445,7 @@ function sidebar_toggle() {
 </ul>
 <h3 id="software-dsm"><a class="markdownIt-Anchor" href="#software-dsm"></a> Software DSM</h3>
 <img src="https://i.imgur.com/vBEaWiw.png" style="width: 800px" />
-Software DSM is a way to implement the illusion of a global shared memory in a computational cluster where each node has its own private physical memory. The system software has to implement the consistency model to the programmer as there is no physically shared memory. In a tightly coupled multiprocessor, coherence is maintained at individual memory access level by the hardware. However, in a cluster, this fine-grain of maintaining coherence at individual memory access level leads to too much overhead.
+<p>Software DSM is a way to implement the illusion of a global shared memory in a computational cluster where each node has its own private physical memory. The software has to implement the consistency model to the programmer as there is no physically shared memory. In a tightly coupled multiprocessor, coherence is maintained at individual memory access level by the hardware. However, in a cluster, this <strong>fine-grain</strong> of maintaining coherence at individual memory access level leads to too much <strong>overhead</strong>.</p>
 <p>To implement software DSM, the granularity of coherence maintenance is at the level of a page. The global virtual memory abstraction is provided to the application program running on the cluster, which views the entire cluster as a globally shared virtual memory. Under the cover, the DSM software partition the global address space into chunks that are managed individually on the nodes of the different processors of the cluster.</p>
 <p>The DSM software maintains coherence by having distributed ownership for the different virtual pages that constitute this global virtual address space. The ownership responsibility is split into individual processors, which are responsible for keeping complete coherence information for that particular page and taking the coherence actions commensurate with that page.</p>
 <p>The DSM software implements the global virtual memory abstraction and knows exactly who to contact as the owner of the page to get the current copy of the page. When there is a page fault, the DSM software communicates with the operating system to handle it, contacts the owner of the page, and asks for the current copy of the page. The owner sends the page to the node that is requesting it, and the page is put into the physical memory, and the VM manager updates the page table for the thread to resume its execution.</p>

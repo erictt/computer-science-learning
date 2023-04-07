@@ -4,7 +4,7 @@ Can we make the cluster appear like a shared memory machine?
 
 ## Introduction
 
-- Distributed Shared Memory (DSM) is a software implementation that provides the illusion of shared memory to applications in a distributed system.
+- Distributed Shared Memory (DSM) is a **software implementation** that provides the illusion of shared memory to applications in a distributed system.
 - DSM allows exploiting remote memories in a cluster to make it appear as a shared memory machine, simplifying application development.
 - DSM works by creating an operating system abstraction that provides the illusion of shared memory to applications, even though nodes in the local area network do not physically share memory.
 
@@ -56,15 +56,16 @@ Can we make the cluster appear like a shared memory machine?
 
 - Shared memory programming uses synchronization primitives like locks and barriers to protect data structures so that one thread can exclusively modify the data.
 - Mutual exclusion locks and barrier synchronization are popular synchronization primitives used in shared memory programming.
-- There are two types of memory accesses that happen in a shared memory program - normal reads and writes to shared data and accesses to synchronization variables used in implementing locks and barriers.
+- There are two types of memory accesses that happen in a shared memory program:
+	1. Normal reads and writes to shared data,
+	2. Accesses to synchronization variables used in implementing locks and barriers.
 - The operating system or user-level threads library provides mutual exclusion locks or barrier primitives, and in implementing those synchronization primitives, algorithms use reads and writes to shared memory.
 
 ### Memory Consistency and Cache Coherence
 
-- Memory consistency model is a contract between the application programmer and the system that answers when the changes made to a shared memory location by one processor will be visible to other processes that have the same memory location in their respective private caches.
-- Cache coherence answers how is the system, i.e., system software plus hardware, implementing the contract of the memory consistency model?
-- Cache coherence mechanism ensures that all processes see the changes made to shared memory, commensurate with the memory consistency model.
-- In parallel programming, coherence mechanism must fulfill the guarantee made by the memory **consistency model to the application programmer**.
+- **Memory consistency** model is a contract between the application programmer and the system that answers when **the changes made to a shared memory location by one processor** will be **visible to other processes** that share the same memory location in their respective private caches. It deals with the ordering and visibility of memory operations (like read, write, and atomic operations) across different processors or cores in a multiprocessor system.
+- **Cache coherence** addresses the problem that arises when multi-processors have their own **private caches**. When a shared memory location that is cached by other processors, it can lead to inconsistent data across the caches. Cache coherence ensures all caches have a consistent view of the shared memory.
+- In parallel programming, coherence mechanism must fulfill the guarantee made by the **memory consistency model to the application programmer**.
 
 ### Sequential Consistency
 
@@ -78,15 +79,14 @@ Can we make the cluster appear like a shared memory machine?
 
 <img src="https://i.imgur.com/MjZGeN3.png" style="width: 800px" />
 
-- SC memory model doesn't know the association between locks and data structures.
-- Coherence action is taken on every read-write access, which leads to more overhead and poorer scalability.
+- SC memory model *doesn't know the association between locks and data structures*.
+- *Coherence action is taken on every read-write access*, which leads to more overhead and poorer scalability.
 
 ###  Typical Parallel Program
 
 <img src="https://i.imgur.com/J1llQoD.png" style="width: 800px" />
 
 - A typical parallel program involves getting a lock for accessing data structures and releasing it after the critical section.
-- The SC memory model doesn't differentiate between synchronization and data accesses.
 - Coherence action is taken on every access even if it's not warranted until the lock is released.
 
 ###  Release Consistency(RC)
@@ -103,7 +103,6 @@ Can we make the cluster appear like a shared memory machine?
 <img src="https://i.imgur.com/ym1Xrc4.png" style="width: 800px" />
 
 
-- RC memory model distinguishes between normal data accesses and synchronization accesses.
 - It initiates coherence actions corresponding to normal data accesses but doesn't block the processors.
 - It only takes coherence action when a release synchronization operation is encountered.
 
@@ -147,7 +146,8 @@ Can we make the cluster appear like a shared memory machine?
 ### Software DSM
 
 <img src="https://i.imgur.com/vBEaWiw.png" style="width: 800px" />
-Software DSM is a way to implement the illusion of a global shared memory in a computational cluster where each node has its own private physical memory. The system software has to implement the consistency model to the programmer as there is no physically shared memory. In a tightly coupled multiprocessor, coherence is maintained at individual memory access level by the hardware. However, in a cluster, this fine-grain of maintaining coherence at individual memory access level leads to too much overhead.
+
+Software DSM is a way to implement the illusion of a global shared memory in a computational cluster where each node has its own private physical memory. The software has to implement the consistency model to the programmer as there is no physically shared memory. In a tightly coupled multiprocessor, coherence is maintained at individual memory access level by the hardware. However, in a cluster, this **fine-grain** of maintaining coherence at individual memory access level leads to too much **overhead**.
 
 To implement software DSM, the granularity of coherence maintenance is at the level of a page. The global virtual memory abstraction is provided to the application program running on the cluster, which views the entire cluster as a globally shared virtual memory. Under the cover, the DSM software partition the global address space into chunks that are managed individually on the nodes of the different processors of the cluster.
 
