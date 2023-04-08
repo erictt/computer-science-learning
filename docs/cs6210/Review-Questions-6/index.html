@@ -313,7 +313,112 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  
+  <h2 id="lrvm-paper"><a class="markdownIt-Anchor" href="#lrvm-paper"></a> LRVM paper</h2>
+<ol>
+<li>
+<p>What are the disadvantages in using Camelot for Coda?</p>
+</li>
+<li>
+<p>Justify inclusion and exclusion of the mechanisms in LRVM as compared<br>
+to a full blown transactional system such as Camelot.</p>
+</li>
+<li>
+<p>LRVM is implemented as a library to be linked with an application<br>
+desiring its services.  What are the implications of this design<br>
+approach?</p>
+</li>
+<li>
+<p>LRVM lives above the operating system.  The VM subsystem and the<br>
+LRVM subsystem are thus independent of each other.  What implications<br>
+does this have on functionality and performance?  In particular, how<br>
+does this decoupling show up for applications running on top of LRVM?</p>
+</li>
+<li>
+<p>LRVM provides “bounded persistence”.  Explain.</p>
+</li>
+<li>
+<p>The authors claim that structuring the LRVM as a user-level library<br>
+as opposed to a collection of tasks communicating via IPC led to better<br>
+scalability as evidenced by lower CPU load for LRVM compared to Camelot.<br>
+While this may be true since Camelot is built on top of Mach, would you<br>
+agree with this reasoning as ground truth?<br>
+[Hint: Recall some of the papers we read on OS structures.]</p>
+</li>
+<li>
+<p>How would you justify that LRVM is lightweight?</p>
+</li>
+<li>
+<p>Develop the data structures and pseudo code for performing incremental<br>
+truncation.</p>
+</li>
+</ol>
+<h2 id="rio-vista-paper"><a class="markdownIt-Anchor" href="#rio-vista-paper"></a> Rio Vista paper</h2>
+<ol>
+<li>
+<p>What are the sources of problems in computer systems that leads to<br>
+failure?  How are these relaxed in Rio Vista?</p>
+</li>
+<li>
+<p>The Vista RVM library is 700 lines of code as opposed to 10K lines for<br>
+a comparable functionality implemented in LRVM.  Explain why.</p>
+</li>
+<li>
+<p>Develop the data structures and pseudo code for the Vista library<br>
+(begin transaction, set-range, end transaction).</p>
+</li>
+</ol>
+<h2 id="quicksilver"><a class="markdownIt-Anchor" href="#quicksilver"></a> Quicksilver</h2>
+<ol>
+<li>
+<p>What is the origin of the Quicksilver name for the OS presented in this<br>
+paper? 😃</p>
+</li>
+<li>
+<p>Give examples with justifications of servers that fall into the<br>
+“stateless”, “volatile”, and “recoverable” classes, respectively.</p>
+</li>
+<li>
+<p>Distinguish between “owner” and “participant” of a transaction.</p>
+</li>
+<li>
+<p>Identify points of similarily between LRVM and Quicksilver.</p>
+</li>
+<li>
+<p>Quicksilver does not abort a transaction immediately upon detecting<br>
+failure.  Why?</p>
+</li>
+<li>
+<p>Discuss with examples of situations that are appropriate for each type<br>
+the four different commit protocols (one-phase immediate, one-phase<br>
+standard, one-phase delayed, and two-phase).</p>
+</li>
+<li>
+<p>Discuss how Quickilver deals with participants that may join a<br>
+transaction that is in the process of committing.</p>
+</li>
+<li>
+<p>How does Quicksilver manage its log?  What are the optimizations used<br>
+to reduce latency for log writing and dealing with memory pressure<br>
+of excessive log generation?</p>
+</li>
+</ol>
+<h2 id="transactions-in-txos-operating-system"><a class="markdownIt-Anchor" href="#transactions-in-txos-operating-system"></a> Transactions in TxOS operating system</h2>
+<ol>
+<li>
+<p>Give user level and system level examples of where transactional<br>
+semantics will help in increasing concurrency while ensuring<br>
+atomicity and isolation for the actions.</p>
+</li>
+<li>
+<p>Discuss the semantics of transactional support in TxOS relative to<br>
+Quicksilver.</p>
+</li>
+<li>
+<p>Explain the system level race condition (with an example) caused by<br>
+“time of check to time of use” phenomenon in system code.</p>
+</li>
+</ol>
+
 </div>
 
 

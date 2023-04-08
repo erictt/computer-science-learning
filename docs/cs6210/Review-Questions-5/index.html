@@ -313,7 +313,158 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  
+  <h2 id="global-memory-management"><a class="markdownIt-Anchor" href="#global-memory-management"></a> Global Memory Management</h2>
+<ol>
+<li>
+<p>What is the goal of the global memory management?  How does the<br>
+memory management policy achieve this goal?</p>
+</li>
+<li>
+<p>Assume 4 nodes (N1 through N4) each with 16 physical page frames.<br>
+Initially none of the nodes have any valid pages in their physical<br>
+memory.  N1 and N2 each make a sequence of page accesses to 32 distinct<br>
+pages all from the disk.   N3 and N4 are idle.  What is the state of<br>
+the cluster (i.e. local and global caches at each node) at the<br>
+end of the above set of accesses?</p>
+</li>
+<li>
+<p>How is the minimum age of a page (cluster wide) determined?  Explain<br>
+the algorithm to determine the MinAge.</p>
+</li>
+<li>
+<p>Why is node failure not an issue in global memory management?</p>
+</li>
+<li>
+<p>Explain the functionality of each of the data structures (PFD, GCD, POD)<br>
+in the global memory management scheme.</p>
+</li>
+<li>
+<p>In the actual implementation, how does each node collect the age<br>
+information for its pages?</p>
+</li>
+<li>
+<p>With reference to Table 1, explain why GCD processing time is<br>
+considerably less when the page is non-shared.</p>
+</li>
+<li>
+<p>Summarize the conditions under which GMS can hope to significantly<br>
+improve the performance for file accesses compared to vanilla NFS.</p>
+</li>
+</ol>
+<h2 id="treadmarks"><a class="markdownIt-Anchor" href="#treadmarks"></a> TreadMarks</h2>
+<ol>
+<li>
+<p>Distinguish between memory coherence and memory consistency model.</p>
+</li>
+<li>
+<p>Explain the following terms with code samples to illustrate the point:<br>
+a) data race<br>
+b) false sharing</p>
+</li>
+<li>
+<p>Explain the difference between sequential consistency and release<br>
+consistency with code samples.</p>
+</li>
+<li>
+<p>Explain the difference between eager and lazy release consistency<br>
+with code samples.  What are the pros and cons of each approach?</p>
+</li>
+<li>
+<p>How does the TreadMarks DSM solve the false sharing problem?<br>
+Explain the protocol details.</p>
+</li>
+<li>
+<p>Given that TreadMarks is a user level DSM package, What support is expected<br>
+from the Operating System for implementing it?</p>
+</li>
+<li>
+<p>Develop the data structures and pseudo code for the TreadMarks<br>
+DSM.  Take into account the distributed lock manager and the<br>
+protocol actions needed commensurate with the memory consistency model<br>
+and the coherence mechanism of TreadMarks.</p>
+</li>
+<li>
+<p>What are the sources of overhead in the implementation of TreadMarks?</p>
+</li>
+<li>
+<p>What is the need for garbage collection in the TreadMarks implementation?<br>
+Explain.</p>
+</li>
+</ol>
+<p>10)Consider a TreadMarks DSM system with 3 pages A, B, and C, and lock L.<br>
+The following accesses happen in the order shown.  Assume initially the<br>
+lock L is available for N1 and that the pages A, B, and C are with nodes<br>
+N1, N2, and N3, respectively.</p>
+<p>Node N1:<br>
+lock(L);<br>
+modify A;<br>
+unlock(L);</p>
+<p>Node N2:<br>
+lock(L);<br>
+modify B;<br>
+unlock(L);</p>
+<p>Node N3:<br>
+lock(L);<br>
+read A;<br>
+read B;<br>
+modify C;<br>
+unlock(L);</p>
+<p>Show the “when” and “what” actions take place in the different nodes<br>
+in terms of (a) messages exchanged between the nodes,<br>
+(b) twin and diff creations at the nodes, © invalidations of pages<br>
+at the nodes, and (d) propagation of diffs between the nodes.</p>
+<h2 id="serverless-network-file-system"><a class="markdownIt-Anchor" href="#serverless-network-file-system"></a> Serverless Network File System</h2>
+<ol>
+<li>
+<p>What are the technological enablers justifying a serverless NFS?</p>
+</li>
+<li>
+<p>xFS builds on three prior technologies: RAID, Zebra LFS, and multiprocessor<br>
+cache consistency.  Discuss the limitations in each of these technologies<br>
+with respect to realizing a scalable serverless NFS.</p>
+</li>
+<li>
+<p>In a centralized file system, the server performs the functions of<br>
+managing the data blocks, metadata for the files, server-side<br>
+file cache, and consistency of datablocks of files cached by<br>
+multiple clients.  Discuss how these functions are carried out in<br>
+xFS.</p>
+</li>
+<li>
+<p>What is the advantage of the stripe group concept used in xFS?</p>
+</li>
+<li>
+<p>Explain the idea of log cleaning and why it is needed.  Discuss the<br>
+principle and details of the distributed log cleaners employed in xFS.</p>
+</li>
+<li>
+<p>The paper claims: “For instance, in a 32 node xFS system with 32 clients,<br>
+each client receives nearly as much read or write bandwidth as it would<br>
+see if it were the only active client.”<br>
+Explain this statement.</p>
+</li>
+</ol>
+<h2 id="coda-file-system"><a class="markdownIt-Anchor" href="#coda-file-system"></a> Coda file system</h2>
+<ol>
+<li>
+<p>“Coda emulates Unix semantics”:  Explain what this means.</p>
+</li>
+<li>
+<p>Explain “availability” and how does Coda provide availability.  What<br>
+guarantees does the user of Coda get with respect to availability.</p>
+</li>
+<li>
+<p>Explain the mechanism in Coda for availability and scalability.</p>
+</li>
+<li>
+<p>Explain the “callback” mechanism in Coda.</p>
+</li>
+<li>
+<p>Explain the “optimisitic replication” mechanism of Coda.  How does it<br>
+affect the semantics of file usage by the client of the file system?</p>
+</li>
+</ol>
+
 </div>
 
 
