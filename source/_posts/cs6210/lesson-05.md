@@ -57,7 +57,7 @@
 ### Partial Order and Total Order
 
 * If we have two **concurrent** events, then the **timestamps** will be **arbitrary**. This means that Lamport Clocks gives us a **partial order** of all the events happening on the distributed system.
-* To handle the concurrent events, we enhance the definition as follow to get a **total order**. 
+* To handle the concurrent events, we enhance the definition as follows to get a **total order**. 
 * If we have two events $𝑎$ on process $𝑖$ and $𝑏$ on process $j$, and we can to assert that $𝑎$ is totally ordered ahead of $𝑏$: $(𝑎 \Rightarrow 𝑏)$ iff
     - $𝐶_𝑖(𝑎) < 𝐶_j(𝑑)$ or
     - $𝐶_𝑖(𝑎) = 𝐶_𝑗(𝑑)$ and $𝑃_𝑖 \ll 𝑃_j$, where (`≪`) is an arbitrary well-known condition to break the tie (e.g. the greater the process ID the higher the order). 
@@ -66,27 +66,24 @@
 ### Distributed Mutual Exclusion (ME) Lock Algorithm
 
 * In a distributed system, we don't have a shared memory to facilitate lock implementation. So we'll use Lamport Clocks to implement a lock.
-* Every process will have a queue data structure ordered by the “**Happened Before**” relationship.
-* Any process that needs to **acquire the lock** will send a message to all the other processes with its time stamp as the request time.
-* Each other process will put the request in its queue, and then acknowledges the request.
-* If we have a tie (Two processes sent the same time stamp), we break it by giving priority to the process with higher ID.
+* The algorithm involves each process maintaining a private queue ordered by the **“Happened Before”** relationship. When a process wants to request a lock, it sends a message with its timestamp to all other processes. Upon receiving a request, a process inserts it into its local queue based on the timestamp and sends an acknowledgment back.
+- A process can decide if it has the lock if its request is at **the top of its local queue**, and it has either received acknowledgments from all other nodes or all requests it has received so far have later timestamps. To release the lock, the process removes its request from its queue, sends an unlock message to all other processes, and they **remove the corresponding entry** from their queues.
+	- If we have a tie (Two processes sent the same time stamp), we break it by giving priority to the process with higher ID.
 * **A process knows that it has the lock if**:
     - Its request is **on top of the queue**.
     - It has **already received acknowledges** from the other processes; or all lock requests from other nodes are later than mine.
-    - NOTE that this is being done locally.
-* Whenever a process wants to release a lock, it **sends an unlock message** to all other processes.
-* When the other processes receive the unlock message, they remove the **process entry** from their queues.
-* The algorithm assumptions:
+    - NOTE: this is being done by checking the queue in the local node.
+* The algorithm assumes:
     - Message arrive in order.
     - There's no message loss.
-    - The queues are totally ordered.
+    - The queues are **totally ordered**.
 * Message complexity base on the assumptions above $\text{𝑇𝑜𝑡𝑎𝑙} = 3(𝑁 − 1)$:
     - $𝑁 − 1$ request messages.
     - $𝑁 − 1$ acknowledge messages.
     - $𝑁 − 1$ unlock messages.
 * Can we do better?
-    - If a process $𝑖$ lock request precedes another process $𝑗$ lock request in the queue, we can defer the acknowledgement of $𝑖$ and use the unlock message itself as an acknowledgement for $𝑗$.
-        - combine with unlock => $2(N-1)$
+    - If a process $𝑖$ lock request precedes another process $𝑗$ lock request in the queue, we can defer the acknowledgment of $𝑖$ and use the unlock message itself as an acknowledgment for $𝑗$.
+        - Combine with unlock => $2(N-1)$
 
 ### Lamport Physical Clock
 
@@ -104,7 +101,7 @@
     * <img src="https://i.imgur.com/WYNRswF.jpg" style="width: 400px" />
     * Terms: 
         * mutual clock drift $\epsilon$, 
-            * The time difference between the time i think and the time the other think.
+            * The time difference between the time i think and the time the others think.
         * individual clock drift $k$, 
             * Individual clock drift is, what my clock is reading at any point of time, and how far off is it from real time.
         * the interprocess communication time $\mu$.
@@ -161,8 +158,8 @@
 
 * Making an RPC call involves three data copies:
     * <img src="https://i.imgur.com/g24aKmd.jpg" style="width: 800px" />
-    - First copy: The client stub takes the arguments of the RPC and converts it to an RPC message.
-    - Second copy: The kernel has to copy the RPC message from the memory space it resides on to its own buffer.
+    - First copy: RPC Marshalling. The client stub takes the arguments of the RPC and converts it to an RPC message.
+    - Second copy: Move from user space to kernel space. The kernel has to copy the RPC message from the memory space it resides on to its own buffer.
     - Third copy: The network controller will then copy the RPC message from the kernel buffer to its internal buffer using DMA. This is an unavoidable hardware action.
 * The copying overhead is the biggest source of overhead for RPC latency.
 * To reduce the number of copies, one of two approaches can be used:
