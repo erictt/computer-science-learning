@@ -43,8 +43,8 @@
 ### Logical Clock Conditions
 
 * Definition: For any two events a, b:
-	* if $a \Rightarrow b$ then $𝐶(𝑎) < 𝐶(𝑏)$.
-* From the definition, we can see our definition of relation "$\Rightarrow$" that the **Clock Condition** is satisfied if the following two conditions hold:
+	* if $a \to b$ then $𝐶(𝑎) < 𝐶(𝑏)$.
+* From the definition, we can see our definition of the relation "$\to$" that the **Clock Condition** is satisfied if the following two conditions hold:
 	* C1: If `a` and `b` are in process $P_i$, and `a` comes before `b`, then $C_i(a) < C_i(b)$.
 	* C2: If `a` is the sending of a message by process $P_i$, and `b` is the receipt of that message by process $P_j$, then  $C_i(a) < C_i(b)$.
 - To guarantee the system of clocks satisfies the Clock Condition, we insure both C1 and C2:
@@ -53,11 +53,11 @@
 	- IR2. To meet C2: 
 		1) If event `a` is the sending of a message `m` by process $P_i$, then the message `m` contains a timestamp $T_m = C_i(a)$. 
 		2) Upon receiving a message `m`, process $P_j$ sets $C_j$ greater than or equal to its present value and greater than $T_m$.
-* If we have two **concurrent** events are concurrent, then the **timestamps** will be **arbitrary**.
-* This means that Lamport Clocks gives us a **partial order** of all the events happening on the distributed system.
 
-### Lamport Total Order
+### Partial Order and Total Order
 
+* If we have two **concurrent** events, then the **timestamps** will be **arbitrary**. This means that Lamport Clocks gives us a **partial order** of all the events happening on the distributed system.
+* To handle the concurrent events, we enhance the definition as follow to get a **total order**. 
 * If we have two events $𝑎$ on process $𝑖$ and $𝑏$ on process $j$, and we can to assert that $𝑎$ is totally ordered ahead of $𝑏$: $(𝑎 \Rightarrow 𝑏)$ iff
     - $𝐶_𝑖(𝑎) < 𝐶_j(𝑑)$ or
     - $𝐶_𝑖(𝑎) = 𝐶_𝑗(𝑑)$ and $𝑃_𝑖 \ll 𝑃_j$, where (`≪`) is an arbitrary well-known condition to break the tie (e.g. the greater the process ID the higher the order). 
