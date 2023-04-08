@@ -16,24 +16,24 @@ Can we make the cluster appear like a shared memory machine?
 
 - To exploit a cluster starting from a sequential program, one possibility is automatic parallelization, which means writing a sequential program and letting a tool identify opportunities for parallelism and map it to the cluster.
 - Automatic parallelization is an example of implicitly parallel programming, where the program is not written explicitly in parallel but the tool identifies opportunities for parallelism and maps it to the cluster.
-- High Performance Fortran is an example of a programming language that does automatic parallelization, where the user uses directives for distribution of data and computation.
+- High Performance **Fortran** is an example of a programming language that does automatic parallelization, where the user uses directives for distribution of data and computation.
 - Automatic parallelization works well for certain classes of programs called data parallel programs, where the data accesses are fairly static and determinable at compile time.
 
 ### Message Passing
 
 <img src="https://i.imgur.com/tPeuuQC.png" style="width: 800px" />
 
-- The other way to exploit a cluster is to write the program as a truly parallel program, or explicitly parallel program, where the application programmer thinks about the application and writes the program explicitly in parallel.
+- The other way to exploit a cluster is to write the program as a truly parallel program, where the application programmer thinks about the application and writes the program explicitly in parallel.
 - There are two styles of explicitly parallel programs: **message passing** style and **shared memory** style.
 - The message passing style is true to the physical nature of the cluster, where every processor has its private memory and cannot directly access the memory of another processor. It uses a message passing library that provides primitives for application threads to do sends and receives to peers executing on other nodes of the cluster.
 - Examples of message passing libraries include MPI, PVM, and CLF from Digital Equipment Corporation, and many scientific applications running on large scale clusters use this style of programming using MPI as the message passing fabric.
-- The downside to the message-passing style of programming is that it is difficult to program, as it requires the programmer to think in terms of coordinating the activities on different processes by explicitly sending and receiving messages from their peers, which is a radical change of thinking in terms of how to structure a program.
+- The downside to the message-passing style of programming is that it is difficult to program, as it requires the programmer to think in terms of coordinating the activities of different processes by explicitly sending and receiving messages from their peers, which is a radical change of thinking in terms of how to structure a program.
 
 ### DSM
 
 <img src="https://i.imgur.com/MZj30m5.png" style="width: 800px" />
 
-- The DSM abstraction is a way of giving the illusion to the application programmer that all of the memory in the entire cluster is shared, even though it is not physically shared.
+- The DSM abstraction is a way of giving the illusion to the application programmer that all the memory in the entire cluster is shared, even though it is not physically shared.
 - The DSM library provides a shared memory semantic to the application program, allowing for an easier transition path from a sequential program or program written on an SMP to a program that runs on the cluster.
 - The DSM abstraction eliminates the need for marshaling and unmarshaling arguments being passed from one processor to another, as all of that is handled by the fact that there is shared memory.
 - The DSM abstraction gives the same level of comfort to a programmer who is used to programming on a true shared memory machine when they move to a cluster, as they can use the same set of primitives for synchronization and thread creation.
@@ -55,25 +55,25 @@ Can we make the cluster appear like a shared memory machine?
 <img src="https://i.imgur.com/pcKtHIu.png" style="width: 800px" />
 
 - Shared memory programming uses synchronization primitives like locks and barriers to protect data structures so that one thread can exclusively modify the data.
-- Mutual exclusion locks and barrier synchronization are popular synchronization primitives used in shared memory programming.
+- **Mutual exclusion locks and barrier** synchronization are popular synchronization primitives used in shared memory programming.
 - There are two types of memory accesses that happen in a shared memory program:
-	1. Normal reads and writes to shared data,
+	1. Normal reads and writes to shared data;
 	2. Accesses to synchronization variables used in implementing locks and barriers.
 - The operating system or user-level threads library provides mutual exclusion locks or barrier primitives, and in implementing those synchronization primitives, algorithms use reads and writes to shared memory.
 
 ### Memory Consistency and Cache Coherence
 
 - **Memory consistency** model is a contract between the application programmer and the system that answers when **the changes made to a shared memory location by one processor** will be **visible to other processes** that share the same memory location in their respective private caches. It deals with the ordering and visibility of memory operations (like read, write, and atomic operations) across different processors or cores in a multiprocessor system.
-- **Cache coherence** addresses the problem that arises when multi-processors have their own **private caches**. When a shared memory location that is cached by other processors, it can lead to inconsistent data across the caches. Cache coherence ensures all caches have a consistent view of the shared memory.
-- In parallel programming, coherence mechanism must fulfill the guarantee made by the **memory consistency model to the application programmer**.
+- **Cache coherence** addresses the problem that arises when multiprocessors have their own **private caches**. When a shared memory location that is cached by other processors, it can lead to inconsistent data across the caches. Cache coherence ensures all caches have a consistent view of the shared memory.
+- In parallel programming, the coherence mechanism must fulfill the guarantee made by the **memory consistency model to the application programmer**.
 
 ### Sequential Consistency
 
 <img src="https://i.imgur.com/7l4Gg7n.png" style="width: 800px" />
 
-- In sequential consistency, memory accesses are expected to happen in textual order on individual processors but the interleaving of memory accesses from different processors is arbitrary.
+- In sequential consistency, memory accesses are expected to happen in textual order on individual processors, but the interleaving of memory accesses from different processors is arbitrary.
 - The memory model preserves atomicity for individual read-write operations and honors the program order.
-- SC memory model doesn't distinguish between data accesses and synchronization accesses.
+- SC memory model **doesn't distinguish between data accesses and synchronization accesses**.
 
 #### SC Memory Model
 
@@ -87,7 +87,7 @@ Can we make the cluster appear like a shared memory machine?
 <img src="https://i.imgur.com/J1llQoD.png" style="width: 800px" />
 
 - A typical parallel program involves getting a lock for accessing data structures and releasing it after the critical section.
-- Coherence action is taken on every access even if it's not warranted until the lock is released.
+- **Coherence action is taken on every access**, even if it's not warranted until the lock is released.
 
 ###  Release Consistency(RC)
 
@@ -96,15 +96,15 @@ Can we make the cluster appear like a shared memory machine?
 - Release consistency is a memory consistency model that distinguishes between synchronization and data accesses.
 - Every critical section consists of acquire, data accesses governed by the lock, and release.
 - Coherence actions prior to the release operation by P1 have to be complete before P2 acquires the same lock.
-- Barrier synchronization can also be mapped to acquire and release.
+- **Barrier synchronization can also be mapped** to acquire and release.
 
 ####  RC Memory Model
 
 <img src="https://i.imgur.com/ym1Xrc4.png" style="width: 800px" />
 
 
-- It initiates coherence actions corresponding to normal data accesses but doesn't block the processors.
-- It only takes coherence action when a release synchronization operation is encountered.
+- It initiates coherence actions corresponding to normal data accesses, but doesn't block the processors.
+- It **only takes coherence action when a release synchronization operation** is encountered.
 
 ### Distributed Shared Memory Example
 
@@ -125,7 +125,7 @@ Can we make the cluster appear like a shared memory machine?
 
 <img src="https://i.imgur.com/LXs0SJT.png" style="width: 800px" />
 
-- Lazy RC defers coherence actions to the point of lock acquisition rather than lock release
+- Lazy RC **defers coherence actions** to the point of lock **acquisition** rather than lock release
 - Overlapping of computation with communication is still possible in the window of time between lock release and lock acquisition
 
 ### Eager vs Lazy RC
@@ -145,17 +145,18 @@ Can we make the cluster appear like a shared memory machine?
 
 ### Software DSM
 
-<img src="https://i.imgur.com/vBEaWiw.png" style="width: 800px" />
 
-Software DSM is a way to implement the illusion of a global shared memory in a computational cluster where each node has its own private physical memory. The software has to implement the consistency model to the programmer as there is no physically shared memory. In a tightly coupled multiprocessor, coherence is maintained at individual memory access level by the hardware. However, in a cluster, this **fine-grain** of maintaining coherence at individual memory access level leads to too much **overhead**.
+<img src="https://i.imgur.com/NabK1PU.png" style="width: 500px" />
 
-To implement software DSM, **the granularity of coherence maintenance is at the level of a page**. The global virtual memory abstraction is provided to the application program running on the cluster, which views the entire cluster as a globally shared virtual memory. Under the cover, the DSM software partition the global address space into chunks that are managed individually on the nodes of the different processors of the cluster.
+Software DSM is a way to implement the illusion of a global shared memory in a computational cluster where each node has its own private physical memory. The software has to implement the consistency model to the programmer, as there is no physically shared memory. In a tightly coupled multiprocessor, coherence is maintained at individual memory access level by the hardware. However, in a cluster, this **fine-grain** of maintaining coherence at individual memory access level leads to too much **overhead**.
 
-The DSM software maintains coherence by having **distributed ownership for the different virtual pages** that constitute this global virtual address space. The ownership responsibility is split into individual processors, which are responsible for keeping complete coherence information for that particular page and taking the coherence actions commensurate with that page.
+To implement software DSM, **the granularity of coherence maintenance is at the level of a page**. The global virtual memory abstraction is provided to the application program running on the cluster, which views the entire cluster as a globally shared virtual memory. Under the cover, **the DSM software partition the global address space into chunks that are managed individually on the nodes of the different processors of the cluster**.
+
+The DSM software maintains coherence by having **distributed ownership for the different virtual pages** that constitute this global virtual address space. The ownership responsibility is split into individual processors, which are responsible for **keeping complete coherence information for that particular page** and **taking the coherence actions** commensurate with that page.
 
 The DSM software implements the global virtual memory abstraction and knows exactly who to contact as the owner of the page to get the current copy of the page. When there is a page fault, the DSM software communicates with the operating system to handle it, contacts the owner of the page, and asks for the current copy of the page. The owner sends the page to the node that is requesting it, and the page is put into the physical memory, and the VM manager updates the page table for the thread to resume its execution.
 
-An early example of systems that built software DSM includes Ivy, Clouds, Mirage, and Munin. They used coherence maintenance at the granularity of an individual page and a single-writer multiple-reader protocol. However, the single-writer multiple-reader protocol has the potential for false sharing, which is the problem of data appearing to be shared even though programmatically they are not. The page-based coherence maintenance and the single-writer multiple-reader protocol do not live happily together and can lead to false sharing and ping-ponging of the pages due to the false sharing among the threads of the application across the entire network.
+An early example of systems that built software DSM includes Ivy, Clouds, Mirage, and Munin. They used coherence maintenance at the granularity of an individual page and a single-writer multiple-reader protocol. However, **the single-writer multiple-reader protocol has the potential for false sharing,** which is the problem of data appearing to be shared even though programmatically they are not. The page-based coherence maintenance and the single-writer multiple-reader protocol do not live happily together and can lead to false sharing and ping-ponging of the pages due to the false sharing among the threads of the application across the entire network.
 
 ### LRC with Multi Writer Coherence Protocol
 
@@ -179,9 +180,8 @@ An early example of systems that built software DSM includes Ivy, Clouds, Mirage
 - At the release point, the DSM software calculates the diff between the original and modified versions of the page, storing it in a diff data structure.
 - When a different processor acquires the same lock governing the released page, all pages touched in the previous critical section, including X, are invalidated. If there is a page fault for X, the DSM software retrieves the necessary diff from another node to update the page for the current lock acquirer.
 - After the thread in the critical section completes its release operation, the original page is write-protected, and the twin is deleted to free up the physical memory that was allocated for it.
-- In case multiple writers are modifying the same page under different locks, it represents an application problem and a data race.
-- The LRC multiple writer coherence protocol was implemented on a Unix system by TreadMarks.
-- When a thread accesses a shared page, the DSM software catches the SIGSEGV exception to take appropriate action.
+- In case multiple writers are modifying the same page under different locks, it represents an application problem and a data race that should not be there if the application is constructed correctly.
+- The LRC multiple writer coherence protocol was implemented on a Unix system by TreadMarks. When a thread accesses a shared page, the DSM software catches the SIGSEGV exception to take appropriate action.
 - There is a **space overhead** for creating a twin at the point of write and creating a diff data structure at release.
 - **Garbage collection is used to reduce the space overhead** by periodically applying diffs to the original copy of the page and getting rid of them.
 

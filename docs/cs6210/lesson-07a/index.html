@@ -407,11 +407,11 @@ function sidebar_toggle() {
 </ul>
 </li>
 <li>At the beginning of each epoch, each node sends its age information to the initiator node. This includes the age of all local and global pages residing on the node.</li>
-<li>The initiator node calculates the minimum age of the M pages that will be replaced in the upcoming epoch. It also computes the weight for each node, which represents the fraction of replacements that will come from that node.</li>
-<li>The node with the highest weight becomes the initiator for the next epoch.</li>
+<li>The initiator node calculates the minimum age of the M pages that will be replaced in the upcoming epoch. It also computes <strong>the weight for each node</strong>, which represents <strong>the fraction of replacements</strong> that will come from that node.</li>
+<li>The node with the <strong>highest weight</strong> becomes the initiator for the next epoch.</li>
 <li>When a page fault occurs, the node checks the age of the page that needs to be replaced. If the age is greater than the minimum age, the page is discarded. If it is less than the minimum age, the node sends the page to a peer node based on the weight distribution.</li>
 <li>By using age management to approximate a global LRU (Least Recently Used) algorithm, the GMS system ensures that older pages are evicted and replaced with newer pages, thus improving overall system performance.</li>
-<li>The GMS system also follows the principle of thinking globally but acting locally, where global information is used to make local decisions.</li>
+<li>The GMS system also follows the <strong>principle of thinking globally but acting locally,</strong> where global information is used to make local decisions.</li>
 </ul>
 <h2 id="implementation-in-unix"><a class="markdownIt-Anchor" href="#implementation-in-unix"></a> Implementation in Unix</h2>
 <img src="https://i.imgur.com/hD6Yv6m.png" style="width: 800px" />

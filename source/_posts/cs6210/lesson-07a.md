@@ -94,11 +94,11 @@ GMS only works for read across the network. The only pages that been paged out t
 - The epoch management work is either time-bound (limited by T) or space-bound (limited by M replacements). 
 	- M is another parameter that represents the maximum number of page replacements that can occur in an epoch.
 - At the beginning of each epoch, each node sends its age information to the initiator node. This includes the age of all local and global pages residing on the node.
-- The initiator node calculates the minimum age of the M pages that will be replaced in the upcoming epoch. It also computes the weight for each node, which represents the fraction of replacements that will come from that node.
-- The node with the highest weight becomes the initiator for the next epoch.
+- The initiator node calculates the minimum age of the M pages that will be replaced in the upcoming epoch. It also computes **the weight for each node**, which represents **the fraction of replacements** that will come from that node.
+- The node with the **highest weight** becomes the initiator for the next epoch.
 - When a page fault occurs, the node checks the age of the page that needs to be replaced. If the age is greater than the minimum age, the page is discarded. If it is less than the minimum age, the node sends the page to a peer node based on the weight distribution.
 - By using age management to approximate a global LRU (Least Recently Used) algorithm, the GMS system ensures that older pages are evicted and replaced with newer pages, thus improving overall system performance.
-- The GMS system also follows the principle of thinking globally but acting locally, where global information is used to make local decisions.
+- The GMS system also follows the **principle of thinking globally but acting locally,** where global information is used to make local decisions.
 
 ## Implementation in Unix
 

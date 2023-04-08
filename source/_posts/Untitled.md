@@ -3,6 +3,12 @@
 
 L5c not on the list
 
+L6a nucleus 
+
+L7a Data Structures
+
+L7b
+
 Distributed Systems 
 
 I. Lamport’s Logical Clock 
@@ -85,6 +91,9 @@ A. [2 points] What purpose does the memory object abstraction serve in  the vir
 
 B. [2 points] Your co-worker argues that Spring Kernel’s memory  management does not offer any extensibility features. How would you  counter that argument? 
 
+- Though the Virtual Machine Manager(VMM) in the Spring OS is responsible for actions such as mapping, sharing, protection and caching of local memory, they rely on external paging objects for paging and coherency operations.  
+- This functionality of paging and coherency can be implemented as a service outside the microkernel, thus offering extensibility.
+
 VI. EJB 
 
 A. [6 points] You have a startup to implement a portal for airline  reservations. The clients come to you over an insecure wide-area  network. These are the objectives which are your “secret sauce” for  the startup:  
@@ -99,11 +108,23 @@ You are planning to use EJB for meeting these objectives. Your N-tier  solution
 
 2. [4 points] What functionalities would you put into the EJB  container? Justify
 
+There are two components we need to allocate: presentation logic, business logic. The entity bean can be separated from the business logic to get better performance & scalability.  
+  
+In this question, we can put the presentation logic into web container to have parallelism across independent client requests. And put business logic into the EJB container for protection to the business logic.  
+  
+We also need to separate the Entity Bean with the business logic so the requests within a client can be executed in parallel.
+
 VII. Java RMI 
 
 A. [4 points] Java RMI evolved from the Spring Subcontract mechanism.  Name one similarity and one difference in the implementation of the  two systems. 
 
-B. [2 points] Java allows object references to be passed as parameters  during object invocation. What is the difference in parameter  passing (when a local object reference is passed as a parameter)  while invoking a remote object using Java RMI? 
+S: Both use interfaces to hide the implementation and communication details
+D: RMI exploits the semantics of JAVA for marshalling and unmarshalling while subcontract use IDL to be language indenpendent.
+
+B. [2 points] Java allows object references to be passed as parameters  during object invocation. What is the difference in parameter  passing (when a local object reference is passed as a 
+parameter)  while invoking a remote object using Java RMI? 
+
+The difference is, the passing machanims for remote object is value/result, meaning a copy of the object is sent to the invoked method. In contrast, local objects pass a pure reference.
 
 Distributed Subsystems 
 
@@ -111,7 +132,12 @@ VIII. GMS 
 
 A. [2 points] Is it possible for a page X to be present in the "local"  part of two nodes N1 and N2 at the same time? If yes, explain how. 
 
-B. [4 points] N1 faults on page X; N1's global part is empty; N2 has  the oldest page in the entire cluster in its global part; the  missing page X is not in cluster memory. List the steps that will  ensue to service this page fault. 
+Yes, the pages in local can be shared among multiple nodes. When it happens, the page will be copied over to the others' local for accessing.
+
+B. [4 points] N1 faults on page X; N1's global part is empty; N2 has  the oldest page in the entire cluster in its global part; the missing page X is not in cluster memory. List the steps that will  ensue to service this page fault. 
+
+1. N1 expend its local memory.
+2. N1 bring the page X from disk into its local memory.
 
 C. [8 points] Assume that we have a set of Nodes N1, N2 and N3 in a  Global Memory System. The previous epoch of the geriatrics algorithm  has just ended. Now each of the nodes send age information for each  of their Local and Global pages to the initiator. The age  information sent by each node is shown below: 
 
@@ -127,11 +153,24 @@ We choose the parameter for Max Page replacement M = 6 (assume that  the parame
 
 1. [6 points] List down the response sent by the initiator to each  of the nodes while clearly stating what each section of the  response means. [Hint: each “weight” field in the response must  be denoted as a percentage value or as a ratio] 
 
-2. [2 point] Which node is selected as the initiator in the next  epoch? Why? 
+oldest pages are 15, 13, 11, 10, 9, 8
+
+{MinAge 8, (W1 = 1/6, W2 = 2/6, W3 = 3/6)}
+
+3. [2 point] Which node is selected as the initiator in the next  epoch? Why? 
+
+N3, because it has the highest weight, hense least active node.
 
 IX. DSM 
 
 A. [6 points] Consider a page-based software DSM system that implements  a single-writer multiple-reader coherence protocol. A process P on  Node N1 wants to write to page X. The page X is present in N1 but  it is marked read-only. Node N3 is the owner of page X which is  currently read-shared by nodes N1, N2, and N3. List the steps  involved in handling this situation to allow process P to be able to  write to page X. 
+
+1. When process P on Node N1 attempts to write to page X, a page fault will be triggered.
+2. N1 sends a write request to N3 for write permission to page X.
+3. N3 sends invalidation messages to N2 to invalidate shared copies, and invalidate its own copy.
+4. N2 acknowledges the message.
+5. N3 update permission of page X to read-write for N1.
+6. Process P resume execution.
 
 X. DFS 
 

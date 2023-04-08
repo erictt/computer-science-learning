@@ -315,6 +315,9 @@ function sidebar_toggle() {
           <div class="book-post">
   <p>**OMSCS 6210 Spring 2023 Test 2 (120 min Canvas Quiz)</p>
 <p>L5c not on the list</p>
+<p>L6a nucleus</p>
+<p>L7a Data Structures</p>
+<p>L7b</p>
 <p>Distributed Systems</p>
 <p>I. Lamport’s Logical Clock</p>
 <p>A. [2 points] Lamport’s logical clock is an intellectually appealing  strategy for maintaining the state of communicating processes in a  distributed system. What is deficient about logical clocks that  necessitates the physical clock formalism by Lamport in the same  paper?</p>
@@ -368,6 +371,10 @@ SEND UNLOCK P1 -&gt; P2</p>
 <p>V. Spring OS</p>
 <p>A. [2 points] What purpose does the memory object abstraction serve in  the virtual memory subsystem of the Spring Kernel?</p>
 <p>B. [2 points] Your co-worker argues that Spring Kernel’s memory  management does not offer any extensibility features. How would you  counter that argument?</p>
+<ul>
+<li>Though the Virtual Machine Manager(VMM) in the Spring OS is responsible for actions such as mapping, sharing, protection and caching of local memory, they rely on external paging objects for paging and coherency operations.</li>
+<li>This functionality of paging and coherency can be implemented as a service outside the microkernel, thus offering extensibility.</li>
+</ul>
 <p>VI. EJB</p>
 <p>A. [6 points] You have a startup to implement a portal for airline  reservations. The clients come to you over an insecure wide-area  network. These are the objectives which are your “secret sauce” for  the startup:</p>
 <p>• You want to exploit parallelism across independent client request • You want to exploit parallelism within each client request</p>
@@ -381,13 +388,25 @@ SEND UNLOCK P1 -&gt; P2</p>
 <p>[4 points] What functionalities would you put into the EJB  container? Justify</p>
 </li>
 </ol>
+<p>There are two components we need to allocate: presentation logic, business logic. The entity bean can be separated from the business logic to get better performance &amp; scalability.</p>
+<p>In this question, we can put the presentation logic into web container to have parallelism across independent client requests. And put business logic into the EJB container for protection to the business logic.</p>
+<p>We also need to separate the Entity Bean with the business logic so the requests within a client can be executed in parallel.</p>
 <p>VII. Java RMI</p>
 <p>A. [4 points] Java RMI evolved from the Spring Subcontract mechanism.  Name one similarity and one difference in the implementation of the  two systems.</p>
-<p>B. [2 points] Java allows object references to be passed as parameters  during object invocation. What is the difference in parameter  passing (when a local object reference is passed as a parameter)  while invoking a remote object using Java RMI?</p>
+<p>S: Both use interfaces to hide the implementation and communication details<br>
+D: RMI exploits the semantics of JAVA for marshalling and unmarshalling while subcontract use IDL to be language indenpendent.</p>
+<p>B. [2 points] Java allows object references to be passed as parameters  during object invocation. What is the difference in parameter  passing (when a local object reference is passed as a<br>
+parameter)  while invoking a remote object using Java RMI?</p>
+<p>The difference is, the passing machanims for remote object is value/result, meaning a copy of the object is sent to the invoked method. In contrast, local objects pass a pure reference.</p>
 <p>Distributed Subsystems</p>
 <p>VIII. GMS</p>
 <p>A. [2 points] Is it possible for a page X to be present in the “local”  part of two nodes N1 and N2 at the same time? If yes, explain how.</p>
-<p>B. [4 points] N1 faults on page X; N1’s global part is empty; N2 has  the oldest page in the entire cluster in its global part; the  missing page X is not in cluster memory. List the steps that will  ensue to service this page fault.</p>
+<p>Yes, the pages in local can be shared among multiple nodes. When it happens, the page will be copied over to the others’ local for accessing.</p>
+<p>B. [4 points] N1 faults on page X; N1’s global part is empty; N2 has  the oldest page in the entire cluster in its global part; the missing page X is not in cluster memory. List the steps that will  ensue to service this page fault.</p>
+<ol>
+<li>N1 expend its local memory.</li>
+<li>N1 bring the page X from disk into its local memory.</li>
+</ol>
 <p>C. [8 points] Assume that we have a set of Nodes N1, N2 and N3 in a  Global Memory System. The previous epoch of the geriatrics algorithm  has just ended. Now each of the nodes send age information for each  of their Local and Global pages to the initiator. The age  information sent by each node is shown below:</p>
 <p>Node N1: [LP1: 5, LP2: 7, LP3: 4, GP1: 11, GP2: 2]</p>
 <p>Node N2: [LP1: 1, LP2: 8, GP1: 3, GP2: 3, GP3: 9]</p>
@@ -395,15 +414,24 @@ SEND UNLOCK P1 -&gt; P2</p>
 <p>The integers corresponding to each page denote its age (a page with  age 10 is older than a page with age 5)</p>
 <p>We choose the parameter for Max Page replacement M = 6 (assume that  the parameter T for epoch duration does not play a role here)</p>
 <ol>
-<li>
-<p>[6 points] List down the response sent by the initiator to each  of the nodes while clearly stating what each section of the  response means. [Hint: each “weight” field in the response must  be denoted as a percentage value or as a ratio]</p>
-</li>
-<li>
-<p>[2 point] Which node is selected as the initiator in the next  epoch? Why?</p>
-</li>
+<li>[6 points] List down the response sent by the initiator to each  of the nodes while clearly stating what each section of the  response means. [Hint: each “weight” field in the response must  be denoted as a percentage value or as a ratio]</li>
 </ol>
+<p>oldest pages are 15, 13, 11, 10, 9, 8</p>
+<p>{MinAge 8, (W1 = 1/6, W2 = 2/6, W3 = 3/6)}</p>
+<ol start="3">
+<li>[2 point] Which node is selected as the initiator in the next  epoch? Why?</li>
+</ol>
+<p>N3, because it has the highest weight, hense least active node.</p>
 <p>IX. DSM</p>
 <p>A. [6 points] Consider a page-based software DSM system that implements  a single-writer multiple-reader coherence protocol. A process P on  Node N1 wants to write to page X. The page X is present in N1 but  it is marked read-only. Node N3 is the owner of page X which is  currently read-shared by nodes N1, N2, and N3. List the steps  involved in handling this situation to allow process P to be able to  write to page X.</p>
+<ol>
+<li>When process P on Node N1 attempts to write to page X, a page fault will be triggered.</li>
+<li>N1 sends a write request to N3 for write permission to page X.</li>
+<li>N3 sends invalidation messages to N2 to invalidate shared copies, and invalidate its own copy.</li>
+<li>N2 acknowledges the message.</li>
+<li>N3 update permission of page X to read-write for N1.</li>
+<li>Process P resume execution.</li>
+</ol>
 <p>X. DFS</p>
 <p>A. [4 points] Consider the xFS file system.</p>
 <ul>

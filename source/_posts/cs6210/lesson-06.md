@@ -85,6 +85,8 @@
 
 * **Virtual Memory Manager (VMM)**: The VMM is responsible for managing the linear address space of a process by dividing it into regions and mapping those **memory regions** to specific **memory objects**.
 	* The abstraction of a memory object allows a region of virtual memory to be associated with a backing file, or swap space on the disk.
+	* allows a region of virtual memory to be associated with a backing file, or the swap space on the disk
+	* allow different regions of the same address space are mapped to the same memory object
 
 #### Pager Object
 
@@ -94,9 +96,7 @@
 * **Cached object representations**: When a pager object maps a memory object to a region of the address space, it creates a cached object representation in DRAM. This allows the process to access that portion of its address space.
 - **Shared memory objects**: It is possible for a memory object to be shared between two different address spaces. In this case, distinct pager objects are responsible for managing the coherence of the cached representations of the shared memory object in the two address spaces.
 
-#### Summary
-
-<img src="https://i.imgur.com/8XIwoK5.jpg" style="width: 800px" />
+### Comparison to other OSes
 
 * Object oriented kernel
     - nucleus -> threads + IPC
@@ -110,17 +110,17 @@
 ### Dynamic Client-Server Relationships
 
 - Spring is a network OS. The clients and servers interact seamlessly, regardless of their physical location in the network. 
-* Scenario #1: We have several replica of the servers (to increase availability). The clients will be dynamically routed to different servers depending on the physical proximity of the client and the server, and also on the load distribution.
+* Scenario #1: We have several replicas of the servers (to increase availability). The clients will be dynamically routed to different servers depending on the physical proximity of the client and the server, and also on the load distribution.
 * Scenario #2: The servers are cached. The clients can dynamically access these cached copies instead of accessing the servers themselves.
 * Then, we have two types of dynamic decisions:
     - In Scenario #1: Deciding which server replica the client should access.
     - In Scenario #2: Deciding which cached copy the client should access.
 * Spring OS uses “Subcontracts” to manage these decisions.
 
-### Subcontract
+#### Subcontract
 
 * As mentioned earlier, IDL is used to define the OS interfaces.
-* The Subcontract is the implementation of the IDL interfaces, it hides the runtime behavior of an object from the actual interface.
+* The **Subcontract is the implementation of the IDL interfaces**, it hides the runtime behavior of an object from the actual interface.
     - For instance, there could be a singleton implementation of the server, or it could be a replicated implementation of the server. The client does not care.
 * The client stub generation will be simple, since all the details about the server will be hidden in the Subcontract.
 
@@ -130,7 +130,7 @@
     3) Server side stub code: Code to be linked into an object manager to translate incoming remote object invocations into the run-time environment of the object’s implementation.
 
 * **Dynamic loading of subcontracts**: Subcontracts can be discovered and installed at runtime, allowing for seamless addition of functionality to existing services. For example, if a singleton server becomes replicated, a new subcontract can be introduced to handle the replicated servers without any changes to the client stub.
-* Marshal/Un-marshal Interface: The Subcontract will marshal/unmarshal arguments when requested by the client. The Subcontract will do the appropriate steps to execute the request based on the location of the server (e.g. on the same machine, on the network, on a different processor, etc.).
+* Marshal/Unmarshal Interface: The Subcontract will marshal/unmarshal arguments when requested by the client. The Subcontract will do the appropriate steps to execute the request based on the location of the server (e.g. on the same machine, on the network, on a different processor, etc.).
 
 ### Conclusion
 
@@ -156,7 +156,7 @@
 
 ### Local vs. Remote Implementation
 
-In this example, we'll construct a bank account server using Java's distributed object model. The server provides APIs for deposit, withdrawal, and balance inquiries. We'll consider two possibilities for implementing this service as a distributed object accessible from clients anywhere in the network below. Before divng into details. Here are some deifnitions:
+In this example, we'll construct a bank account server using Java's distributed object model. The server provides APIs for deposit, withdrawal, and balance inquiries. We'll consider two possibilities for implementing this service as a distributed object accessible from clients anywhere in the network below. Before divng into details. Here are some definitions
 1. Remote Interface(`java.rmi.Remote`): This interface is completely abstract and has no methods.
 	- `interface Remote {}`
 2. Remote interface: `BandAccount` for a bank account extends `Remote`.
@@ -299,7 +299,7 @@ The RMI Transport Layer provides the following four abstractions:
 * A Java Bean is a unit of reuse and contains a bundle of Java Objects to provide a specific functionality, e.g. a Java Bean may provide the shopping cart functionality.
 * A Container is a Protection Domain implemented in a Java Virtual Machine (JVM) and it packages and hosts a related collection of Java Beans to provide higher-level functionality.
 * An Application Service is constructed by using multiple Containers, typically present on different servers and used in a distributed manner.
-* Mnemonic: Java Objects → Java Beans → Containers → Application Service.
+	* Mnemonic: Java Objects → Java Beans → Containers → Application Service.
 * The **JEE (Java Enterprise Edition)** framework has 4 containers for constructing an application service:
     - **Client Container**: Resides on a web server and interacts with client browser.
     - **Applet Container**: Package the objects that constitute.

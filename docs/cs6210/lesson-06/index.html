@@ -425,6 +425,8 @@ function sidebar_toggle() {
 <li><strong>Virtual Memory Manager (VMM)</strong>: The VMM is responsible for managing the linear address space of a process by dividing it into regions and mapping those <strong>memory regions</strong> to specific <strong>memory objects</strong>.
 <ul>
 <li>The abstraction of a memory object allows a region of virtual memory to be associated with a backing file, or swap space on the disk.</li>
+<li>allows a region of virtual memory to be associated with a backing file, or the swap space on the disk</li>
+<li>allow different regions of the same address space are mapped to the same memory object</li>
 </ul>
 </li>
 </ul>
@@ -437,8 +439,7 @@ function sidebar_toggle() {
 <ul>
 <li><strong>Shared memory objects</strong>: It is possible for a memory object to be shared between two different address spaces. In this case, distinct pager objects are responsible for managing the coherence of the cached representations of the shared memory object in the two address spaces.</li>
 </ul>
-<h4 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h4>
-<img src="https://i.imgur.com/8XIwoK5.jpg" style="width: 800px" />
+<h3 id="comparison-to-other-oses"><a class="markdownIt-Anchor" href="#comparison-to-other-oses"></a> Comparison to other OSes</h3>
 <ul>
 <li>Object oriented kernel
 <ul>
@@ -460,7 +461,7 @@ function sidebar_toggle() {
 <li>Spring is a network OS. The clients and servers interact seamlessly, regardless of their physical location in the network.</li>
 </ul>
 <ul>
-<li>Scenario #1: We have several replica of the servers (to increase availability). The clients will be dynamically routed to different servers depending on the physical proximity of the client and the server, and also on the load distribution.</li>
+<li>Scenario #1: We have several replicas of the servers (to increase availability). The clients will be dynamically routed to different servers depending on the physical proximity of the client and the server, and also on the load distribution.</li>
 <li>Scenario #2: The servers are cached. The clients can dynamically access these cached copies instead of accessing the servers themselves.</li>
 <li>Then, we have two types of dynamic decisions:
 <ul>
@@ -470,13 +471,13 @@ function sidebar_toggle() {
 </li>
 <li>Spring OS uses “Subcontracts” to manage these decisions.</li>
 </ul>
-<h3 id="subcontract"><a class="markdownIt-Anchor" href="#subcontract"></a> Subcontract</h3>
+<h4 id="subcontract"><a class="markdownIt-Anchor" href="#subcontract"></a> Subcontract</h4>
 <ul>
 <li>
 <p>As mentioned earlier, IDL is used to define the OS interfaces.</p>
 </li>
 <li>
-<p>The Subcontract is the implementation of the IDL interfaces, it hides the runtime behavior of an object from the actual interface.</p>
+<p>The <strong>Subcontract is the implementation of the IDL interfaces</strong>, it hides the runtime behavior of an object from the actual interface.</p>
 <ul>
 <li>For instance, there could be a singleton implementation of the server, or it could be a replicated implementation of the server. The client does not care.</li>
 </ul>
@@ -496,7 +497,7 @@ function sidebar_toggle() {
 <p><strong>Dynamic loading of subcontracts</strong>: Subcontracts can be discovered and installed at runtime, allowing for seamless addition of functionality to existing services. For example, if a singleton server becomes replicated, a new subcontract can be introduced to handle the replicated servers without any changes to the client stub.</p>
 </li>
 <li>
-<p>Marshal/Un-marshal Interface: The Subcontract will marshal/unmarshal arguments when requested by the client. The Subcontract will do the appropriate steps to execute the request based on the location of the server (e.g. on the same machine, on the network, on a different processor, etc.).</p>
+<p>Marshal/Unmarshal Interface: The Subcontract will marshal/unmarshal arguments when requested by the client. The Subcontract will do the appropriate steps to execute the request based on the location of the server (e.g. on the same machine, on the network, on a different processor, etc.).</p>
 </li>
 </ul>
 <h3 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h3>
@@ -530,7 +531,7 @@ function sidebar_toggle() {
 </li>
 </ul>
 <h3 id="local-vs-remote-implementation"><a class="markdownIt-Anchor" href="#local-vs-remote-implementation"></a> Local vs. Remote Implementation</h3>
-<p>In this example, we’ll construct a bank account server using Java’s distributed object model. The server provides APIs for deposit, withdrawal, and balance inquiries. We’ll consider two possibilities for implementing this service as a distributed object accessible from clients anywhere in the network below. Before divng into details. Here are some deifnitions:</p>
+<p>In this example, we’ll construct a bank account server using Java’s distributed object model. The server provides APIs for deposit, withdrawal, and balance inquiries. We’ll consider two possibilities for implementing this service as a distributed object accessible from clients anywhere in the network below. Before divng into details. Here are some definitions</p>
 <ol>
 <li>
 <p>Remote Interface(<code>java.rmi.Remote</code>): This interface is completely abstract and has no methods.</p>
@@ -707,8 +708,11 @@ function sidebar_toggle() {
 <ul>
 <li>A Java Bean is a unit of reuse and contains a bundle of Java Objects to provide a specific functionality, e.g. a Java Bean may provide the shopping cart functionality.</li>
 <li>A Container is a Protection Domain implemented in a Java Virtual Machine (JVM) and it packages and hosts a related collection of Java Beans to provide higher-level functionality.</li>
-<li>An Application Service is constructed by using multiple Containers, typically present on different servers and used in a distributed manner.</li>
+<li>An Application Service is constructed by using multiple Containers, typically present on different servers and used in a distributed manner.
+<ul>
 <li>Mnemonic: Java Objects → Java Beans → Containers → Application Service.</li>
+</ul>
+</li>
 <li>The <strong>JEE (Java Enterprise Edition)</strong> framework has 4 containers for constructing an application service:
 <ul>
 <li><strong>Client Container</strong>: Resides on a web server and interacts with client browser.</li>
