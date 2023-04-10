@@ -313,69 +313,100 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <p>**OMSCS 6210 Spring 2023 Test 2 (120 min Canvas Quiz)</p>
-<p>L5c not on the list</p>
-<p>L6a nucleus</p>
-<p>L7a Data Structures</p>
-<p>L7b</p>
-<p>Distributed Systems</p>
-<p>I. Lamport’s Logical Clock</p>
+  <h1 id="omscs-6210-spring-2023-test-2"><a class="markdownIt-Anchor" href="#omscs-6210-spring-2023-test-2"></a> OMSCS 6210 Spring 2023 Test 2</h1>
+<h2 id="distributed-systems"><a class="markdownIt-Anchor" href="#distributed-systems"></a> Distributed Systems</h2>
+<h3 id="i-lamports-logical-clock"><a class="markdownIt-Anchor" href="#i-lamports-logical-clock"></a> I. Lamport’s Logical Clock</h3>
 <p>A. [2 points] Lamport’s logical clock is an intellectually appealing  strategy for maintaining the state of communicating processes in a  distributed system. What is deficient about logical clocks that  necessitates the physical clock formalism by Lamport in the same  paper?</p>
+<ul>
+<li><strong>Lack</strong> mechanisms to <strong>synchronize</strong> processes with respect to physical time.</li>
+<li><code>happen-before</code> <strong>doesn’t guarantee</strong> that the assigned timestamps will be consistent with actual <strong>real-time order</strong>.</li>
+</ul>
 <p>B. [4 points] Assume a system where clocks on nodes do not drift and  the network communication time is constant. Do we still need a  Lamport’s clock to determine “happened before” relations? Explain.</p>
-<p>II. Lamport’s ME Algorithm</p>
+<p>Yes.</p>
+<ol>
+<li>Even with no drift clock and network issue, the <strong>clock synchronization</strong> among multiple nodes is still hard to achieve. Besides, the time for processing events varies, which leaves uncertainties to the event orders. &lt;-- NTP</li>
+<li>Physical locks can’t <strong>differentiate events that occur in a rapid succession</strong>. As a result, the events with close timestamps might be incorrectly ordered.</li>
+<li>Lamport’s logical clocks can help establish partial orders for concurrent events based on <strong>causal relationships</strong>, which cannot be achieved using physical clocks alone.</li>
+</ol>
+<h3 id="ii-lamports-me-algorithm"><a class="markdownIt-Anchor" href="#ii-lamports-me-algorithm"></a> II. Lamport’s ME Algorithm</h3>
 <p>A. [5 points] Construct a simple ordering of events involving two  processes (P1 and P2) where Lamport’s algorithm violates mutual  exclusion, where P2 acquires mutex when it has already been acquired  by P1.</p>
 <p>Give your answer in the form of a sequence of one of the following  events. Show the state of the queues at P1 and P2 wherever  necessary, and clearly indicate which messages were delivered out of  order.</p>
 <p>• SEND LOCK/ACK/UNLOCK P1 -&gt; P2 (P1 sends lock/ack/unlock to P2)<br>
 • RECV LOCK/ACK/UNLOCK P1 -&gt; P2 (P2 receives lock/ack/unlock  sent by P1) <br>
 • ACQUIRE P1 (P1 acquires lock)</p>
 <p>–<br>
-SEND LOCK P1 -&gt; P2<br>
-SEND LOCK P2 -&gt; P1</p>
-<p>RECV LOCK P1 -&gt; P2<br>
-RECV LOCK P2 -&gt; P1</p>
-<p>SEND ACK P2 -&gt; P1<br>
-SEND ACK P1 -&gt; P2</p>
-<p>ACQUIRE P1<br>
-SEND UNLOCK P1 -&gt; P2<br>
-ACQUIRE P2<br>
-SEND UNLOCK P1 -&gt; P2</p>
+SEND LOCK P1 -&gt; P2 got delayed</p>
+<ul>
+<li>Queue(P1): [(P1, t1)]</li>
+<li>Queue(P2): []<br>
+SEND LOCK P2 -&gt; P1</li>
+<li>Queue(P1): []</li>
+<li>Queue(P2): [(P2, t2)]<br>
+RECV LOCK P2 -&gt; P1</li>
+<li>Queue(P1): [(P1, t1), (P2, t2)]</li>
+<li>Queue(P2): [(P2, t2)]<br>
+SEND ACK P1 -&gt; P2<br>
+ACQUIRE P2 (out of order due to not receiving the lock message)<br>
+RECV LOCK P1 -&gt; P2 (got the lock message, but it’s too late)</li>
+<li>Queue(P1): [(P1, t1), (P2, t2)]</li>
+<li>Queue(P2): [(P1, t1), (P2, t2)]<br>
+SEND ACK P2 -&gt; P1<br>
+ACQUIRE P1</li>
+</ul>
 <p>B. [3 points] Construct a simple example of a sequence of events involving two processes P1 and P2, where “progress” is violated,  that is, in a situation where the mutex previously held by P1 has  been released, but P2 is not able to acquire it.</p>
 <p>Use the format shown in part (A) for the sequence of events, and  clearly indicate which message was lost.</p>
+<p>SEND LOCK P1 -&gt; P2<br>
+SEND LOCK P2 -&gt; P1<br>
+SEND ACK P2-&gt; P1<br>
+SEND ACK P1-&gt; P2<br>
+ACQUIRE P1<br>
+SEND UNLOCK P1-&gt;P2 (got lost)</p>
 <p>C. [2 points] The correctness of the basic Lamport’s ME algorithm  depends on no message loss. You want to relax this requirement and  yet assure correctness. How would you do it?</p>
+<p>So we still have message in order and queues are in total order.</p>
+<p>Make it as TCP protocol-like, when receiving a message bump the SEQ number and send a ACK. If the SEQ is missed, ask for a resend.</p>
 <p>D. [2 points] Your co-worker asserts that for the correctness of the  basic Lamport’s ME algorithm, messages from a given process P1 to  all other processes in the entire distributed system must arrive in  the order in which they are sent from P1. Is she right? You should  justify your answer with an explanation.</p>
-<p>III. Latency Reduction in RPC</p>
+<p>She is right. If messages arrive out of order, the <code>happens-before</code> relation may be violated, leading to <strong>incorrect order of lock requests</strong> in the queue.</p>
+<h3 id="iii-latency-reduction-in-rpc"><a class="markdownIt-Anchor" href="#iii-latency-reduction-in-rpc"></a> III. Latency Reduction in RPC</h3>
 <p>A. [2 points] Thekkath and Levy suggest using a shared descriptor  between the client stub and the kernel for marshalling arguments  during an RPC call. Your friend argues that this does not result in  reducing the copying overhead of an RPC call. How would you counter  her argument?</p>
+<p>In the traditional RPC mechanism, the client stub marshals the arguments into a buffer, which is then copied into kernel space which costs significant overhead. By sharing the same descriptor, the copy from user space to kernel space can be eliminated.</p>
 <p>B. [4 points] Consider the following control transfers involved in an  RPC call.</p>
 <p><img src="https://lh4.googleusercontent.com/jV3e22BqOf9vlb9zpw7dSCxlyxUhVGvIkDhEvjwJ5j_rBiFMfIa_CEIRpby2HVGaXsklsmlODOOxHNsXh1VSEwR6seJYUSmOOc2OumJ30RgGynJJ4yE4H0en-dmH-aQFSBMXzmTElvqruHHcQM-9SbY" alt=""></p>
 <p>Out of these, identify the ones that are in the critical path. Why are  the identified calls considered in the critical path while others are  not?</p>
+<p>There are two paths are considered critical. One is when the call arrivals on the server, it needs to do context switch from other processes to serve the incoming calls. The other one is, when the results arrive to the client, the client needs to do context switch to handle the response.</p>
 <p>C. [4 points] You have designed an RPC system which has the following  parameters:</p>
 <p>• T: Message transmission time in either direction for sending the  arguments of the call or receiving the results (includes protocol  processing, time on the wire, and interrupt processing)</p>
 <p>• CSc = 3T: Context switch time at the client node</p>
 <p>• CSs= T: Context switch time at the server node</p>
 <p>You notice from the logs that the server procedure execution time is  bimodal: it takes T units of time mostly but occasionally 20T units  of time.</p>
 <p>How would you optimize the latency for RPC calls for this client server interaction?</p>
-<p>IV. Active Networks</p>
+<p>In a normal route, the request takes 4T(1T on the wire, 1T for server to do context switch, 1T for execution, 1T for transfer back to client) to get back. So in my design, the client will do context switch if it doesn’t get a response from the server.</p>
+<h3 id="iv-active-networks"><a class="markdownIt-Anchor" href="#iv-active-networks"></a> IV. Active Networks</h3>
 <p>A. In an Active Network, we expect the intermediate routers to execute  code by looking at the “type” field of the capsule present in the  incoming packet. For a “type” that it has not seen before, it  requests the code from the node present in the “prev” field.</p>
 <ol>
-<li>
-<p>[2 points] Is it possible for the “prev” node to not have the code  corresponding to the “type” of the incoming packet? Explain why.</p>
-</li>
-<li>
-<p>[2 points] Given that the active store uses LRU to replace items  from it, why would the “prev” node NOT have the code corresponding  to the “type” field?</p>
-</li>
-<li>
-<p>[2 points] How is this situation handled in Active Networks? Why?</p>
-</li>
+<li>[2 points] Is it possible for the “prev” node to not have the code  corresponding to the “type” of the incoming packet? Explain why.</li>
 </ol>
-<p>Distributed Objects and Middleware</p>
-<p>V. Spring OS</p>
+<p>Yes, each router only has a limited size of soft store, the code might be discarded from its cache because its cache eviction policies.</p>
+<ol start="3">
+<li>[2 points] Given that the active store uses LRU to replace items  from it, why would the “prev” node NOT have the code corresponding  to the “type” field?</li>
+</ol>
+<p>In a very intense network, the request to <code>prev</code> node might get delayed, and the code gets evicted before the request arrives.</p>
+<ol start="4">
+<li>[2 points] How is this situation handled in Active Networks? Why?</li>
+</ol>
+<p>The router will drop the packet if it can’t find the code in its own cache or the prev node’s cache. We rely on higher level protocol to handle the situation, e.g. re-transmit the packet.</p>
+<h2 id="distributed-objects-and-middleware"><a class="markdownIt-Anchor" href="#distributed-objects-and-middleware"></a> Distributed Objects and Middleware</h2>
+<h3 id="v-spring-os"><a class="markdownIt-Anchor" href="#v-spring-os"></a> V. Spring OS</h3>
 <p>A. [2 points] What purpose does the memory object abstraction serve in  the virtual memory subsystem of the Spring Kernel?</p>
+<ul>
+<li>Memory object abstraction allows multiple memory regions to <strong>share the same memory objects</strong>.</li>
+<li>It also allows the virtual memory manager to <strong>handle various types of backing storage for memory regions</strong>, the virtual memory can be associated with backing files or swap space on disk, etc.</li>
+</ul>
 <p>B. [2 points] Your co-worker argues that Spring Kernel’s memory  management does not offer any extensibility features. How would you  counter that argument?</p>
 <ul>
-<li>Though the Virtual Machine Manager(VMM) in the Spring OS is responsible for actions such as mapping, sharing, protection and caching of local memory, they rely on external paging objects for paging and coherency operations.</li>
-<li>This functionality of paging and coherency can be implemented as a service outside the microkernel, thus offering extensibility.</li>
+<li>VMM enables extensibility by using <strong>memory object as an abstraction layer</strong>, which allows virtual memory regions to be associated with various backing storage.</li>
+<li>By using <strong>external pagers</strong> for managing the memory objects, it allows implementing different policies and algorithms for memory management.</li>
 </ul>
-<p>VI. EJB</p>
+<h3 id="vi-ejb"><a class="markdownIt-Anchor" href="#vi-ejb"></a> VI. EJB</h3>
 <p>A. [6 points] You have a startup to implement a portal for airline  reservations. The clients come to you over an insecure wide-area  network. These are the objectives which are your “secret sauce” for  the startup:</p>
 <p>• You want to exploit parallelism across independent client request • You want to exploit parallelism within each client request</p>
 <p>• You want to protect your business logic from being exposed to the  wide-area Internet</p>
@@ -388,24 +419,25 @@ SEND UNLOCK P1 -&gt; P2</p>
 <p>[4 points] What functionalities would you put into the EJB  container? Justify</p>
 </li>
 </ol>
-<p>There are two components we need to allocate: presentation logic, business logic. The entity bean can be separated from the business logic to get better performance &amp; scalability.</p>
+<p>There are two components we need to allocate: <strong>presentation logic</strong>, <strong>business logic</strong>. The entity bean can be separated from the business logic to get better performance &amp; scalability.</p>
 <p>In this question, we can put the presentation logic into web container to have parallelism across independent client requests. And put business logic into the EJB container for protection to the business logic.</p>
-<p>We also need to separate the Entity Bean with the business logic so the requests within a client can be executed in parallel.</p>
-<p>VII. Java RMI</p>
+<p>We also need to separate the <strong>Entity Bean</strong> with the business logic so the requests within a client can be executed in parallel.</p>
+<h3 id="vii-java-rmi"><a class="markdownIt-Anchor" href="#vii-java-rmi"></a> VII. Java RMI</h3>
 <p>A. [4 points] Java RMI evolved from the Spring Subcontract mechanism.  Name one similarity and one difference in the implementation of the  two systems.</p>
 <p>S: Both use interfaces to hide the implementation and communication details<br>
-D: RMI exploits the semantics of JAVA for marshalling and unmarshalling while subcontract use IDL to be language indenpendent.</p>
+D: RMI exploits the semantics of JAVA for marshalling and unmarshalling while subcontract use IDL to be language independent.</p>
 <p>B. [2 points] Java allows object references to be passed as parameters  during object invocation. What is the difference in parameter  passing (when a local object reference is passed as a<br>
 parameter)  while invoking a remote object using Java RMI?</p>
 <p>The difference is, the passing machanims for remote object is value/result, meaning a copy of the object is sent to the invoked method. In contrast, local objects pass a pure reference.</p>
-<p>Distributed Subsystems</p>
-<p>VIII. GMS</p>
+<h2 id="distributed-subsystems"><a class="markdownIt-Anchor" href="#distributed-subsystems"></a> Distributed Subsystems</h2>
+<h3 id="viii-gms"><a class="markdownIt-Anchor" href="#viii-gms"></a> VIII. GMS</h3>
 <p>A. [2 points] Is it possible for a page X to be present in the “local”  part of two nodes N1 and N2 at the same time? If yes, explain how.</p>
 <p>Yes, the pages in local can be shared among multiple nodes. When it happens, the page will be copied over to the others’ local for accessing.</p>
 <p>B. [4 points] N1 faults on page X; N1’s global part is empty; N2 has  the oldest page in the entire cluster in its global part; the missing page X is not in cluster memory. List the steps that will  ensue to service this page fault.</p>
 <ol>
-<li>N1 expend its local memory.</li>
-<li>N1 bring the page X from disk into its local memory.</li>
+<li>N1 sends its LRU page to N2’s global part</li>
+<li>N2 swap out its LRU page and store the page from N1</li>
+<li>N1 bring in the page X from disk into its local memory.</li>
 </ol>
 <p>C. [8 points] Assume that we have a set of Nodes N1, N2 and N3 in a  Global Memory System. The previous epoch of the geriatrics algorithm  has just ended. Now each of the nodes send age information for each  of their Local and Global pages to the initiator. The age  information sent by each node is shown below:</p>
 <p>Node N1: [LP1: 5, LP2: 7, LP3: 4, GP1: 11, GP2: 2]</p>
@@ -416,52 +448,85 @@ parameter)  while invoking a remote object using Java RMI?</p>
 <ol>
 <li>[6 points] List down the response sent by the initiator to each  of the nodes while clearly stating what each section of the  response means. [Hint: each “weight” field in the response must  be denoted as a percentage value or as a ratio]</li>
 </ol>
-<p>oldest pages are 15, 13, 11, 10, 9, 8</p>
+<p>The oldest pages are 15, 13, 11, 10, 9, 8</p>
 <p>{MinAge 8, (W1 = 1/6, W2 = 2/6, W3 = 3/6)}</p>
 <ol start="3">
 <li>[2 point] Which node is selected as the initiator in the next  epoch? Why?</li>
 </ol>
-<p>N3, because it has the highest weight, hense least active node.</p>
-<p>IX. DSM</p>
+<p>N3, because it has the highest weight, hence it is the least active node.</p>
+<h3 id="ix-dsm"><a class="markdownIt-Anchor" href="#ix-dsm"></a> IX. DSM</h3>
 <p>A. [6 points] Consider a page-based software DSM system that implements  a single-writer multiple-reader coherence protocol. A process P on  Node N1 wants to write to page X. The page X is present in N1 but  it is marked read-only. Node N3 is the owner of page X which is  currently read-shared by nodes N1, N2, and N3. List the steps  involved in handling this situation to allow process P to be able to  write to page X.</p>
 <ol>
-<li>When process P on Node N1 attempts to write to page X, a page fault will be triggered.</li>
-<li>N1 sends a write request to N3 for write permission to page X.</li>
-<li>N3 sends invalidation messages to N2 to invalidate shared copies, and invalidate its own copy.</li>
-<li>N2 acknowledges the message.</li>
-<li>N3 update permission of page X to read-write for N1.</li>
-<li>Process P resume execution.</li>
+<li>When process P on Node N1 attempts to write to the page X, a page fault occurs. The DSM software communicates with the OS to handle the page fault.</li>
+<li>The DSM software on N1 determines the current owner of the page X which is N3.</li>
+<li>N1 send a write permission request to N3.</li>
+<li>N3 send invalidation messages to the nodes that have read-shared copies.</li>
+<li>N2 and N3 acknowledge the invalidation requests.</li>
+<li>N3 update the page X as write-exclusive for N1 and inform N1.</li>
+<li>N1 acknowledge the update and continue the work of process P.</li>
 </ol>
-<p>X. DFS</p>
+<h3 id="x-dfs"><a class="markdownIt-Anchor" href="#x-dfs"></a> X. DFS</h3>
 <p>A. [4 points] Consider the xFS file system.</p>
 <ul>
-<li>
-<p>Node Nf is the manager node for a file F1</p>
-</li>
-<li>
-<p>Assume that coherence is maintained at the granularity of individual  files</p>
-</li>
-<li>
-<p>F1 is currently read-shared by nodes N1, N2, and N3</p>
-</li>
+<li>Node Nf is the manager node for a file F1</li>
+<li>Assume that coherence is maintained at the granularity of individual  files</li>
+<li>F1 is currently read-shared by nodes N1, N2, and N3</li>
 </ul>
 <p>The following events happen:</p>
 <ul>
-<li>
-<p>Time T1: Node N1 attempts to write to file Nf</p>
-</li>
-<li>
-<p>Time T2: Node N2 attempts to read the file Nf</p>
-</li>
+<li>Time T1: Node N1 attempts to write to file Nf</li>
+<li>Time T2: Node N2 attempts to read the file Nf</li>
 </ul>
 <ol>
-<li>[2 points] List the actions that would take place at time T1 2. [2 points] List the actions that would take place at time T2.</li>
+<li>
+<p>[2 points] List the actions that would take place at time T1</p>
+</li>
+<li>
+<p>N1 send a request to Nf for write access to F1,</p>
+</li>
+<li>
+<p>Nf send invalidation messages to N2 and N3.</p>
+</li>
+<li>
+<p>Upon receiving the acknowledgements, Nf grant N1 the write-exclusive access.</p>
+</li>
+<li>
+<p>N1 receives the confirmation and proceeds with writing to file F1.</p>
+</li>
+<li>
+<p>[2 points] List the actions that would take place at time T2.</p>
+</li>
+<li>
+<p>N2 send read access request to Nf</p>
+</li>
+<li>
+<p>Nf check the status of file F1, and send a downgrade message to N1</p>
+</li>
+<li>
+<p>N1 acknowledges the downgrade message to Nf after downgrading its access to read-shared.</p>
+</li>
+<li>
+<p>Nf downgrade F1 as read-shared.</p>
+</li>
+<li>
+<p>Nf grants read access to N2.</p>
+</li>
+<li>
+<p>Up receiving the confirmation, N2 proceeds with read to the file F1.</p>
+</li>
 </ol>
-<p>B. [2 points]</p>
-<p>Why do file systems procrastinate writing a file to stable storage as  soon as the process that is doing the write closes the file?</p>
-<p>C. [2 points]</p>
-<p>In xFS, what purpose does the “log segment” data structure of the file  system serve?</p>
-<p>D. [2 points] Distinguish between static and dynamic metadata  management.**</p>
+<p>B. [2 points]  Why do file systems procrastinate writing a file to stable storage as  soon as the process that is doing the write closes the file?</p>
+<p>To improve disk I/O and solve the small write problem</p>
+<p>C. [2 points] In xFS, what purpose does the “log segment” data structure of the file  system serve?</p>
+<p>Log segment is an append-only data structure, which improves write performance and allow more efficient, continuous disk access. It also minimizes disk seek operations and provide better write throughput.</p>
+<p>D. [2 points] Distinguish between static and dynamic metadata  management.</p>
+<p>Static: metadata allocation and distribution are predetermined. It simplifies metadata management and lookup. But potentially, it has load imbalance and limited scalability problem.<br>
+Dynamic: metadata can be reassigned to different nodes based on factors such as load, access patterns, or system changes. It offers better load balancing, and better scalability. But also introduces complexities in metadata lookup and management.</p>
+<h2 id="missing"><a class="markdownIt-Anchor" href="#missing"></a> Missing</h2>
+<p>L5e<br>
+L6a nucleus<br>
+L7a Data Structures<br>
+L7b eager RC vs lazy RC</p>
 
 </div>
 

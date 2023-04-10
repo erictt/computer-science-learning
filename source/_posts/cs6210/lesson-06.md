@@ -61,10 +61,10 @@
 * Each domain has **multiple Network Proxies** to communicate with different nodes on the network. This facilitates specialization since these different proxies can represent different protocols.
 * Network Proxies are invisible to the clients/servers.
 * How to establish communication over the network?
-    - A Network Proxy ($\text{𝑃𝑟𝑜𝑥𝑦}_𝑠$) will be instantiated on the server node and a Door will be created for communication between this Proxy and the server domain through the Nucleus.
+    - A Network Proxy ($\text{𝑃𝑟𝑜𝑥𝑦}_𝑠$) will be instantiated on the server node and a Door will be created for communication between this proxy and the server domain through the Nucleus.
     - $\text{𝑃𝑟𝑜𝑥𝑦}_𝑠$ will export the network handle embedding the Door created on the server domain to the Network Proxy of the client domain $\text{𝑃𝑟𝑜𝑥𝑦}_c$. These Proxies and the communication between them are outside the kernel.
     - $\text{𝑃𝑟𝑜𝑥𝑦}_c$ will use this network handle to establish a connection between the client’s Nucleus and the server’s Nucleus.
-    - The client domain will then invoke the Door inside its Nucleus and the two Proxies will facilitate the invoking the server.
+    - The client domain will then invoke the Door inside its Nucleus and the two proxies will facilitate the invoking the server.
 
 ### Secure Object Invocation
 
@@ -74,7 +74,7 @@
 * An underlying object may have a Front Object that is directly connected to it (without Doors).
 * Whenever a client domain tries to access this protected domain, the Front Object will check the **Access Control List (ACL)** to see what privileges this client domain has for accessing the protected domain.
 * Different instances of the Front Object can be created with different access policies to the same underlying object.
-* **Doors as software capabilities**, can be passed from client domain to to other domains, and the policies can be implemented through the front object. 
+* **Doors as software capabilities**, can be passed from client domain to other domains, and the policies can be implemented through the front object. 
 	* e.g. the Front Object can reduce the privilege level of the capability provided to the printer object as a one-time capability.
 
 <img src="https://i.imgur.com/NrkosOK.jpg" style="width: 800px" />

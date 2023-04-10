@@ -167,9 +167,9 @@ An early example of systems that built software DSM includes Ivy, Clouds, Mirage
 - The coherence protocol used in this system is LRC, which defers consistency traffic until the point of access.
 - When a processor acquires a lock and makes modifications, the DSM software creates a diff of the changes made to the pages within the critical section.
 - When another processor requests the same lock, the DSM software invalidates the pages modified by the previous lock holder, based on the diffs stored by the DSM software.
-- If a processor tries to access an invalidated page, the DSM software retrieves the original page and diffs from the previous lock holder and applies them to create the current version of the page for the new lock holder.
-- If multiple processors modify the same page, the DSM software applies all the diffs in order to create the current version of the page.
-- LRC allows the DSM software to bring in only the data that the new lock holder needs, deferring the retrieval of diffs until the point of access.
+- If a processor tries to access an invalidated page, the DSM software retrieves the original page and diffs **from the previous lock holder** and **applies them to create the current version** of the page for the new lock holder.
+- If multiple processors modify the same page, the DSM software **applies all the diffs** in order to create the current version of the page.
+- LRC allows the DSM software to **bring in only the data that the new lock holder needs**, deferring the retrieval of diffs until the point of access.
 - The DSM software can extend this protocol to any number of processors that may have made modifications to the same pages under the provision of the lock.
 
 #### Implementation
