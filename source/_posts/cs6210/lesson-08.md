@@ -204,7 +204,7 @@ IPC **guarantees no loss or duplication of requests**, ensuring requests are com
 - Different commit protocols can be chosen depending on the criticality of states and nature of the breadcrumbs left behind in different sites.
 - Examples: Persistent servers like file systems may need a two-phase commit protocol, while a window manager may only need a one-phase commit protocol.
 
-12.  Upshot of Bundling IPC and Recovery
+### Upshot of Bundling IPC and Recovery
 
 
 ![](https://i.imgur.com/Em1uaQg.png)
