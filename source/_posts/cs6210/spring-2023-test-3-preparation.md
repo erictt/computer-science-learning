@@ -198,6 +198,9 @@ Answer the following questions:
 
 a. [2 points] A new user joins the system. What all needs to happen in the system to give the new user the same rights and privileges as existing users?
 
+My idea is similar to mTLS, the server will send the pub key to the client upon the auth process. 
+Then the client(Vinus) generates a public/private key pair and send the public key along with the username/password to the server, and the message is encrypted with server's public key. 
+
 b. [2 points] With your implementation, when a user logs in to "virtue", what should happen?
 
 c. [2 points] In your implementation of the system, when a request comes from a client, how will the server know the identity of the client to enable decryption of the message?

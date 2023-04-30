@@ -157,10 +157,72 @@ Quicksilver aimed to introduce new services such as window managers and integrat
 
 The kernel manages a data structure called a **service queue**, which is created by a server to handle client requests. When a client makes a request, the kernel informs the server via an **upcall**. The server executes the request, and the **completion goes back into the service queue**, signaling the **kernel** to provide a response to the client.
 - At some point, the client needs to perform a **wait** operation on the service queue to indicate that it is ready to receive the response associated with its request. If the server has already processed the request and the response is available in the service queue, the kernel delivers the response to the client. If the response is not yet available, the client will wait until the response comes back.
-- Multiple servers can wait on a service queue, which means any number of servers can **offer** their services for a particular service queue. The kernel can then choose a server based on their current workload when handling incoming requests.
-- Client-server relationships are interchangeable. For example, a client may make a call to a file system server, which then acts as a client when making calls to a directory server or a data server. This flexibility allows for more complex interactions between system services.
+- **Multiple servers can wait on a service queue**, which means any number of servers can **offer** their services for a particular service queue. The kernel can then choose a server based on their current workload when handling incoming requests.
+- **Client-server relationships are interchangeable.** For example, a client may make a call to a file system server, which then acts as a client when making calls to a directory server or a data server. This flexibility allows for more complex interactions between system services.
 
 IPC **guarantees no loss or duplication of requests**, ensuring requests are completed **exactly once**. It also takes care of the **reliability of data transfer**, especially when clients and servers are on remote machines. Furthermore, the **service queue data structure is globally unique**, providing **location transparency** for client-server interactions, meaning clients don't need to know where their requests are being serviced.
 - IPC is the primary means of communication between clients and servers in Quicksilver. By integrating the **recovery mechanism** with IPC, the operating system ensures that every client-server interaction using IPC also includes **transactional support** for recovery.
 
-IPC is essential in Quicksilver as it facilitates communication between server processes that provide various system services, such as window managers, file systems, virtual memory, and more. It also plays a crucial role in the recovery mechanism, as transactions for recovery management are intimately tied to IPC, improving the overall efficiency and reliability of the system.
+### Bundling Distributed IPC and X Actions
+
+![](https://i.imgur.com/mw32iRm.png)
+
+- Quicksilver bundles IPC with recovery management using lightweight transactions, similar to LRVM.
+- IPC calls are tagged with transaction ID.
+- A shadow graph structure emerges from client-server interactions, showing the trail of these interactions.
+- The transaction tree has a root (owner) and participants.
+- Transaction managers on different nodes communicate with no extra overhead, as communication is piggybacked on regular IPC.
+- The transaction tree can span multiple nodes or sites.
+- Transactions are provided for recovery purposes, and the client-server relationship can traverse multiple nodes, requiring multi-site atomicity for recoverability.
+
+### Transaction Management
+
+![](https://i.imgur.com/Am8bHDT.png)
+
+
+- Transaction managers maintain transaction trees for client-server interactions.
+- The owner of a transaction tree can delegate ownership to another node, which is useful when clients are fragile and may go away.
+- Quicksilver handles the heavy lifting of maintaining the transaction tree for recovery purposes.
+
+### Distributed Transaction
+
+![](https://i.imgur.com/ShYcte2.png)
+
+
+- Transaction managers are responsible for all client-server interactions that touch a particular node.
+- The graph structure of the transaction tree helps reduce network communication.
+- Brittle nodes in the system, like client nodes, may designate the coordinator to a more robust node like a file server.
+- Transaction managers log periodically to persistent store, creating checkpoint records for recoverability reasons.
+- Distributed system failures can happen at any point, and transactions are not aborted at the first indication of failure, allowing error reporting to continue and partial failures to be cleaned up when the coordinator initiates termination.
+
+### Commit Initiated by Coordinator
+
+![](https://i.imgur.com/H7XKwFQ.png)
+
+- The transaction tree gets into gear when the client-server relationship completes its action.
+- The coordinator initiates the termination of a transaction, which can be either commit or abort.
+- Different commit protocols can be chosen depending on the criticality of states and nature of the breadcrumbs left behind in different sites.
+- Examples: Persistent servers like file systems may need a two-phase commit protocol, while a window manager may only need a one-phase commit protocol.
+
+12.  Upshot of Bundling IPC and Recovery
+
+
+![](https://i.imgur.com/Em1uaQg.png)
+
+- Bundling IPC and recovery management allows services to safely collect breadcrumbs left behind in all touched places.
+- No extra communication is needed for recovery management.
+- Quicksilver provides mechanisms; the policy is up to each service.
+- Overhead for recovery management in Quicksilver is similar to LRVM.
+
+### Implementation Notes
+
+- Log maintenance is a key aspect of Quicksilver implementation.
+- Transaction managers write log records for recovering persistent state and periodically force in-memory log segments to storage for persistence.
+- Frequency of log force impacts performance and can also be initiated by applications.
+- Services need to carefully choose mechanisms based on their recovery requirements.
+
+### Quicksilver Conclusion
+
+- Quicksilver demonstrates how enduring concepts, such as using transactions for state recovery, have stood the test of time.
+- Commercial operating systems focus on performance, often putting reliability in the back seat.
+- Storage class memories, with latency properties similar to DRAM and non-volatile nature, may lead to a resurgence of transactions in operating systems in the future.
