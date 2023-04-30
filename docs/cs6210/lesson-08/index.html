@@ -485,7 +485,9 @@ Quicksilver aimed to introduce new services such as window managers and integrat
 <h3 id="transaction-management"><a class="markdownIt-Anchor" href="#transaction-management"></a> Transaction Management</h3>
 <p><img src="https://i.imgur.com/Am8bHDT.png" alt=""></p>
 <ul>
-<li>Transaction managers maintain transaction trees for client-server interactions.</li>
+<li>Shadowing IPC with transactions is essential for managing resources and recovery.</li>
+<li>The transaction manager at each node manages local resources and coordinates with other transaction managers.</li>
+<li>Shadows transactions enable the operating system to track the state of client-server interactions, allowing for recovery in case of failures.</li>
 <li>The owner of a transaction tree can delegate ownership to another node, which is useful when clients are fragile and may go away.</li>
 <li>Quicksilver handles the heavy lifting of maintaining the transaction tree for recovery purposes.</li>
 </ul>
@@ -501,31 +503,28 @@ Quicksilver aimed to introduce new services such as window managers and integrat
 <h3 id="commit-initiated-by-coordinator"><a class="markdownIt-Anchor" href="#commit-initiated-by-coordinator"></a> Commit Initiated by Coordinator</h3>
 <p><img src="https://i.imgur.com/H7XKwFQ.png" alt=""></p>
 <ul>
-<li>The transaction tree gets into gear when the client-server relationship completes its action.</li>
-<li>The coordinator initiates the termination of a transaction, which can be either commit or abort.</li>
-<li>Different commit protocols can be chosen depending on the criticality of states and nature of the breadcrumbs left behind in different sites.</li>
-<li>Examples: Persistent servers like file systems may need a two-phase commit protocol, while a window manager may only need a one-phase commit protocol.</li>
+<li>The transaction tree is activated when the client-server relationship completes its action.</li>
+<li>The coordinator initiates the termination of a transaction, either as a commit or abort, and communicates this to its subordinates.</li>
+<li>Different commit protocols can be used depending on the criticality of states and the nature of breadcrumbs left behind at different sites (e.g., persistent servers may need a two-phase commit protocol, while a window manager may only need a one-phase commit protocol).</li>
 </ul>
 <h3 id="upshot-of-bundling-ipc-and-recovery"><a class="markdownIt-Anchor" href="#upshot-of-bundling-ipc-and-recovery"></a> Upshot of Bundling IPC and Recovery</h3>
 <p><img src="https://i.imgur.com/Em1uaQg.png" alt=""></p>
 <ul>
-<li>Bundling IPC and recovery management allows services to safely collect breadcrumbs left behind in all touched places.</li>
-<li>No extra communication is needed for recovery management.</li>
-<li>Quicksilver provides mechanisms; the policy is up to each service.</li>
-<li>Overhead for recovery management in Quicksilver is similar to LRVM.</li>
+<li>Bundling IPC and recovery management allows services to safely collect breadcrumbs left behind at all touched locations (e.g., memory, file handles, communication handles, windows on display).</li>
+<li>No extra communication is needed for recovery management, as the transaction tree leverages IPC for communication.</li>
+<li>Services can choose recovery management policies and mechanisms based on their specific requirements, with Quicksilver offering a variety of options.</li>
 </ul>
 <h3 id="implementation-notes"><a class="markdownIt-Anchor" href="#implementation-notes"></a> Implementation Notes</h3>
 <ul>
-<li>Log maintenance is a key aspect of Quicksilver implementation.</li>
-<li>Transaction managers write log records for recovering persistent state and periodically force in-memory log segments to storage for persistence.</li>
-<li>Frequency of log force impacts performance and can also be initiated by applications.</li>
-<li>Services need to carefully choose mechanisms based on their recovery requirements.</li>
+<li>Log maintenance is essential in Quicksilver for recording and recovering persistent state.</li>
+<li>Transaction managers write log records for persistent state recovery and periodically force in-memory log segments to storage for persistence.</li>
+<li>The frequency of log force impacts performance and can be initiated by applications, but services must be careful in their choice of mechanisms to balance performance and recovery requirements.</li>
 </ul>
 <h3 id="quicksilver-conclusion"><a class="markdownIt-Anchor" href="#quicksilver-conclusion"></a> Quicksilver Conclusion</h3>
 <ul>
-<li>Quicksilver demonstrates how enduring concepts, such as using transactions for state recovery, have stood the test of time.</li>
-<li>Commercial operating systems focus on performance, often putting reliability in the back seat.</li>
-<li>Storage class memories, with latency properties similar to DRAM and non-volatile nature, may lead to a resurgence of transactions in operating systems in the future.</li>
+<li>Quicksilver demonstrates the enduring nature of using transactions for state recovery in operating systems, with ideas finding resurgence in LRVM and other research systems like Texas.</li>
+<li>While commercial operating systems prioritize performance, reliability is often overlooked, leading to potential data loss in system crashes.</li>
+<li>The emergence of storage class memories, which combine DRAM-like latency with non-volatile properties, may lead to a renewed interest in transactions for operating systems in the future.</li>
 </ul>
 
 </div>

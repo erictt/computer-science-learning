@@ -180,7 +180,9 @@ IPC **guarantees no loss or duplication of requests**, ensuring requests are com
 ![](https://i.imgur.com/Am8bHDT.png)
 
 
-- Transaction managers maintain transaction trees for client-server interactions.
+- Shadowing IPC with transactions is essential for managing resources and recovery.
+- The transaction manager at each node manages local resources and coordinates with other transaction managers.
+- Shadows transactions enable the operating system to track the state of client-server interactions, allowing for recovery in case of failures.
 - The owner of a transaction tree can delegate ownership to another node, which is useful when clients are fragile and may go away.
 - Quicksilver handles the heavy lifting of maintaining the transaction tree for recovery purposes.
 
@@ -199,30 +201,27 @@ IPC **guarantees no loss or duplication of requests**, ensuring requests are com
 
 ![](https://i.imgur.com/H7XKwFQ.png)
 
-- The transaction tree gets into gear when the client-server relationship completes its action.
-- The coordinator initiates the termination of a transaction, which can be either commit or abort.
-- Different commit protocols can be chosen depending on the criticality of states and nature of the breadcrumbs left behind in different sites.
-- Examples: Persistent servers like file systems may need a two-phase commit protocol, while a window manager may only need a one-phase commit protocol.
+- The transaction tree is activated when the client-server relationship completes its action.
+- The coordinator initiates the termination of a transaction, either as a commit or abort, and communicates this to its subordinates.
+- Different commit protocols can be used depending on the criticality of states and the nature of breadcrumbs left behind at different sites (e.g., persistent servers may need a two-phase commit protocol, while a window manager may only need a one-phase commit protocol).
 
 ### Upshot of Bundling IPC and Recovery
 
 
 ![](https://i.imgur.com/Em1uaQg.png)
 
-- Bundling IPC and recovery management allows services to safely collect breadcrumbs left behind in all touched places.
-- No extra communication is needed for recovery management.
-- Quicksilver provides mechanisms; the policy is up to each service.
-- Overhead for recovery management in Quicksilver is similar to LRVM.
+- Bundling IPC and recovery management allows services to safely collect breadcrumbs left behind at all touched locations (e.g., memory, file handles, communication handles, windows on display).
+- No extra communication is needed for recovery management, as the transaction tree leverages IPC for communication.
+- Services can choose recovery management policies and mechanisms based on their specific requirements, with Quicksilver offering a variety of options.
 
 ### Implementation Notes
 
-- Log maintenance is a key aspect of Quicksilver implementation.
-- Transaction managers write log records for recovering persistent state and periodically force in-memory log segments to storage for persistence.
-- Frequency of log force impacts performance and can also be initiated by applications.
-- Services need to carefully choose mechanisms based on their recovery requirements.
+- Log maintenance is essential in Quicksilver for recording and recovering persistent state.
+- Transaction managers write log records for persistent state recovery and periodically force in-memory log segments to storage for persistence.
+- The frequency of log force impacts performance and can be initiated by applications, but services must be careful in their choice of mechanisms to balance performance and recovery requirements.
 
 ### Quicksilver Conclusion
 
-- Quicksilver demonstrates how enduring concepts, such as using transactions for state recovery, have stood the test of time.
-- Commercial operating systems focus on performance, often putting reliability in the back seat.
-- Storage class memories, with latency properties similar to DRAM and non-volatile nature, may lead to a resurgence of transactions in operating systems in the future.
+- Quicksilver demonstrates the enduring nature of using transactions for state recovery in operating systems, with ideas finding resurgence in LRVM and other research systems like Texas.
+- While commercial operating systems prioritize performance, reliability is often overlooked, leading to potential data loss in system crashes.
+- The emergence of storage class memories, which combine DRAM-like latency with non-volatile properties, may lead to a renewed interest in transactions for operating systems in the future.
