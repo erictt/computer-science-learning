@@ -314,6 +314,166 @@ function sidebar_toggle() {
         <div class="book-content">
           <div class="book-post">
   <h1 id="lesson-08-failures-and-recovery"><a class="markdownIt-Anchor" href="#lesson-08-failures-and-recovery"></a> Lesson 08: Failures and Recovery</h1>
+<p>The goal of this module is to build a system that help the subsystems to survive crashes. To do that, we need to provide persistence support for the subsystems and also make it performant.</p>
+<h2 id="l08a-lightweight-recoverable-virtual-memorylrvm"><a class="markdownIt-Anchor" href="#l08a-lightweight-recoverable-virtual-memorylrvm"></a> L08a: Lightweight Recoverable Virtual Memory(LRVM)</h2>
+<p>LRVM is a lightweight runtime library that offer interfaces that allow application to persist the virtual memory to the disk.</p>
+<h3 id="server-design"><a class="markdownIt-Anchor" href="#server-design"></a> Server Design</h3>
+<p><img src="https://i.imgur.com/0mQV6PV.png" alt=""><br>
+The LRVM create external data segments to back persistent data structures for the applications<br>
+The application can create as many as data segments it wants.</p>
+<h3 id="rvm-primitives"><a class="markdownIt-Anchor" href="#rvm-primitives"></a> RVM Primitives</h3>
+<p>Initialization:</p>
+<ul>
+<li><code>initialize(options)</code>
+<ul>
+<li>Declares a log segment for aggregating changes made to persistent data structures.</li>
+</ul>
+</li>
+<li><code>map(region, options)</code>
+<ul>
+<li>Maps a region of virtual address space to an external data segment.</li>
+</ul>
+</li>
+<li><code>unmap(region)</code>
+<ul>
+<li>Decouples a region of virtual address space from its associated external data segment.</li>
+</ul>
+</li>
+</ul>
+<p>Body of server code:</p>
+<ul>
+<li><code>begin_transaction(tid, restore_mode)</code>
+<ul>
+<li>Signals the RVM runtime that changes will be made to persistent data structures between begin_transaction and end_transaction calls. The restore_mode specifies how to restore the state of the data structures in case of failure.</li>
+</ul>
+</li>
+<li><code>set_range(tid, addr, size)</code>
+<ul>
+<li>Being called at the beginning of the transaction.</li>
+<li>Specifies a block of memory to modify within the critical section between begin_transaction and end_transaction calls.</li>
+</ul>
+</li>
+<li><code>end_transaction(tid, commit_mode)</code>
+<ul>
+<li>Signals the RVM runtime to commit changes made to persistent data structures in the current transaction. The commit_mode specifies how to handle flushing of the redo log to disk.</li>
+</ul>
+</li>
+<li><code>abort_transcation(tid)</code>
+<ul>
+<li>Signals the RVM runtime to throw away changes made to persistent data structures in the current transaction.</li>
+</ul>
+</li>
+</ul>
+<p>To reduce log space:</p>
+<ul>
+<li><code>flush()</code>
+<ul>
+<li>Explicitly flushes the redo log to disk.</li>
+</ul>
+</li>
+<li><code>truncate()</code>
+<ul>
+<li>Applies the redo log to the external data segments and truncates the log.</li>
+</ul>
+</li>
+</ul>
+<p>Misc:</p>
+<ul>
+<li><code>query_options(region)</code>
+<ul>
+<li>Retrieves the options associated with a region of virtual address space.</li>
+</ul>
+</li>
+<li><code>set_options(options)</code>
+<ul>
+<li>Sets the options associated with a region of virtual address space.</li>
+</ul>
+</li>
+<li><code>create_log(options, len, mode)</code>
+<ul>
+<li>Creates a log segment with specified options, length, and mode.</li>
+</ul>
+</li>
+</ul>
+<h3 id="how-the-server-uses-the-primitives"><a class="markdownIt-Anchor" href="#how-the-server-uses-the-primitives"></a> How the Server Uses the Primitives</h3>
+<p><img src="https://i.imgur.com/9YbgxG7.png" alt=""></p>
+<ol>
+<li><strong>Initialization</strong>: At the start of the code, the developer maps the address space of their process to external data segments and specifies the log segment for the code. This is done using the <code>initialize()</code>, <code>map()</code>, <code>unmap()</code>, and <code>create_log()</code> primitives.</li>
+<li><strong>Begin transaction</strong>: When the developer wants to modify persistent data structures in their code, they begin a transaction using the <code>begin_transaction()</code> primitive. They can also specify a restore mode, which tells the system that the transaction will never abort and therefore no undo record needs to be created.</li>
+<li><strong>Set range</strong>: Once the transaction has begun, the developer specifies the block of contiguous addresses that they plan to modify in this critical section using the <code>set_range()</code> primitive.</li>
+<li><strong>Modify data structures</strong>: The developer can then modify in-memory versions of the persistent data structures using normal code.</li>
+<li><strong>End transaction</strong>: When the developer is done with the changes, they call <code>end_transaction()</code> to commit the transaction. LRVM creates a redo log in memory of the changes that have been made to the persistent data structures.</li>
+<li><strong>Flush and sync redo log</strong>: LRVM flushes the redo log to the log segment on the disk synchronously. However, the developer can specify a “no flush” mode in <code>end_transaction()</code> to allow the system to commit the transaction without blocking further execution.</li>
+<li><strong>Abort transaction</strong>: If the transaction aborts, LRVM restores the original version of the portion of the virtual address space that was modified during the critical section by copying the undo record back into that space.</li>
+</ol>
+<h3 id="transaction-optimizations"><a class="markdownIt-Anchor" href="#transaction-optimizations"></a> Transaction Optimizations</h3>
+<p>RVM has restricted transaction semantics, which means it doesn’t allow nested transactions and doesn’t require synchronous I/O for every commit. However, RVM provides opportunities for the developer to optimize the performance of the library for the chosen application.</p>
+<ol>
+<li>No-restore mode in the begin_transaction call. This mode tells RVN that the transaction starting is not going to abort, so there is no need to create an in-memory undo record. This reduces the amount of work that RVM has to do, and the overhead in performing a transaction is less.</li>
+<li>No-flush mode in the end_transaction call. This mode tells RVM that there is no need to do a synchronous I/O at the commit point. The application developer takes a chance by using this mode because there is a <strong>window of vulnerability</strong> between end_transaction and the point at which the redo log has been forced to the disk. If there is a system cache within this time, the redo records that were written to in-memory may be lost.</li>
+</ol>
+<h3 id="implementation"><a class="markdownIt-Anchor" href="#implementation"></a> Implementation</h3>
+<p><img src="https://i.imgur.com/F0Qr7yd.png" alt=""></p>
+<p>RVM uses a logging strategy called <strong>no undo/redo value logging</strong>, which creates an undo record of the changes that are going to be made to virtual memory but is not a log that is persistent on the disk. The redo log consists of a transaction start and the changes that are made, but <strong>only new value records</strong> of committed transactions are written to the log. This is the reason for forward displacements because we know where to append to the log segment on the disk. Upon commit, the old value records in the virtual memory are replaced with the new value records, which is automatic. Only if you abort, you have to undo the changes. At that point, you have to force the redo log records to the log on the disk.</p>
+<h3 id="crash-recovery"><a class="markdownIt-Anchor" href="#crash-recovery"></a> Crash Recovery</h3>
+<p><img src="https://i.imgur.com/Ahooon9.png" alt=""></p>
+<p>Crash recovery consists of RVM first reading the log from tail to head, then constructing an in-memory tree of the latest committed changes for each data segment encountered in the log. The trees are then traversed, applying modifications in them to the corresponding external data segment. Finally, the head and tail location information in the log status block is updated to reflect an empty log. The idempotency of recovery is achieved by delaying this step until all other recovery actions are complete.</p>
+<h3 id="log-truncation"><a class="markdownIt-Anchor" href="#log-truncation"></a> Log Truncation</h3>
+<p><img src="https://i.imgur.com/QJtTzvG.png" alt=""></p>
+<p>Truncation is the process of reclaiming space allocated to log entries by applying the changes contained in them to the recoverable data segment. Periodic truncation is necessary because log space is finite, and is triggered whenever current log size exceeds a preset fraction of its total size.</p>
+<p>Log truncation has proved to be the hardest part of RVM to implement correctly. To minimize implementation effort, we initially chose to <strong>reuse crash recovery code for truncation</strong>. In this approach, referred to as epoch truncation, the crash recovery procedure described above is applied to an initial part of the log while <strong>concurrent forward processing</strong> occurs in the rest of the log. The figure above depicts the layout of a log while an epoch truncation is in progress.</p>
+<h2 id="l08b-riovista"><a class="markdownIt-Anchor" href="#l08b-riovista"></a> L08b: RioVista</h2>
+<p>There are two orthogonal problems that lead to a system crash. One is <strong>power failure</strong>. The second is <strong>software failure</strong>.</p>
+<p>So Rio Vista poses a very interesting rhetorical question. Suppose we postulate that the only source of system crash is software failure.</p>
+<p>The authors propose a way to eliminate the heavyweight transaction properties of traditional persistent memory systems while improving performance by <strong>leveraging a battery-backed DRAM to create a persistent file cache</strong>.</p>
+<h3 id="lrvm-revisited"><a class="markdownIt-Anchor" href="#lrvm-revisited"></a> LRVM Revisited</h3>
+<p><img src="https://i.imgur.com/JHriocp.png" alt=""><br>
+The upshot of LRVM implementation is there are <strong>three copies</strong> of the VM space done by LRVM to manage persistence for recoverable objects.</p>
+<ol>
+<li>The <strong>original data segment</strong>, which contains the persistent data that is brought into memory and modified during the transaction.</li>
+<li>The <strong>in-memory undo record</strong>, which is created by LRVM when the application calls the <code>begin_transaction</code> primitive. This record contains the old contents of the portion of the memory that the transaction is going to modify.</li>
+<li>The <strong>redo log record</strong>, which is written out to the disk at the end of the transaction and represents all the changes made to virtual memory within that critical section bound by a <code>begin_transaction</code> and end_transaction.</li>
+</ol>
+<h3 id="rio-file-cache"><a class="markdownIt-Anchor" href="#rio-file-cache"></a> Rio File Cache</h3>
+<p><img src="https://i.imgur.com/YsZhTki.png" alt=""><br>
+The Rio File Cache allows for file writes and normal program writes to memory-mapped files to become persistent by definition. This eliminates the need for synchronous writes to the disk and allows for arbitrary delay in writebacks.</p>
+<h3 id="vista-rvm-on-top-of-rio"><a class="markdownIt-Anchor" href="#vista-rvm-on-top-of-rio"></a> Vista RVM on Top of Rio</h3>
+<p><img src="https://i.imgur.com/BHJzAXL.png" alt=""><br>
+Vista is an RVM library that has been implemented on top of the Rio file cache. The implementation of RVM using the Rio file cache is similar to LRVM, but it takes advantage of the fact that it is sitting on top of a Rio file cache.</p>
+<p>When the data segment is mapped to the virtual memory, this portion of memory becomes persistent because it is contained in the file cache.</p>
+<p>At the <code>begin_transaction</code> call, a before image is made of the portion of the virtual memory that we intend to modify during this transaction, which serves as the undo log. This undo log is backed up on the file cache and is therefore persistent.</p>
+<p>During the execution of the transaction, normal program writes to the portion of the virtual memory where there are persistent data structures are reflected in the data segment, which is battery-backed.</p>
+<p>At the <code>end_transaction</code> call, if the transaction is committed, no work needs to be done other than getting rid of the undo log because all the changes that the application developer intended to be committed to the data segment are already in there.</p>
+<p>On the other hand, if the transaction aborts, the undo record that was created at the beginning of the transaction is used to copy the original image back into the portion of the virtual memory that was modified.</p>
+<p>At the point of <code>end_transaction</code> for commit, all that needs to be done by Vista is to get rid of the undo log. There is <strong>no disk I/O involved</strong>, and there is <strong>no redo log</strong> because <strong>we are directly writing into the data segments</strong>.</p>
+<h3 id="crash-recovery-2"><a class="markdownIt-Anchor" href="#crash-recovery-2"></a> Crash Recovery</h3>
+<p>In the Vista implementation, the data segment is mapped to the virtual memory and is made persistent by definition, and an undo log is created at the begin_transaction call to serve as the undo record in case of transaction abort.</p>
+<p><strong>At the end_transaction call, if it’s a commit, no work needs to be done except to get rid of the undo record,</strong> as all the changes to persistent data structures are already in the data segment.</p>
+<p>If it aborts, the old image is restored back into the virtual memory, and the undo log is discarded. For crash recovery, the old image is recovered from the undo log, which survives crashes because it is in the Rio file cache.</p>
+<p>Vista is simple compared to LRVM because there are <strong>no redo logs and no truncation code</strong>, and it performs significantly better than LRVM due to the absence of disk I/O.</p>
+<h2 id="l08c-quicksilver"><a class="markdownIt-Anchor" href="#l08c-quicksilver"></a> L08c: Quicksilver</h2>
+<ul>
+<li>the structure of distributed systems today:</li>
+</ul>
+<p><img src="https://i.imgur.com/nJg7EiJ.png" alt=""></p>
+<p>Modern distributed systems comprise <strong>user applications</strong> built on <strong>system services</strong> and a <strong>microkernel</strong>. System services handle components like file and web servers, while the microkernel manages processes and resources. This structure promotes extensibility and high performance in various operating system designs.</p>
+<h3 id="quicksilver-system-architecture"><a class="markdownIt-Anchor" href="#quicksilver-system-architecture"></a> Quicksilver System Architecture</h3>
+<p><img src="https://i.imgur.com/qKurR3L.png" alt=""><br>
+Quicksilver aimed to introduce new services such as window managers and integrate communication into its design. It was the first OS to propose <strong>transactions for recovery management</strong>.</p>
+<h3 id="ipc-fundamental-to-system-services"><a class="markdownIt-Anchor" href="#ipc-fundamental-to-system-services"></a> IPC Fundamental to System Services</h3>
+<p><strong>Inter-process communication (IPC)</strong> is crucial to Quicksilver’s distributed system, with both synchronous and asynchronous client calls being supported. Quicksilver provides guarantees like <strong>no loss or duplication of requests</strong> and <strong>location transparency for client-server interactions</strong>.</p>
+<p><img src="https://i.imgur.com/W9pipwG.png" alt=""></p>
+<p>The kernel manages a data structure called a <strong>service queue</strong>, which is created by a server to handle client requests. When a client makes a request, the kernel informs the server via an <strong>upcall</strong>. The server executes the request, and the <strong>completion goes back into the service queue</strong>, signaling the <strong>kernel</strong> to provide a response to the client.</p>
+<ul>
+<li>At some point, the client needs to perform a <strong>wait</strong> operation on the service queue to indicate that it is ready to receive the response associated with its request. If the server has already processed the request and the response is available in the service queue, the kernel delivers the response to the client. If the response is not yet available, the client will wait until the response comes back.</li>
+<li>Multiple servers can wait on a service queue, which means any number of servers can <strong>offer</strong> their services for a particular service queue. The kernel can then choose a server based on their current workload when handling incoming requests.</li>
+<li>Client-server relationships are interchangeable. For example, a client may make a call to a file system server, which then acts as a client when making calls to a directory server or a data server. This flexibility allows for more complex interactions between system services.</li>
+</ul>
+<p>IPC <strong>guarantees no loss or duplication of requests</strong>, ensuring requests are completed <strong>exactly once</strong>. It also takes care of the <strong>reliability of data transfer</strong>, especially when clients and servers are on remote machines. Furthermore, the <strong>service queue data structure is globally unique</strong>, providing <strong>location transparency</strong> for client-server interactions, meaning clients don’t need to know where their requests are being serviced.</p>
+<ul>
+<li>IPC is the primary means of communication between clients and servers in Quicksilver. By integrating the <strong>recovery mechanism</strong> with IPC, the operating system ensures that every client-server interaction using IPC also includes <strong>transactional support</strong> for recovery.</li>
+</ul>
+<p>IPC is essential in Quicksilver as it facilitates communication between server processes that provide various system services, such as window managers, file systems, virtual memory, and more. It also plays a crucial role in the recovery mechanism, as transactions for recovery management are intimately tied to IPC, improving the overall efficiency and reliability of the system.</p>
 
 </div>
 

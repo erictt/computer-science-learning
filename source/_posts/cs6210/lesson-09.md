@@ -1,28 +1,20 @@
 # Lecture 09: Internet Computing
 
-<!--
-## Instruction
-You are a teach assistant of the course of advanced operating system. This is the lecture of Internet Computing, which teaches Giant Scale Services, MapReduce, Content Delivery Networks. I will ask you a sequence of questions regarding the course. Use bullet points to answer all questions accurately, don't make up anything. And also make your answer easy to understand and easy to review. Provide more details if necessary.
-## End of Instruction
--->
-
 ## L09a: Giant Scale Services
 
 ### Introduction
 
 - This lecture focuses on managing large data centers and internet scale computing.
-- This lecture addresses systems issues in managing large data centers, programming big data applications, and disseminating content on the web in a scalable manner.
-- This lecture builds on previous lessons to harden distributed systems issues and handle scale on the order of thousands of processes and failures.
 
 ### Generic Service Model of Giant Scale Services
 
 <img src="https://i.imgur.com/mZmtQ2W.png" style="width: 800px" />
 
-- The web portal example used in the module is Gmail, a popular email service provided by Google.
+- The web portal example used in the module is Gmail, provided by Google.
 - The architecture within a site typically consists of thousands of servers, all interconnected through a high-bandwidth communication backplane, and connected to data stores to process incoming client requests.
 - The servers may optionally use a backplane that allows them to talk to one another for servicing any particular request, which helps to distribute the load evenly.
 - The load manager plays a crucial role in ensuring that the client traffic is balanced among all the servers, and no server is overloaded, which would cause the service to slow down or fail.
-- In addition to load balancing, the load manager also monitors the state of the servers and shields incoming client requests from any partial failures that may happen internally within a particular site.
+- In addition to load balancing, the load manager also monitors the state of the servers and *shields incoming client requests from any partial failures that may happen internally within a particular site*.
 - The load manager typically uses various algorithms and techniques to balance the load, such as round-robin, least-connections, or IP hashing.
 - Embarrassingly parallel refers to the fact that the incoming client requests are all independent of one another and can be handled in parallel as long as there is enough server capacity to meet all the incoming requests. This is a characteristic of most giant scale services.
 
@@ -33,7 +25,7 @@ You are a teach assistant of the course of advanced operating system. This is th
 
 - Computational clusters are the workhorses of giant scale services and are employed in modern data centers.
 - Each node in the cluster may itself be an SMP, and the advantages of structuring computational resources as a cluster of machines includes absolute scalability, cost and performance control, and incremental scalability.
-- Computational clusters offer incremental scalability by adding more nodes to the cluster to increase performance, or scaling back when the volume of requests decreases.
+- Computational clusters offer **incremental scalability** by adding more nodes to the cluster to increase performance, or **scaling back** when the volume of requests decreases.
 
 ### Load Management Choices
 
@@ -45,7 +37,7 @@ You are a teach assistant of the course of advanced operating system. This is th
 
 ### Load Management at Network Level
 
-- Load management at the network level is done using round-robin DNS servers, which assign different IP addresses corresponding to different servers to incoming client requests for good load balance.
+- Load management at the network level is done **using round-robin DNS servers**, which assign different IP addresses corresponding to different servers to incoming client requests for good load balance.
 - The assumption in this model is that all servers are identical and that data is fully replicated, so any incoming request can be sent to any server, and the data needed to satisfy the request is available.
 - The advantage of using round-robin DNS servers is good load balance, but the disadvantage is that it cannot hide down server nodes from the external world.
 
@@ -59,10 +51,10 @@ You are a teach assistant of the course of advanced operating system. This is th
 	- The offered load to the server is called $Q_0$, which is the amount of requests hitting the server per unit time.
 	- The **yield** (Q) is the ratio of completed requests($Q_c$) to the offered load($Q_0$), and ideally should be one, but may be less than one if the server is not able to deal with the offered load entirely.
 	- The *available data set for processing each query*($D_v$) may be less than the full data set due to failures of some data servers or the load on the server, and is called the **harvest** ($D = \frac{D_v}{D_f}$).
-- The product $D \cdot Q$, representing the data server query and the rate of query coming into the server, is a constant for a given server capacity.
+- The product $D \cdot Q$, representing the data server query and the rate of query coming into the server, is a constant for a given server capacity. 
 - To increase the number of clients being served, the harvest can be decreased while keeping the yield the same.
 - To give the complete data that is needed for serving a query, the yield can be decreased while keeping the harvest constant.
-- DQ represents a system constant for the server's capacity, and the system administrator can choose to sacrifice yield for harvest or harvest for yield.
+- The key underlying assumption in the DQ principle is that the giant scaled services are network bound, and not I/O bound.
 - For network-bound applications, DQ is much more intuitive than traditional measures like **I/O operations per second (IOOPS)**.
 - **Uptime** is another metric that system administrators use, but it is not very intuitive for giant-scale services because if there are no queries during the **mean-time-to-repair (MTTR)**, then the uptime is not a good measure of how well a server is performing.
 - The DQ principle is powerful in advising the system administrator on how to architect the system, including how much to replicate, how much to partition the data set, and how to gracefully degrade the servers when the volume of incoming traffic increases beyond a server capacity.
@@ -72,9 +64,10 @@ You are a teach assistant of the course of advanced operating system. This is th
 <img src="https://i.imgur.com/4lfmAdl.png" style="width: 800px" />
 
 - System administrators have the choice to replicate or partition data in a server's data store and computational resources.
-- Replicating data means every data server has the full corpus of data needed to serve a request, and failures can be redirected to another live server with full access to the same data repository.
-- Partitioning data means end partitions of the full corpus of data can become unavailable if some service fails, leading to a decrease in harvest.
-- DQ is independent of replication or partitioning so long as incoming requests are network-bound and assuming processing incoming requests is not disk-bound.
+- **Replicating** data means **every data server has the full corpus of data** needed to serve a request, and failures can be redirected to another live server with full access to the same data repository. So Harvest(D) is unchanged, but Yield(Q) is when servers went down.
+- Partitioning data means each data server only have a part of the data, some data can become unavailable if some service fails, leading to a decrease in Harvest(D), but Yield(Q) remain unchanged.
+- DQ is **independent** of replication or partitioning so long as incoming requests are network-bound and assuming processing incoming requests is not disk-bound.
+	- One exception is each request requires heavy writes to the disk which is rare in giant scale services.
 - Replication beyond a certain point is important because users would prefer complete data, while searches may be okay with incomplete data.
 
 #### Graceful Degradation
@@ -92,9 +85,9 @@ You are a teach assistant of the course of advanced operating system. This is th
 <img src="https://i.imgur.com/VjbFQX7.png" style="width: 800px" />
 
 - The DQ principle can be used to measure the loss of service during upgrades, and there are three upgrade strategies that can be employed:
-	- Fast reboot: All servers are brought down at once, upgraded, and then turned back on. This results in complete loss of service for the entire upgrade duration.
-	- Rolling upgrade: Servers are upgraded one at a time, resulting in no complete loss of service, but there is a DQ loss every time a server is upgraded.
-	- Big flip: Half of the servers are brought down at once, upgraded, and then turned back on, followed by the other half. This results in 50% capacity service during the upgrade duration.
+	- **Fast reboot**: All servers are brought down at once, upgraded, and then turned back on. This results in complete loss of service for the entire upgrade duration.
+	- **Rolling upgrade**: Servers are upgraded one at a time, resulting in no complete loss of service, but there is a DQ loss every time a server is upgraded.
+	- **Big flip**: Half of the servers are brought down at once, upgraded, and then turned back on, followed by the other half. This results in 50% capacity service during the upgrade duration.
 - Regardless of the strategy used, there is always a DQ loss that cannot be hidden from users. The system administrator has to make informed decisions on how to minimize this loss during upgrades, and the DQ principle can help in making these decisions.
 
 ### Conclusion
@@ -169,7 +162,7 @@ You are a teach assistant of the course of advanced operating system. This is th
 #### Introduction
 <img src="https://i.imgur.com/6reJ4A9.png" style="width: 800px" />
 
-- DHT stands for Distributed Hash Table, which is a decentralized and scalable system used for storing and retrieving data in a peer-to-peer (P2P) network. In a DHT, each node in the network is responsible for storing a portion of the overall data. The data is stored as key-value pairs, and the keys are hashed to determine which node in the network will be responsible for storing that particular key-value pair.
+- DHT stands for **Distributed Hash Table**, which is a decentralized and scalable system used for storing and retrieving data in a peer-to-peer (P2P) network. In a DHT, each node in the network is responsible for storing a portion of the overall data. The data is stored as key-value pairs, and the keys are hashed to determine which node in the network will be responsible for storing that particular key-value pair.
 - DHTs allow for efficient data retrieval and storage, as well as load balancing across the network, since each node is responsible for only a small portion of the data. Additionally, DHTs are fault-tolerant, since data is replicated across multiple nodes, and if one node fails, another node can take over its responsibilities.
 - The API for manipulating the DHT data structure includes **putkey** (to store a key-value pair) and **getkey** (to retrieve a value associated with a key-value pair).
 

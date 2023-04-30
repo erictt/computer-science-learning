@@ -74,7 +74,7 @@
 * An underlying object may have a Front Object that is directly connected to it (without Doors).
 * Whenever a client domain tries to access this protected domain, the Front Object will check the **Access Control List (ACL)** to see what privileges this client domain has for accessing the protected domain.
 * Different instances of the Front Object can be created with different access policies to the same underlying object.
-* **Doors as software capabilities**, can be passed from client domain to other domains, and the policies can be implemented through the front object. 
+* **Doors as software capabilities**, can be passed from client domain oto other domains, and the policies can be implemented through the front object. 
 	* e.g. the Front Object can reduce the privilege level of the capability provided to the printer object as a one-time capability.
 
 <img src="https://i.imgur.com/NrkosOK.jpg" style="width: 800px" />

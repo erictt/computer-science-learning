@@ -28,23 +28,25 @@ Give your answer in the form of a sequence of one of the following  events. Sho
 • ACQUIRE P1 (P1 acquires lock) 
 
 --
-SEND LOCK P1 -> P2 got delayed 
-- Queue(P1): [(P1, t1)]
-- Queue(P2): []
-SEND LOCK P2 -> P1
-- Queue(P1): []
-- Queue(P2): [(P2, t2)]
-RECV LOCK P2 -> P1
-- Queue(P1): [(P1, t1), (P2, t2)]
-- Queue(P2): [(P2, t2)]
-SEND ACK P1 -> P2
-ACQUIRE P2 (out of order due to not receiving the lock message)
-RECV LOCK P1 -> P2 (got the lock message, but it's too late)
-- Queue(P1): [(P1, t1), (P2, t2)]
-- Queue(P2): [(P1, t1), (P2, t2)]
-SEND ACK P2 -> P1
-ACQUIRE P1
 
+SEND LOCK P1 -> P2 (P1 sends lock request to P2)  
+- P1: [P1:T1]  
+- P2: []  
+SEND LOCK P2 -> P1 (P2 sends lock request to P1)  
+- P1: [P1:T1]  
+- P2: [P2:T2]  
+RECV LOCK P2 -> P1 (P1 receives lock request from P2, later lock request enough for acquire)  
+- P1: [P1:T1,P2:T2]  
+- P2: [P2:T2]  
+ACQUIRE P1 (P1 acquires lock)  
+SEND ACK P1 -> P2 (P1 sends ACK that it received P2 lock request)  
+- P1: [P1:T1,P2:T2]  
+- P2: [P2:T2]  
+RECV ACK P1 -> P2 (P2 receives ack sent by P1 OUT OF ORDER, P2 thinks it has lock, it should have received P1's Lock request first)  
+ACQUIRE P2 (P2 acquires lock)  
+- P1: [P1:T1,P2:T2]  
+- P2: [P2:T2]  
+RECV LOCK P1 -> P2
 
 B. [3 points] Construct a simple example of a sequence of events involving two processes P1 and P2, where “progress” is violated,  that is, in a situation where the mutex previously held by P1 has  been released, but P2 is not able to acquire it. 
 
@@ -219,19 +221,18 @@ The following events happen: 
 
 1. [2 points] List the actions that would take place at time T1 
 
-1. N1 send a request to Nf for write access to F1,
-2. Nf send invalidation messages to N2 and N3.
-3. Upon receiving the acknowledgements, Nf grant N1 the write-exclusive access.
-4. N1 receives the confirmation and proceeds with writing to file F1.
+1. N1 send a request to Nf the metadata manager for write access to F1,
+2. Nf lookup the metadata and find the N1, N2, and N2 are sharing the file. It sends invalidation messages to N2 and N3.
+3. Upon receiving the acknowledgements, Nf update cache consistency information to indicate the new owner and give write permission to N1.
+4. Once N1 owns the file, it will proceed with writing to file F1.
 
 2. [2 points] List the actions that would take place at time T2.
 
 1. N2 send read access request to Nf
-2. Nf check the status of file F1, and send a downgrade message to N1
-3. N1 acknowledges the downgrade message to Nf after downgrading its access to read-shared.
-4. Nf downgrade F1 as read-shared.
-5. Nf grants read access to N2.
-6. Up receiving the confirmation, N2 proceeds with read to the file F1.
+2. Nf check the status of file F1, and revoke the ownership of N1
+3. N1 stopped writing and flush the changes to storage.
+4. N1 forward the data to the new client for N2.
+5. N2 proceeds with read to the file F1.
 
  B. [2 points]  Why do file systems procrastinate writing a file to stable storage as  soon as the process that is doing the write closes the file? 
  
@@ -244,6 +245,7 @@ Log segment is an append-only data structure, which improves write performance a
 D. [2 points] Distinguish between static and dynamic metadata  management.
 
 Static: metadata allocation and distribution are predetermined. It simplifies metadata management and lookup. But potentially, it has load imbalance and limited scalability problem.
+
 Dynamic: metadata can be reassigned to different nodes based on factors such as load, access patterns, or system changes. It offers better load balancing, and better scalability. But also introduces complexities in metadata lookup and management.
 
 ## Missing

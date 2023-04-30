@@ -12,19 +12,23 @@
 <img src="https://i.imgur.com/3pv6SuK.png" style="width: 800px" />
 
 - Time-sensitive apps require quick responses to events, but there are three sources of latency in typical general purpose operating systems: **timer latency**, **preemption latency**, and **scheduler latency**.
-- Timer latency comes from the inaccuracy of the timing mechanism due to the granularity of the timing mechanism available in general purpose operating systems.
-- Preemption latency happens when the kernel is in the middle of doing something from which it can't be preempted or when the kernel itself is in the middle of handling another higher priority interrupt.
-- Scheduler latency prevents an external event from being delivered to the application that's waiting for it because a higher priority task is already in the scheduler's queue.
+- **Timer latency** comes from the inaccuracy of the timing mechanism due to the granularity of the timing mechanism available in general purpose operating systems.
+- **Preemption latency** happens when the kernel is in the middle of doing something from which it can't be preempted or when the kernel itself is in the middle of handling another higher priority interrupt.
+- **Scheduler latency** prevents an external event from being delivered to the application that's waiting for it because a higher priority task is already in the scheduler's queue.
 
 ### Timers Available
 
 <img src="https://i.imgur.com/ji4AzXO.png" style="width: 800px" />
 
 - There are different kinds of timers available in operating systems, such as periodic timers, one-shot timers, and soft timers.
-- Periodic timers have periodicity as their pro but have event recognition latency as their con, and their worst-case latency is the periodicity itself.
-- One-shot timers are exact timers that can go off exactly when you want the interrupt delivered, but have overhead associated with fielding them.
-- Soft timers have reduced overhead since there are no timer interrupts, but there's latency associated with them and an overhead of polling all events to see if any of them have expired.
-- Firm timer is a new mechanism proposed in TS Linux that combines the pros of all three types of timers while avoiding their individual cons.
+- **Periodic timers** are used to execute tasks repeatedly at regular intervals. Once the timer is set, it generates an interrupt or a signal at the specified interval until it is stopped or reset.
+	- It's commonly used for tasks like system monitoring, updates, or housekeeping tasks.
+	- Pro: OS gets interrupted at regular period.
+	- Con: Event recognition latency, as the event might get recognized at a much later point in real time.
+- **One-shot timers** as the name suggests, execute a task only once after a specified delay. it generates an interrupt or a signal at the specified time, and then it stops.
+- **Soft timers** are implemented in software and do not rely on hardware resources. It reduces overhead since there are no timer interrupts, but there's latency associated with them and an overhead of polling all events to see if any of them have expired.
+- **Firm timer** is a new mechanism proposed in TS Linux that combines the pros of all three types of timers while avoiding their individual cons. It is implemented using dedicated hardware resources like clock or counter peripherals. They offer higher precision and lower latency compared to soft timers.
+	- Suitable for time-critical tasks, such as precise scheduling, timekeeping, or real-time control systems.
 
 ### Firm Timer Design
 
@@ -46,22 +50,26 @@
 	- However, in practice, the time needed to field timer interrupts is significantly higher and is the limiting factor for timer accuracy.
 - The interrupt handler looks for expired tasks in the timer-q data structure and calls the corresponding callback handlers.
 - The firm timer implementation uses an overshoot parameter to avoid fielding one-shot interrupts.
-- If the distance between one-shot timers is long, the kernel will use periodic timers instead and dispatch the one-shot event at the preceding periodic timer event.
+- *If the distance between one-shot timers is long, the kernel will use periodic timers instead and dispatch the one-shot event at the preceding periodic timer event.*
 - The firm timer implementation reduces timer latency by combining one-shot, soft, and periodic timers.
 
 ### Reducing Kernel Preemption Latency
 
-- Kernel preemption latency is a source of latency that can be reduced.
-- Two approaches to reducing kernel preemption latency are 
-	1. **explicitly inserting preemption points in the kernel** 
-	2. **allowing preemption of the kernel anytime the kernel is not manipulating shared data structures**
-- The lock-breaking preemptible kernel technique, due to Robert Love, combines these two ideas by breaking a long critical section in the kernel into two shorter critical sections: one for manipulating shared data and the other for the rest of the code.
-- By breaking up the critical section, it is possible to safely preempt the kernel at certain points and perform tasks such as checking for expired timers.
+Kernel preemption latency is a source of latency that can be reduced.
 
-- TS Linux uses a combination of two principles to reduce scheduling latency: Proportional Period Scheduling and priority scheduling.
-- Proportional Period Scheduling allocates each task a fixed proportion of CPU time during each task period T and is adjustable using a feedback control mechanism.
-- Priority scheduling is used to avoid priority inversion, which can affect the sensitivity of time-sensitive tasks. TS Linux boosts the priority of a server task to the priority of the requesting task to avoid priority inversion.
-- These mechanisms allow TS Linux to have control over how much CPU time is devoted to time-sensitive tasks and ensure that throughput-oriented tasks are able to make forward progress.
+1. **Reducing kernel preemption latency**: Kernel preemption latency occurs when the OS has to wait for the kernel to be ready to handle an interrupt. Two methods are used to reduce this latency: 
+	1. **Explicitly insert preemption points in the kernel to check for events and take action**. 
+	2. **Allow kernel preemption anytime it is not manipulating shared data structures, as preempting during shared data manipulation can cause race conditions.**
+
+Robert Love's "lock-breaking preemptible kernel" technique combines these two methods to reduce spin lock holding time in the kernel. The technique breaks long critical sections into two shorter ones, allowing kernel preemption when shared data manipulation is complete. This presents an opportunity to check for expired timers and reprogram one-shot timers.
+
+2. **Reducing scheduling latency**: This refers to the time it takes to schedule an application after a timer event has occurred. The firm timer implementation in TS Linux combines two principles to reduce scheduling latency:
+    
+    1. **Proportional Period Scheduling**: Each task requests a fixed proportion of CPU time within a time quantum. The scheduler performs admission control to determine if it can satisfy the task's request without overcommitting CPU resources.
+    
+    2. **Priority Scheduling**: This method helps avoid "priority inversion", a situation where a higher-priority task is blocked by a lower-priority task. In TS Linux, when a high-priority task makes a request to a server, the server's priority is temporarily boosted to match the requesting task, preventing preemption by intermediate-priority tasks.
+    
+These mechanisms help reduce latency for time-sensitive tasks, while also ensuring throughput-oriented tasks make progress. The discussed techniques in TS Linux include the firm timer design, the lock-breaking preemptible kernel, and priority-based scheduling, which together minimize the distance between event occurrence and event activation, providing better performance for time-sensitive applications in a commodity OS like Linux.
 
 <img src="https://i.imgur.com/fnRfcDG.png" style="width: 800px" />
 <img src="https://i.imgur.com/1NUat25.png" style="width: 800px" />
@@ -77,7 +85,7 @@
 
 ### Introduction
 
-- This lesson focuses on middleware for real-time and distributed multimedia applications.
+- This module focuses on middleware for real-time and distributed multimedia applications.
 - It builds on the previous lesson's study of an OS scheduler for accurate timing in upper layers of software.
 
 ### Programming Paradigms
@@ -111,7 +119,7 @@
 
 <img src="https://i.imgur.com/Uim23NW.png" style="width: 800px" />
 
-- The PTS programming model is a distributed application with threads and channels as the high-level abstractions.
+- The PTS(Persistent Temporal Streams) programming model is a distributed application with threads and channels as the high-level abstractions.
 - The computation graph generated by the PTS programming model looks similar to a UNIX process socket graph.
 - The semantics of the channel abstraction is different from the socket abstraction, as the channel holds time sequenced data objects.
 - A channel allows many-to-many connections, and a thread can produce or consume data from a channel using the put and get primitives, respectively.

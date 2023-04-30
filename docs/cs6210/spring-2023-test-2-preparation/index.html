@@ -334,24 +334,26 @@ function sidebar_toggle() {
 <p>• SEND LOCK/ACK/UNLOCK P1 -&gt; P2 (P1 sends lock/ack/unlock to P2)<br>
 • RECV LOCK/ACK/UNLOCK P1 -&gt; P2 (P2 receives lock/ack/unlock  sent by P1) <br>
 • ACQUIRE P1 (P1 acquires lock)</p>
-<p>–<br>
-SEND LOCK P1 -&gt; P2 got delayed</p>
+<p>–</p>
+<p>SEND LOCK P1 -&gt; P2 (P1 sends lock request to P2)</p>
 <ul>
-<li>Queue(P1): [(P1, t1)]</li>
-<li>Queue(P2): []<br>
-SEND LOCK P2 -&gt; P1</li>
-<li>Queue(P1): []</li>
-<li>Queue(P2): [(P2, t2)]<br>
-RECV LOCK P2 -&gt; P1</li>
-<li>Queue(P1): [(P1, t1), (P2, t2)]</li>
-<li>Queue(P2): [(P2, t2)]<br>
-SEND ACK P1 -&gt; P2<br>
-ACQUIRE P2 (out of order due to not receiving the lock message)<br>
-RECV LOCK P1 -&gt; P2 (got the lock message, but it’s too late)</li>
-<li>Queue(P1): [(P1, t1), (P2, t2)]</li>
-<li>Queue(P2): [(P1, t1), (P2, t2)]<br>
-SEND ACK P2 -&gt; P1<br>
-ACQUIRE P1</li>
+<li>P1: [P1:T1]</li>
+<li>P2: []<br>
+SEND LOCK P2 -&gt; P1 (P2 sends lock request to P1)</li>
+<li>P1: [P1:T1]</li>
+<li>P2: [P2:T2]<br>
+RECV LOCK P2 -&gt; P1 (P1 receives lock request from P2, later lock request enough for acquire)</li>
+<li>P1: [P1:T1,P2:T2]</li>
+<li>P2: [P2:T2]<br>
+ACQUIRE P1 (P1 acquires lock)<br>
+SEND ACK P1 -&gt; P2 (P1 sends ACK that it received P2 lock request)</li>
+<li>P1: [P1:T1,P2:T2]</li>
+<li>P2: [P2:T2]<br>
+RECV ACK P1 -&gt; P2 (P2 receives ack sent by P1 OUT OF ORDER, P2 thinks it has lock, it should have received P1’s Lock request first)<br>
+ACQUIRE P2 (P2 acquires lock)</li>
+<li>P1: [P1:T1,P2:T2]</li>
+<li>P2: [P2:T2]<br>
+RECV LOCK P1 -&gt; P2</li>
 </ul>
 <p>B. [3 points] Construct a simple example of a sequence of events involving two processes P1 and P2, where “progress” is violated,  that is, in a situation where the mutex previously held by P1 has  been released, but P2 is not able to acquire it.</p>
 <p>Use the format shown in part (A) for the sequence of events, and  clearly indicate which message was lost.</p>
@@ -482,16 +484,16 @@ parameter)  while invoking a remote object using Java RMI?</p>
 <p>[2 points] List the actions that would take place at time T1</p>
 </li>
 <li>
-<p>N1 send a request to Nf for write access to F1,</p>
+<p>N1 send a request to Nf the metadata manager for write access to F1,</p>
 </li>
 <li>
-<p>Nf send invalidation messages to N2 and N3.</p>
+<p>Nf lookup the metadata and find the N1, N2, and N2 are sharing the file. It sends invalidation messages to N2 and N3.</p>
 </li>
 <li>
-<p>Upon receiving the acknowledgements, Nf grant N1 the write-exclusive access.</p>
+<p>Upon receiving the acknowledgements, Nf update cache consistency information to indicate the new owner and give write permission to N1.</p>
 </li>
 <li>
-<p>N1 receives the confirmation and proceeds with writing to file F1.</p>
+<p>Once N1 owns the file, it will proceed with writing to file F1.</p>
 </li>
 <li>
 <p>[2 points] List the actions that would take place at time T2.</p>
@@ -500,19 +502,16 @@ parameter)  while invoking a remote object using Java RMI?</p>
 <p>N2 send read access request to Nf</p>
 </li>
 <li>
-<p>Nf check the status of file F1, and send a downgrade message to N1</p>
+<p>Nf check the status of file F1, and revoke the ownership of N1</p>
 </li>
 <li>
-<p>N1 acknowledges the downgrade message to Nf after downgrading its access to read-shared.</p>
+<p>N1 stopped writing and flush the changes to storage.</p>
 </li>
 <li>
-<p>Nf downgrade F1 as read-shared.</p>
+<p>N1 forward the data to the new client for N2.</p>
 </li>
 <li>
-<p>Nf grants read access to N2.</p>
-</li>
-<li>
-<p>Up receiving the confirmation, N2 proceeds with read to the file F1.</p>
+<p>N2 proceeds with read to the file F1.</p>
 </li>
 </ol>
 <p>B. [2 points]  Why do file systems procrastinate writing a file to stable storage as  soon as the process that is doing the write closes the file?</p>
@@ -520,8 +519,8 @@ parameter)  while invoking a remote object using Java RMI?</p>
 <p>C. [2 points] In xFS, what purpose does the “log segment” data structure of the file  system serve?</p>
 <p>Log segment is an append-only data structure, which improves write performance and allow more efficient, continuous disk access. It also minimizes disk seek operations and provide better write throughput.</p>
 <p>D. [2 points] Distinguish between static and dynamic metadata  management.</p>
-<p>Static: metadata allocation and distribution are predetermined. It simplifies metadata management and lookup. But potentially, it has load imbalance and limited scalability problem.<br>
-Dynamic: metadata can be reassigned to different nodes based on factors such as load, access patterns, or system changes. It offers better load balancing, and better scalability. But also introduces complexities in metadata lookup and management.</p>
+<p>Static: metadata allocation and distribution are predetermined. It simplifies metadata management and lookup. But potentially, it has load imbalance and limited scalability problem.</p>
+<p>Dynamic: metadata can be reassigned to different nodes based on factors such as load, access patterns, or system changes. It offers better load balancing, and better scalability. But also introduces complexities in metadata lookup and management.</p>
 <h2 id="missing"><a class="markdownIt-Anchor" href="#missing"></a> Missing</h2>
 <p>L5e<br>
 L6a nucleus<br>
