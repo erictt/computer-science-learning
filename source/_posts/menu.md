@@ -37,11 +37,8 @@
 * [Lesson 7: Distributed Subsystems - DFS](/cs6210/lesson-07c/index.html)
 * [Lesson 9: Internet Computing](/cs6210/lesson-09/index.html)
 * [Lesson 10: RT and Multimedia](/cs6210/lesson-10/index.html)
-
-<!--
 * [Lesson 8: Failures and Recovery](/cs6210/lesson-08/index.html)
 * [Lesson 11: Security](/cs6210/lesson-11/index.html)
--->
 
 ## CS6250 Computer Networks
 
