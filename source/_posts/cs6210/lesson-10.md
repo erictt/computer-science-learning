@@ -55,25 +55,27 @@
 
 ### Reducing Kernel Preemption Latency
 
-Kernel preemption latency is a source of latency that can be reduced.
+Kernel preemption latency occurs when the OS has to wait for the kernel to be ready to handle an interrupt. Two methods are used to reduce this latency: 
+1. **Explicitly insert preemption points in the kernel to check for events and take action**. 
+2. **Allow kernel preemption anytime it is not manipulating shared data structures, as preempting during shared data manipulation can cause race conditions.**
 
-1. **Reducing kernel preemption latency**: Kernel preemption latency occurs when the OS has to wait for the kernel to be ready to handle an interrupt. Two methods are used to reduce this latency: 
-	1. **Explicitly insert preemption points in the kernel to check for events and take action**. 
-	2. **Allow kernel preemption anytime it is not manipulating shared data structures, as preempting during shared data manipulation can cause race conditions.**
+Robert Love's "lock-breaking preemptible kernel" technique combines these two methods to reduce spin lock holding time in the kernel. The technique **breaks long critical sections into two shorter ones**, allowing kernel preemption when shared data manipulation is complete. This presents an opportunity to check for expired timers and reprogram one-shot timers.
+- ![](https://i.imgur.com/iU7p1wT.png)
 
-Robert Love's "lock-breaking preemptible kernel" technique combines these two methods to reduce spin lock holding time in the kernel. The technique breaks long critical sections into two shorter ones, allowing kernel preemption when shared data manipulation is complete. This presents an opportunity to check for expired timers and reprogram one-shot timers.
+### Reducing Scheduling Latency
 
-2. **Reducing scheduling latency**: This refers to the time it takes to schedule an application after a timer event has occurred. The firm timer implementation in TS Linux combines two principles to reduce scheduling latency:
-    
-    1. **Proportional Period Scheduling**: Each task requests a fixed proportion of CPU time within a time quantum. The scheduler performs admission control to determine if it can satisfy the task's request without overcommitting CPU resources.
-    
-    2. **Priority Scheduling**: This method helps avoid "priority inversion", a situation where a higher-priority task is blocked by a lower-priority task. In TS Linux, when a high-priority task makes a request to a server, the server's priority is temporarily boosted to match the requesting task, preventing preemption by intermediate-priority tasks.
-    
-These mechanisms help reduce latency for time-sensitive tasks, while also ensuring throughput-oriented tasks make progress. The discussed techniques in TS Linux include the firm timer design, the lock-breaking preemptible kernel, and priority-based scheduling, which together minimize the distance between event occurrence and event activation, providing better performance for time-sensitive applications in a commodity OS like Linux.
+This refers to the time it takes to schedule an application after a timer event has occurred. The firm timer implementation in TS Linux combines two principles to reduce scheduling latency:
 
-<img src="https://i.imgur.com/fnRfcDG.png" style="width: 800px" />
-<img src="https://i.imgur.com/1NUat25.png" style="width: 800px" />
-<img src="https://i.imgur.com/OntEFHp.png" style="width: 800px" />
+1. **Proportional Period Scheduling**: Each task requests a fixed proportion of CPU time within a time quantum. The scheduler performs **admission control** to determine if it can satisfy the task's request without overcommitting CPU resources.
+	- <img src="https://i.imgur.com/eXgCyCH.png" style="width: 400px" />
+	- In the above example, T1 requested 2/3 of the T time quantum, and T2 requests 1/3 of T. The scheduler will schedule the tasks accordingly. But if any one ask for a time quantum that beyond T, the task will not be scheduled. This guarantees that the scheduled ones will have it's time to run its task and avoid overcommiting.
+
+3. **Priority Scheduling**: This method helps avoid "**priority inversion**", a situation where a higher-priority task is blocked by a lower-priority task. 
+	- For example, a client contact a window manager to ask a portion of th window. The call is a high priority call, but the window manager has a low priority which might not get scheduled during the call. This will cause the client being blocked.
+	- In TS Linux, when a high-priority task makes a request to a server, the server's priority is temporarily boosted to match the requesting task, preventing preemption by intermediate-priority tasks.
+		- <img src="https://i.imgur.com/OntEFHp.png" style="width: 800px" />
+
+These mechanisms help reduce latency for time-sensitive tasks, while also ensuring throughput-oriented tasks make progress. The discussed techniques in TS Linux include the **firm timer design**, the **lock-breaking preemptible kernel**, and **priority-based scheduling**, which together minimize the distance between event occurrence and event activation, providing better performance for time-sensitive applications in a commodity OS like Linux.
 
 ### Conclusion
 

@@ -67,12 +67,11 @@ In total: $3 * (T_m + T_i) + 2 * (T_{rpc} + T_r) + 2 * T_f$
 
 ### 3. (8 points)(CDN–Coral)
 
-a.[3 points] Why is Coral called an overlay network? Give another
-example of an overlay network.
+a.[3 points] Why is Coral called an overlay network? Give another example of an overlay network.
 
 An overlay network is a virtual network built on top of the physical network with 1-1 mapping. Coral is a content delivery network that map the node ID to the physical IP.
 
-One example is that IP on LAN. The IP is an overlay on the MAC address of the computer, used for external network communication with others in the local/world-wide network.
+One example is that IP over LAN. The IP is an overlay on the MAC address of the computer, used for external network communication with others in the local/world-wide network.
 
 b.[5 points] Key-based routing in Coral Given below is a routing table for Coral, where the source node 9 (src) is trying to reach the destination node 1 (dst).
 Entries in the second row show the XOR distance from the source (src) to a node that is currently reachable (i.e., src has a valid IP-address for that node). Entries in the third row show how the routing table evolved after the first iteration of key-based routing.
@@ -104,7 +103,7 @@ The problem can be handled by temporarily boosting the priority of the lower-pri
 
 b. [2 points] Proportional period scheduling in TS-Linux allocates to a requesting task a desired proportion (Q) of the CPU in each period (T - a scheduling parameter). What problem is this aiming to solve?
 
-It's aiming to solve the problem of allocating CPU resources to time-sensitive tasks while ensuring that other tasks also get the opportunity to run. By allowing tasks to request a specific proportion of CPU time within a given time quantum, the scheduler can perform admission control to check if the requested proportion can be satisfied without overcommitting CPU resources, thus providing temporal protection and improving scheduling accuracy.
+It's aiming to solve the problem of allocating CPU resources to time-sensitive tasks while **ensuring that other tasks also get the opportunity to run**. By allowing tasks to request a specific proportion of CPU time within a given time quantum, the scheduler can perform admission control to check if the requested proportion can be satisfied without overcommitting CPU resources, thus providing temporal protection and improving scheduling accuracy.
 
 c. [6 points] A video game running on top of TS-Linux is using the one-shot timer. It has it programmed to go off every 300 microseconds to update some internal state of the game. It uses an overshoot parameter of 30 microseconds. At 290 microseconds since the last firing of the one-shot timer there is an external interrupt (lower in priority compared to timer events) into TS- Linux. List the steps taken by TS-Linux upon getting this interrupt (concise bullets, please).
 
