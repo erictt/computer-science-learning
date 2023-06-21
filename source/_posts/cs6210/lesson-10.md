@@ -131,7 +131,7 @@ These mechanisms help reduce latency for time-sensitive tasks, while also ensuri
 
 <img src="https://i.imgur.com/nM5Bfa9.png" style="width: 800px" />
 
-- The bundling of streams in PTS allows grouping of streams labeled as a group, with an anchor stream and dependent streams.
+- The bundling of streams in PTS allows **grouping of streams labeled as a group**, with an anchor stream and dependent streams.
 - The group get primitive allows getting correspondingly timestamped items from all the streams in a given group, reducing the burden of selecting temporally correlated items from individual streams.
 
 ### Power of Simplicity
@@ -139,7 +139,7 @@ These mechanisms help reduce latency for time-sensitive tasks, while also ensuri
 <img src="https://i.imgur.com/oHitOjh.png" style="width: 800px" />
 
 - The power of simplicity is the key for adoption in system design.
-- Converting a sequential program for video analytics into a distributed program using PTS is straightforward, by interposing channels between computations and using the get/put primitives.
+- Converting a sequential program for video analytics into a distributed program using PTS is straightforward, by **interposing channels between computations and using the get/put primitives**.
 - The PTS programming model uses threads as computational entities and channels as the means of communication between them.
 
 ### PTS Design Principles
@@ -156,10 +156,10 @@ These mechanisms help reduce latency for time-sensitive tasks, while also ensuri
 <img src="https://i.imgur.com/CE6lmp2.png" style="width: 800px" />
 
 - All computations can be considered as producers or consumers of data, with worker threads reacting to get/put calls.
-- The channel architecture has three layers: Live Channel Layer, Interaction Layer, and Backend Layer.
-- The Live Channel Layer holds a snapshot of items generated on a channel, and the Garbage Collection trigger moves old data to a garbage list.
-- The Persistence Layer handles items that need to be persisted, using a pickling handler function specified by the application.
-- The Backend Layer supports different backends for storing channel data, including MySQL, Unix file system, and GPFS.
+- The channel architecture has three layers:
+	- **The Live Channel Layer** holds a snapshot of items generated on a channel, and the Garbage Collection trigger moves old data to a garbage list.
+	- **The Persistence Layer** handles items that need to be persisted, using a pickling handler function specified by the application.
+	- **The Backend Layer** supports different backends for storing channel data, including MySQL, Unix file system, and GPFS.
 - All persistence activities happen automatically under the covers.
 
 ### Conclusion

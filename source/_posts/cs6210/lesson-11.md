@@ -22,7 +22,7 @@
 - User-Defined Strings: Custom labels for data classification (e.g., military file classifications).
 
 ### Design Principles (Saltzer's):
-  
+ 
 - Economy of Mechanisms: Simple, verifiable security mechanisms.
 - Fail-Safe Defaults: Explicitly allow access, default to no access.
 - Complete Mediation: No shortcuts in security measures (e.g., full authentication).
@@ -89,7 +89,7 @@ In this section, the process of establishing an RPC (Remote Procedure Call) sess
 1. **Initiating the RPC session**: Venus, the client-side process, sends the client identity (secret token) and an encrypted cipher containing a random number (Xr) to Vice, the server. The random number is encrypted using the handshake key in the client (HKC), found in the clear token data structure.
 	- ![](https://i.imgur.com/aAcnA3a.png)
 
-2.  **Server decrypts the message**: Vice receives the client identity and encrypted cipher. The server decrypts the secret token using its server-side key to obtain the clear token data structure. It then extracts HKC from the clear token data structure and uses it to decrypt the cipher, obtaining the random number Xr.
+2. **Server decrypts the message**: Vice receives the client identity and encrypted cipher. The server decrypts the secret token using its server-side key to obtain the clear token data structure. It then extracts HKC from the clear token data structure and uses it to decrypt the cipher, obtaining the random number Xr.
 3. **Server sends a response to the client**: Vice **increments the random number Xr by 1 (Xr+1)** and **generates a new random number Yr.** It encrypts both values using the handshake key (HKS, which is the same as HKC) and sends the encrypted message to Venus.
 	- ![](https://i.imgur.com/BpoOkY7.png)
 
@@ -119,20 +119,22 @@ Login is a special case of the general bind operation, using the user's password
 
 ### Putting it all together
 
-1.  Users log in remotely from workstations over insecure links using their username and password and receive a pair of tokens: a secret token and a clear token (first communication between Venus and Vice).
+1. Users log in remotely from workstations over insecure links using their username and password and receive a pair of tokens: a secret token and a clear token (first communication between Venus and Vice).
 	1. ![](https://i.imgur.com/3P5GieW.png)
 
-2.  Venus establishes an RPC session on behalf of the client using the secret token and handshake key (HKC) (second communication between Venus and Vice). And Venus receives a session key for use in the particular RPC session.
+2. Venus establishes an RPC session on behalf of the client using the secret token and handshake key (HKC) (second communication between Venus and Vice). And Venus receives a **session key** for use in the particular RPC session.
 	1. ![](https://i.imgur.com/IHumP3R.png)
 
-3.  Users perform file system operations such as opening, closing, or writing to a file, which require secure RPC calls (third communication between Venus and Vice). Secure RPC calls are made using the secret token as a client ID and the session key as the private key for encryption.
+3. Users perform file system operations such as opening, closing, or writing to a file, which require secure RPC calls (third communication between Venus and Vice). Secure RPC calls are made using the **secret token as a client ID** and the **session key as the private key** for encryption.
 	1. ![](https://i.imgur.com/myC9ByQ.png)
-
-![](https://i.imgur.com/OpIQPEr.png)
 
 - The username and password are exposed only once per login session.
 - The handshake key (HKC) is used only for new RPC sessions and is valid for the duration of the login session.
 - The session key is used for all the RPC calls during a given RPC session and its duration is the length of that RPC session.
+
+![](https://i.imgur.com/OpIQPEr.png)
+
+
 
 ### AFS Security Report Card
 ![](https://i.imgur.com/zt0dPQn.png)

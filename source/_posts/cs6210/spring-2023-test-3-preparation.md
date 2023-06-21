@@ -5,12 +5,12 @@
 
 ### 1. (11 points)(Giant-scale services)
 
-Assume you are the developer responsible for deploying ChatGPT. Assume that the underlying ML model used by ChatGPT needs a total of 800 GB memory for storing the model parameters. The model can be decomposed into 8 GB slices that can be run in a pipelined manner. The data center you are deploying ChatGPT offers machines with a fixed 8 GB of memory, and you have profiled each slice to take 1 ms of execution time. Assume zero communication cost to convey the results from one slice of model execution to the next.
+Assume you are the developer responsible for deploying ChatGPT. Assume that the underlying ML model used by ChatGPT needs a total of 800 GB of memory for storing the model parameters. The model can be decomposed into 8 GB slices that can be run in a pipelined manner. The data center you are deploying ChatGPT offers machines with a fixed 8 GB of memory, and you have profiled each slice to take 1 ms of execution time. Assume zero communication cost to convey the results from one slice of model execution to the next.
 
 a. [2 points] You now want to deploy this model to support 1 million requests per sec. How many minimum machines will you need?
 
 1 pipeline needs 100 nodes(100 * 8GB = 800GB)
-each request take 1 ms of execution, each pipeline can take 1000 requests / sec.
+each request takes 1 ms of execution, each pipeline can take 1000 requests/sec.
 To support 1 million requests/sec, we need 1000 pipelines
 So 100 nodes * 1000 clusters = 100,000 nodes
 
@@ -28,22 +28,21 @@ d. [2 points] Calculate the throughput if two nodes fail.
 
 There are two possibilities:
 1. Two nodes work for the same slice.  The throughput will be reduced to 998K
-2. Two nodes works for different slice. The throughput is the same as `c`,  which is 999K
+2. Two nodes work for the different slices. The throughput is the same as `c`,  which is 999K
 
-e. [3 points] The model gets updated. The updated model has to be deployed in the servers. Discuss pros and cons of each of the strategies (fast, rolling, big-flip) for doing the update.
+e. [3 points] The model gets updated. The updated model has to be deployed in the servers. Discuss the pros and cons of each of the strategies (fast, rolling, big-flip) for doing the update.
 
 Fast (cold upgrade): 
-	Pro: Fastest upgrade, comparing to the other strategies.
+	Pro: Fastest upgrade, compared to the other strategies.
 	Con: The entire service will be unreachable during the upgrade.
 
 Rolling (1 pipeline at a time): 
 	Pro: The service only loses 1/1000 capacity during the upgrade.
-	Con: It takes 1000x times to fully complete the upgrade comparing to fast upgrade.
+	Con: It takes the longest time to fully complete the upgrade compared to a fast upgrade.
 
 Big-flip (50/50): 
 	Pro: Faster than Rolling, and also offers continuous services during the upgrade.
 	Con: The service's throughput will be reduced to half of the capacity during the upgrade.
-
 
 ### 2. (10 points)(Map-reduce)
 
@@ -51,7 +50,7 @@ A map-reduce application consists of:
 - 30 shards of data to be processed
 - 10 distinct outputs to be produced
 - CPU time to execute a map function: $T_m$
-- CPU time to execute a reduce function: $T_r$
+- CPU time to execute a reduced function: $T_r$
 - I/O time to write the intermediate result by a mapper: $T_i$
 - RPC time to fetch an intermediate result by a reducer: $T_{rpc}$
 - I/O time to write out the result by a reducer: $T_f$
@@ -59,11 +58,9 @@ A map-reduce application consists of:
 The Map-reduce infrastructure includes asynchronous RPC, allowing a reducer to fetch the intermediate results in parallel from the mappers. The map-reduce infrastructure uses 10 threads for the map function and 5 threads for the reduce function. Ignoring scheduling overheads by the infrastructure, compute the total execution time for the above application. (Show your work for partial credit)
 
 1. 30 shards assign to 10 map threads => $3 * (T_m + T_i)$ for processing all map tasks
-2. 10 distinct outputs assign to 5 reduce threads => $2 * (T_{rpc} + T_r)$ for processing the reduce tasks. This assumes that the 30 RPC calls are being done in parallel. Each reduce only needs $T_{rpc}$ to retrieve all the data.
-3. Write all results to disk, each reduce thread will need to handle 2 tasks. To write out all the results, we need $2 * T_f$ 
+2. 10 distinct outputs assign to 5 reduce threads => $2 * (T_{rpc} + T_r + T_f)$ for processing the reduce tasks. This assumes that the 30 RPC calls are being done in parallel. Each reduce only needs $T_{rpc}$ to retrieve all the data.
 
-In total: $3 * (T_m + T_i) + 2 * (T_{rpc} + T_r) + 2 * T_f$
-
+In total: $3 * (T_m + T_i) + 2 * (T_{rpc} + T_r + T_f)$
 
 ### 3. (8 points)(CDN–Coral)
 
@@ -80,7 +77,7 @@ Entries in the second row show the XOR distance from the source (src) to a node 
 
 (i) [2 points] Which node did "src" make an RPC call to in the first iteration to get the new entries in the third row? Why?
 
-Node 5. The key-based routing reduce ~half of the distance to the destination.
+Node 5. The key-based routing reduce the distance by half in each hop. Since the distance from node 9 to node 1 is 8, the target distance in the first hope is 4 which is node 5.
 
 (ii) [2 points] Which node will "src" make the next RPC call? Why?
 
@@ -97,30 +94,30 @@ Node 3. The same reason as before, it takes half of the distance to the destinat
 
 a. [2 points] What is the priority inversion problem and how can it be handled in a Linux-like OS that uses priority-based scheduling?
 
-The priority inversion problem occurs when a higher-priority task is blocked by a lower-priority task that is currently running, often due to the lower-priority task servicing a request from a higher-priority one.
+The priority inversion problem occurs when a higher-priority task is blocked by a lower-priority task that is currently running. For example, a high priority task C1 calls to a low priority task C2, and C2 gets preempted when it's running because there is another intermediate priority task C3 jump in.
 
 The problem can be handled by temporarily boosting the priority of the lower-priority task to match the priority of the higher-priority task during the service time, preventing preemption by intermediate-priority tasks.
 
 b. [2 points] Proportional period scheduling in TS-Linux allocates to a requesting task a desired proportion (Q) of the CPU in each period (T - a scheduling parameter). What problem is this aiming to solve?
 
-It's aiming to solve the problem of allocating CPU resources to time-sensitive tasks while **ensuring that other tasks also get the opportunity to run**. By allowing tasks to request a specific proportion of CPU time within a given time quantum, the scheduler can perform admission control to check if the requested proportion can be satisfied without overcommitting CPU resources, thus providing temporal protection and improving scheduling accuracy.
+**It aims to reduce scheduling latency for real-time tasks** by allowing tasks to request a specific proportion of CPU time within a given time quantum. The scheduler can perform **admission control** to check if the requested proportion can be satisfied without overcommitting CPU resources, thus providing **temporal protection** and **improving scheduling latency**.
 
 c. [6 points] A video game running on top of TS-Linux is using the one-shot timer. It has it programmed to go off every 300 microseconds to update some internal state of the game. It uses an overshoot parameter of 30 microseconds. At 290 microseconds since the last firing of the one-shot timer there is an external interrupt (lower in priority compared to timer events) into TS- Linux. List the steps taken by TS-Linux upon getting this interrupt (concise bullets, please).
 
-1. One-shot timer expires at 270ms, and going through the overshot period(30ms).
+1. One-shot timer expires at 270ms, and goes through the overshot period(30ms).
 1.  At 290 microseconds, TS-Linux receives the external interrupt (lower priority than timer events).
-2.  TS-Linux notice that there is a one-shot event that has higher priority than external event.
-3.  TS-Linux execute the one-shot timer events, then reprogram the next one-shot timer at 600ms.
-4. TS-Linux process the external interrupt.
+2.  From timer-q, TS-Linux notice that there is a one-shot event that has higher priority than the external event.
+3.  TS-Linux executes the one-shot timer events, then reprogram the next one-shot timer to 600ms.
+4. TS-Linux processes the external interrupt.
+5. Nothing needs to be done at 300 microsecond.
 
 ### 5. (8 points)(PTS)
 
 a. [6 points] Your friend is developing a multi-modal live-streaming application that is represented using a pipelined graph of tasks. Give three reasons why you would advise your friend to choose PTS rather than using Unix sockets and processes.
 
-1. Time is a first-class entity in PTS, which makes it easier to handle time-sensitive data.
-2. PTS allows for the bundling of different sensor streams into groups which is very useful in multi-model application.
-	1. Allows the propagation of temporal causality and correlation of incoming streams
-3. PTS allows many-to-many relations between producers and consumers ina single channel.
+1. Time is a first-class entity in PTS, which simplier management to the live and historical data.
+2. PTS **allows for the bundling of different sensor streams into groups** which is very useful in multi-model applications.
+3. PTS allows **many-to-many relations** between producers and consumers in a single channel.
 
 b. [2 points] Assume a PTS Channel ch1 has items with timestamps 25, 50, 75, 100.
 
@@ -151,7 +148,7 @@ For example, the client crashes during the interaction with the file server, dir
 
 2. In the above scenario, assume that the client closes the file after writing to it. The coordinator for the shadow transaction tree that represents this client-server interaction is the client node.
 	1. [2 points] In the absence of any failures, what will happen upon the "close" call by the client?
-		1. When the client closes the file, the coordinator of the shadow transaction tree will initiate a commit process. This involves sending commit requests to the participating nodes(file server, directory server, and data server) and receiving their votes. If all the votes are positive, the coordinator will finalize the commit, and the temporary resources will be cleaned up.
+		1. When the client closes the file, the coordinator of the **shadow transaction tree** will initiate a **commit process**. This involves **sending commit requests to the participating nodes(file server, directory server, and data server) and receiving their votes**. If all the votes are **positive**, the coordinator will **finalize the commit**, and the temporary resources will be cleaned up.
 	2. [2 points] Suppose a 1-phase commit is used instead of 2-phase commit. Describe a failure scenario that may leave the system in an inconsistent state.
 		1. When the client successfully **writes to the data server** but **fails to update the directory** server before crashing. In this case, the file's data is written to the disk, but the directory server doesn't have the correct pointer to the file's data, leaving the system inconsistent.
 	3. [2 points]Explain why a 2-phase commit will NOT leave the system in an inconsistent state for the failure scenario you described above.
@@ -161,29 +158,26 @@ For example, the client crashes during the interaction with the file server, dir
 
 ### 7. (6 points)(LRVM)
 
-a. [3 points] How does the “no restore” mode in begin-transaction help in improving the performance of a server written on top of LRVM?
+a. [3 points] How does the “no restore” mode in the begin-transaction help in improving the performance of a server written on top of LRVM?
 
-It eliminates the need to restore the data segments to their original state in case of an abort, which avoided the data copy on set-range.
+It eliminates the need to restore the data segments to their original state in case of an abort, which avoided the data copy on set range.
 
 b. [3 points] During crash recovery, the redo log is applied to the data segments to bring the server to a consistent state prior to the crash. LRVM chooses to apply the log to the affected data segments starting from the tail of the log rather than the head. Why?
 
-This allows LRVM to avoid applying redundant updates that have already been applied previously. By starting from the tail of the log, LRVM can skip over updates that have already been applied, reducing the amount of work required during recovery and improving the overall performance of the system.
+This allows LRVM to **avoid applying redundant updates** that have already been applied previously. By starting from the tail of the log, LRVM can **skip over updates that have already been applied**, reducing the amount of work required during recovery and improving the overall performance of the system.
 
 ### 8. (6 points)(RioVista)
 
+a.[3 points] Your friend John argues that a battery-backed file cache such as Rio provides the exact same functionality and benefits as the end transaction in LRVM with the no-flush mode. Would you agree with his argument? State why or why not.
 
-a.[3 points] Your friend John argues that a battery backed file cache such as Rio provides the exact same functionality and benefits as the end transaction in LRVM with the no-flush mode. Would you agree with his argument? State why or why not.
-
-I would not entirely agree with John's argument. While a battery-backed file cache like Rio does provide some benefits similar to the end transaction in LRVM with no-flush mode, they are not the same in terms of functionality.
-
-Rio uses a battery-backed cache to store data in memory, allowing for faster data access and ensuring data durability in case of a system crash. However, it does not provide the same level of transactional guarantees and atomicity that LRVM with no-flush mode offers. LRVM allows applications to manage persistent memory as if it were a regular volatile memory, providing atomicity through transactions. The no-flush mode in LRVM ensures that changes made within a transaction are committed to stable storage only at the end of the transaction, reducing the number of disk flushes.
+I agree that they offer the same benefits as there is no extra I/O to the disk, and all of the writes go to the memory.
+But they don't offer the same functionality as LRVM is vulnerable until the log segments write to the disk. While Rio doesn't have the problem.
 
 b.[3 points] In RioVista, consider a transaction that completes successfully. List the number of copies of the persistent data structures that happen in the following table:
 
 | What is copied? | Where is it copied to? | Lifetime of the copy |
 | --------------- | ---------------------- | -------------------- |
-| The before image copy of the address range that was modified, in the state it was at the very start of the transaction | The undo log region of memory, which is mapped to an undo log region in the file cache. |  Starts when set-range is called. Lives until the transaction is committed, at which point it is discarded.|
-
+| The **before image copy** of the address range that is gonna be modified in the transaction | The **undo log region of memory** in the file cache. |  Starts when set-range is called, lives until the transaction is committed. |
 
 ## Security
 
@@ -195,13 +189,25 @@ Answer the following questions:
 
 a. [2 points] A new user joins the system. What all needs to happen in the system to give the new user the same rights and privileges as existing users?
 
-My idea is similar to mTLS, the server will send the pub key to the client upon the auth process. 
-Then the client(Vinus) generates a public/private key pair and send the public key along with the username/password to the server, and the message is encrypted with server's public key. 
+When a new user joins, the system will create a new user record in the database and set up the proper ACLs to grant the user the same privileges as the other users. Once everything is set up, the user will be able to log in from the client.
+The communication between the client and the server will be encrypted with either the server or the client's public key.
 
 b. [2 points] With your implementation, when a user logs in to "virtue", what should happen?
 
+Upon a user logs in, vinus on virtue will ask for the server's public key if it doesn't have it. Then Vinus will generate a key pair for the user session, and send its public key along with username/password to the server. The username and password are encrypted with the server's public key. 
+The server will decrypt the message with its private key and verify the user's identity. If it's correct, the server stores the mapping of user id -> user's public key for future communication.
+
 c. [2 points] In your implementation of the system, when a request comes from a client, how will the server know the identity of the client to enable decryption of the message?
+
+When the request arrives at the server, the server will first decrypt the message with its private key. The message should contain the user id which will be used for looking up the user's public key. 
+There are two strategies we can adapt for storing user's public key.
+1. We distributed the public key to every server when the user logged in successfully.
+2. We only store the key mapping in auth server, and expose a RPC call to other servers for retrieving user's public key. The servers in vite will need to cache the key mapping once getting it.
 
 d. [2 points] In your implementation of the system, when a reply comes from the server, how will "virtue" know how to decrypt the message?
 
-e. [2 points] A student graduates and his privileges to AFS have to be revoked. What all needs to happen in the system to ensure that the student has no access to the system?
+The virtue has the private key for decrypting the message because the message is encrypted with the client's public key.
+
+e. [2 points] A student graduates and his privileges to AFS have to be revoked. What needs to happen in the system to ensure that the student has no access to the system?
+
+The auth server removes the user information from the database and notifies the other servers to clean up any user-related caches.

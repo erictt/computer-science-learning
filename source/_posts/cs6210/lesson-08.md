@@ -63,8 +63,8 @@ Misc:
 
 RVM has restricted transaction semantics, which means it doesn't allow nested transactions and doesn't require synchronous I/O for every commit. However, RVM provides opportunities for the developer to optimize the performance of the library for the chosen application.
 
-1. No-restore mode in the begin_transaction call. This mode tells RVN that the transaction starting is not going to abort, so there is no need to create an in-memory undo record. This reduces the amount of work that RVM has to do, and the overhead in performing a transaction is less.
-2. No-flush mode in the end_transaction call. This mode tells RVM that there is no need to do a synchronous I/O at the commit point. The application developer takes a chance by using this mode because there is a **window of vulnerability** between end_transaction and the point at which the redo log has been forced to the disk. If there is a system cache within this time, the redo records that were written to in-memory may be lost.
+1. **No-restore mode** in the begin_transaction call. This mode tells RVN that the transaction starting is not going to abort, so there is no need to create an in-memory undo record. This reduces the amount of work that RVM has to do, and the overhead in performing a transaction is less.
+2. **No-flush** mode in the end_transaction call. This mode tells RVM that there is no need to do a synchronous I/O at the commit point. The application developer takes a chance by using this mode because there is a **window of vulnerability** between end_transaction and the point at which the redo log has been forced to the disk. If there is a system cache within this time, the redo records that were written to in-memory may be lost.
 
 ### Implementation
 
