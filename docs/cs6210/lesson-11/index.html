@@ -433,24 +433,24 @@ function sidebar_toggle() {
 </ol>
 </li>
 <li>
-<p>Venus establishes an RPC session on behalf of the client using the secret token and handshake key (HKC) (second communication between Venus and Vice). And Venus receives a session key for use in the particular RPC session.</p>
+<p>Venus establishes an RPC session on behalf of the client using the secret token and handshake key (HKC) (second communication between Venus and Vice). And Venus receives a <strong>session key</strong> for use in the particular RPC session.</p>
 <ol>
 <li><img src="https://i.imgur.com/IHumP3R.png" alt=""></li>
 </ol>
 </li>
 <li>
-<p>Users perform file system operations such as opening, closing, or writing to a file, which require secure RPC calls (third communication between Venus and Vice). Secure RPC calls are made using the secret token as a client ID and the session key as the private key for encryption.</p>
+<p>Users perform file system operations such as opening, closing, or writing to a file, which require secure RPC calls (third communication between Venus and Vice). Secure RPC calls are made using the <strong>secret token as a client ID</strong> and the <strong>session key as the private key</strong> for encryption.</p>
 <ol>
 <li><img src="https://i.imgur.com/myC9ByQ.png" alt=""></li>
 </ol>
 </li>
 </ol>
-<p><img src="https://i.imgur.com/OpIQPEr.png" alt=""></p>
 <ul>
 <li>The username and password are exposed only once per login session.</li>
 <li>The handshake key (HKC) is used only for new RPC sessions and is valid for the duration of the login session.</li>
 <li>The session key is used for all the RPC calls during a given RPC session and its duration is the length of that RPC session.</li>
 </ul>
+<p><img src="https://i.imgur.com/OpIQPEr.png" alt=""></p>
 <h3 id="afs-security-report-card"><a class="markdownIt-Anchor" href="#afs-security-report-card"></a> AFS Security Report Card</h3>
 <p><img src="https://i.imgur.com/zt0dPQn.png" alt=""></p>
 
