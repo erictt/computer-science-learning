@@ -39,28 +39,28 @@ title: "Week 15 - Techniques of Integration"
 * Let's set $u = \sqrt{x}$, then $x = u^2, dx = 2u$
 * We rewrite the function $\int e^u \cdot 2u\ du$
 * Now we can use **Parts**:
-    * Let $v = 2u, dw = e^u\ du$, then
-    * $\int e^u \cdot 2u\ du = 2u \cdot e^u - \int 2e^u du = 2u \cdot e^u - 2e^u + C = 2e^{\sqrt{x} }(\sqrt{x}-1) + C$
+  * Let $v = 2u, dw = e^u\ du$, then
+  * $\int e^u \cdot 2u\ du = 2u \cdot e^u - \int 2e^u du = 2u \cdot e^u - 2e^u + C = 2e^{\sqrt{x} }(\sqrt{x}-1) + C$
 
 ## Integrate Powers of Sines and Cosines
 
 * **If the power of cosine or sine is odd**:
-    * Example $\int \sin^{(2n+1)}{x} \cdot \cos^{2n}{x}\ dx$, ($n \in \mathbb{R}$)
-    * We can't use the **Substitution rule** directly, because whichever we choose to be $u$ (sine or cosine), we will always get a part that can't deal with.
-        * Like, if we choose $u = \sin{x}, du = \cos{x}\ dx$, then the part $\cos^{2n}{x}$ will not be able to transfer.
-    * Instead of making substitution immediately, we can trade a pair of sines for a pair of cosines.
-        * $= \int \sin{x} \cdot \sin^{2n}{x} \cdot \cos^{2n}{x} \ du$
-        * $= \int \sin{x} \cdot (1-\cos^{2}{x})^n \cdot \cos^{2n}{x} \ du$
-    * Set $u = \cos{x}, du = -\sin{x}\ dx$, we get:
-        * $= - \int (1-u^{2})^n \cdot u^{2n} \ du$
-        * $= - \int u^{2n} - u^{4n} \ du$
-        * $= - \frac{1}{2n+1}u^{2n+1} + \frac{1}{4n+1}u^{4n} + C$
-        * $= - \frac{1}{2n+1}\cos^{2n+1}{x} + \frac{1}{4n+1}\cos^{4n}{x} + C$
-    * **The conclusion is**, we can always transfer the odd one to $\sin^{2n}{x} \cdot \sin{x}$ or $\cos^{2n}{x} \cdot \cos{x}$, and use the equation $\sin^2{x} + \cos^2{x} = 1$ to transfer between $\sin$ and $\cos$ .
+  * Example $\int \sin^{(2n+1)}{x} \cdot \cos^{2n}{x}\ dx$, ($n \in \mathbb{R}$)
+  * We can't use the **Substitution rule** directly, because whichever we choose to be $u$ (sine or cosine), we will always get a part that can't deal with.
+    * Like, if we choose $u = \sin{x}, du = \cos{x}\ dx$, then the part $\cos^{2n}{x}$ will not be able to transfer.
+  * Instead of making substitution immediately, we can trade a pair of sines for a pair of cosines.
+    * $= \int \sin{x} \cdot \sin^{2n}{x} \cdot \cos^{2n}{x} \ du$
+    * $= \int \sin{x} \cdot (1-\cos^{2}{x})^n \cdot \cos^{2n}{x} \ du$
+  * Set $u = \cos{x}, du = -\sin{x}\ dx$, we get:
+    * $= - \int (1-u^{2})^n \cdot u^{2n} \ du$
+    * $= - \int u^{2n} - u^{4n} \ du$
+    * $= - \frac{1}{2n+1}u^{2n+1} + \frac{1}{4n+1}u^{4n} + C$
+    * $= - \frac{1}{2n+1}\cos^{2n+1}{x} + \frac{1}{4n+1}\cos^{4n}{x} + C$
+  * **The conclusion is**, we can always transfer the odd one to $\sin^{2n}{x} \cdot \sin{x}$ or $\cos^{2n}{x} \cdot \cos{x}$, and use the equation $\sin^2{x} + \cos^2{x} = 1$ to transfer between $\sin$ and $\cos$ .
 * If the powers of both sine and cosine are even, use the **half-­angle identities**:$$ \sin^2{x} = \frac{1}{2}(1 - \cos(2x)),\ \cos^2{x} = \frac{1}{2}(1 + \cos(2x)) $$
-    * It is sometimes helpful to use the identity $$\sin{x}\cos{x} = \frac{1}{2}\sin{2x}$$
-    * For example: 
-        * $$\begin{aligned}
+  * It is sometimes helpful to use the identity $$\sin{x}\cos{x} = \frac{1}{2}\sin{2x}$$
+  * For example:
+    * $$\begin{aligned}
             \int_0^{\pi} \sin^2{x} \ dx &= \frac{1}{2} \int_0^{\pi}(1 - \cos{2x})\ dx \\
             &= \big[\frac{1}{2}(x-\frac{1}{2}\sin{2x})\big]_0^{\pi} \\
             &= \frac{1}{2}(\pi - \frac{1}{2} \sin{2\pi}) - \frac{1}{2}(0 - \frac{1}{2}\sin{0}) = \frac{1}{2}\pi
@@ -69,14 +69,14 @@ title: "Week 15 - Techniques of Integration"
 ## Tables of Indefinite Integrals
 
 * <img src="https://i.imgur.com/rmEVt7K.jpg" style="width:500px" />
-    * $tan^{-1}x = \arctan{x}$
-    * Hyperbolic functions 
-        * In mathematics, hyperbolic functions are analogs of the ordinary trigonometric, or circular, functions. --from [Wikipedia](https://en.wikipedia.org/wiki/Hyperbolic_function)
-        * <img src="https://i.imgur.com/NtCnBwP.jpg" style="width:300px" />
-        * <img src="https://i.imgur.com/S2Ot3Y4.jpg" style="width:600px" />
+
+  * $tan^{-1}x = \arctan{x}$
+
+  * Hyperbolic functions
+    *In mathematics, hyperbolic functions are analogs of the ordinary trigonometric, or circular, functions. --from [Wikipedia](https://en.wikipedia.org/wiki/Hyperbolic_function)
+    * <img src="https://i.imgur.com/NtCnBwP.jpg" style="width:300px" />
+    * <img src="https://i.imgur.com/S2Ot3Y4.jpg" style="width:600px" />
 
 ## Words
 
 * **vice versa** [,vaisi'və:sə] 反之亦然
-
-
