@@ -32,3 +32,4 @@ db.json
 .MWebMetaData
 source/_posts/.obsidian
 resources/_gen/assets/scss
+.vercel
