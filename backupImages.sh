@@ -1,6 +1,6 @@
 #!/bin/bash
 
-images=$(\grep -oh "https:\/\/i\.imgur\.com\/.*\.[jpgnif]*" -rn ./notes/ | sed "s/[0-9]*\:https\:\/\/i\.\imgur\.com\///g" | sort | uniq)
+images=$(\grep -oh "https:\/\/i\.imgur\.com\/.*\.[jpgnif]*" -rn ./content/docs/ | sed "s/[0-9]*\:https\:\/\/i\.\imgur\.com\///g" | sort | uniq)
 downloaded=$(find ./images/ -name "*.[jpgpnif]*" | sed "s/.*\/\///g" | sort | uniq)
 prefix="https://i.imgur.com/"
 
