@@ -1,0 +1,50 @@
+{{- if not (.Page.Scratch.Get "katex") -}}
+<!-- Include katext only first time -->
+<link rel="stylesheet" href="{{ "katex/katex.min.css" | relURL }}" />
+<script defer src="{{ "katex/katex.min.js" | relURL }}"></script>
+<script defer src="{{ "katex/auto-render.min.js" | relURL }}" onload="renderMathInElement(document.body);"></script>
+<!--
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+  integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn"
+  crossorigin="anonymous"
+/>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"
+  integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx"
+  crossorigin="anonymous"
+></script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+  crossorigin="anonymous"
+></script>
+-->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      // customised options
+      // • auto-render specific keys, e.g.:
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true },
+      ],
+      // • rendering keys, e.g.:
+      throwOnError : false
+    });
+  });
+</script>
+{{- .Page.Scratch.Set "katex" true -}}
+{{- end -}}
+
+<span {{- with .Get "class" }} class="{{ . }}"{{ end }}>
+  {{ cond (in .Params "display") "\\[" "\\(" -}}
+  {{- trim .Inner "\n" -}}
+  {{- cond (in .Params "display") "\\]" "\\)" }}
+</span>
+
