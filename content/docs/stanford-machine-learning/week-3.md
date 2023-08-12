@@ -178,14 +178,14 @@ title: "Week 03 - Logistic Regression & Regularization"
 ## Multiclass Classification: One-vs-all
 
 * Divide our problem into n+1 (+1 because the index starts at 0) binary classification problems; in each one, we predict the probability that `y` is a member of one of our classes.
-  * {{<katex>}}\begin{aligned}
+  * $$\begin{aligned}
 y & \in \lbrace0, 1, \dots, n\rbrace \\
 h_\theta^{(0)}(x) & = P(y = 0 | x ; \theta) \\
 h_\theta^{(1)}(x) & = P(y = 1 | x ; \theta) \\
 & \vdots \\
 h_\theta^{(n)}(x) & = P(y = n | x ; \theta) \\
 \mathrm{prediction} & = \max_i( h_\theta ^{(i)}(x) )
-\end{aligned}{{</katex>}}
+\end{aligned}$$
   * The following image show how one could classify 3 classes:
   * ![week-3-8](https://i.imgur.com/dUx6MP7.png)
 * Overall
