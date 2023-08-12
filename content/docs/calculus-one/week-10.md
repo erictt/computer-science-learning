@@ -1,7 +1,6 @@
 ---
 weight: 1
 title: "Week 10 - Linear Approximation"
-katex: true
 ---
 
 # Week 10 - Linear Approximation
@@ -71,7 +70,6 @@ katex: true
 * Here is one choice: $f(x) = \frac{1}{x} - b$:
   * Because $f(\frac{1}{b}) = \frac{1}{\frac{1}{b}} - b = b - b = 0$
   * So we can use Newton's Method to find **1/b**.
-{{<katex>}}{{</katex>}}
 $$
 \begin{aligned}
 f'(x) &= - \frac{1}{x^2} \\
