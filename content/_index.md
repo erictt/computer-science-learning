@@ -1,5 +1,5 @@
 ---
-title: Eric' CS Notes
+title: Eric's CS Notes
 type: docs
 ---
 

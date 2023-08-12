@@ -26,3 +26,4 @@
 {{ with $script.Content }}
   <script>{{ . | safeJS }}</script>
 {{ end }}
+{{ partial "docs/katex.html" . }}

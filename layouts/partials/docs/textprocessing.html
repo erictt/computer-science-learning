@@ -1,0 +1,9 @@
+{{ $content := .Content }}
+
+{{/* Escape slashes for Latex to fix line breaks */}}
+{{$latex := findRE "(?:\\${2}([^\\$]+)\\${2})|(?:\\$([^\\$]*)\\$)" $content}}
+{{range $latex}}
+  {{$fixed := replaceRE "\\\\(?: +|\\n)" "\\\\ " .}}
+  {{$content = replace $content . $fixed}}
+{{end}}
+{{ $content | safeHTML }}
