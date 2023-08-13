@@ -3,12 +3,6 @@ weight: 1
 title: "Lesson 03: Virtualization"
 ---
 
----
-
-weight: 1
-title: "Lesson 3: Virtualization"
----
-
 # Lesson 3: Virtualization
 
 ## Introduction to Virtualization

@@ -8,14 +8,14 @@
 <body dir="{{ default "ltr" .Site.Language.LanguageDirection }}">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
-  <main class="container flex">
+  <main class="flex">
     <aside class="book-menu">
       <div class="book-menu-content">
         {{ template "menu" . }} <!-- Left menu Content -->
       </div>
     </aside>
 
-    <div class="book-page">
+    <div class="book-page container">
       <header class="book-header">
         {{ template "header" . }} <!-- Mobile layout header -->
       </header>

@@ -3,12 +3,6 @@ weight: 1
 title: "Lesson 04a: Parallel Operating System - Part 1"
 ---
 
----
-
-weight: 1
-title: ""
----
-
 # Lesson 4: Parallel Operating System - Part 1
 
 ## Shared Memory Machine Model

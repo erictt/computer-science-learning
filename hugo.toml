@@ -107,12 +107,12 @@ enableGitInfo = true
   # (Optional, experimental, default false) Enables portable links and link checks in markdown pages.
   # Portable links meant to work with text editors and let you write markdown without {{< relref >}} shortcode
   # Theme will print warning if page referenced in markdown does not exists.
-  BookPortableLinks = true
+  # BookPortableLinks = true
 
   # /!\ This is an experimental feature, might be removed or changed at any time
   # (Optional, experimental, default false) Enables service worker that caches visited pages and resources for offline use.
-  BookServiceWorker = true
+  # BookServiceWorker = true
 
   # /!\ This is an experimental feature, might be removed or changed at any time
   # (Optional, experimental, default false) Enables a drop-down menu for translations only if a translation is present.
-  BookTranslatedOnly = false
+  # BookTranslatedOnly = false
