@@ -58,7 +58,7 @@ title: "Week 07 - Derivatives of Trigonometric Functions"
               &= \lim_{h \to 0}[\sin{x}(\frac{\cos{h} - 1}{h}) + \cos{x}(\frac{\sin{h}}{h})] \\
               &= \sin{x}\lim_{h \to 0}\frac{\cos{h} - 1}{h} + \cos{x}\lim_{h \to 0}\frac{\sin{h}}{h}
       \end{aligned}$$
-  * Recall the [Squeeze Theorem](/calculus-one/week-2-3.html#squeeze-theorem), we know $\displaystyle\lim_{x\to{0}}\frac{\sin(x)}{x}=1$, then,
+  * Recall the [Squeeze Theorem](/calculus-one/week-2-3/#squeeze-theorem), we know $\displaystyle\lim_{x\to{0}}\frac{\sin(x)}{x}=1$, then,
   * $$\begin{aligned}
         \lim_{\theta \to 0}\frac{\cos{\theta} - 1}{\theta} &= \lim_{\theta \to 0}{\frac{\cos{\theta} - 1}{\theta} \cdot \frac{\cos{\theta} + 1}{\cos{\theta} + 1}} = \lim_{\theta \to 0}\frac{\cos^2{\theta} - 1}{\theta(\cos{\theta} + 1)} \\
         &= \lim_{\theta \to 0}\frac{-\sin^2{\theta}}{\theta(\cos{\theta} + 1)} = -\lim_{\theta \to 0}{\frac{\sin{\theta}}{\theta} \cdot \frac{\sin{\theta}}{\cos{\theta}+1}} \\

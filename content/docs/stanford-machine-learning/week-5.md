@@ -97,7 +97,7 @@ title: "Week 05 - Neural Networks: Learning"
 * Intuitively, $\delta_j^{(l)}$ is the "error" for $a_j^{(l)}$ (unit `j` in layer `l`). More formally, the delta values are actually the derivative of the cost function: $$\delta_j^{(l)}=\frac{d}{dz_j^{(l)}}cost(t)$$
 * Recall that our derivative is the slope of a line tangent to the cost function, so the steeper the slope the more incorrect we are. Let us consider the following neural network below and see how we could calculate some $\delta_j^{(l)}$ :
   * <img src="https://i.imgur.com/4NzaksE.jpg" style="width:500px" />
-  * To calculate every single possible $\delta_j^{(l)}$, we could start from the right of our diagram. We can think of our edges as our $\Theta_{ij}$. Going from right to left, to calculate the value of $\delta_j^{(l)}$, you can just take the over all sum of each weight times the $\delta$ it is coming from. For example: $$\begin{aligned}\delta_2^{(3)} &= \Theta_{12}^{(3)} *\delta_1^{(4)} \\ \delta_2^{(2)} &= \Theta_{12}^{(2)}* \delta_1^{(3)} + \Theta_{22}^{(2)} * \delta_2^{(3)} \end{aligned}$$.
+  * To calculate every single possible $\delta_j^{(l)}$, we could start from the right of our diagram. We can think of our edges as our $\Theta_{ij}$. Going from right to left, to calculate the value of $\delta_j^{(l)}$, you can just take the over all sum of each weight times the $\delta$ it is coming from. For example: $$\begin{aligned}\delta_2^{(3)} &= \Theta_{12}^{(3)} _\delta_1^{(4)} \\ \delta_2^{(2)} &= \Theta_{12}^{(2)}_ \delta_1^{(3)} + \Theta_{22}^{(2)} * \delta_2^{(3)} \end{aligned}$$.
 
 ## Backpropagation Practice
 
@@ -207,4 +207,3 @@ title: "Week 05 - Neural Networks: Learning"
 ## Refers
 
 * [http://www.holehouse.org/mlclass/09_Neural_Networks_Learning.html](http://www.holehouse.org/mlclass/09_Neural_Networks_Learning.html)
-* [Derivation of Backpropagation(PDF)](files/BackPropDeriv.pdf)

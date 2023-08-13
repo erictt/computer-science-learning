@@ -9,7 +9,7 @@ title: "Week 08 - Unsupervised Learning & Dimensionality Reduction"
 
 ### Clustering
 
-* Check [Computational Thinking(Lecture 12)](https://cs.ericyy.me/computational-thinking/lecture-12/index.html#clustering) for the **clustering** and **k-means algorithm** notes.
+* Check [Computational Thinking(Lecture 12)](https://cs.ericyy.me/computational-thinking/lecture-12/#clustering) for the **clustering** and **k-means algorithm** notes.
 * <img src="https://i.imgur.com/Oiob5tT.jpg" style="width:500px" />
 
 #### Optimization Objective
@@ -89,7 +89,7 @@ title: "Week 08 - Unsupervised Learning & Dimensionality Reduction"
 * **Data Preprocessing**
   * Training set: $x^{(1)}, x^{(2)}, \ldots, x^{(m)}$
   * Preprocessing (To have comparable range of values):
-    * feature scaling: [Check Week 2](/stanford-machine-learning/week-2.html#feature-scaling)
+    * feature scaling: [Check Week 2](/stanford-machine-learning/week-2/#feature-scaling)
       * Z-scaling
         * Each feature has a mean of 0 & a standard deviation of 1
       * Interpolation

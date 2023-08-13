@@ -1,9 +1,9 @@
 ---
 weight: 1
-title: "Regular Expressions & Data Compression"
+title: "Week 5 - Regular Expressions & Data Compression"
 ---
 
-# Regular Expressions & Data Compression
+# Week 5 - Regular Expressions & Data Compression
 
 ## Regular Expressions
 
@@ -16,7 +16,7 @@ title: "Regular Expressions & Data Compression"
     1. Build DFA/NFA from RE.
     2. Simulate DFA/NFA with text as input.
 
-- refer to [week 4#knuth-morris-pratt-kmp](/docs/algorithms-2/week-4/#knuth-morris-pratt-kmp) for the DFA implementation
+- refer to [week 4#knuth-morris-pratt-kmp](/algorithms-2/week-4/#knuth-morris-pratt-kmp) for the DFA implementation
   - Bad news with DFA is, it may have exponential # of states.
 - NFA is widely used in modern languages.
 

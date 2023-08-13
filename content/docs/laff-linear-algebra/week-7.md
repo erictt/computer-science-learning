@@ -97,7 +97,7 @@ title: "Week 07 - More Gaussian Elimination and Matrix Inversion"
   * $AA^{-1} = A^{-1}A = I$.
     * $A^{-1}$ undoes what matrix A did.
     * $AA^{-1}x = Ix = x$
-    * [Identity Matrix](/laff-linear-algebra/week-3.html#special-matrices)
+    * [Identity Matrix](/laff-linear-algebra/week-3/#special-matrices)
   * A represents a linear transformation that is a bijection.
   * Ax = b has a unique solution for all $b \in \mathbb{R}^n$.
   * $Ax = 0$ implies that $x = 0$.
