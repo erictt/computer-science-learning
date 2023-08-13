@@ -105,16 +105,17 @@ ul.pagination {
     width: $menu-width;
     background-color: white;
     text-align: center;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     position: fixed;
     display: block;
+    font-size: 18px;
     border-bottom: 1px solid var(--gray-500);
     background: var(--gray-200);
     // @include fixed;
   }
 
   .book-menu-content {
-    margin-top: 5rem;
+    margin-top: 4rem;
     width: $menu-width;
     padding: $padding-16;
     padding-top: 0;
@@ -203,7 +204,7 @@ body[dir="rtl"] .book-menu {
 .book-search {
   position: relative;
   margin: $padding-16 0;
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
   border-bottom: 1px solid transparent;
 
   input {
@@ -293,6 +294,7 @@ body[dir="rtl"] .book-menu {
 }
 
 // Responsive styles
+.book-brand-wrapper,
 .book-menu-content,
 .book-toc-content,
 .book-page,
@@ -331,6 +333,12 @@ body[dir="rtl"] .book-menu {
   #menu-control:checked ~ main {
     .book-menu {
       visibility: initial;
+      box-shadow: 0 0 $padding-8 rgba(0, 0, 0, 0.1);
+    }
+
+    .book-menu .book-brand-wrapper {
+      transform: translateX($menu-width);
+      box-shadow: 0 0 $padding-8 rgba(0, 0, 0, 0.1);
     }
 
     .book-menu .book-menu-content {
@@ -365,6 +373,9 @@ body[dir="rtl"] .book-menu {
   // for RTL support
   body[dir="rtl"] #menu-control:checked ~ main {
     .book-menu .book-menu-content {
+      transform: translateX(-$menu-width);
+    }
+    .book-menu .book-brand-wrapper {
       transform: translateX(-$menu-width);
     }
   }
