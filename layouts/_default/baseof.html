@@ -10,6 +10,7 @@
   <input type="checkbox" class="hidden toggle" id="toc-control" />
   <main class="flex">
     <aside class="book-menu">
+      {{ partial "docs/brand" . }}
       <div class="book-menu-content">
         {{ template "menu" . }} <!-- Left menu Content -->
       </div>

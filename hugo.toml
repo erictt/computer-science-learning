@@ -1,6 +1,6 @@
 # hugo server --minify --themesDir ../.. --baseURL=http://0.0.0.0:1313/theme/hugo-book/
 baseURL = 'https://cs.ericy.me/'
-title = "Eric's CS Notes"
+title = "📓 Eric's CS Notes"
 theme = "hugo-book"
 
 # Book configuration
