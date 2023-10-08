@@ -1,0 +1,188 @@
+{
+  "main": {
+    "id": "d6c3d1bc840e8545",
+    "type": "split",
+    "children": [
+      {
+        "id": "fcb6432a72c3818c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cae29b9c6c2613d9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "cs6601/5-probabilities.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5819b71b9f245f37",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "cs6601/6-bayes-network.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7348b8b25925a1ff",
+    "type": "split",
+    "children": [
+      {
+        "id": "9f9aa4b84fa1ea23",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cd56ca9929dd3e85",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "296048ee73154edb",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2de1178c9c0d4766",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9c0ff94336df7530",
+    "type": "split",
+    "children": [
+      {
+        "id": "2a43a39a915073c9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a83bb30f1828c56d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "cs6601/5-probabilities.md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "5e779520e3c7aa82",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "cs6601/5-probabilities.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b850c116d353e648",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "d7fcb70e64416d10",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "cs6601/5-probabilities.md"
+              }
+            }
+          },
+          {
+            "id": "eb669bf902313f77",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "cae29b9c6c2613d9",
+  "lastOpenFiles": [
+    "cs6601/6-bayes-network.md",
+    "cs6601/5-probabilities.md",
+    "cs6601/week-0-prepare.md",
+    "introduction-to-probability/unit-2.md",
+    "introduction-to-probability/unit-1.md",
+    "introduction-to-probability/unit-3.md",
+    "cs6601/1-adversarial-search.md",
+    "cs6601/2-search.md",
+    "Pasted image 20230924140009.png",
+    "cs6601/3-agent-design.md",
+    "cs6601/_index.md",
+    "cs6250/_index.md",
+    "cs6601"
+  ]
+}

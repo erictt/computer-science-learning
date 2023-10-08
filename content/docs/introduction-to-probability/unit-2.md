@@ -96,15 +96,16 @@ title: "Unit 2: Conditioning and independence"
 * **Pairwise independence does not imply independence.**
 
 * For example: two independent fair coin tosses
-    
-    |  HH  |  HT  |
-    | :--: | :--: |
-    |  TH  |  TT  |
-    
+
+|  HH  |  HT  |
+| :--: | :--: |
+|  TH  |  TT  |
+
     * $H_1$: First toss is H
     * $H_2$: First toss is H
     * $P(H_1) = P(H_2) = 1/2$
     * $C$: the two tosses had the same result = $\{HH, TT\}$
+
 * We know, 
     * $P(H_1 \cap C) = P(H_1 \cap H_2) = 1/4$
     * $P(H_1) P(C) = 1/2 * 1/2 = 1/4$
@@ -118,6 +119,6 @@ title: "Unit 2: Conditioning and independence"
 * Another way to prove $P(H_1), P(H_2), \text{ and } P(C)$ are pairwise independent.
     * $P(C|H_1) = P(H_2 | H_1) = P(H_2) = 1/2 = P(C)$
     * $P(C| H_1 \cap H_2) = 1 \ne P(C) = 1/2$
-* Conclusion: **H_1, H_2, and C are pairwise independent, but not independent.** 
+* Conclusion: **$H_1$, $H_2$, and $C$ are pairwise independent, but not independent.** 
 
 
