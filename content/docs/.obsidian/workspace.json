@@ -31,7 +31,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -97,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cs6601/5-probabilities.md",
+                "file": "cs6601/6-bayes-network.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cs6601/5-probabilities.md",
+                "file": "cs6601/6-bayes-network.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cs6601/5-probabilities.md"
+                "file": "cs6601/6-bayes-network.md"
               }
             }
           },
@@ -169,10 +170,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "cae29b9c6c2613d9",
+  "active": "5819b71b9f245f37",
   "lastOpenFiles": [
-    "cs6601/6-bayes-network.md",
     "cs6601/5-probabilities.md",
+    "cs6601/6-bayes-network.md",
     "cs6601/week-0-prepare.md",
     "introduction-to-probability/unit-2.md",
     "introduction-to-probability/unit-1.md",

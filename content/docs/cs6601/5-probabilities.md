@@ -22,8 +22,8 @@
 		- $P(A \cap B) = P(A|B) \times P(B)$
 		- or $P(A \cap B) = P(B|A) \times P(A)$
 	- First example:
-		* The probability of drawing a Red Ace: $P(Ace, Red) = 2/52$
-		* $P(Ace) \times P(Red) = 4/52 \times 26/52 = 2/52$
+		* The probability of drawing a Red Ace: $P(Ace, Red) = 2/52$ because there are only two cards meet the criteria, and the value
+			* $= P(Ace) \times P(Red) = 4/52 \times 26/52 = 2/52$
 		* Thus, being an Ace and being Red are **independent**.
 		* In other words, being Ace doesn't affect the probability of being Red.
 	* Second example:
@@ -37,9 +37,9 @@
 	* When Y depends on X
 * **Negation of Probability**: $P(\neg X | Y) = 1 - P(X|Y)$
 - **Bayes' Theorem**: $P(A|B) = \frac{\color{red}{P(B|A)}\color{blue}{P(A)}}{P(B)}$
-	- $P(A|B)$: the posterior
-	- $P(B|A)$: the likelihood
-	- $P(A)$: the prior probability of $A$ occurring.
+	- $P(A|B)$: the **posterior**
+	- $P(B|A)$: the **likelihood**
+	- $P(A)$: the **prior** probability of $A$ occurring.
 	- $P(B)$: the marginal likelihood or the total probability of $B$ occurring.
 		- $P(B) = \sum_{\alpha}{P(B|A=\alpha)P(A=\alpha)}$
 	- For example, when a person underwent a cancer(C) screening test, and it comes back positive(+). What's the actual probability that this person has cancer?
@@ -52,11 +52,6 @@
 			- $P(C|+) = \frac{P(+|C) \times P(C)}{P(+)} = \frac{0.99 \times 0.01}{0.0594} \approx 0.166$
 				- $P(+) = P(+|C) \times P(C) + P(+|\neg C) \times P(\neg C) = 0.01×0.99+0.99×0.05 = 0.0594$
 
-// TODO
-## Additional
-
-normalization
-
 ## Random Variables and Distributions
 
 - **Random Variable**: $X$ represents a variable that can take on different values according to some probability distribution.
@@ -65,7 +60,7 @@ normalization
 - **Standard Deviation**: $\sigma_X$ is the square root of the variance.
 - **Probability Mass Function (for discrete variables)**: $P(X=x)$
 - **Probability Density Function (for continuous variables)**: $f_X(x)$
-## Common Distributions
+## Common Distributions 
 
 - **Bernoulli Distribution**: $P(X=k) = p^k (1-p)^{1-k}$ for $k \in{0,1}$
 - **Binomial Distribution**: $P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$
