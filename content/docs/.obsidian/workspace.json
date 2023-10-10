@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "cs6601/5-probabilities.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5819b71b9f245f37",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "cs6601/6-bayes-network.md",
+                "file": "cs6601/4-bayes-network.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cs6601/6-bayes-network.md",
+                "file": "cs6601/4-bayes-network.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cs6601/6-bayes-network.md",
+                "file": "cs6601/4-bayes-network.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cs6601/6-bayes-network.md"
+                "file": "cs6601/4-bayes-network.md"
               }
             }
           },
@@ -170,10 +157,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5819b71b9f245f37",
+  "active": "cd56ca9929dd3e85",
   "lastOpenFiles": [
-    "cs6601/5-probabilities.md",
     "cs6601/6-bayes-network.md",
+    "cs6601/4-bayes-network.md",
     "cs6601/week-0-prepare.md",
     "introduction-to-probability/unit-2.md",
     "introduction-to-probability/unit-1.md",
