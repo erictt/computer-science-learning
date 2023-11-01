@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "cs6601/4-bayes-network.md",
+                "file": "cs6601/1-search.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cs6601/4-bayes-network.md",
+                "file": "cs6601/1-search.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cs6601/4-bayes-network.md",
+                "file": "cs6601/1-search.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "cs6601/4-bayes-network.md"
+                "file": "cs6601/1-search.md"
               }
             }
           },
@@ -157,16 +157,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "cd56ca9929dd3e85",
+  "active": "cae29b9c6c2613d9",
   "lastOpenFiles": [
-    "cs6601/6-bayes-network.md",
+    "cs6601/2-adversarial-search.md",
+    "cs6601/1-search.md",
     "cs6601/4-bayes-network.md",
+    "Untitled.md",
+    "cs6601/6-bayes-network.md",
     "cs6601/week-0-prepare.md",
     "introduction-to-probability/unit-2.md",
     "introduction-to-probability/unit-1.md",
     "introduction-to-probability/unit-3.md",
-    "cs6601/1-adversarial-search.md",
-    "cs6601/2-search.md",
     "Pasted image 20230924140009.png",
     "cs6601/3-agent-design.md",
     "cs6601/_index.md",

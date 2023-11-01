@@ -242,7 +242,7 @@ we get:
 
 ## D-separation
 
-It stands for "directional separation". Given a Bayes' network, two sets of nodes X and Y are said to be d-separated by a third set Z if there's no **active trail** between any node in X and Y given Z. If they are d-separated, X and Y are conditionally independent given Z.
+It stands for "directional separation". Given a Bayes' network, two sets of nodes X and Y are said to be d-separated by a third set Z if there's no **active trail** between any node in X and Y given Z. **If they are d-separated, X and Y are conditionally independent given Z.**
 ### Active and Inactive Trails:
 
 An "active trail" between two nodes means that changes in one node can influence the other. D-separation essentially checks **if there's any active trail between two sets of nodes when a third set is observed.** The status of a trail (active or inactive) is determined by three basic structures in the graph:
@@ -298,6 +298,75 @@ graph TD
 	end
 ```
 
+Example:
+
+```mermaid
+
+graph TD
+	A & C --> B --> D
+	F --> E --> D
+	H & D --> G
+```
+
+Are F and A independent?
+
+| - | Yes | No | reason |
+| -- | -- | -- | -- |
+| $F \perp A$ | [X] | [] | inactive V-structure |
+| $F \perp A$ | [X] | [] | inactive V-structure |
+| $F \perp A \vert D$ | [ ] | [X] | active V-structure |
+| $F \perp A \vert G$ | [ ] | [X] | active V-structure |
+| $F \perp A \vert H$ | [X] | [] | inactive V-structure |
+
+## Inference in Bayes' Network
+
+Suppose we decide to add the nodes in the order **MaryCalls**, **JohnCalls**, **Alarm**, **Burglary**, **Earthquake**. We then get the somewhat more complicated network:
+
+```mermaid
+graph TD
+MaryCalls --> Alarm
+MaryCalls --> JohnCalls
+JohnCalls --> Alarm
+Alarm --> Burglary
+Burglary --> Earthquake
+Alarm --> Earthquake
+```
+
+The process goes as follows:
+- Adding MaryCalls.
+- Add JohnCalls. If Mary calls, that probably means the alarm has gone off, which make it likely that John calls. Therefore, JohnCalls needs MaryCalls as a parent.
+- Adding Alarm. Both John and Mary can trigger the alarm.
+- Adding Burglary: If the alarm is on, then Burglary is likely to happen. The calls from Mary/John don't increase that probability. So $P(Burglary|Alarm, JohnCalls, MaryCalls) = P(Burglary | Alarm)$
+- Adding Earthquake: If we know there is a burglary, then earthquake is unlikely to happen. So earthquake need both Alarm and Burglary as parents.
+
+probabilistic inference system is to compute the **posterior probability distribution for a set of query variables**, given some **observed event**—usually, some assignment of values to a set of **evidence variables**. 
+
+In the burglary network, we might observe the event in which **JohnCalls=true** and **MaryCalls=true**. We could then ask for, say, the probability that a burglary has occurred:
+- $P(Burglary | JohnCalls=true,MaryCalls=true) = ⟨0.284,0.716⟩$.
+- In this case, **JohnCalls** and **MaryCalls** are evidence, **Alarm** and **Earthquake** are hidden variables, **Burglary** is the query.
+
+### Enumeration
+
+
+Causal direction for inference
+
+Variable Elimination
+
+still NP Hard competition 
+
+1. Joining factors
+2. sum out/marginalization 
+
+### Sampling(Approximate Inference)
+
+consist probability
+
+conditional probability
+- Rejection sampling
+	- if sample is unlikely, you reject lots of examples.
+- Likelihood weighting
+- Gibbs sampling
+- WH sampling
 
 ---
 ## Random Variables and Distributions
