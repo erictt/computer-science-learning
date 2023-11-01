@@ -41,7 +41,7 @@ title: "Week 03 - Matrix-Vector Operations"
 * <img src="https://i.imgur.com/z8KsE1o.jpg" style="width:550px" />
 
   * where $\tilde{a}_i$ is the (column) vector which, when transposed($\tilde{a}_i^T$), becomes the **i**th row of the matrix.
-  * $a_i = \begin{bmatrix} a_{0,i} \\ a_{1,i} \\ \vdots \\ a_{m-1,i} \end{bmatrix}, \tilde{a}_i = \begin{bmatrix} a_{i,0} \\ a_{i,1} \\ \vdots \\ a_{i,n-1} \end{bmatrix}, \tilde{a}_i ^T= \begin{bmatrix} a_{i,0} & a_{i,1} & \ldots & a_{i,n-1} \end{bmatrix}, $
+  * $a_i = \begin{bmatrix} a_{0,i} \\ a_{1,i} \\ \vdots \\ a_{m-1,i} \end{bmatrix}$, $\tilde{a}_ {i} = \begin{bmatrix} a_{i,0} \\ a_{i,1} \\ \vdots \\ a_{i,n-1} \end{bmatrix}$, $\tilde{a}_ {i}^ {T} = \begin{bmatrix} a_{i,0} & a_{i,1} & \ldots & a_{i,n-1} \end{bmatrix},$
 
 ## Cost of Matrix-Vector Multiplication
 

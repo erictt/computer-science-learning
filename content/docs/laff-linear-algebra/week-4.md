@@ -72,10 +72,15 @@ title: "Week 04 - Matrix-Vector to Matrix-Matrix Multiplication"
 
 * $$A B = A \left( \begin{array}{c | c | c | c } b_0 &  b_1 &  \cdots &  b_{n-1} \end{array} \right) = \left( \begin{array}{c | c | c | c } A b_0 &  A b_1 &  \cdots &  A b_{n-1} \end{array} \right).$$
 * If
-  * $$C = \begin{bmatrix} \gamma _{0,0} &  \gamma_{0,1} &  \cdots &  \gamma _{0,n-1} \\ \gamma_{1,0} &  \gamma _{1,1} &  \cdots &  \gamma_{1,n-1} \\ \vdots &  \vdots &  \vdots &  \vdots \\ \gamma _{m-1,0} &  \gamma_{m-1,1} &  \cdots &  \gamma _{m-1,n-1} \\ \end{bmatrix}, $$
-  * $$\quad A = \begin{bmatrix} \alpha _{0,0} &  \alpha_{0,1} &  \cdots &  \alpha _{0,k-1} \\ \alpha_{1,0} &  \alpha _{1,1} &  \cdots &  \alpha_{1,k-1} \\ \vdots &  \vdots &  \vdots &  \vdots \\ \alpha _{m-1,0} &  \alpha_{m-1,1} &  \cdots &  \alpha _{m-1,k-1} \\ \end{bmatrix}, $$
-  * $$\\ \text{and} \quad B = \begin{bmatrix} \beta _{0,0} &  \beta_{0,1} &  \cdots &  \beta _{0,n-1} \\ \beta_{1,0} &  \beta _{1,1} &  \cdots &  \beta_{1,n-1} \\ \vdots &  \vdots &  \vdots &  \vdots \\ \beta _{k-1,0} &  \beta_{k-1,1} &  \cdots &  \beta _{k-1,n-1} \\ \end{bmatrix}.$$
-* Then **C = AB** means that $\gamma _{i,j} = \sum_{p=0}^{k-1} \alpha _{i,p} \beta_{p,j}$
+  * $$C = \begin{bmatrix} \gamma_{0,0} &  \gamma_{0,1} &  \cdots &  \gamma_{0,n-1} \\
+      \gamma_{1,0} &  \gamma_{1,1} &  \cdots &  \gamma_{1,n-1} \\
+      \vdots &  \vdots &  \vdots &  \vdots \\
+      \gamma_{m-1,0} &  \gamma_{m-1,1} &  \cdots &  \gamma_{m-1,n-1} \\
+      \end{bmatrix},$$
+  * $$C = \begin{bmatrix} \gamma_{0,0} &  \gamma_{0,1} &  \cdots &  \gamma_{0,n-1} \\ \gamma_{1,0} &  \gamma_{1,1} &  \cdots &  \gamma_{1,n-1} \\ \vdots &  \vdots &  \vdots &  \vdots \\ \gamma_{m-1,0} &  \gamma_{m-1,1} &  \cdots &  \gamma_{m-1,n-1} \\ \end{bmatrix},$$
+  * $$\quad A = \begin{bmatrix} \alpha_{0,0} &  \alpha_{0,1} &  \cdots &  \alpha_{0,k-1} \\ \alpha_{1,0} &  \alpha_{1,1} &  \cdots &  \alpha_{1,k-1} \\ \vdots &  \vdots &  \vdots &  \vdots \\ \alpha_{m-1,0} &  \alpha_{m-1,1} &  \cdots &  \alpha_{m-1,k-1} \\ \end{bmatrix}$$
+  * $$\\ \text{and} \quad B = \begin{bmatrix} \beta_{0,0} &  \beta_{0,1} &  \cdots &  \beta_{0,n-1} \\ \beta_{1,0} &  \beta_{1,1} &  \cdots &  \beta_{1,n-1} \\ \vdots &  \vdots &  \vdots &  \vdots \\ \beta_{k-1,0} &  \beta_{k-1,1} &  \cdots &  \beta_{k-1,n-1} \\ \end{bmatrix}.$$
+* Then **C = AB** means that $\gamma_{i,j} = \sum_{p=0}^{k-1} \alpha_{i,p} \beta_{p,j}$
 
 * A table of matrix-matrix multiplications with matrices of special shape is given at the end of this unit.
 
@@ -83,8 +88,8 @@ title: "Week 04 - Matrix-Vector to Matrix-Matrix Multiplication"
 
 * Let $x \in \mathbb{R}^m$ and $y \in \mathbb{R}^n$. Then the outer product of **x** and **y** is given by $xy^T$. Notice that this yields an $m \times n$ matrix:
   * $$\begin{aligned}
-        xy^T &= \left( \begin{array}{c} \chi _0 \\ \chi_1 \\ \vdots \\ \chi _{m-1} \end{array} \right) \left( \begin{array}{c} \psi_0 \\ \psi _1 \\ \vdots \\ \psi_{n-1} \end{array} \right)^ T = \left( \begin{array}{c} \chi _0 \\ \chi_1 \\ \vdots \\ \chi _{m-1} \end{array} \right) \left( \begin{array}{c c c c} \psi_0 &  \psi _1 &  \cdots &  \psi_{n-1} \end{array} \right) \\
-        &= \left( \begin{array}{c c c c} \chi _0 \psi_0 &  \chi _0 \psi_1 &  \cdots &  \chi _0 \psi_{n-1} \\ \chi _1 \psi_0 &  \chi _1 \psi_1 &  \cdots &  \chi _1 \psi_{n-1} \\ \vdots &  \vdots & &  \vdots \\ \chi _{m-1} \psi_0 &  \chi _{m-1} \psi_1 &  \cdots &  \chi _{m-1} \psi_{n-1} \end{array} \right).
+        xy^T &= \left( \begin{array}{c} \chi_0 \\ \chi_1 \\ \vdots \\ \chi_{m-1} \end{array} \right) \left( \begin{array}{c} \psi_0 \\ \psi_1 \\ \vdots \\ \psi_{n-1} \end{array} \right)^ T = \left( \begin{array}{c} \chi_0 \\ \chi_1 \\ \vdots \\ \chi_{m-1} \end{array} \right) \left( \begin{array}{c c c c} \psi_0 &  \psi_1 &  \cdots &  \psi_{n-1} \end{array} \right) \\
+        &= \left( \begin{array}{c c c c} \chi_0 \psi_0 &  \chi_0 \psi_1 &  \cdots &  \chi_0 \psi_{n-1} \\ \chi_1 \psi_0 &  \chi_1 \psi_1 &  \cdots &  \chi_1 \psi_{n-1} \\ \vdots &  \vdots & &  \vdots \\ \chi_{m-1} \psi_0 &  \chi_{m-1} \psi_1 &  \cdots &  \chi_{m-1} \psi_{n-1} \end{array} \right).
          \end{aligned}$$
 * <img src="https://i.imgur.com/X0nGqs6.jpg" style="width:600px" />
 * The cost of memops of matrix-matrix multiplication is $2kmn$.
