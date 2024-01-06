@@ -5,23 +5,19 @@ type: docs
 
 # Eric's CS Notes
 
-## Notes
+## Current
 
-## Courses
+- [CS 7641 Machine Learning](https://omscs.gatech.edu/cs-7641-machine-learning)
+- [CS 7646 Machine Learning for Trading](https://omscs.gatech.edu/cs-7646-machine-learning-trading)
 
-### Current
-
-- CS 7641 Machine Learning
-- CS 7646 Machine Learning for Trading
-
-### Next Steps
+## Next Steps
 
 - CS 7642 Reinforcement Learning and Decision-Making
 - CS 6515 Introduction to Graduate Algorithms
 - CS 7643 Deep Learning
 - CS 7650 Natural Language Processing
 
-### Done
+## Done
 
 - [CS 6601: Artificial Intelligence](https://omscs.gatech.edu/cs-6601-artificial-intelligence)
 - [CS 6210 Advanced Operating Systems](https://omscs.gatech.edu/cs-6210-advanced-operating-systems)
