@@ -7,22 +7,22 @@ type: docs
 
 ## Current
 
-- [CS 7641 Machine Learning](https://omscs.gatech.edu/cs-7641-machine-learning)
-- [CS 7646 Machine Learning for Trading](https://omscs.gatech.edu/cs-7646-machine-learning-trading)
+- [CS7641: Machine Learning](https://omscs.gatech.edu/cs-7641-machine-learning)
+- [CS7646: Machine Learning for Trading](https://omscs.gatech.edu/cs-7646-machine-learning-trading)
 
 ## Next Steps
 
-- CS 7642 Reinforcement Learning and Decision-Making
-- CS 6515 Introduction to Graduate Algorithms
-- CS 7643 Deep Learning
-- CS 7650 Natural Language Processing
+- CS7642: Reinforcement Learning and Decision-Making
+- CS6515: Introduction to Graduate Algorithms
+- CS7643: Deep Learning
+- CS7650: Natural Language Processing
 
 ## Done
 
-- [CS 6601: Artificial Intelligence](https://omscs.gatech.edu/cs-6601-artificial-intelligence)
-- [CS 6210 Advanced Operating Systems](https://omscs.gatech.edu/cs-6210-advanced-operating-systems)
-- [CS 6200 Graduate Introduction to Operating Systems](https://omscs.gatech.edu/cs-6200-introduction-operating-systems)
-- [CS 6250 Computer Networks](https://omscs.gatech.edu/cs-6250-computer-networks)
+- [CS6601: Artificial Intelligence](https://omscs.gatech.edu/cs-6601-artificial-intelligence)
+- [CS6210: Advanced Operating Systems](https://omscs.gatech.edu/cs-6210-advanced-operating-systems)
+- [CS6200: Graduate Introduction to Operating Systems](https://omscs.gatech.edu/cs-6200-introduction-operating-systems)
+- [CS6250: Computer Networks](https://omscs.gatech.edu/cs-6250-computer-networks)
 - [Princeton University: Algorithms Part II](https://www.coursera.org/learn/algorithms-part1/home/welcome)
 - [Princeton University: Algorithms Part I](https://www.coursera.org/learn/algorithms-part1/home/welcome)
 - [UTAustinX: UT.5.04x LAFF: Linear Algebra - Foundations to Frontiers](https://courses.edx.org/courses/course-v1:UTAustinX+UT.5.05x+2T2017/course/)
