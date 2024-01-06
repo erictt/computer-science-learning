@@ -7,24 +7,23 @@ type: docs
 
 ## Notes
 
-<--
-
 ## Courses
 
 ### Current
 
-- [CS 6601: Artificial Intelligence](https://omscs.gatech.edu/cs-6601-artificial-intelligence)
+- CS 7641 Machine Learning
+- CS 7646 Machine Learning for Trading
 
 ### Next Steps
 
-- CS 6515 Introduction to Graduate Algorithms
-- CSE 6220 High-Performance Computing
 - CS 7642 Reinforcement Learning and Decision-Making
+- CS 6515 Introduction to Graduate Algorithms
 - CS 7643 Deep Learning
-- TBD
+- CS 7650 Natural Language Processing
 
 ### Done
 
+- [CS 6601: Artificial Intelligence](https://omscs.gatech.edu/cs-6601-artificial-intelligence)
 - [CS 6210 Advanced Operating Systems](https://omscs.gatech.edu/cs-6210-advanced-operating-systems)
 - [CS 6200 Graduate Introduction to Operating Systems](https://omscs.gatech.edu/cs-6200-introduction-operating-systems)
 - [CS 6250 Computer Networks](https://omscs.gatech.edu/cs-6250-computer-networks)

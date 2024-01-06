@@ -11,12 +11,8 @@
             "id": "cae29b9c6c2613d9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "cs6601/1-search.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cs6601/1-search.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cs6601/1-search.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "cs6601/1-search.md"
-              }
+              "state": {}
             }
           },
           {
@@ -135,7 +127,9 @@
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "frequency"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               }
             }
           }
@@ -159,18 +153,18 @@
   },
   "active": "cae29b9c6c2613d9",
   "lastOpenFiles": [
-    "cs6601/2-adversarial-search.md",
-    "cs6601/1-search.md",
     "cs6601/4-bayes-network.md",
+    "cs6601/2-adversarial-search.md",
+    "cs6601/_index.md",
+    "cs6601/week-0-prepare.md",
+    "cs6601/1-search.md",
+    "cs6601/3-agent-design.md",
     "Untitled.md",
     "cs6601/6-bayes-network.md",
-    "cs6601/week-0-prepare.md",
     "introduction-to-probability/unit-2.md",
     "introduction-to-probability/unit-1.md",
     "introduction-to-probability/unit-3.md",
     "Pasted image 20230924140009.png",
-    "cs6601/3-agent-design.md",
-    "cs6601/_index.md",
     "cs6250/_index.md",
     "cs6601"
   ]
