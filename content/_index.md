@@ -7,7 +7,7 @@ type: docs
 
 ## Current
 
-- [CS7641: Machine Learning](https://omscs.gatech.edu/cs-7641-machine-learning)
+- [CS7637: Knowledge-Based AI](https://omscs.gatech.edu/cs-7637-knowledge-based-artificial-intelligence-cognitive-systems)
 - [CS7646: Machine Learning for Trading](https://omscs.gatech.edu/cs-7646-machine-learning-trading)
 
 ## Next Steps
