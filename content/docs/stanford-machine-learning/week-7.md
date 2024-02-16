@@ -31,19 +31,24 @@ title: "Week 07 - Support Vector Machines(SVM)"
   * **How to use formula to represent those two lines?** At least to calculate the cost?
     * Everything Prof Ng said about SVM training was an intuition. The actual SVM training method provided in the `svmTrain()` function is the SMO method. That method is too complex to be included as part of the course. -- from [Discuss Forms](https://www.coursera.org/learn/machine-learning/discussions/weeks/7/threads/uCyF4elMEeWK_Q7eN25hdw)
 * **The complete SVM cost function**
-  * As a comparison we have logistic regression: $${\underset{\theta}{\text{min} } } \ - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
-  * Replace the cost function with $cost_0(z)$ and $cost_1(z)$, we get: $$\underset{\theta}{\text{min} }\ \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)})\ cost_0(\theta^Tx^{(i)})\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+  * As a comparison we have logistic regression: 
+  * $${\underset{\theta}{\text{min} } } \ - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+  * Replace the cost function with $cost_0(z)$ and $cost_1(z)$, we get: 
+  * $$\underset{\theta}{\text{min} }\ \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)})\ cost_0(\theta^Tx^{(i)})\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
   * In convention with SVM notation, we adjust a little bit:
     * Get rid of $\dfrac{1}{m}$ term.
       * Because $\frac{1}{m}$ is a constant, so we should still end up with the same optimal value for $\theta$.
     * For logistic regression we have:
-      * Training data set term **A**: $$- \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large]$$
-      * and Regularization term **B**: $$\frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+      * Training data set term **A**: 
+      * $$- \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large]$$
+      * and Regularization term **B**: 
+      * $$\frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
       * To conclude it, we get $A + \lambda B$
       * So $\lambda$ is the trade-off between training data set and regularization terms.
       * Instead of using $A + \lambda B$, In SVM, we rewrite it as $CA + B$, which **C** is a constant.
       * We can think of the parameter **C** playing a role similar to $\frac{1}{\lambda}$.
-  * Overall optimization objective function for the SVM is: $$\underset{\theta}{\text{min} }\ C \sum_{i=1}^m \large[ y^{(i)}\ \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)})\ \text{cost}_0(\theta^Tx^{(i)})\large] + \frac{1}{2}\sum_{j=1}^n \theta_j^2$$
+  * Overall optimization objective function for the SVM is: 
+  * $$\underset{\theta}{\text{min} }\ C \sum_{i=1}^m \large[ y^{(i)}\ \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)})\ \text{cost}_0(\theta^Tx^{(i)})\large] + \frac{1}{2}\sum_{j=1}^n \theta_j^2$$
 * SVM Hypothesis:
   * Unlike logistic, $h_{\theta}(x)$ doesn't give us a probability, instead we get a direct prediction of **1** or **0**
   * $$h_{\theta}(x) = \left\{ \begin{array}{rl}
@@ -129,11 +134,13 @@ title: "Week 07 - Support Vector Machines(SVM)"
 * Kernels is used to adapt support vector machines in order to develop complex nonlinear classifiers.
 * Let's see a example(find a non-linear boundary):
   * <img src="https://i.imgur.com/7Lm10aX.jpg" style="width:300px" />
-  * One way to distinguish the positive and negative examples is to come up with a set of complex polynomial features: $$h_{\theta}(x) = \left\{ \begin{array}{rl}
+  * One way to distinguish the positive and negative examples is to come up with a set of complex polynomial features: 
+	  * $$h_{\theta}(x) = \left\{ \begin{array}{rl}
         1 & \text{, if }\ \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \theta_3 x_1 x_2 + \theta_4 x_1^2 + \theta_5 x_2^2 + \cdots \ge 0 \\
         0 & \text{, otherwise}.
         \end{array} \right.$$
-  * Another way is using a new notation to denote $x_1, x_2, x_1 x_2, x_1^2, x_2^2$ as $f_1, f_2, f_3, f_4, f_5, \cdots$, so the hypothesis will be: $$h_{\theta}(x) = \left\{ \begin{array}{rl}
+  * Another way is using a new notation to denote $x_1, x_2, x_1 x_2, x_1^2, x_2^2$ as $f_1, f_2, f_3, f_4, f_5, \cdots$, so the hypothesis will be: 
+	  * $$h_{\theta}(x) = \left\{ \begin{array}{rl}
         1 & \text{, if }\ \theta_0 + \theta_1 f_1 + \theta_2 f_2 + \theta_3 f_3 + \theta_4 f_4 + \theta_5 f_5 + \cdots \ge 0 \\
         0 & \text{, otherwise}.
         \end{array} \right.$$
@@ -144,13 +151,16 @@ title: "Week 07 - Support Vector Machines(SVM)"
 * First, manually pick a few points. In this case, we picked three points, and call them **landmarks** ($l^{(1)}, l^{(2)}, l^{(3)}$).
   * <img src="https://i.imgur.com/sD8ZPt4.jpg" style="width:250px" />
   * Later, will explain how to choose $l^{(i)}$
-* Second, define $f_1, f_2, f_3$ as the similarity between $x$ and $l^{(i)}$(ignore $x_0$). Then: $$\begin{aligned}
+* Second, define $f_1, f_2, f_3$ as the similarity between $x$ and $l^{(i)}$(ignore $x_0$). Then: 
+
+$$\begin{aligned}
     f_1 &= \text{similarity}(x, l^{(1)}) = \text{exp}(-\frac{ {\lVert x - l^{(1)} \rVert}^2 }{2\sigma^2}) \\
     f_2 &= \text{similarity}(x, l^{(2)}) = \text{exp}(-\frac{ {\lVert x - l^{(2)} \rVert}^2 }{2\sigma^2}) \\
         &\vdots
     \end{aligned}$$
   * This similarity function is called a **Kernel**. And this **exp** function is a **Gaussian Kernel**.
-  * So, instead of writing similarity between x and l we might write $$f_1 = k(x, l^{(1)})$$
+  * So, instead of writing similarity between x and l we might write 
+	  * $$f_1 = k(x, l^{(1)})$$
   * My Note: $\sigma$: the value of standard deviation. Gaussian Kernel is calculating the value correspond with mean($l^{(1)}$) and $\sigma$.
 
 #### Kernels and Similarity
@@ -186,7 +196,8 @@ title: "Week 07 - Support Vector Machines(SVM)"
 * **SVM with Kernels**
   * Given $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(m)}, y^{(m)})$,
   * Choose $l^{(1)} = x^{(1)}, l^{(2)} = x^{(2)}, \ldots, l^{(m)} = x^{(m)}$.
-  * For training example ($x^{(i)}, y^{(i)}$): $$\begin{aligned}
+  * For training example ($x^{(i)}, y^{(i)}$): 
+  * $$\begin{aligned}
         f_1^{(i)} &= \text{similarity}(x^{(i)}, l^{(1)}) \\
         f_2^{(i)} &= \text{similarity}(x^{(i)}, l^{(2)}) \\
         &\vdots \\
@@ -199,7 +210,8 @@ title: "Week 07 - Support Vector Machines(SVM)"
     * $f^{(i)} \in \mathbb{R}^{m+1}$ (included $f_0$).
 
   * Then, our hypothesis will be: Given $x$, compute features $f^{(i)} \in \mathbb{R}^{m+1}$. Predict $y = 1$ if $\theta^Tf \ge 0$.
-  * And the training: $$\underset{\theta}{\text{min} }\ C \sum_{i=1}^m \large[ y^{(i)}\ cost_1(\theta^Tf^{(i)}) + (1 - y^{(i)})\ cost_0(\theta^Tf^{(i)})\large] + \frac{1}{2}\sum_{j=1}^m \theta_j^2$$
+  * And the training: 
+  * $$\underset{\theta}{\text{min} }\ C \sum_{i=1}^m \large[ y^{(i)}\ cost_1(\theta^Tf^{(i)}) + (1 - y^{(i)})\ cost_0(\theta^Tf^{(i)})\large] + \frac{1}{2}\sum_{j=1}^m \theta_j^2$$
     * Note that **m = n**, the number of features equals the number of training data examples.
     * Another mathematics detail about the training formula:
       * The regulation part: $\displaystyle\sum_{j=1}^m \theta_j^2 = \theta^T\theta$

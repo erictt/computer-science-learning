@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "symbols.md",
+                "file": "stanford-machine-learning/week-7.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "symbols.md",
+                "file": "stanford-machine-learning/week-7.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "symbols.md",
+                "file": "stanford-machine-learning/week-7.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "symbols.md"
+                "file": "stanford-machine-learning/week-7.md"
               }
             }
           },
@@ -161,6 +161,8 @@
   },
   "active": "cae29b9c6c2613d9",
   "lastOpenFiles": [
+    "stanford-machine-learning/week-5.md",
+    "symbols.md",
     "cs6601/4-bayes-network.md",
     "cs6601/2-adversarial-search.md",
     "cs6601/_index.md",
