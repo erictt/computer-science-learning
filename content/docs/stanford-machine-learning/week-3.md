@@ -77,7 +77,7 @@ title: "Week 03 - Logistic Regression & Regularization"
   * $h_\theta(x) = \dfrac{1}{1 + e^{-\theta^Tx}}$
     * Each example is a feature vector which is $n+1$ dimensional
 * Linear regression uses the following function to determine $\theta$
-  * $J(\theta) = \dfrac {1}{m} \displaystyle \sum _{i=1}^m \dfrac{1}{2}\left (h_\theta (x^{(i)}) - y^{(i)} \right)^2$
+  * $J(\theta) = \dfrac {1}{m} \displaystyle \sum_{i=1}^m \dfrac{1}{2}\left (h_\theta (x^{(i)}) - y^{(i)} \right)^2$
   * define `Cost` function to simplify the function:
     * $Cost(h_\theta(x^{(i)}), y^{(i)}) = \dfrac{1}{2}(h_\theta(x^{(i)}) - y^{(i)})^2$
   * then we got:
@@ -179,6 +179,7 @@ title: "Week 03 - Logistic Regression & Regularization"
 
 * Divide our problem into n+1 (+1 because the index starts at 0) binary classification problems; in each one, we predict the probability that `y` is a member of one of our classes.
   * $$\begin{aligned}
+
 y & \in \lbrace0, 1, \dots, n\rbrace \\
 h_\theta^{(0)}(x) & = P(y = 0 | x ; \theta) \\
 h_\theta^{(1)}(x) & = P(y = 1 | x ; \theta) \\
@@ -186,8 +187,9 @@ h_\theta^{(1)}(x) & = P(y = 1 | x ; \theta) \\
 h_\theta^{(n)}(x) & = P(y = n | x ; \theta) \\
 \mathrm{prediction} & = \max_i( h_\theta ^{(i)}(x) )
 \end{aligned}$$
-  * The following image show how one could classify 3 classes:
-  * ![week-3-8](https://i.imgur.com/dUx6MP7.png)
+
+* The following image show how one could classify 3 classes:
+* ![week-3-8](https://i.imgur.com/dUx6MP7.png)
 * Overall
   * Train a logistic regression classifier $h_{θ}^{(i)}(x)$ for each class i to predict the probability that $y = i$
   * On a new input, $x$ to make a prediction, pick the class $i$ that maximizes the probability that $h_θ^{(i)}(x) = 1$

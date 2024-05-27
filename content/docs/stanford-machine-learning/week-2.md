@@ -38,7 +38,7 @@ title: "Week 02 - Linear Regression with Multiple Variables"
 
 ### Gradient Descent for Multiple Variables
 
-* Cost function: $J(\theta_0, \theta_1,..., \theta_n) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2$
+* Cost function: $J(\theta_0, \theta_1,..., \theta_n) = \dfrac {1}{2m} \displaystyle \sum_{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2$
 
 * Gradient descent:
 

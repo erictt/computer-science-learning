@@ -61,12 +61,12 @@ title: "Week 01 - Introduction"
   * We want to solve a minimization problem
   * Minimize $(h_{\theta}(x)-y)^{2}$
     * minimize the difference between h(x) and y for each/any/every example
-  * Sum this over the training set:$\dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2$
+  * Sum this over the training set: $\dfrac {1}{2m} \sum_{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2$
     * $\frac{1}{2m}$
       * $\frac{1}{m}$ - means we determine the average
       * $\frac{1}{2m}$ - the 2 makes the math a bit easier, and doesn't change the constants we determine at all (i.e. half the smallest value is still the smallest value)
   * This is a cost function:
-    * $J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left ( \hat{y}_{i}- y_{i} \right)^2 = \dfrac {1}{2m} \displaystyle \sum_{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2$
+    * $J(\theta_0, \theta_1) = \dfrac{1}{2m} \sum_{i=1}^m ( \hat{y}_ {i} - y_{i} )^2 = \dfrac{1}{2m} \sum_{i=1}^m (h_\theta (x_{i}) - y_{i} )^2$
     * And we want to minimize this cost function
       * Our cost function is (because of the summation term) inherently looking at ALL the data in the training set at any time
 
@@ -82,7 +82,7 @@ title: "Week 01 - Introduction"
 
 * Simplified hypothesis (Assumes $θ_{0}= 0$)
   * So we got: $h_{\theta}(x)=\theta_{1}x$, then the cost function will be:
-  * $J(\theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2$
+  * $J(\theta_1) = \dfrac {1}{2m} \displaystyle \sum_{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2$
   * $\displaystyle {\text{minimize} \atop \theta_{1}}$, $J(\theta_{1})$
   * For example:
     * ![week-1-3-1](https://i.imgur.com/ZnZVjgk.png)
