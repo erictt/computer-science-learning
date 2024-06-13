@@ -79,9 +79,9 @@ $$J(\Theta) = - \frac{1}{m} \sum_ {i=1}^m \sum_ {k=1}^K \left[y^{(i)}_ k \log ((
             * $(\Theta^{(3)})^T$: [5 X 4]; $\delta^{(4)}$: [4 X 1], then $(\Theta^{(3)})^T \delta^{(4)}$: [5 X 1]
         2. $g'(z^{(l)}) = a^{(l)}\ .*\ (1 - a^{(l)})$: the derivative of the activation function `g` with the input values given by $z^{(l)}$.
         3. There will be no $\delta^{(1)}$, because the first layer corresponds to the input layer.
-    5. $\Delta^{(l)}_{i,j} := \Delta^{(l)}_{i,j} + a_j^{(l)} \delta_i^{(l+1)}$ or with vectorization, $\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}(a^{(l)})^T$
+    5. $\Delta^{(l)}_ {i,j} := \Delta^{(l)}_ {i,j} + a_j^{(l)} \delta_i^{(l+1)}$ or with vectorization, $\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}(a^{(l)})^T$
         1. 由上一步中得出的偏差“和”算出每个节点中每个元素的偏差，并总和，在下一步中求平均
-        2. Last step, we got $\delta^{(l)}$ for the nodes in every layer. This step we split the $\delta^{(l)}$ to every $a^{(l-1)}$ in the node, i.e. $\Theta_{10}^{(1)}a^{(1)}_0 + \Theta_{11}^{(1)}a^{(1)}_1 + \Theta_{12}^{(1)}a^{(1)}_2 + \Theta_{13}^{(1)}a^{(1)}_3$
+        2. Last step, we got $\delta^{(l)}$ for the nodes in every layer. This step we split the $\delta^{(l)}$ to every $a^{(l-1)}$ in the node, i.e. $\Theta_ {10}^{(1)}a^{(1)}_ 0 + \Theta_ {11}^{(1)}a^{(1)}_ 1 + \Theta_ {12}^{(1)}a^{(1)}_ 2 + \Theta_ {13}^{(1)}a^{(1)}_3$
         2. Note this:
             1. `i` is the error of the affected node of layer `l`.
             2. `j` is the node of layer `l`.  
@@ -89,8 +89,8 @@ $$J(\Theta) = - \frac{1}{m} \sum_ {i=1}^m \sum_ {k=1}^K \left[y^{(i)}_ k \log ((
             4. and $\delta^{(l+1)}(a^{(l)})^T$ will be a `m*n` matrix, same as $\Theta^{(l)}$.
             5. Check the **Derivation of Backpropagation** in [Refers](#refers).
 4. Hence we update our new $\Delta$ matrix.
-    * $D^{(l)}_{i,j} := \dfrac{1}{m}\left(\Delta^{(l)}_{i,j} + \lambda\Theta^{(l)}_{i,j}\right)$, if $j \ne 0$.
-    * $D^{(l)}_{i,j} := \dfrac{1}{m}\Delta^{(l)}_{i,j}$, if $j = 0$.
+    * $D^{(l)}_ {i,j} := \dfrac{1}{m}\left(\Delta^{(l)}_ {i,j} + \lambda\Theta^{(l)}_ {i,j}\right)$, if $j \ne 0$.
+    * $D^{(l)}_ {i,j} := \dfrac{1}{m}\Delta^{(l)}_ {i,j}$, if $j = 0$.
 5. The capital-delta matrix `D` is used as an "accumulator" to add up our values as we go along and eventually compute our partial derivative. Thus we get $\frac \partial {\partial \Theta_{ij}^{(l)}} J(\Theta) = D^{(l)}_{i,j}$
 
 ### Backpropagation intuition
@@ -101,7 +101,12 @@ $$J(\Theta) = - \frac{1}{m} \sum_ {i=1}^m \sum_ {k=1}^K \left[y^{(i)}_ k \log ((
 * Intuitively, $\delta_j^{(l)}$ is the "error" for $a_j^{(l)}$ (unit `j` in layer `l`). More formally, the delta values are actually the derivative of the cost function: $$\delta_j^{(l)}=\frac{d}{dz_j^{(l)}}cost(t)$$
 * Recall that our derivative is the slope of a line tangent to the cost function, so the steeper the slope the more incorrect we are. Let us consider the following neural network below and see how we could calculate some $\delta_j^{(l)}$ :
   * <img src="https://i.imgur.com/4NzaksE.jpg" style="width:500px" />
-  * To calculate every single possible $\delta_j^{(l)}$, we could start from the right of our diagram. We can think of our edges as our $\Theta_{ij}$. Going from right to left, to calculate the value of $\delta_j^{(l)}$, you can just take the over all sum of each weight times the $\delta$ it is coming from. For example: $$\begin{aligned}\delta_2^{(3)} &= \Theta_{12}^{(3)} _\delta_1^{(4)} \\ \delta_2^{(2)} &= \Theta_{12}^{(2)}_ \delta_1^{(3)} + \Theta_{22}^{(2)} * \delta_2^{(3)} \end{aligned}$$.
+  * To calculate every single possible $\delta_j^{(l)}$, we could start from the right of our diagram. We can think of our edges as our $\Theta_{ij}$. Going from right to left, to calculate the value of $\delta_j^{(l)}$, you can just take the over all sum of each weight times the $\delta$ it is coming from. For example:
+
+$$\begin{aligned}
+\delta_2^{(3)} &= (\Theta_{12}^{(3)})^\top \delta_1^{(4)} \\
+\delta_2^{(2)} &= (\Theta_{12}^{(2)})^\top \delta_1^{(3)} \odot (\Theta_{22}^{(2)})^\top \delta_2^{(3)}
+\end{aligned}$$
 
 ## Backpropagation Practice
 
