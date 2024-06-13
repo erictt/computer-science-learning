@@ -16,13 +16,15 @@ title: "Week 10 - Large Scale Machine Learning"
 * **Stochastic Gradient Descent** define the cost function slightly differently, as $$\text{cost}(\theta, (x^{(i)}, y^{(i)})) = \frac{1}{2}(h_{\theta}(x^{(i)}) - y^{(i)})^2$$, The overall cost function is $$J_{\text{train} } = \frac{1}{m} \sum_{i=1}^m \text{cost}(\theta, (x^{(i)}, y^{(i)}))$$, which is equivalent to the **batch gradient descent**.
 * The steps are:
     1. Randomly shuffle the training examples
-    2. Repeat $$\begin{aligned}
-        & \{ \\
-        & \ \ \ \ \text{for } i := 1, \ldots, m \{ \\
-        & \ \ \ \ \ \ \ \ \theta_j := \theta_j - \alpha(h_{\theta}(x^{(i)}) - y^{(i)})x_j^{(i)} \ (\text{for } j = 0, \ldots, n) \\
-        & \ \ \ \ \} \\
-        & \}
-        \end{aligned}$$
+    2. Repeat
+
+$$\begin{aligned}
+& \textbf{for } i = 1, \ldots, m \textbf{ do} \\
+& \qquad \textbf{for } j = 0, \ldots, n \textbf{ do} \\
+& \qquad \qquad \theta_j := \theta_j - \alpha(h_{\theta}(x^{(i)}) - y^{(i)})x_j^{(i)} \\
+& \qquad \textbf{end for} \\
+& \textbf{end for}
+\end{aligned}$$
     3. Normally, we always repeat the process **1 - 10** times.
 * In **Batch Gradient Descent**, the derivative term is $\frac{1}{m} \sum\limits_{i=1}^{m}(h_\theta(x_{i}) - y_{i})x_j^{(i)}$, we sum all the differences. But in **Stochastic Gradient Descent**, we calculate it one by one in **m** loops: ($(h_{\theta}(x^{(i)}) - y^{(i)})x_j^{(i)}$).
 
@@ -39,13 +41,16 @@ title: "Week 10 - Large Scale Machine Learning"
 * Mini-batch gradient descent: Use **b** examples in each iteration
 * The steps:
     1. Say **b = 10**, **m = 1000**.
-    2. Repeat $$\begin{aligned}
-        & \{ \\
-        & \ \ \ \ \text{for } i := 1, 11, 21, 31, \ldots, 991 \ \{ \\
-        & \ \ \ \ \ \ \ \ \theta_j := \theta_j - \alpha\frac{1}{10}\sum_{k=i}^{i+9}(h_{\theta}(x^{(k)}) - y^{(k)})x_j^{(k)} \ (\text{for } j = 0, \ldots, n) \\
-        & \ \ \ \ \} \\
-        & \}
-        \end{aligned}$$
+    2. Repeat
+
+$$\begin{aligned}
+& \textbf{for } i = 1, 11, 21, 31, \ldots, 991 \textbf{ do} \\
+& \qquad \textbf{for } j = 0, \ldots, n \textbf{ do} \\
+& \qquad \qquad \theta_j := \theta_j - \alpha\frac{1}{10}\sum_{k=i}^{i+9}(h_{\theta}(x^{(k)}) - y^{(k)})x_j^{(k)} \\
+& \qquad \textbf{end for} \\
+& \textbf{end for}
+\end{aligned}$$
+
 * Compared to batch gradient descent, this allows us to get through data in a much more efficient way.
 * Compared to stochastic gradient descent, we can vectorize the data to partially parallelize the computation(i.e. do 10 at once).
 * The relation with batch gradient descent and stochastic gradient descent are: If **b = 1**, then it will be stochastic gradient descent, and if **b = m**, it will be batch gradient descent.
@@ -72,13 +77,14 @@ title: "Week 10 - Large Scale Machine Learning"
 * Example: Shipping service. We want to build an algorithm to optimize what price we should offer to the users.
     1. Model the probability ($p(y=1|x;\theta)$) that user use our service or not.
     2. Gather the feature vector, including the price we offered, origin, destination, etc.
-    3. Repeat forever $$\begin{aligned}
-        & \{ \\
-        & \ \ \ \ \text{Get}\ (x, y)\ \text{corresponding to user}\ \{ \\
-        & \ \ \ \ \ \ \ \ \theta_j := \theta_j - \alpha(h_{\theta}(x) - y)x_j \ (\text{for } j = 0, \ldots, n) \\
-        & \ \ \ \ \} \\
-        & \}
-        \end{aligned}$$
+    3. Repeat forever
+$$\begin{aligned}
+& \textbf{for each } (x, y) \textbf{ corresponding to a user do} \\
+& \qquad \textbf{for } j = 0, \ldots, n \textbf{ do} \\
+& \qquad \qquad \theta_j := \theta_j - \alpha(h_{\theta}(x) - y)x_j \\
+& \qquad \textbf{end for} \\
+& \textbf{end for}
+\end{aligned}$$
 
 ### Other Online Learning Examples
 

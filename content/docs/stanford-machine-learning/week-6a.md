@@ -32,9 +32,23 @@ title: "Week 06a - Advice for Applying Machine Learning"
 
 #### The test set error
 
-* For linear regression: $$J_{test}(\Theta) = \dfrac{1}{2m_{test}} \sum_{i=1}^{m_{test}}(h_\Theta(x^{(i)}_{test}) - y^{(i)}_{test})^2$$
-* For classification ~ Misclassification error (aka 0/1 misclassification error): $$err(h_\Theta(x),y) = \begin{matrix} 1 & \text{if } h_\Theta(x) \geq 0.5\ and\ y = 0\ or\ h_\Theta(x) < 0.5\ and\ y = 1\\ 0 & \text{ otherwise }\end{matrix}$$
-* This gives us a binary 0 or 1 error result based on a misclassification. The average test error for the test set is: $$\text{Test Error} = \dfrac{1}{m_{test}} \sum^{m_{test}}_{i=1} err(h_\Theta(x^{(i)}_{test}), y^{(i)}_{test})$$
+* For linear regression:
+
+$$J_{\text{test}}(\Theta) = \frac{1}{2m_{\text{test}}} \sum_{i=1}^{m_{\text{test}}}\left(h_\Theta\left(x_{\text{test}}^{(i)}\right) - y_{\text{test}}^{(i)}\right)^2$$
+
+* For classification ~ Misclassification error (aka 0/1 misclassification error):
+
+$$
+\text{err}(h_\Theta(x), y) = \begin{aligned}
+& 1, &\quad& \text{if } h_\Theta(x) \geq 0.5 \text{ and } y = 0 \text{ or } h_\Theta(x) < 0.5 \text{ and } y = 1 \\
+& 0, &\quad& \text{otherwise}
+\end{aligned}
+$$
+
+* This gives us a binary 0 or 1 error result based on a misclassification. The average test error for the test set is:
+
+$$\text{Test Error} = \frac{1}{m_{\text{test}}} \sum_{i=1}^{m_{\text{test}}} \text{err}(h_\Theta(x_{\text{test}}^{(i)}), y_{\text{test}}^{(i)})$$
+
 * This gives us the proportion of the test data that was misclassified.
 
 ### Model Selection and Train/Validation/Test Sets

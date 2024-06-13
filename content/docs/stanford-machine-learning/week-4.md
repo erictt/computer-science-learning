@@ -10,7 +10,8 @@ title: "Week 04 - Neural Networks: Representation"
 ### Neuron in the brain
 
 * <img src="https://i.imgur.com/Nl97TRr.jpg" style="width:400px" />
-    * neurons are basically computational units that take inputs (**dendrites**) as electrical inputs (called "spikes") that are channeled to outputs (**axons**).
+
+  * neurons are basically computational units that take inputs (**dendrites**) as electrical inputs (called "spikes") that are channeled to outputs (**axons**).
 
 ### Artificial neural network
 
@@ -61,7 +62,8 @@ title: "Week 04 - Neural Networks: Representation"
 
 * A simple example of applying neural networks is by predicting $x_1$ **AND** $x_2$, which is the logical 'and' operator and is only true if both $x_1$ and $x_2$ are **1**.
   * <img src="https://i.imgur.com/nvun1ZZ.jpg" style="width:400px" />
-        * So we have constructed one of the fundamental operations in computers by using a small neural network rather than using an actual **AND** gate.
+
+    * So we have constructed one of the fundamental operations in computers by using a small neural network rather than using an actual **AND** gate.
 * Sample **OR**:
   * <img src="https://i.imgur.com/4MxSHmE.jpg" style="width:400px" />
 * Sample **XNOR** $(A \cap B) \cup (!A \cap !B)$:

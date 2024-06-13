@@ -58,8 +58,11 @@ title: "Week 09a - Anomaly Detection"
 
 * Assume we have some labeled data, of anomalous and non-anomalous examples. (y =0 if normal, y = 1 if anomalous).
 * Training set: $x^{(1)}, x^{(2)}, \ldots, x^{(m)}$ (assume normal examples/not anomalous)
-* Cross validation set: $(x^{(1)}_{cv}, y^{(1)}_{cv}), \ldots, (x^{(m_{cv})}_{cv}, y^{(m_{cv})}_{cv})$
-* Test set: $(x^{(1)}_{test}, y^{(1)}_{test}), \ldots, (x^{(m_{test})}_{test}, y^{(m_{test})}_{test})$
+* Cross validation set:
+
+$$(x^{(1)}_ {cv}, y^{(1)}_ {cv}), \ldots, (x^{(m_{cv})}_ {cv}, y^{(m_{cv})}_{cv})$$
+
+* Test set: $(x^{(1)}_ {test}, y^{(1)}_ {test}), \ldots, (x^{(m_{test})}_ {test}, y^{(m_{test})}_{test})$
 
 #### Aircraft engines motivating example
 

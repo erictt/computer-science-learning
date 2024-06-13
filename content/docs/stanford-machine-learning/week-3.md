@@ -37,7 +37,9 @@ title: "Week 03 - Logistic Regression & Regularization"
 ### Decision Boundary
 
 * In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function as follows:
-  * $\begin{aligned}& h_\theta(x) \geq 0.5 \rightarrow y = 1 \\& h_\theta(x) < 0.5 \rightarrow y = 0 \\\end{aligned}$
+  $$
+  \begin{aligned}& h_\theta(x) \geq 0.5 \rightarrow y = 1 \\& h_\theta(x) < 0.5 \rightarrow y = 0 \end{aligned}
+  $$
   * so $\begin{aligned}& g(z) \geq 0.5 \text{, when } z \geq 0\end{aligned}$
     * $\begin{aligned}z=0, e^{0}=1 &\Rightarrow g(z)=1/2\\ z \to \infty, e^{-\infty} \to 0 &\Rightarrow g(z)=1 \\ z \to -\infty, e^{\infty}\to \infty &\Rightarrow g(z)=0 \end{aligned}$
     * so if our input to $g$ is $\theta^TX$ , then that means: $\begin{aligned}& h_\theta(x) = g(\theta^T x) \geq 0.5 \text{, when}\ \theta^T x \geq 0\end{aligned}$
@@ -45,7 +47,8 @@ title: "Week 03 - Logistic Regression & Regularization"
   * $h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2x_2)$ :
   * ![week-3-2](https://i.imgur.com/xT54x7N.png)
   * $\theta_0 = -3, \theta_1 = 1, \theta_2 = 1$
-* So our parameter vector is a column vector with the above values: $\theta = \begin{bmatrix} -3\\1\\1\end{bmatrix}$
+* So our parameter vector is a column vector with the above values: $$\theta = \begin{bmatrix} -3 \\ 1 \\ 1 \end{bmatrix}$$
+
 * Then $z$ becomes $\theta^TX$
 * We predict " $y=1$ " if
   * $$\begin{aligned}-3x_0 + 1x_1 + 1x_2 &\geq 0 \\
@@ -178,8 +181,8 @@ title: "Week 03 - Logistic Regression & Regularization"
 ## Multiclass Classification: One-vs-all
 
 * Divide our problem into n+1 (+1 because the index starts at 0) binary classification problems; in each one, we predict the probability that `y` is a member of one of our classes.
-  * $$\begin{aligned}
 
+$$\begin{aligned}
 y & \in \lbrace0, 1, \dots, n\rbrace \\
 h_\theta^{(0)}(x) & = P(y = 0 | x ; \theta) \\
 h_\theta^{(1)}(x) & = P(y = 1 | x ; \theta) \\
@@ -230,7 +233,13 @@ h_\theta^{(n)}(x) & = P(y = n | x ; \theta) \\
 
 * Gradient Descent
 
-* > $\begin{aligned} & \text{Repeat}\ \lbrace \\ & \ \ \ \ \theta_0 := \theta_0 - \alpha\ \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\ & \ \ \ \ \theta_j := \theta_j - \alpha\ \left[ \left( \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \right) + \frac{\lambda}{m}\theta_j \right] &\ \ \ \ \ \ \ \ \ \ j \in \lbrace 1,2...n\rbrace\\ & \rbrace \end{aligned}$
+Repeat
+$$\begin{aligned}
+\begin{cases}
+    \theta_0 &:= \theta_0 - \alpha \frac{1}{m} \sum_{i=1}^m \left(h_\theta(x^{(i)}) - y^{(i)}\right) x_0^{(i)} \\
+    \theta_j &:= \theta_j - \alpha \left[\left(\frac{1}{m} \sum_{i=1}^m \left(h_\theta(x^{(i)}) - y^{(i)}\right) x_j^{(i)}\right) + \frac{\lambda}{m}\theta_j\right] &\quad j \in \{1,2,\ldots,n\}
+\end{cases}
+\end{aligned}$$
 
   * The term $\frac{\lambda}{m}\theta_j$ performs our regularization. With some manipulation our update rule can also be represented as:
     * $\theta_j := \theta_j(1 - \alpha\frac{\lambda}{m}) - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}$
