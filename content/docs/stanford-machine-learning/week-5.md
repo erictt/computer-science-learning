@@ -32,15 +32,17 @@ title: "Week 05 - Neural Networks: Learning"
 
 #### Cost function for neural networks
 
-* The (regularized) logistic regression cost function is as follows: 
-	* $$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
-* For neural networks, it is: 
-	* $$J(\Theta) = - \frac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[y^{(i)}_k \log ((h_\Theta (x^{(i)}))_k) + (1 - y^{(i)}_k)\log (1 - (h_\Theta(x^{(i)}))_k)\right] + \frac{\lambda}{2m}\sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} ( \Theta_{j,i}^{(l)})^2$$
-  * Note:
-    * the double sum simply adds up the logistic regression costs calculated for each cell in the output layer.
-    * the triple sum simply adds up the squares of all the individual Θs in the entire network.
-      * Like three loops to fetch all of the Θs
-    * the i in the triple sum does **not** refer to training example i
+* The (regularized) logistic regression cost function is as follows:
+  * $$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+* For neural networks, it is:
+
+$$J(\Theta) = - \frac{1}{m} \sum_ {i=1}^m \sum_ {k=1}^K \left[y^{(i)}_ k \log ((h_ \Theta (x^{(i)}))_ k) + (1 - y^{(i)}_ k)\log (1 - (h_\Theta(x^{(i)}))_ k)\right] + \frac{\lambda}{2m}\sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} ( \Theta_{j,i}^{(l)})^2$$
+
+* Note:
+  * the double sum simply adds up the logistic regression costs calculated for each cell in the output layer.
+  * the triple sum simply adds up the squares of all the individual Θs in the entire network.
+    * Like three loops to fetch all of the Θs
+  * the i in the triple sum does **not** refer to training example i
 
 ### Backpropagation Algorithm
 
