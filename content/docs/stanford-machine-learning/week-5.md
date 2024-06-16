@@ -33,7 +33,9 @@ title: "Week 05 - Neural Networks: Learning"
 #### Cost function for neural networks
 
 * The (regularized) logistic regression cost function is as follows:
-  * $$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+
+$$J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\log (h_\theta (x^{(i)})) + (1 - y^{(i)})\log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+
 * For neural networks, it is:
 
 $$J(\Theta) = - \frac{1}{m} \sum_ {i=1}^m \sum_ {k=1}^K \left[y^{(i)}_ k \log ((h_ \Theta (x^{(i)}))_ k) + (1 - y^{(i)}_ k)\log (1 - (h_\Theta(x^{(i)}))_ k)\right] + \frac{\lambda}{2m}\sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_{l+1}} ( \Theta_{j,i}^{(l)})^2$$
@@ -73,11 +75,11 @@ $$J(\Theta) = - \frac{1}{m} \sum_ {i=1}^m \sum_ {k=1}^K \left[y^{(i)}_ k \log ((
         1. `L` is the total number of layers
         2. $a^{(L)}$ is the vector of outputs of the activation units for the last layer.
         3. So our "error values" for the last layer are $a^{(L)} - y^{(i)}$.
-    4. Compute $\delta^{(L-1)}, \delta^{(L-2)}, \ldots, \delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)})\ .* g'(z^{(l)})$ that steps us back from right to left.
+    4. Compute $\delta^{(L-1)}, \delta^{(L-2)}, \ldots, \delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T \delta^{(l+1)}) * g'(z^{(l)})$ that steps us back from right to left.
         1. 算出每一层每个节点的偏差之和，即节点中每个元素乘以相应的 $\Theta$ 后出现的偏差之和
         2. $(\Theta^{(l)})^T \delta^{(l+1)}$: has the same dimensionality with $a^{(l)}$.
             * $(\Theta^{(3)})^T$: [5 X 4]; $\delta^{(4)}$: [4 X 1], then $(\Theta^{(3)})^T \delta^{(4)}$: [5 X 1]
-        2. $g'(z^{(l)}) = a^{(l)}\ .*\ (1 - a^{(l)})$: the derivative of the activation function `g` with the input values given by $z^{(l)}$.
+        2. $g'(z^{(l)}) = a^{(l)} .* (1 - a^{(l)})$: the derivative of the activation function `g` with the input values given by $z^{(l)}$.
         3. There will be no $\delta^{(1)}$, because the first layer corresponds to the input layer.
     5. $\Delta^{(l)}_ {i,j} := \Delta^{(l)}_ {i,j} + a_j^{(l)} \delta_i^{(l+1)}$ or with vectorization, $\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}(a^{(l)})^T$
         1. 由上一步中得出的偏差“和”算出每个节点中每个元素的偏差，并总和，在下一步中求平均

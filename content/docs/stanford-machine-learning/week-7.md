@@ -32,15 +32,15 @@ title: "Week 07 - Support Vector Machines(SVM)"
     * Everything Prof Ng said about SVM training was an intuition. The actual SVM training method provided in the `svmTrain()` function is the SMO method. That method is too complex to be included as part of the course. -- from [Discuss Forms](https://www.coursera.org/learn/machine-learning/discussions/weeks/7/threads/uCyF4elMEeWK_Q7eN25hdw)
 * **The complete SVM cost function**
   * As a comparison we have logistic regression:
-  * $${\underset{\theta}{\text{min} } } \ - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+  * $${\underset{\theta}{\text{min} } } - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)} \log (h_\theta (x^{(i)})) + (1 - y^{(i)}) \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
   * Replace the cost function with $cost_0(z)$ and $cost_1(z)$, we get:
-  * $$\underset{\theta}{\text{min} }\ \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)})\ cost_0(\theta^Tx^{(i)})\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
+  * $$\underset{\theta}{\text{min} } \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)} cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)}) cost_0(\theta^Tx^{(i)})\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
   * In convention with SVM notation, we adjust a little bit:
     * Get rid of $\dfrac{1}{m}$ term.
       * Because $\frac{1}{m}$ is a constant, so we should still end up with the same optimal value for $\theta$.
     * For logistic regression we have:
       * Training data set term **A**:
-      * $$- \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large]$$
+      * $$- \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)} \log (h_\theta (x^{(i)})) + (1 - y^{(i)}) \log (1 - h_\theta(x^{(i)}))\large]$$
       * and Regularization term **B**:
       * $$\frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2$$
       * To conclude it, we get $A + \lambda B$
@@ -74,7 +74,7 @@ $$h_{\theta}(x) = \begin{cases}
 * If **C** is a huge number, like **100,000**, then we will need to make **A** to be very small, best to be 0, and in the same time minimize **B**.
   * Whenever $y^{(i)} = 1$: $\theta^Tx^{(i)} \ge 1$.
   * Whenever $y^{(i)} = 0$: $\theta^Tx^{(i)} \le -1$.
-  * $\underset{\theta}{\text{min} }\ \dfrac{1}{2}\sum_{i=1}^n\theta_j^2$
+  * $\underset{\theta}{\text{min} } \dfrac{1}{2}\sum_{i=1}^n\theta_j^2$
 * Let's check the result in a **linearly separable case**
   * <img src="https://i.imgur.com/vAhBiwV.jpg" style="width:200px" />
   * The green and magenta lines are functional decision boundaries which could be chosen by logistic regression
@@ -99,14 +99,14 @@ $$h_{\theta}(x) = \begin{cases}
 
 ### SVM Decision Boundary
 
-* $\underset{\theta}{\text{min} }\ \dfrac{1}{2}\sum_{i=1}^n\theta_j^2$
-* $\begin{aligned}\text{s.t. } \theta^Tx^{(i)} &\ge 1\ \text{ if }y^{(i)} = 1 \\ \theta^Tx^{(i)} &\le -1\ \text{ if } y^{(i)} = 0\end{aligned}$
+* $\underset{\theta}{\text{min} }\\dfrac{1}{2}\sum_{i=1}^n\theta_j^2$
+* $\begin{aligned}\text{s.t. } \theta^Tx^{(i)} &\ge 1 \text{ if }y^{(i)} = 1 \\ \theta^Tx^{(i)} &\le -1 \text{ if } y^{(i)} = 0\end{aligned}$
 * **Simplification**: set $\theta_0 = 0\text{, }n = 2$(only 2 features). Then:
-  * $\underset{\theta}{\text{min} }\ \dfrac{1}{2}\sum_{i=1}^n\theta_j^2 = \frac{1}{2}(\theta_1^2+\theta_2^2) = \frac{1}{2}(\sqrt{\theta_1^2+\theta_2^2})^2 = \frac{1}{2}{\lVert \theta \rVert}^2$
+  * $\underset{\theta}{\text{min} } \dfrac{1}{2}\sum_{i=1}^n\theta_j^2 = \frac{1}{2}(\theta_1^2+\theta_2^2) = \frac{1}{2}(\sqrt{\theta_1^2+\theta_2^2})^2 = \frac{1}{2}{\lVert \theta \rVert}^2$
   * $\theta^Tx^{(i)} = \theta_1x_1^{(i)} + \theta_2x_2^{(i)} = p^{(i)} \cdot {\lVert \theta \rVert}$
     * <img src="https://i.imgur.com/GIhb9bM.jpg" style="width:200px" />
   * Redefine these functions, we get:
-    * $\begin{aligned}\text{s.t. } p^{(i)} \cdot {\lVert \theta \rVert} &\ge 1\ \text{ if }y^{(i)} = 1 \\ p^{(i)} \cdot {\lVert \theta \rVert} &\le -1\ \text{ if } y^{(i)} = 0\end{aligned}$
+    * $\begin{aligned}\text{s.t. } p^{(i)} \cdot {\lVert \theta \rVert} &\ge 1 \text{ if }y^{(i)} = 1 \\ p^{(i)} \cdot {\lVert \theta \rVert} &\le -1\ \text{ if } y^{(i)} = 0\end{aligned}$
     * where $p^{(i)}$ is the projection of $x^{(i)}$ onto the vector $\theta$.
   * So we want to maximize $p^{(i)}$, so $\lVert \theta \rVert$ can be small.
   * Note that, $\theta_0 = 0$, so  the boundary has to pass through the origin (0,0).
