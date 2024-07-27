@@ -7,18 +7,18 @@ type: docs
 
 ## Current
 
-- [CS7637: Knowledge-Based AI](https://omscs.gatech.edu/cs-7637-knowledge-based-artificial-intelligence-cognitive-systems)
-- [CS7646: Machine Learning for Trading](https://omscs.gatech.edu/cs-7646-machine-learning-trading)
+- [CS 7632: Game AI](https://omscs.gatech.edu/cs-7632-game-ai)
+- [CSE 6242: Data and Visual Analytics](https://omscs.gatech.edu/cse-6242-data-and-visual-analytics)
 
 ## Next Steps
 
-- CS7642: Reinforcement Learning and Decision-Making
-- CS6515: Introduction to Graduate Algorithms
-- CS7643: Deep Learning
-- CS7650: Natural Language Processing
+- [CS6515: Introduction to Graduate Algorithms](https://omscs.gatech.edu/cs-6515-intro-graduate-algorithms)
 
 ## Done
 
+- [CS7643: Deep Learning](https://omscs.gatech.edu/cs-7643-deep-learning)
+- [CS7637: Knowledge-Based AI](https://omscs.gatech.edu/cs-7637-knowledge-based-artificial-intelligence-cognitive-systems)
+- [CS7646: Machine Learning for Trading](https://omscs.gatech.edu/cs-7646-machine-learning-trading)
 - [CS6601: Artificial Intelligence](https://omscs.gatech.edu/cs-6601-artificial-intelligence)
 - [CS6210: Advanced Operating Systems](https://omscs.gatech.edu/cs-6210-advanced-operating-systems)
 - [CS6200: Graduate Introduction to Operating Systems](https://omscs.gatech.edu/cs-6200-introduction-operating-systems)
